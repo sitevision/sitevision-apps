@@ -1,12 +1,16 @@
 {
   "name": "sitevision-scripts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Scripts for create-sitevision-app",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/sitevision/sitevision-scripts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitevision/sitevision-scripts/issues"
+  },
   "bin": {
     "sitevision-scripts": "./bin/sitevision-scripts.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
