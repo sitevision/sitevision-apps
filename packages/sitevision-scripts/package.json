@@ -1,5 +1,5 @@
 {
-  "name": "sitevision-scripts",
+  "name": "@sitevision/sitevision-scripts",
   "version": "1.0.0",
   "description": "Scripts for create-sitevision-app",
   "repository": {
