@@ -1,9 +1,13 @@
 {
   "name": "create-sitevision-app",
   "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Create SiteVision Web/REST-apps",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/sitevision/create-sitevision-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitevision/create-sitevision-app/issues"
   },
   "keywords": [],
   "author": "",
