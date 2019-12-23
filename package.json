@@ -1,6 +1,6 @@
 {
   "name": "@sitevision/create-sitevision-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create SiteVision Web/REST-apps",
   "repository": {
     "type" : "git",
@@ -9,6 +9,7 @@
   "bugs": {
     "url": "https://github.com/sitevision/create-sitevision-app/issues"
   },
+  "bin": "./index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
