@@ -1,13 +1,12 @@
 (function() {
    'use strict';
 
-   var 
-      router  = require('router'),
-      appData = require('appData');
+   const router  = require('router');
+   const appData = require('appData');
 
-   router.get('/', function(req, res) {
-      var message = 'Hello, world!',
-         name = appData.get('name');
+   router.get('/', (req, res) => {
+      const message = 'Hello, world!';
+      const name = appData.get('name');
 
       res.render('/', {
          message: message,

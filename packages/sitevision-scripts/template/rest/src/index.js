@@ -1,21 +1,21 @@
 (function() {
   'use strict';
 
-  var router = require('router');
+  const router = require('router');
 
-  router.get('/myroute', function(req, res) {
+  router.get('/myroute', (req, res) => {
     res.json({ message: 'Hello from GET' });
   });
 
-  router.post('/myroute', function(req, res) {
+  router.post('/myroute', (req, res) => {
     res.json({ message: 'Hello from POST' });
   });
 
-  router.put('/myroute', function(req, res) {
+  router.put('/myroute', (req, res) => {
     res.json({ message: 'Hello from PUT' });
   });
 
-  router['delete']('/myroute', function(req, res) {
+  router['delete']('/myroute', (req, res) => {
     res.json({ message: 'Hello from DELETE' });
   });
 })();
