@@ -46,3 +46,6 @@ __OR__ by modifying package.json:
 ```sh
 ”deploy”: ”NODE_TLS_REJECT_UNAUTHORIZED=0 sitevision-scripts deploy”
 ```
+
+## Credits
+Thanks to [@albinohrn](https://github.com/albinohrn) for helping with this project.
