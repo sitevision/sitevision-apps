@@ -5,8 +5,8 @@ const spawn = require('cross-spawn');
 
 const create = (appName, packagePath = '@sitevision/sitevision-scripts') => {
   console.log('Creating app with name:', chalk.green(appName), '...');
-  const appPath = path.resolve(appName);
-
+  const appPath = path.resolve(appName).split(path.sep).join('/');
+  
   if (!fs.existsSync(appPath)) {
     fs.mkdirSync(appPath);
   }
