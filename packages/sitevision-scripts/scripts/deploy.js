@@ -4,7 +4,7 @@ const properties = require('../util/properties');
 const queryString = require('querystring');
 const chalk = require('chalk');
 
-(function() {
+(function () {
   const manifest = properties.getManifest();
   const zipPath = properties.DIST_DIR_PATH + '/' + manifest.id + '.zip';
   if (!fs.existsSync(zipPath)) {
@@ -23,14 +23,12 @@ const chalk = require('chalk');
     props.password
   )}@${props.domain}/rest-api/1/0/${queryString.escape(
     props.siteName
-  )}/Addon%20Repository/${queryString.escape(
-    props.addonName
-  )}/${restEndpoint}`;
+  )}/Addon%20Repository/${queryString.escape(props.addonName)}/${restEndpoint}`;
   const formData = {
-    file: fs.createReadStream(zipPath)
+    file: fs.createReadStream(zipPath),
   };
 
-  if (process.argv[3] === 'force') {
+  if (process.argv[2] === 'force-deploy' || process.argv[2] === 'force') {
     url += '?force=true';
   }
 

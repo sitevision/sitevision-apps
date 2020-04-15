@@ -13,7 +13,7 @@ const copyTemplateFiles = (appName, type) => {
   // Can be used to replace stuff in the templates,
   // one option would be to gather info for the manifest and populate it
   walkFiles('.', (filePath) => templatifyFile(filePath, { appName }), [
-    'node_modules'
+    'node_modules',
   ]);
 
   // Can't name the file .gitignore https://github.com/npm/npm/issues/1862
@@ -24,11 +24,10 @@ const updatePackageJSON = () => {
   const packageJSONPath = path.resolve('.', 'package.json');
   const appPackage = require(packageJSONPath);
   appPackage.scripts = {
+    build: 'sitevision-scripts build',
     'create-addon': 'sitevision-scripts create-addon',
-    deploy: 'sitevision-scripts deploy',
     'deploy-prod': 'sitevision-scripts deploy-prod',
     sign: 'sitevision-scripts sign',
-    zip: 'sitevision-scripts zip'
   };
   fs.writeFileSync(packageJSONPath, JSON.stringify(appPackage, null, 2));
 };
@@ -41,30 +40,39 @@ module.exports = async ({ appPath, appName }) => {
       type: 'list',
       choices: [
         { name: 'WebApp', value: 'web' },
-        { name: 'RESTApp', value: 'rest' }
-      ]
+        { name: 'RESTApp', value: 'rest' },
+      ],
     },
     {
       name: 'domain',
-      message: 'Development domain (www.example.com)'
+      message: 'Development domain (www.example.com)',
     },
     {
       name: 'siteName',
-      message: 'Development site name'
+      message: 'Development site name',
     },
     {
       name: 'addonName',
-      message: 'Development addon name'
+      message: 'Development addon name',
     },
     {
       name: 'username',
-      message: 'Username for development site'
+      message: 'Username for development site',
     },
     {
       name: 'password',
       type: 'password',
-      message: 'Password for development site'
-    }
+      message: 'Password for development site',
+    },
+    {
+      name: 'transpile',
+      message: 'Would you like to transpile using babel?',
+      type: 'list',
+      choices: [
+        { name: 'Yes', value: true },
+        { name: 'No', value: false },
+      ],
+    },
   ];
 
   console.clear();
@@ -78,7 +86,7 @@ module.exports = async ({ appPath, appName }) => {
     );
     console.log(`Initializing SiteVision ${answers.type} app`, appName);
     copyTemplateFiles(appName, answers.type);
-    updatePackageJSON(appPath);
+    updatePackageJSON();
     console.log('Your app has been created just', chalk.blue(`cd ${appName}`));
   });
 };

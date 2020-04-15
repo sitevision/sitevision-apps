@@ -1,10 +1,10 @@
 {
   "name": "@sitevision/sitevision-scripts",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Scripts for create-sitevision-app",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/sitevision/sitevision-scripts.git"
+    "type": "git",
+    "url": "https://github.com/sitevision/sitevision-scripts.git"
   },
   "bugs": {
     "url": "https://github.com/sitevision/sitevision-scripts/issues"
@@ -16,10 +16,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "chalk": "^3.0.0",
     "cross-spawn": "^7.0.1",
     "fs-extra": "^8.1.0",
     "inquirer": "^7.0.0",
+    "prettier": "^2.0.4",
     "querystring": "^0.2.0",
     "request": "^2.88.0",
     "squirrelly": "^7.9.0",
