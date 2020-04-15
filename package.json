@@ -1,10 +1,10 @@
 {
   "name": "@sitevision/create-sitevision-app",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Create SiteVision Web/REST-apps",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/sitevision/create-sitevision-app.git"
+    "type": "git",
+    "url": "https://github.com/sitevision/create-sitevision-app.git"
   },
   "bugs": {
     "url": "https://github.com/sitevision/create-sitevision-app/issues"
