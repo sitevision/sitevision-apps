@@ -6,14 +6,19 @@ const chalk = require('chalk');
 (function () {
   const devProps = properties.getDevProperties();
   const child = spawn(
-    path.resolve(__dirname, '../node_modules/.bin/babel'),
+    path.resolve('node_modules', '.bin', 'babel'),
     [
       properties.SRC_DIR_PATH,
       '--out-dir',
       properties.SRC_TRANSPILED_DIR_PATH,
       '--copy-files',
       '--config-file',
-      path.resolve(__dirname, `../config/${devProps.type}-babel-config.json`),
+      path.resolve(
+        __dirname,
+        '..',
+        'config',
+        `${devProps.type}-babel-config.json`
+      ),
     ],
     {
       stdio: 'inherit',
