@@ -28,6 +28,7 @@ const updatePackageJSON = () => {
     'create-addon': 'sitevision-scripts create-addon',
     'deploy-prod': 'sitevision-scripts deploy-prod',
     sign: 'sitevision-scripts sign',
+    dev: 'sitevision-scripts dev',
   };
   fs.writeFileSync(packageJSONPath, JSON.stringify(appPackage, null, 2));
 };

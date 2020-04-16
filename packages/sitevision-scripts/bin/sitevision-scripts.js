@@ -13,6 +13,7 @@ const scriptIndex = args.findIndex(
     x === 'create-addon' ||
     x === 'deploy' ||
     x === 'deploy-prod' ||
+    x === 'dev' ||
     x === 'sign' ||
     x === 'zip'
 );
@@ -50,6 +51,7 @@ switch (script) {
   case 'deploy':
   case 'deploy-prod':
   case 'sign':
+  case 'dev':
   case 'zip': {
     const result = executeScript(script);
     process.exit(result.status);

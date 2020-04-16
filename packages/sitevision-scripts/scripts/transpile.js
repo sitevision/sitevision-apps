@@ -2,11 +2,12 @@ const path = require('path');
 const spawn = require('cross-spawn');
 const properties = require('../util/properties');
 const chalk = require('chalk');
+const resolveBin = require('resolve-bin');
 
 (function () {
   const devProps = properties.getDevProperties();
   const child = spawn(
-    path.resolve('node_modules', '.bin', 'babel'),
+    resolveBin.sync('@babel/cli', { executable: 'babel' }),
     [
       properties.SRC_DIR_PATH,
       '--out-dir',
