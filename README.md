@@ -34,6 +34,10 @@ Runs the build task and deploys to the addon configured in the setup task
 
 Runs the build task and deploys with the possibility to overwrite an existing app
 
+### `npm run dev`
+
+Watches files for changes and runs `build force-deploy` on save
+
 ### `npm run sign`
 
 Invokes the signing endpoint of the SiteVision developer REST API. A signed version of the app will be created in `/dist`.
