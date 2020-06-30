@@ -46,6 +46,10 @@ Invokes the signing endpoint of the SiteVision developer REST API. A signed vers
 
 Deploys a signed app to a production environment.
 
+### `npm run setup-dev-properties`
+
+Creates .dev-properties.json with information about the development environment
+
 ### Certificate verification
 
 [@sitevision/sitevision-scripts](https://github.com/sitevision/sitevision-scripts) assumes communication over https. To disable certificate verification when developing locally you should utilize the `NODE_TLS_REJECT_UNAUTHORIZED=0` flag.
