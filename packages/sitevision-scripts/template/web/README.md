@@ -11,5 +11,6 @@ Boilerplate code for a simple WebApp
 - `npm run dev` watches files for changes and runs `build force-deploy` on save
 - `npm run sign` invokes the signing endpoint of the SiteVision developer REST API. A signed version of the WebApp will be created in the `/dist` folder
 - `npm run deploy-prod` deploys the signed WebApp to a production environment
+- `npm run setup-dev-properties` creates .dev-properties.json with information about the development environment
 
 [Visit developer.sitevision.se for more information](https://developer.sitevision.se)

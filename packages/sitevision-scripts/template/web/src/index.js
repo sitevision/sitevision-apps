@@ -1,16 +1,16 @@
-(function() {
-   'use strict';
+(function () {
+  'use strict';
 
-   const router  = require('router');
-   const appData = require('appData');
+  const router = require('router');
+  const appData = require('appData');
 
-   router.get('/', (req, res) => {
-      const message = 'Hello, world!';
-      const name = appData.get('name');
+  router.get('/', (req, res) => {
+    const message = 'Hello, world!';
+    const name = appData.get('name');
 
-      res.render('/', {
-         message: message,
-         name: name
-      });
-   });
-}());
+    res.render('/', {
+      message,
+      name,
+    });
+  });
+})();

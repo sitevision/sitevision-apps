@@ -5,33 +5,33 @@ const properties = require('../util/properties');
 const queryString = require('querystring');
 const chalk = require('chalk');
 
-(function() {
+(function () {
   const props = properties.getDevProperties();
   const questions = [
     {
       name: 'domain',
-      message: 'Production site domain (www.example.com)'
+      message: 'Production site domain (www.example.com)',
     },
     {
       name: 'siteName',
       default: props.siteName,
-      message: 'Production site name'
+      message: 'Production site name',
     },
     {
       name: 'addonName',
       default: props.addonName,
-      message: 'Production site addon name'
+      message: 'Production site addon name',
     },
     {
       name: 'username',
       default: props.username,
-      message: 'Username for production site'
+      message: 'Username for production site',
     },
     {
       name: 'password',
       type: 'password',
-      message: 'Password for production site'
-    }
+      message: 'Password for production site',
+    },
   ];
 
   const manifest = properties.getManifest();
@@ -48,17 +48,20 @@ const chalk = require('chalk');
     return;
   }
 
-  const restEndPoint = props.type === 'rest' ? 'restAppImport' : 'webAppImport';
+  const restEndPoint =
+    properties.getAppType() === 'rest' ? 'restAppImport' : 'webAppImport';
   inquirer.prompt(questions).then((answers) => {
     const url = `https://${encodeURIComponent(
       answers.username
     )}:${encodeURIComponent(answers.password)}@${
       answers.domain
-    }/rest-api/1/0/${queryString.escape(answers.siteName)}/Addon%20Repository/${queryString.escape(
+    }/rest-api/1/0/${queryString.escape(
+      answers.siteName
+    )}/Addon%20Repository/${queryString.escape(
       answers.addonName
     )}/${restEndPoint}`;
     const formData = {
-      file: fs.createReadStream(zipPath)
+      file: fs.createReadStream(zipPath),
     };
 
     request.post(

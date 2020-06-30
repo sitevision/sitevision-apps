@@ -1,0 +1,9 @@
+{
+  "id": "myWebApp",
+  "version": "0.0.1",
+  "name": "WebApp boilerplate",
+  "author": "SiteVision AB",
+  "description": "A WebApp boilerplate",
+  "helpUrl": "https://developer.sitevision.se/webapps",
+  "type": "WebApp"
+}

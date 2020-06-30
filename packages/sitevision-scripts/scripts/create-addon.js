@@ -3,10 +3,12 @@ const properties = require('../util/properties');
 const queryString = require('querystring');
 const chalk = require('chalk');
 
-(function() {
+(function () {
   const props = properties.getDevProperties();
   const restEndpoint =
-    props.type === 'rest' ? 'headlesscustommodule' : 'custommodule';
+    properties.getAppType() === 'rest'
+      ? 'headlesscustommodule'
+      : 'custommodule';
   const url = `https://${encodeURIComponent(
     props.username
   )}:${encodeURIComponent(props.password)}@${

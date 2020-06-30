@@ -15,7 +15,8 @@ const scriptIndex = args.findIndex(
     x === 'deploy-prod' ||
     x === 'dev' ||
     x === 'sign' ||
-    x === 'zip'
+    x === 'zip' ||
+    x === 'setup-dev-properties'
 );
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
@@ -52,21 +53,22 @@ switch (script) {
   case 'deploy-prod':
   case 'sign':
   case 'dev':
-  case 'zip': {
+  case 'zip':
+  case 'setup-dev-properties': {
     const result = executeScript(script);
     process.exit(result.status);
     break;
   }
   case 'build': {
-    const devProps = properties.getDevProperties();
-    const steps = ['zip'];
+    const steps = [];
+    if (properties.getTranspile()) {
+      steps.push('transpile');
+    }
+    steps.push('copy-to-build', 'zip');
     if (scriptArgs[0] === 'deploy' || scriptArgs[0] === 'force-deploy') {
       steps.push('deploy');
     }
-    if (devProps.transpile) {
-      steps.unshift('transpile');
-      steps.push('util/cleanup');
-    }
+    steps.push('util/cleanup');
 
     steps.forEach((step) => {
       const result = executeScript(step);

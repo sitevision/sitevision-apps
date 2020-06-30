@@ -1,17 +1,14 @@
-define(function(require) {
-   'use strict';
+define(function (require) {
+  'use strict';
 
-   var
-      _          = require('underscore'),
-      Component  = require('Component'),
-      template   = require('/template/name');
+  const Component = require('Component');
+  const template = require('/template/name');
 
-   return Component.extend({
+  return Component.extend({
+    template,
 
-      template: template,
-
-      filterState: function(state) {
-         return _.extend({}, {name: state.name});
-      }
-   });
+    filterState: ({ name }) => ({
+      name,
+    }),
+  });
 });

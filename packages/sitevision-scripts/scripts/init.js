@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const properties = require('../util/properties');
 const templatifyFile = require('../util/templatify').templatifyFile;
 const walkFiles = require('../util/walkFiles').walkFiles;
+const { questions } = require('../config/setup-questions');
 
 const copyTemplateFiles = (appName, type) => {
   console.log('Copying template files');
@@ -20,74 +21,54 @@ const copyTemplateFiles = (appName, type) => {
   fs.moveSync('gitignore', '.gitignore');
 };
 
-const updatePackageJSON = () => {
-  const packageJSONPath = path.resolve('.', 'package.json');
-  const appPackage = require(packageJSONPath);
+const updatePackageJSON = (transpile) => {
+  const appPackage = properties.getPackageJSON();
   appPackage.scripts = {
     build: 'sitevision-scripts build',
     'create-addon': 'sitevision-scripts create-addon',
     'deploy-prod': 'sitevision-scripts deploy-prod',
     sign: 'sitevision-scripts sign',
     dev: 'sitevision-scripts dev',
+    'setup-dev-properties': 'sitevision-scripts setup-dev-properties',
   };
-  fs.writeFileSync(packageJSONPath, JSON.stringify(appPackage, null, 2));
+  appPackage.sitevision_scripts_properties = {
+    transpile,
+  };
+  fs.writeFileSync(
+    properties.PACKAGE_JSON_PATH,
+    JSON.stringify(appPackage, null, 2)
+  );
 };
 
 module.exports = async ({ appPath, appName }) => {
-  const questions = [
-    {
-      name: 'type',
-      message: 'What type of app do you want to create?',
-      type: 'list',
-      choices: [
-        { name: 'WebApp', value: 'web' },
-        { name: 'RESTApp', value: 'rest' },
-      ],
-    },
-    {
-      name: 'domain',
-      message: 'Development domain (www.example.com)',
-    },
-    {
-      name: 'siteName',
-      message: 'Development site name',
-    },
-    {
-      name: 'addonName',
-      message: 'Development addon name',
-    },
-    {
-      name: 'username',
-      message: 'Username for development site',
-    },
-    {
-      name: 'password',
-      type: 'password',
-      message: 'Password for development site',
-    },
-    {
-      name: 'transpile',
-      message: 'Would you like to transpile using babel?',
-      type: 'list',
-      choices: [
-        { name: 'Yes', value: true },
-        { name: 'No', value: false },
-      ],
-    },
-  ];
-
   console.clear();
 
-  inquirer.prompt(questions).then((answers) => {
-    console.clear();
+  inquirer
+    .prompt(questions)
+    .then(
+      ({
+        type,
+        transpile,
+        domain,
+        siteName,
+        addonName,
+        username,
+        password,
+      }) => {
+        console.clear();
 
-    fs.writeFileSync(
-      path.resolve(appPath, properties.DEV_PROPERTIES),
-      JSON.stringify(answers)
+        fs.writeFileSync(
+          path.resolve(appPath, properties.DEV_PROPERTIES_PATH),
+          JSON.stringify({ domain, siteName, addonName, username, password })
+        );
+
+        console.log(`Initializing SiteVision ${type} app`, appName);
+        copyTemplateFiles(appName, type);
+        updatePackageJSON(transpile);
+        console.log(
+          'Your app has been created just',
+          chalk.blue(`cd ${appName}`)
+        );
+      }
     );
-    console.log(`Initializing SiteVision ${answers.type} app`, appName);
-    copyTemplateFiles(appName, answers.type);
-    updatePackageJSON();
-    console.log('Your app has been created just', chalk.blue(`cd ${appName}`));
-  });
 };
