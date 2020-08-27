@@ -65,7 +65,3 @@ NODE_TLS_REJECT_UNAUTHORIZED=0 npm run build
 ```sh
 ”build”: ”NODE_TLS_REJECT_UNAUTHORIZED=0 sitevision-scripts build”
 ```
-
-## Credits
-
-Thanks to [@albinohrn](https://github.com/albinohrn) for helping with this project.
