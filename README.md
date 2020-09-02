@@ -52,16 +52,18 @@ Creates .dev-properties.json with information about the development environment
 
 ### Certificate verification
 
-[@sitevision/sitevision-scripts](https://github.com/sitevision/sitevision-scripts) assumes communication over https. To disable certificate verification when developing locally you should utilize the `NODE_TLS_REJECT_UNAUTHORIZED=0` flag.
+[@sitevision/sitevision-scripts](https://github.com/sitevision/sitevision-scripts) assumes communication over https. To disable certificate verification when developing locally you could utilize the `NODE_TLS_REJECT_UNAUTHORIZED=0` flag.
 
 The option can be entered via CLI:
 
 ```sh
-NODE_TLS_REJECT_UNAUTHORIZED=0 npm run build
+NODE_TLS_REJECT_UNAUTHORIZED=0 npm run deploy
 ```
 
 **OR** by modifying package.json:
 
 ```sh
-”build”: ”NODE_TLS_REJECT_UNAUTHORIZED=0 sitevision-scripts build”
+”deploy”: ”NODE_TLS_REJECT_UNAUTHORIZED=0 sitevision-scripts deploy”
 ```
+
+Other targets that might need prefixing: `create-addon`, `force-deploy`, `dev`.
