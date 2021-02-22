@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const create = require('./createSiteVisionApp').create;
+const create = require('./createSitevisionApp').create;
 
 const currentNodeVersion = process.versions.node;
 const semver = currentNodeVersion.split('.');
@@ -10,7 +10,7 @@ if (major < 10) {
     'You are running Node ' +
       currentNodeVersion +
       '.\n' +
-      'Create SiteVision App requires Node 10 or higher. \n' +
+      'Create Sitevision App requires Node 10 or higher. \n' +
       'Please update your version of Node.'
   );
   process.exit(1);
