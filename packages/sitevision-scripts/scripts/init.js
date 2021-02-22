@@ -62,7 +62,7 @@ module.exports = async ({ appPath, appName }) => {
           JSON.stringify({ domain, siteName, addonName, username, password })
         );
 
-        console.log(`Initializing SiteVision ${type} app`, appName);
+        console.log(`Initializing Sitevision ${type} app`, appName);
         copyTemplateFiles(appName, type);
         updatePackageJSON(transpile);
         console.log(
