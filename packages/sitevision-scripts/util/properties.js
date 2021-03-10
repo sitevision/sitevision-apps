@@ -29,15 +29,13 @@ const getAppType = () => {
 };
 
 const getTranspile = () => {
-  const { transpile } = require(DEV_PROPERTIES_PATH);
-  if (typeof transpile === 'boolean') {
-    return transpile;
+  const { sitevision_scripts_properties } = require(PACKAGE_JSON_PATH);
+  if (sitevision_scripts_properties && typeof sitevision_scripts_properties.transpile === 'boolean') {
+    return sitevision_scripts_properties.transpile;
   }
 
-  const { sitevision_scripts_properties } = require(PACKAGE_JSON_PATH);
-  return (
-    sitevision_scripts_properties && sitevision_scripts_properties.transpile
-  );
+  const { transpile } = require(DEV_PROPERTIES_PATH);
+  return transpile;
 };
 
 module.exports = {
