@@ -10,7 +10,7 @@ const resolveBin = require('resolve-bin');
       '--watch',
       properties.SRC_DIR_PATH,
       '-e',
-      'js,html,css,less',
+      'js,html,css,less,json',
       path.resolve(__dirname, '..', 'bin', 'sitevision-scripts.js'),
       'build',
       'force-deploy',
