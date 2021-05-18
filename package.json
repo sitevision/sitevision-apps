@@ -6,6 +6,10 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "postinstall": "husky install",
+    "precommit": "lint-staged"
+  },
   "devDependencies": {
     "eslint": "^7.26.0",
     "husky": "^6.0.0",
