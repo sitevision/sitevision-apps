@@ -1,0 +1,18 @@
+{
+  "name": "@sitevision/babel-preset-react-server",
+  "author": "Sitevision AB",
+  "version": "0.0.3",
+  "main": "./index.js",
+  "description": "Babel config for Sitevision Webapps server side",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.14.3"
+  }
+}
