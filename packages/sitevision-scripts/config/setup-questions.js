@@ -5,7 +5,8 @@ module.exports = {
       message: 'What type of app do you want to create?',
       type: 'list',
       choices: [
-        { name: 'WebApp', value: 'web' },
+        { name: 'WebApp (React)', value: 'web-react' },
+        { name: 'WebApp (Legacy)', value: 'web-legacy' },
         { name: 'RESTApp', value: 'rest' },
       ],
     },
@@ -13,6 +14,7 @@ module.exports = {
       name: 'transpile',
       message: 'Would you like to transpile using babel?',
       type: 'list',
+      when: (answers) => answers.type === 'web-legacy',
       choices: [
         { name: 'Yes', value: true },
         { name: 'No', value: false },

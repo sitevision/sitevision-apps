@@ -6,6 +6,7 @@ const properties = require('../util/properties');
 const templatifyFile = require('../util/templatify').templatifyFile;
 const walkFiles = require('../util/walkFiles').walkFiles;
 const { questions } = require('../config/setup-questions');
+const spawn = require('cross-spawn');
 
 const copyTemplateFiles = (appName, type) => {
   console.log('Copying template files');
@@ -21,7 +22,14 @@ const copyTemplateFiles = (appName, type) => {
   fs.moveSync('gitignore', '.gitignore');
 };
 
-const updatePackageJSON = (transpile) => {
+const writePackageJson = (content) => {
+  fs.writeFileSync(
+    properties.PACKAGE_JSON_PATH,
+    JSON.stringify(content, null, 2)
+  );
+};
+
+const getCommonPackageProperties = () => {
   const appPackage = properties.getPackageJSON();
   appPackage.scripts = {
     build: 'sitevision-scripts build',
@@ -31,13 +39,37 @@ const updatePackageJSON = (transpile) => {
     dev: 'sitevision-scripts dev',
     'setup-dev-properties': 'sitevision-scripts setup-dev-properties',
   };
+
+  return appPackage;
+};
+
+const updatePackageJSON = () => {
+  const appPackage = getCommonPackageProperties();
+
+  appPackage.eslintConfig = {
+    extends: '@sitevision/eslint-config-webapp-react',
+  };
+
+  appPackage.prettier = {};
+
+  writePackageJson(appPackage);
+};
+
+const installReact = (appPath) => {
+  spawn.sync('npm', ['install', 'react', 'react-dom'], {
+    stdio: 'inherit',
+    cwd: appPath,
+  });
+};
+
+const updatePackageJSONLegacy = (transpile) => {
+  const appPackage = getCommonPackageProperties();
+
   appPackage.sitevision_scripts_properties = {
     transpile,
   };
-  fs.writeFileSync(
-    properties.PACKAGE_JSON_PATH,
-    JSON.stringify(appPackage, null, 2)
-  );
+
+  writePackageJson(appPackage);
 };
 
 module.exports = async ({ appPath, appName }) => {
@@ -59,12 +91,21 @@ module.exports = async ({ appPath, appName }) => {
 
         fs.writeFileSync(
           path.resolve(appPath, properties.DEV_PROPERTIES_PATH),
-          JSON.stringify({ domain, siteName, addonName, username, password })
+          JSON.stringify(
+            { domain, siteName, addonName, username, password },
+            null,
+            2
+          )
         );
 
         console.log(`Initializing Sitevision ${type} app`, appName);
         copyTemplateFiles(appName, type);
-        updatePackageJSON(transpile);
+        if (/web-react/.test(type)) {
+          updatePackageJSON();
+          installReact(appPath);
+        } else {
+          updatePackageJSONLegacy(transpile);
+        }
         console.log(
           'Your app has been created just',
           chalk.blue(`cd ${appName}`)
