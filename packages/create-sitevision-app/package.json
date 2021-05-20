@@ -4,10 +4,10 @@
   "description": "Create Sitevision Web/REST-apps",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sitevision/create-sitevision-app.git"
+    "url": "https://github.com/sitevision/siteivision-apps.git"
   },
   "bugs": {
-    "url": "https://github.com/sitevision/create-sitevision-app/issues"
+    "url": "https://github.com/sitevision/siteivision-apps/issues"
   },
   "bin": "./index.js",
   "keywords": [],

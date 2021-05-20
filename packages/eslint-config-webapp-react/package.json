@@ -1,9 +1,9 @@
 {
-  "name": "@sitevision/babel-preset-react-server",
+  "name": "@sitevision/eslint-config-webapp-react",
   "author": "Sitevision AB",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "main": "./index.js",
-  "description": "Babel config for Sitevision Webapps server side",
+  "description": "Eslint config for Sitevision WebApps using React",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,14 +12,14 @@
   "bugs": {
     "url": "https://github.com/sitevision/siteivision-apps/issues"
   },
-  "dependencies": {
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.13.13"
-  },
   "devDependencies": {
-    "@babel/core": "^7.14.3"
+    "eslint": "^7.26.0"
   },
   "peerDependencies": {
-    "@babel/core": "^7.14.3"
+    "eslint": "^7.26.0"
+  },
+  "dependencies": {
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
