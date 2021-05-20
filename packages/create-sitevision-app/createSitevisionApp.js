@@ -21,25 +21,34 @@ const create = (appName, packagePath = '@sitevision/sitevision-scripts') => {
   });
 };
 
+const getCleanPackagePath = (packagePath) => {
+  if (packagePath.match(/.+@/)) {
+    return packagePath.charAt(0) + packagePath.substr(1).split('@')[0];
+  }
+
+  return packagePath;
+};
+
 const initProject = (appName, packagePath, appPath) => {
   return new Promise((resolve, reject) => {
+    const cleanPackagePath = getCleanPackagePath(packagePath);
     const source = `
-      var init = require('${packagePath}/scripts/init.js');
+      var init = require('${cleanPackagePath}/scripts/init.js');
       init.apply(null, [{ appName: '${appName}', appPath: '${appPath}'}]);
     `;
 
     const child = spawn(
       process.execPath,
-      ['-e', source, '--', JSON.stringify([appName, packagePath])],
+      ['-e', source, '--', JSON.stringify([appName, appPath])],
       {
         cwd: appPath,
-        stdio: 'inherit'
+        stdio: 'inherit',
       }
     );
     child.on('close', (code) => {
       if (code !== 0) {
         reject({
-          command: `Could not run init script in backoffice-scripts`
+          command: `Could not run init script in sitevision-scripts`,
         });
 
         return;
@@ -62,7 +71,7 @@ const installDependencies = (packagePath, appPath) => {
     child.on('close', (code) => {
       if (code !== 0) {
         reject({
-          command: `npm ${args.join(' ')}`
+          command: `npm ${args.join(' ')}`,
         });
 
         return;
@@ -100,7 +109,7 @@ const checkIfFolderIsSafe = (appPath) => {
 const createPackageJson = (appName, appPath) => {
   const json = {
     name: appName,
-    version: '0.0.1'
+    version: '0.0.1',
   };
 
   fs.writeFileSync(
@@ -110,5 +119,5 @@ const createPackageJson = (appName, appPath) => {
 };
 
 module.exports = {
-  create
+  create,
 };
