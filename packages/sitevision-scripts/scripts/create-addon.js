@@ -1,9 +1,9 @@
-const request = require('request');
+const fetch = require('node-fetch');
 const properties = require('../util/properties');
 const queryString = require('querystring');
 const chalk = require('chalk');
 
-(function () {
+(async function () {
   const props = properties.getDevProperties();
   const restEndpoint =
     properties.getAppType() === 'rest'
@@ -17,38 +17,31 @@ const chalk = require('chalk');
     props.siteName
   )}/Addon%20Repository/${restEndpoint}`;
 
-  request.post(
-    { url: url, form: { name: props.addonName, category: 'Other' } },
-    (err, httpResponse, body) => {
-      if (err) {
-        return console.error(`${chalk.red('Addon creation failed:')}, ${err}`);
-      }
+  try {
+    const response = await fetch(url, {
+      method: 'post',
+      body: JSON.stringify({ name: props.addonName, category: 'Other' }),
+    });
+    const json = await response.json();
 
-      if (httpResponse.statusCode === 200) {
-        return console.log(
-          `${chalk.green('Addon creation successful:')} \n${JSON.stringify(
-            JSON.parse(body),
-            null,
-            2
-          )}`
-        );
-      }
-
-      if (body) {
-        console.log(
-          `${chalk.red('Addon creation failed:')} \n${JSON.stringify(
-            JSON.parse(body),
-            null,
-            2
-          )}`
-        );
-      } else {
-        console.log(
-          `${chalk.red('Addon creation failed, status code:')} ${
-            httpResponse.statusCode
-          }`
-        );
-      }
+    if (response.ok) {
+      return console.log(
+        `${chalk.green('Addon creation successful:')} \n${JSON.stringify(
+          json,
+          null,
+          2
+        )}`
+      );
     }
-  );
+
+    console.log(
+      `${chalk.red('Addon creation failed:')} \n${JSON.stringify(
+        json,
+        null,
+        2
+      )}`
+    );
+  } catch (err) {
+    console.error(`${chalk.red('Addon creation failed:')}, ${err}`);
+  }
 })();

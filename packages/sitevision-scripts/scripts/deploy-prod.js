@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const request = require('request');
+const FormData = require('form-data');
+const fetch = require('node-fetch');
 const properties = require('../util/properties');
 const queryString = require('querystring');
 const chalk = require('chalk');
@@ -50,7 +51,7 @@ const chalk = require('chalk');
 
   const restEndPoint =
     properties.getAppType() === 'rest' ? 'restAppImport' : 'webAppImport';
-  inquirer.prompt(questions).then((answers) => {
+  inquirer.prompt(questions).then(async (answers) => {
     const url = `https://${encodeURIComponent(
       answers.username
     )}:${encodeURIComponent(answers.password)}@${
@@ -60,43 +61,32 @@ const chalk = require('chalk');
     )}/Addon%20Repository/${queryString.escape(
       answers.addonName
     )}/${restEndPoint}`;
-    const formData = {
-      file: fs.createReadStream(zipPath),
-    };
+    const formData = new FormData();
+    formData.append('file', fs.createReadStream(zipPath));
 
-    request.post(
-      { url: url, formData: formData },
-      (err, httpResponse, body) => {
-        if (err) {
-          return console.error(`${chalk.red('Upload failed:')}, ${err}`);
-        }
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: formData,
+        headers: formData.getHeaders(),
+      });
+      const json = await response.json();
 
-        if (httpResponse.statusCode === 200) {
-          return console.log(
-            `${chalk.green('Upload successful:')} \n${JSON.stringify(
-              JSON.parse(body),
-              null,
-              2
-            )}`
-          );
-        }
-
-        if (body) {
-          console.log(
-            `${chalk.red('Upload failed:')} \n${JSON.stringify(
-              JSON.parse(body),
-              null,
-              2
-            )}`
-          );
-        } else {
-          console.log(
-            `${chalk.red('Upload failed, status code:')} ${
-              httpResponse.statusCode
-            }`
-          );
-        }
+      if (response.ok) {
+        return console.log(
+          `${chalk.green('Upload successful:')} \n${JSON.stringify(
+            json,
+            null,
+            2
+          )}`
+        );
       }
-    );
+
+      console.log(
+        `${chalk.red('Upload failed:')} \n${JSON.stringify(json, null, 2)}`
+      );
+    } catch (err) {
+      console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
+    }
   });
 })();
