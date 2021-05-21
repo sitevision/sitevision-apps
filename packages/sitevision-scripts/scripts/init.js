@@ -8,13 +8,13 @@ const walkFiles = require('../util/walkFiles').walkFiles;
 const { questions } = require('../config/setup-questions');
 const spawn = require('cross-spawn');
 
-const copyTemplateFiles = (appName, type) => {
+const copyTemplateFiles = (type, options) => {
   console.log('Copying template files');
   fs.copySync(path.resolve(__dirname, '..', 'template', type), '.');
 
   // Can be used to replace stuff in the templates,
   // one option would be to gather info for the manifest and populate it
-  walkFiles('.', (filePath) => templatifyFile(filePath, { appName }), [
+  walkFiles('.', (filePath) => templatifyFile(filePath, options), [
     'node_modules',
   ]);
 
@@ -51,6 +51,9 @@ const updatePackageJSON = () => {
   };
 
   appPackage.prettier = {};
+  appPackage.postcss = {
+    plugins: ['postcss-preset-env'],
+  };
 
   writePackageJson(appPackage);
 };
@@ -99,13 +102,21 @@ module.exports = async ({ appPath, appName }) => {
         );
 
         console.log(`Initializing Sitevision ${type} app`, appName);
-        copyTemplateFiles(appName, type);
+        const templateOptions = {
+          appName,
+        };
+
         if (/web-react/.test(type)) {
           updatePackageJSON();
           installReact(appPath);
+          templateOptions.reactVersion =
+            properties.getPackageJSON().dependencies.react;
         } else {
           updatePackageJSONLegacy(transpile);
         }
+
+        copyTemplateFiles(type, templateOptions);
+
         console.log(
           'Your app has been created just',
           chalk.blue(`cd ${appName}`)

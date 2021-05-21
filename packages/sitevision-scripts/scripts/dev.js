@@ -11,8 +11,13 @@ const SITEVISION_SCRIPTS_PATH = path.resolve(
   'sitevision-scripts.js'
 );
 
+const SPAWN_PROPERTIES = {
+  stdio: 'inherit',
+};
+
 (function () {
-  if (properties.getManifest().bundled) {
+  const manifest = properties.getManifest();
+  if (manifest.bundled) {
     const webpackConfig = require(path.join(
       __dirname,
       '..',
@@ -21,7 +26,7 @@ const SITEVISION_SCRIPTS_PATH = path.resolve(
       'webpack.config.js'
     ));
 
-    webpack(webpackConfig()).watch(
+    webpack(webpackConfig({ dev: true, cssPrefix: manifest.id })).watch(
       {
         ignored: ['dist/**', 'build/**', 'node_modules/**'],
       },
@@ -33,12 +38,12 @@ const SITEVISION_SCRIPTS_PATH = path.resolve(
 
         console.log(stats.toString({ colors: true }));
 
-        spawn.sync('node', [SITEVISION_SCRIPTS_PATH, 'zip'], {
-          stdio: 'inherit',
-        });
-        spawn.sync('node', [SITEVISION_SCRIPTS_PATH, 'deploy', 'force'], {
-          stdio: 'inherit',
-        });
+        spawn.sync('node', [SITEVISION_SCRIPTS_PATH, 'zip'], SPAWN_PROPERTIES);
+        spawn.sync(
+          'node',
+          [SITEVISION_SCRIPTS_PATH, 'deploy', 'force'],
+          SPAWN_PROPERTIES
+        );
       }
     );
   } else {
@@ -53,9 +58,7 @@ const SITEVISION_SCRIPTS_PATH = path.resolve(
         'build',
         'force-deploy',
       ],
-      {
-        stdio: 'inherit',
-      }
+      SPAWN_PROPERTIES
     );
   }
 })();

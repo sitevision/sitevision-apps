@@ -5,7 +5,7 @@ const { getServerConfig } = require('./webpack.config.server');
 const { getClientConfig } = require('./webpack.config.client');
 const { getHooksConfig } = require('./webpack.config.hooks');
 
-module.exports = () => {
+module.exports = ({ dev, cssPrefix, serverSideOnly }) => {
   const cwd = process.cwd();
   const indexEntry = path.resolve(cwd, 'src', 'index.js');
   const mainEntry = path.resolve(cwd, 'src', 'main.js');
@@ -21,13 +21,20 @@ module.exports = () => {
   }
 
   const config = [
-    getServerConfig({ indexEntry, outputPath, cwd }),
-    getClientConfig({ mainEntry, outputPath }),
+    getServerConfig({
+      indexEntry,
+      outputPath,
+      cwd,
+      dev,
+      cssPrefix,
+      serverSideOnly,
+    }),
+    getClientConfig({ mainEntry, outputPath, dev, cssPrefix, serverSideOnly }),
   ];
 
   const hooksEntry = path.resolve(cwd, 'src', 'hooks.js');
   if (fs.existsSync(hooksEntry)) {
-    config.push(getHooksConfig({ hooksEntry, outputPath }));
+    config.push(getHooksConfig({ hooksEntry, outputPath, dev }));
   }
 
   return config;

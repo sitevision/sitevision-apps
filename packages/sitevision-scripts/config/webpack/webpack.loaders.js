@@ -23,7 +23,7 @@ module.exports = {
     },
   }),
 
-  getCssLoader: (cssPrefix) => ({
+  getCssLoader: (cssPrefix, emit) => ({
     test: /\.((c|sa|sc)ss)$/i,
     oneOf: [
       {
@@ -33,7 +33,12 @@ module.exports = {
       },
       {
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              emit,
+            },
+          },
           {
             loader: 'css-loader',
             options: {

@@ -57,15 +57,13 @@ const getServerConfig = ({
           },
         ],
       }),
-      new MiniCssExtractPlugin(
-        serverSideOnly ? { filename: './css/[name].css' } : undefined
-      ),
+      new MiniCssExtractPlugin({ filename: './css/[name].css' }),
     ],
     module: {
       rules: [
         getJsModuleLoader(),
         getBabelLoader(),
-        getCssLoader(cssPrefix),
+        getCssLoader(cssPrefix, serverSideOnly),
         getImageLoader(),
         getSvgLoader(),
       ],

@@ -31,19 +31,15 @@ const getClientConfig = ({
     },
   },
   plugins: [
-    new MiniCssExtractPlugin(
-      serverSideOnly
-        ? undefined
-        : {
-            filename: './css/[name].css',
-          }
-    ),
+    new MiniCssExtractPlugin({
+      filename: './css/[name].css',
+    }),
   ],
   module: {
     rules: [
       getJsModuleLoader(),
       getClientBabelLoader(),
-      getCssLoader(cssPrefix),
+      getCssLoader(cssPrefix, !serverSideOnly),
       getImageLoader(),
       getSvgLoader(),
       getJsonLoader(),

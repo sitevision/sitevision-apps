@@ -8,6 +8,6 @@
   "type": "WebApp",
   "bundled": true,
   "requiredLibs": {
-    "react": "17.0.2"
+    "react": "{{reactVersion}}"
   }
 }
