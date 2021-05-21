@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs-extra');
 
 const CWD = process.cwd();
 const DEV_PROPERTIES_PATH = path.resolve(CWD, '.dev_properties.json');
@@ -43,6 +44,11 @@ const getTranspile = () => {
   return transpile;
 };
 
+const getFileAsJson = (file) => {
+  const fileContent = fs.readFileSync(file);
+  return JSON.parse(fileContent);
+};
+
 module.exports = {
   DEV_PROPERTIES_PATH,
   DIST_DIR_PATH,
@@ -52,7 +58,7 @@ module.exports = {
   PACKAGE_JSON_PATH,
   getManifest,
   getDevProperties: () => require(DEV_PROPERTIES_PATH),
-  getPackageJSON: () => require(PACKAGE_JSON_PATH),
+  getPackageJSON: () => getFileAsJson(PACKAGE_JSON_PATH),
   getAppType,
   getTranspile,
 };

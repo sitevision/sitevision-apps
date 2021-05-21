@@ -75,6 +75,12 @@ const updatePackageJSONLegacy = (transpile) => {
   writePackageJson(appPackage);
 };
 
+const simplifyVersionNumber = (rawVersion) =>
+  rawVersion
+    .match(/(\d+)\.(\d+)\.(\d+)-?([a-zA-Z-\d.]*)\+?([a-zA-Z-\d.]*)/)
+    .splice(1, 3)
+    .join('.');
+
 module.exports = async ({ appPath, appName }) => {
   console.clear();
 
@@ -109,8 +115,9 @@ module.exports = async ({ appPath, appName }) => {
         if (/web-react/.test(type)) {
           updatePackageJSON();
           installReact(appPath);
-          templateOptions.reactVersion =
-            properties.getPackageJSON().dependencies.react;
+          templateOptions.reactVersion = simplifyVersionNumber(
+            properties.getPackageJSON().dependencies.react
+          );
         } else {
           updatePackageJSONLegacy(transpile);
         }
