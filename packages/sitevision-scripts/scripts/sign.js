@@ -45,7 +45,7 @@ const chalk = require('chalk');
     });
 
     try {
-      const response = fetch(url, {
+      const response = await fetch(url, {
         method: 'POST',
         body: formData,
         headers: formData.getHeaders(),
