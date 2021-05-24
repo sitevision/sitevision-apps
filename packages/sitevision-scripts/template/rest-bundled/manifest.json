@@ -1,9 +1,10 @@
 {
-  "id": "restAppBoilerplate",
+  "id": "{{appName}}",
   "version": "0.0.1",
   "name": "RESTApp boilerplate",
   "author": "Sitevision AB",
   "description": "A RESTApp boilerplate",
   "helpUrl": "https://developer.sitevision.se/restapps",
-  "type": "RESTApp"
+  "type": "RESTApp",
+  "bundled": true
 }

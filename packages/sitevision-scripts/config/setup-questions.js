@@ -5,9 +5,10 @@ module.exports = {
       message: 'What type of app do you want to create?',
       type: 'list',
       choices: [
-        { name: 'WebApp (React)', value: 'web-react' },
+        { name: 'WebApp (React) (Requires 9.0)', value: 'web-react' },
         { name: 'WebApp (Legacy)', value: 'web-legacy' },
-        { name: 'RESTApp', value: 'rest' },
+        { name: 'RESTApp (Bundled) (Requires 9.0)', value: 'rest-bundled' },
+        { name: 'RESTApp (Legacy)', value: 'rest-legacy' },
       ],
     },
     {

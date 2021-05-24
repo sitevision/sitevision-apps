@@ -1,9 +1,9 @@
 {
-  "name": "@sitevision/eslint-config-webapp-react",
+  "name": "@sitevision/eslint-config-recommended",
   "author": "Sitevision AB",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "main": "./index.js",
-  "description": "Eslint config for Sitevision WebApps using React",
+  "description": "Eslint config for Sitevision Apps",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -17,9 +17,5 @@
   },
   "peerDependencies": {
     "eslint": "^7.26.0"
-  },
-  "dependencies": {
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }

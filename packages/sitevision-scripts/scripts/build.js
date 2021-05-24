@@ -16,14 +16,18 @@ const webpack = require('webpack');
     'webpack.config.js'
   ));
 
-  webpack(webpackConfig({ dev: false, cssPrefix: manifest.id })).run(
-    (err, stats) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-
-      console.log(stats.toString({ colors: true }));
+  webpack(
+    webpackConfig({
+      dev: false,
+      cssPrefix: manifest.id,
+      restApp: properties.getAppType() === 'rest',
+    })
+  ).run((err, stats) => {
+    if (err) {
+      console.error(err);
+      return;
     }
-  );
+
+    console.log(stats.toString({ colors: true }));
+  });
 })();

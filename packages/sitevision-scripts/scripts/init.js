@@ -43,17 +43,32 @@ const getCommonPackageProperties = () => {
   return appPackage;
 };
 
-const updatePackageJSON = () => {
+const updatePackageJsonReact = () => {
   const appPackage = getCommonPackageProperties();
 
   appPackage.eslintConfig = {
-    extends: '@sitevision/eslint-config-webapp-react',
+    extends: [
+      '@sitevision/eslint-config-recommended',
+      '@sitevision/eslint-config-webapp-react',
+    ],
   };
 
   appPackage.prettier = {};
   appPackage.postcss = {
-    plugins: ['postcss-preset-env'],
+    plugins: ['autoprefixer'],
   };
+
+  writePackageJson(appPackage);
+};
+
+const updatePackageJsonBundledRest = () => {
+  const appPackage = getCommonPackageProperties();
+
+  appPackage.eslintConfig = {
+    extends: ['@sitevision/eslint-config-recommended'],
+  };
+
+  appPackage.prettier = {};
 
   writePackageJson(appPackage);
 };
@@ -65,7 +80,7 @@ const installReact = (appPath) => {
   });
 };
 
-const updatePackageJSONLegacy = (transpile) => {
+const updatePackageJsonLegacy = (transpile) => {
   const appPackage = getCommonPackageProperties();
 
   appPackage.sitevision_scripts_properties = {
@@ -112,14 +127,21 @@ module.exports = async ({ appPath, appName }) => {
           appName,
         };
 
-        if (/web-react/.test(type)) {
-          updatePackageJSON();
-          installReact(appPath);
-          templateOptions.reactVersion = simplifyVersionNumber(
-            properties.getPackageJSON().dependencies.react
-          );
-        } else {
-          updatePackageJSONLegacy(transpile);
+        switch (type) {
+          case 'web-react': {
+            updatePackageJsonReact();
+            installReact(appPath);
+            templateOptions.reactVersion = simplifyVersionNumber(
+              properties.getPackageJSON().dependencies.react
+            );
+            break;
+          }
+          case 'rest-bundled': {
+            updatePackageJsonBundledRest();
+            break;
+          }
+          default:
+            updatePackageJsonLegacy(transpile);
         }
 
         copyTemplateFiles(type, templateOptions);

@@ -1,5 +1,5 @@
 {
-  "id": "myWebApp",
+  "id": "{{appName}}",
   "version": "0.0.1",
   "name": "WebApp boilerplate",
   "author": "Sitevision AB",

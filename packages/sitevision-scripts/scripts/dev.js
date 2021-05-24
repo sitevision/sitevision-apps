@@ -26,9 +26,15 @@ const SPAWN_PROPERTIES = {
       'webpack.config.js'
     ));
 
-    webpack(webpackConfig({ dev: true, cssPrefix: manifest.id })).watch(
+    webpack(
+      webpackConfig({
+        dev: true,
+        cssPrefix: manifest.id,
+        restApp: properties.getAppType() === 'rest',
+      })
+    ).watch(
       {
-        ignored: ['dist/**', 'build/**', 'node_modules/**'],
+        ignored: ['**/dist/**', '**/build/**', '**/node_modules/**'],
       },
       (err, stats) => {
         if (err) {

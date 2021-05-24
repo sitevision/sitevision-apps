@@ -31,6 +31,7 @@ const getServerConfig = ({
       new CopyWebpackPlugin({
         patterns: [
           {
+            noErrorOnMissing: true,
             info: { minimized: true },
             from: './src/config/',
             to: './config',
@@ -52,6 +53,7 @@ const getServerConfig = ({
             from: path.join(cwd, 'manifest.json'),
           },
           {
+            noErrorOnMissing: true,
             from: path.join(cwd, 'i18n'),
             to: './i18n',
           },

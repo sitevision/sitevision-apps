@@ -5,12 +5,15 @@ const { getServerConfig } = require('./webpack.config.server');
 const { getClientConfig } = require('./webpack.config.client');
 const { getHooksConfig } = require('./webpack.config.hooks');
 
-module.exports = ({ dev, cssPrefix, serverSideOnly }) => {
-  const cwd = process.cwd();
-  const indexEntry = path.resolve(cwd, 'src', 'index.js');
+const getWebAppConfig = ({
+  cwd,
+  dev,
+  cssPrefix,
+  serverSideOnly,
+  outputPath,
+}) => {
   const mainEntry = path.resolve(cwd, 'src', 'main.js');
-
-  const outputPath = path.resolve(cwd, 'build');
+  const indexEntry = path.resolve(cwd, 'src', 'index.js');
 
   if (!fs.existsSync(indexEntry)) {
     throw Error('Missing index.js');
@@ -38,4 +41,30 @@ module.exports = ({ dev, cssPrefix, serverSideOnly }) => {
   }
 
   return config;
+};
+
+const getRestAppConfig = ({ cwd, outputPath }) => {
+  const indexEntry = path.resolve(cwd, 'src', 'index.js');
+
+  if (!fs.existsSync(indexEntry)) {
+    throw Error('Missing index.js');
+  }
+
+  return [
+    getServerConfig({
+      indexEntry,
+      outputPath,
+      cwd,
+    }),
+  ];
+};
+
+module.exports = ({ restApp, dev, cssPrefix, serverSideOnly }) => {
+  const cwd = process.cwd();
+
+  const outputPath = path.resolve(cwd, 'build');
+
+  return restApp
+    ? getRestAppConfig({ cwd, outputPath })
+    : getWebAppConfig({ cwd, cssPrefix, serverSideOnly, dev, outputPath });
 };
