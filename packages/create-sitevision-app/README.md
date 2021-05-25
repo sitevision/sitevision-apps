@@ -14,7 +14,7 @@ npx @sitevision/create-sitevision-app my-new-app
 
 The command will create a directory with a basic project structure (you will be prompted to enter if you are creating a [WebApp](https://developer.sitevision.se/docs/webapps) or [RESTApp](https://developer.sitevision.se/docs/rest-api/restapps) as well as information about your Sitevision environment).
 
-The project will depend on [@sitevision/sitevision-scripts](https://github.com/sitevision/sitevision-scripts), which gives the project access to utility scripts for building and deployment.
+The project will depend on [@sitevision/sitevision-scripts](../sitevision-scripts), which gives the project access to utility scripts for building and deployment.
 
 ## Utility scripts
 
@@ -52,7 +52,7 @@ Creates .dev-properties.json with information about the development environment
 
 ### Certificate verification
 
-[@sitevision/sitevision-scripts](https://github.com/sitevision/sitevision-scripts) assumes communication over https. To disable certificate verification when developing locally you could utilize the `NODE_TLS_REJECT_UNAUTHORIZED=0` flag.
+[@sitevision/sitevision-scripts](../sitevision-scripts) assumes communication over https. To disable certificate verification when developing locally you could utilize the `NODE_TLS_REJECT_UNAUTHORIZED=0` flag.
 
 The option can be entered via CLI:
 
