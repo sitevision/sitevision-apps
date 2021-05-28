@@ -1,20 +1,14 @@
-enum ToastType {
-  DEFAULT = '',
-  SUCCESS = 'success',
-  PRIMARY = 'primary',
-}
-
 interface ToastOptions {
   heading: string;
   message: string;
-  type: ToastType;
+  type: string;
   ttl: number;
   callback: () => void;
   checkmark: boolean;
 }
 
-interface toasts {
-  publish(options: ToastOptions): void;
+declare namespace toasts {
+  function publish(options: ToastOptions): void;
 }
 
 export default toasts;

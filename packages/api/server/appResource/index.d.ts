@@ -1,21 +1,24 @@
-interface appResource {
+import InputStream from '../../builtins/InputStream';
+import Node from '../../builtins/Node';
+
+declare namespace appResource {
   /**
    * Get the content of a resource as a string
    * @param key The name of the resource
    */
-  getContent(key: string): string;
+  function getContent(key: string): string;
 
   /**
    * Get the content of a resource as a JCR-node
    * @param key The name of the resource
    */
-  getNode(key: string): Node;
+  function getNode(key: string): Node;
 
   /**
    * Get the content of a resource as a InputStream
    * @param key The name of the resource
    */
-  getNode(key: string): InputStream;
+  function getNode(key: string): InputStream;
 }
 
 export default appResource;

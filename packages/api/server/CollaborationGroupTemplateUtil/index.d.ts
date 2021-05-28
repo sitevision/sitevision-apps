@@ -1,7 +1,7 @@
 import List from '../../builtins/List';
 import Node from '../../builtins/Node';
 
-interface CollaborationGroupTemplateUtil {
+export interface ICollaborationGroupTemplateUtil {
   getCollaborationGroupTemplateByName(
     aCollaborationGroupTemplateName: string
   ): Node;
@@ -10,4 +10,13 @@ interface CollaborationGroupTemplateUtil {
   getCollaborationGroupTemplate(): Node;
 }
 
-export default CollaborationGroupTemplateUtil;
+declare namespace collaborationGroupTemplateUtil {
+  function getCollaborationGroupTemplateByName(
+    aCollaborationGroupTemplateName: string
+  ): Node;
+
+  function getCollaborationGroupTemplates(): List<Node>;
+  function getCollaborationGroupTemplate(): Node;
+}
+
+export default collaborationGroupTemplateUtil;

@@ -1,5 +1,5 @@
-interface i18n {
-  get(key: string): any;
+declare namespace i18n {
+  function get(key: string): string;
 }
 
 export default i18n;

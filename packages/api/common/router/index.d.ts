@@ -20,7 +20,7 @@ interface Response {
   sendError(errorCode: number, message: string): void;
 }
 
-interface router {
+declare namespace router {
   /**
    * This method is triggered by a get request to a given route.
    *
@@ -29,7 +29,10 @@ interface router {
    * @param route The route which will trigger this method
    * @param callback The callback to trigger for the given route
    */
-  get(route: string, callback: (req: Request, res: Response) => void): void;
+  function get(
+    route: string,
+    callback: (req: Request, res: Response) => void
+  ): void;
   /**
    * This method is triggered by a post request to a given route.
    *
@@ -38,7 +41,10 @@ interface router {
    * @param route The route which will trigger this method
    * @param callback The callback to trigger for the given route
    */
-  post(route: string, callback: (req: Request, res: Response) => void): void;
+  function post(
+    route: string,
+    callback: (req: Request, res: Response) => void
+  ): void;
   /**
    * This method is triggered by a put request to a given route.
    *
@@ -47,7 +53,10 @@ interface router {
    * @param route The route which will trigger this method
    * @param callback The callback to trigger for the given route
    */
-  put(route: string, callback: (req: Request, res: Response) => void): void;
+  function put(
+    route: string,
+    callback: (req: Request, res: Response) => void
+  ): void;
   // export function delete(route: string, callback: (req: Request, res: Response) => void):void;
 
   /**
@@ -55,10 +64,10 @@ interface router {
    *
    * @param callback The callback to trigger
    */
-  use(callback: () => void): void;
+  function use(callback: () => void): void;
 
-  getUrl(url: string): string;
-  getStandaloneUrl(url: string): string;
+  function getUrl(url: string): string;
+  function getStandaloneUrl(url: string): string;
 }
 
 export default router;

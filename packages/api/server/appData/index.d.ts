@@ -1,7 +1,7 @@
-interface appData {
-  get(key: string): any;
-  getNode(key: string): any;
-  getArray(key: string): any[];
+declare namespace appData {
+  function get(key: string): any;
+  function getNode(key: string): any;
+  function getArray(key: string): any[];
 }
 
 export default appData;

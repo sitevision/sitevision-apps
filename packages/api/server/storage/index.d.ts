@@ -5,7 +5,7 @@ interface CollectionDataStore {
   set(dsid: string, data: any): void;
   remove(dsid: string): void;
   removeAll(): void;
-  find(query: string, count: number = 10, skip: number = 0): SearchResult;
+  find(query: string, count: number, skip: number): SearchResult;
 
   /**
    * Performs instant indexing (blocking) of a collection data store post.
@@ -66,7 +66,7 @@ interface DataStoreError {
   message: string;
 }
 
-enum DataStoreErrorType {
+declare enum DataStoreErrorType {
   validation_failed,
   read_only,
   item_not_found,
@@ -75,18 +75,18 @@ enum DataStoreErrorType {
   unknown,
 }
 
-interface storage {
+declare namespace storage {
   /**
    * Get an instance of a CollectionDataStore
    * @param identifier The name of a data store
    */
-  getCollectionDataStore(identifier: string): CollectionDataStore;
+  function getCollectionDataStore(identifier: string): CollectionDataStore;
 
   /**
    * Get an instance of a KeyValueDataStore
    * @param identifier The name of a data store
    */
-  getKeyValueDataStore(identifier: string): KeyValueDataStore;
+  function getKeyValueDataStore(identifier: string): KeyValueDataStore;
 }
 
 export default storage;

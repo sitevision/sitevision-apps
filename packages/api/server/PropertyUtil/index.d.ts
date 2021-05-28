@@ -1,213 +1,234 @@
 import Binary from '../../builtins/Binary';
 import Calendar from '../../builtins/Calendar';
+import List from '../../builtins/List';
 import Node from '../../builtins/Node';
 
-interface PropertyUtil {
-  getBinary(aNode: Node, aPropertyName: string): Binary;
-  getBinary(aNode: Node, aPropertyName: string, aDefaultValue: Binary): Binary;
+declare namespace propertyUtil {
+  function getBinary(aNode: Node, aPropertyName: string): Binary;
+  function getBinary(
+    aNode: Node,
+    aPropertyName: string,
+    aDefaultValue: Binary
+  ): Binary;
 
-  getBoolean(aNode: Node, aPropertyName: string): boolean;
-  getBoolean(
+  function getBoolean(aNode: Node, aPropertyName: string): boolean;
+  function getBoolean(
     aNode: Node,
     aPropertyName: string,
     aDefaultValue: boolean
   ): boolean;
 
-  getCalendar(aNode: Node, aPropertyName: string): Calendar;
-  getCalendar(
+  function getCalendar(aNode: Node, aPropertyName: string): Calendar;
+  function getCalendar(
     aNode: Node,
     aPropertyName: string,
     aDefaultValue: Calendar
   ): Calendar;
 
-  getDouble(aNode: Node, aPropertyName: string): number;
-  getDouble(aNode: Node, aPropertyName: string, aDefaultValue: number): number;
+  function getDouble(aNode: Node, aPropertyName: string): number;
+  function getDouble(
+    aNode: Node,
+    aPropertyName: string,
+    aDefaultValue: number
+  ): number;
 
-  getEnabledNode(
+  function getEnabledNode(
     aNode: Node,
     aEnablingPropertyName: string,
     aNodePropertyName: string
   ): Node;
-  getEnabledNode(
+  function getEnabledNode(
     aNode: Node,
     aEnablingPropertyName: string,
     aNodePropertyName: string,
     aDefaultValue: Node
   ): Node;
 
-  getEnabledString(
+  function getEnabledString(
     aNode: Node,
     aEnablingPropertyName: string,
     aStringPropertyName: string
   ): Node;
-  getEnabledString(
+  function getEnabledString(
     aNode: Node,
     aEnablingPropertyName: string,
     aStringPropertyName: string,
     aDefaultValue: Node
   ): Node;
 
-  getEnabledStringEscaped(
+  function getEnabledStringEscaped(
     aNode: Node,
     aEnablingPropertyName: string,
     aStringPropertyName: string
   ): Node;
-  getEnabledStringEscaped(
+  function getEnabledStringEscaped(
     aNode: Node,
     aEnablingPropertyName: string,
     aStringPropertyName: string,
     aDefaultValue: Node
   ): Node;
 
-  getInt(aNode: Node, aPropertyName: string): number;
-  getInt(aNode: Node, aPropertyName: string, aDefaultValue: number): number;
+  function getInt(aNode: Node, aPropertyName: string): number;
+  function getInt(
+    aNode: Node,
+    aPropertyName: string,
+    aDefaultValue: number
+  ): number;
 
-  getNestedBinary(
+  function getNestedBinary(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): Binary;
-  getNestedBinary(
+  function getNestedBinary(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: Binary
   ): Binary;
 
-  getNestedBoolean(
+  function getNestedBoolean(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): boolean;
-  getNestedBoolean(
+  function getNestedBoolean(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: boolean
   ): boolean;
 
-  getNestedCalendar(
+  function getNestedCalendar(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): Calendar;
-  getNestedCalendar(
+  function getNestedCalendar(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: Calendar
   ): Calendar;
 
-  getNestedDouble(
+  function getNestedDouble(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): number;
-  getNestedDouble(
+  function getNestedDouble(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: number
   ): number;
 
-  getNestedInt(
+  function getNestedInt(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): number;
-  getNestedInt(
+  function getNestedInt(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: number
   ): number;
 
-  getNestedNode(
+  function getNestedNode(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): Node;
-  getNestedNode(
+  function getNestedNode(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: Node
   ): Node;
 
-  getNestedString(
+  function getNestedString(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): string;
-  getNestedString(
+  function getNestedString(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: string
   ): string;
 
-  getNestedStringEscaped(
+  function getNestedStringEscaped(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): string;
-  getNestedStringEscaped(
+  function getNestedStringEscaped(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: string
   ): string;
 
-  getNestedStrings(
+  function getNestedStrings(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): List<string>;
-  getNestedStrings(
+  function getNestedStrings(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: List<string>
   ): List<string>;
 
-  getNestedStringsEscaped(
+  function getNestedStringsEscaped(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string
   ): List<string>;
-  getNestedStringsEscaped(
+  function getNestedStringsEscaped(
     aNode: Node,
     aNodePropertyName: string,
     aPropertyName: string,
     aDefaultValue: List<string>
   ): List<string>;
 
-  getNode(aNode: Node, aPropertyName: string): Node;
-  getNode(aNode: Node, aPropertyName: string, aDefaultValue: Node): Node;
+  function getNode(aNode: Node, aPropertyName: string): Node;
+  function getNode(
+    aNode: Node,
+    aPropertyName: string,
+    aDefaultValue: Node
+  ): Node;
 
-  getString(aNode: Node, aPropertyName: string): string;
-  getString(aNode: Node, aPropertyName: string, aDefaultValue: string): string;
-
-  getStringEscaped(aNode: Node, aPropertyName: string): string;
-  getStringEscaped(
+  function getString(aNode: Node, aPropertyName: string): string;
+  function getString(
     aNode: Node,
     aPropertyName: string,
     aDefaultValue: string
   ): string;
 
-  getStrings(aNode: Node, aPropertyName: string): List<string>;
-  getStrings(
+  function getStringEscaped(aNode: Node, aPropertyName: string): string;
+  function getStringEscaped(
+    aNode: Node,
+    aPropertyName: string,
+    aDefaultValue: string
+  ): string;
+
+  function getStrings(aNode: Node, aPropertyName: string): List<string>;
+  function getStrings(
     aNode: Node,
     aPropertyName: string,
     aDefaultValue: string
   ): List<string>;
 
-  getStringsEscaped(aNode: Node, aPropertyName: string): List<string>;
-  getStringsEscaped(
+  function getStringsEscaped(aNode: Node, aPropertyName: string): List<string>;
+  function getStringsEscaped(
     aNode: Node,
     aPropertyName: string,
     aDefaultValue: string
   ): List<string>;
 }
 
-export default PropertyUtil;
+export default propertyUtil;

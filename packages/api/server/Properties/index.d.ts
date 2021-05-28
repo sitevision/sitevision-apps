@@ -1,17 +1,22 @@
-interface Properties {
-  get(aJcrNodeResolvable: any, ...aPropertyNames: string[]): object;
+import List from '../../builtins/List';
 
-  getEscaped(aJcrNodeResolvable: any, ...aPropertyNames: string[]): object;
+declare namespace properties {
+  function get(aJcrNodeResolvable: any, ...aPropertyNames: string[]): object;
 
-  getArray(
+  function getEscaped(
+    aJcrNodeResolvable: any,
+    ...aPropertyNames: string[]
+  ): object;
+
+  function getArray(
     aJcrNodeResolvable: any[],
     ...aPropertyNames: string[]
   ): List<object>;
 
-  getArrayEscaped(
+  function getArrayEscaped(
     aJcrNodeResolvable: any[],
     ...aPropertyNames: string[]
   ): List<object>;
 }
 
-export default Properties;
+export default properties;

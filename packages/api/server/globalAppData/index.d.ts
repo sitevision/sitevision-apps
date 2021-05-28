@@ -1,9 +1,9 @@
 import Node from '../../builtins/Node';
 
-interface globalAppData {
-  get(key: string): any;
-  getNode(key: string): Node;
-  getArray(key: string): any[];
+declare namespace globalAppData {
+  function get(key: string): any;
+  function getNode(key: string): Node;
+  function getArray(key: string): any[];
 }
 
 export default globalAppData;

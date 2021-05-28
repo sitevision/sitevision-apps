@@ -1,6 +1,6 @@
 import Node from '../../builtins/Node';
 
-interface oauth2 {
+declare namespace oauth2 {
   /**
    * Creates a login link used when getting the first access token for the current user or when upgrading scopes for the user
    *
@@ -11,7 +11,7 @@ interface oauth2 {
    * @param redirectUrl A redirectUrl
    * @param scopes An array of scopes
    */
-  createLoginLink(
+  function createLoginLink(
     oauth2Config: Node,
     redirectUrl: string,
     scopes: string[]
@@ -28,7 +28,7 @@ interface oauth2 {
    * @since 7.0
    * @param oauth2Config A OAuth2 config (sv:oAuth2Config JCR Node)
    */
-  getAccessTokenStatus(oauth2Config: Node): object;
+  function getAccessTokenStatus(oauth2Config: Node): object;
 }
 
 export default oauth2;

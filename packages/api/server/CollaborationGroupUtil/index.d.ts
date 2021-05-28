@@ -1,7 +1,7 @@
 import Node from '../../builtins/Node';
 import CollaborationGroupType from '../CollaborationGroupType';
 
-interface CollaborationGroupUtil {
+export interface ICollaborationGroupUtil {
   createCollaborationGroup(
     aGroupTemplate: Node,
     aGroupFolder: Node,
@@ -18,4 +18,20 @@ interface CollaborationGroupUtil {
   removeCollaborationGroup(aCollaborationGroup: Node): boolean;
 }
 
-export default CollaborationGroupUtil;
+declare namespace collaborationGroupUtil {
+  function createCollaborationGroup(
+    aGroupTemplate: Node,
+    aGroupFolder: Node,
+    aGroupName: string
+  ): Node;
+
+  function createCollaborationGroup(
+    aGroupTemplate: Node,
+    aGroupFolder: Node,
+    aGroupName: string,
+    aGroupType: CollaborationGroupType
+  ): Node;
+
+  function removeCollaborationGroup(aCollaborationGroup: Node): boolean;
+}
+export default collaborationGroupUtil;

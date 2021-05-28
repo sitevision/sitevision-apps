@@ -1,11 +1,15 @@
-import CollaborationGroupFolderUtil from '../CollaborationGroupFolderUtil';
-import CollaborationGroupTemplateUtil from '../CollaborationGroupTemplateUtil';
-import CollaborationGroupUtil from '../CollaborationGroupUtil';
-import CollaborationGroupWrapper from '../CollaborationGroupWrapper';
+import { ICollaborationGroupFolderUtil } from '../CollaborationGroupFolderUtil';
+import { ICollaborationGroupTemplateUtil } from '../CollaborationGroupTemplateUtil';
+import { ICollaborationGroupUtil } from '../CollaborationGroupUtil';
+import { ICollaborationGroupWrapper } from '../CollaborationGroupWrapper';
 
-export function getCollaborationGroupFolderUtil(): CollaborationGroupFolderUtil;
-export function getCollaborationGroupTemplateUtil(): CollaborationGroupTemplateUtil;
-export function getCollaborationGroupUtil(): CollaborationGroupUtil;
-export function getCollaborationGroupWrapper(
-  aCollaborationGroup: Node
-): CollaborationGroupWrapper;
+declare namespace collaborationFactory {
+  function getCollaborationGroupFolderUtil(): ICollaborationGroupFolderUtil;
+  function getCollaborationGroupTemplateUtil(): ICollaborationGroupTemplateUtil;
+  function getCollaborationGroupUtil(): ICollaborationGroupUtil;
+  function getCollaborationGroupWrapper(
+    aCollaborationGroup: Node
+  ): ICollaborationGroupWrapper;
+}
+
+export default collaborationFactory;
