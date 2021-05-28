@@ -1,0 +1,16 @@
+{
+  "name": "@sitevision/api",
+  "version": "0.0.1",
+  "author": "Sitevision AB",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./server/*": "./server/*.js",
+    "./client/*": "./client/*.js",
+    "./common/*": "./common/*.js"
+  },
+  "scripts": {
+    "build": "echo 'this is lazy workaround'",
+    "deploy": "echo 'this is lazy workaround'"
+  }
+}
