@@ -1,2 +1,6 @@
-export function createArchive(aParent: Node, aName: string): Node;
-export function renameArchive(anArchive: Node, aName: string): void;
+interface ArchiveUtil {
+  createArchive(aParent: Node, aName: string): Node;
+  renameArchive(anArchive: Node, aName: string): void;
+}
+
+export default ArchiveUtil;

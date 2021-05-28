@@ -1,3 +1,9 @@
-export function get(key: string): any;
-export function getNode(key: string): any;
-export function getArray(key: string): any[];
+import Node from '../../builtins/Node';
+
+interface globalAppData {
+  get(key: string): any;
+  getNode(key: string): Node;
+  getArray(key: string): any[];
+}
+
+export default globalAppData;

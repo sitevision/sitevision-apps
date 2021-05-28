@@ -75,14 +75,18 @@ enum DataStoreErrorType {
   unknown,
 }
 
-/**
- * Get an instance of a CollectionDataStore
- * @param identifier The name of a data store
- */
-export function getCollectionDataStore(identifier: string): CollectionDataStore;
+interface storage {
+  /**
+   * Get an instance of a CollectionDataStore
+   * @param identifier The name of a data store
+   */
+  getCollectionDataStore(identifier: string): CollectionDataStore;
 
-/**
- * Get an instance of a KeyValueDataStore
- * @param identifier The name of a data store
- */
-export function getKeyValueDataStore(identifier: string): KeyValueDataStore;
+  /**
+   * Get an instance of a KeyValueDataStore
+   * @param identifier The name of a data store
+   */
+  getKeyValueDataStore(identifier: string): KeyValueDataStore;
+}
+
+export default storage;

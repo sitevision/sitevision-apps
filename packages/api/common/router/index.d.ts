@@ -20,50 +20,45 @@ interface Response {
   sendError(errorCode: number, message: string): void;
 }
 
-/**
- * This method is triggered by a get request to a given route.
- *
- * Note! Server side only
- *
- * @param route The route which will trigger this method
- * @param callback The callback to trigger for the given route
- */
-export function get(
-  route: string,
-  callback: (req: Request, res: Response) => void
-): void;
-/**
- * This method is triggered by a post request to a given route.
- *
- * Note! Server side only
- *
- * @param route The route which will trigger this method
- * @param callback The callback to trigger for the given route
- */
-export function post(
-  route: string,
-  callback: (req: Request, res: Response) => void
-): void;
-/**
- * This method is triggered by a put request to a given route.
- *
- * Note! Server side only
- *
- * @param route The route which will trigger this method
- * @param callback The callback to trigger for the given route
- */
-export function put(
-  route: string,
-  callback: (req: Request, res: Response) => void
-): void;
-// export function delete(route: string, callback: (req: Request, res: Response) => void):void;
+interface router {
+  /**
+   * This method is triggered by a get request to a given route.
+   *
+   * Note! Server side only
+   *
+   * @param route The route which will trigger this method
+   * @param callback The callback to trigger for the given route
+   */
+  get(route: string, callback: (req: Request, res: Response) => void): void;
+  /**
+   * This method is triggered by a post request to a given route.
+   *
+   * Note! Server side only
+   *
+   * @param route The route which will trigger this method
+   * @param callback The callback to trigger for the given route
+   */
+  post(route: string, callback: (req: Request, res: Response) => void): void;
+  /**
+   * This method is triggered by a put request to a given route.
+   *
+   * Note! Server side only
+   *
+   * @param route The route which will trigger this method
+   * @param callback The callback to trigger for the given route
+   */
+  put(route: string, callback: (req: Request, res: Response) => void): void;
+  // export function delete(route: string, callback: (req: Request, res: Response) => void):void;
 
-/**
- * Note! Server side only
- *
- * @param callback The callback to trigger
- */
-export function use(callback: () => void): void;
+  /**
+   * Note! Server side only
+   *
+   * @param callback The callback to trigger
+   */
+  use(callback: () => void): void;
 
-export function getUrl(url: string): string;
-export function getStandaloneUrl(url: string): string;
+  getUrl(url: string): string;
+  getStandaloneUrl(url: string): string;
+}
+
+export default router;
