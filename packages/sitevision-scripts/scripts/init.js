@@ -73,8 +73,15 @@ const updatePackageJsonBundledRest = () => {
   writePackageJson(appPackage);
 };
 
-const installReact = (appPath) => {
-  spawn.sync('npm', ['install', 'react', 'react-dom'], {
+const installWebAppDependencies = (appPath) => {
+  spawn.sync('npm', ['install', 'react', 'react-dom', '@sitevision/api'], {
+    stdio: 'inherit',
+    cwd: appPath,
+  });
+};
+
+const installRestAppDependencies = (appPath) => {
+  spawn.sync('npm', ['install', '@sitevision/api'], {
     stdio: 'inherit',
     cwd: appPath,
   });
@@ -130,7 +137,7 @@ module.exports = async ({ appPath, appName }) => {
         switch (type) {
           case 'web-react': {
             updatePackageJsonReact();
-            installReact(appPath);
+            installWebAppDependencies(appPath);
             templateOptions.reactVersion = simplifyVersionNumber(
               properties.getPackageJSON().dependencies.react
             );
@@ -138,6 +145,7 @@ module.exports = async ({ appPath, appName }) => {
           }
           case 'rest-bundled': {
             updatePackageJsonBundledRest();
+            installRestAppDependencies(appPath);
             break;
           }
           default:
