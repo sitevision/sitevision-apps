@@ -1,17 +1,10 @@
 {
   "name": "@sitevision/api",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "author": "Sitevision AB",
   "license": "MIT",
-  "type": "module",
-  "exports": {
-    "./server/*": "./dist/server/*.cjs",
-    "./client/*": "./dist/client/*.cjs",
-    "./common/*": "./dist/common/*.cjs"
-  },
   "scripts": {
-    "prepublish": "npm run build",
-    "build": "rimraf dist/ && babel src --out-dir dist --out-file-extension .cjs --copy-files",
+    "build": "rimraf dist/ && babel src --out-dir dist --copy-files && cp package.json README.md dist/",
     "deploy": "echo 'this is lazy workaround'"
   },
   "devDependencies": {
