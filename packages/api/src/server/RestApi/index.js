@@ -1,1 +1,6 @@
-export default {};
+export default {
+  delete() {},
+  get() {},
+  post() {},
+  put() {},
+};

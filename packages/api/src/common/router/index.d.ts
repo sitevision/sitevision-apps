@@ -1,10 +1,14 @@
-interface Request {
+export interface IRequest {
   invalidateSession(): void;
   header(headerName: string): void;
   file(fileParameterName: string): void;
+  /**
+   * Can be populated in a hooks context and read from a render context
+   */
+  context: any;
 }
 
-interface Response {
+interface IResponse {
   set(name: string, value: string): Response;
   type(type: string): Response;
   send(content: string): void;
@@ -31,7 +35,7 @@ declare namespace router {
    */
   function get(
     route: string,
-    callback: (req: Request, res: Response) => void
+    callback: (req: IRequest, res: IResponse) => void
   ): void;
   /**
    * This method is triggered by a post request to a given route.
@@ -43,7 +47,7 @@ declare namespace router {
    */
   function post(
     route: string,
-    callback: (req: Request, res: Response) => void
+    callback: (req: IRequest, res: IResponse) => void
   ): void;
   /**
    * This method is triggered by a put request to a given route.
@@ -55,7 +59,7 @@ declare namespace router {
    */
   function put(
     route: string,
-    callback: (req: Request, res: Response) => void
+    callback: (req: IRequest, res: IResponse) => void
   ): void;
   // export function delete(route: string, callback: (req: Request, res: Response) => void):void;
 
