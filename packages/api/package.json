@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist/ && babel src --out-dir dist --copy-files && cp package.json README.md dist/",
-    "deploy": "echo 'this is lazy workaround'"
+    "deploy": "yarn build && npm publish dist"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
