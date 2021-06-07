@@ -2,6 +2,22 @@
 
 Boilerplate code for a simple WebApp
 
+## Developing
+
+### Using Sitevision Utilities
+
+When using utilities import them from `@sitevision/api/<server|client|common>/<NAME_OF_UTIL>`. Utilities intended to run server side are imported from `@sitevision/api/server/...`. For example:
+
+`import properties from '@sitevision/api/server/Properties';`
+
+A package indented to run on the client should be imported from `@sitevision/api/client/...`. For example:
+
+`import toasts from '@sitevision/api/client/toasts';`
+
+Some packages are intended to run both on the client and the server. And they are imported through `@sitevision/api/common/...`. For example:
+
+`import i18n from '@sitevision/api/common/i18n';`
+
 ## Building
 
 - `npm run create-addon` creates an addon with the name configured in the setup task
