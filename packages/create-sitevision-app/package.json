@@ -1,6 +1,6 @@
 {
   "name": "@sitevision/create-sitevision-app",
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "Create Sitevision Web/REST-apps",
   "repository": {
     "type": "git",

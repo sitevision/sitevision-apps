@@ -1,7 +1,7 @@
 {
   "name": "@sitevision/babel-preset-react-client",
   "author": "Sitevision AB",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "main": "./index.js",
   "license": "MIT",
   "repository": {
