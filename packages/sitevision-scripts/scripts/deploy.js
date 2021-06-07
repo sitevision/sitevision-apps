@@ -1,10 +1,11 @@
 const fs = require('fs');
-const request = require('request');
+const FormData = require('form-data');
+const fetch = require('node-fetch');
 const properties = require('../util/properties');
 const queryString = require('querystring');
 const chalk = require('chalk');
 
-(function () {
+(async function () {
   const manifest = properties.getManifest();
   const zipPath = properties.DIST_DIR_PATH + '/' + manifest.id + '.zip';
   if (!fs.existsSync(zipPath)) {
@@ -25,41 +26,35 @@ const chalk = require('chalk');
   )}@${props.domain}/rest-api/1/0/${queryString.escape(
     props.siteName
   )}/Addon%20Repository/${queryString.escape(props.addonName)}/${restEndpoint}`;
-  const formData = {
-    file: fs.createReadStream(zipPath),
-  };
 
   if (process.argv[2] === 'force-deploy' || process.argv[2] === 'force') {
     url += '?force=true';
   }
+  const formData = new FormData();
+  formData.append('file', fs.createReadStream(zipPath));
 
-  request.post({ url: url, formData: formData }, (err, httpResponse, body) => {
-    if (err) {
-      return console.error(`${chalk.red('Upload failed:')}, ${err}`);
-    }
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      body: formData,
+      headers: formData.getHeaders(),
+    });
+    const json = await response.json();
 
-    if (httpResponse.statusCode === 200) {
+    if (response.ok) {
       return console.log(
         `${chalk.green('Upload successful:')} \n${JSON.stringify(
-          JSON.parse(body),
+          json,
           null,
           2
         )}`
       );
     }
 
-    if (body) {
-      console.log(
-        `${chalk.red('Upload failed:')} \n${JSON.stringify(
-          JSON.parse(body),
-          null,
-          2
-        )}`
-      );
-    } else {
-      console.log(
-        `${chalk.red('Upload failed, status code:')} ${httpResponse.statusCode}`
-      );
-    }
-  });
+    console.log(
+      `${chalk.red('Upload failed:')} \n${JSON.stringify(json, null, 2)}`
+    );
+  } catch (err) {
+    console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
+  }
 })();

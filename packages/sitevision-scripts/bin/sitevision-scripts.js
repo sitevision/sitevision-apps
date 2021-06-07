@@ -61,10 +61,17 @@ switch (script) {
   }
   case 'build': {
     const steps = [];
-    if (properties.getTranspile()) {
-      steps.push('transpile');
+    if (properties.getManifest().bundled) {
+      steps.push('build');
+    } else {
+      if (properties.getTranspile()) {
+        steps.push('transpile');
+      }
+      steps.push('copy-to-build');
     }
-    steps.push('copy-to-build', 'zip');
+
+    steps.push('zip');
+
     if (scriptArgs[0] === 'deploy' || scriptArgs[0] === 'force-deploy') {
       steps.push('deploy');
     }

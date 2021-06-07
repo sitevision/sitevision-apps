@@ -1,0 +1,21 @@
+{
+  "name": "@sitevision/eslint-config-recommended",
+  "author": "Sitevision AB",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "description": "Eslint config for Sitevision Apps",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sitevision/siteivision-apps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitevision/siteivision-apps/issues"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0"
+  },
+  "peerDependencies": {
+    "eslint": "^7.26.0"
+  }
+}

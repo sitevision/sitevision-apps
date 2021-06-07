@@ -1,9 +1,11 @@
 const path = require('path');
+const fs = require('fs-extra');
 
 const CWD = process.cwd();
 const DEV_PROPERTIES_PATH = path.resolve(CWD, '.dev_properties.json');
-const MANIFEST_PATH = path.resolve(CWD, 'static', 'manifest.json');
-const MANIFEST_LEGACY_PATH = path.resolve(CWD, 'src', 'manifest.json');
+const MANIFEST_PATH = path.resolve(CWD, 'manifest.json');
+const MANIFEST_LEGACY_PATH = path.resolve(CWD, 'static', 'manifest.json');
+const MANIFEST_LEGACY_2_PATH = path.resolve(CWD, 'src', 'manifest.json');
 const DIST_DIR_PATH = path.resolve(CWD, 'dist');
 const SRC_DIR_PATH = path.resolve(CWD, 'src');
 const STATIC_DIR_PATH = path.resolve(CWD, 'static');
@@ -21,7 +23,8 @@ const requireIfExists = (...modules) => {
   throw 'None of the provided modules exist';
 };
 
-const getManifest = () => requireIfExists(MANIFEST_PATH, MANIFEST_LEGACY_PATH);
+const getManifest = () =>
+  requireIfExists(MANIFEST_PATH, MANIFEST_LEGACY_PATH, MANIFEST_LEGACY_2_PATH);
 
 const getAppType = () => {
   const { type } = getManifest();
@@ -30,12 +33,20 @@ const getAppType = () => {
 
 const getTranspile = () => {
   const { sitevision_scripts_properties } = require(PACKAGE_JSON_PATH);
-  if (sitevision_scripts_properties && typeof sitevision_scripts_properties.transpile === 'boolean') {
+  if (
+    sitevision_scripts_properties &&
+    typeof sitevision_scripts_properties.transpile === 'boolean'
+  ) {
     return sitevision_scripts_properties.transpile;
   }
 
   const { transpile } = require(DEV_PROPERTIES_PATH);
   return transpile;
+};
+
+const getFileAsJson = (file) => {
+  const fileContent = fs.readFileSync(file);
+  return JSON.parse(fileContent);
 };
 
 module.exports = {
@@ -47,7 +58,7 @@ module.exports = {
   PACKAGE_JSON_PATH,
   getManifest,
   getDevProperties: () => require(DEV_PROPERTIES_PATH),
-  getPackageJSON: () => require(PACKAGE_JSON_PATH),
+  getPackageJSON: () => getFileAsJson(PACKAGE_JSON_PATH),
   getAppType,
   getTranspile,
 };

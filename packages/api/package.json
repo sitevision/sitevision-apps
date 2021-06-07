@@ -1,0 +1,14 @@
+{
+  "name": "@sitevision/api",
+  "version": "0.0.8",
+  "author": "Sitevision AB",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist/ && babel src --out-dir dist --copy-files && cp package.json README.md dist/",
+    "deploy": "echo 'this is lazy workaround'"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "rimraf": "^3.0.2"
+  }
+}

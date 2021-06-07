@@ -1,12 +1,12 @@
 const fs = require('fs-extra');
-const squirrelly = require('squirrelly');
+const handlebars = require('handlebars');
 
 const templatifyFile = (filePath, data, outputPath) => {
   const file = fs.readFileSync(filePath, 'utf8');
-  const fileContents = squirrelly.Render(file, data);
-  fs.writeFileSync(outputPath || filePath, fileContents, 'utf8');
+  const template = handlebars.compile(file);
+  fs.writeFileSync(outputPath || filePath, template(data), 'utf8');
 };
 
 module.exports = {
-  templatifyFile
+  templatifyFile,
 };
