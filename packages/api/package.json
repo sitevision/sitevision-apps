@@ -3,9 +3,6 @@
   "version": "1.0.1",
   "author": "Sitevision AB",
   "license": "MIT",
-  "files": [
-    "dist/"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/sitevision/siteivision-apps.git",
