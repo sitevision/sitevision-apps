@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "author": "Sitevision AB",
   "license": "MIT",
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/sitevision/siteivision-apps.git",
@@ -12,11 +15,12 @@
     "url": "https://github.com/sitevision/siteivision-apps/issues"
   },
   "scripts": {
-    "build": "rimraf dist/ && babel src --out-dir dist --copy-files && cp package.json README.md dist/",
+    "build": "rimraf dist/ && babel src --out-dir dist --copy-files && copyfiles package.json README.md dist/",
     "deploy": "yarn build && npm publish dist"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
+    "copyfiles": "^2.4.1",
     "rimraf": "^3.0.2"
   }
 }
