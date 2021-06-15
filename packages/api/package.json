@@ -12,6 +12,7 @@
     "url": "https://github.com/sitevision/siteivision-apps/issues"
   },
   "scripts": {
+    "prepare": "yarn build",
     "build": "rimraf dist/ && babel src --out-dir dist --copy-files && copyfiles package.json README.md dist/",
     "deploy": "yarn build && npm publish dist"
   },
@@ -19,5 +20,9 @@
     "@babel/cli": "^7.14.3",
     "copyfiles": "^2.4.1",
     "rimraf": "^3.0.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
   }
 }
