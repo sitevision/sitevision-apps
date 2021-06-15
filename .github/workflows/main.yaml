@@ -22,13 +22,13 @@ jobs:
           git config user.email 'build@sitevision.se'
       - name: Yarn install
         run: yarn install
-      - name: Bump version
-        run: lerna version --conventional-commits --yes --create-release github
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Setup npm credentials
-        run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Publish to npm
-        run: lerna publish from-git --yes
+      # - name: Bump version
+      #   run: lerna version --conventional-commits --yes --create-release github
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Setup npm credentials
+      #   run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Publish to npm
+      #   run: lerna publish from-git --yes
