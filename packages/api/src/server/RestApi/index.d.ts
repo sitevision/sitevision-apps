@@ -6,40 +6,42 @@ interface IRestApiResult {
   body: any;
 }
 
+// function delete(aContextNode: Node, aOperationName: string): RestApiResult
+// function delete(aContextNode: Node, aOperationName: string, aOperationNode: Node): RestApiResult
+
+export function get(aContextNode: Node, aOperationName: string): IRestApiResult;
+export function get(
+  aContextNode: Node,
+  aOperationName: string,
+  aOperationNode: Node
+): IRestApiResult;
+export function get(
+  aContextNode: Node,
+  aOperationName: string,
+  aOperationNode: Node,
+  aOperationOptions: any
+): IRestApiResult;
+
+export function post(
+  aContextNode: Node,
+  aOperationName: string,
+  aOperationNode: Node
+): IRestApiResult;
+
+export function put(
+  aContextNode: Node,
+  aOperationName: string,
+  aOperationNode: Node
+): IRestApiResult;
+export function put(
+  aContextNode: Node,
+  aOperationName: string,
+  aOperationNode: Node,
+  aOperationOptions: any
+): IRestApiResult;
+
 declare namespace restApi {
-  // function delete(aContextNode: Node, aOperationName: string): RestApiResult
-  // function delete(aContextNode: Node, aOperationName: string, aOperationNode: Node): RestApiResult
-
-  function get(aContextNode: Node, aOperationName: string): IRestApiResult;
-  function get(
-    aContextNode: Node,
-    aOperationName: string,
-    aOperationNode: Node
-  ): IRestApiResult;
-  function get(
-    aContextNode: Node,
-    aOperationName: string,
-    aOperationNode: Node,
-    aOperationOptions: any
-  ): IRestApiResult;
-
-  function post(
-    aContextNode: Node,
-    aOperationName: string,
-    aOperationNode: Node
-  ): IRestApiResult;
-
-  function put(
-    aContextNode: Node,
-    aOperationName: string,
-    aOperationNode: Node
-  ): IRestApiResult;
-  function put(
-    aContextNode: Node,
-    aOperationName: string,
-    aOperationNode: Node,
-    aOperationOptions: any
-  ): IRestApiResult;
+  export { get, post, put };
 }
 
 export default restApi;

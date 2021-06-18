@@ -18,20 +18,26 @@ export interface ICollaborationGroupUtil {
   removeCollaborationGroup(aCollaborationGroup: Node): boolean;
 }
 
+export function createCollaborationGroup(
+  aGroupTemplate: Node,
+  aGroupFolder: Node,
+  aGroupName: string
+): Node;
+
+export function createCollaborationGroup(
+  aGroupTemplate: Node,
+  aGroupFolder: Node,
+  aGroupName: string,
+  aGroupType: CollaborationGroupType
+): Node;
+
+export function removeCollaborationGroup(aCollaborationGroup: Node): boolean;
+
 declare namespace collaborationGroupUtil {
-  function createCollaborationGroup(
-    aGroupTemplate: Node,
-    aGroupFolder: Node,
-    aGroupName: string
-  ): Node;
-
-  function createCollaborationGroup(
-    aGroupTemplate: Node,
-    aGroupFolder: Node,
-    aGroupName: string,
-    aGroupType: CollaborationGroupType
-  ): Node;
-
-  function removeCollaborationGroup(aCollaborationGroup: Node): boolean;
+  export {
+    createCollaborationGroup,
+    createCollaborationGroup,
+    removeCollaborationGroup,
+  };
 }
 export default collaborationGroupUtil;

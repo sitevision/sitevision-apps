@@ -38,24 +38,37 @@ interface IRequestOptions {
   fallbackCharset: string;
 }
 
+// function delete(aUrl: string): IRequesterChainable;
+// function delete(aUrl: string, options: IRequestOptions): IRequesterChainable;
+
+export function get(aUrl: string): IRequesterChainable;
+export function get(
+  aUrl: string,
+  options: IRequestOptions
+): IRequesterChainable;
+export function head(aUrl: string): IRequesterChainable;
+export function head(
+  aUrl: string,
+  options: IRequestOptions
+): IRequesterChainable;
+export function patch(aUrl: string): IRequesterChainable;
+export function patch(
+  aUrl: string,
+  options: IRequestOptions
+): IRequesterChainable;
+export function post(aUrl: string): IRequesterChainable;
+export function post(
+  aUrl: string,
+  options: IRequestOptions
+): IRequesterChainable;
+export function put(aUrl: string): IRequesterChainable;
+export function put(
+  aUrl: string,
+  options: IRequestOptions
+): IRequesterChainable;
+
 declare namespace requester {
-  // function delete(aUrl: string): IRequesterChainable;
-  // function delete(aUrl: string, options: IRequestOptions): IRequesterChainable;
-
-  function get(aUrl: string): IRequesterChainable;
-  function get(aUrl: string, options: IRequestOptions): IRequesterChainable;
-
-  function head(aUrl: string): IRequesterChainable;
-  function head(aUrl: string, options: IRequestOptions): IRequesterChainable;
-
-  function patch(aUrl: string): IRequesterChainable;
-  function patch(aUrl: string, options: IRequestOptions): IRequesterChainable;
-
-  function post(aUrl: string): IRequesterChainable;
-  function post(aUrl: string, options: IRequestOptions): IRequesterChainable;
-
-  function put(aUrl: string): IRequesterChainable;
-  function put(aUrl: string, options: IRequestOptions): IRequesterChainable;
+  export { get, head, patch, post, put };
 }
 
 export default requester;

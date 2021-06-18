@@ -10,13 +10,19 @@ export interface ICollaborationGroupTemplateUtil {
   getCollaborationGroupTemplate(): Node;
 }
 
-declare namespace collaborationGroupTemplateUtil {
-  function getCollaborationGroupTemplateByName(
-    aCollaborationGroupTemplateName: string
-  ): Node;
+export function getCollaborationGroupTemplateByName(
+  aCollaborationGroupTemplateName: string
+): Node;
 
-  function getCollaborationGroupTemplates(): List<Node>;
-  function getCollaborationGroupTemplate(): Node;
+export function getCollaborationGroupTemplates(): List<Node>;
+export function getCollaborationGroupTemplate(): Node;
+
+declare namespace collaborationGroupTemplateUtil {
+  export {
+    getCollaborationGroupTemplateByName,
+    getCollaborationGroupTemplates,
+    getCollaborationGroupTemplate,
+  };
 }
 
 export default collaborationGroupTemplateUtil;

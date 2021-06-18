@@ -27,30 +27,56 @@ export interface ICollaborationGroupWrapper {
   setProfileImage(aProfileImage: Node): void;
 }
 
+export function addAdmin(aUserIdentity: Node): boolean;
+export function addMember(aUserIdentity: Node): boolean;
+export function getAdmins(): Set<Node>;
+export function getCollaborationGroup(): Node;
+export function getFollower(): Set<Node>;
+export function getGroupDescription(): string;
+export function getGroupState(): CollaborationGroupState;
+export function getGroupType(): CollaborationGroupType;
+export function getMembers(): Set<Node>;
+export function getProfileImage(): Node;
+export function getProfileImagesFolder(): Node;
+export function isAdmin(aUserIdentity: Node): boolean;
+export function isFollower(aUserIdentity: Node): boolean;
+export function isMember(aUserIdentity: Node): boolean;
+export function removeMember(aUserIdentity: Node): boolean;
+export function renameGroup(aGroupName: string): boolean;
+export function setGroupDescription(aGroupDescription: string): void;
+export function setGroupState(
+  aCollaborationGroupState: CollaborationGroupState
+): void;
+export function setGroupType(
+  aCollaborationGroupType: CollaborationGroupType
+): void;
+export function setLocale(aLocale: Locale): void;
+export function setProfileImage(aProfileImage: Node): void;
+
 declare namespace collaborationGroupWrapper {
-  function addAdmin(aUserIdentity: Node): boolean;
-  function addMember(aUserIdentity: Node): boolean;
-  function getAdmins(): Set<Node>;
-  function getCollaborationGroup(): Node;
-  function getFollower(): Set<Node>;
-  function getGroupDescription(): string;
-  function getGroupState(): CollaborationGroupState;
-  function getGroupType(): CollaborationGroupType;
-  function getMembers(): Set<Node>;
-  function getProfileImage(): Node;
-  function getProfileImagesFolder(): Node;
-  function isAdmin(aUserIdentity: Node): boolean;
-  function isFollower(aUserIdentity: Node): boolean;
-  function isMember(aUserIdentity: Node): boolean;
-  function removeMember(aUserIdentity: Node): boolean;
-  function renameGroup(aGroupName: string): boolean;
-  function setGroupDescription(aGroupDescription: string): void;
-  function setGroupState(
-    aCollaborationGroupState: CollaborationGroupState
-  ): void;
-  function setGroupType(aCollaborationGroupType: CollaborationGroupType): void;
-  function setLocale(aLocale: Locale): void;
-  function setProfileImage(aProfileImage: Node): void;
+  export {
+    addAdmin,
+    addMember,
+    getAdmins,
+    getCollaborationGroup,
+    getFollower,
+    getGroupDescription,
+    getGroupState,
+    getGroupType,
+    getMembers,
+    getProfileImage,
+    getProfileImagesFolder,
+    isAdmin,
+    isFollower,
+    isMember,
+    removeMember,
+    renameGroup,
+    setGroupDescription,
+    setGroupState,
+    setGroupType,
+    setLocale,
+    setProfileImage,
+  };
 }
 
 export default collaborationGroupWrapper;

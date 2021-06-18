@@ -1,5 +1,7 @@
+export function get(key: string): string;
+
 declare namespace i18n {
-  function get(key: string): string;
+  export { get };
 }
 
 export default i18n;

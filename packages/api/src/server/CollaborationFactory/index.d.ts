@@ -3,13 +3,20 @@ import { ICollaborationGroupTemplateUtil } from '../CollaborationGroupTemplateUt
 import { ICollaborationGroupUtil } from '../CollaborationGroupUtil';
 import { ICollaborationGroupWrapper } from '../CollaborationGroupWrapper';
 
+export function getCollaborationGroupFolderUtil(): ICollaborationGroupFolderUtil;
+export function getCollaborationGroupTemplateUtil(): ICollaborationGroupTemplateUtil;
+export function getCollaborationGroupUtil(): ICollaborationGroupUtil;
+export function getCollaborationGroupWrapper(
+  aCollaborationGroup: Node
+): ICollaborationGroupWrapper;
+
 declare namespace collaborationFactory {
-  function getCollaborationGroupFolderUtil(): ICollaborationGroupFolderUtil;
-  function getCollaborationGroupTemplateUtil(): ICollaborationGroupTemplateUtil;
-  function getCollaborationGroupUtil(): ICollaborationGroupUtil;
-  function getCollaborationGroupWrapper(
-    aCollaborationGroup: Node
-  ): ICollaborationGroupWrapper;
+  export {
+    getCollaborationGroupFolderUtil,
+    getCollaborationGroupTemplateUtil,
+    getCollaborationGroupUtil,
+    getCollaborationGroupWrapper,
+  };
 }
 
 export default collaborationFactory;

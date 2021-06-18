@@ -4,11 +4,13 @@ interface IRequesterOptions {
   fileUpload: boolean;
 }
 
+export function doGet(options: IRequesterOptions): Promise<any>;
+export function doPut(options: IRequesterOptions): Promise<any>;
+export function doPost(options: IRequesterOptions): Promise<any>;
+export function doDelete(options: IRequesterOptions): Promise<any>;
+
 declare namespace requester {
-  function doGet(options: IRequesterOptions): Promise<any>;
-  function doPut(options: IRequesterOptions): Promise<any>;
-  function doPost(options: IRequesterOptions): Promise<any>;
-  function doDelete(options: IRequesterOptions): Promise<any>;
+  export { doGet, doPut, doPost, doDelete };
 }
 
 export default requester;

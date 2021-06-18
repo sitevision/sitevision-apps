@@ -8,12 +8,14 @@ export interface ICollaborationGroupFolderUtil {
   getDefaultCollaborationGroupFolder(): Node;
 }
 
+export function containsCollaborationGroup(
+  aCollaborationGroupFolder: Node,
+  aGroupName: string
+): boolean;
+export function getDefaultCollaborationGroupFolder(): Node;
+
 declare namespace collaborationGroupFolderUtil {
-  function containsCollaborationGroup(
-    aCollaborationGroupFolder: Node,
-    aGroupName: string
-  ): boolean;
-  function getDefaultCollaborationGroupFolder(): Node;
+  export { containsCollaborationGroup, getDefaultCollaborationGroupFolder };
 }
 
 export default collaborationGroupFolderUtil;

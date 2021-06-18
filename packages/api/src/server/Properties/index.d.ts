@@ -1,22 +1,27 @@
 import List from '../../builtins/List';
 
+export function get(
+  aJcrNodeResolvable: any,
+  ...aPropertyNames: string[]
+): object;
+
+export function getEscaped(
+  aJcrNodeResolvable: any,
+  ...aPropertyNames: string[]
+): object;
+
+export function getArray(
+  aJcrNodeResolvable: any[],
+  ...aPropertyNames: string[]
+): List<object>;
+
+export function getArrayEscaped(
+  aJcrNodeResolvable: any[],
+  ...aPropertyNames: string[]
+): List<object>;
+
 declare namespace properties {
-  function get(aJcrNodeResolvable: any, ...aPropertyNames: string[]): object;
-
-  function getEscaped(
-    aJcrNodeResolvable: any,
-    ...aPropertyNames: string[]
-  ): object;
-
-  function getArray(
-    aJcrNodeResolvable: any[],
-    ...aPropertyNames: string[]
-  ): List<object>;
-
-  function getArrayEscaped(
-    aJcrNodeResolvable: any[],
-    ...aPropertyNames: string[]
-  ): List<object>;
+  export { get, getEscaped, getArray, getArrayEscaped };
 }
 
 export default properties;

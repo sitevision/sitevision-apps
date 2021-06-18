@@ -7,13 +7,15 @@ interface IHooksResponse {
   redirect(url: string);
 }
 
-declare namespace hooks {
-  function beforeRender(
-    callback: (req: IRequest, res: IHooksResponse) => void
-  ): void;
+export function beforeRender(
+  callback: (req: IRequest, res: IHooksResponse) => void
+): void;
 
-  function getPageTitle(callback: (req: IRequest) => string);
-  function addHeadElement(callback: (req: IRequest) => string);
+export function getPageTitle(callback: (req: IRequest) => string);
+export function addHeadElement(callback: (req: IRequest) => string);
+
+declare namespace hooks {
+  export { beforeRender, getPageTitle, addHeadElement };
 }
 
 export default hooks;

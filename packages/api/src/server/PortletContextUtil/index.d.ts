@@ -1,15 +1,26 @@
 import Locale from '../../builtins/Locale';
 import Node from '../../builtins/Node';
 
+export function getCurrentDecoratedNode(): Node;
+export function getCurrentLocale(): Locale;
+export function getCurrentModuleElement(): Node;
+export function getCurrentPage(): Node;
+export function getCurrentPortlet(): Node;
+export function getCurrentUser(): Node;
+export function getCurrentUserIdentity(): Node;
+export function getPortletNamespace(): string;
+
 declare namespace portletContextUtil {
-  function getCurrentDecoratedNode(): Node;
-  function getCurrentLocale(): Locale;
-  function getCurrentModuleElement(): Node;
-  function getCurrentPage(): Node;
-  function getCurrentPortlet(): Node;
-  function getCurrentUser(): Node;
-  function getCurrentUserIdentity(): Node;
-  function getPortletNamespace(): string;
+  export {
+    getCurrentDecoratedNode,
+    getCurrentLocale,
+    getCurrentModuleElement,
+    getCurrentPage,
+    getCurrentPortlet,
+    getCurrentUser,
+    getCurrentUserIdentity,
+    getPortletNamespace,
+  };
 }
 
 export default portletContextUtil;

@@ -7,8 +7,10 @@ interface ToastOptions {
   checkmark: boolean;
 }
 
+export function publish(options: ToastOptions): void;
+
 declare namespace toasts {
-  function publish(options: ToastOptions): void;
+  export { publish };
 }
 
 export default toasts;
