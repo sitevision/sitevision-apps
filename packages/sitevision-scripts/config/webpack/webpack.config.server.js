@@ -53,6 +53,7 @@ const getServerConfig = ({
             from: path.join(cwd, 'manifest.json'),
           },
           {
+            noErrorOnMissing: true,
             from: path.join(cwd, 'appDataDefaults.json'),
           },
           {
