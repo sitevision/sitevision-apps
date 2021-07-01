@@ -1,14 +1,68 @@
 import Node from '../../builtins/Node';
 
+/**
+ * Checks if current user is anonymous (not authenticated).
+ * @returns {boolean} true if current user is Anonymous (i.e. not authenticated), false otherwise 
+ */
 export function isAnonymous(): boolean;
+
+/**
+* Checks if a user node is anonymous (not authenticated).
+* @returns {boolean} true if aUserNode is anonymous (i.e. not authenticated), false otherwise (i.e. no match or aUserNode is null) 
+* @param {Node} aUserNode - a user node
+*/
 export function isAnonymous(aUserNode: Node): boolean;
+
+/**
+* Checks if current user is the Sitevision Extractor.
+* @returns {boolean} true if current user is the Sitevision Extractor, false otherwise 
+*/
 export function isExtractor(): boolean;
+
+/**
+* Checks if a user node is the Sitevision Extractor.
+* @returns {boolean} true if aUserNode is the Sitevision Extractor, false otherwise (i.e. no match or aUserNode is null) 
+* @param {Node} aUserNode - a user node
+*/
 export function isExtractor(aUserNode: Node): boolean;
+
+/**
+* Checks if current user is the Sitevision Indexer.
+* @returns {boolean} true if current user is the Sitevision Indexer, false otherwise 
+*/
 export function isIndexer(): boolean;
+
+/**
+* Checks if a user node is the Sitevision Indexer.
+* @returns {boolean} true if aUserNode is the Sitevision Indexer, false otherwise (i.e. no match or aUserNode is null) 
+* @param {Node} aUserNode - a user node
+*/
 export function isIndexer(aUserNode: Node): boolean;
+
+/**
+* Checks if current user is the Sitevision System user.
+* @returns {boolean} true if current user is the Sitevision System user, false otherwise 
+*/
 export function isSystem(): boolean;
+
+/**
+* Checks if a user node is the Sitevision System user.
+* @returns {boolean} true if aUserNode is the Sitevision System user, false otherwise (i.e. no match or aUserNode is null) 
+* @param {Node} aUserNode - a user node
+*/
 export function isSystem(aUserNode: Node): boolean;
+
+/**
+* Checks if current user is the Sitevision Validator.
+* @returns {boolean} true if current user is the Sitevision Validator, false otherwise 
+*/
 export function isValidator(): boolean;
+
+/**
+* Checks if a user node is the Sitevision Validator.
+* @returns {boolean} true if aUserNode is the Sitevision Validator, false otherwise (i.e. no match or aUserNode is null) 
+* @param {Node} aUserNode - a user node
+*/
 export function isValidator(aUserNode: Node): boolean;
 
 declare namespace systemUserUtil {
