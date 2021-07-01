@@ -1,1 +1,17 @@
-export default {};
+export default {
+  base64decode() {},
+  base64decodeToBytes() {},
+  base64encode() {},
+  base64encodeToString() {},
+  br() {},
+  decodeURL() {},
+  encodeURL() {},
+  escapeIdentifier() {},
+  escapeJcrName() {},
+  escapeXML() {},
+  getBaseSubstitute() {},
+  unEscapeHTML4() {},
+  unEscapeIdentifier() {},
+  unEscapeJcrName() {},
+  unEscapeXML() {},
+};

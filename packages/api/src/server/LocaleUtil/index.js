@@ -1,3 +1,12 @@
 export default {
-  getLocaleByString: (localeString) => localeString,
+  getAvailableLocales() {},
+  getLanguageTag() {},
+  getLocaleByString() {},
+  getLocalizedLanguageName() {},
+  getLocalizedLanguageNameByString() {},
+  getNativeLanguageName() {},
+  getNativeLanguageNameByString() {},
+  getNormalizedLanguage() {},
+  isRTL() {},
+  resolveCountryLocale() {},
 };
