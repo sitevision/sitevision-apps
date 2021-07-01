@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.0.3...@sitevision/sitevision-scripts@2.0.4) (2021-07-01)
+
+### Bug Fixes
+
+- updated dependencies ([a957381](https://github.com/sitevision/sitevision-apps/commit/a95738198da70e240adc843a319ef36aba3e9126))
+
 ## [2.0.3](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.0.2...@sitevision/sitevision-scripts@2.0.3) (2021-06-22)
 
 ### Bug Fixes
