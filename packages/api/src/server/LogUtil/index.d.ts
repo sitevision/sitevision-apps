@@ -1,15 +1,13 @@
 import Throwable from '../../builtins/Throwable';
 
-  /**
-  * Logs a debug message to the Sitevision server log.
-  * @returns {void} undefined 
+/**
+* Logs a debug message to the Sitevision server log.
 * @param {string} aMessage - a message.
-  */
+*/
 export function debug(aMessage: string): void;
   
 /**
 * Logs a debug message to the Sitevision server log.
-* @returns {void} undefined 
 * @param {string} aMessage - a message.
 * @param {Throwable} aThrowable - a throwable.
 */
@@ -17,14 +15,12 @@ export function debug(aMessage: string, aThrowable: Throwable): void;
 
 /**
 * Logs an error message to the Sitevision server log.
-* @returns {void} undefined 
 * @param {string} aMessage - a message.
 */
 export function error(aMessage: string): void;
 
 /**
 * Logs an error message to the Sitevision server log.
-* @returns {void} undefined 
 * @param {string} aMessage - a message.
 * @param {Throwable} aThrowable - a throwable.
 */
@@ -32,14 +28,12 @@ export function error(aMessage: string, aThrowable: Throwable): void;
 
 /**
 * Logs an info message to the Sitevision server log.
-* @returns {void} undefined 
 * @param {string} aMessage - a message.
 */
 export function info(aMessage: string): void;
 
 /**
 * Logs an info message to the Sitevision server log.
-* @returns {void} undefined 
 * @param {string} aMessage - a message.
 * @param {Throwable} aThrowable - a throwable.
 */
@@ -77,14 +71,12 @@ export function isWarnEnabled(): boolean;
 
 /**
 * Logs a trace message to the Sitevision server log.
-* @returns {void} undefined 
 * @param {string} aMessage - a message.
 */
 export function trace(aMessage: string): void;
 
 /**
 * Logs a trace message to the Sitevision server log.
-* @returns {void} undefined 
 * @param {string} aMessage - a message.
 * @param {Throwable} aThrowable - a throwable.
 */
@@ -92,14 +84,12 @@ export function trace(aMessage: string, aThrowable: Throwable): void;
 
 /**
 * Logs a warn message to the Sitevision server log.
-* @returns {void} undefined 
 * @param {string} aMessage - a message.
 */
 export function warn(aMessage: string): void;
 
 /**
 * Logs a warn message to the Sitevision server log.
-* @returns {void} undefined 
 * @param {string} aMessage - a message.
 * @param {Throwable} aThrowable - a throwable.
 */
@@ -107,21 +97,16 @@ export function warn(aMessage: string, aThrowable: Throwable): void;
 
 declare namespace logUtil {
   export {
-    debug,
-    debug,
-    error,
-    error,
-    info,
-    info,
+    debug,   
+    error,  
+    info,   
     isDebugEnabled,
     isErrorEnabled,
     isInfoEnabled,
     isTraceEnabled,
     isWarnEnabled,
-    trace,
-    trace,
-    warn,
-    warn,
+    trace,   
+    warn,   
   };
 }
 
