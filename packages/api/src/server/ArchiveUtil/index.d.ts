@@ -10,7 +10,6 @@ export function createArchive(aParent: Node, aName: string): Node;
 
 /**
 * Alters the name of an archive.
-* @returns {void} undefined 
 * @param {Node} anArchive - the archive that should be renamed. May not be null
 * @param {string} aName - the new name of the archive. May not be null
 */

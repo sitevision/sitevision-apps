@@ -104,21 +104,18 @@ export interface ICollaborationGroupWrapper {
 
   /**
   * Sets the group description of the wrapped collaboration group.
-  * @returns {void} undefined 
   * @param {string} aGroupDescription - the collaboration group description
   */
   setGroupDescription(aGroupDescription: string): void;
 
   /**
   * Changes the collaboration group state of the wrapped collaboration group.
-  * @returns {void} undefined 
   * @param {CollaborationGroupState} aCollaborationGroupState - the collaboration group state
   */
   setGroupState(aCollaborationGroupState: CollaborationGroupState): void;
 
   /**
   * Changes the collaboration group type of the wrapped collaboration group.
-  * @returns {void} undefined 
   * @param {CollaborationGroupType} aCollaborationGroupType - the collaboration group type
   */
   setGroupType(aCollaborationGroupType: CollaborationGroupType): void;
