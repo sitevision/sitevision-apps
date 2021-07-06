@@ -45,7 +45,6 @@ export function createArticle(aParent: Node, aTemplate: Node, aName: string, pro
 
 /**
 * Alters the name of an article.
-* @returns {void} undefined 
 * @param {Node} anArticle - the article that should be renamed. May not be null
 * @param {string} aName - the new name of the article. May not be null
 */
@@ -53,7 +52,6 @@ export function renameArticle(anArticle: Node, aName: string): void;
 
 /**
 * Updates the properties of an article.
-* @returns {void} undefined 
 * @param {Node} anArticle - the sv:article that will be altered. May not be null
 * @param {Map<string, any>} properties - the article properties. May not be null
 */
