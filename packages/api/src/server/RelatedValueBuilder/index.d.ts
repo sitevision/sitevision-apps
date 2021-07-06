@@ -8,7 +8,7 @@ interface LinkValue {}
 */
 interface RelatedValue {}
 
-export default interface RelatedValueBuilder {
+export interface RelatedValueBuilder {
   /**
   * Adds a link value.
   * @returns {RelatedValueBuilder} this builder 
@@ -42,3 +42,7 @@ export default interface RelatedValueBuilder {
   */
   clearValues(): RelatedValueBuilder;
 }
+
+const relatedValueBuilder: RelatedValueBuilder;
+export default relatedValueBuilder;
+

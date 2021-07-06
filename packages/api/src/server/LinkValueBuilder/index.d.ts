@@ -3,7 +3,7 @@
  */
 interface LinkValue { }
 
-export default interface LinkValueBuilder {
+export interface LinkValueBuilder {
   /**
    * Creates a LinkValue instance using current state of this builder.
    * @returns {LinkValue} a link value 
@@ -59,3 +59,6 @@ export default interface LinkValueBuilder {
   */
   setPhoneTarget(aPhoneNumber: string): LinkValueBuilder;
 }
+
+const linkValueBuilder: LinkValueBuilder;
+export default linkValueBuilder;

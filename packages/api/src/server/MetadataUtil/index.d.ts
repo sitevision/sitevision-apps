@@ -1,7 +1,7 @@
 import Property from '../../builtins/Property';
 import List from '../../builtins/List';
-import LinkValueBuilder from '../LinkValueBuilder';
-import RelatedValueBuilder from '../RelatedValueBuilder';
+import { LinkValueBuilder } from '../LinkValueBuilder';
+import { RelatedValueBuilder } from '../RelatedValueBuilder';
 
 /**
 * Returns a Node for a link metadata on a specified Node.
