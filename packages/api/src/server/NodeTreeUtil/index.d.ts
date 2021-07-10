@@ -41,7 +41,7 @@ export function findPortletsByType(aPageNode: Node, aPortletType: string): List<
 * @param {string} aPortletType - the type of portlet that should be found
 * @param {function} aNodeFilter - a node filter to refine the result of all portlets of specified type
 */
-export function findPortletsByType(aPageNode: Node, aPortletType: string, aaNodeFilter: (aPageNode: Node) => boolean): List<Node>;
+export function findPortletsByType(aPageNode: Node, aPortletType: string, aNodeFilter: (aPageNode: Node) => boolean): List<Node>;
 
 /**
 * Gets a node relative to another node.
