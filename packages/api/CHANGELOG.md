@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/sitevision/siteivision-apps/compare/@sitevision/api@1.0.5...@sitevision/api@1.0.6) (2021-08-16)
+
+**Note:** Version bump only for package @sitevision/api
+
 ## [1.0.5](https://github.com/sitevision/siteivision-apps/compare/@sitevision/api@1.0.4...@sitevision/api@1.0.5) (2021-07-10)
 
 ### Bug Fixes
