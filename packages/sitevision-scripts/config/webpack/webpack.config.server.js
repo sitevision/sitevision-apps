@@ -61,6 +61,11 @@ const getServerConfig = ({
             from: path.join(cwd, 'i18n'),
             to: './i18n',
           },
+          {
+            noErrorOnMissing: true,
+            from: path.join(cwd, 'resource'),
+            to: './resource',
+          },
         ],
       }),
       new MiniCssExtractPlugin({ filename: './css/[name].css' }),
