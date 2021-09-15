@@ -1,3 +1,5 @@
+import Node from '../../builtins/Node';
+
 export interface ImageScaler {
   /**
   * Returns max height in pixels for images scaled with instances of this interface.
