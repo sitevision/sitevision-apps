@@ -38,6 +38,7 @@ const getCommonPackageProperties = () => {
     sign: 'sitevision-scripts sign',
     dev: 'sitevision-scripts dev',
     'setup-dev-properties': 'sitevision-scripts setup-dev-properties',
+    test: 'sitevision-scripts test',
   };
 
   return appPackage;
