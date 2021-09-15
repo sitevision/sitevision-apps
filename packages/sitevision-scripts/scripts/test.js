@@ -1,6 +1,9 @@
+const fs = require('fs');
 const jest = require('jest');
 const path = require('path');
 const execSync = require('child_process').execSync;
+
+const setupTestFile = path.resolve(process.cwd(), 'src', 'setupTests.js');
 
 const config = {
   roots: ['<rootDir>/src'],
@@ -20,7 +23,7 @@ const config = {
       'babelTransform.js'
     ),
   },
-  setupFilesAfterEnv: [path.resolve(process.cwd(), 'src', 'setupTests.js')],
+  setupFilesAfterEnv: fs.existsSync(setupTestFile) ? [setupTestFile] : [],
 };
 
 function isInGitRepository() {
