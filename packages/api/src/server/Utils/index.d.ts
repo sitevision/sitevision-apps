@@ -1,4 +1,11 @@
+import { ImageRenderer } from '../ImageRenderer';
 import { ImageScaler } from '../ImageScaler';
+
+/**
+* Creates and returns a new instance of a stateful image renderer. Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance. (i.e. Just call this method once in the rendering phase of your portlet)
+* @returns {ImageRenderer} a stateful image renderer.
+*/
+export function getImageRenderer(): ImageRenderer;
 
 /**
 * Gets an instance of an immutable image scaler that enables scaling of images to a certain size.
@@ -10,6 +17,7 @@ export function getImageScaler(aMaxWidth: number, aMaxHeight: number): ImageScal
 
 declare namespace Utils {
   export {
+    getImageRenderer,
     getImageScaler,
   }
 }
