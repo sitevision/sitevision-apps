@@ -16,7 +16,8 @@ const scriptIndex = args.findIndex(
     x === 'dev' ||
     x === 'sign' ||
     x === 'zip' ||
-    x === 'setup-dev-properties'
+    x === 'setup-dev-properties' ||
+    x === 'test'
 );
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
@@ -54,6 +55,7 @@ switch (script) {
   case 'sign':
   case 'dev':
   case 'zip':
+  case 'test':
   case 'setup-dev-properties': {
     const result = executeScript(script);
     process.exit(result.status);
