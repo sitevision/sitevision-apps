@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.0.6...@sitevision/sitevision-scripts@2.1.0) (2021-09-17)
+
+### Bug Fixes
+
+- Don't assume setup tests file exists ([78b7738](https://github.com/sitevision/sitevision-apps/commit/78b773876a066cd8bb00da5584e03cb3794f9ae2))
+
+### Features
+
+- added support for unit testing ([34308af](https://github.com/sitevision/sitevision-apps/commit/34308afba6b041563baa723252e1e402db52bbf9))
+
 ## [2.0.6](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.0.5...@sitevision/sitevision-scripts@2.0.6) (2021-09-08)
 
 **Note:** Version bump only for package @sitevision/sitevision-scripts
