@@ -1,4 +1,3 @@
 export default {
-  getDefaultCleanHtmlTemplate() {},
-  transform() {},
+  parse() {},
 };
