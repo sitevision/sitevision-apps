@@ -1,117 +1,36 @@
-import Node from '../builtins/Node';
-import Collection from '../builtins/Collection';
-
-interface XmlElement {
-  /**
-   * Gets the name of the element
-   *
-   * @return {string} the element name
-   */
-  getName(): string;
-
-  /**
-   * Gets the text content of the element.
-   *
-   * @return {string} the text content of the element or null if no text content is available.
-   */
-  getText(): string;
-
-  /**
-   * Gets an attribute value of the element.
-   *
-   * @param {string} aName the attribute name
-   * @return {string} the attribute value or null if no value is associated with attribute
-   */
-  getAttribute(aName: string): string;
-
-  /**
-   * Check if a sub element with a specific name is available in the element.
-   *
-   * @param {string} aName name of the sub element of this element, must be non-null.
-   * @return {boolean} true if one or more sub elements with the specific name is available
-   */
-  hasElement(aName: string): boolean;
-
-  /**
-   * Gets the first sub element with a specific name of the element.
-   *
-   * @param {string} aName name of the sub element of this element, must be non-null.
-   * @return {XmlElement} the sub element or null if no sub element is found.
-   */
-  getElement(aName: string): XmlElement;
-
-  /**
-   * Gets all sub element with a specific name of the element.
-   *
-   * @param {string} aName name of the sub element of this element, must be non-null.
-   * @return {Collection<XmlElement>}the sub elements or an empty collection if no sub elements are available
-   */
-  getElements(aName: string): Collection<XmlElement>;
-
-  /**
-   * Gets all sub elements of the element.
-   *
-   * @return {Collection<XmlElement>} a list of all sub elements
-   */
-  getElements(): Collection<XmlElement>;
-}
-
-interface XmlElementHandler {
-  /**
-   * Called when a element matching the selection has been parsed.
-   *
-   * @param {XmlElement} aXmlElement the element
-   */
-  handleElement(aXmlElement: XmlElement): void;
-}
+/**
+ * Gets the default XSL template for cleanup of HTML sources.
+ *
+ * <p>
+ *    The template strips all &lt;div&gt;'s, &lt;spans&gt;'s and removes all inline styling, classes and attributes
+ *    that is not mandatory or needed for WCAG purposes.
+ * </p>
+ * <p>
+ *    <em>Note!</em> The template supports a <em>sub-set</em> of HTML elements (the presumed most commonly used elements).
+ *    All unsupported elements are completely discarded (i.e. they will not be included at all in the transformation result).
+ * </p>
+ *
+ * @return {string} the default cleanup template for HTML sources
+ */
+export function getDefaultCleanHtmlTemplate(): string;
 
 /**
- * Parse a XML string.
+ * Transforms a HTML/XML source using a XSL template.
  *
- * @param {string} aElementSelection the elements in the XML that should be passed to the XmlElementHandler
- * @param {string} aXml the UTF-8 XML string
- * @param {XmlElementHandler} aXmlElementHandler the XmlElementHandler
- * @throws XmlParserException if an error occurs while parsing the XML
- */
-export function parse(
-  aElementSelection: string,
-  aXml: string,
-  aXmlElementHandler: XmlElementHandler
-): void;
-
-/**
- * Parse a file containing XML encoded using UTF-8.
+ * <p>
+ *    <em>Note!</em> The contents of the XSL Template is always handled as UTF-8.
+ * </p>
  *
- * @param {string} aElementSelection the elements in the XML that should be passed to the XmlElementHandler
- * @param {Node} aXmlFile the file containing XML encoded using UTF-8 (sv:file or sv:temporaryFile)
- * @param {XmlElementHandler} aXmlElementHandler the XmlElementHandler
- * @throws RepositoryException if an error occurs while accessing the file
- * @throws XmlParserException if an error occurs while parsing the XML
+ * @param {string} aSource the source that should be transformed, HTML, XHTML or XML. Must not be null
+ * @param {any} aXslTemplate the UTF-8 XSL template;
+ *                     a sv:file Node, a sv:temporaryFile Node, a sv:link Node that targets a sv:file, a char array or a CharSequence
+ *                     (typically a String). Must not be null
+ * @return {string} the transformation result
+ * @throws IOException if the transformation fails (e.g. the aSource is really bad/interpretable HTML or aXslTemplate is invalid XSL)
+ * @throws RepositoryException if aNode-operation on aXslTemplate fails
  */
-export function parse(
-  aElementSelection: string,
-  aXmlFile: Node,
-  aXmlElementHandler: XmlElementHandler
-): void;
+export function transform(aSource: string, aXslTemplate: any): string;
 
-/**
- * Parse a file containing XML encoded with the supplied charset.
- *
- * @param {string} aElementSelection the elements in the XML that should be passed to the XmlElementHandler
- * @param {Node} aXmlFile the file containing XML encoded using supplied encoding (sv:file or sv:temporaryFile)
- * @param {string} aCharset the character encoding of the the file content
- *                 (an IllegalArgument will be thrown if aCharset can not be resolved as a java.nio.charset.Charset)
- * @param {XmlElementHandler} aXmlElementHandler the XmlElementHandler
- * @throws RepositoryException if an error occurs while accessing the file
- * @throws XmlParserException if an error occurs while parsing the XML
- */
-export function parse(
-  aElementSelection: string,
-  aXmlFile: Node,
-  aCharset: string,
-  aXmlElementHandler: XmlElementHandler
-): void;
-
-declare namespace xmlParserUtil {
-  export { parse };
+declare namespace xsltUtil {
+  export { getDefaultCleanHtmlTemplate, transform };
 }
