@@ -7,11 +7,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sitevision/siteivision-apps.git",
+    "url": "https://github.com/sitevision/sitevision-apps.git",
     "directory": "packages/eslint-config-webapp-react"
   },
   "bugs": {
-    "url": "https://github.com/sitevision/siteivision-apps/issues"
+    "url": "https://github.com/sitevision/sitevision-apps/issues"
   },
   "devDependencies": {
     "eslint": "^7.26.0"
