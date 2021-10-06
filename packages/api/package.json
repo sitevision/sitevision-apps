@@ -1,6 +1,6 @@
 {
   "name": "@sitevision/api",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "author": "Sitevision AB",
   "license": "MIT",
   "types": "index.d.ts",

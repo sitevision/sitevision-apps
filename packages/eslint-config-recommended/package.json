@@ -1,7 +1,7 @@
 {
   "name": "@sitevision/eslint-config-recommended",
   "author": "Sitevision AB",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./index.js",
   "description": "Eslint config for Sitevision Apps",
   "license": "MIT",
