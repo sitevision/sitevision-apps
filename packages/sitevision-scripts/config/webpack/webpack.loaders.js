@@ -32,6 +32,16 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
+        resourceQuery: /nomodules/,
+        sideEffects: true,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+      {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
