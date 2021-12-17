@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.1.2...@sitevision/sitevision-scripts@2.1.3) (2021-12-17)
+
+### Bug Fixes
+
+- Remove deprecated package fixes [#38](https://github.com/sitevision/sitevision-apps/issues/38) ([eacf447](https://github.com/sitevision/sitevision-apps/commit/eacf4470f081fe66c6b08c83903a51fff0100117))
+
 ## [2.1.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.1.0...@sitevision/sitevision-scripts@2.1.1) (2021-10-06)
 
 **Note:** Version bump only for package @sitevision/sitevision-scripts
