@@ -1,6 +1,5 @@
 const fetch = require('node-fetch');
 const properties = require('../util/properties');
-const queryString = require('querystring');
 const chalk = require('chalk');
 
 (async function () {
@@ -13,7 +12,7 @@ const chalk = require('chalk');
     props.username
   )}:${encodeURIComponent(props.password)}@${
     props.domain
-  }/rest-api/1/0/${queryString.escape(
+  }/rest-api/1/0/${encodeURIComponent(
     props.siteName
   )}/Addon%20Repository/${restEndpoint}`;
 
