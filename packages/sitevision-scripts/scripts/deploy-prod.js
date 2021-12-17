@@ -3,7 +3,6 @@ const fs = require('fs');
 const FormData = require('form-data');
 const fetch = require('node-fetch');
 const properties = require('../util/properties');
-const queryString = require('querystring');
 const chalk = require('chalk');
 
 (function () {
@@ -56,9 +55,9 @@ const chalk = require('chalk');
       answers.username
     )}:${encodeURIComponent(answers.password)}@${
       answers.domain
-    }/rest-api/1/0/${queryString.escape(
+    }/rest-api/1/0/${encodeURIComponent(
       answers.siteName
-    )}/Addon%20Repository/${queryString.escape(
+    )}/Addon%20Repository/${encodeURIComponent(
       answers.addonName
     )}/${restEndPoint}`;
     const formData = new FormData();

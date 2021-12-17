@@ -2,7 +2,6 @@ const fs = require('fs');
 const FormData = require('form-data');
 const fetch = require('node-fetch');
 const properties = require('../util/properties');
-const queryString = require('querystring');
 const chalk = require('chalk');
 
 (async function () {
@@ -23,9 +22,9 @@ const chalk = require('chalk');
     properties.getAppType() === 'rest' ? 'restAppImport' : 'webAppImport';
   let url = `https://${encodeURIComponent(props.username)}:${encodeURIComponent(
     props.password
-  )}@${props.domain}/rest-api/1/0/${queryString.escape(
+  )}@${props.domain}/rest-api/1/0/${encodeURIComponent(
     props.siteName
-  )}/Addon%20Repository/${queryString.escape(props.addonName)}/${restEndpoint}`;
+  )}/Addon%20Repository/${encodeURIComponent(props.addonName)}/${restEndpoint}`;
 
   if (process.argv[2] === 'force-deploy' || process.argv[2] === 'force') {
     url += '?force=true';
