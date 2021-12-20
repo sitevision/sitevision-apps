@@ -1,9 +1,13 @@
 {
   "id": "{{appName}}",
   "version": "0.0.1",
-  "name": "WebApp boilerplate",
+  "name": {
+    "en": "WebApp boilerplate"
+  },
   "author": "Sitevision AB",
-  "description": "A WebApp boilerplate",
+  "description": {
+    "en": "A WebApp boilerplate"
+  },
   "helpUrl": "https://developer.sitevision.se/webapps",
   "type": "WebApp",
   "bundled": true,
