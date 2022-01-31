@@ -20,7 +20,7 @@ const chalk = require('chalk');
   const props = properties.getDevProperties();
   const restEndpoint =
     properties.getAppType() === 'rest' ? 'restAppImport' : 'webAppImport';
-  let url = (props.useHTTP ? `http://` : `https://`) + `${encodeURIComponent(props.username)}:${encodeURIComponent(
+  let url = (props.useHTTPForDevDeploy ? `http://` : `https://`) + `${encodeURIComponent(props.username)}:${encodeURIComponent(
     props.password
   )}@${props.domain}/rest-api/1/0/${encodeURIComponent(
     props.siteName
