@@ -53,7 +53,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentHashPrefix: cssPrefix,
+                localIdentHashSalt: cssPrefix,
               },
             },
           },
