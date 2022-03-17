@@ -4,6 +4,7 @@ import './client/toasts';
 import './common/app';
 import './common/i18n';
 import './common/router';
+import './common/events';
 
 import './server/appData';
 import './server/appResource';
@@ -17,7 +18,6 @@ import './server/CollaborationGroupType';
 import './server/CollaborationGroupUtil';
 import './server/CollaborationGroupWrapper';
 import './server/DateUtil';
-import './server/events';
 import './server/globalAppData';
 import './server/hooks';
 import './server/LandingPageUtil';
