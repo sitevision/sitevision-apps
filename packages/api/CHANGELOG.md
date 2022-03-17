@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/sitevision/sitevision-apps/compare/@sitevision/api@1.0.11...@sitevision/api@1.0.12) (2022-03-17)
+
+### Bug Fixes
+
+- add doc for events ([154e72f](https://github.com/sitevision/sitevision-apps/commit/154e72f21a2cd218e1fed706d24bf508ff2a248e))
+- move events add trigger func ([4a182fb](https://github.com/sitevision/sitevision-apps/commit/4a182fbf2a1bd1f79614e2f5e89ca01d1d54f3d2))
+
 ## [1.0.11](https://github.com/sitevision/sitevision-apps/compare/@sitevision/api@1.0.10...@sitevision/api@1.0.11) (2021-11-16)
 
 **Note:** Version bump only for package @sitevision/api
