@@ -75,10 +75,14 @@ const updatePackageJsonBundledRest = () => {
 };
 
 const installWebAppDependencies = (appPath) => {
-  spawn.sync('npm', ['install', 'react', 'react-dom', '@sitevision/api'], {
-    stdio: 'inherit',
-    cwd: appPath,
-  });
+  spawn.sync(
+    'npm',
+    ['install', 'react@17', 'react-dom@17', '@sitevision/api'],
+    {
+      stdio: 'inherit',
+      cwd: appPath,
+    }
+  );
 };
 
 const installRestAppDependencies = (appPath) => {
