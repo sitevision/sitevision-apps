@@ -29,6 +29,11 @@ const chalk = require('chalk');
   const fileName = manifest.id + '.zip';
   const zipPath = properties.DIST_DIR_PATH + '/' + fileName;
 
+  if (!fs.existsSync(zipPath)) {
+    console.log('You have to run "npm run build" before running this script');
+    return;
+  }
+
   inquirer.prompt(questions).then(async (answers) => {
     if (!answers.username || !answers.password) {
       console.log(chalk.red('Invalid user name or password'));
