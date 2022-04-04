@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.9](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.1.8...@sitevision/sitevision-scripts@2.1.9) (2022-04-04)
+
+### Bug Fixes
+
+- dont try to sign before app is built ([47e6a12](https://github.com/sitevision/sitevision-apps/commit/47e6a12a4bd3d278b9b202a42c94d9084b78fcf5))
+- require react 17 until we have react 18 support in sitevision ([9fc2768](https://github.com/sitevision/sitevision-apps/commit/9fc27687365ba043fd012f11ec5e663b68cdecba))
+- should not send request with invalid authentication ([8f54e51](https://github.com/sitevision/sitevision-apps/commit/8f54e51d0470af5fd9e7417a1de0bebc13bb153a))
+
 ## [2.1.8](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.1.7...@sitevision/sitevision-scripts@2.1.8) (2022-02-09)
 
 **Note:** Version bump only for package @sitevision/sitevision-scripts
