@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.1.9...@sitevision/sitevision-scripts@2.2.0) (2022-04-04)
+
+### Features
+
+- (sitevision/scripts) support for international names and descriptions for WebApps ([781fa5e](https://github.com/sitevision/sitevision-apps/commit/781fa5ed14f2f13915e2cc439372b25f0ccb807b))
+
 ## [2.1.9](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.1.8...@sitevision/sitevision-scripts@2.1.9) (2022-04-04)
 
 ### Bug Fixes
