@@ -11,11 +11,13 @@ const chalk = require('chalk');
     {
       name: 'username',
       message: 'Username for developer.sitevision.se',
+      validate: (input) => (input.length ? true : 'Please enter your username'),
     },
     {
       name: 'password',
       type: 'password',
       message: 'Password for developer.sitevision.se',
+      validate: (input) => (input.length ? true : 'Please enter your password'),
     },
     {
       name: 'certificateName',
@@ -28,6 +30,11 @@ const chalk = require('chalk');
   const zipPath = properties.DIST_DIR_PATH + '/' + fileName;
 
   inquirer.prompt(questions).then(async (answers) => {
+    if (!answers.username || !answers.password) {
+      console.log(chalk.red('Invalid user name or password'));
+      return null;
+    }
+
     let url = `https://${encodeURIComponent(
       answers.username
     )}:${encodeURIComponent(
