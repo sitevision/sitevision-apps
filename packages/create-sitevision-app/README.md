@@ -67,3 +67,5 @@ NODE_TLS_REJECT_UNAUTHORIZED=0 npm run deploy
 ```
 
 Other targets that might need prefixing: `create-addon`, `force-deploy`, `dev`.
+
+It is possible to use (unsafe) http for local deployments by adding property `"useHTTPForDevDeploy": true` to .dev_properties.

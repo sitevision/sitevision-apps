@@ -8,7 +8,7 @@ const chalk = require('chalk');
     properties.getAppType() === 'rest'
       ? 'headlesscustommodule'
       : 'custommodule';
-  const url = `https://${encodeURIComponent(
+  const url = (props.useHTTPForDevDeploy ? `http://` : `https://`) + `${encodeURIComponent(
     props.username
   )}:${encodeURIComponent(props.password)}@${
     props.domain
