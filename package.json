@@ -8,12 +8,14 @@
   ],
   "scripts": {
     "postinstall": "husky install",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "release:create": "lerna version --conventional-commits",
+    "release:publish": "lerna publish from-git"
   },
   "devDependencies": {
+    "@lerna-lite/cli": "^1.1.1",
     "eslint": "^7.26.0",
     "husky": "^6.0.0",
-    "lerna": "^4.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.0"
   },
