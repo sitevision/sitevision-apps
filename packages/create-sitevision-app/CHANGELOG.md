@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/sitevision/sitevision-apps/compare/@sitevision/create-sitevision-app@2.0.4...@sitevision/create-sitevision-app@2.0.5) (2022-05-05)
+
+### Bug Fixes
+
+- **create-sitevision-app:** downgrade chalk ([bd8afb7](https://github.com/sitevision/sitevision-apps/commit/bd8afb7ec96128eacec161afac852c78e4133153)), closes [#54](https://github.com/sitevision/sitevision-apps/issues/54)
+
 ## [2.0.4](https://github.com/sitevision/sitevision-apps/compare/@sitevision/create-sitevision-app@2.0.3...@sitevision/create-sitevision-app@2.0.4) (2022-05-04)
 
 **Note:** Version bump only for package @sitevision/create-sitevision-app
