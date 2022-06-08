@@ -4,11 +4,11 @@
   "name": {
     "en": "WebApp boilerplate"
   },
-  "author": "Sitevision AB",
+  "author": "My Company",
   "description": {
     "en": "A WebApp boilerplate"
   },
-  "helpUrl": "https://developer.sitevision.se/webapps",
+  "helpUrl": "https://example.com/webapps",
   "type": "WebApp",
   "bundled": true,
   "requiredLibs": {
