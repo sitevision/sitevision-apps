@@ -2,8 +2,8 @@
   "id": "{{appName}}",
   "version": "0.0.1",
   "name": "WebApp boilerplate",
-  "author": "Sitevision AB",
+  "author": "My Company",
   "description": "A WebApp boilerplate",
-  "helpUrl": "https://developer.sitevision.se/webapps",
+  "helpUrl": "https://example.com/webapps",
   "type": "WebApp"
 }
