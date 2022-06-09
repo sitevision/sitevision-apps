@@ -30,7 +30,7 @@ export interface ICollaborationGroupWrapper {
   * Gets the followers/eavesdroppers of the wrapped collaboration group.
   * @returns {Set<Node>} the followers of the wrapped collaboration group. Never null. 
   */
-  getFollower(): Set<Node>;
+  getFollowers(): Set<Node>;
 
   /**
   * Gets the group description of the wrapped collaboration group.
