@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const { getExternals } = require('./utils');
 const babel = require('@babel/core');
@@ -80,6 +81,15 @@ const getServerConfig = ({
       ],
     },
     externals: [getExternals('commonjs')],
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            ecma: 5,
+          },
+        }),
+      ],
+    },
   };
 };
 
