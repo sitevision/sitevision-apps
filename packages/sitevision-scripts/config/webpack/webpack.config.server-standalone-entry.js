@@ -1,7 +1,6 @@
 const path = require('path');
 const { getJsModuleLoader, getBabelLoader } = require('./webpack.loaders');
-const { getExternals } = require('./utils');
-const TerserPlugin = require('terser-webpack-plugin');
+const { getExternals, getServerOptimization } = require('./utils');
 
 const getServerStandaloneEntryConfig = ({ entry, outputPath }) => ({
   mode: 'production',
@@ -9,22 +8,14 @@ const getServerStandaloneEntryConfig = ({ entry, outputPath }) => ({
   entry,
   output: {
     path: outputPath,
-    filename: entry.substring(entry.lastIndexOf(path.sep) + 1),
+    filename: path.basename(entry),
     iife: true,
   },
   module: {
     rules: [getJsModuleLoader(), getBabelLoader()],
   },
   externals: [getExternals('commonjs')],
-  optimization: {
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          ecma: 5,
-        },
-      }),
-    ],
-  },
+  optimization: getServerOptimization(),
 });
 
 module.exports = { getServerStandaloneEntryConfig };
