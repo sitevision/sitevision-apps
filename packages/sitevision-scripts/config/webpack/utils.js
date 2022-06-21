@@ -1,3 +1,5 @@
+const TerserPlugin = require('terser-webpack-plugin');
+
 const getExternals = (type, useExternalLibs) =>
   function externals({ request }, callback) {
     if (useExternalLibs && type === 'amd') {
@@ -18,6 +20,17 @@ const getExternals = (type, useExternalLibs) =>
     callback();
   };
 
+const getServerOptimization = () => ({
+  minimizer: [
+    new TerserPlugin({
+      terserOptions: {
+        ecma: 5,
+      },
+    }),
+  ],
+});
+
 module.exports = {
   getExternals,
+  getServerOptimization,
 };

@@ -3,7 +3,9 @@ const path = require('path');
 const fs = require('fs-extra');
 const { getServerConfig } = require('./webpack.config.server');
 const { getClientConfig } = require('./webpack.config.client');
-const { getHooksConfig } = require('./webpack.config.hooks');
+const {
+  getServerStandaloneEntryConfig,
+} = require('./webpack.config.server-standalone-entry');
 
 const getWebAppConfig = ({
   cwd,
@@ -37,7 +39,16 @@ const getWebAppConfig = ({
 
   const hooksEntry = path.resolve(cwd, 'src', 'hooks.js');
   if (fs.existsSync(hooksEntry)) {
-    config.push(getHooksConfig({ hooksEntry, outputPath, dev }));
+    config.push(
+      getServerStandaloneEntryConfig({ entry: hooksEntry, outputPath })
+    );
+  }
+
+  const headlessEntry = path.resolve(cwd, 'src', 'headless.js');
+  if (fs.existsSync(headlessEntry)) {
+    config.push(
+      getServerStandaloneEntryConfig({ entry: headlessEntry, outputPath })
+    );
   }
 
   return config;
