@@ -1,12 +1,15 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const svgToMiniDataURI = require('mini-svg-data-uri');
+const properties = require('../../util/properties');
+
+const packageJson = properties.getPackageJSON();
 
 module.exports = {
   getBabelLoader: () => ({
     test: /\.jsx?$/,
     use: {
       loader: 'babel-loader',
-      options: {
+      options: packageJson.babel || {
         presets: ['@sitevision/babel-preset-react-server'],
       },
     },
@@ -17,7 +20,7 @@ module.exports = {
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
-      options: {
+      options: packageJson.babel || {
         presets: ['@sitevision/babel-preset-react-client'],
       },
     },
