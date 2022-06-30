@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.3.0...@sitevision/sitevision-scripts@2.4.0) (2022-06-30)
+
+### Bug Fixes
+
+- revert version number ([6751fc4](https://github.com/sitevision/sitevision-apps/commit/6751fc4bac1e4a598e6e1dc3dd95a30fe483d54a))
+
+### Features
+
+- **sitevision-scripts:** Handle client side chunks and aloow override of babel config ([ee75b01](https://github.com/sitevision/sitevision-apps/commit/ee75b01583b2cbb65ebf8c1f5de6a175eab5e0e7))
+
 ## [2.2.3](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.2.2...@sitevision/sitevision-scripts@2.2.3) (2022-06-08)
 
 **Note:** Version bump only for package @sitevision/sitevision-scripts
