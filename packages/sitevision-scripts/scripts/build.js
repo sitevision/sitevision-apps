@@ -1,6 +1,7 @@
 const path = require('path');
 const properties = require('../util/properties');
 const webpack = require('webpack');
+const { copyChunksToResources } = require('./util/copychunks');
 
 (function () {
   const manifest = properties.getManifest();
@@ -27,6 +28,8 @@ const webpack = require('webpack');
       console.error(err);
       return;
     }
+
+    copyChunksToResources(properties.BUILD_DIR_PATH);
 
     console.log(stats.toString({ colors: true }));
   });

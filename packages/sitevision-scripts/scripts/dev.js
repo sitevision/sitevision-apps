@@ -3,6 +3,7 @@ const spawn = require('cross-spawn');
 const properties = require('../util/properties');
 const resolveBin = require('resolve-bin');
 const webpack = require('webpack');
+const { copyChunksToResources } = require('./util/copychunks');
 
 const SITEVISION_SCRIPTS_PATH = path.resolve(
   __dirname,
@@ -42,6 +43,7 @@ const SPAWN_PROPERTIES = {
           return;
         }
 
+        copyChunksToResources(properties.BUILD_DIR_PATH);
         console.log(stats.toString({ colors: true }));
 
         spawn.sync('node', [SITEVISION_SCRIPTS_PATH, 'zip'], SPAWN_PROPERTIES);
