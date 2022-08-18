@@ -7,6 +7,7 @@ const {
   getImageLoader,
   getSvgLoader,
   getJsonLoader,
+  getFontLoader,
 } = require('./webpack.loaders');
 const { getExternals } = require('./utils');
 
@@ -20,6 +21,7 @@ const getClientConfig = ({
   const manifest = properties.getManifest();
   const appId = manifest.id;
   const appVersion = manifest.version;
+  const publicPath = `/webapp-files/${appId}/${appVersion}/`;
 
   return {
     mode: dev ? 'development' : 'production',
@@ -34,7 +36,7 @@ const getClientConfig = ({
         destructuring: false,
         forOf: false,
       },
-      publicPath: `/webapp-files/${appId}/${appVersion}/`,
+      publicPath,
       filename: (pathData) => {
         if (pathData.chunk.name === 'main') {
           return 'main.js';
@@ -60,6 +62,7 @@ const getClientConfig = ({
         getImageLoader(),
         getSvgLoader(),
         getJsonLoader(),
+        getFontLoader(publicPath),
       ],
     },
     externals: [getExternals('amd', true)],

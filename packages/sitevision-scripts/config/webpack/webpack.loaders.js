@@ -79,6 +79,18 @@ module.exports = {
     ],
   }),
 
+  getFontLoader: (publicPath) => {
+    return {
+      test: /\.(woff|woff2|eot|ttf|otf)$/i,
+      type: 'asset/resource',
+      generator: {
+        filename: '[name][ext]',
+        outputPath: 'resource',
+        publicPath,
+      },
+    };
+  },
+
   getImageLoader: () => ({
     test: /\.(png|jpg|gif)$/i,
     use: [
