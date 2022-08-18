@@ -82,7 +82,7 @@ const getServerConfig = ({
         getJsModuleLoader(),
         getBabelLoader(),
         getCssLoader(cssPrefix, serverSideOnly),
-        getImageLoader(),
+        getImageLoader(publicPath),
         getSvgLoader(),
         getFontLoader(publicPath),
       ],

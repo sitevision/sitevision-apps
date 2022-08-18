@@ -59,7 +59,7 @@ const getClientConfig = ({
         getJsModuleLoader(),
         getClientBabelLoader(),
         getCssLoader(cssPrefix, !serverSideOnly),
-        getImageLoader(),
+        getImageLoader(publicPath),
         getSvgLoader(),
         getJsonLoader(),
         getFontLoader(publicPath),

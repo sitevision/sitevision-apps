@@ -69,14 +69,10 @@ module.exports = {
 
   getSvgLoader: () => ({
     test: /\.svg$/i,
-    use: [
-      {
-        loader: 'url-loader',
-        options: {
-          generator: (content) => svgToMiniDataURI(content.toString()),
-        },
-      },
-    ],
+    type: 'asset/inline',
+    generator: {
+      dataUrl: (content) => svgToMiniDataURI(content.toString()),
+    },
   }),
 
   getFontLoader: (publicPath) => {
@@ -84,23 +80,26 @@ module.exports = {
       test: /\.(woff|woff2|eot|ttf|otf)$/i,
       type: 'asset/resource',
       generator: {
-        filename: '[name][ext]',
+        filename: 'generated/font/[name][ext]',
         outputPath: 'resource',
         publicPath,
       },
     };
   },
 
-  getImageLoader: () => ({
+  getImageLoader: (publicPath) => ({
     test: /\.(png|jpg|gif)$/i,
-    use: [
-      {
-        loader: 'url-loader',
-        options: {
-          limit: 8192,
-        },
+    type: 'asset',
+    parser: {
+      dataUrlCondition: {
+        maxSize: 8 * 1024, // 8kb
       },
-    ],
+    },
+    generator: {
+      filename: 'generated/image/[name][ext]',
+      outputPath: 'resource',
+      publicPath,
+    },
   }),
 
   getJsModuleLoader: () => ({
