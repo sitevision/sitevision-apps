@@ -3,12 +3,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const { getExternals, getServerOptimization } = require('./utils');
 const babel = require('@babel/core');
+const properties = require('../../util/properties');
 const {
   getJsModuleLoader,
   getBabelLoader,
   getSvgLoader,
   getImageLoader,
   getCssLoader,
+  getFontLoader,
 } = require('./webpack.loaders');
 
 const getServerConfig = ({
@@ -18,6 +20,11 @@ const getServerConfig = ({
   outputPath,
   cssPrefix,
 }) => {
+  const manifest = properties.getManifest();
+  const appId = manifest.id;
+  const appVersion = manifest.version;
+  const publicPath = `/webapp-files/${appId}/${appVersion}/`;
+
   return {
     mode: 'production',
     devtool: undefined,
@@ -75,8 +82,9 @@ const getServerConfig = ({
         getJsModuleLoader(),
         getBabelLoader(),
         getCssLoader(cssPrefix, serverSideOnly),
-        getImageLoader(),
+        getImageLoader(publicPath),
         getSvgLoader(),
+        getFontLoader(publicPath),
       ],
     },
     externals: [getExternals('commonjs')],
