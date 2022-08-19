@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.4.0...@sitevision/sitevision-scripts@2.5.0) (2022-08-19)
+
+### Features
+
+- **sitevision-scripts:** Handle imported font files ([8dcce87](https://github.com/sitevision/sitevision-apps/commit/8dcce87200a1a76be1eedba2917df41b1475fb23))
+- **sitevision-scripts:** Move away from file/url-loader to asset-modules ([73d4159](https://github.com/sitevision/sitevision-apps/commit/73d415933394b1173eaf974f533499715ab03e87))
+
 # [2.4.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@2.3.0...@sitevision/sitevision-scripts@2.4.0) (2022-06-30)
 
 ### Bug Fixes
