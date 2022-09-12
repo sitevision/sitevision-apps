@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/sitevision/sitevision-apps/compare/@sitevision/api@1.0.14...@sitevision/api@1.0.15) (2022-09-12)
+
+### Bug Fixes
+
+- **@sitevision/api:** Improved declaration ([885569b](https://github.com/sitevision/sitevision-apps/commit/885569b9824824d6877ae9d478a80e521ba59fc0))
+
 ## [1.0.14](https://github.com/sitevision/sitevision-apps/compare/@sitevision/api@1.0.13...@sitevision/api@1.0.14) (2022-09-12)
 
 ### Bug Fixes
