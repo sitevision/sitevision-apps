@@ -4,3 +4,4 @@ node_modules
 yarn-error.log
 .eslintcache
 dist
+.DS_Store
