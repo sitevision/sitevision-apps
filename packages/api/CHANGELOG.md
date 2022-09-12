@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.14](https://github.com/sitevision/sitevision-apps/compare/@sitevision/api@1.0.13...@sitevision/api@1.0.14) (2022-09-12)
+
+### Bug Fixes
+
+- **@sitevision/api:** add security api documentation ([f885434](https://github.com/sitevision/sitevision-apps/commit/f885434b1c42d0387037e459958e0e3988be3071))
+
 ## [1.0.13](https://github.com/sitevision/sitevision-apps/compare/@sitevision/api@1.0.12...@sitevision/api@1.0.13) (2022-06-09)
 
 **Note:** Version bump only for package @sitevision/api
