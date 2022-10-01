@@ -73,6 +73,15 @@ export function use(callback: () => void): void;
 export function getUrl(url: string): string;
 export function getStandaloneUrl(url: string): string;
 
+/**
+ * Note! Client side only
+ */
+export function on(event: string, callback: () => void, context: any): void;
+/**
+ * Note! Client side only
+ */
+export function off(event: string, callback: () => void, context: any): void;
+
 declare namespace router {
   export { get, post, put, use, getUrl, getStandaloneUrl };
 }

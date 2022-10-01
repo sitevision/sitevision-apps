@@ -6,4 +6,7 @@ export default {
 
   getUrl: (path) => path,
   getStandaloneUrl: (path) => path,
+
+  on: () => {},
+  off: () => {},
 };
