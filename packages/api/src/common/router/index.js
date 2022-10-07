@@ -9,4 +9,6 @@ export default {
 
   on: () => {},
   off: () => {},
+
+  navigate: () => {},
 };

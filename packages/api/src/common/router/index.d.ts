@@ -82,8 +82,13 @@ export function on(event: string, callback: () => void, context: any): void;
  */
 export function off(event: string, callback: () => void, context: any): void;
 
+/**
+ * Note! Client side only
+ */
+export function navigate(url: string, options: any): void;
+
 declare namespace router {
-  export { get, post, put, use, getUrl, getStandaloneUrl };
+  export { get, post, put, use, getUrl, getStandaloneUrl, on, off, navigate };
 }
 
 export default router;
