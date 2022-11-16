@@ -1,9 +1,9 @@
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
 
-const walkFiles = (dir, callback, excludes) => {
+export const walkFiles = (dir, callback, excludes) => {
   const files = fs.readdirSync(dir, {
-    withFileTypes: true
+    withFileTypes: true,
   });
   files.forEach((file) => {
     if (file.isDirectory()) {
@@ -15,5 +15,3 @@ const walkFiles = (dir, callback, excludes) => {
     }
   });
 };
-
-module.exports = { walkFiles };

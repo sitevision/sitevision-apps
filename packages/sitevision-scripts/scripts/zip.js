@@ -1,7 +1,7 @@
-const zipdir = require('zip-dir');
-const fs = require('fs');
-const properties = require('../util/properties');
-const chalk = require('chalk');
+import zipdir from 'zip-dir';
+import fs from 'fs';
+import * as properties from '../util/properties.js';
+import chalk from 'chalk';
 
 (function () {
   if (!fs.existsSync(properties.DIST_DIR_PATH)) {

@@ -1,10 +1,10 @@
-const inquirer = require('inquirer');
-const path = require('path');
-const fs = require('fs');
-const fetch = require('node-fetch');
-const FormData = require('form-data');
-const properties = require('../util/properties');
-const chalk = require('chalk');
+import inquirer from 'inquirer';
+import path from 'path';
+import fs from 'fs';
+import fetch from 'node-fetch';
+import FormData from 'form-data';
+import * as properties from '../util/properties.js';
+import chalk from 'chalk';
 
 (function () {
   var questions = [
@@ -40,11 +40,7 @@ const chalk = require('chalk');
       return null;
     }
 
-    let url = `https://${encodeURIComponent(
-      answers.username
-    )}:${encodeURIComponent(
-      answers.password
-    )}@developer.sitevision.se/rest-api/appsigner/signapp`;
+    let url = `https://developer.sitevision.se/rest-api/appsigner/signapp`;
 
     if (answers.certificateName) {
       url += '?certificateName=' + answers.certificateName;
@@ -60,7 +56,11 @@ const chalk = require('chalk');
       const response = await fetch(url, {
         method: 'POST',
         body: formData,
-        headers: formData.getHeaders(),
+        headers: formData.getHeaders({
+          Authorization: `Basic ${Buffer.from(
+            answers.username + ':' + answers.password
+          ).toString('base64')}`,
+        }),
       });
 
       if (response.ok) {

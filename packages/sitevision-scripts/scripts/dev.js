@@ -1,9 +1,12 @@
-const path = require('path');
-const spawn = require('cross-spawn');
-const properties = require('../util/properties');
-const resolveBin = require('resolve-bin');
-const webpack = require('webpack');
-const { copyChunksToResources } = require('./util/copychunks');
+import path from 'path';
+import spawn from 'cross-spawn';
+import * as properties from '../util/properties.js';
+import resolveBin from 'resolve-bin';
+import webpack from 'webpack';
+import { copyChunksToResources } from './util/copychunks.js';
+import { getDirname } from '../util/dirname.js';
+
+const __dirname = getDirname(import.meta.url);
 
 const SITEVISION_SCRIPTS_PATH = path.resolve(
   __dirname,
@@ -16,16 +19,12 @@ const SPAWN_PROPERTIES = {
   stdio: 'inherit',
 };
 
-(function () {
+(async function () {
   const manifest = properties.getManifest();
   if (manifest.bundled) {
-    const webpackConfig = require(path.join(
-      __dirname,
-      '..',
-      'config',
-      'webpack',
-      'webpack.config.js'
-    ));
+    const { default: webpackConfig } = await import(
+      path.join(__dirname, '..', 'config', 'webpack', 'webpack.config.js')
+    );
 
     webpack(
       webpackConfig({

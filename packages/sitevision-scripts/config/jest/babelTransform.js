@@ -1,6 +1,9 @@
-const babelJest = require('babel-jest').default;
+import babelJest from 'babel-jest';
+import { createRequire } from 'module';
 
-module.exports = babelJest.createTransformer({
+const require = createRequire(import.meta.url);
+
+export default babelJest.createTransformer({
   presets: [require.resolve('@sitevision/babel-preset-react-server')],
   babelrc: false,
   configFile: false,

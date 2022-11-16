@@ -1,5 +1,5 @@
-const fs = require('fs-extra');
-const properties = require('../util/properties');
+import fs from 'fs-extra';
+import * as properties from '../util/properties.js';
 
 (function () {
   if (fs.existsSync(properties.STATIC_DIR_PATH)) {

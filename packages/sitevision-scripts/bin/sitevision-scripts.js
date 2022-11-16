@@ -3,9 +3,12 @@ process.on('unhandledRejection', (err) => {
   throw err;
 });
 
-const spawn = require('cross-spawn');
+import spawn from 'cross-spawn';
+import * as properties from '../util/properties.js';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 const args = process.argv.slice(2);
-const properties = require('../util/properties');
 
 const scriptIndex = args.findIndex(
   (x) =>

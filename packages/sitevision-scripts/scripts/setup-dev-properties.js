@@ -1,11 +1,11 @@
-const fs = require('fs-extra');
-const path = require('path');
-const inquirer = require('inquirer');
-const properties = require('../util/properties');
-const { questions } = require('../config/setup-questions');
+import fs from 'fs-extra';
+import path from 'path';
+import inquirer from 'inquirer';
+import * as properties from '../util/properties.js';
+import { questions } from '../config/setup-questions.js';
 
 const updatePackageJSON = (transpile) => {
-  const appPackage = properties.getPackageJSON();
+  const appPackage = properties.getPackageJson();
   appPackage.sitevision_scripts_properties = {
     transpile,
   };
@@ -16,7 +16,7 @@ const updatePackageJSON = (transpile) => {
 };
 
 const hasTranspileOptionInPackageJSON = () => {
-  const { sitevision_scripts_properties } = properties.getPackageJSON();
+  const { sitevision_scripts_properties } = properties.getPackageJson();
   return (
     sitevision_scripts_properties &&
     typeof sitevision_scripts_properties.transpile === 'boolean'

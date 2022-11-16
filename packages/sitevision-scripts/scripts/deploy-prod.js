@@ -1,9 +1,9 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const FormData = require('form-data');
-const fetch = require('node-fetch');
-const properties = require('../util/properties');
-const chalk = require('chalk');
+import inquirer from 'inquirer';
+import fs from 'fs';
+import FormData from 'form-data';
+import fetch from 'node-fetch';
+import * as properties from '../util/properties.js';
+import chalk from 'chalk';
 
 (function () {
   const props = properties.getDevProperties();
@@ -51,11 +51,7 @@ const chalk = require('chalk');
   const restEndPoint =
     properties.getAppType() === 'rest' ? 'restAppImport' : 'webAppImport';
   inquirer.prompt(questions).then(async (answers) => {
-    const url = `https://${encodeURIComponent(
-      answers.username
-    )}:${encodeURIComponent(answers.password)}@${
-      answers.domain
-    }/rest-api/1/0/${encodeURIComponent(
+    const url = `https://${answers.domain}/rest-api/1/0/${encodeURIComponent(
       answers.siteName
     )}/Addon%20Repository/${encodeURIComponent(
       answers.addonName
@@ -67,7 +63,11 @@ const chalk = require('chalk');
       const response = await fetch(url, {
         method: 'POST',
         body: formData,
-        headers: formData.getHeaders(),
+        headers: formData.getHeaders({
+          Authorization: `Basic ${Buffer.from(
+            answers.username + ':' + answers.password
+          ).toString('base64')}`,
+        }),
       });
       const json = await response.json();
 

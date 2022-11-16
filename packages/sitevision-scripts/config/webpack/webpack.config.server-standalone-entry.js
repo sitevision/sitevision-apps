@@ -1,8 +1,8 @@
-const path = require('path');
-const { getJsModuleLoader, getBabelLoader } = require('./webpack.loaders');
-const { getExternals, getServerOptimization } = require('./utils');
+import path from 'path';
+import { getJsModuleLoader, getBabelLoader } from './webpack.loaders.js';
+import { getExternals, getServerOptimization } from './utils.js';
 
-const getServerStandaloneEntryConfig = ({ entry, outputPath }) => ({
+export const getServerStandaloneEntryConfig = ({ entry, outputPath }) => ({
   mode: 'production',
   devtool: undefined,
   entry,
@@ -17,5 +17,3 @@ const getServerStandaloneEntryConfig = ({ entry, outputPath }) => ({
   externals: [getExternals('commonjs')],
   optimization: getServerOptimization(),
 });
-
-module.exports = { getServerStandaloneEntryConfig };

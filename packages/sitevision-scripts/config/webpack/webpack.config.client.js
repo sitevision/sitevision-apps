@@ -1,6 +1,6 @@
-const properties = require('../../util/properties');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {
+import * as properties from '../../util/properties.js';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import {
   getJsModuleLoader,
   getClientBabelLoader,
   getCssLoader,
@@ -8,10 +8,10 @@ const {
   getSvgLoader,
   getJsonLoader,
   getFontLoader,
-} = require('./webpack.loaders');
-const { getExternals } = require('./utils');
+} from './webpack.loaders.js';
+import { getExternals } from './utils.js';
 
-const getClientConfig = ({
+export const getClientConfig = ({
   dev,
   mainEntry,
   outputPath,
@@ -68,5 +68,3 @@ const getClientConfig = ({
     externals: [getExternals('amd', true)],
   };
 };
-
-module.exports = { getClientConfig };

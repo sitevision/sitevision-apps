@@ -1,9 +1,12 @@
-const chalk = require('chalk');
-const path = require('path');
-const fs = require('fs');
-const spawn = require('cross-spawn');
+import chalk from 'chalk';
+import path from 'path';
+import fs from 'fs';
+import spawn from 'cross-spawn';
 
-const create = (appName, packagePath = '@sitevision/sitevision-scripts') => {
+export const create = (
+  appName,
+  packagePath = '@sitevision/sitevision-scripts'
+) => {
   console.log('Creating app with name:', chalk.green(appName), '...');
   const appPath = path.resolve(appName).split(path.sep).join('/');
 
@@ -32,9 +35,10 @@ const getCleanPackagePath = (packagePath) => {
 const initProject = (appName, packagePath, appPath) => {
   return new Promise((resolve, reject) => {
     const cleanPackagePath = getCleanPackagePath(packagePath);
-    const source = `
-      var init = require('${cleanPackagePath}/scripts/init.js');
-      init.apply(null, [{ appName: '${appName}', appPath: '${appPath}'}]);
+    const source = /* javascript */ `
+      import('${cleanPackagePath}/scripts/init.js').then(({ default: init }) => {
+        init.apply(null, [{ appName: '${appName}', appPath: '${appPath}'}]);
+      });
     `;
 
     const child = spawn(
@@ -116,8 +120,4 @@ const createPackageJson = (appName, appPath) => {
     path.join(appPath, 'package.json'),
     JSON.stringify(json, null, 2)
   );
-};
-
-module.exports = {
-  create,
 };

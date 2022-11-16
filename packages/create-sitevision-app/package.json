@@ -1,7 +1,8 @@
 {
   "name": "@sitevision/create-sitevision-app",
-  "version": "2.0.5",
+  "version": "3.0.0-alpha.1",
   "description": "Create Sitevision Web/REST-apps",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/sitevision/sitevision-apps.git",
@@ -15,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^4.1.2",
-    "cross-spawn": "^7.0.1"
+    "chalk": "^5.1.2",
+    "cross-spawn": "^7.0.3"
   }
 }

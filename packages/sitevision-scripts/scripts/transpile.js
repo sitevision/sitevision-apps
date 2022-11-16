@@ -1,8 +1,9 @@
-const path = require('path');
-const spawn = require('cross-spawn');
-const properties = require('../util/properties');
-const chalk = require('chalk');
-const resolveBin = require('resolve-bin');
+import path from 'path';
+import spawn from 'cross-spawn';
+import * as properties from '../util/properties.js';
+import chalk from 'chalk';
+import resolveBin from 'resolve-bin';
+import { getDirname } from '../util/dirname.js';
 
 (function () {
   const child = spawn(
@@ -13,7 +14,12 @@ const resolveBin = require('resolve-bin');
       properties.BUILD_DIR_PATH,
       '--copy-files',
       '--config-file',
-      path.resolve(__dirname, '..', 'config', 'babel-config.json'),
+      path.resolve(
+        getDirname(import.meta.url),
+        '..',
+        'config',
+        'babel-config.json'
+      ),
     ],
     {
       stdio: 'inherit',

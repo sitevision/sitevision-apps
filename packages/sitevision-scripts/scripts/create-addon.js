@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
-const properties = require('../util/properties');
-const chalk = require('chalk');
+import fetch from 'node-fetch';
+import * as properties from '../util/properties.js';
+import chalk from 'chalk';
 
 (async function () {
   const props = properties.getDevProperties();
@@ -8,18 +8,21 @@ const chalk = require('chalk');
     properties.getAppType() === 'rest'
       ? 'headlesscustommodule'
       : 'custommodule';
-  const url = (props.useHTTPForDevDeploy ? `http://` : `https://`) + `${encodeURIComponent(
-    props.username
-  )}:${encodeURIComponent(props.password)}@${
-    props.domain
-  }/rest-api/1/0/${encodeURIComponent(
-    props.siteName
-  )}/Addon%20Repository/${restEndpoint}`;
+  const url =
+    (props.useHTTPForDevDeploy ? `http://` : `https://`) +
+    `${props.domain}/rest-api/1/0/${encodeURIComponent(
+      props.siteName
+    )}/Addon%20Repository/${restEndpoint}`;
 
   try {
     const response = await fetch(url, {
       method: 'post',
       body: JSON.stringify({ name: props.addonName, category: 'Other' }),
+      headers: {
+        Authorization: `Basic ${Buffer.from(
+          props.username + ':' + props.password
+        ).toString('base64')}`,
+      },
     });
     const json = await response.json();
 

@@ -1,11 +1,9 @@
-const process = require('process');
-const path = require('path');
-const fs = require('fs-extra');
-const { getServerConfig } = require('./webpack.config.server');
-const { getClientConfig } = require('./webpack.config.client');
-const {
-  getServerStandaloneEntryConfig,
-} = require('./webpack.config.server-standalone-entry');
+import process from 'process';
+import path from 'path';
+import fs from 'fs-extra';
+import { getServerConfig } from './webpack.config.server.js';
+import { getClientConfig } from './webpack.config.client.js';
+import { getServerStandaloneEntryConfig } from './webpack.config.server-standalone-entry.js';
 
 const getWebAppConfig = ({
   cwd,
@@ -70,7 +68,7 @@ const getRestAppConfig = ({ cwd, outputPath }) => {
   ];
 };
 
-module.exports = ({ restApp, dev, cssPrefix, serverSideOnly }) => {
+export default ({ restApp, dev, cssPrefix, serverSideOnly }) => {
   const cwd = process.cwd();
 
   const outputPath = path.resolve(cwd, 'build');
