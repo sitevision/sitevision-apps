@@ -1,21 +1,21 @@
-const path = require('path');
-const fs = require('fs-extra');
+import path from 'path';
+import fs from 'fs-extra';
 
 const CWD = process.cwd();
-const DEV_PROPERTIES_PATH = path.resolve(CWD, '.dev_properties.json');
+export const DEV_PROPERTIES_PATH = path.resolve(CWD, '.dev_properties.json');
 const MANIFEST_PATH = path.resolve(CWD, 'manifest.json');
 const MANIFEST_LEGACY_PATH = path.resolve(CWD, 'static', 'manifest.json');
 const MANIFEST_LEGACY_2_PATH = path.resolve(CWD, 'src', 'manifest.json');
-const DIST_DIR_PATH = path.resolve(CWD, 'dist');
-const SRC_DIR_PATH = path.resolve(CWD, 'src');
-const STATIC_DIR_PATH = path.resolve(CWD, 'static');
-const BUILD_DIR_PATH = path.resolve(CWD, 'build');
-const PACKAGE_JSON_PATH = path.resolve(CWD, 'package.json');
+export const DIST_DIR_PATH = path.resolve(CWD, 'dist');
+export const SRC_DIR_PATH = path.resolve(CWD, 'src');
+export const STATIC_DIR_PATH = path.resolve(CWD, 'static');
+export const BUILD_DIR_PATH = path.resolve(CWD, 'build');
+export const PACKAGE_JSON_PATH = path.resolve(CWD, 'package.json');
 
 const requireIfExists = (...modules) => {
   for (let module of modules) {
     try {
-      return require(module);
+      return getFileAsJson(module);
     } catch (error) {
       // pass and try next module
     }
@@ -23,16 +23,16 @@ const requireIfExists = (...modules) => {
   throw 'None of the provided modules exist';
 };
 
-const getManifest = () =>
+export const getManifest = () =>
   requireIfExists(MANIFEST_PATH, MANIFEST_LEGACY_PATH, MANIFEST_LEGACY_2_PATH);
 
-const getAppType = () => {
+export const getAppType = () => {
   const { type } = getManifest();
   return type.toLowerCase().startsWith('web') ? 'web' : 'rest';
 };
 
-const getTranspile = () => {
-  const { sitevision_scripts_properties } = require(PACKAGE_JSON_PATH);
+export const getTranspile = () => {
+  const { sitevision_scripts_properties } = getFileAsJson(PACKAGE_JSON_PATH);
   if (
     sitevision_scripts_properties &&
     typeof sitevision_scripts_properties.transpile === 'boolean'
@@ -40,7 +40,7 @@ const getTranspile = () => {
     return sitevision_scripts_properties.transpile;
   }
 
-  const { transpile } = require(DEV_PROPERTIES_PATH);
+  const { transpile } = getFileAsJson(DEV_PROPERTIES_PATH);
   return transpile;
 };
 
@@ -49,16 +49,5 @@ const getFileAsJson = (file) => {
   return JSON.parse(fileContent);
 };
 
-module.exports = {
-  DEV_PROPERTIES_PATH,
-  DIST_DIR_PATH,
-  SRC_DIR_PATH,
-  STATIC_DIR_PATH,
-  BUILD_DIR_PATH,
-  PACKAGE_JSON_PATH,
-  getManifest,
-  getDevProperties: () => require(DEV_PROPERTIES_PATH),
-  getPackageJSON: () => getFileAsJson(PACKAGE_JSON_PATH),
-  getAppType,
-  getTranspile,
-};
+export const getDevProperties = () => getFileAsJson(DEV_PROPERTIES_PATH);
+export const getPackageJson = () => getFileAsJson(PACKAGE_JSON_PATH);

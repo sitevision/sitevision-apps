@@ -1,16 +1,20 @@
-const fs = require('fs-extra');
-const path = require('path');
-const inquirer = require('inquirer');
-const chalk = require('chalk');
-const properties = require('../util/properties');
-const templatifyFile = require('../util/templatify').templatifyFile;
-const walkFiles = require('../util/walkFiles').walkFiles;
-const { questions } = require('../config/setup-questions');
-const spawn = require('cross-spawn');
+import fs from 'fs-extra';
+import path from 'path';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import * as properties from '../util/properties.js';
+import { templatifyFile } from '../util/templatify.js';
+import { walkFiles } from '../util/walkFiles.js';
+import { questions } from '../config/setup-questions.js';
+import spawn from 'cross-spawn';
+import { getDirname } from '../util/dirname.js';
 
 const copyTemplateFiles = (type, options) => {
   console.log('Copying template files');
-  fs.copySync(path.resolve(__dirname, '..', 'template', type), '.');
+  fs.copySync(
+    path.resolve(getDirname(import.meta.url), '..', 'template', type),
+    '.'
+  );
 
   // Can be used to replace stuff in the templates,
   // one option would be to gather info for the manifest and populate it
@@ -30,7 +34,7 @@ const writePackageJson = (content) => {
 };
 
 const getCommonPackageProperties = () => {
-  const appPackage = properties.getPackageJSON();
+  const appPackage = properties.getPackageJson();
   appPackage.scripts = {
     build: 'sitevision-scripts build',
     'create-addon': 'sitevision-scripts create-addon',
@@ -108,7 +112,7 @@ const simplifyVersionNumber = (rawVersion) =>
     .splice(1, 3)
     .join('.');
 
-module.exports = async ({ appPath, appName }) => {
+export default async ({ appPath, appName }) => {
   console.clear();
 
   inquirer
@@ -144,7 +148,7 @@ module.exports = async ({ appPath, appName }) => {
             updatePackageJsonReact();
             installWebAppDependencies(appPath);
             templateOptions.reactVersion = simplifyVersionNumber(
-              properties.getPackageJSON().dependencies.react
+              properties.getPackageJson().dependencies.react
             );
             break;
           }

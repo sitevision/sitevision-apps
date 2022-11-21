@@ -1,8 +1,8 @@
-const fs = require('fs');
-const FormData = require('form-data');
-const fetch = require('node-fetch');
-const properties = require('../util/properties');
-const chalk = require('chalk');
+import fs from 'fs';
+import FormData from 'form-data';
+import fetch from 'node-fetch';
+import * as properties from '../util/properties.js';
+import chalk from 'chalk';
 
 (async function () {
   const manifest = properties.getManifest();
@@ -20,11 +20,13 @@ const chalk = require('chalk');
   const props = properties.getDevProperties();
   const restEndpoint =
     properties.getAppType() === 'rest' ? 'restAppImport' : 'webAppImport';
-  let url = (props.useHTTPForDevDeploy ? `http://` : `https://`) + `${encodeURIComponent(props.username)}:${encodeURIComponent(
-    props.password
-  )}@${props.domain}/rest-api/1/0/${encodeURIComponent(
-    props.siteName
-  )}/Addon%20Repository/${encodeURIComponent(props.addonName)}/${restEndpoint}`;
+  let url =
+    (props.useHTTPForDevDeploy ? `http://` : `https://`) +
+    `${props.domain}/rest-api/1/0/${encodeURIComponent(
+      props.siteName
+    )}/Addon%20Repository/${encodeURIComponent(
+      props.addonName
+    )}/${restEndpoint}`;
 
   if (process.argv[2] === 'force-deploy' || process.argv[2] === 'force') {
     url += '?force=true';
@@ -36,7 +38,11 @@ const chalk = require('chalk');
     const response = await fetch(url, {
       method: 'POST',
       body: formData,
-      headers: formData.getHeaders(),
+      headers: formData.getHeaders({
+        Authorization: `Basic ${Buffer.from(
+          props.username + ':' + props.password
+        ).toString('base64')}`,
+      }),
     });
     const json = await response.json();
 

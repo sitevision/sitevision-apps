@@ -1,19 +1,19 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
-const { getExternals, getServerOptimization } = require('./utils');
-const babel = require('@babel/core');
-const properties = require('../../util/properties');
-const {
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import path from 'path';
+import { getExternals, getServerOptimization } from './utils.js';
+import babel from '@babel/core';
+import * as properties from '../../util/properties.js';
+import {
   getJsModuleLoader,
   getBabelLoader,
   getSvgLoader,
   getImageLoader,
   getCssLoader,
   getFontLoader,
-} = require('./webpack.loaders');
+} from './webpack.loaders.js';
 
-const getServerConfig = ({
+export const getServerConfig = ({
   serverSideOnly,
   cwd,
   indexEntry,
@@ -90,8 +90,4 @@ const getServerConfig = ({
     externals: [getExternals('commonjs')],
     optimization: getServerOptimization(),
   };
-};
-
-module.exports = {
-  getServerConfig,
 };

@@ -1,21 +1,24 @@
-const path = require('path');
-const properties = require('../util/properties');
-const webpack = require('webpack');
-const { copyChunksToResources } = require('./util/copychunks');
+import path from 'path';
+import * as properties from '../util/properties.js';
+import webpack from 'webpack';
+import { copyChunksToResources } from './util/copychunks.js';
+import { getDirname } from '../util/dirname.js';
 
-(function () {
+(async function () {
   const manifest = properties.getManifest();
   if (!manifest.bundled) {
     throw Error('This app cannot be built with this script');
   }
 
-  const webpackConfig = require(path.join(
-    __dirname,
-    '..',
-    'config',
-    'webpack',
-    'webpack.config.js'
-  ));
+  const { default: webpackConfig } = await import(
+    path.join(
+      getDirname(import.meta.url),
+      '..',
+      'config',
+      'webpack',
+      'webpack.config.js'
+    )
+  );
 
   webpack(
     webpackConfig({

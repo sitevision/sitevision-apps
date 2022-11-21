@@ -1,9 +1,11 @@
-const fs = require('fs');
-const jest = require('jest');
-const path = require('path');
-const execSync = require('child_process').execSync;
+import fs from 'fs';
+import jest from 'jest';
+import path from 'path';
+import { execSync } from 'child_process';
+import { getDirname } from '../util/dirname.js';
 
 const setupTestFile = path.resolve(process.cwd(), 'src', 'setupTests.js');
+const __dirname = getDirname(import.meta.url);
 
 const config = {
   roots: ['<rootDir>/src'],
