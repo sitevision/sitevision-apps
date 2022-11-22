@@ -16,6 +16,10 @@ The command will create a directory with a basic project structure (you will be 
 
 The project will depend on [@sitevision/sitevision-scripts](../sitevision-scripts), which gives the project access to utility scripts for building and deployment.
 
+### Version 3.0.0
+
+You might run in to issues creating a new app if you have an old version of `@sitevision/create-sitevision-app` installed globally. To fix this, run: `npx @sitevision/create-sitevision-app@3 your-app` to update to the latest version.
+
 ## Utility scripts
 
 ### `npm run create-addon`
