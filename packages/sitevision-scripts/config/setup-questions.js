@@ -15,7 +15,7 @@ export const questions = [
     message: 'Do you want to use TypeScript?',
     type: 'confirm',
     default: false,
-    when: (answers) => /web-react|rest-bundled/.type(answers.type),
+    when: (answers) => /web-react|rest-bundled/.test(answers.type),
   },
   {
     name: 'transpile',
