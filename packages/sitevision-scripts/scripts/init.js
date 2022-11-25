@@ -126,6 +126,7 @@ export default async ({ appPath, appName }) => {
         addonName,
         username,
         password,
+        typescript,
       }) => {
         console.clear();
 
@@ -137,6 +138,8 @@ export default async ({ appPath, appName }) => {
             2
           )
         );
+
+        type = typescript ? `${type}-typescript` : type;
 
         console.log(`Initializing Sitevision ${type} app`, appName);
         const templateOptions = {

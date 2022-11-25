@@ -4,11 +4,18 @@ export const questions = [
     message: 'What type of app do you want to create?',
     type: 'list',
     choices: [
-      { name: 'WebApp (React) (Requires 9.0)', value: 'web-react' },
+      { name: 'WebApp', value: 'web-react' },
+      { name: 'RESTApp', value: 'rest-bundled' },
       { name: 'WebApp (Legacy)', value: 'web-legacy' },
-      { name: 'RESTApp (Bundled) (Requires 9.0)', value: 'rest-bundled' },
       { name: 'RESTApp (Legacy)', value: 'rest-legacy' },
     ],
+  },
+  {
+    name: 'typescript',
+    message: 'Do you want to use TypeScript?',
+    type: 'confirm',
+    default: false,
+    when: (answers) => /web-react|rest-bundled/.type(answers.type),
   },
   {
     name: 'transpile',

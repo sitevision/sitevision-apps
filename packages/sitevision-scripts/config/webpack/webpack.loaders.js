@@ -4,6 +4,13 @@ import * as properties from '../../util/properties.js';
 
 const packageJson = properties.getPackageJson();
 
+export const getTypescriptLoader = () => ({
+  test: /\.tsx?$/,
+  use: {
+    loader: 'ts-loader',
+  },
+});
+
 export const getBabelLoader = () => ({
   test: /\.jsx?$/,
   use: {
