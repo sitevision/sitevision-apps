@@ -147,7 +147,8 @@ export default async ({ appPath, appName }) => {
         };
 
         switch (type) {
-          case 'web-react': {
+          case 'web-react':
+          case 'web-react-typescript': {
             updatePackageJsonReact();
             installWebAppDependencies(appPath);
             templateOptions.reactVersion = simplifyVersionNumber(
@@ -155,7 +156,8 @@ export default async ({ appPath, appName }) => {
             );
             break;
           }
-          case 'rest-bundled': {
+          case 'rest-bundled':
+          case 'rest-bundled-typescript': {
             updatePackageJsonBundledRest();
             installRestAppDependencies(appPath);
             break;
