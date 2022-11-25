@@ -15,6 +15,7 @@ interface IResponse {
   sendFile(file: any): void;
   status(status: number): Response;
   agnosticRender(html: string, initialData: any);
+  json(data: any): void;
   /**
    * This method will render a component with data
    */
@@ -61,7 +62,12 @@ export function put(
   route: string,
   callback: (req: IRequest, res: IResponse) => void
 ): void;
-// export function delete(route: string, callback: (req: Request, res: Response) => void):void;
+declare function _delete(
+  route: string,
+  callback: (req: Request, res: Response) => void
+): void;
+
+export { _delete as delete };
 
 /**
  * Note! Server side only
@@ -88,7 +94,18 @@ export function off(event: string, callback: () => void, context: any): void;
 export function navigate(url: string, options: any): void;
 
 declare namespace router {
-  export { get, post, put, use, getUrl, getStandaloneUrl, on, off, navigate };
+  export {
+    get,
+    post,
+    put,
+    _delete as delete,
+    use,
+    getUrl,
+    getStandaloneUrl,
+    on,
+    off,
+    navigate,
+  };
 }
 
 export default router;
