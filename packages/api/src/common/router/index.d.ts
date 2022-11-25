@@ -64,7 +64,7 @@ export function put(
 ): void;
 declare function _delete(
   route: string,
-  callback: (req: Request, res: Response) => void
+  callback: (req: IRequest, res: IResponse) => void
 ): void;
 
 export { _delete as delete };
