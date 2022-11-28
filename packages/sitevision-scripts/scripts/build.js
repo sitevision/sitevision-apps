@@ -1,8 +1,6 @@
-import path from 'path';
 import * as properties from '../util/properties.js';
 import webpack from 'webpack';
 import { copyChunksToResources } from './util/copychunks.js';
-import { getDirname } from '../util/dirname.js';
 
 (async function () {
   const manifest = properties.getManifest();
@@ -11,13 +9,7 @@ import { getDirname } from '../util/dirname.js';
   }
 
   const { default: webpackConfig } = await import(
-    path.join(
-      getDirname(import.meta.url),
-      '..',
-      'config',
-      'webpack',
-      'webpack.config.js'
-    )
+    '../config/webpack/webpack.config.js'
   );
 
   webpack(
