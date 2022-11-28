@@ -1,11 +1,14 @@
+import inquirer from 'inquirer';
+
 export const questions = [
   {
     name: 'type',
     message: 'What type of app do you want to create?',
     type: 'list',
     choices: [
-      { name: 'WebApp', value: 'web-react' },
+      { name: 'WebApp (React)', value: 'web-react' },
       { name: 'RESTApp', value: 'rest-bundled' },
+      new inquirer.Separator(),
       { name: 'WebApp (Legacy)', value: 'web-legacy' },
       { name: 'RESTApp (Legacy)', value: 'rest-legacy' },
     ],
