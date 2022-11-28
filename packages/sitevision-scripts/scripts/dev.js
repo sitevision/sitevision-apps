@@ -23,7 +23,7 @@ const SPAWN_PROPERTIES = {
   const manifest = properties.getManifest();
   if (manifest.bundled) {
     const { default: webpackConfig } = await import(
-      path.join(__dirname, '..', 'config', 'webpack', 'webpack.config.js')
+      '../config/webpack/webpack.config.js'
     );
 
     webpack(
