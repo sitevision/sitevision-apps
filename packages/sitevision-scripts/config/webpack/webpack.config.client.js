@@ -8,6 +8,7 @@ import {
   getSvgLoader,
   getJsonLoader,
   getFontLoader,
+  getTypescriptLoader,
 } from './webpack.loaders.js';
 import { getExternals } from './utils.js';
 
@@ -46,6 +47,9 @@ export const getClientConfig = ({
       },
       chunkFilename: dev ? 'chunk-[name].js' : 'chunk-[name]-[chunkhash:5].js',
     },
+    resolve: {
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.wasm'],
+    },
     plugins: [
       new MiniCssExtractPlugin({
         filename: './css/[name].css',
@@ -57,6 +61,7 @@ export const getClientConfig = ({
     module: {
       rules: [
         getJsModuleLoader(),
+        getTypescriptLoader(),
         getClientBabelLoader(),
         getCssLoader(cssPrefix, !serverSideOnly),
         getImageLoader(publicPath),

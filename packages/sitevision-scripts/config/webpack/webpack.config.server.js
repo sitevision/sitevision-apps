@@ -11,6 +11,7 @@ import {
   getImageLoader,
   getCssLoader,
   getFontLoader,
+  getTypescriptLoader,
 } from './webpack.loaders.js';
 
 export const getServerConfig = ({
@@ -33,6 +34,9 @@ export const getServerConfig = ({
       path: outputPath,
       filename: 'index.js',
       iife: true,
+    },
+    resolve: {
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.wasm'],
     },
     plugins: [
       new CopyWebpackPlugin({
@@ -80,6 +84,7 @@ export const getServerConfig = ({
     module: {
       rules: [
         getJsModuleLoader(),
+        getTypescriptLoader(),
         getBabelLoader(),
         getCssLoader(cssPrefix, serverSideOnly),
         getImageLoader(publicPath),

@@ -42,8 +42,8 @@ const SPAWN_PROPERTIES = {
           return;
         }
 
-        copyChunksToResources(properties.BUILD_DIR_PATH);
         console.log(stats.toString({ colors: true }));
+        copyChunksToResources(properties.BUILD_DIR_PATH);
 
         spawn.sync('node', [SITEVISION_SCRIPTS_PATH, 'zip'], SPAWN_PROPERTIES);
         spawn.sync(

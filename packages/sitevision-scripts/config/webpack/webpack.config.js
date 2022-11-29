@@ -5,6 +5,22 @@ import { getServerConfig } from './webpack.config.server.js';
 import { getClientConfig } from './webpack.config.client.js';
 import { getServerStandaloneEntryConfig } from './webpack.config.server-standalone-entry.js';
 
+const getEntry = (name, silent) => {
+  let entry;
+  ['.js', '.ts', '.tsx', '.jsx'].find((ext) => {
+    entry = path.join(process.cwd(), 'src', `${name}${ext}`);
+    if (fs.existsSync(entry)) {
+      return true;
+    }
+  });
+
+  if (!entry && !silent) {
+    throw Error(`Missing ${name}.js/.jsx/.ts/.tsx`);
+  }
+
+  return entry;
+};
+
 const getWebAppConfig = ({
   cwd,
   dev,
@@ -12,16 +28,8 @@ const getWebAppConfig = ({
   serverSideOnly,
   outputPath,
 }) => {
-  const mainEntry = path.resolve(cwd, 'src', 'main.js');
-  const indexEntry = path.resolve(cwd, 'src', 'index.js');
-
-  if (!fs.existsSync(indexEntry)) {
-    throw Error('Missing index.js');
-  }
-
-  if (!fs.existsSync(mainEntry)) {
-    throw Error('Missing main.js');
-  }
+  const mainEntry = getEntry('main');
+  const indexEntry = getEntry('index');
 
   const config = [
     getServerConfig({
@@ -35,14 +43,14 @@ const getWebAppConfig = ({
     getClientConfig({ mainEntry, outputPath, dev, cssPrefix, serverSideOnly }),
   ];
 
-  const hooksEntry = path.resolve(cwd, 'src', 'hooks.js');
+  const hooksEntry = getEntry('hooks', true);
   if (fs.existsSync(hooksEntry)) {
     config.push(
       getServerStandaloneEntryConfig({ entry: hooksEntry, outputPath })
     );
   }
 
-  const headlessEntry = path.resolve(cwd, 'src', 'headless.js');
+  const headlessEntry = getEntry('headless', true);
   if (fs.existsSync(headlessEntry)) {
     config.push(
       getServerStandaloneEntryConfig({ entry: headlessEntry, outputPath })
@@ -53,11 +61,7 @@ const getWebAppConfig = ({
 };
 
 const getRestAppConfig = ({ cwd, outputPath }) => {
-  const indexEntry = path.resolve(cwd, 'src', 'index.js');
-
-  if (!fs.existsSync(indexEntry)) {
-    throw Error('Missing index.js');
-  }
+  const indexEntry = getEntry('index');
 
   return [
     getServerConfig({

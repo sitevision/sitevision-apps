@@ -1,14 +1,24 @@
+import inquirer from 'inquirer';
+
 export const questions = [
   {
     name: 'type',
     message: 'What type of app do you want to create?',
     type: 'list',
     choices: [
-      { name: 'WebApp (React) (Requires 9.0)', value: 'web-react' },
+      { name: 'WebApp (React)', value: 'web-react' },
+      { name: 'RESTApp', value: 'rest-bundled' },
+      new inquirer.Separator(),
       { name: 'WebApp (Legacy)', value: 'web-legacy' },
-      { name: 'RESTApp (Bundled) (Requires 9.0)', value: 'rest-bundled' },
       { name: 'RESTApp (Legacy)', value: 'rest-legacy' },
     ],
+  },
+  {
+    name: 'typescript',
+    message: 'Do you want to use TypeScript?',
+    type: 'confirm',
+    default: false,
+    when: (answers) => /web-react|rest-bundled/.test(answers.type),
   },
   {
     name: 'transpile',

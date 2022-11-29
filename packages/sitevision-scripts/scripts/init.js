@@ -126,6 +126,7 @@ export default async ({ appPath, appName }) => {
         addonName,
         username,
         password,
+        typescript,
       }) => {
         console.clear();
 
@@ -138,13 +139,16 @@ export default async ({ appPath, appName }) => {
           )
         );
 
+        type = typescript ? `${type}-typescript` : type;
+
         console.log(`Initializing Sitevision ${type} app`, appName);
         const templateOptions = {
           appName,
         };
 
         switch (type) {
-          case 'web-react': {
+          case 'web-react':
+          case 'web-react-typescript': {
             updatePackageJsonReact();
             installWebAppDependencies(appPath);
             templateOptions.reactVersion = simplifyVersionNumber(
@@ -152,7 +156,8 @@ export default async ({ appPath, appName }) => {
             );
             break;
           }
-          case 'rest-bundled': {
+          case 'rest-bundled':
+          case 'rest-bundled-typescript': {
             updatePackageJsonBundledRest();
             installRestAppDependencies(appPath);
             break;

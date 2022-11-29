@@ -24,8 +24,8 @@ import { copyChunksToResources } from './util/copychunks.js';
       return;
     }
 
-    copyChunksToResources(properties.BUILD_DIR_PATH);
-
     console.log(stats.toString({ colors: true }));
+
+    copyChunksToResources(properties.BUILD_DIR_PATH);
   });
 })();
