@@ -6,5 +6,6 @@ export default {
   getCurrentPortlet() {},
   getCurrentUser() {},
   getCurrentUserIdentity() {},
+  getNonce() {},
   getPortletNamespace() {},
 };
