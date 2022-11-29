@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.0.1...@sitevision/sitevision-scripts@3.1.0) (2022-11-29)
+
+### Bug Fixes
+
+- **sitevision-scripts:** Add missing dependencies ([42ff1f7](https://github.com/sitevision/sitevision-apps/commit/42ff1f78e9e3ccc6bec8bfbab3ed07e2e62d6146))
+- **sitevision-scripts:** fixed typo ([09fca9f](https://github.com/sitevision/sitevision-apps/commit/09fca9ffc6061882dd60fc9f523a23f50c947765))
+
+### Features
+
+- **sitevision-scripts:** Typescript support ([5641292](https://github.com/sitevision/sitevision-apps/commit/5641292cff62cb393088d390d95bab277f105907))
+
 ## [3.0.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.0.0...@sitevision/sitevision-scripts@3.0.1) (2022-11-28)
 
 ### Bug Fixes
