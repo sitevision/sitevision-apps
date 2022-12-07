@@ -1,0 +1,15 @@
+export default {
+  getExtendedDismaxParserBuilder: () => {},
+  getFilterBuilder: () => {},
+  getHighlightBuilder: () => {},
+  getIndexUtil: () => {},
+  getIndexingUtil: () => {},
+  getSearcherBuilder: () => {},
+  getSortBuilder: () => {},
+  getSearchSortField: () => {},
+  getSearchUtil: () => {},
+  getSpellCheckBuilder: () => {},
+  getStandardParserBuilder: () => {},
+  getQueryStringUtil: () => {},
+  getMonitorBuilder: () => {},
+};

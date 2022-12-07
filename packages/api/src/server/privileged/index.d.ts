@@ -3,14 +3,14 @@
  *
  * @since 7.0
  */
-export function isConfigured();
+export function isConfigured(): boolean;
 
 /**
  * Gets the user the privileged action will run as. Will be null if isConfigured is false
  *
  *  @since 7.0
  */
-export function getPrivilegedActionUser();
+export function getPrivilegedActionUser(): Node | null;
 
 /**
  * Executes a callback function as the privileged action user. Callback will be executed as current user if isConfigured is false

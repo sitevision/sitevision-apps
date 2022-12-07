@@ -1,6 +1,6 @@
-import Node from '../../builtins/Node';
+import Node from '../../hidden/javax/jcr/Node';
 
-export function get(key: string): any;
+export function get(key: string): unknown;
 export function getNode(key: string): Node;
 export function getArray(key: string): Node[];
 

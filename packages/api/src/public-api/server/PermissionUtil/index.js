@@ -1,0 +1,17 @@
+export default {
+  hasAnonymousReadPermission: () => {},
+  hasReadPermission: () => {},
+  hasWritePermission: () => {},
+  hasEffectiveWritePermission: () => {},
+  hasPublishPermission: () => {},
+  hasEffectivePublishPermission: () => {},
+  hasWriteSubscriptionPermission: () => {},
+  hasDeletePermission: () => {},
+  hasEffectiveDeletePermission: () => {},
+  hasCreatePagePermission: () => {},
+  hasCreateArticlePermission: () => {},
+  hasCreateArchivePermission: () => {},
+  hasCreateFolderPermission: () => {},
+  hasPermission: () => {},
+  hasPermissions: () => {},
+};

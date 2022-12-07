@@ -1,4 +1,9 @@
-import Node from '../../builtins/Node';
+import Node from '../../hidden/javax/jcr/Node';
+
+interface AccessTokenStatus {
+  isValid: boolean;
+  scopes: string[];
+}
 
 export function createLoginLink(
   oauth2Config: Node,
@@ -6,7 +11,7 @@ export function createLoginLink(
   scopes: string[]
 ): string;
 
-export function getAccessTokenStatus(oauth2Config: Node): object;
+export function getAccessTokenStatus(oauth2Config: Node): AccessTokenStatus;
 
 declare namespace oauth2 {
   export { createLoginLink, getAccessTokenStatus };

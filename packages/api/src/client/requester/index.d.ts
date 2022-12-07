@@ -1,13 +1,13 @@
-interface IRequesterOptions {
+interface RequesterOptions extends Record<string, any> {
   url: string;
-  data: any;
-  fileUpload: boolean;
+  data?: any;
+  fileUpload?: boolean;
 }
 
-export function doGet(options: IRequesterOptions): Promise<any>;
-export function doPut(options: IRequesterOptions): Promise<any>;
-export function doPost(options: IRequesterOptions): Promise<any>;
-export function doDelete(options: IRequesterOptions): Promise<any>;
+export function doGet(options: RequesterOptions): Promise<unknown>;
+export function doPut(options: RequesterOptions): Promise<unknown>;
+export function doPost(options: RequesterOptions): Promise<unknown>;
+export function doDelete(options: RequesterOptions): Promise<unknown>;
 
 declare namespace requester {
   export { doGet, doPut, doPost, doDelete };

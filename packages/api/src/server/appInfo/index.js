@@ -1,0 +1,31 @@
+export default {
+  appVersion: '0.0.2',
+  maxUploadSizeInMB: 64,
+  appHelpURL: 'https://developer.sitevision.se',
+  addon: {
+    'jcr:uuid': '180.7d9847516716d6dd931',
+    'jcr:primaryType': 'sv:customModule',
+    displayName: 'webapp',
+  },
+  appName: 'WebApp information',
+  appDescription: 'A simple WebApp',
+  certificate: {
+    signee: 'SiteVision',
+    signed: true,
+  },
+  active: false,
+  runtime: {
+    sitevisionVersion: '7.0',
+    scriptEngineLanguageVersion: 200,
+    scriptEngineVersion: 'Rhino 1.7.12 2020 01 13',
+    serverName: 'SiteVision Server',
+    scriptEngineName: 'Mozilla Rhino',
+  },
+  'jcr:uuid': '360.3af39f1675e3ddd2d3',
+  requirePrivileged: false,
+  appIdentifier: 'myWebApp',
+  appAuthor: 'SiteVision AB',
+  appType: 'WebApp',
+  appImportDate: 1543475296847,
+  'jcr:primaryType': 'sv:webApp',
+};

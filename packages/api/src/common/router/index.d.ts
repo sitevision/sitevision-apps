@@ -1,29 +1,49 @@
-export interface IRequest {
+import Node from '../../hidden/javax/jcr/Node';
+
+export interface Cookie {
+  name: string;
+  value: string;
+  httpOnly? = false;
+  secure? = false;
+  maxAge? = -1;
+  sameSite?: 'Strict' | 'Lax' | 'None' | undefined;
+}
+
+export interface Request {
   invalidateSession(): void;
-  header(headerName: string): void;
-  file(fileParameterName: string): void;
+  header(headerName: string): string | null;
+  file(fileParameterName: string): Node;
+  params: Record<string, string | number>;
+  cookies: Record<string, string>;
+  xhr: boolean;
+  session: any;
+  hostname: string;
+  protocol: string;
+  secure: boolean;
+  method: string;
+  path: string;
   /**
    * Can be populated in a hooks context and read from a render context
    */
-  context: any;
+  context: unknown | null;
 }
 
-interface IResponse {
+interface Response {
+  agnosticRender(html: string, initialData: unknown);
+  send(content: string): void;
+  json(data: unknown): void;
   set(name: string, value: string): Response;
   type(type: string): Response;
-  send(content: string): void;
-  sendFile(file: any): void;
+  sendFile(file: Node): void;
   status(status: number): Response;
-  agnosticRender(html: string, initialData: any);
-  json(data: any): void;
+  redirect(path: string, query?: string, status?: number): void;
+  cookie(cookie: Cookie): void;
+  clearCookie(name: string, path?: string): void;
+
   /**
    * This method will render a component with data
    */
-  render(route: string, data: any): void;
-  redirect(path: string, query: string, status: number): void;
-  cookie(cookie: any): void;
-  clearCookie(name: string, path: string): void;
-  sendError(errorCode: number, message: string): void;
+  render(route: string, data: unknown): void;
 }
 
 /**
@@ -36,7 +56,7 @@ interface IResponse {
  */
 export function get(
   route: string,
-  callback: (req: IRequest, res: IResponse) => void
+  callback: (req: Request, res: Response) => void
 ): void;
 /**
  * This method is triggered by a post request to a given route.
@@ -48,7 +68,7 @@ export function get(
  */
 export function post(
   route: string,
-  callback: (req: IRequest, res: IResponse) => void
+  callback: (req: Request, res: Response) => void
 ): void;
 /**
  * This method is triggered by a put request to a given route.
@@ -60,11 +80,11 @@ export function post(
  */
 export function put(
   route: string,
-  callback: (req: IRequest, res: IResponse) => void
+  callback: (req: Request, res: Response) => void
 ): void;
 declare function _delete(
   route: string,
-  callback: (req: IRequest, res: IResponse) => void
+  callback: (req: Request, res: Response) => void
 ): void;
 
 export { _delete as delete };
@@ -74,10 +94,12 @@ export { _delete as delete };
  *
  * @param callback The callback to trigger
  */
-export function use(callback: () => void): void;
+export function use(
+  callback: (req: Request, res: Response, next: Function) => void
+): void;
 
-export function getUrl(url: string): string;
-export function getStandaloneUrl(url: string): string;
+export function getUrl(path: string): string;
+export function getStandaloneUrl(path: string): string;
 
 /**
  * Note! Client side only

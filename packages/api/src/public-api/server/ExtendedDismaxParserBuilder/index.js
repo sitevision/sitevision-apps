@@ -1,0 +1,15 @@
+export default {
+  addQueryField: () => {},
+  clearQueryFields: () => {},
+  setTieBreaker: () => {},
+  setUserFields: () => {},
+  setMinimumShouldMatch: () => {},
+  addPhraseField: () => {},
+  clearPhraseFields: () => {},
+  setBoostQuery: () => {},
+  addAdditiveBoostFunction: () => {},
+  clearAdditiveBoostFunctions: () => {},
+  addMultiplicativeBoostFunction: () => {},
+  clearMultiplicativeBoostFunctions: () => {},
+  build: () => {},
+};

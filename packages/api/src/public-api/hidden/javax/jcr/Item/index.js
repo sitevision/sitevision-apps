@@ -1,0 +1,16 @@
+export default {
+  getPath: () => {},
+  getName: () => {},
+  getAncestor: () => {},
+  getParent: () => {},
+  getDepth: () => {},
+  getSession: () => {},
+  isNode: () => {},
+  isNew: () => {},
+  isModified: () => {},
+  isSame: () => {},
+  accept: () => {},
+  save: () => {},
+  refresh: () => {},
+  remove: () => {},
+};

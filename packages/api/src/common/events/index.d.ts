@@ -4,7 +4,10 @@
  * @param eventName The name of the event
  * @param callback The callback to trigger for the given event
  */
-export function on(eventName: string, callback: (options: any) => void): void;
+export function on(
+  eventName: string,
+  callback: (options: unknown) => void
+): void;
 /**
  * Emit a server side event
  *
@@ -13,7 +16,7 @@ export function on(eventName: string, callback: (options: any) => void): void;
  * @param eventName The name of the event to emit
  * @param options The options for the event
  */
-export function emit(eventName: string, options: any): void;
+export function emit(eventName: string, options: unknown): void;
 /**
  * Trigger a client side event
  *
@@ -22,7 +25,7 @@ export function emit(eventName: string, options: any): void;
  * @param eventName The name of the event to trigger
  * @param options The options for the event
  */
-export function trigger(eventName: string, options: any): void;
+export function trigger(eventName: string, options: unknown): void;
 
 declare namespace events {
   export { on, emit, trigger };

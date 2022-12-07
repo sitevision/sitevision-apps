@@ -1,11 +1,27 @@
+interface OrderByOptions {
+  field: string;
+  order: 'ASC' | 'DESC';
+}
+
+interface FindOptions {
+  count?: number;
+  skip?: number;
+  orderBy?: OrderByOptions | OrderByOptions[];
+}
+
 interface CollectionDataStore {
   add(data: any): void;
   addAll(data: any[]): void;
-  get(dsid: string): any;
+  get(dsid: string): unknown;
   set(dsid: string, data: any): void;
   remove(dsid: string): void;
   removeAll(): void;
-  find(query: string, count: number, skip: number): SearchResult;
+
+  find(query: string, options?: FindOptions): SearchResult;
+  /**
+   * @deprecated
+   */
+  find(query: string, count?: number, skip?: number): SearchResult;
 
   /**
    * Performs instant indexing (blocking) of a collection data store post.
@@ -40,7 +56,7 @@ interface KeyValueDataStore {
    * @since 5.2
    * @param key A key to retrieve data from
    */
-  get(key: string): any;
+  get(key: string): unknown;
 
   /**
    * Removes data associated with a key.
@@ -53,11 +69,15 @@ interface KeyValueDataStore {
 }
 
 interface SearchResult {
-  toArray(): any[];
-  each(callback: (err: DataStoreError, data: any) => void): void;
+  toArray(): unknown[];
+  each(
+    callback: (err: DataStoreError | undefined, data: unknown) => void
+  ): void;
   hasNext(): boolean;
-  next(): any;
-  length(callback: (err: DataStoreError, length: number) => void): void;
+  next(): unknown;
+  length(
+    callback: (err: DataStoreError | undefined, length: number) => void
+  ): void;
 }
 
 interface DataStoreError {
