@@ -1,5 +1,5 @@
-import Monitor from "../../hidden/senselogic/sitevision/api/search/searcher/component/Monitor";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Monitor } from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Sets the query logging mode on or off.

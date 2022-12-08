@@ -1,5 +1,5 @@
-import Parser from "../../hidden/senselogic/sitevision/api/search/searcher/component/Parser";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Parser } from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Adds a query field.

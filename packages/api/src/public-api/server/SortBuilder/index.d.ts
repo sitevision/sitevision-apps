@@ -1,5 +1,5 @@
-import Sort from "../../hidden/senselogic/sitevision/api/search/searcher/component/Sort";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Sort } from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Adds a sort field.

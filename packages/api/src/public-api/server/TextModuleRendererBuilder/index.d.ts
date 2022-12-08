@@ -1,6 +1,6 @@
-import Node from "../../hidden/javax/jcr/Node";
-import TextModuleRenderer from "../../hidden/senselogic/sitevision/api/render/TextModuleRenderer";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { TextModuleRenderer } from "../../types/senselogic/sitevision/api/render/TextModuleRenderer";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Sets the page of this builder.

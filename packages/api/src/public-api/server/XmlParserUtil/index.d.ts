@@ -1,6 +1,6 @@
-import XmlElementHandler from "../../hidden/senselogic/sitevision/api/xml/XmlElementHandler";
+import type { XmlElementHandler } from "../../types/senselogic/sitevision/api/xml/XmlElementHandler";
 
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Parse a XML string.

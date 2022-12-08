@@ -1,4 +1,4 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * <p>Extracts the user specific <code>PortletPreferences</code> for the specified portlet.

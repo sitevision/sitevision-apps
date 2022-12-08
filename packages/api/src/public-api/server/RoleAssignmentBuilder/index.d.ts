@@ -1,6 +1,6 @@
-import Node from "../../hidden/javax/jcr/Node";
-import RoleAssignment from "../../hidden/senselogic/sitevision/api/security/RoleAssignment";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { RoleAssignment } from "../../types/senselogic/sitevision/api/security/RoleAssignment";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Sets the principal (sv:user, sv:simpleUser, sv:userGroup or sv:virtualGroup).

@@ -1,3 +1,5 @@
+import type { Node } from '../../types/javax/jcr/Node';
+
 /**
  * Returns true if there are a service user configured for usage for the app. Returns false if not
  *

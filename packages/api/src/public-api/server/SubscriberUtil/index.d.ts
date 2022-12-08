@@ -1,4 +1,4 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * <p>Access to a <code>Set</code> of subscribers (i.e. e-mail and / or phone numbers) for an active subscription.</p>

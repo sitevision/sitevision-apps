@@ -1,4 +1,4 @@
-import VelocityContext from "../../hidden/senselogic/sitevision/api/render/velocity/VelocityContext";
+import type { VelocityContext } from "../../types/senselogic/sitevision/api/render/velocity/VelocityContext";
 
 /**
  * Creates and returns an empty VelocityContext instance.

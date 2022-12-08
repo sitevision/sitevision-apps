@@ -1,5 +1,5 @@
-import NumericFormatterBuilder from "../../hidden/senselogic/sitevision/api/format/NumericFormatterBuilder";
-import Currency from "../../hidden/senselogic/sitevision/api/i18n/Currency";
+import type { NumericFormatterBuilder } from "../../types/senselogic/sitevision/api/format/NumericFormatterBuilder";
+import type { Currency } from "../../types/senselogic/sitevision/api/i18n/Currency";
 
 /**
  * Returns a builder for creating number formatters with a given Locale.

@@ -1,4 +1,4 @@
-import VersionedPropertyUtil from "../../hidden/senselogic/sitevision/api/property/VersionedPropertyUtil";
+import type { VersionedPropertyUtil } from "../../types/senselogic/sitevision/api/property/VersionedPropertyUtil";
 
 undefined;
 

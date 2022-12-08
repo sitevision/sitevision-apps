@@ -1,11 +1,11 @@
-import Node from '../../hidden/javax/jcr/Node';
+import type { Node } from '../../types/javax/jcr/Node';
 
 export interface Cookie {
   name: string;
   value: string;
-  httpOnly? = false;
-  secure? = false;
-  maxAge? = -1;
+  httpOnly?: boolean;
+  secure?: boolean;
+  maxAge?: number;
   sameSite?: 'Strict' | 'Lax' | 'None' | undefined;
 }
 

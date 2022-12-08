@@ -1,12 +1,12 @@
-import Filter from "../../hidden/senselogic/sitevision/api/search/searcher/component/Filter";
-import Highlight from "../../hidden/senselogic/sitevision/api/search/searcher/component/Highlight";
-import Node from "../../hidden/javax/jcr/Node";
-import Parser from "../../hidden/senselogic/sitevision/api/search/searcher/component/Parser";
-import Sort from "../../hidden/senselogic/sitevision/api/search/searcher/component/Sort";
-import SpellCheck from "../../hidden/senselogic/sitevision/api/search/searcher/component/SpellCheck";
-import Monitor from "../../hidden/senselogic/sitevision/api/search/searcher/component/Monitor";
-import Searcher from "../../hidden/senselogic/sitevision/api/search/searcher/Searcher";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Filter } from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
+import type { Highlight } from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { Parser } from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
+import type { Sort } from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
+import type { SpellCheck } from "../../types/senselogic/sitevision/api/search/searcher/component/SpellCheck";
+import type { Monitor } from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
+import type { Searcher } from "../../types/senselogic/sitevision/api/search/searcher/Searcher";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Sets the filter component.

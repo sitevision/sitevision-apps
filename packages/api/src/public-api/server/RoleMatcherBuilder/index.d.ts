@@ -1,6 +1,6 @@
-import Node from "../../hidden/javax/jcr/Node";
-import RoleMatcher from "../../hidden/senselogic/sitevision/api/security/RoleMatcher";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { RoleMatcher } from "../../types/senselogic/sitevision/api/security/RoleMatcher";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Sets the user (sv:user, sv:simpleUser).

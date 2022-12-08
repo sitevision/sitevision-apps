@@ -1,4 +1,4 @@
-import MessageDigester from "../../hidden/senselogic/sitevision/api/security/MessageDigester";
+import type { MessageDigester } from "../../types/senselogic/sitevision/api/security/MessageDigester";
 
 /**
  * Gets an instanceof a message digester that performs hash computation using the MD5 algorithm.

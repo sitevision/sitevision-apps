@@ -1,4 +1,4 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Checks if a non-authenticated user has read permission on current page.

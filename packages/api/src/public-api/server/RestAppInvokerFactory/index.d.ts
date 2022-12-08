@@ -1,5 +1,5 @@
-import RestAppInvoker from "../../hidden/senselogic/sitevision/api/script/app/RestAppInvoker";
-import Node from "../../hidden/javax/jcr/Node";
+import type { RestAppInvoker } from "../../types/senselogic/sitevision/api/script/app/RestAppInvoker";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Creates a RestAppInvoker via the Path of a Headless custom module.

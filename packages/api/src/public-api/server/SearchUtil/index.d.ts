@@ -1,4 +1,4 @@
-import SearchResult from "../../hidden/senselogic/sitevision/api/search/SearchResult";
+import type { SearchResult } from "../../types/senselogic/sitevision/api/search/SearchResult";
 
 /**
  * <p>

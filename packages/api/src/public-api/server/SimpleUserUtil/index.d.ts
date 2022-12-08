@@ -1,4 +1,4 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Checks if current user is member of a virtual group with a specific id.

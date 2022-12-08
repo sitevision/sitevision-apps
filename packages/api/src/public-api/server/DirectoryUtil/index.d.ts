@@ -1,5 +1,5 @@
-import Node from "../../hidden/javax/jcr/Node";
-import Property from "../../hidden/javax/jcr/Property";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { Property } from "../../types/javax/jcr/Property";
 
 /**
  * Searches for objects in all LDAP directories that are accessible in current context (i.e. current page).

@@ -1,8 +1,8 @@
-import LinkValue from "../../hidden/senselogic/sitevision/api/metadata/value/LinkValue";
-import Node from "../../hidden/javax/jcr/Node";
+import type { LinkValue } from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import RelatedValue from "../../hidden/senselogic/sitevision/api/metadata/value/RelatedValue";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { RelatedValue } from "../../types/senselogic/sitevision/api/metadata/value/RelatedValue";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Adds a link value.

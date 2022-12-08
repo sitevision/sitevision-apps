@@ -1,6 +1,6 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import LinkTarget from "../../hidden/senselogic/sitevision/api/webresource/LinkTarget";
+import type { LinkTarget } from "../../types/senselogic/sitevision/api/webresource/LinkTarget";
 
 /**
  * <p>

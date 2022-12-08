@@ -1,4 +1,4 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Gets all 301 redirect URIs registered for a specific node.

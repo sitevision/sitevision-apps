@@ -1,5 +1,5 @@
-import Highlight from "../../hidden/senselogic/sitevision/api/search/searcher/component/Highlight";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Highlight } from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Adds a field that should be highlighted.

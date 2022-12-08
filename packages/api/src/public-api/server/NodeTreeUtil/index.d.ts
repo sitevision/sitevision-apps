@@ -1,6 +1,6 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import Filter from "../../hidden/senselogic/sitevision/api/base/Filter";
+import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
 
 /**
  * Gets a node relative to another node.

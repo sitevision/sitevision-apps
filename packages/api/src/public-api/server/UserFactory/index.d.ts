@@ -1,6 +1,6 @@
 import UserIdentityUtil from "../UserIdentityUtil";
-import Node from "../../hidden/javax/jcr/Node";
-import UserIdentityWrapper from "../../hidden/senselogic/sitevision/api/user/UserIdentityWrapper";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { UserIdentityWrapper } from "../../types/senselogic/sitevision/api/user/UserIdentityWrapper";
 import SystemUserUtil from "../SystemUserUtil";
 import UserUtil from "../UserUtil";
 import SimpleUserUtil from "../SimpleUserUtil";

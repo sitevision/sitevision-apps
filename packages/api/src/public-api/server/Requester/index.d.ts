@@ -1,4 +1,4 @@
-import RequesterChainable from "../../hidden/senselogic/sitevision/api/script/RequesterChainable";
+import type { RequesterChainable } from "../../types/senselogic/sitevision/api/script/RequesterChainable";
 
 /**
  * Execute a HTTP GET.

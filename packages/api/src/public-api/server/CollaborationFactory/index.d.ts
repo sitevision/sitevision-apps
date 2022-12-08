@@ -1,5 +1,5 @@
-import Node from "../../hidden/javax/jcr/Node";
-import CollaborationGroupWrapper from "../../hidden/senselogic/sitevision/api/collaboration/CollaborationGroupWrapper";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { CollaborationGroupWrapper } from "../../types/senselogic/sitevision/api/collaboration/CollaborationGroupWrapper";
 import CollaborationGroupUtil from "../CollaborationGroupUtil";
 import CollaborationGroupFolderUtil from "../CollaborationGroupFolderUtil";
 import CollaborationGroupTemplateUtil from "../CollaborationGroupTemplateUtil";

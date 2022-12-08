@@ -1,4 +1,4 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Creates the corresponding <code>sv:userIdentity</code> Node for a specified <code>sv:user</code> Node.

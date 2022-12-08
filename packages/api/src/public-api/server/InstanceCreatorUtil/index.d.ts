@@ -1,4 +1,4 @@
-import TypedArgument from "../../hidden/senselogic/sitevision/api/script/factory/TypedArgument";
+import type { TypedArgument } from "../../types/senselogic/sitevision/api/script/factory/TypedArgument";
 
 import ListWrapper from "../ListWrapper";
 import ArraysInstance from "../ArraysInstance";

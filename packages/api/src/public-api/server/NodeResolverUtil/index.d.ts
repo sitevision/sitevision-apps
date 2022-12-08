@@ -1,4 +1,4 @@
-import Resolver from "../../hidden/senselogic/sitevision/api/base/Resolver";
+import type { Resolver } from "../../types/senselogic/sitevision/api/base/Resolver";
 
 /**
  * Gets the Calendar resolver for Collaboration-related nodes.

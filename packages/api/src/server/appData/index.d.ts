@@ -1,4 +1,4 @@
-import Node from '../../hidden/javax/jcr/Node';
+import type { Node } from '../../types/javax/jcr/Node';
 
 export function get(key: string): unknown;
 export function getNode(key: string): Node;

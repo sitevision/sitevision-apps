@@ -1,5 +1,5 @@
-import Filter from "../../hidden/senselogic/sitevision/api/search/searcher/component/Filter";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Filter } from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Adds a filter query.

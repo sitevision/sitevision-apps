@@ -16,7 +16,7 @@ import PermissionUtil from "../PermissionUtil";
 import DirectoryUtil from "../DirectoryUtil";
 import ClientUtil from "../ClientUtil";
 import SearchUtil from "../SearchUtil";
-import SearchFieldUtil from "../../hidden/senselogic/sitevision/api/search/SearchFieldUtil";
+import type { SearchFieldUtil } from "../../types/senselogic/sitevision/api/search/SearchFieldUtil";
 import PortletUtil from "../PortletUtil";
 import MetadataUtil from "../MetadataUtil";
 import BookmarkUtil from "../BookmarkUtil";
@@ -37,13 +37,13 @@ import PrincipalUtil from "../PrincipalUtil";
 import FileIconRenderer from "../FileIconRenderer";
 import ImageRenderer from "../ImageRenderer";
 
-import ImageScaler from "../../hidden/senselogic/sitevision/api/render/ImageScaler";
+import type { ImageScaler } from "../../types/senselogic/sitevision/api/render/ImageScaler";
 
-import ExceptionSuppressingProxy from "../../hidden/senselogic/sitevision/api/script/proxy/ExceptionSuppressingProxy";
+import type { ExceptionSuppressingProxy } from "../../types/senselogic/sitevision/api/script/proxy/ExceptionSuppressingProxy";
 
-import ExceptionSuppressingCollection from "../../hidden/senselogic/sitevision/api/script/proxy/ExceptionSuppressingCollection";
+import type { ExceptionSuppressingCollection } from "../../types/senselogic/sitevision/api/script/proxy/ExceptionSuppressingCollection";
 
-import ExceptionSuppressingIterator from "../../hidden/senselogic/sitevision/api/script/proxy/ExceptionSuppressingIterator";
+import type { ExceptionSuppressingIterator } from "../../types/senselogic/sitevision/api/script/proxy/ExceptionSuppressingIterator";
 import SubscriptionUtil from "../SubscriptionUtil";
 import SubscriberUtil from "../SubscriberUtil";
 import InstanceTypeUtil from "../InstanceTypeUtil";
@@ -52,9 +52,9 @@ import MetadataDefinitionUtil from "../MetadataDefinitionUtil";
 import ImageLinkRenderer from "../ImageLinkRenderer";
 import MimeTypeUtil from "../MimeTypeUtil";
 import DocTypeUtil from "../DocTypeUtil";
-import VersionedPropertyUtil from "../../hidden/senselogic/sitevision/api/property/VersionedPropertyUtil";
+import type { VersionedPropertyUtil } from "../../types/senselogic/sitevision/api/property/VersionedPropertyUtil";
 import DeviceUtil from "../DeviceUtil";
-import UserUtil from "../../hidden/senselogic/sitevision/api/security/UserUtil";
+import type { UserUtil } from "../../types/senselogic/sitevision/api/security/UserUtil";
 import VelocityRenderer from "../VelocityRenderer";
 import InstanceCreatorUtil from "../InstanceCreatorUtil";
 import DateUtil from "../DateUtil";

@@ -1,6 +1,6 @@
-import ImageScaler from "../../hidden/senselogic/sitevision/api/render/ImageScaler";
+import type { ImageScaler } from "../../types/senselogic/sitevision/api/render/ImageScaler";
 
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Sets the image scaler that should be used by the renderer if <code>useImageScaler</code> is <code>true</code>.

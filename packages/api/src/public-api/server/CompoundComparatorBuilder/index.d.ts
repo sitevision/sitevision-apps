@@ -1,4 +1,4 @@
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Adds a node comparator to this builder.

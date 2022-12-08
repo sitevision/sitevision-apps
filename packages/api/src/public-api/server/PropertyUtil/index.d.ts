@@ -1,6 +1,6 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import Binary from "../../hidden/javax/jcr/Binary";
+import type { Binary } from "../../types/javax/jcr/Binary";
 
 /**
  * Gets a String property from a "nested" Node's property.

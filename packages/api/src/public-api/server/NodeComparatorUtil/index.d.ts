@@ -1,5 +1,5 @@
 import CompoundComparatorBuilder from "../CompoundComparatorBuilder";
-import Resolver from "../../hidden/senselogic/sitevision/api/base/Resolver";
+import type { Resolver } from "../../types/senselogic/sitevision/api/base/Resolver";
 
 /**
  * Returns a comparator that compares nodes by the string value of a property in a case-insensitive manner.

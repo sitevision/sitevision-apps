@@ -1,5 +1,5 @@
-import Node from "../../hidden/javax/jcr/Node";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Sets the name of the file.

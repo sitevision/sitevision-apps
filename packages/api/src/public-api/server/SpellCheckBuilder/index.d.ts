@@ -1,5 +1,5 @@
-import SpellCheck from "../../hidden/senselogic/sitevision/api/search/searcher/component/SpellCheck";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { SpellCheck } from "../../types/senselogic/sitevision/api/search/searcher/component/SpellCheck";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Sets a custom query/expression spellchecker should use when the extracting result.

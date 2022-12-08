@@ -1,4 +1,4 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * <p>Returns the active subscription <code>Node</code> of a <code>Node</code>. An active subscription

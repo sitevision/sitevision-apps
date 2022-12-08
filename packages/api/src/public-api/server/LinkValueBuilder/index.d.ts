@@ -1,7 +1,7 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import LinkValue from "../../hidden/senselogic/sitevision/api/metadata/value/LinkValue";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { LinkValue } from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Sets the target.

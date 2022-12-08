@@ -1,4 +1,4 @@
-import Currency from "../../hidden/senselogic/sitevision/api/i18n/Currency";
+import type { Currency } from "../../types/senselogic/sitevision/api/i18n/Currency";
 
 /**
  * Gets the Currency instance for a given locale.

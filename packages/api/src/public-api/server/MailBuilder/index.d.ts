@@ -1,5 +1,5 @@
-import Mail from "../../hidden/senselogic/sitevision/api/mail/Mail";
-import Builder from "../../hidden/senselogic/sitevision/api/base/Builder";
+import type { Mail } from "../../types/senselogic/sitevision/api/mail/Mail";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Sets the from address.

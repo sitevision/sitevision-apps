@@ -1,4 +1,4 @@
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from '../../types/javax/jcr/Node';
 
 /**
  * Gets current page (i.e. the page node for the currently executing portlet).
@@ -105,8 +105,6 @@ export function getNonce(): string;
  *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
  * </p>The offline version (i.e. the version used when editing in the Sitevision editor) markerThe online version (i.e. the published version that visitors can access) marker
  * @author Magnus Lövgren
- * @deprecated Use {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION}
- * @deprecated Use {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
  */
 declare namespace portletContextUtil {
   export {

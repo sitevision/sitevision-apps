@@ -1,4 +1,4 @@
-import Wrapper from "../../hidden/senselogic/sitevision/api/base/Wrapper";
+import type { Wrapper } from "../../types/senselogic/sitevision/api/base/Wrapper";
 
 /**
  * Appends the specified element (if non-null) to the end of the wrapped list.

@@ -1,4 +1,4 @@
-import Node from '../../hidden/javax/jcr/Node';
+import type { Node } from '../../hidden/javax/jcr/Node';
 
 /**
  * Get the content of a resource as a string

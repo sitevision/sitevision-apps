@@ -1,6 +1,6 @@
-import Filter from "../../hidden/senselogic/sitevision/api/base/Filter";
+import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
 
-import FilterSplit from "../../hidden/senselogic/sitevision/api/base/FilterSplit";
+import type { FilterSplit } from "../../types/senselogic/sitevision/api/base/FilterSplit";
 import CompoundAndFilterBuilder from "../CompoundAndFilterBuilder";
 import CompoundOrFilterBuilder from "../CompoundOrFilterBuilder";
 

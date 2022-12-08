@@ -1,9 +1,9 @@
-import NodeIterator from "../../hidden/javax/jcr/NodeIterator";
-import Filter from "../../hidden/senselogic/sitevision/api/base/Filter";
+import type { NodeIterator } from "../../types/javax/jcr/NodeIterator";
+import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
 
-import Node from "../../hidden/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import FilterSplit from "../../hidden/senselogic/sitevision/api/base/FilterSplit";
+import type { FilterSplit } from "../../types/senselogic/sitevision/api/base/FilterSplit";
 
 /**
  * Gets a filtered NodeIterator.
