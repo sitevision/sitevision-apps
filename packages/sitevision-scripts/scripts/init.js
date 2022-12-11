@@ -48,14 +48,19 @@ const getCommonPackageProperties = () => {
   return appPackage;
 };
 
-const updatePackageJsonReact = () => {
+const updatePackageJsonReact = (typescript) => {
   const appPackage = getCommonPackageProperties();
+  const extendsArr = [
+    '@sitevision/eslint-config-recommended',
+    '@sitevision/eslint-config-webapp-react',
+  ];
+
+  if (typescript) {
+    extendsArr.push('@sitevision/eslint-config-typescript');
+  }
 
   appPackage.eslintConfig = {
-    extends: [
-      '@sitevision/eslint-config-recommended',
-      '@sitevision/eslint-config-webapp-react',
-    ],
+    extends: extendsArr,
   };
 
   appPackage.prettier = {};
@@ -66,11 +71,16 @@ const updatePackageJsonReact = () => {
   writePackageJson(appPackage);
 };
 
-const updatePackageJsonBundledRest = () => {
+const updatePackageJsonBundledRest = (typescript) => {
   const appPackage = getCommonPackageProperties();
+  const extendsArr = ['@sitevision/eslint-config-recommended'];
+
+  if (typescript) {
+    extendsArr.push('@sitevision/eslint-config-typescript');
+  }
 
   appPackage.eslintConfig = {
-    extends: ['@sitevision/eslint-config-recommended'],
+    extends: extendsArr,
   };
 
   appPackage.prettier = {};
@@ -149,7 +159,7 @@ export default async ({ appPath, appName }) => {
         switch (type) {
           case 'web-react':
           case 'web-react-typescript': {
-            updatePackageJsonReact();
+            updatePackageJsonReact(typescript);
             installWebAppDependencies(appPath);
             templateOptions.reactVersion = simplifyVersionNumber(
               properties.getPackageJson().dependencies.react
@@ -158,7 +168,7 @@ export default async ({ appPath, appName }) => {
           }
           case 'rest-bundled':
           case 'rest-bundled-typescript': {
-            updatePackageJsonBundledRest();
+            updatePackageJsonBundledRest(typescript);
             installRestAppDependencies(appPath);
             break;
           }
