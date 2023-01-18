@@ -1,12 +1,12 @@
-import type { Property } from "../Property";
-import type { RangeIterator } from "../RangeIterator";
+import type Property from "../Property";
+import type RangeIterator from "../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>Property</code>s with
  * <code>nextProperty</code> as well as a <code>skip</code> method.
   
     */
-export type PropertyIterator = {
+type PropertyIterator = RangeIterator & {
   /**
    * Returns the next <code>Property</code> in the iteration.
    * @return the next <code>Property</code> in the iteration.
@@ -14,3 +14,5 @@ export type PropertyIterator = {
    */
   nextProperty(): Property;
 };
+
+export = PropertyIterator;

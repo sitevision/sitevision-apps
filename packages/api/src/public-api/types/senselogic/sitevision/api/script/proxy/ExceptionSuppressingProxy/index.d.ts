@@ -1,3 +1,5 @@
+import { ExceptionSuppressingProxyConstants } from "../../../render/velocity/VelocityAccess.ExceptionSuppressingProxyConstants";
+
 /**
  * Proxies an object and delegates all interface method invocations to the proxied object in order to ensure that no invocation
  * will throw an exception.
@@ -63,11 +65,11 @@
  *
  *       $!proxy.thisMethodSometimesThrowsExceptions() <em>## Method invoked through a proxy, might return null</em>
  *    &lt;/p&gt;
- * </code></pre>The status indicating that this proxy has no object set, nothing to proxy.The status indicating that last method invocation did not throw an exception.The status indicating that last method invocation did throw an exception
+ * </code></pre>
  * @author Magnus Lövgren
  * @since Sitevision 2.6.1_09
  */
-export type ExceptionSuppressingProxy = {
+type ExceptionSuppressingProxy = ExceptionSuppressingProxyConstants & {
   /**
    * Returns current status
    * @return {@link #NO_OBJECT_PROXIED_STATUS} or {@link #NO_EXCEPTION_THROWN_STATUS} or {@link #EXCEPTION_THROWN_STATUS}
@@ -85,4 +87,24 @@ export type ExceptionSuppressingProxy = {
    * @return the object that is proxied by an instance of this interface, or <code>null</code> if no proxied object is set
    */
   getProxiedObject(): unknown;
+
+  /**
+ * The status indicating that this proxy has no object set, nothing to proxy.
+  
+    */
+  NO_OBJECT_PROXIED_STATUS: number;
+
+  /**
+ * The status indicating that last method invocation did not throw an exception.
+  
+    */
+  NO_EXCEPTION_THROWN_STATUS: number;
+
+  /**
+ * The status indicating that last method invocation did throw an exception
+  
+    */
+  EXCEPTION_THROWN_STATUS: number;
 };
+
+export = ExceptionSuppressingProxy;

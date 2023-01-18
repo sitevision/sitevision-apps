@@ -23,7 +23,7 @@
  * </p>
  * @author Karl Eklöf
  */
-export type DirectoryAttributes = {
+type DirectoryAttributes = {
   /**
    * Returns the directory attribute values for the given attribute name.
    * @param anAttributeName The attribute name for which to get the attribute value for.
@@ -63,3 +63,5 @@ export type DirectoryAttributes = {
    */
   getAttributeValue(anAttributeName: string, returnAsString: boolean): unknown;
 };
+
+export = DirectoryAttributes;

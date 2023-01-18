@@ -1,49 +1,6 @@
-import type { XmlElementHandler } from "../../types/senselogic/sitevision/api/xml/XmlElementHandler";
+import type XmlElementHandler from "../../types/senselogic/sitevision/api/xml/XmlElementHandler";
 
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * Parse a XML string.
- * @param aElementSelection the elements in the XML that should be passed to the XmlElementHandler
- * @param aXml the UTF-8 XML string
- * @param aXmlElementHandler the XmlElementHandler
- * @throws XmlParserException if an error occurs while parsing the XML
- */
-export function parse(
-  aElementSelection: string,
-  aXml: string,
-  aXmlElementHandler: XmlElementHandler
-): void;
-
-/**
- * Parse a file containing XML encoded using UTF-8.
- * @param aElementSelection the elements in the XML that should be passed to the XmlElementHandler
- * @param aXmlFile the file containing XML encoded using UTF-8 (sv:file or sv:temporaryFile)
- * @param aXmlElementHandler the XmlElementHandler
- * @throws RepositoryException if an error occurs while accessing the file
- * @throws XmlParserException if an error occurs while parsing the XML
- */
-export function parse(
-  aElementSelection: string,
-  aXmlFile: Node,
-  aXmlElementHandler: XmlElementHandler
-): void;
-
-/**
- * Parse a file containing XML encoded with the supplied charset.
- * @param aElementSelection the elements in the XML that should be passed to the XmlElementHandler
- * @param aXmlFile the file containing XML encoded using supplied encoding (sv:file or sv:temporaryFile)
- * @param aCharset the character encoding of the the file content (an IllegalArgument will be thrown if aCharset can not be resolved as a java.nio.charset.Charset)
- * @param aXmlElementHandler the XmlElementHandler
- * @throws RepositoryException if an error occurs while accessing the file
- * @throws XmlParserException if an error occurs while parsing the XML
- */
-export function parse(
-  aElementSelection: string,
-  aXmlFile: Node,
-  aCharset: string,
-  aXmlElementHandler: XmlElementHandler
-): void;
+import type Node from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for parsing XML.
@@ -112,8 +69,53 @@ export function parse(
  * @author Niclas Hedlund
  * @since Sitevision 5.1
  */
-declare namespace xmlParserUtil {
-  export { parse };
+export interface XmlParserUtil {
+  /**
+   * Parse a XML string.
+   * @param aElementSelection the elements in the XML that should be passed to the XmlElementHandler
+   * @param aXml the UTF-8 XML string
+   * @param aXmlElementHandler the XmlElementHandler
+   * @throws XmlParserException if an error occurs while parsing the XML
+   */
+  parse(
+    aElementSelection: string,
+    aXml: string,
+    aXmlElementHandler: XmlElementHandler
+  ): void;
+
+  /**
+   * Parse a file containing XML encoded using UTF-8.
+   * @param aElementSelection the elements in the XML that should be passed to the XmlElementHandler
+   * @param aXmlFile the file containing XML encoded using UTF-8 (sv:file or sv:temporaryFile)
+   * @param aXmlElementHandler the XmlElementHandler
+   * @throws RepositoryException if an error occurs while accessing the file
+   * @throws XmlParserException if an error occurs while parsing the XML
+   */
+  parse(
+    aElementSelection: string,
+    aXmlFile: Node,
+    aXmlElementHandler: XmlElementHandler
+  ): void;
+
+  /**
+   * Parse a file containing XML encoded with the supplied charset.
+   * @param aElementSelection the elements in the XML that should be passed to the XmlElementHandler
+   * @param aXmlFile the file containing XML encoded using supplied encoding (sv:file or sv:temporaryFile)
+   * @param aCharset the character encoding of the the file content (an IllegalArgument will be thrown if aCharset can not be resolved as a java.nio.charset.Charset)
+   * @param aXmlElementHandler the XmlElementHandler
+   * @throws RepositoryException if an error occurs while accessing the file
+   * @throws XmlParserException if an error occurs while parsing the XML
+   */
+  parse(
+    aElementSelection: string,
+    aXmlFile: Node,
+    aCharset: string,
+    aXmlElementHandler: XmlElementHandler
+  ): void;
 }
 
-export default xmlParserUtil;
+declare namespace XmlParserUtil {}
+
+declare var xmlParserUtil: XmlParserUtil;
+
+export = xmlParserUtil;

@@ -17,52 +17,10 @@
  * <p>
  * A privilege can be both aggregate and abstract.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>A constant representing <code>jcr:read</code> (in expanded form), the
- * privilege to retrieve a node and get its properties and their values.A constant representing <code>jcr:modifyProperties</code> (in expanded
- * form), the privilege to create, modify and remove the properties of a
- * node.A constant representing <code>jcr:addChildNodes</code> (in expanded
- * form), the privilege to create child nodes of a node.A constant representing <code>jcr:removeNode</code> (in expanded form),
- * the privilege to remove a node.
- * <p>
- * In order to actually remove a node requires <code>jcr:removeNode</code>
- * on that node and <code>jcr:removeChildNodes</code> on the parent node.
- * <p>
- * The distinction is provided in order to reflect implementations that
- * internally model "remove" as a "delete" instead of a "unlink". A
- * repository that uses the "delete" model can have <code>jcr:removeChildNodes</code>
- * in every access control policy, so that removal is effectively controlled
- * by <code>jcr:removeNode</code>.A constant representing <code>jcr:removeChildNodes</code> (in expanded
- * form), the privilege to remove child nodes of a node. In order to
- * actually remove a node requires <code>jcr:removeNode</code> on that node
- * and <code>jcr:removeChildNodes</code> on the parent node.
- * <p>
- * The distinction is provided in order to reflect implementations that
- * internally model "remove" as a "unlink" instead of a "delete". A
- * repository that uses the "unlink" model can have <code>jcr:removeNode</code>
- * in every access control policy, so that removal is effectively controlled
- * by <code>jcr:removeChildNodes</code>.A constant representing <code>jcr:write</code> (in expanded form), an
- * aggregate privilege that contains: <ul> <li><code>jcr:modifyProperties</code></li>
- * <li><code>jcr:addChildNodes</code></li> <li><code>jcr:removeNode</code></li>
- * <li><code>jcr:removeChildNodes</code></li> </ul>A constant representing <code>jcr:readAccessControl</code> (in expanded
- * form), the privilege to get the access control policy of a node.A constant representing <code>jcr:modifyAccessControl</code> (in expanded
- * form), the privilege to modify the access control policies of a node.A constant representing <code>jcr:lockManagement</code> (in expanded
- * form), the privilege to lock and unlock a node.A constant representing <code>jcr:versionManagement</code> (in expanded
- * form), the privilege to perform versioning operations on a node.A constant representing <code>jcr:nodeTypeManagement</code> (in expanded
- * form), the privilege to add and remove mixin node types and change the
- * primary node type of a node.A constant representing <code>jcr:retentionManagement</code> (in expanded
- * form), the privilege to perform retention management operations on a
- * node.A constant representing <code>jcr:lifecycleManagement</code> (in expanded
- * form), the privilege to perform lifecycle operations on a node.A constant representing <code>jcr:all</code> (in expanded form), an
- * aggregate privilege that contains all predefined privileges. <ul>
- * <li><code>jcr:read</code></li> <li><code>jcr:write</code></li>
- * <li><code>jcr:readAccessControl</code></li> <li><code>jcr:modifyAccessControl</code></li>
- * <li><code>jcr:lockManagement</code></li> <li><code>jcr:versionManagement</code></li>
- * <li><code>jcr:nodeTypeManagement</code></li> <li><code>jcr:retentionManagement</code></li>
- * <li><code>jcr:lifecycleManagement</code></li> </ul> It should, in
- * addition, include all implementation-defined privileges.
+ * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type Privilege = {
+type Privilege = {
   /**
    * Returns the name of this privilege.
    * <p>
@@ -102,4 +60,132 @@ export type Privilege = {
    * @return an array of <code>Privilege</code>s
    */
   getAggregatePrivileges(): Privilege;
+
+  /**
+ * A constant representing <code>jcr:read</code> (in expanded form), the
+ * privilege to retrieve a node and get its properties and their values.
+  
+    */
+  JCR_READ: string;
+
+  /**
+ * A constant representing <code>jcr:modifyProperties</code> (in expanded
+ * form), the privilege to create, modify and remove the properties of a
+ * node.
+  
+    */
+  JCR_MODIFY_PROPERTIES: string;
+
+  /**
+ * A constant representing <code>jcr:addChildNodes</code> (in expanded
+ * form), the privilege to create child nodes of a node.
+  
+    */
+  JCR_ADD_CHILD_NODES: string;
+
+  /**
+ * A constant representing <code>jcr:removeNode</code> (in expanded form),
+ * the privilege to remove a node.
+ * <p>
+ * In order to actually remove a node requires <code>jcr:removeNode</code>
+ * on that node and <code>jcr:removeChildNodes</code> on the parent node.
+ * <p>
+ * The distinction is provided in order to reflect implementations that
+ * internally model "remove" as a "delete" instead of a "unlink". A
+ * repository that uses the "delete" model can have <code>jcr:removeChildNodes</code>
+ * in every access control policy, so that removal is effectively controlled
+ * by <code>jcr:removeNode</code>.
+  
+    */
+  JCR_REMOVE_NODE: string;
+
+  /**
+ * A constant representing <code>jcr:removeChildNodes</code> (in expanded
+ * form), the privilege to remove child nodes of a node. In order to
+ * actually remove a node requires <code>jcr:removeNode</code> on that node
+ * and <code>jcr:removeChildNodes</code> on the parent node.
+ * <p>
+ * The distinction is provided in order to reflect implementations that
+ * internally model "remove" as a "unlink" instead of a "delete". A
+ * repository that uses the "unlink" model can have <code>jcr:removeNode</code>
+ * in every access control policy, so that removal is effectively controlled
+ * by <code>jcr:removeChildNodes</code>.
+  
+    */
+  JCR_REMOVE_CHILD_NODES: string;
+
+  /**
+ * A constant representing <code>jcr:write</code> (in expanded form), an
+ * aggregate privilege that contains: <ul> <li><code>jcr:modifyProperties</code></li>
+ * <li><code>jcr:addChildNodes</code></li> <li><code>jcr:removeNode</code></li>
+ * <li><code>jcr:removeChildNodes</code></li> </ul>
+  
+    */
+  JCR_WRITE: string;
+
+  /**
+ * A constant representing <code>jcr:readAccessControl</code> (in expanded
+ * form), the privilege to get the access control policy of a node.
+  
+    */
+  JCR_READ_ACCESS_CONTROL: string;
+
+  /**
+ * A constant representing <code>jcr:modifyAccessControl</code> (in expanded
+ * form), the privilege to modify the access control policies of a node.
+  
+    */
+  JCR_MODIFY_ACCESS_CONTROL: string;
+
+  /**
+ * A constant representing <code>jcr:lockManagement</code> (in expanded
+ * form), the privilege to lock and unlock a node.
+  
+    */
+  JCR_LOCK_MANAGEMENT: string;
+
+  /**
+ * A constant representing <code>jcr:versionManagement</code> (in expanded
+ * form), the privilege to perform versioning operations on a node.
+  
+    */
+  JCR_VERSION_MANAGEMENT: string;
+
+  /**
+ * A constant representing <code>jcr:nodeTypeManagement</code> (in expanded
+ * form), the privilege to add and remove mixin node types and change the
+ * primary node type of a node.
+  
+    */
+  JCR_NODE_TYPE_MANAGEMENT: string;
+
+  /**
+ * A constant representing <code>jcr:retentionManagement</code> (in expanded
+ * form), the privilege to perform retention management operations on a
+ * node.
+  
+    */
+  JCR_RETENTION_MANAGEMENT: string;
+
+  /**
+ * A constant representing <code>jcr:lifecycleManagement</code> (in expanded
+ * form), the privilege to perform lifecycle operations on a node.
+  
+    */
+  JCR_LIFECYCLE_MANAGEMENT: string;
+
+  /**
+ * A constant representing <code>jcr:all</code> (in expanded form), an
+ * aggregate privilege that contains all predefined privileges. <ul>
+ * <li><code>jcr:read</code></li> <li><code>jcr:write</code></li>
+ * <li><code>jcr:readAccessControl</code></li> <li><code>jcr:modifyAccessControl</code></li>
+ * <li><code>jcr:lockManagement</code></li> <li><code>jcr:versionManagement</code></li>
+ * <li><code>jcr:nodeTypeManagement</code></li> <li><code>jcr:retentionManagement</code></li>
+ * <li><code>jcr:lifecycleManagement</code></li> </ul> It should, in
+ * addition, include all implementation-defined privileges.
+  
+    */
+  JCR_ALL: string;
 };
+
+export = Privilege;

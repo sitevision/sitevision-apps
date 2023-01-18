@@ -1,5 +1,5 @@
-import type { Node } from "../Node";
-import type { RangeIterator } from "../RangeIterator";
+import type Node from "../Node";
+import type RangeIterator from "../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>Node</code>s with
@@ -7,7 +7,7 @@ import type { RangeIterator } from "../RangeIterator";
  * <code>RangeIterator</code>.
   
     */
-export type NodeIterator = {
+type NodeIterator = RangeIterator & {
   /**
    * Returns the next <code>Node</code> in the iteration.
    * @return the next <code>Node</code> in the iteration.
@@ -15,3 +15,5 @@ export type NodeIterator = {
    */
   nextNode(): Node;
 };
+
+export = NodeIterator;

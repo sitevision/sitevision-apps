@@ -2,35 +2,6 @@ import LinkRenderer from "../LinkRenderer";
 import ImageRenderer from "../ImageRenderer";
 
 /**
- * Returns the LinkRenderer instance used by this image link renderer to control linking behaviour.
- * @return the LinkRenderer instance used by this image link renderer
- * @see LinkRenderer
- */
-export function getLinkRenderer(): LinkRenderer;
-
-/**
- * Returns the ImageRenderer instance used by this image link renderer to control (linked) image behaviour.
- *
- * <p>
- * <em>Note!</em> The <code>useAutoDescription</code> is initially set to <code>true</code> when the ImageRenderer instance is
- * created by this image link renderer, see <a href="#descnote">validation note above</a>.
- * </p>
- * @return the ImageRenderer instance used by this image link renderer
- * @see ImageRenderer
- */
-export function getImageRenderer(): ImageRenderer;
-
-/**
- * Builds a html link based on current state of the link renderer and the image render.
- *
- * <p>
- * <em>Note!</em> The render method is not thread safe, see <a href="#threadnote">thread note above</a>.
- * </p>
- * @return a html link, ready to print out on a page
- */
-export function render(): string;
-
-/**
  * ImageLinkRenderer is a stateful utility interface that combines an ImageRenderer and a LinkRenderer to render valid image links.
  *
  * <p>
@@ -118,8 +89,39 @@ export function render(): string;
  * @see LinkRenderer
  * @see ImageRenderer
  */
-declare namespace imageLinkRenderer {
-  export { getLinkRenderer, getImageRenderer, render };
+export interface ImageLinkRenderer {
+  /**
+   * Returns the LinkRenderer instance used by this image link renderer to control linking behaviour.
+   * @return the LinkRenderer instance used by this image link renderer
+   * @see LinkRenderer
+   */
+  getLinkRenderer(): LinkRenderer;
+
+  /**
+   * Returns the ImageRenderer instance used by this image link renderer to control (linked) image behaviour.
+   *
+   * <p>
+   * <em>Note!</em> The <code>useAutoDescription</code> is initially set to <code>true</code> when the ImageRenderer instance is
+   * created by this image link renderer, see <a href="#descnote">validation note above</a>.
+   * </p>
+   * @return the ImageRenderer instance used by this image link renderer
+   * @see ImageRenderer
+   */
+  getImageRenderer(): ImageRenderer;
+
+  /**
+   * Builds a html link based on current state of the link renderer and the image render.
+   *
+   * <p>
+   * <em>Note!</em> The render method is not thread safe, see <a href="#threadnote">thread note above</a>.
+   * </p>
+   * @return a html link, ready to print out on a page
+   */
+  render(): string;
 }
 
-export default imageLinkRenderer;
+declare namespace ImageLinkRenderer {}
+
+declare var imageLinkRenderer: ImageLinkRenderer;
+
+export = imageLinkRenderer;

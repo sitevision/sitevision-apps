@@ -9,7 +9,7 @@
  * @see VelocityRenderer
  * @since Sitevision 3.0
  */
-export type VelocityContext = {
+type VelocityContext = {
   /**
    * Adds a Name/Object mapping to the context.
    * Null key mappings will be ignored.
@@ -45,3 +45,5 @@ export type VelocityContext = {
    */
   remove(aKey: string): unknown;
 };
+
+export = VelocityContext;

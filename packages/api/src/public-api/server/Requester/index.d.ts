@@ -1,125 +1,4 @@
-import type { RequesterChainable } from "../../types/senselogic/sitevision/api/script/RequesterChainable";
-
-/**
- * Execute a HTTP GET.
- * @param aURL the url
- * @return a chainable requester
- */
-export function get(aURL: string): RequesterChainable;
-
-/**
- * Execute a HTTP GET with options.
- * @param aURL the url
- * @param aOptions the options, <a href="#options">see options example above</a>
- * @return a chainable requester
- */
-export function get(aURL: string, aOptions: unknown): RequesterChainable;
-
-/**
- * Execute a HTTP PUT.
- * @param aURL the url
- * @return a chainable requester
- */
-export function put(aURL: string): RequesterChainable;
-
-/**
- * Execute a HTTP PUT with options.
- * @param aURL the url
- * @param aOptions the options, <a href="#options">see options example above</a>
- * @return a chainable requester
- */
-export function put(aURL: string, aOptions: unknown): RequesterChainable;
-
-/**
- * Execute a HTTP POST.
- * @param aURL the url
- * @return a chainable requester
- */
-export function post(aURL: string): RequesterChainable;
-
-/**
- * Execute a HTTP POST with options.
- * @param aURL the url
- * @param aOptions the options, <a href="#options">see options example above</a>
- * @return a chainable requester
- */
-export function post(aURL: string, aOptions: unknown): RequesterChainable;
-
-/**
- * Execute a HTTP DELETE.
- * @param aURL the url
- * @return a chainable requester
- */
-export function _delete(aURL: string): RequesterChainable;
-
-/**
- * Execute a HTTP DELETE with options.
- *
- * <p>aOptions extension for delete</p>
- * <ul>
- *    <li><em>deleteOptions (key/value) [@since Sitevision 4.5.3]</em> - options for delete
- *       <ul>
- *          <li><em>sendDataAsBody (boolean)</em> - send data in the request body</li>
- *       </ul>
- *    </li>
- * </ul>
- * @param aURL the url
- * @param aOptions the options, <a href="#options">see options example above</a>
- * @return a chainable requester
- */
-export function _delete(aURL: string, aOptions: unknown): RequesterChainable;
-
-/**
- * Execute a HTTP PATCH.
- *
- * <p>
- *    Note! The RFC5789 PATCH method is neither safe nor idempotent as defined by RFC2616.
- * </p>
- * @param aURL the url
- * @return a chainable requester
- * @since Sitevision 7.2.3
- */
-export function patch(aURL: string): RequesterChainable;
-
-/**
- * Execute a HTTP PATCH with options.
- *
- * <p>
- *    Note! The RFC5789 PATCH method is neither safe nor idempotent as defined by RFC2616.
- * </p>
- * @param aURL the url
- * @param aOptions the options, <a href="#options">see options example above</a>
- * @return a chainable requester
- * @since Sitevision 7.2.3
- */
-export function patch(aURL: string, aOptions: unknown): RequesterChainable;
-
-/**
- * Execute a HTTP HEAD.
- *
- * <p>
- *    Note! The response of a HEAD request does not have a body.
- * </p>
- * @param aURL the url
- * @return a chainable requester
- * @since Sitevision 7.2.3
- */
-export function head(aURL: string): RequesterChainable;
-
-/**
- * Execute a HTTP HEAD with options.
- *
- * <p>
- *    Note! The response of a HEAD request does not have a body.
- * </p>
- * @param aURL the url
- * @param aOptions the options, <a href="#options">see options example above</a>
- * @return a chainable requester
- * @since Sitevision 7.2.3
- */
-export function head(aURL: string, aOptions: unknown): RequesterChainable;
-
-export { _delete as delete };
+import type RequesterChainable from "../../types/senselogic/sitevision/api/script/RequesterChainable";
 
 /**
  * Script utility for handling data (typically JSON) from an external website.
@@ -418,8 +297,129 @@ export { _delete as delete };
  * @see RestApi
  * @see senselogic.sitevision.api.script.app.RestAppInvoker
  */
-declare namespace requester {
-  export { get, put, post, _delete as delete, patch, head };
+export interface Requester {
+  /**
+   * Execute a HTTP GET.
+   * @param aURL the url
+   * @return a chainable requester
+   */
+  get(aURL: string): RequesterChainable;
+
+  /**
+   * Execute a HTTP GET with options.
+   * @param aURL the url
+   * @param aOptions the options, <a href="#options">see options example above</a>
+   * @return a chainable requester
+   */
+  get(aURL: string, aOptions: unknown): RequesterChainable;
+
+  /**
+   * Execute a HTTP PUT.
+   * @param aURL the url
+   * @return a chainable requester
+   */
+  put(aURL: string): RequesterChainable;
+
+  /**
+   * Execute a HTTP PUT with options.
+   * @param aURL the url
+   * @param aOptions the options, <a href="#options">see options example above</a>
+   * @return a chainable requester
+   */
+  put(aURL: string, aOptions: unknown): RequesterChainable;
+
+  /**
+   * Execute a HTTP POST.
+   * @param aURL the url
+   * @return a chainable requester
+   */
+  post(aURL: string): RequesterChainable;
+
+  /**
+   * Execute a HTTP POST with options.
+   * @param aURL the url
+   * @param aOptions the options, <a href="#options">see options example above</a>
+   * @return a chainable requester
+   */
+  post(aURL: string, aOptions: unknown): RequesterChainable;
+
+  /**
+   * Execute a HTTP DELETE.
+   * @param aURL the url
+   * @return a chainable requester
+   */
+  delete(aURL: string): RequesterChainable;
+
+  /**
+   * Execute a HTTP DELETE with options.
+   *
+   * <p>aOptions extension for delete</p>
+   * <ul>
+   *    <li><em>deleteOptions (key/value) [@since Sitevision 4.5.3]</em> - options for delete
+   *       <ul>
+   *          <li><em>sendDataAsBody (boolean)</em> - send data in the request body</li>
+   *       </ul>
+   *    </li>
+   * </ul>
+   * @param aURL the url
+   * @param aOptions the options, <a href="#options">see options example above</a>
+   * @return a chainable requester
+   */
+  delete(aURL: string, aOptions: unknown): RequesterChainable;
+
+  /**
+   * Execute a HTTP PATCH.
+   *
+   * <p>
+   *    Note! The RFC5789 PATCH method is neither safe nor idempotent as defined by RFC2616.
+   * </p>
+   * @param aURL the url
+   * @return a chainable requester
+   * @since Sitevision 7.2.3
+   */
+  patch(aURL: string): RequesterChainable;
+
+  /**
+   * Execute a HTTP PATCH with options.
+   *
+   * <p>
+   *    Note! The RFC5789 PATCH method is neither safe nor idempotent as defined by RFC2616.
+   * </p>
+   * @param aURL the url
+   * @param aOptions the options, <a href="#options">see options example above</a>
+   * @return a chainable requester
+   * @since Sitevision 7.2.3
+   */
+  patch(aURL: string, aOptions: unknown): RequesterChainable;
+
+  /**
+   * Execute a HTTP HEAD.
+   *
+   * <p>
+   *    Note! The response of a HEAD request does not have a body.
+   * </p>
+   * @param aURL the url
+   * @return a chainable requester
+   * @since Sitevision 7.2.3
+   */
+  head(aURL: string): RequesterChainable;
+
+  /**
+   * Execute a HTTP HEAD with options.
+   *
+   * <p>
+   *    Note! The response of a HEAD request does not have a body.
+   * </p>
+   * @param aURL the url
+   * @param aOptions the options, <a href="#options">see options example above</a>
+   * @return a chainable requester
+   * @since Sitevision 7.2.3
+   */
+  head(aURL: string, aOptions: unknown): RequesterChainable;
 }
 
-export default requester;
+declare namespace Requester {}
+
+declare var requester: Requester;
+
+export = requester;

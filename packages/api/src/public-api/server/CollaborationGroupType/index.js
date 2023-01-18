@@ -1,0 +1,5 @@
+export default {
+  OPEN: 'OPEN',
+  MEMBER_MODERATED: 'MEMBER_MODERATED',
+  CLOSED: 'CLOSED',
+};

@@ -1,4 +1,4 @@
-import type { Node } from "../../Node";
+import type Node from "../../Node";
 
 /**
  * Represents a lock placed on an item.
@@ -6,7 +6,7 @@ import type { Node } from "../../Node";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-export type Lock = {
+type Lock = {
   /**
    * Returns the value of the <code>jcr:lockOwner</code> property. This is
    * either the client supplied owner information (see {@link
@@ -102,3 +102,5 @@ export type Lock = {
    */
   refresh(): void;
 };
+
+export = Lock;

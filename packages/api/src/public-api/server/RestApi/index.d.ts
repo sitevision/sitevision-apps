@@ -1,138 +1,4 @@
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * Executes a GET endpoint of the REST API.
- *
- * <p>
- *    <em>REST hint!</em> A <em>get</em> typically indicates a <em>read</em> of something.
- * </p>
- * @param aContextNode the endpoint context Node
- * @param aOperationName the endpoint operation name/method
- * @return a script object representing the response (properties: statusCode, statusMessage, body)
- */
-export function get(aContextNode: Node, aOperationName: string): unknown;
-
-/**
- * Executes a GET endpoint of the REST API.
- *
- * <p>
- *    <em>REST hint!</em> A <em>get</em> typically indicates a <em>read</em> of something.
- * </p>
- * @param aContextNode the endpoint context Node
- * @param aOperationName the endpoint operation name/method
- * @param aOperationOptions the operation data/parameters
- * @return a script object representing the response (properties: statusCode, statusMessage, body)
- */
-export function get(
-  aContextNode: Node,
-  aOperationName: string,
-  aOperationOptions: unknown
-): unknown;
-
-/**
- * Executes a GET endpoint of the REST API, targeting an instance of the context.
- *
- * <p>
- *    <em>REST hint!</em> A <em>get</em> typically indicates a <em>read</em> of something.
- * </p>
- * @param aContextNode the endpoint context Node
- * @param aOperationName the endpoint operation name/method
- * @param aOperationNode the operation Node of the context
- * @param aOperationOptions the operation data/parameters
- * @return a script object representing the response (properties: statusCode, statusMessage, body)
- */
-export function get(
-  aContextNode: Node,
-  aOperationName: string,
-  aOperationNode: Node,
-  aOperationOptions: unknown
-): unknown;
-
-/**
- * Executes a POST endpoint of the REST API.
- *
- * <p>
- *    <em>REST hint!</em> A <em>post</em> typically indicates the <em>creation</em> of something.
- * </p>
- * @param aContextNode the endpoint context Node
- * @param aOperationName the endpoint operation name/method
- * @param aOperationOptions the operation data/parameters
- * @return a script object representing the response (properties: statusCode, statusMessage, body)
- */
-export function post(
-  aContextNode: Node,
-  aOperationName: string,
-  aOperationOptions: unknown
-): unknown;
-
-/**
- * Executes a PUT endpoint of the REST API.
- *
- * <p>
- *    <em>REST hint!</em> A <em>put</em> typically indicates an <em>update</em> of something.
- * </p>
- * @param aContextNode the endpoint context Node
- * @param aOperationName the endpoint operation name/method
- * @param aOperationOptions the operation data/parameters
- * @return a script object representing the response (properties: statusCode, statusMessage, body)
- * @since Sitevision 5
- */
-export function put(
-  aContextNode: Node,
-  aOperationName: string,
-  aOperationOptions: unknown
-): unknown;
-
-/**
- * Executes a PUT endpoint of the REST API, targeting an instance of the context.
- *
- * <p>
- *    <em>REST hint!</em> A <em>put</em> typically indicates an <em>update</em> of something.
- * </p>
- * @param aContextNode the endpoint context Node
- * @param aOperationName the endpoint operation name/method
- * @param aOperationNode the operation Node of the context
- * @param aOperationOptions the operation data/parameters
- * @return a script object representing the response (properties: statusCode, statusMessage, body)
- */
-export function put(
-  aContextNode: Node,
-  aOperationName: string,
-  aOperationNode: Node,
-  aOperationOptions: unknown
-): unknown;
-
-/**
- * Executes a DELETE endpoint of the REST API.
- *
- * <p>
- *    <em>REST hint!</em> A <em>delete</em> typically indicates a <em>removal</em> of something.
- * </p>
- * @param aContextNode the endpoint context Node
- * @param aOperationName the endpoint operation name/method
- * @return a script object representing the response (properties: statusCode, statusMessage, body)
- * @since Sitevision 4.5.1
- */
-export function _delete(aContextNode: Node, aOperationName: string): unknown;
-
-/**
- * Executes a DELETE endpoint of the REST API, targeting an instance of the context.
- *
- * <p>
- *    <em>REST hint!</em> A <em>delete</em> typically indicates a <em>removal</em> of something.
- * </p>
- * @param aContextNode the endpoint context Node
- * @param aOperationName the endpoint operation name/method
- * @param aOperationNode the operation Node of the context
- * @return a script object representing the response (properties: statusCode, statusMessage, body)
- */
-export function _delete(
-  aContextNode: Node,
-  aOperationName: string,
-  aOperationNode: Node
-): unknown;
-
-export { _delete as delete };
+import type Node from "../../types/javax/jcr/Node";
 
 /**
  * Script utility for server-side invoke of the local Sitevision REST API.
@@ -193,8 +59,162 @@ export { _delete as delete };
  * @see Requester
  * @see senselogic.sitevision.api.script.app.RestAppInvoker
  */
-declare namespace restApi {
-  export { get, post, put, _delete as delete };
+export interface RestApi {
+  /**
+   * Executes a GET endpoint of the REST API.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>get</em> typically indicates a <em>read</em> of something.
+   * </p>
+   * @param aContextNode the endpoint context Node
+   * @param aOperationName the endpoint operation name/method
+   * @return a script object representing the response (properties: statusCode, statusMessage, body)
+   */
+  get(aContextNode: Node, aOperationName: string): unknown;
+
+  /**
+   * Executes a GET endpoint of the REST API.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>get</em> typically indicates a <em>read</em> of something.
+   * </p>
+   * @param aContextNode the endpoint context Node
+   * @param aOperationName the endpoint operation name/method
+   * @param aOperationOptions the operation data/parameters
+   * @return a script object representing the response (properties: statusCode, statusMessage, body)
+   */
+  get(
+    aContextNode: Node,
+    aOperationName: string,
+    aOperationOptions: unknown
+  ): unknown;
+
+  /**
+   * Executes a GET endpoint of the REST API, targeting an instance of the context.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>get</em> typically indicates a <em>read</em> of something.
+   * </p>
+   * @param aContextNode the endpoint context Node
+   * @param aOperationName the endpoint operation name/method
+   * @param aOperationNode the operation Node of the context
+   * @param aOperationOptions the operation data/parameters
+   * @return a script object representing the response (properties: statusCode, statusMessage, body)
+   */
+  get(
+    aContextNode: Node,
+    aOperationName: string,
+    aOperationNode: Node,
+    aOperationOptions: unknown
+  ): unknown;
+
+  /**
+   * Executes a POST endpoint of the REST API.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>post</em> typically indicates the <em>creation</em> of something.
+   * </p>
+   * @param aContextNode the endpoint context Node
+   * @param aOperationName the endpoint operation name/method
+   * @param aOperationOptions the operation data/parameters
+   * @return a script object representing the response (properties: statusCode, statusMessage, body)
+   */
+  post(
+    aContextNode: Node,
+    aOperationName: string,
+    aOperationOptions: unknown
+  ): unknown;
+
+  /**
+   * Executes a PUT endpoint of the REST API.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>put</em> typically indicates an <em>update</em> of something.
+   * </p>
+   * @param aContextNode the endpoint context Node
+   * @param aOperationName the endpoint operation name/method
+   * @param aOperationOptions the operation data/parameters
+   * @return a script object representing the response (properties: statusCode, statusMessage, body)
+   * @since Sitevision 5
+   */
+  put(
+    aContextNode: Node,
+    aOperationName: string,
+    aOperationOptions: unknown
+  ): unknown;
+
+  /**
+   * Executes a PUT endpoint of the REST API, targeting an instance of the context.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>put</em> typically indicates an <em>update</em> of something.
+   * </p>
+   * @param aContextNode the endpoint context Node
+   * @param aOperationName the endpoint operation name/method
+   * @param aOperationNode the operation Node of the context
+   * @param aOperationOptions the operation data/parameters
+   * @return a script object representing the response (properties: statusCode, statusMessage, body)
+   */
+  put(
+    aContextNode: Node,
+    aOperationName: string,
+    aOperationNode: Node,
+    aOperationOptions: unknown
+  ): unknown;
+
+  /**
+   * Executes a DELETE endpoint of the REST API.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>delete</em> typically indicates a <em>removal</em> of something.
+   * </p>
+   * @param aContextNode the endpoint context Node
+   * @param aOperationName the endpoint operation name/method
+   * @return a script object representing the response (properties: statusCode, statusMessage, body)
+   * @since Sitevision 4.5.1
+   */
+  delete(aContextNode: Node, aOperationName: string): unknown;
+
+  /**
+   * Executes a DELETE endpoint of the REST API, targeting an instance of the context.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>delete</em> typically indicates a <em>removal</em> of something.
+   * </p>
+   * @param aContextNode the endpoint context Node
+   * @param aOperationName the endpoint operation name/method
+   * @param aOperationNode the operation Node of the context
+   * @return a script object representing the response (properties: statusCode, statusMessage, body)
+   */
+  delete(
+    aContextNode: Node,
+    aOperationName: string,
+    aOperationNode: Node
+  ): unknown;
+
+  /**
+   * Executes a DELETE endpoint of the REST API, targeting an instance of the context.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>delete</em> typically indicates a <em>removal</em> of something.
+   * </p>
+   * @param aContextNode the endpoint context Node
+   * @param aOperationName the endpoint operation name/method
+   * @param aOperationNode the operation Node of the context
+   * @param aOperationOptions the operation data/parameters
+   * @return a script object representing the response (properties: statusCode, statusMessage, body)
+   * @since Sitevision 2023.01.1
+   */
+  delete(
+    aContextNode: Node,
+    aOperationName: string,
+    aOperationNode: Node,
+    aOperationOptions: unknown
+  ): unknown;
 }
 
-export default restApi;
+declare namespace RestApi {}
+
+declare var restApi: RestApi;
+
+export = restApi;

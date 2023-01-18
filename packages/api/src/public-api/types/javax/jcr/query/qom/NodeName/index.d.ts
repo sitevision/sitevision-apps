@@ -1,4 +1,4 @@
-import type { DynamicOperand } from "../DynamicOperand";
+import type DynamicOperand from "../DynamicOperand";
 
 /**
  * Evaluates to a <code>NAME</code> value equal to the namespace-qualified name
@@ -7,10 +7,12 @@ import type { DynamicOperand } from "../DynamicOperand";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type NodeName = {
+type NodeName = DynamicOperand & {
   /**
    * Gets the name of the selector against which to evaluate this operand.
    * @return the selector name; non-null
    */
   getSelectorName(): string;
 };
+
+export = NodeName;

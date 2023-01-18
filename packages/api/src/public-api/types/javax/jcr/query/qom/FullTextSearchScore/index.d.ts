@@ -1,4 +1,4 @@
-import type { DynamicOperand } from "../DynamicOperand";
+import type DynamicOperand from "../DynamicOperand";
 
 /**
  * Evaluates to a <code>DOUBLE</code> value equal to the full-text search score
@@ -15,10 +15,12 @@ import type { DynamicOperand } from "../DynamicOperand";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type FullTextSearchScore = {
+type FullTextSearchScore = DynamicOperand & {
   /**
    * Gets the name of the selector against which to evaluate this operand.
    * @return the selector name; non-null
    */
   getSelectorName(): string;
 };
+
+export = FullTextSearchScore;

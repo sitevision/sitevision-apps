@@ -1,4 +1,4 @@
-import type { DynamicOperand } from "../DynamicOperand";
+import type DynamicOperand from "../DynamicOperand";
 
 /**
  * Evaluates to the upper-case string value (or values, if multi-valued) of
@@ -15,10 +15,12 @@ import type { DynamicOperand } from "../DynamicOperand";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type UpperCase = {
+type UpperCase = DynamicOperand & {
   /**
    * Gets the operand whose value is converted to a upper-case string.
    * @return the operand; non-null
    */
   getOperand(): DynamicOperand;
 };
+
+export = UpperCase;

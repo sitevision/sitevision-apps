@@ -18,6 +18,8 @@
  * @since Sitevision 3.6
  * @see senselogic.sitevision.api.metadata.builder.LinkValueBuilder
  */
-export type LinkValue = {
+type LinkValue = {
   undefined;
 };
+
+export = LinkValue;

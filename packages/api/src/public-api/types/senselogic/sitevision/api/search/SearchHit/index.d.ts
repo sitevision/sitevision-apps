@@ -1,4 +1,6 @@
-import type { Node } from "../../../../../javax/jcr/Node";
+import type Node from "../../../../../javax/jcr/Node";
+
+import { SearchHitConstants } from "../../render/velocity/VelocityAccess.SearchHitConstants";
 
 /**
  * <p>
@@ -17,11 +19,11 @@ import type { Node } from "../../../../../javax/jcr/Node";
  * <p>
  *    <em>This object is short lived in that sense that it is invalid after a specified timespan.
  *    Make sure it's handled correspondingly (i.e. do not cache it).</em>
- * </p><p>Indicates that the hit is an internal resource managed by the Sitevision server</p><p>Indicates that the hit is an external resource</p>
+ * </p>
  * @author Mikael Wikblom
  * @since Sitevision 2.6_06
  */
-export type SearchHit = {
+type SearchHit = SearchHitConstants & {
   /**
    * <p>Checks if the value(-s) for a specified field contains a specific value.</p>
    *
@@ -774,4 +776,18 @@ export type SearchHit = {
    * @since Sitevision 3.0
    */
   getClickTrackingCallback(): string;
+
+  /**
+ * <p>Indicates that the hit is an internal resource managed by the Sitevision server</p>
+  
+    */
+  TYPE_INTERNAL: number;
+
+  /**
+ * <p>Indicates that the hit is an external resource</p>
+  
+    */
+  TYPE_EXTERNAL: number;
 };
+
+export = SearchHit;

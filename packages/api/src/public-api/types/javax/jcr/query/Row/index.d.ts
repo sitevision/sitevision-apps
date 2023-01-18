@@ -1,6 +1,6 @@
-import type { Value } from "../../Value";
+import type Value from "../../Value";
 
-import type { Node } from "../../Node";
+import type Node from "../../Node";
 
 /**
  * A row in the query result table.
@@ -8,7 +8,7 @@ import type { Node } from "../../Node";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-export type Row = {
+type Row = {
   /**
    * Returns an array of all the values in the same order as the column names
    * returned by {@link QueryResult#getColumnNames()}.
@@ -116,3 +116,5 @@ export type Row = {
    */
   getScore(selectorName: string): number;
 };
+
+export = Row;

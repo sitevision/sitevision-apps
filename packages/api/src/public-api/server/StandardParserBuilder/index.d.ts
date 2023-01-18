@@ -1,34 +1,5 @@
-import type { Parser } from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Sets the default query field.
- *
- * <p>
- *    <em>Solr note: this is the 'df' param.</em>
- * </p>
- * @param aDefaultField the name of the query field, <code>null</code> or whitespace-only values will be ignored
- * @return this builder
- */
-export function setDefaultField(aDefaultField: string): StandardParserBuilder;
-
-/**
- * Sets the query operator.
- *
- * <p>
- *    <em>Solr note: this is the 'q.op' param. The value should typically be "AND" or "OR".</em>
- * </p>
- * @param aQueryOperator the query operator, all values except [null, "AND", "OR"] will be ignored
- * @return this builder
- * @since Sitevision 4.0.2
- */
-export function setQueryOperator(aQueryOperator: string): StandardParserBuilder;
-
-/**
- * Creates a Parser component instance using currently specified state/behaviour.
- * @return a Parser component.
- */
-export function build(): Parser;
+import type Parser from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -98,8 +69,39 @@ export function build(): Parser;
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-declare namespace standardParserBuilder {
-  export { setDefaultField, setQueryOperator, build };
+export interface StandardParserBuilder extends Builder {
+  /**
+   * Sets the default query field.
+   *
+   * <p>
+   *    <em>Solr note: this is the 'df' param.</em>
+   * </p>
+   * @param aDefaultField the name of the query field, <code>null</code> or whitespace-only values will be ignored
+   * @return this builder
+   */
+  setDefaultField(aDefaultField: string): StandardParserBuilder;
+
+  /**
+   * Sets the query operator.
+   *
+   * <p>
+   *    <em>Solr note: this is the 'q.op' param. The value should typically be "AND" or "OR".</em>
+   * </p>
+   * @param aQueryOperator the query operator, all values except [null, "AND", "OR"] will be ignored
+   * @return this builder
+   * @since Sitevision 4.0.2
+   */
+  setQueryOperator(aQueryOperator: string): StandardParserBuilder;
+
+  /**
+   * Creates a Parser component instance using currently specified state/behaviour.
+   * @return a Parser component.
+   */
+  build(): Parser;
 }
 
-export default standardParserBuilder;
+declare namespace StandardParserBuilder {}
+
+declare var standardParserBuilder: StandardParserBuilder;
+
+export = standardParserBuilder;

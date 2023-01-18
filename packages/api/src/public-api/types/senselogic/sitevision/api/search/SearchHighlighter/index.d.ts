@@ -1,4 +1,4 @@
-import type { SearchHit } from "../SearchHit";
+import type SearchHit from "../SearchHit";
 
 /**
  * <p>
@@ -10,7 +10,7 @@ import type { SearchHit } from "../SearchHit";
  * @since Sitevision 2.7_06
  * @deprecated This interface will do absolutely nothing as of Sitevision 3.0 (search engine has been replaced). Interface methods will not do anything (i.e. always return <code>null</code>) and this interface will be completely removed in future releases of Sitevision.
  */
-export type SearchHighlighter = {
+type SearchHighlighter = {
   /**
    * Returns a highlighted fragment for the default highlighting field.
    * @param aHighlightPreElement the opening element to the left of a highlighted word(-s), e.g <code>"&lt;strong style=\"background-color:yellow\"&gt;"</code>
@@ -41,3 +41,5 @@ export type SearchHighlighter = {
     aHighlightingFieldName: string
   ): string;
 };
+
+export = SearchHighlighter;

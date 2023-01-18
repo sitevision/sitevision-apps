@@ -1,4 +1,4 @@
-import type { Node } from "../../../../../javax/jcr/Node";
+import type Node from "../../../../../javax/jcr/Node";
 
 /**
  * Deprecated interface that will be removed in a future Sitevision release.
@@ -6,7 +6,7 @@ import type { Node } from "../../../../../javax/jcr/Node";
  * @since Sitevision 3.0
  * @deprecated use {@link senselogic.sitevision.api.user.SystemUserUtil} and {@link senselogic.sitevision.api.user.UserIdentityUtil} instead
  */
-export type UserUtil = {
+type UserUtil = {
   /**
    * Checks if current user is anonymous (not authenticated).
    * @return <code>true</code> if current user is Anonymous (i.e. not authenticated), <code>false</code> otherwise
@@ -76,3 +76,5 @@ export type UserUtil = {
    */
   getUserIdentity(aUserNode: Node): Node;
 };
+
+export = UserUtil;

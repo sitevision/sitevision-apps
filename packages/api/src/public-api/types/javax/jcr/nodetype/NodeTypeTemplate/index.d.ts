@@ -1,4 +1,4 @@
-import type { NodeTypeDefinition } from "../NodeTypeDefinition";
+import type NodeTypeDefinition from "../NodeTypeDefinition";
 
 /**
  * The <code>NodeTypeTemplate</code> interface is used to define node types which
@@ -18,7 +18,7 @@ import type { NodeTypeDefinition } from "../NodeTypeDefinition";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type NodeTypeTemplate = {
+type NodeTypeTemplate = NodeTypeDefinition & {
   /**
    * Sets the name of the node type. This must be a JCR name in either
    * qualified or expanded form.
@@ -86,3 +86,5 @@ export type NodeTypeTemplate = {
    */
   getNodeDefinitionTemplates(): unknown;
 };
+
+export = NodeTypeTemplate;

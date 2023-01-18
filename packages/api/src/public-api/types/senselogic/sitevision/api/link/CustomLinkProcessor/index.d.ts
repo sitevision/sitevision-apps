@@ -1,12 +1,12 @@
-import type { CustomLinkRenderData } from "../CustomLinkRenderData";
-import type { Filter } from "../../base/Filter";
+import type CustomLinkRenderData from "../CustomLinkRenderData";
+import type Filter from "../../base/Filter";
 
 /**
  * Custom link processor interface that enables custom validation and data attributes rendering for specific link URLs.
  * @author Magnus Lövgren
  * @since Sitevision 4.0.4
  */
-export type CustomLinkProcessor = {
+type CustomLinkProcessor = Filter & {
   /**
    * Validates a link URL accepted by this link processor.
    *
@@ -32,3 +32,5 @@ export type CustomLinkProcessor = {
    */
   getRenderData(aLinkURL: string): CustomLinkRenderData;
 };
+
+export = CustomLinkProcessor;

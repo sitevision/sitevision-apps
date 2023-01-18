@@ -1,35 +1,8 @@
 import RoleAssignmentBuilder from "../RoleAssignmentBuilder";
 import RoleMatcherBuilder from "../RoleMatcherBuilder";
 
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * Creates a RoleAssignmentBuilder instance.
- * @return a RoleAssignmentBuilder
- */
-export function getRoleAssignmentBuilder(): RoleAssignmentBuilder;
-
-/**
- * Creates a RoleMatcherBuilder instance.
- * @return a RoleMatcherBuilder
- * @since Sitevision 6.1
- */
-export function getRoleMatcherBuilder(): RoleMatcherBuilder;
-
-/**
- * Gets a role by name.
- * @param aRoleName the name of the role
- * @return the role (sv:role) with name aRoleName, or null if no such role could be found
- */
-export function getRoleByName(aRoleName: string): Node;
-
-/**
- * Checks if a role contains a specific permission.
- * @param aRole the role (sv:role)
- * @param aPermission the permission
- * @return true if aRole is a sv:role and contains aPermission, false otherwise
- */
-export function containsPermission(aRole: Node, aPermission: unknown): boolean;
+import type Node from "../../types/javax/jcr/Node";
+import Permission from "../PermissionUtil.Permission";
 
 /**
  * Role utility interface.
@@ -42,13 +15,38 @@ export function containsPermission(aRole: Node, aPermission: unknown): boolean;
  * @since Sitevision 5.1
  * @see PermissionUtil
  */
-declare namespace roleUtil {
-  export {
-    getRoleAssignmentBuilder,
-    getRoleMatcherBuilder,
-    getRoleByName,
-    containsPermission,
-  };
+export interface RoleUtil {
+  /**
+   * Creates a RoleAssignmentBuilder instance.
+   * @return a RoleAssignmentBuilder
+   */
+  getRoleAssignmentBuilder(): RoleAssignmentBuilder;
+
+  /**
+   * Creates a RoleMatcherBuilder instance.
+   * @return a RoleMatcherBuilder
+   * @since Sitevision 6.1
+   */
+  getRoleMatcherBuilder(): RoleMatcherBuilder;
+
+  /**
+   * Gets a role by name.
+   * @param aRoleName the name of the role
+   * @return the role (sv:role) with name aRoleName, or null if no such role could be found
+   */
+  getRoleByName(aRoleName: string): Node;
+
+  /**
+   * Checks if a role contains a specific permission.
+   * @param aRole the role (sv:role)
+   * @param aPermission the permission
+   * @return true if aRole is a sv:role and contains aPermission, false otherwise
+   */
+  containsPermission(aRole: Node, aPermission: Permission): boolean;
 }
 
-export default roleUtil;
+declare namespace RoleUtil {}
+
+declare var roleUtil: RoleUtil;
+
+export = roleUtil;

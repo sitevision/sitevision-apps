@@ -1,6 +1,6 @@
-import type { Property } from "../Property";
+import type Property from "../Property";
 
-import type { Node } from "../Node";
+import type Node from "../Node";
 
 /**
  * This interface defines two signatures of the <code>visit</code> method; one
@@ -15,7 +15,7 @@ import type { Node } from "../Node";
  * through the tree performing some operation on each <code>Item</code>.
   
     */
-export type ItemVisitor = {
+type ItemVisitor = {
   /**
    * This method is called when the <code>ItemVisitor</code> is passed to the
    * <code>accept</code> method of a <code>Property</code>. If this method
@@ -34,3 +34,5 @@ export type ItemVisitor = {
    */
   visit(node: Node): void;
 };
+
+export = ItemVisitor;

@@ -1,7 +1,7 @@
-import type { EventListener } from "../EventListener";
+import type EventListener from "../EventListener";
 
-import type { EventListenerIterator } from "../EventListenerIterator";
-import type { EventJournal } from "../EventJournal";
+import type EventListenerIterator from "../EventListenerIterator";
+import type EventJournal from "../EventJournal";
 
 /**
  * The ObservationManager object.
@@ -12,7 +12,7 @@ import type { EventJournal } from "../EventJournal";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-export type ObservationManager = {
+type ObservationManager = {
   /**
    * Adds an event listener that listens for the specified
    * <code>eventTypes</code> (a combination of one or more event types encoded
@@ -152,3 +152,5 @@ export type ObservationManager = {
     nodeTypeName: string
   ): EventJournal;
 };
+
+export = ObservationManager;

@@ -1,4 +1,4 @@
-import type { Constraint } from "../Constraint";
+import type Constraint from "../Constraint";
 
 /**
  * Performs a logical conjunction of two other constraints.
@@ -9,7 +9,7 @@ import type { Constraint } from "../Constraint";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type And = {
+type And = Constraint & {
   /**
    * Gets the first constraint.
    * @return the constraint; non-null
@@ -22,3 +22,5 @@ export type And = {
    */
   getConstraint2(): Constraint;
 };
+
+export = And;

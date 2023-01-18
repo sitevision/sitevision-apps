@@ -7,6 +7,7 @@ export default {
   getFilesPage: () => {},
   getCollaborationGroupsPage: () => {},
   getMembersPage: () => {},
+  getMessagesPage: () => {},
   getTagTimelinePage: () => {},
   getTimelineEntryPage: () => {},
   getTopicTimelinePage: () => {},

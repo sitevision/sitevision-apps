@@ -1,6 +1,10 @@
-import type { Node } from "../../../../../javax/jcr/Node";
+import type Node from "../../../../../javax/jcr/Node";
 
-import type { Wrapper } from "../../base/Wrapper";
+import { CollaborationGroupType } from "../../../../../../server/CollaborationGroupType";
+
+import { CollaborationGroupState } from "../../../../../../server/CollaborationGroupState";
+
+import type Wrapper from "../../base/Wrapper";
 
 /**
  * Collaboration group administration interface.
@@ -18,7 +22,7 @@ import type { Wrapper } from "../../base/Wrapper";
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-export type CollaborationGroupWrapper = {
+type CollaborationGroupWrapper = Wrapper & {
   /**
    * Gets the admins of the wrapped collaboration group.
    * @return the admins of the wrapped collaboration group. Never null.
@@ -152,7 +156,7 @@ export type CollaborationGroupWrapper = {
    * @return the collaboration group type
    * @since Sitevision 4.1
    */
-  getGroupType(): unknown;
+  getGroupType(): CollaborationGroupType;
 
   /**
    * Changes the collaboration group type of the wrapped collaboration group.
@@ -172,14 +176,14 @@ export type CollaborationGroupWrapper = {
    * @param aCollaborationGroupType the collaboration group type
    * @since Sitevision 4.1
    */
-  setGroupType(aCollaborationGroupType: unknown): void;
+  setGroupType(aCollaborationGroupType: CollaborationGroupType): void;
 
   /**
    * Gets the collaboration group state of the wrapped collaboration group.
    * @return the collaboration group state
    * @since Sitevision 4.1
    */
-  getGroupState(): unknown;
+  getGroupState(): CollaborationGroupState;
 
   /**
    * Changes the collaboration group state of the wrapped collaboration group.
@@ -192,7 +196,7 @@ export type CollaborationGroupWrapper = {
    * @param aCollaborationGroupState the collaboration group state
    * @since Sitevision 4.1
    */
-  setGroupState(aCollaborationGroupState: unknown): void;
+  setGroupState(aCollaborationGroupState: CollaborationGroupState): void;
 
   /**
    * Gets the group description of the wrapped collaboration group.
@@ -291,3 +295,5 @@ export type CollaborationGroupWrapper = {
    */
   getCollaborationGroup(): Node;
 };
+
+export = CollaborationGroupWrapper;

@@ -1,4 +1,6 @@
-import type { SearchHighlighter } from "../SearchHighlighter";
+import type SearchHighlighter from "../SearchHighlighter";
+
+import { SearchResultConstants } from "../../render/velocity/VelocityAccess.SearchResultConstants";
 
 /**
  * <p>
@@ -9,15 +11,11 @@ import type { SearchHighlighter } from "../SearchHighlighter";
  * <p>
  *    <strong>Note!</strong> This object is short lived in that sense that it is invalid after a specified timespan.
  *    Make sure it's handled correspondingly (i.e. do <em>not</em> cache it).
- * </p>Search is successful.Search is unsuccessful due to a missing index.Search is unsuccessful due to an invalid search query.Search is unsuccessful due to an unexpected error.
+ * </p>
  * @author Mikael Wikblom
  * @since Sitevision 2.6_06
- * @see #getStatus()
- * @see #getStatus()
- * @see #getStatus()
- * @see #getStatus()
  */
-export type SearchResult = {
+type SearchResult = SearchResultConstants & {
   /**
    * <p>Accessor to the lazy loaded <code>Iterator</code> containing the search hits. Iterating the
    * <code>Iterator</code> potentially changes the status of the <code>SearchResult</code>object.</p>
@@ -274,4 +272,30 @@ export type SearchResult = {
    * @deprecated since Sitevision 3.0
    */
   getDateFormatter(aLocale: unknown): unknown;
+
+  /**
+   * Search is successful.
+   * @see #getStatus()
+   */
+  STATUS_OK: number;
+
+  /**
+   * Search is unsuccessful due to a missing index.
+   * @see #getStatus()
+   */
+  STATUS_INDEX_NOT_AVAILABLE: number;
+
+  /**
+   * Search is unsuccessful due to an invalid search query.
+   * @see #getStatus()
+   */
+  STATUS_PARSE_ERROR: number;
+
+  /**
+   * Search is unsuccessful due to an unexpected error.
+   * @see #getStatus()
+   */
+  STATUS_UNEXPECTED_ERROR: number;
 };
+
+export = SearchResult;

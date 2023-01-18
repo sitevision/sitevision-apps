@@ -4,7 +4,7 @@
  * @since Sitevision 3.0
  * @see senselogic.sitevision.api.search.facet.SearchFacetField#getFacetValues()
  */
-export type SearchFacetValue = {
+type SearchFacetValue = {
   /**
    * Returns the number of occurrences (number of expected hits when searching with this facet value).
    * @return the number of occurrences for this facet value.
@@ -46,3 +46,5 @@ export type SearchFacetValue = {
    */
   isSelected(): boolean;
 };
+
+export = SearchFacetValue;

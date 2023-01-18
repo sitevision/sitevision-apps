@@ -1,34 +1,4 @@
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * Gets the renderable parent of a given content node.
- *
- * <p>
- *    See {@link senselogic.sitevision.api.node.NodeTypeUtil#isAnyRenderableType(Node)} for what type a "Renderable node" can have.
- * </p>
- * @param aContentNode a content node, typically a sv:portlet or sv:layout
- * @return the renderable parent of aContentNode (typically a sv:page), or null if aContentNode has no renderable parent or if current user doesn't have READ permission on the renderable parent
- */
-export function getRenderableParent(aContentNode: Node): Node;
-
-/**
- * Gets the content parent of a given content node.
- *
- * <p>
- *    See {@link senselogic.sitevision.api.node.NodeTypeUtil#isAnyContentType(Node)} for what type a "Content node" can have.
- * </p>
- *
- * <p>
- *    <em>
- *       <strong>Element disclaimer!</strong> The content structure of an Element (sv:moduleElement/sv:moduleElementDraft) potentially differs
- *       in the OFFLINE and ONLINE versions.
- *       Typically you should not use this method with <code>aContentNode</code> located within an Element.
- *    </em>
- * </p>
- * @param aContentNode a content node, typically a sv:portlet or sv:layout
- * @return the content parent of aContentNode (typically a sv:layout), or null if aContentNode has no content parent
- */
-export function getContentParent(aContentNode: Node): Node;
+import type Node from "../../types/javax/jcr/Node";
 
 /**
  * Content Node utility interface.
@@ -53,8 +23,40 @@ export function getContentParent(aContentNode: Node): Node;
  * @author Magnus Lövgren
  * @since Sitevision 10.2
  */
-declare namespace contentNodeUtil {
-  export { getRenderableParent, getContentParent };
+export interface ContentNodeUtil {
+  /**
+   * Gets the renderable parent of a given content node.
+   *
+   * <p>
+   *    See {@link senselogic.sitevision.api.node.NodeTypeUtil#isAnyRenderableType(Node)} for what type a "Renderable node" can have.
+   * </p>
+   * @param aContentNode a content node, typically a sv:portlet or sv:layout
+   * @return the renderable parent of aContentNode (typically a sv:page), or null if aContentNode has no renderable parent or if current user doesn't have READ permission on the renderable parent
+   */
+  getRenderableParent(aContentNode: Node): Node;
+
+  /**
+   * Gets the content parent of a given content node.
+   *
+   * <p>
+   *    See {@link senselogic.sitevision.api.node.NodeTypeUtil#isAnyContentType(Node)} for what type a "Content node" can have.
+   * </p>
+   *
+   * <p>
+   *    <em>
+   *       <strong>Element disclaimer!</strong> The content structure of an Element (sv:moduleElement/sv:moduleElementDraft) potentially differs
+   *       in the OFFLINE and ONLINE versions.
+   *       Typically you should not use this method with <code>aContentNode</code> located within an Element.
+   *    </em>
+   * </p>
+   * @param aContentNode a content node, typically a sv:portlet or sv:layout
+   * @return the content parent of aContentNode (typically a sv:layout), or null if aContentNode has no content parent
+   */
+  getContentParent(aContentNode: Node): Node;
 }
 
-export default contentNodeUtil;
+declare namespace ContentNodeUtil {}
+
+declare var contentNodeUtil: ContentNodeUtil;
+
+export = contentNodeUtil;

@@ -30,6 +30,8 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-export type Parser = {
+type Parser = {
   undefined;
 };
+
+export = Parser;

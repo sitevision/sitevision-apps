@@ -26,7 +26,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.1
  */
-export type TypedArgument = {
+type TypedArgument = {
   /**
    * Gets the argument class.
    * @return the class of the argument
@@ -39,3 +39,5 @@ export type TypedArgument = {
    */
   getValue(): unknown;
 };
+
+export = TypedArgument;

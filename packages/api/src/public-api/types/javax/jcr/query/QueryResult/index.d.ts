@@ -1,5 +1,5 @@
-import type { RowIterator } from "../RowIterator";
-import type { NodeIterator } from "../../NodeIterator";
+import type RowIterator from "../RowIterator";
+import type NodeIterator from "../../NodeIterator";
 
 /**
  * A <code>QueryResult</code> object. Returned by {@link
@@ -8,7 +8,7 @@ import type { NodeIterator } from "../../NodeIterator";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-export type QueryResult = {
+type QueryResult = {
   /**
    * Returns an array of all the column names in the table view of this result
    * set.
@@ -42,3 +42,5 @@ export type QueryResult = {
    */
   getSelectorNames(): string;
 };
+
+export = QueryResult;

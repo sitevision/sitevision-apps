@@ -1,69 +1,7 @@
-import type { Node } from "../../types/javax/jcr/Node";
+import type Node from "../../types/javax/jcr/Node";
 
-import type { LinkValue } from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Sets the target.
- * @param anURL the link target URL
- * @return this builder
- * @throws IllegalArgumentException if <code>anURL</code> is <code>null</code> or whitespace only
- */
-export function setExternalTarget(anURL: string): LinkValueBuilder;
-
-/**
- * Sets the target.
- * @param aMailAddress a mail address
- * @return this builder
- * @throws IllegalArgumentException if <code>aMailAddress</code> is <code>null</code>, whitespace only or an invalid mail address.
- * @see senselogic.sitevision.api.mail.MailUtil#isValidAddress(String)
- */
-export function setMailTarget(aMailAddress: string): LinkValueBuilder;
-
-/**
- * Sets the target.
- * @param aPhoneNumber a phone number
- * @return this builder
- * @throws IllegalArgumentException if <code>aPhoneNumber</code> is <code>null</code>, whitespace only or an invalid phone number.
- * @since Sitevision 4.2.1
- */
-export function setPhoneTarget(aPhoneNumber: string): LinkValueBuilder;
-
-/**
- * Sets the target.
- * @param aNode the target, must be a linkable resource (i.e. a page/article/image/file or such) that isn't trashed.
- * @return this builder
- * @throws IllegalArgumentException if <code>aNode</code> is <code>null</code> or not a linkable resource.
- */
-export function setInternalTarget(aNode: Node): LinkValueBuilder;
-
-/**
- * Sets the link name.
- * @param aName the link name
- * @return this builder
- */
-export function setName(aName: string): LinkValueBuilder;
-
-/**
- * Sets the link description.
- * @param aDescription the link description
- * @return this builder
- */
-export function setDescription(aDescription: string): LinkValueBuilder;
-
-/**
- * Sets open in new window.
- * @param aOpenInNewWindow whether or not the link should be opened in new window
- * @return this builder
- */
-export function setOpenInNewWindow(aOpenInNewWindow: boolean): LinkValueBuilder;
-
-/**
- * Creates a LinkValue instance using current state of this builder.
- * @return a link value
- * @throws IllegalStateException if there are no link target.
- */
-export function build(): LinkValue;
+import type LinkValue from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder to create LinkValue instances that can be used to set link metadata.
@@ -127,17 +65,72 @@ export function build(): LinkValue;
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-declare namespace linkValueBuilder {
-  export {
-    setExternalTarget,
-    setMailTarget,
-    setPhoneTarget,
-    setInternalTarget,
-    setName,
-    setDescription,
-    setOpenInNewWindow,
-    build,
-  };
+export interface LinkValueBuilder extends Builder {
+  /**
+   * Sets the target.
+   * @param anURL the link target URL
+   * @return this builder
+   * @throws IllegalArgumentException if <code>anURL</code> is <code>null</code> or whitespace only
+   */
+  setExternalTarget(anURL: string): LinkValueBuilder;
+
+  /**
+   * Sets the target.
+   * @param aMailAddress a mail address
+   * @return this builder
+   * @throws IllegalArgumentException if <code>aMailAddress</code> is <code>null</code>, whitespace only or an invalid mail address.
+   * @see senselogic.sitevision.api.mail.MailUtil#isValidAddress(String)
+   */
+  setMailTarget(aMailAddress: string): LinkValueBuilder;
+
+  /**
+   * Sets the target.
+   * @param aPhoneNumber a phone number
+   * @return this builder
+   * @throws IllegalArgumentException if <code>aPhoneNumber</code> is <code>null</code>, whitespace only or an invalid phone number.
+   * @since Sitevision 4.2.1
+   */
+  setPhoneTarget(aPhoneNumber: string): LinkValueBuilder;
+
+  /**
+   * Sets the target.
+   * @param aNode the target, must be a linkable resource (i.e. a page/article/image/file or such) that isn't trashed.
+   * @return this builder
+   * @throws IllegalArgumentException if <code>aNode</code> is <code>null</code> or not a linkable resource.
+   */
+  setInternalTarget(aNode: Node): LinkValueBuilder;
+
+  /**
+   * Sets the link name.
+   * @param aName the link name
+   * @return this builder
+   */
+  setName(aName: string): LinkValueBuilder;
+
+  /**
+   * Sets the link description.
+   * @param aDescription the link description
+   * @return this builder
+   */
+  setDescription(aDescription: string): LinkValueBuilder;
+
+  /**
+   * Sets open in new window.
+   * @param aOpenInNewWindow whether or not the link should be opened in new window
+   * @return this builder
+   */
+  setOpenInNewWindow(aOpenInNewWindow: boolean): LinkValueBuilder;
+
+  /**
+   * Creates a LinkValue instance using current state of this builder.
+   * @return a link value
+   * @throws IllegalStateException if there are no link target.
+   */
+  build(): LinkValue;
 }
 
-export default linkValueBuilder;
+declare namespace LinkValueBuilder {}
+
+declare var linkValueBuilder: LinkValueBuilder;
+
+export = linkValueBuilder;

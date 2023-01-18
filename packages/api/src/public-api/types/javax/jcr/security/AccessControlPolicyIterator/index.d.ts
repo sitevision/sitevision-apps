@@ -1,5 +1,5 @@
-import type { AccessControlPolicy } from "../AccessControlPolicy";
-import type { RangeIterator } from "../../RangeIterator";
+import type AccessControlPolicy from "../AccessControlPolicy";
+import type RangeIterator from "../../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>AccessControlPolicy</code>s
@@ -9,7 +9,7 @@ import type { RangeIterator } from "../../RangeIterator";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type AccessControlPolicyIterator = {
+type AccessControlPolicyIterator = RangeIterator & {
   /**
    * Returns the next <code>AccessControlPolicy</code> in the iteration.
    * @return the next <code>AccessControlPolicy</code> in the iteration.
@@ -17,3 +17,5 @@ export type AccessControlPolicyIterator = {
    */
   nextAccessControlPolicy(): AccessControlPolicy;
 };
+
+export = AccessControlPolicyIterator;

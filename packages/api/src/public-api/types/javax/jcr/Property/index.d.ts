@@ -1,439 +1,20 @@
-import type { Value } from "../Value";
+import type Value from "../Value";
 
-import type { Binary } from "../Binary";
+import type Binary from "../Binary";
 
-import type { Node } from "../Node";
-import type { PropertyDefinition } from "../nodetype/PropertyDefinition";
+import type Node from "../Node";
+import type PropertyDefinition from "../nodetype/PropertyDefinition";
 
-import type { Item } from "../Item";
+import type Item from "../Item";
 
 /**
  * A <code>Property</code> object represents the smallest granularity of content
  * storage. It has a single parent node and no children. A property consists of
  * a name and a value, or in the case of multi-value properties, a set of values
- * all of the same type. See <code>{@link Value}</code>.A constant for the property name <code>jcr:primaryType</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_BASE
- * nt:base}.A constant for the property name <code>jcr:mixinTypes</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_BASE
- * nt:base}.A constant for the property name <code>jcr:content</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_LINKED_FILE
- * nt:linkedFile}. Note, <code>jcr:content</code> is also the name of a
- * child node declared in {@link javax.jcr.nodetype.NodeType#NT_FILE
- * nt:file}.A constant for the property name <code>jcr:data</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_RESOURCE
- * nt:resource}.A constant for the property name <code>jcr:protocol</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
- * nt:address}.A constant for the property name <code>jcr:host</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
- * nt:address}.A constant for the property name <code>jcr:port</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
- * nt:address}.A constant for the property name <code>jcr:repository</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
- * nt:address}.A constant for the property name <code>jcr:workspace</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
- * nt:address}.A constant for the property name <code>jcr:path</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
- * nt:address}.A constant for the property name <code>jcr:id</code> (in expanded form),
- * declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
- * nt:address}.A constant for the property name <code>jcr:uuid</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_REFERENCEABLE
- * mix:referenceable}.A constant for the property name <code>jcr:title</code> (in expanded
- * form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_TITLE
- * mix:title} and {@link javax.jcr.nodetype.NodeType#NT_ACTIVITY
- * nt:activity}.A constant for the property name <code>jcr:description</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_TITLE
- * mix:title}.A constant for the property name <code>jcr:created</code> (in expanded
- * form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_CREATED
- * mix:created} and {@link javax.jcr.nodetype.NodeType#NT_VERSION
- * nt:version}.A constant for the property name <code>jcr:createdBy</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_CREATED
- * mix:created}.A constant for the property name <code>jcr:lastModified</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LAST_MODIFIED
- * mix:lastModified}.A constant for the property name <code>jcr:lastModifiedBy</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LAST_MODIFIED
- * mix:lastModified}.A constant for the property name <code>jcr:language</code> (in expanded
- * form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_LANGUAGE
- * mix:language} and {@link javax.jcr.nodetype.NodeType#NT_QUERY nt:query}.A constant for the property name <code>jcr:mimeType</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_MIMETYPE
- * mix:mimeType}.A constant for the property name <code>jcr:encoding</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_MIMETYPE
- * mix:mimeType}.A constant for the property name <code>jcr:nodeTypeName</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
- * nt:nodeType}.A constant for the property name <code>jcr:supertypes</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
- * nt:nodeType}.A constant for the property name <code>jcr:isAbstract</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
- * nt:nodeType}.A constant for the property name <code>jcr:isMixin</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
- * nt:nodeType}.A constant for the property name <code>jcr:hasOrderableChildNodes</code>
- * (in expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
- * nt:nodeType}.A constant for the property name <code>jcr:primaryItemName</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
- * nt:nodeType}.A constant for the property name <code>jcr:name</code> (in expanded
- * form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
- * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
- * nt:childNodeDefinition}.A constant for the property name <code>jcr:autoCreated</code> (in
- * expanded form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
- * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
- * nt:childNodeDefinition}.A constant for the property name <code>jcr:mandatory</code> (in expanded
- * form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
- * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
- * nt:childNodeDefinition}.A constant for the property name <code>jcr:protected</code> (in expanded
- * form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
- * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
- * nt:childNodeDefinition}.A constant for the property name <code>jcr:onParentVersion</code> (in
- * expanded form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
- * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
- * nt:childNodeDefinition}.A constant for the property name <code>jcr:requiredType</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
- * nt:propertyDefinition}.A constant for the property name <code>jcr:valueConstraints</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
- * nt:propertyDefinition}.A constant for the property name <code>jcr:defaultValues</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
- * nt:propertyDefinition}.A constant for the property name <code>jcr:multiple</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
- * nt:propertyDefinition}.A constant for the property name <code>jcr:requiredPrimaryTypes</code>
- * (in expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
- * nt:childNodeDefinition}.A constant for the property name <code>jcr:defaultPrimaryType</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
- * nt:childNodeDefinition}.A constant for the property name <code>jcr:sameNameSiblings</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
- * nt:childNodeDefinition}.A constant for the property name <code>jcr:lockOwner</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LOCKABLE
- * mix:lockable}.A constant for the property name <code>jcr:lockIsDeep</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LOCKABLE
- * mix:lockable}.A constant for the property name <code>jcr:lifecyclePolicy</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LIFECYCLE
- * mix:lifecycle}.A constant for the property name <code>jcr:currentLifecycleState</code>
- * (in expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LIFECYCLE
- * mix:lifecycle}.A constant for the property name <code>jcr:isCheckedOut</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_SIMPLE_VERSIONABLE
- * mix:simpleVersionable}.A constant for the property name <code>jcr:frozenPrimaryType</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_FROZEN_NODE
- * nt:frozenNode}.A constant for the property name <code>jcr:frozenMixinTypes</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_FROZEN_NODE
- * nt:frozenNode}.A constant for the property name <code>jcr:frozenUuid</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_FROZEN_NODE
- * nt:frozenNode}.A constant for the property name <code>jcr:versionHistory</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
- * mix:versionable}.A constant for the property name <code>jcr:baseVersion</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
- * mix:versionable}.A constant for the property name <code>jcr:predecessors</code> (in
- * expanded form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
- * mix:versionable} and {@link javax.jcr.nodetype.NodeType#NT_VERSION
- * nt:version}.A constant for the property name <code>jcr:mergeFailed</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
- * mix:versionable}.A constant for the property name <code>jcr:activity</code> (in expanded
- * form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
- * mix:versionable} and {@link javax.jcr.nodetype.NodeType#NT_VERSION
- * nt:version}.A constant for the property name <code>jcr:configuration</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
- * mix:versionable}.A constant for the property name <code>jcr:versionableUuid</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_VERSION
- * nt:version}.A constant for the property name <code>jcr:copiedFrom</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_VERSION
- * nt:version}.A constant for the property name <code>jcr:successors</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_VERSION
- * nt:versione}.A constant for the property name <code>jcr:childVersionHistory</code> (in
- * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_VERSIONED_CHILD
- * nt:versionedChild}.A constant for the property name <code>jcr:root</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_CONFIGURATION
- * nt:configuration}.A constant for the property name <code>jcr:statement</code> (in expanded
- * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_QUERY
- * nt:query}.
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- * @since JCR 2.0
- */
-export type Property = {
-  /**
-   * Sets the value of this property to <code>value</code>. If this property's
-   * property type is not constrained by the node type of its parent node,
-   * then the property type is changed to that of the supplied
-   * <code>value</code>. If the property type is constrained, then a
-   * best-effort conversion is attempted.
-   * <p>
-   * This method is a session-write and therefore requires a <code>save</code>
-   * to dispatch the change.
-   * <p>
-   * A <code>ConstraintViolationException</code> will be thrown either
-   * immediately, on dispatch, or on persist, if the change would violate a
-   * node type or implementation-specific constraint. Implementations may
-   * differ on when this validation is performed.
-   * <p>
-   * A <code>VersionException</code> will be thrown either immediately, on
-   * dispatch, or on persist, if this property belongs to a node that is
-   * versionable and checked-in or is non-versionable but whose nearest
-   * versionable ancestor is checked-in. Implementations may differ on when
-   * this validation is performed.
-   * <p>
-   * A <code>LockException</code> will be thrown either immediately, on
-   * dispatch, or on persist, if a lock prevents the setting of the value.
-   * Implementations may differ on when this validation is performed.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param value The new value to set the property to.
-   * @throws ValueFormatException if the type or format of the specified value is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   */
-  setValue(value: Value): void;
-
-  /**
-   * Sets the value of this property to the <code>values</code> array. If this
-   * property's property type is not constrained by the node type of its
-   * parent node, then the property type may be changed. If the property type
-   * is constrained, then a best-effort conversion is attempted, according to
-   * an implemention-dependent definition of "best effort". The change will be
-   * persisted (if valid) on <code>save</code>.
-   * <p>
-   * A <code>ConstraintViolationException</code> will be thrown either
-   * immediately, on dispatch, or on persist, if the change would violate a
-   * node type or implementation-specific constraint. Implementations may
-   * differ on when this validation is performed.
-   * <p>
-   * A <code>VersionException</code> will be thrown either immediately, on
-   * dispatch, or on persist, if this property belongs to a node that is
-   * read-only due to a checked-in node. Implementations may differ on when
-   * this validation is performed.
-   * <p>
-   * A <code>LockException</code> will be thrown either immediately, on
-   * dispatch, or on persist, if a lock prevents the setting of the value.
-   * Implementations may differ on when this validation is performed.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param values The new values to set the property to.
-   * @throws ValueFormatException if the type or format of the specified values is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   */
-  setValue(values: Value): void;
-
-  /**
-   * Sets the value of this property to <code>value</code>. Same as
-   * <code>{@link #setValue(Value value)}</code> except that the value is
-   * specified as a <code>String</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param value The new value to set the property to.
-   * @throws ValueFormatException if the type or format of the specified values is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   */
-  setValue(value: string): void;
-
-  /**
-   * Sets the value of this property to the <code>values</code> array. Same as
-   * <code>{@link #setValue(Value[] values)}</code> except that the values are
-   * specified as a <code>String[]</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param values The new values to set the property to.
-   * @throws ValueFormatException if the type or format of one or more of the specified values is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   */
-  setValue(values: string): void;
-
-  /**
-   * Sets the value of this property to <code>value</code>. Same as
-   * <code>{@link #setValue(Value value)}</code> except that the value is
-   * specified as an <code>InputStream</code>.
-   * <p>
-   * The passed stream is closed before this method returns either normally or
-   * because of an exception.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @param value The new value to set the property to.
-   * @throws ValueFormatException if the type or format of the specified value is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   * @deprecated As of JCR 2.0, {@link #setValue(Binary)} should be used instead.
-   */
-  setValue(value: unknown): void;
-
-  /**
-   * Sets the value of this property to <code>value</code>. Same as
-   * <code>{@link #setValue(Value value)}</code> except that the value is
-   * specified as a <code>Binary</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @param value The new value to set the property to.
-   * @throws ValueFormatException if the type or format of the specified value is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   * @since JCR 2.0
-   */
-  setValue(value: Binary): void;
-
-  /**
-   * Sets the value of this property to <code>value</code>. Same as
-   * <code>{@link #setValue(Value value)}</code> except that the value is
-   * specified as a <code>long</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param value The new value to set the property to.
-   * @throws ValueFormatException if the type or format of the specified value is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   */
-  setValue(value: number): void;
-
-  /**
-   * Sets the value of this property to <code>value</code>. Same as
-   * <code>{@link #setValue(Value value)}</code> except that the value is
-   * specified as a <code>double</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param value The new value to set the property to.
-   * @throws ValueFormatException if the type or format of the specified value is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   */
-  setValue(value: number): void;
-
-  /**
-   * Sets the value of this property to <code>value</code>. Same as
-   * <code>{@link #setValue(Value value)}</code> except that the value is
-   * specified as a <code>BigDecimal</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param value The new value to set the property to.
-   * @throws ValueFormatException if the type or format of the specified value is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   * @since JCR 2.0
-   */
-  setValue(value: unknown): void;
-
-  /**
-   * Sets the value of this property to <code>value</code>. Same as
-   * <code>{@link #setValue(Value value)}</code> except that the value is
-   * specified as a <code>Calendar</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param value The new value to set the property to.
-   * @throws ValueFormatException if the type or format of the specified value is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   */
-  setValue(value: unknown): void;
-
-  /**
-   * Sets the value of this property to <code>value</code>. Same as
-   * <code>{@link #setValue(Value value)}</code> except that the value is
-   * specified as a <code>boolean</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param value The new value to set the property to.
-   * @throws ValueFormatException if the type or format of the specified value is incompatible with the type of this property.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   */
-  setValue(value: boolean): void;
-
-  /**
-   * Sets this <code>REFERENCE</code> or <code>WEAKREFERNCE</code> property to
-   * refer to the specified node.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
-   * <code>sv:simpleUser</code></p>
-   * @param value The node to which this property will refer.
-   * @throws ValueFormatException if the type or format of the specified value is incompatible with the type of this property the specified node is not referenceable.
-   * @throws VersionException if this property belongs to a node that is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the value and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
-   * @throws RepositoryException if another error occurs.
-   */
-  setValue(value: Node): void;
-
+ * all of the same type. See <code>{@link Value}</code>.
+  
+    */
+type Property = Item & {
   /**
    * Returns the value of this  property as a <code>Value</code> object.
    * <p>
@@ -463,39 +44,6 @@ export type Property = {
    * @see Value
    */
   getString(): string;
-
-  /**
-   * Returns an <code>InputStream</code> representation of the value of this
-   * property. A shortcut for <code>Property.getValue().getStream()</code>.
-   * <p>
-   * It is the responsibility of the caller to close the returned
-   * InputStream.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @return A stream representation of the value of this property.
-   * @throws ValueFormatException if the property is multi-valued.
-   * @throws RepositoryException if another error occurs
-   * @see Value
-   * @deprecated As of JCR 2.0, {@link #getBinary()} should be used instead.
-   */
-  getStream(): unknown;
-
-  /**
-   * Returns a <code>Binary</code> representation of the value of this
-   * property. A shortcut for <code>Property.getValue().getBinary()</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Limited to the <code>URL</code> and <code>URI</code> properties of nodes with primary
-   * {@link javax.jcr.nodetype.NodeType} <code>sv:file</code> and <code>sv:image</code> and to any {@link javax.jcr.PropertyType#WEAKREFERENCE}
-   * pointing to a <code>Node</code> of type <code>sv:file</code> or <code>sv:image</code></p>
-   * @return A <code>Binary</code> representation of the value of this property.
-   * @throws ValueFormatException if the property is multi-valued.
-   * @throws RepositoryException if another error occurs.
-   * @see Value
-   * @see Binary
-   * @since JCR 2.0
-   * @since Sitevision 3.5
-   */
-  getBinary(): Binary;
 
   /**
    * Returns a <code>long</code> representation of the value of this property.
@@ -599,39 +147,6 @@ export type Property = {
   getProperty(): Property;
 
   /**
-   * Returns the length of the value of this property.
-   * <p>
-   * For a <code>BINARY</code> property, <code>getLength</code> returns the
-   * number of bytes. For other property types, <code>getLength</code> returns
-   * the same value that would be returned by calling {@link
-   * java.lang.String#length()} on the value when it has been converted to a
-   * <code>STRING</code> according to standard JCR property type conversion.
-   * <p>
-   * Returns -1 if the implementation cannot determine the length.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @return an <code>long</code>.
-   * @throws ValueFormatException if this property is multi-valued.
-   * @throws RepositoryException if another error occurs.
-   */
-  getLength(): number;
-
-  /**
-   * Returns an array holding the lengths of the values of this (multi-value)
-   * property in bytes where each is individually calculated as described in
-   * {@link #getLength()}.
-   * <p>
-   * Returns a <code>-1</code> in the appropriate position if the
-   * implementation cannot determine the length of a value.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @return an array of lengths
-   * @throws ValueFormatException if this property is single-valued.
-   * @throws RepositoryException if another error occurs.
-   */
-  getLengths(): number;
-
-  /**
    * Returns the property definition that applies to this property. In some
    * cases there may appear to be more than one definition that could apply to
    * this node. However, it is assumed that upon creation or change of this
@@ -672,4 +187,489 @@ export type Property = {
    * @throws RepositoryException if an error occurs.
    */
   isMultiple(): boolean;
+
+  /**
+   * A constant for the property name <code>jcr:primaryType</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_BASE
+   * nt:base}.
+   * @since JCR 2.0
+   */
+  JCR_PRIMARY_TYPE: string;
+
+  /**
+   * A constant for the property name <code>jcr:mixinTypes</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_BASE
+   * nt:base}.
+   * @since JCR 2.0
+   */
+  JCR_MIXIN_TYPES: string;
+
+  /**
+   * A constant for the property name <code>jcr:content</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_LINKED_FILE
+   * nt:linkedFile}. Note, <code>jcr:content</code> is also the name of a
+   * child node declared in {@link javax.jcr.nodetype.NodeType#NT_FILE
+   * nt:file}.
+   * @since JCR 2.0
+   */
+  JCR_CONTENT: string;
+
+  /**
+   * A constant for the property name <code>jcr:data</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_RESOURCE
+   * nt:resource}.
+   * @since JCR 2.0
+   */
+  JCR_DATA: string;
+
+  /**
+   * A constant for the property name <code>jcr:protocol</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
+   * nt:address}.
+   * @since JCR 2.0
+   */
+  JCR_PROTOCOL: string;
+
+  /**
+   * A constant for the property name <code>jcr:host</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
+   * nt:address}.
+   * @since JCR 2.0
+   */
+  JCR_HOST: string;
+
+  /**
+   * A constant for the property name <code>jcr:port</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
+   * nt:address}.
+   * @since JCR 2.0
+   */
+  JCR_PORT: string;
+
+  /**
+   * A constant for the property name <code>jcr:repository</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
+   * nt:address}.
+   * @since JCR 2.0
+   */
+  JCR_REPOSITORY: string;
+
+  /**
+   * A constant for the property name <code>jcr:workspace</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
+   * nt:address}.
+   * @since JCR 2.0
+   */
+  JCR_WORKSPACE: string;
+
+  /**
+   * A constant for the property name <code>jcr:path</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
+   * nt:address}.
+   * @since JCR 2.0
+   */
+  JCR_PATH: string;
+
+  /**
+   * A constant for the property name <code>jcr:id</code> (in expanded form),
+   * declared in node type {@link javax.jcr.nodetype.NodeType#NT_ADDRESS
+   * nt:address}.
+   * @since JCR 2.0
+   */
+  JCR_ID: string;
+
+  /**
+   * A constant for the property name <code>jcr:uuid</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_REFERENCEABLE
+   * mix:referenceable}.
+   * @since JCR 2.0
+   */
+  JCR_UUID: string;
+
+  /**
+   * A constant for the property name <code>jcr:title</code> (in expanded
+   * form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_TITLE
+   * mix:title} and {@link javax.jcr.nodetype.NodeType#NT_ACTIVITY
+   * nt:activity}.
+   * @since JCR 2.0
+   */
+  JCR_TITLE: string;
+
+  /**
+   * A constant for the property name <code>jcr:description</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_TITLE
+   * mix:title}.
+   * @since JCR 2.0
+   */
+  JCR_DESCRIPTION: string;
+
+  /**
+   * A constant for the property name <code>jcr:created</code> (in expanded
+   * form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_CREATED
+   * mix:created} and {@link javax.jcr.nodetype.NodeType#NT_VERSION
+   * nt:version}.
+   * @since JCR 2.0
+   */
+  JCR_CREATED: string;
+
+  /**
+   * A constant for the property name <code>jcr:createdBy</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_CREATED
+   * mix:created}.
+   * @since JCR 2.0
+   */
+  JCR_CREATED_BY: string;
+
+  /**
+   * A constant for the property name <code>jcr:lastModified</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LAST_MODIFIED
+   * mix:lastModified}.
+   * @since JCR 2.0
+   */
+  JCR_LAST_MODIFIED: string;
+
+  /**
+   * A constant for the property name <code>jcr:lastModifiedBy</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LAST_MODIFIED
+   * mix:lastModified}.
+   * @since JCR 2.0
+   */
+  JCR_LAST_MODIFIED_BY: string;
+
+  /**
+   * A constant for the property name <code>jcr:language</code> (in expanded
+   * form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_LANGUAGE
+   * mix:language} and {@link javax.jcr.nodetype.NodeType#NT_QUERY nt:query}.
+   * @since JCR 2.0
+   */
+  JCR_LANGUAGE: string;
+
+  /**
+   * A constant for the property name <code>jcr:mimeType</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_MIMETYPE
+   * mix:mimeType}.
+   * @since JCR 2.0
+   */
+  JCR_MIMETYPE: string;
+
+  /**
+   * A constant for the property name <code>jcr:encoding</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_MIMETYPE
+   * mix:mimeType}.
+   * @since JCR 2.0
+   */
+  JCR_ENCODING: string;
+
+  /**
+   * A constant for the property name <code>jcr:nodeTypeName</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
+   * nt:nodeType}.
+   * @since JCR 2.0
+   */
+  JCR_NODE_TYPE_NAME: string;
+
+  /**
+   * A constant for the property name <code>jcr:supertypes</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
+   * nt:nodeType}.
+   * @since JCR 2.0
+   */
+  JCR_SUPERTYPES: string;
+
+  /**
+   * A constant for the property name <code>jcr:isAbstract</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
+   * nt:nodeType}.
+   * @since JCR 2.0
+   */
+  JCR_IS_ABSTRACT: string;
+
+  /**
+   * A constant for the property name <code>jcr:isMixin</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
+   * nt:nodeType}.
+   * @since JCR 2.0
+   */
+  JCR_IS_MIXIN: string;
+
+  /**
+   * A constant for the property name <code>jcr:hasOrderableChildNodes</code>
+   * (in expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
+   * nt:nodeType}.
+   * @since JCR 2.0
+   */
+  JCR_HAS_ORDERABLE_CHILD_NODES: string;
+
+  /**
+   * A constant for the property name <code>jcr:primaryItemName</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_NODE_TYPE
+   * nt:nodeType}.
+   * @since JCR 2.0
+   */
+  JCR_PRIMARY_ITEM_NAME: string;
+
+  /**
+   * A constant for the property name <code>jcr:name</code> (in expanded
+   * form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
+   * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
+   * nt:childNodeDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_NAME: string;
+
+  /**
+   * A constant for the property name <code>jcr:autoCreated</code> (in
+   * expanded form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
+   * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
+   * nt:childNodeDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_AUTOCREATED: string;
+
+  /**
+   * A constant for the property name <code>jcr:mandatory</code> (in expanded
+   * form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
+   * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
+   * nt:childNodeDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_MANDATORY: string;
+
+  /**
+   * A constant for the property name <code>jcr:protected</code> (in expanded
+   * form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
+   * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
+   * nt:childNodeDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_PROTECTED: string;
+
+  /**
+   * A constant for the property name <code>jcr:onParentVersion</code> (in
+   * expanded form), declared in node types {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
+   * nt:propertyDefinition} and {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
+   * nt:childNodeDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_ON_PARENT_VERSION: string;
+
+  /**
+   * A constant for the property name <code>jcr:requiredType</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
+   * nt:propertyDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_REQUIRED_TYPE: string;
+
+  /**
+   * A constant for the property name <code>jcr:valueConstraints</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
+   * nt:propertyDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_VALUE_CONSTRAINTS: string;
+
+  /**
+   * A constant for the property name <code>jcr:defaultValues</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
+   * nt:propertyDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_DEFAULT_VALUES: string;
+
+  /**
+   * A constant for the property name <code>jcr:multiple</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_PROPERTY_DEFINITION
+   * nt:propertyDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_MULTIPLE: string;
+
+  /**
+   * A constant for the property name <code>jcr:requiredPrimaryTypes</code>
+   * (in expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
+   * nt:childNodeDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_REQUIRED_PRIMARY_TYPES: string;
+
+  /**
+   * A constant for the property name <code>jcr:defaultPrimaryType</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
+   * nt:childNodeDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_DEFAULT_PRIMARY_TYPE: string;
+
+  /**
+   * A constant for the property name <code>jcr:sameNameSiblings</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_CHILD_NODE_DEFINITION
+   * nt:childNodeDefinition}.
+   * @since JCR 2.0
+   */
+  JCR_SAME_NAME_SIBLINGS: string;
+
+  /**
+   * A constant for the property name <code>jcr:lockOwner</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LOCKABLE
+   * mix:lockable}.
+   * @since JCR 2.0
+   */
+  JCR_LOCK_OWNER: string;
+
+  /**
+   * A constant for the property name <code>jcr:lockIsDeep</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LOCKABLE
+   * mix:lockable}.
+   * @since JCR 2.0
+   */
+  JCR_LOCK_IS_DEEP: string;
+
+  /**
+   * A constant for the property name <code>jcr:lifecyclePolicy</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LIFECYCLE
+   * mix:lifecycle}.
+   * @since JCR 2.0
+   */
+  JCR_LIFECYCLE_POLICY: string;
+
+  /**
+   * A constant for the property name <code>jcr:currentLifecycleState</code>
+   * (in expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_LIFECYCLE
+   * mix:lifecycle}.
+   * @since JCR 2.0
+   */
+  JCR_CURRENT_LIFECYCLE_STATE: string;
+
+  /**
+   * A constant for the property name <code>jcr:isCheckedOut</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_SIMPLE_VERSIONABLE
+   * mix:simpleVersionable}.
+   * @since JCR 2.0
+   */
+  JCR_IS_CHECKED_OUT: string;
+
+  /**
+   * A constant for the property name <code>jcr:frozenPrimaryType</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_FROZEN_NODE
+   * nt:frozenNode}.
+   * @since JCR 2.0
+   */
+  JCR_FROZEN_PRIMARY_TYPE: string;
+
+  /**
+   * A constant for the property name <code>jcr:frozenMixinTypes</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_FROZEN_NODE
+   * nt:frozenNode}.
+   * @since JCR 2.0
+   */
+  JCR_FROZEN_MIXIN_TYPES: string;
+
+  /**
+   * A constant for the property name <code>jcr:frozenUuid</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_FROZEN_NODE
+   * nt:frozenNode}.
+   * @since JCR 2.0
+   */
+  JCR_FROZEN_UUID: string;
+
+  /**
+   * A constant for the property name <code>jcr:versionHistory</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
+   * mix:versionable}.
+   * @since JCR 2.0
+   */
+  JCR_VERSION_HISTORY: string;
+
+  /**
+   * A constant for the property name <code>jcr:baseVersion</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
+   * mix:versionable}.
+   * @since JCR 2.0
+   */
+  JCR_BASE_VERSION: string;
+
+  /**
+   * A constant for the property name <code>jcr:predecessors</code> (in
+   * expanded form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
+   * mix:versionable} and {@link javax.jcr.nodetype.NodeType#NT_VERSION
+   * nt:version}.
+   * @since JCR 2.0
+   */
+  JCR_PREDECESSORS: string;
+
+  /**
+   * A constant for the property name <code>jcr:mergeFailed</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
+   * mix:versionable}.
+   * @since JCR 2.0
+   */
+  JCR_MERGE_FAILED: string;
+
+  /**
+   * A constant for the property name <code>jcr:activity</code> (in expanded
+   * form), declared in node types {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
+   * mix:versionable} and {@link javax.jcr.nodetype.NodeType#NT_VERSION
+   * nt:version}.
+   * @since JCR 2.0
+   */
+  JCR_ACTIVITY: string;
+
+  /**
+   * A constant for the property name <code>jcr:configuration</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#MIX_VERSIONABLE
+   * mix:versionable}.
+   * @since JCR 2.0
+   */
+  JCR_CONFIGURATION: string;
+
+  /**
+   * A constant for the property name <code>jcr:versionableUuid</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_VERSION
+   * nt:version}.
+   * @since JCR 2.0
+   */
+  JCR_VERSIONABLE_UUID: string;
+
+  /**
+   * A constant for the property name <code>jcr:copiedFrom</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_VERSION
+   * nt:version}.
+   * @since JCR 2.0
+   */
+  JCR_COPIED_FROM: string;
+
+  /**
+   * A constant for the property name <code>jcr:successors</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_VERSION
+   * nt:versione}.
+   * @since JCR 2.0
+   */
+  JCR_SUCCESSORS: string;
+
+  /**
+   * A constant for the property name <code>jcr:childVersionHistory</code> (in
+   * expanded form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_VERSIONED_CHILD
+   * nt:versionedChild}.
+   * @since JCR 2.0
+   */
+  JCR_CHILD_VERSION_HISTORY: string;
+
+  /**
+   * A constant for the property name <code>jcr:root</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_CONFIGURATION
+   * nt:configuration}.
+   * @since JCR 2.0
+   */
+  JCR_ROOT: string;
+
+  /**
+   * A constant for the property name <code>jcr:statement</code> (in expanded
+   * form), declared in node type {@link javax.jcr.nodetype.NodeType#NT_QUERY
+   * nt:query}.
+   * @since JCR 2.0
+   */
+  JCR_STATEMENT: string;
 };
+
+export = Property;

@@ -1,4 +1,4 @@
-import type { DynamicOperand } from "../DynamicOperand";
+import type DynamicOperand from "../DynamicOperand";
 
 /**
  * Evaluates to the lower-case string value (or values, if multi-valued) of
@@ -15,10 +15,12 @@ import type { DynamicOperand } from "../DynamicOperand";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type LowerCase = {
+type LowerCase = DynamicOperand & {
   /**
    * Gets the operand whose value is converted to a lower-case string.
    * @return the operand; non-null
    */
   getOperand(): DynamicOperand;
 };
+
+export = LowerCase;

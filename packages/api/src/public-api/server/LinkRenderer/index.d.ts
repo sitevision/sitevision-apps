@@ -1,659 +1,4 @@
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * Updates current state.
- * @param aTarget the target of the link (href attribute for the a element)
- * @param aFontClass the class name the link should use (class attribute for the a element)
- * @param aText the link text
- * @param aTitle the title of the link (title attribute for the a element)
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function update(
-  aTarget: Node,
-  aFontClass: string,
-  aText: string,
-  aTitle: string
-): void;
-
-/**
- * Updates current state and removes previous title.
- * @param aTarget the target of the link (href attribute for the a element)
- * @param aFontClass the class name the link should use (class attribute for the a element)
- * @param aText the link text
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function update(aTarget: Node, aFontClass: string, aText: string): void;
-
-/**
- * Updates current state and removes previous title.
- * @param aTarget the target of the link (href attribute for the a element)
- * @param aText the link text
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function update(aTarget: Node, aText: string): void;
-
-/**
- * Updates current state and removes previous title and text.
- *
- * <p>
- *    Note. If no text exists when rendering, the target Node will be used to determine an appropriate text
- *    (e.g. the display name if the node is a page).
- * </p>
- * @param aTarget the target of the link (href attribute for the a element)
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function update(aTarget: Node): void;
-
-/**
- * Updates current state and removes all optional attributes.
- * @param aTarget the target of the link (href attribute for the a element)
- * @param aFontClass the class name the link should use (class attribute for the a element)
- * @param aText the link text
- * @param aTitle the title of the link (title attribute for the a element)
- * @see #clearAllOptional()
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function updateClean(
-  aTarget: Node,
-  aFontClass: string,
-  aText: string,
-  aTitle: string
-): void;
-
-/**
- * Updates current state and removes all optional attributes and title.
- * @param aTarget the target of the link (href attribute for the a element)
- * @param aFontClass the class name the link should use (class attribute for the a element)
- * @param aText the link text
- * @see #clearAllOptional()
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function updateClean(
-  aTarget: Node,
-  aFontClass: string,
-  aText: string
-): void;
-
-/**
- * Updates current state and removes all optional attributes and title.
- * @param aTarget the target of the link (href attribute for the a element)
- * @param aText the link text
- * @see #clearAllOptional()
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function updateClean(aTarget: Node, aText: string): void;
-
-/**
- * Updates current state and removes all optional attributes, title and text.
- *
- * <p>
- *    Note. If no text exists when rendering, the target Node will be used to determine an appropriate text
- *    (e.g. the display name if the node is a page).
- * </p>
- * @param aTarget the target of the link (href attribute for the a element)
- * @see #clearAllOptional()
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function updateClean(aTarget: Node): void;
-
-/**
- * Removes all optional settings.
- * In other words - executing this method has the same effect as executing:
- * <ul>
- *   <li><code>clearStyle()</code></li>
- *   <li><code>clearOnclick()</code></li>
- *   <li><code>clearId()</code></li>
- *   <li><code>clearTargetParameters()</code></li>
- *   <li><code>clearRel()</code></li>
- *   <li><code>clearAccessKey()</code></li>
- *   <li><code>clearOpenNewWindow()</code></li>
- *   <li><code>clearDataAttributes()</code></li>
- *   <li><code>clearUseDownload()</code></li>
- *   <li><code>clearLang()</code></li>
- *   <li><code>clearHrefLang()</code></li>
- * </ul>
- * @see #clearStyle()
- * @see #clearOnclick()
- * @see #clearId()
- * @see #clearTargetParameters()
- * @see #clearRel()
- * @see #clearAccessKey()
- * @see #clearOpenNewWindow()
- * @see #clearDataAttributes()
- * @see #clearUseDownload()
- * @see #clearLang()
- * @see #clearHrefLang()
- */
-export function clearAllOptional(): void;
-
-/**
- * Builds a html link based on current state.
- *
- * <p>
- * <em>Note!</em> The render method is not thread safe, see <a href="#threadnote">thread note above</a>.
- * </p>
- * @return a html link, ready to print out on a page
- */
-export function render(): string;
-
-/**
- * Sets what the link target is, i.e "what the link links to" (href attribute on the a element).
- * The target attribute is mandatory when the result is rendered.
- * @param aTarget a Node identifying the target
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function setTarget(aTarget: Node): void;
-
-/**
- * Sets what the link target is, i.e "what the link links to" (href attribute on the a element).
- * The target attribute is mandatory when the result is rendered.
- * @param aTarget a String identifying the target (i.e "http://xyz.com", "?name=a&amp;value=b", "/images/a.gif", "#anchor")
- */
-export function setStringTarget(aTarget: string): void;
-
-/**
- * Checks if a Node is a renderable target or not (node type accepted).
- *
- * <p>
- *    This method can be used to avoid updating this renderer with nodes that can't be rendered. Since nodes that aren't
- *    renderable will be ignored, updating the renderer with such nodes will result in rendering of previous target.
- * </p>
- *
- * <p>
- *    <code>LinkRenderer</code> will accept nodes with the following primary node type as targets
- *    (i.e. this method will return <code>true</code> for such nodes):
- * </p>
- * <ul>
- *    <li><code>sv:article</code></li>
- *    <li><code>sv:collaborationGroup</code></li>
- *    <li><code>sv:collaborationGroupPage</code></li>
- *    <li><code>sv:collaborationGroupTemplate</code></li>
- *    <li><code>sv:file</code></li>
- *    <li><code>sv:image</code></li>
- *    <li><code>sv:link</code> <em>(the actual target of the link must also be a valid target)</em></li>
- *    <li><code>sv:page</code></li>
- *    <li><code>sv:sitePage</code></li>
- *    <li><code>sv:structureLink</code> <em>(the actual target of the structure link must also be a valid target)</em></li>
- *    <li><code>sv:structurePage</code></li>
- *    <li><code>sv:systemUser</code> <em>(the system user must have a mail address)</em></li>
- *    <li><code>sv:template</code></li>
- *    <li><code>sv:user</code> <em>(the user must have a mail address)</em></li>
- *    <li><code>sv:userIdentity</code> <em>(the site must have a profile page, or backing user must have a mail address)</em></li>
- * </ul>
- *
- * <p>
- * Always use this method if you are not sure all nodes you are rendering will be accepted as targets.
- * </p>
- *
- * <p>
- * <strong>Example:</strong><br>
- * Velocity code like this:
- * </p>
- * <pre><code>&lt;ul style="list-style:none"&gt;
- * #foreach ($node in $myNodes)
- *    <em>## Update the renderer and render</em>
- *    $linkRenderer.update($node)
- *    &lt;li&gt;$linkRenderer.render()&lt;/li&gt;
- *#end
- *&lt;/ul&gt;</code></pre>
- * could be replaced with Velocity code like this:<pre><code>&lt;ul style="list-style:none"&gt;
- * #foreach ($node in $myNodes)
- *    <em>## Ensure node actually can be rendered</em>
- *    #if ($linkRenderer.isRenderableTarget($node))
- *       <em>## Update the renderer and render</em>
- *       $linkRenderer.update($node)
- *       &lt;li&gt;$linkRenderer.render()&lt;/li&gt;
- *    #end
- * #end
- * &lt;/ul&gt;</code></pre>
- *
- * <p>
- *    <em>Performance note!</em> Calling this method prior to calling an <code>update</code> method (or the <code>setTarget</code> method)
- *    will not have any noticeable negative performance impact. The result of this method is internally cached and the <code>update</code>
- *    methods (and the <code>setTarget</code> method) will re-use that cached data.
- * </p>
- * @param aNode the node to check
- * @return <code>true</code> if <code>aNode</code> is a target that can be rendered, <code>false</code> if not
- * @since Sitevision 3.0
- * @see #isValidTarget(javax.jcr.Node)
- */
-export function isRenderableTarget(aNode: Node): boolean;
-
-/**
- * Checks if a Node is a valid target or not (node type accepted and target is valid).
- *
- * <p>
- * This method is similar to the {@link senselogic.sitevision.api.render.LinkRenderer#isRenderableTarget(javax.jcr.Node)} method,
- * but this method does more extensive checking to ensure rendered links will be ok. <em>Note! "External" link targets (e.g.
- * a link to "www.whatever.com") of a sv:link Node will NOT be checked.</em>
- * </p>
- * <p>
- * This method can be used to avoid updating this renderer with nodes that can't be rendered or nodes that have invalid targets.
- * An invalid target is typically an existing link that has an empty or trashed target (i.e. target is in trashcan).
- * </p>
- *
- * <p>
- * <strong>Example:</strong><br>
- * Velocity code like this:
- * </p>
- * <pre><code>&lt;ul style="list-style:none"&gt;
- * #foreach ($node in $myNodes)
- *    <em>## Update the renderer and render</em>
- *    $linkRenderer.update($node)
- *    &lt;li&gt;$linkRenderer.render()&lt;/li&gt;
- *#end
- *&lt;/ul&gt;</code></pre>
- * could be replaced with Velocity code like this:<pre><code>&lt;ul style="list-style:none"&gt;
- * #foreach ($node in $myNodes)
- *    <em>## Ensure node actually can be rendered</em>
- *    #if ($linkRenderer.isValidTarget($node))
- *       <em>## Update the renderer and render</em>
- *       $linkRenderer.update($node)
- *       &lt;li&gt;$linkRenderer.render()&lt;/li&gt;
- *    #end
- * #end
- * &lt;/ul&gt;</code></pre>
- *
- * <p>
- * <em>Performance note!</em> Avoid subsequent calls to this method for same <code>Node</code>. If performance is a top
- * priority, consider using {@link senselogic.sitevision.api.render.LinkRenderer#isRenderableTarget(javax.jcr.Node)} instead.
- * </p>
- * @param aNode the node to check
- * @return <code>true</code> if <code>aNode</code> is a target that can be rendered as a functional link, <code>false</code> if not
- * @since Sitevision 2.6.2
- * @see #isRenderableTarget(javax.jcr.Node)
- */
-export function isValidTarget(aNode: Node): boolean;
-
-/**
- * Sets the class name the link should use (class attribute on the a element).
- * The fontClass attribute is mandatory when the result is rendered.
- * @param aFontClass the class name of the font to use
- */
-export function setFontClass(aFontClass: string): void;
-
-/**
- * Sets the class name the link should use (class attribute on an a element) based on a given font node.
- *
- * <p>
- *    The actual font class is extracted from aFontNode and if aFontNode is <code>null</code> or not a valid font node the
- *    font class will not be set.
- * </p>
- * <p>
- *    When subsequently setting the font class, use the {@link #setFontClass(String)} method instead for best performance.
- * </p>
- * @param aFontNode the font node that has a font class that can be extracted
- * @see #setFontClass(String)
- */
-export function setFont(aFontNode: Node): void;
-
-/**
- * Sets the text that the link should display, i.e. "the text the user clicks on".
- * The text attribute is mandatory when the result is rendered.
- * @param aText a link text
- */
-export function setText(aText: string): void;
-
-/**
- * Sets the title the link should have (title attribute on the a element).
- *
- * <p>
- * If there are no title (i.e. it is <code>null</code>) when the result is rendered, it will get the same
- * value as text attribute if autoTitle is activated, otherwise it will be empty. Default is <code>null</code>.
- * </p>
- * @param aTitle a title describing the link
- */
-export function setTitle(aTitle: string): void;
-
-/**
- * Removes the title, i.e. executes <code>setTitle(null)</code>
- * @see #setTitle(String)
- */
-export function removeTitle(): void;
-
-/**
- * Sets the css style the link should have (style attribute on the a element).
- * The style attribute is optional when the result is rendered. Default is <code>null</code>.
- * @param aStyle the style of the link
- */
-export function setStyle(aStyle: string): void;
-
-/**
- * Removes the style, i.e executes <code>setStyle(null)</code>
- * @see #setStyle(String)
- */
-export function clearStyle(): void;
-
-/**
- * Sets the lang attribute on the a element (defines the language of the element).
- * @param aLang a single language code
- * @since Sitevision 2022.10.1
- */
-export function setLang(aLang: string): void;
-
-/**
- * Removes the lang, i.e executes <code>setLang(null)</code>
- * @see #setLang(String)
- * @since Sitevision 2022.10.1
- */
-export function clearLang(): void;
-
-/**
- * Sets the hreflang attribute on the a element (hints at the language of the linked resource).
- * @param aHrefLang a single language code
- * @since Sitevision 2022.10.1
- */
-export function setHrefLang(aHrefLang: string): void;
-
-/**
- * Removes the hreflang, i.e executes <code>setHrefLang(null)</code>
- * @see #setHrefLang(String)
- * @since Sitevision 2022.10.1
- */
-export function clearHrefLang(): void;
-
-/**
- * Adds target parameters (key=value) to the link target (href attribute on the a element).
- *
- * <p>
- *    Target parameters is optional when the result is rendered. Default is no target parameters.
- * </p>
- * <p>
- *    There can only be one target parameter per key (i.e. when a target parameter is added it will always replace the possibly existing
- *    target parameter that already use that key).
- * </p>
- * @param key the key of the target parameter
- * @param value the value of the target parameter
- */
-export function addTargetParameter(key: string, value: string): void;
-
-/**
- * Removes all existing target parameters
-  
-    */
-export function clearTargetParameters(): void;
-
-/**
- * Should target parameters be URL encoded or not?
- * Default is <code>true</code>.
- * @param performParameterEncoding whether parameters should be URL encoded or not.
- * @see senselogic.sitevision.api.text.EndecUtil#encodeURL(String)
- * @since Sitevision 3.0
- */
-export function setUseParameterEncoding(
-  performParameterEncoding: boolean
-): void;
-
-/**
- * Utility method for executing <code>setUseParameterEncoding(true)</code>
- * @see #setUseParameterEncoding(boolean)
- * @since Sitevision 3.0
- */
-export function forceUseParameterEncoding(): void;
-
-/**
- * Utility method for executing <code>setUseParameterEncoding(false)</code>
- * @see #setUseParameterEncoding(boolean)
- * @since Sitevision 3.0
- */
-export function clearUseParameterEncoding(): void;
-
-/**
- * Adds an HTML5 data-* attribute to the link element.
- * Data attributes is optional when the result is rendered. Default is no data attributes.
- * <p>
- *    There can only be one data attribute per name (i.e. when a data attribute is added it will always replace the possibly existing
- *    data attribute that already use that name).
- * </p>
- *
- * <p>
- *    Notes about names and values:
- * </p>
- * <ul>
- *    <li>
- *       A <strong>name</strong> that is <code>null</code> or <em>whitespace-only</em> will be completely ignored,
- *       i.e. no data attribute will be rendered.
- *    </li>
- *    <li>
- *       A <strong>name</strong> that isn't properly prefixed with <em>"data-"</em> will be prefixed when the data attribute is rendered.
- *    </li>
- *    <li>
- *       A <strong>value</strong> that is <code>null</code> or <em>whitespace-only</em> will be rendered as a data attribute without value.
- *    </li>
- *    <li>
- *       A <strong>value</strong> should not be escaped/encoded. The <em>useEncoding</em> attribute will determine what to do
- *       when the data attributes are rendered.
- * </ul>
- * @param aName the name of the data attribute
- * @param aValue the value of the data attribute
- * @since Sitevision 3.0
- */
-export function addDataAttribute(aName: string, aValue: string): void;
-
-/**
- * Removes all existing data attributes
- * @since Sitevision 3.0
- */
-export function clearDataAttributes(): void;
-
-/**
- * Sets what access key the link should have (accesskey attribute on the a element)
- * The accesskey attribute is optional when the result is rendered. Default is <code>null</code>.
- * @param anAccessKey the access key that should be used
- */
-export function setAccessKey(anAccessKey: string): void;
-
-/**
- * Removes the accesskey, i.e. executes <code>setAccessKey(null)</code>
- * @see #setAccessKey(String)
- */
-export function clearAccessKey(): void;
-
-/**
- * Sets the rel that should be used (rel attribute on the a element)
- * The rel attribute is optional when the result is rendered. Default is <code>null</code>.
- * @param aRel the rel that should be used. Note! If "external" is used, the rendered link will be opened in a new window via JavaScript
- */
-export function setRel(aRel: string): void;
-
-/**
- * Removes the rel value, i.e executes <code>setRel(null)</code>
- * @see #setRel(String)
- */
-export function clearRel(): void;
-
-/**
- * Sets the onclick value (onclick attribute and onkeypress attribute on the a element), typically some kind of Javascript
- * The onclick attribute is optional when the result is rendered. Default is <code>null</code>.
- *
- * <p><em>Note!</em> The events (onclick, onkeypress) will be added with non-obtrusive javascript when render() is called.</p>
- * @param anOnclick the onClick value that should be used
- */
-export function setOnclick(anOnclick: string): void;
-
-/**
- * Removes the onclick value, i.e executes <code>setOnclick(null)</code>
- * @see #setOnclick(String)
- */
-export function clearOnclick(): void;
-
-/**
- * Sets the id value (id attribute on the a element), most likely only needed if some kind of javascript/ajax code needs to access the
- * rendered link via its id.
- *
- * <p>
- *    The id attribute is optional when the result is rendered. Default is <code>null</code>.
- * </p>
- * <p>
- *    This method does <em>not</em> perform any checks of the id. All values will be accepted.
- *    <em>(Note! A valid id should be unique - i.e. should not appear more than once in a html/xhtml document - and not all characters are allowed.
- *    See <a href="http://www.w3.org/TR/2006/REC-xml-20060816/#sec-attribute-types">W3C 3.3.1 Attribute types</a>.)</em>
- * </p>
- * @param anId the id value that should be used
- * @since Sitevision 3.0
- */
-export function setId(anId: string): void;
-
-/**
- * Removes the id value, i.e executes <code>setId(null)</code>
- * @see #setId(String)
- * @since Sitevision 3.0
- */
-export function clearId(): void;
-
-/**
- * Use icons for "external", "new window" and "new window, external" according to Site's settings or not.
- * Default is <code>true</code>.
- * @param useLinkDecorationSettings whether or not Site's settings for link type icons should be used
- */
-export function setUseLinkDecorationSettings(
-  useLinkDecorationSettings: boolean
-): void;
-
-/**
- * Utility method for executing <code>setUseLinkDecorationSettings(true)</code>
- * @see #setUseLinkDecorationSettings(boolean)
- */
-export function forceUseLinkDecorationSettings(): void;
-
-/**
- * Utility method for executing <code>setUseLinkDecorationSettings(false)</code>
- * @see #setUseLinkDecorationSettings(boolean)
- */
-export function clearUseLinkDecorationSettings(): void;
-
-/**
- * Use icons/descriptions for known file types according to Site's settings or not.
- * Default is <code>true</code>.
- * @param useResourceDecorationSettings whether or not Site's settings for icons/descriptions for known file types should be used
- */
-export function setUseResourceDecorationSettings(
-  useResourceDecorationSettings: boolean
-): void;
-
-/**
- * Utility method for executing <code>setUseResourceDecorationSettings(true)</code>
- * @see #setUseResourceDecorationSettings(boolean)
- */
-export function forceUseResourceDecorationSettings(): void;
-
-/**
- * Utility method for executing <code>setUseResourceDecorationSettings(false)</code>
- * @see #setUseResourceDecorationSettings(boolean)
- */
-export function clearUseResourceDecorationSettings(): void;
-
-/**
- * Should the link target be opened in a new window or not?
- * Default is <code>false</code>.
- * @param openNewWindow whether or not the link target should be opened in a new window
- */
-export function setOpenNewWindow(openNewWindow: boolean): void;
-
-/**
- * Utility method for executing <code>setOpenNewWindow(true)</code>
- * @see #setOpenNewWindow(boolean)
- */
-export function forceOpenNewWindow(): void;
-
-/**
- * Utility method for executing <code>setOpenNewWindow(false)</code>
- * @see #setOpenNewWindow(boolean)
- */
-export function clearOpenNewWindow(): void;
-
-/**
- * Should the browser download the link target instead of navigating to it?
- * Default is <code>false</code>.
- * @param useDownload whether a browser is suggested to download the link target directly
- * @since Sitevision 5.2
- */
-export function setUseDownload(useDownload: boolean): void;
-
-/**
- * Utility method for executing <code>setUseDownload(true)</code>
- * @see #setUseDownload(boolean)
- * @since Sitevision 5.2
- */
-export function forceUseDownload(): void;
-
-/**
- * Utility method for executing <code>setUseDownload(false)</code>
- * @see #setUseDownload(boolean)
- * @since Sitevision 5.2
- */
-export function clearUseDownload(): void;
-
-/**
- * Should text and attributes be properly encoded or not?
- * Default is <code>true</code>.
- * @param performEncoding whether text should be encoded or not.
- */
-export function setUseEncoding(performEncoding: boolean): void;
-
-/**
- * Utility method for executing <code>setUseEncoding(true)</code>
- * @see #setUseEncoding(boolean)
- */
-export function forceUseEncoding(): void;
-
-/**
- * Utility method for executing <code>setUseEncoding(false)</code>
- * @see #setUseEncoding(boolean)
- */
-export function clearUseEncoding(): void;
-
-/**
- * Ensures title always will have a value. If non-existing, the title will be set to the title of the target target (or
- * the same as the linked text if the target isn't a page or the title of the page is lacking)
- * Default is <code>false</code>.
- * @param useAutoTitle whether or not the link always should get the title automatically if title is missing
- */
-export function setUseAutoTitle(useAutoTitle: boolean): void;
-
-/**
- * Utility method for executing <code>setUseAutoTitle(true)</code>
- * @see #setUseAutoTitle(boolean)
- */
-export function forceUseAutoTitle(): void;
-
-/**
- * Utility method for executing <code>setUseAutoTitle(false)</code>
- * @see #setUseAutoTitle(boolean)
- */
-export function clearUseAutoTitle(): void;
-
-/**
- * Should cross-site internal Node links be handled or not?
- *
- * <p>
- *    Default is <code>false</code>.
- * </p>
- * <p>
- *    <em>Note! For best performance: enable only if your site actually contains internal links to
- *    pages on other sites (e.g. The System user creates an internal link and selects a page
- *    on another site in the target browse tree).</em>
- * </p>
- * @param useCrossSiteTargetChecking whether or not to check for cross-site Node targets
- * @since Sitevision 3.0.2
- */
-export function setUseCrossSiteTargetChecking(
-  useCrossSiteTargetChecking: boolean
-): void;
-
-/**
- * Utility method for executing <code>setUseCrossSiteTargetChecking(true)</code>
- * @see #setUseCrossSiteTargetChecking(boolean)
- * @since Sitevision 3.0.2
- */
-export function forceUseCrossSiteTargetChecking(): void;
-
-/**
- * Utility method for executing <code>seUseCrossSiteTargetChecking(false)</code>
- * @see #setUseCrossSiteTargetChecking(boolean)
- * @since Sitevision 3.0.2
- */
-export function clearUseCrossSiteTargetChecking(): void;
+import type Node from "../../types/javax/jcr/Node";
 
 /**
  * LinkRenderer is a stateful utility interface that can be used to build valid html text links that uses link icons according to the
@@ -888,64 +233,655 @@ export function clearUseCrossSiteTargetChecking(): void;
  * </p>
  * @author Magnus Lövgren
  */
-declare namespace linkRenderer {
-  export {
-    update,
-    updateClean,
-    clearAllOptional,
-    render,
-    setTarget,
-    setStringTarget,
-    isRenderableTarget,
-    isValidTarget,
-    setFontClass,
-    setFont,
-    setText,
-    setTitle,
-    removeTitle,
-    setStyle,
-    clearStyle,
-    setLang,
-    clearLang,
-    setHrefLang,
-    clearHrefLang,
-    addTargetParameter,
-    clearTargetParameters,
-    setUseParameterEncoding,
-    forceUseParameterEncoding,
-    clearUseParameterEncoding,
-    addDataAttribute,
-    clearDataAttributes,
-    setAccessKey,
-    clearAccessKey,
-    setRel,
-    clearRel,
-    setOnclick,
-    clearOnclick,
-    setId,
-    clearId,
-    setUseLinkDecorationSettings,
-    forceUseLinkDecorationSettings,
-    clearUseLinkDecorationSettings,
-    setUseResourceDecorationSettings,
-    forceUseResourceDecorationSettings,
-    clearUseResourceDecorationSettings,
-    setOpenNewWindow,
-    forceOpenNewWindow,
-    clearOpenNewWindow,
-    setUseDownload,
-    forceUseDownload,
-    clearUseDownload,
-    setUseEncoding,
-    forceUseEncoding,
-    clearUseEncoding,
-    setUseAutoTitle,
-    forceUseAutoTitle,
-    clearUseAutoTitle,
-    setUseCrossSiteTargetChecking,
-    forceUseCrossSiteTargetChecking,
-    clearUseCrossSiteTargetChecking,
-  };
+export interface LinkRenderer {
+  /**
+   * Updates current state.
+   * @param aTarget the target of the link (href attribute for the a element)
+   * @param aFontClass the class name the link should use (class attribute for the a element)
+   * @param aText the link text
+   * @param aTitle the title of the link (title attribute for the a element)
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  update(
+    aTarget: Node,
+    aFontClass: string,
+    aText: string,
+    aTitle: string
+  ): void;
+
+  /**
+   * Updates current state and removes previous title.
+   * @param aTarget the target of the link (href attribute for the a element)
+   * @param aFontClass the class name the link should use (class attribute for the a element)
+   * @param aText the link text
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  update(aTarget: Node, aFontClass: string, aText: string): void;
+
+  /**
+   * Updates current state and removes previous title.
+   * @param aTarget the target of the link (href attribute for the a element)
+   * @param aText the link text
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  update(aTarget: Node, aText: string): void;
+
+  /**
+   * Updates current state and removes previous title and text.
+   *
+   * <p>
+   *    Note. If no text exists when rendering, the target Node will be used to determine an appropriate text
+   *    (e.g. the display name if the node is a page).
+   * </p>
+   * @param aTarget the target of the link (href attribute for the a element)
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  update(aTarget: Node): void;
+
+  /**
+   * Updates current state and removes all optional attributes.
+   * @param aTarget the target of the link (href attribute for the a element)
+   * @param aFontClass the class name the link should use (class attribute for the a element)
+   * @param aText the link text
+   * @param aTitle the title of the link (title attribute for the a element)
+   * @see #clearAllOptional()
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  updateClean(
+    aTarget: Node,
+    aFontClass: string,
+    aText: string,
+    aTitle: string
+  ): void;
+
+  /**
+   * Updates current state and removes all optional attributes and title.
+   * @param aTarget the target of the link (href attribute for the a element)
+   * @param aFontClass the class name the link should use (class attribute for the a element)
+   * @param aText the link text
+   * @see #clearAllOptional()
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  updateClean(aTarget: Node, aFontClass: string, aText: string): void;
+
+  /**
+   * Updates current state and removes all optional attributes and title.
+   * @param aTarget the target of the link (href attribute for the a element)
+   * @param aText the link text
+   * @see #clearAllOptional()
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  updateClean(aTarget: Node, aText: string): void;
+
+  /**
+   * Updates current state and removes all optional attributes, title and text.
+   *
+   * <p>
+   *    Note. If no text exists when rendering, the target Node will be used to determine an appropriate text
+   *    (e.g. the display name if the node is a page).
+   * </p>
+   * @param aTarget the target of the link (href attribute for the a element)
+   * @see #clearAllOptional()
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  updateClean(aTarget: Node): void;
+
+  /**
+   * Removes all optional settings.
+   * In other words - executing this method has the same effect as executing:
+   * <ul>
+   *   <li><code>clearStyle()</code></li>
+   *   <li><code>clearOnclick()</code></li>
+   *   <li><code>clearId()</code></li>
+   *   <li><code>clearTargetParameters()</code></li>
+   *   <li><code>clearRel()</code></li>
+   *   <li><code>clearAccessKey()</code></li>
+   *   <li><code>clearOpenNewWindow()</code></li>
+   *   <li><code>clearDataAttributes()</code></li>
+   *   <li><code>clearUseDownload()</code></li>
+   *   <li><code>clearLang()</code></li>
+   *   <li><code>clearHrefLang()</code></li>
+   * </ul>
+   * @see #clearStyle()
+   * @see #clearOnclick()
+   * @see #clearId()
+   * @see #clearTargetParameters()
+   * @see #clearRel()
+   * @see #clearAccessKey()
+   * @see #clearOpenNewWindow()
+   * @see #clearDataAttributes()
+   * @see #clearUseDownload()
+   * @see #clearLang()
+   * @see #clearHrefLang()
+   */
+  clearAllOptional(): void;
+
+  /**
+   * Builds a html link based on current state.
+   *
+   * <p>
+   * <em>Note!</em> The render method is not thread safe, see <a href="#threadnote">thread note above</a>.
+   * </p>
+   * @return a html link, ready to print out on a page
+   */
+  render(): string;
+
+  /**
+   * Sets what the link target is, i.e "what the link links to" (href attribute on the a element).
+   * The target attribute is mandatory when the result is rendered.
+   * @param aTarget a Node identifying the target
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  setTarget(aTarget: Node): void;
+
+  /**
+   * Sets what the link target is, i.e "what the link links to" (href attribute on the a element).
+   * The target attribute is mandatory when the result is rendered.
+   * @param aTarget a String identifying the target (i.e "http://xyz.com", "?name=a&amp;value=b", "/images/a.gif", "#anchor")
+   */
+  setStringTarget(aTarget: string): void;
+
+  /**
+   * Checks if a Node is a renderable target or not (node type accepted).
+   *
+   * <p>
+   *    This method can be used to avoid updating this renderer with nodes that can't be rendered. Since nodes that aren't
+   *    renderable will be ignored, updating the renderer with such nodes will result in rendering of previous target.
+   * </p>
+   *
+   * <p>
+   *    <code>LinkRenderer</code> will accept nodes with the following primary node type as targets
+   *    (i.e. this method will return <code>true</code> for such nodes):
+   * </p>
+   * <ul>
+   *    <li><code>sv:article</code></li>
+   *    <li><code>sv:collaborationGroup</code></li>
+   *    <li><code>sv:collaborationGroupPage</code></li>
+   *    <li><code>sv:collaborationGroupTemplate</code></li>
+   *    <li><code>sv:file</code></li>
+   *    <li><code>sv:image</code></li>
+   *    <li><code>sv:link</code> <em>(the actual target of the link must also be a valid target)</em></li>
+   *    <li><code>sv:page</code></li>
+   *    <li><code>sv:sitePage</code></li>
+   *    <li><code>sv:structureLink</code> <em>(the actual target of the structure link must also be a valid target)</em></li>
+   *    <li><code>sv:structurePage</code></li>
+   *    <li><code>sv:systemUser</code> <em>(the system user must have a mail address)</em></li>
+   *    <li><code>sv:template</code></li>
+   *    <li><code>sv:user</code> <em>(the user must have a mail address)</em></li>
+   *    <li><code>sv:userIdentity</code> <em>(the site must have a profile page, or backing user must have a mail address)</em></li>
+   * </ul>
+   *
+   * <p>
+   * Always use this method if you are not sure all nodes you are rendering will be accepted as targets.
+   * </p>
+   *
+   * <p>
+   * <strong>Example:</strong><br>
+   * Velocity code like this:
+   * </p>
+   * <pre><code>&lt;ul style="list-style:none"&gt;
+   * #foreach ($node in $myNodes)
+   *    <em>## Update the renderer and render</em>
+   *    $linkRenderer.update($node)
+   *    &lt;li&gt;$linkRenderer.render()&lt;/li&gt;
+   *#end
+   *&lt;/ul&gt;</code></pre>
+   * could be replaced with Velocity code like this:<pre><code>&lt;ul style="list-style:none"&gt;
+   * #foreach ($node in $myNodes)
+   *    <em>## Ensure node actually can be rendered</em>
+   *    #if ($linkRenderer.isRenderableTarget($node))
+   *       <em>## Update the renderer and render</em>
+   *       $linkRenderer.update($node)
+   *       &lt;li&gt;$linkRenderer.render()&lt;/li&gt;
+   *    #end
+   * #end
+   * &lt;/ul&gt;</code></pre>
+   *
+   * <p>
+   *    <em>Performance note!</em> Calling this method prior to calling an <code>update</code> method (or the <code>setTarget</code> method)
+   *    will not have any noticeable negative performance impact. The result of this method is internally cached and the <code>update</code>
+   *    methods (and the <code>setTarget</code> method) will re-use that cached data.
+   * </p>
+   * @param aNode the node to check
+   * @return <code>true</code> if <code>aNode</code> is a target that can be rendered, <code>false</code> if not
+   * @since Sitevision 3.0
+   * @see #isValidTarget(javax.jcr.Node)
+   */
+  isRenderableTarget(aNode: Node): boolean;
+
+  /**
+   * Checks if a Node is a valid target or not (node type accepted and target is valid).
+   *
+   * <p>
+   * This method is similar to the {@link senselogic.sitevision.api.render.LinkRenderer#isRenderableTarget(javax.jcr.Node)} method,
+   * but this method does more extensive checking to ensure rendered links will be ok. <em>Note! "External" link targets (e.g.
+   * a link to "www.whatever.com") of a sv:link Node will NOT be checked.</em>
+   * </p>
+   * <p>
+   * This method can be used to avoid updating this renderer with nodes that can't be rendered or nodes that have invalid targets.
+   * An invalid target is typically an existing link that has an empty or trashed target (i.e. target is in trashcan).
+   * </p>
+   *
+   * <p>
+   * <strong>Example:</strong><br>
+   * Velocity code like this:
+   * </p>
+   * <pre><code>&lt;ul style="list-style:none"&gt;
+   * #foreach ($node in $myNodes)
+   *    <em>## Update the renderer and render</em>
+   *    $linkRenderer.update($node)
+   *    &lt;li&gt;$linkRenderer.render()&lt;/li&gt;
+   *#end
+   *&lt;/ul&gt;</code></pre>
+   * could be replaced with Velocity code like this:<pre><code>&lt;ul style="list-style:none"&gt;
+   * #foreach ($node in $myNodes)
+   *    <em>## Ensure node actually can be rendered</em>
+   *    #if ($linkRenderer.isValidTarget($node))
+   *       <em>## Update the renderer and render</em>
+   *       $linkRenderer.update($node)
+   *       &lt;li&gt;$linkRenderer.render()&lt;/li&gt;
+   *    #end
+   * #end
+   * &lt;/ul&gt;</code></pre>
+   *
+   * <p>
+   * <em>Performance note!</em> Avoid subsequent calls to this method for same <code>Node</code>. If performance is a top
+   * priority, consider using {@link senselogic.sitevision.api.render.LinkRenderer#isRenderableTarget(javax.jcr.Node)} instead.
+   * </p>
+   * @param aNode the node to check
+   * @return <code>true</code> if <code>aNode</code> is a target that can be rendered as a functional link, <code>false</code> if not
+   * @since Sitevision 2.6.2
+   * @see #isRenderableTarget(javax.jcr.Node)
+   */
+  isValidTarget(aNode: Node): boolean;
+
+  /**
+   * Sets the class name the link should use (class attribute on the a element).
+   * The fontClass attribute is mandatory when the result is rendered.
+   * @param aFontClass the class name of the font to use
+   */
+  setFontClass(aFontClass: string): void;
+
+  /**
+   * Sets the class name the link should use (class attribute on an a element) based on a given font node.
+   *
+   * <p>
+   *    The actual font class is extracted from aFontNode and if aFontNode is <code>null</code> or not a valid font node the
+   *    font class will not be set.
+   * </p>
+   * <p>
+   *    When subsequently setting the font class, use the {@link #setFontClass(String)} method instead for best performance.
+   * </p>
+   * @param aFontNode the font node that has a font class that can be extracted
+   * @see #setFontClass(String)
+   */
+  setFont(aFontNode: Node): void;
+
+  /**
+   * Sets the text that the link should display, i.e. "the text the user clicks on".
+   * The text attribute is mandatory when the result is rendered.
+   * @param aText a link text
+   */
+  setText(aText: string): void;
+
+  /**
+   * Sets the title the link should have (title attribute on the a element).
+   *
+   * <p>
+   * If there are no title (i.e. it is <code>null</code>) when the result is rendered, it will get the same
+   * value as text attribute if autoTitle is activated, otherwise it will be empty. Default is <code>null</code>.
+   * </p>
+   * @param aTitle a title describing the link
+   */
+  setTitle(aTitle: string): void;
+
+  /**
+   * Removes the title, i.e. executes <code>setTitle(null)</code>
+   * @see #setTitle(String)
+   */
+  removeTitle(): void;
+
+  /**
+   * Sets the css style the link should have (style attribute on the a element).
+   * The style attribute is optional when the result is rendered. Default is <code>null</code>.
+   * @param aStyle the style of the link
+   */
+  setStyle(aStyle: string): void;
+
+  /**
+   * Removes the style, i.e executes <code>setStyle(null)</code>
+   * @see #setStyle(String)
+   */
+  clearStyle(): void;
+
+  /**
+   * Sets the lang attribute on the a element (defines the language of the element).
+   * @param aLang a single language code
+   * @since Sitevision 2022.10.1
+   */
+  setLang(aLang: string): void;
+
+  /**
+   * Removes the lang, i.e executes <code>setLang(null)</code>
+   * @see #setLang(String)
+   * @since Sitevision 2022.10.1
+   */
+  clearLang(): void;
+
+  /**
+   * Sets the hreflang attribute on the a element (hints at the language of the linked resource).
+   * @param aHrefLang a single language code
+   * @since Sitevision 2022.10.1
+   */
+  setHrefLang(aHrefLang: string): void;
+
+  /**
+   * Removes the hreflang, i.e executes <code>setHrefLang(null)</code>
+   * @see #setHrefLang(String)
+   * @since Sitevision 2022.10.1
+   */
+  clearHrefLang(): void;
+
+  /**
+   * Adds target parameters (key=value) to the link target (href attribute on the a element).
+   *
+   * <p>
+   *    Target parameters is optional when the result is rendered. Default is no target parameters.
+   * </p>
+   * <p>
+   *    There can only be one target parameter per key (i.e. when a target parameter is added it will always replace the possibly existing
+   *    target parameter that already use that key).
+   * </p>
+   * @param key the key of the target parameter
+   * @param value the value of the target parameter
+   */
+  addTargetParameter(key: string, value: string): void;
+
+  /**
+ * Removes all existing target parameters
+  
+    */
+  clearTargetParameters(): void;
+
+  /**
+   * Should target parameters be URL encoded or not?
+   * Default is <code>true</code>.
+   * @param performParameterEncoding whether parameters should be URL encoded or not.
+   * @see senselogic.sitevision.api.text.EndecUtil#encodeURL(String)
+   * @since Sitevision 3.0
+   */
+  setUseParameterEncoding(performParameterEncoding: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseParameterEncoding(true)</code>
+   * @see #setUseParameterEncoding(boolean)
+   * @since Sitevision 3.0
+   */
+  forceUseParameterEncoding(): void;
+
+  /**
+   * Utility method for executing <code>setUseParameterEncoding(false)</code>
+   * @see #setUseParameterEncoding(boolean)
+   * @since Sitevision 3.0
+   */
+  clearUseParameterEncoding(): void;
+
+  /**
+   * Adds an HTML5 data-* attribute to the link element.
+   * Data attributes is optional when the result is rendered. Default is no data attributes.
+   * <p>
+   *    There can only be one data attribute per name (i.e. when a data attribute is added it will always replace the possibly existing
+   *    data attribute that already use that name).
+   * </p>
+   *
+   * <p>
+   *    Notes about names and values:
+   * </p>
+   * <ul>
+   *    <li>
+   *       A <strong>name</strong> that is <code>null</code> or <em>whitespace-only</em> will be completely ignored,
+   *       i.e. no data attribute will be rendered.
+   *    </li>
+   *    <li>
+   *       A <strong>name</strong> that isn't properly prefixed with <em>"data-"</em> will be prefixed when the data attribute is rendered.
+   *    </li>
+   *    <li>
+   *       A <strong>value</strong> that is <code>null</code> or <em>whitespace-only</em> will be rendered as a data attribute without value.
+   *    </li>
+   *    <li>
+   *       A <strong>value</strong> should not be escaped/encoded. The <em>useEncoding</em> attribute will determine what to do
+   *       when the data attributes are rendered.
+   * </ul>
+   * @param aName the name of the data attribute
+   * @param aValue the value of the data attribute
+   * @since Sitevision 3.0
+   */
+  addDataAttribute(aName: string, aValue: string): void;
+
+  /**
+   * Removes all existing data attributes
+   * @since Sitevision 3.0
+   */
+  clearDataAttributes(): void;
+
+  /**
+   * Sets what access key the link should have (accesskey attribute on the a element)
+   * The accesskey attribute is optional when the result is rendered. Default is <code>null</code>.
+   * @param anAccessKey the access key that should be used
+   */
+  setAccessKey(anAccessKey: string): void;
+
+  /**
+   * Removes the accesskey, i.e. executes <code>setAccessKey(null)</code>
+   * @see #setAccessKey(String)
+   */
+  clearAccessKey(): void;
+
+  /**
+   * Sets the rel that should be used (rel attribute on the a element)
+   * The rel attribute is optional when the result is rendered. Default is <code>null</code>.
+   * @param aRel the rel that should be used. Note! If "external" is used, the rendered link will be opened in a new window via JavaScript
+   */
+  setRel(aRel: string): void;
+
+  /**
+   * Removes the rel value, i.e executes <code>setRel(null)</code>
+   * @see #setRel(String)
+   */
+  clearRel(): void;
+
+  /**
+   * Sets the onclick value (onclick attribute and onkeypress attribute on the a element), typically some kind of Javascript
+   * The onclick attribute is optional when the result is rendered. Default is <code>null</code>.
+   *
+   * <p><em>Note!</em> The events (onclick, onkeypress) will be added with non-obtrusive javascript when render() is called.</p>
+   * @param anOnclick the onClick value that should be used
+   */
+  setOnclick(anOnclick: string): void;
+
+  /**
+   * Removes the onclick value, i.e executes <code>setOnclick(null)</code>
+   * @see #setOnclick(String)
+   */
+  clearOnclick(): void;
+
+  /**
+   * Sets the id value (id attribute on the a element), most likely only needed if some kind of javascript/ajax code needs to access the
+   * rendered link via its id.
+   *
+   * <p>
+   *    The id attribute is optional when the result is rendered. Default is <code>null</code>.
+   * </p>
+   * <p>
+   *    This method does <em>not</em> perform any checks of the id. All values will be accepted.
+   *    <em>(Note! A valid id should be unique - i.e. should not appear more than once in a html/xhtml document - and not all characters are allowed.
+   *    See <a href="http://www.w3.org/TR/2006/REC-xml-20060816/#sec-attribute-types">W3C 3.3.1 Attribute types</a>.)</em>
+   * </p>
+   * @param anId the id value that should be used
+   * @since Sitevision 3.0
+   */
+  setId(anId: string): void;
+
+  /**
+   * Removes the id value, i.e executes <code>setId(null)</code>
+   * @see #setId(String)
+   * @since Sitevision 3.0
+   */
+  clearId(): void;
+
+  /**
+   * Use icons for "external", "new window" and "new window, external" according to Site's settings or not.
+   * Default is <code>true</code>.
+   * @param useLinkDecorationSettings whether or not Site's settings for link type icons should be used
+   */
+  setUseLinkDecorationSettings(useLinkDecorationSettings: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseLinkDecorationSettings(true)</code>
+   * @see #setUseLinkDecorationSettings(boolean)
+   */
+  forceUseLinkDecorationSettings(): void;
+
+  /**
+   * Utility method for executing <code>setUseLinkDecorationSettings(false)</code>
+   * @see #setUseLinkDecorationSettings(boolean)
+   */
+  clearUseLinkDecorationSettings(): void;
+
+  /**
+   * Use icons/descriptions for known file types according to Site's settings or not.
+   * Default is <code>true</code>.
+   * @param useResourceDecorationSettings whether or not Site's settings for icons/descriptions for known file types should be used
+   */
+  setUseResourceDecorationSettings(
+    useResourceDecorationSettings: boolean
+  ): void;
+
+  /**
+   * Utility method for executing <code>setUseResourceDecorationSettings(true)</code>
+   * @see #setUseResourceDecorationSettings(boolean)
+   */
+  forceUseResourceDecorationSettings(): void;
+
+  /**
+   * Utility method for executing <code>setUseResourceDecorationSettings(false)</code>
+   * @see #setUseResourceDecorationSettings(boolean)
+   */
+  clearUseResourceDecorationSettings(): void;
+
+  /**
+   * Should the link target be opened in a new window or not?
+   * Default is <code>false</code>.
+   * @param openNewWindow whether or not the link target should be opened in a new window
+   */
+  setOpenNewWindow(openNewWindow: boolean): void;
+
+  /**
+   * Utility method for executing <code>setOpenNewWindow(true)</code>
+   * @see #setOpenNewWindow(boolean)
+   */
+  forceOpenNewWindow(): void;
+
+  /**
+   * Utility method for executing <code>setOpenNewWindow(false)</code>
+   * @see #setOpenNewWindow(boolean)
+   */
+  clearOpenNewWindow(): void;
+
+  /**
+   * Should the browser download the link target instead of navigating to it?
+   * Default is <code>false</code>.
+   * @param useDownload whether a browser is suggested to download the link target directly
+   * @since Sitevision 5.2
+   */
+  setUseDownload(useDownload: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseDownload(true)</code>
+   * @see #setUseDownload(boolean)
+   * @since Sitevision 5.2
+   */
+  forceUseDownload(): void;
+
+  /**
+   * Utility method for executing <code>setUseDownload(false)</code>
+   * @see #setUseDownload(boolean)
+   * @since Sitevision 5.2
+   */
+  clearUseDownload(): void;
+
+  /**
+   * Should text and attributes be properly encoded or not?
+   * Default is <code>true</code>.
+   * @param performEncoding whether text should be encoded or not.
+   */
+  setUseEncoding(performEncoding: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseEncoding(true)</code>
+   * @see #setUseEncoding(boolean)
+   */
+  forceUseEncoding(): void;
+
+  /**
+   * Utility method for executing <code>setUseEncoding(false)</code>
+   * @see #setUseEncoding(boolean)
+   */
+  clearUseEncoding(): void;
+
+  /**
+   * Ensures title always will have a value. If non-existing, the title will be set to the title of the target target (or
+   * the same as the linked text if the target isn't a page or the title of the page is lacking)
+   * Default is <code>false</code>.
+   * @param useAutoTitle whether or not the link always should get the title automatically if title is missing
+   */
+  setUseAutoTitle(useAutoTitle: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseAutoTitle(true)</code>
+   * @see #setUseAutoTitle(boolean)
+   */
+  forceUseAutoTitle(): void;
+
+  /**
+   * Utility method for executing <code>setUseAutoTitle(false)</code>
+   * @see #setUseAutoTitle(boolean)
+   */
+  clearUseAutoTitle(): void;
+
+  /**
+   * Should cross-site internal Node links be handled or not?
+   *
+   * <p>
+   *    Default is <code>false</code>.
+   * </p>
+   * <p>
+   *    <em>Note! For best performance: enable only if your site actually contains internal links to
+   *    pages on other sites (e.g. The System user creates an internal link and selects a page
+   *    on another site in the target browse tree).</em>
+   * </p>
+   * @param useCrossSiteTargetChecking whether or not to check for cross-site Node targets
+   * @since Sitevision 3.0.2
+   */
+  setUseCrossSiteTargetChecking(useCrossSiteTargetChecking: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseCrossSiteTargetChecking(true)</code>
+   * @see #setUseCrossSiteTargetChecking(boolean)
+   * @since Sitevision 3.0.2
+   */
+  forceUseCrossSiteTargetChecking(): void;
+
+  /**
+   * Utility method for executing <code>seUseCrossSiteTargetChecking(false)</code>
+   * @see #setUseCrossSiteTargetChecking(boolean)
+   * @since Sitevision 3.0.2
+   */
+  clearUseCrossSiteTargetChecking(): void;
 }
 
-export default linkRenderer;
+declare namespace LinkRenderer {}
+
+declare var linkRenderer: LinkRenderer;
+
+export = linkRenderer;

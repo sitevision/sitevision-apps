@@ -15,6 +15,8 @@
  * @since Sitevision 4.2
  * @see senselogic.sitevision.api.webresource.builder.LinkTargetBuilder
  */
-export type LinkTarget = {
+type LinkTarget = {
   undefined;
 };
+
+export = LinkTarget;

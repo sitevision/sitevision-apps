@@ -1,4 +1,4 @@
-import type { AuthenticationFilterChain } from "../AuthenticationFilterChain";
+import type AuthenticationFilterChain from "../AuthenticationFilterChain";
 
 /**
  * <p>
@@ -9,10 +9,10 @@ import type { AuthenticationFilterChain } from "../AuthenticationFilterChain";
  *    <strong>Important legacy note!</strong> As of Sitevision 3 this interface has been moved
  *    (from package senselogic.sitevision.security.jaas.filter.api).
  *    Previously implemented custom JAAS filters/modules using this interface must be re-compiled in order to run in Sitevision 3.
- * </em>The shared state username constant.The shared state password constant.The shared state auth type constant.The shared state client address constant.The shared state redirect constant.
+ * </em>
  * @author Rickard Öberg
  */
-export type AuthenticationFilter = {
+type AuthenticationFilter = {
   /**
    * A filter that can be used to populate the shared state and/or options for a JAAS login module.
    * @param aRequest the request
@@ -31,4 +31,36 @@ export type AuthenticationFilter = {
     anOptions: unknown,
     aChain: AuthenticationFilterChain
   ): void;
+
+  /**
+ * The shared state username constant.
+  
+    */
+  USERNAME: string;
+
+  /**
+ * The shared state password constant.
+  
+    */
+  PASSWORD: string;
+
+  /**
+ * The shared state auth type constant.
+  
+    */
+  AUTHTYPE: string;
+
+  /**
+ * The shared state client address constant.
+  
+    */
+  CLIENT_ADDRESS: string;
+
+  /**
+ * The shared state redirect constant.
+  
+    */
+  REDIRECT: string;
 };
+
+export = AuthenticationFilter;

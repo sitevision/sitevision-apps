@@ -1,4 +1,4 @@
-import type { JoinCondition } from "../JoinCondition";
+import type JoinCondition from "../JoinCondition";
 
 /**
  * Tests whether the value of a property in a first selector is equal to the
@@ -14,7 +14,7 @@ import type { JoinCondition } from "../JoinCondition";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type EquiJoinCondition = {
+type EquiJoinCondition = JoinCondition & {
   /**
    * Gets the name of the first selector.
    * @return the selector name; non-null
@@ -39,3 +39,5 @@ export type EquiJoinCondition = {
    */
   getProperty2Name(): string;
 };
+
+export = EquiJoinCondition;

@@ -20,6 +20,8 @@
  * @author Magnus Lövgren
  * @since Sitevision 4.1
  */
-export type Monitor = {
+type Monitor = {
   undefined;
 };
+
+export = Monitor;

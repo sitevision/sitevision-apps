@@ -1,8 +1,8 @@
-import type { AccessControlEntry } from "../AccessControlEntry";
+import type AccessControlEntry from "../AccessControlEntry";
 
-import type { Privilege } from "../Privilege";
+import type Privilege from "../Privilege";
 
-import type { AccessControlPolicy } from "../AccessControlPolicy";
+import type AccessControlPolicy from "../AccessControlPolicy";
 
 /**
  * The <code>AccessControlList</code> is an <code>AccessControlPolicy</code>
@@ -16,7 +16,7 @@ import type { AccessControlPolicy } from "../AccessControlPolicy";
  * @since Sitevision 3.5
  * @since JCR 2.0
  */
-export type AccessControlList = {
+type AccessControlList = AccessControlPolicy & {
   /**
    * Returns all access control entries present with this policy.
    * <p>
@@ -66,3 +66,5 @@ export type AccessControlList = {
    */
   removeAccessControlEntry(ace: AccessControlEntry): void;
 };
+
+export = AccessControlList;

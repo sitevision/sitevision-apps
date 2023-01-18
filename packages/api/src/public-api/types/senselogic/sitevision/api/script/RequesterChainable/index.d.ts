@@ -1,4 +1,4 @@
-import Requester from "../../../../../../server/Requester";
+import { Requester } from "../../../../../../server/Requester";
 
 /**
  * The chainable result of a {@link Requester} invocation.
@@ -8,7 +8,7 @@ import Requester from "../../../../../../server/Requester";
  * @since Sitevision 4.2
  * @see Requester
  */
-export type RequesterChainable = {
+type RequesterChainable = Requester & {
   /**
    * Invoked when a {@link Requester} was successfully executed.
    *
@@ -70,3 +70,5 @@ export type RequesterChainable = {
    */
   fail(aCallback: unknown): RequesterChainable;
 };
+
+export = RequesterChainable;

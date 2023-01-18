@@ -1,4 +1,4 @@
-import type { Node } from "../../../../../javax/jcr/Node";
+import type Node from "../../../../../javax/jcr/Node";
 
 /**
  * The ImageScaler interface describes in which way images should be rescaled by an <code>ImageRenderer</code>.
@@ -11,7 +11,7 @@ import type { Node } from "../../../../../javax/jcr/Node";
  * @author Magnus Lövgren
  * @since Sitevision 2.6.1_08
  */
-export type ImageScaler = {
+type ImageScaler = {
   /**
    * Returns max width in pixels for images scaled with instances of this interface.
    * @return max width for scaled images
@@ -43,3 +43,5 @@ export type ImageScaler = {
    */
   getScaledImage(aImageNode: Node): Node;
 };
+
+export = ImageScaler;

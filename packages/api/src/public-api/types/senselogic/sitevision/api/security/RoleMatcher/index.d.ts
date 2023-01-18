@@ -1,4 +1,4 @@
-import type { Node } from "../../../../../javax/jcr/Node";
+import type Node from "../../../../../javax/jcr/Node";
 
 /**
  * Role matcher representation that can be matched on a node to check "is user in role".
@@ -10,7 +10,7 @@ import type { Node } from "../../../../../javax/jcr/Node";
  * @author Magnus Lövgren
  * @since Sitevision 6.1
  */
-export type RoleMatcher = {
+type RoleMatcher = {
   /**
    * Checks if matcher user is in all matcher roles on a given Node.
    * @param aNode the node, typically a sv:page
@@ -25,3 +25,5 @@ export type RoleMatcher = {
    */
   matchesAny(aNode: Node): boolean;
 };
+
+export = RoleMatcher;

@@ -1,6 +1,6 @@
-import type { Hold } from "../Hold";
+import type Hold from "../Hold";
 
-import type { RetentionPolicy } from "../RetentionPolicy";
+import type RetentionPolicy from "../RetentionPolicy";
 
 /**
  * The <code>RetentionManager</code> object is accessed via {@link
@@ -10,7 +10,7 @@ import type { RetentionPolicy } from "../RetentionPolicy";
  * @since Sitevision 3.5
  * @since JCR 2.0
  */
-export type RetentionManager = {
+type RetentionManager = {
   /**
    * Returns all hold objects that have been added through this API to the
    * existing node at <code>absPath</code>. If no hold has been set before,
@@ -133,3 +133,5 @@ export type RetentionManager = {
    */
   removeRetentionPolicy(absPath: string): void;
 };
+
+export = RetentionManager;

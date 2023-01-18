@@ -14,7 +14,7 @@
  * @since Sitevision 2.6.2, 2.7_06
  * @deprecated use the typed methods in {@link senselogic.sitevision.api.search.SearchHit} instead when extracting values from a search result.
  */
-export type SearchFieldUtil = {
+type SearchFieldUtil = {
   /**
    * Returns the Date for a string field that contains a date value generated via Lucene's DateTools class.
    * @param aDateFieldValue the <code>String</code> that should be converted to a <code>Date</code>
@@ -73,3 +73,5 @@ export type SearchFieldUtil = {
    */
   doubleFieldToDouble(aDoubleFieldValue: string): number;
 };
+
+export = SearchFieldUtil;

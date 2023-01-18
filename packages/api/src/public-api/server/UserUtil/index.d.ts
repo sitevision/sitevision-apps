@@ -1,30 +1,4 @@
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * Checks if current user is member of a group.
- *
- * <p>
- *    This is a convenience for {@link #isMemberOfGroup(javax.jcr.Node, javax.jcr.Node)} using current user
- *    (as of {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser()}).
- * </p>
- * @param aGroup a group node (sv:userGroup or sv:virtualGroup)
- * @return <code>true</code> if current user is member of <code>aGroup</code>, <code>false</code> otherwise
- */
-export function isMemberOfGroup(aGroup: Node): boolean;
-
-/**
- * Checks if a specific user is member of a group.
- *
- * <p>
- *    <em>Tip!</em> To check if a <code>sv:userIdentity</code> is member of a <code>sv:collaborationGroup</code>,
- *    you would typically use {@link senselogic.sitevision.api.user.UserIdentityWrapper#isMemberOf(javax.jcr.Node)} or
- *    {@link senselogic.sitevision.api.collaboration.CollaborationGroupWrapper#isMember(javax.jcr.Node)}.
- * </p>
- * @param aUser a user node (sv:user, sv:simpleUser or sv:systemUser)
- * @param aGroup a group node (sv:userGroup or sv:virtualGroup)
- * @return <code>true</code> if <code>aUser</code> is member of <code>aGroup</code>, <code>false</code> otherwise
- */
-export function isMemberOfGroup(aUser: Node, aGroup: Node): boolean;
+import type Node from "../../types/javax/jcr/Node";
 
 /**
  * User utility interface.
@@ -63,8 +37,36 @@ export function isMemberOfGroup(aUser: Node, aGroup: Node): boolean;
  * @see senselogic.sitevision.api.user.SystemUserUtil
  * @see senselogic.sitevision.api.user.SimpleUserUtil
  */
-declare namespace userUtil {
-  export { isMemberOfGroup };
+export interface UserUtil {
+  /**
+   * Checks if current user is member of a group.
+   *
+   * <p>
+   *    This is a convenience for {@link #isMemberOfGroup(javax.jcr.Node, javax.jcr.Node)} using current user
+   *    (as of {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser()}).
+   * </p>
+   * @param aGroup a group node (sv:userGroup or sv:virtualGroup)
+   * @return <code>true</code> if current user is member of <code>aGroup</code>, <code>false</code> otherwise
+   */
+  isMemberOfGroup(aGroup: Node): boolean;
+
+  /**
+   * Checks if a specific user is member of a group.
+   *
+   * <p>
+   *    <em>Tip!</em> To check if a <code>sv:userIdentity</code> is member of a <code>sv:collaborationGroup</code>,
+   *    you would typically use {@link senselogic.sitevision.api.user.UserIdentityWrapper#isMemberOf(javax.jcr.Node)} or
+   *    {@link senselogic.sitevision.api.collaboration.CollaborationGroupWrapper#isMember(javax.jcr.Node)}.
+   * </p>
+   * @param aUser a user node (sv:user, sv:simpleUser or sv:systemUser)
+   * @param aGroup a group node (sv:userGroup or sv:virtualGroup)
+   * @return <code>true</code> if <code>aUser</code> is member of <code>aGroup</code>, <code>false</code> otherwise
+   */
+  isMemberOfGroup(aUser: Node, aGroup: Node): boolean;
 }
 
-export default userUtil;
+declare namespace UserUtil {}
+
+declare var userUtil: UserUtil;
+
+export = userUtil;

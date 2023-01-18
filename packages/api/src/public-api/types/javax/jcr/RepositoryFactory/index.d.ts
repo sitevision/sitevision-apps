@@ -1,4 +1,4 @@
-import type { Repository } from "../Repository";
+import type Repository from "../Repository";
 
 /**
  * <code>RepositoryFactory</code> is a factory for <code>Repository</code>
@@ -53,7 +53,7 @@ import type { Repository } from "../Repository";
  * @since Sitevision 3.5
  * @since JCR 2.0
  */
-export type RepositoryFactory = {
+type RepositoryFactory = {
   /**
    * Attempts to establish a connection to a repository using the given
    * <code>parameters</code>. <p> Parameters are passed in a <code>Map</code>
@@ -74,3 +74,5 @@ export type RepositoryFactory = {
    */
   getRepository(parameters: unknown): Repository;
 };
+
+export = RepositoryFactory;

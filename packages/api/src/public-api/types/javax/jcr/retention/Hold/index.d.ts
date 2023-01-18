@@ -15,7 +15,7 @@
  * @since Sitevision 3.5
  * @since JCR 2.0
  */
-export type Hold = {
+type Hold = {
   /**
    * Returns <code>true</code> if this <code>Hold</code> is deep.
    * @return <code>true</code> if this <code>Hold</code> is deep.
@@ -30,3 +30,5 @@ export type Hold = {
    */
   getName(): string;
 };
+
+export = Hold;

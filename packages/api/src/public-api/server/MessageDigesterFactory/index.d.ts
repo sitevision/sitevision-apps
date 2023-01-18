@@ -1,28 +1,4 @@
-import type { MessageDigester } from "../../types/senselogic/sitevision/api/security/MessageDigester";
-
-/**
- * Gets an instanceof a message digester that performs hash computation using the MD5 algorithm.
- * @return a MD5 message digester
- */
-export function getMD5(): MessageDigester;
-
-/**
- * Gets an instanceof a message digester that performs hash computation using the SHA-1 algorithm.
- * @return a SHA-1 message digester
- */
-export function getSHA1(): MessageDigester;
-
-/**
- * Gets an instanceof a message digester that performs hash computation using the SHA-256 algorithm.
- * @return a SHA-256 message digester
- */
-export function getSHA256(): MessageDigester;
-
-/**
- * Gets an instanceof a message digester that performs hash computation using the SHA-512 algorithm.
- * @return a SHA-512 message digester
- */
-export function getSHA512(): MessageDigester;
+import type MessageDigester from "../../types/senselogic/sitevision/api/security/MessageDigester";
 
 /**
  * Factory that provides message digester instances that can perform
@@ -42,8 +18,34 @@ export function getSHA512(): MessageDigester;
  * @author Magnus Lövgren
  * @since Sitevision 5.0.1
  */
-declare namespace messageDigesterFactory {
-  export { getMD5, getSHA1, getSHA256, getSHA512 };
+export interface MessageDigesterFactory {
+  /**
+   * Gets an instanceof a message digester that performs hash computation using the MD5 algorithm.
+   * @return a MD5 message digester
+   */
+  getMD5(): MessageDigester;
+
+  /**
+   * Gets an instanceof a message digester that performs hash computation using the SHA-1 algorithm.
+   * @return a SHA-1 message digester
+   */
+  getSHA1(): MessageDigester;
+
+  /**
+   * Gets an instanceof a message digester that performs hash computation using the SHA-256 algorithm.
+   * @return a SHA-256 message digester
+   */
+  getSHA256(): MessageDigester;
+
+  /**
+   * Gets an instanceof a message digester that performs hash computation using the SHA-512 algorithm.
+   * @return a SHA-512 message digester
+   */
+  getSHA512(): MessageDigester;
 }
 
-export default messageDigesterFactory;
+declare namespace MessageDigesterFactory {}
+
+declare var messageDigesterFactory: MessageDigesterFactory;
+
+export = messageDigesterFactory;

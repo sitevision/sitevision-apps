@@ -1,120 +1,7 @@
-import type { Node } from "../../types/javax/jcr/Node";
+import BuddyIconSize from "../BuddyIconRenderer.BuddyIconSize";
 
-/**
- * Sets the size for rendered buddy icons.
- *
- * <p>Default is <code>BuddyIconSize.SMALL</code></p>
- * @param aBuddyIconSize the icon size
- */
-export function setBuddyIconSize(aBuddyIconSize: unknown): void;
-
-/**
- * Utility method for executing <code>setBuddyIconSize(BuddyIconSize.SMALL)</code>
- * @see #setBuddyIconSize(senselogic.sitevision.api.render.BuddyIconRenderer.BuddyIconSize)
- * @see BuddyIconSize#SMALL
- */
-export function forceUseSmallBuddyIconSize(): void;
-
-/**
- * Utility method for executing <code>setBuddyIconSize(BuddyIconSize.LARGE)</code>
- * @see #setBuddyIconSize(senselogic.sitevision.api.render.BuddyIconRenderer.BuddyIconSize)
- * @see BuddyIconSize#LARGE
- */
-export function forceUseLargeBuddyIconSize(): void;
-
-/**
- * Utility method for executing <code>setBuddyIconSize(BuddyIconSize.X_LARGE)</code>
- * @since Sitevision 8.2
- * @see #setBuddyIconSize(senselogic.sitevision.api.render.BuddyIconRenderer.BuddyIconSize)
- * @see BuddyIconSize#X_LARGE
- */
-export function forceUseXLargeBuddyIconSize(): void;
-
-/**
- * Whether or not rendered buddy icons should be linked.
- *
- * <p>Default is <code>true</code></p>
- * @param aLinkBuddyIcon Whether or not buddy icons should be linked.
- */
-export function setLinkBuddyIcon(aLinkBuddyIcon: boolean): void;
-
-/**
- * Utility method for executing <code>setLinkBuddyIcon(false)</code>
- * @see #setLinkBuddyIcon(boolean)
- */
-export function clearUseLinkBuddyIcon(): void;
-
-/**
- * Utility method for executing <code>setLinkBuddyIcon(true)</code>
- * @see #setLinkBuddyIcon(boolean)
- */
-export function forceUseLinkBuddyIcon(): void;
-
-/**
- * Updates the renderer with a new buddy icon supported node.
- *
- * <p>
- *    If <code>aBuddyIconNode</code> is not a type that can be represented by a buddy icon, the argument will be considered as <code>null</code>,
- *    i.e. the renderer will not have any renderable node in subsequent render execution.
- * </p>
- * @param aBuddyIconNode a node that can be rendered as a buddy icon.
- */
-export function update(aBuddyIconNode: Node): void;
-
-/**
- * Whether or not this renderer contains a node that can be rendered.
- * @return <code>true</code> if a renderable node is loaded, <code>false</code> if not.
- */
-export function isLoaded(): boolean;
-
-/**
- * Helper method to check if a certain node can be rendered as a buddy icon.
- *
- * <p>
- *    Nodes with the following primary node types are potentially renderable:
- * </p>
- * <ul>
- *    <li><code>sv:userIdentity</code></li>
- *    <li><code>sv:user</code> <em>(non-anonymous)</em> &raquo; <em>will be renderable if a sv:userIdentity can be extracted</em></li>
- *    <li><code>sv:simpleUser</code> &raquo; <em>will be renderable if a sv:userIdentity can be extracted</em></li>
- *    <li style="margin-bottom:1em"><code>sv:systemUser</code> &raquo; <em>will be renderable if a sv:userIdentity can be extracted</em></li>
- *    <li><code>sv:collaborationGroup</code></li>
- *    <li><code>sv:collaborationGroupPage</code> &raquo; <em>will be renderable if a sv:collaborationGroup can be extracted</em></li>
- * </ul>
- * @param aNode the node to check
- * @return <code>true</code> if <code>aNode</code> is supported by this renderer, <code>false</code> if not
- */
-export function isRenderable(aNode: Node): boolean;
-
-/**
- * BuddyIconInfo for current state.
- *
- * <p>
- *    <em>
- *       The data this method provides is used by the {@link #render()} method.
- *       The intent of this method is to facilitate custom buddy icon rendering solutions.
- *       See {@link BuddyIconInfo} for such example.
- *    </em>
- * </p>
- *
- * <p>
- *    Note! Returned BuddyIconInfo object is never null but its <code>uri</code> will potentially be null and its
- *    <code>width</code>/<code>height</code> might be zero.
- *    Typically when this renderer has no valid/renderable node loaded, see {@link #isLoaded()}.
- * </p>
- * @return the BuddyIconInfo for current state, is never null.
- * @since Sitevision 8.2
- */
-export function getBuddyIconInfo(): unknown;
-
-/**
- * Builds a html string based on current state.
- *
- * <strong>Size note!</strong> Profile images will never be upscaled. If a buddy icon size is larger than the actual size of the profile image,
- * the image will be rendered with the largest possible buddy icon size.
- * @return a html string, ready to print out on a page. Might be empty but never <code>null</code>.
- */
-export function render(): string;
+import type Node from "../../types/javax/jcr/Node";
+import type BuddyIconInfo from "../../types/senselogic/sitevision/api/render/BuddyIconRenderer.BuddyIconInfo";
 
 /**
  * BuddyIconRenderer is a stateful utility interface for rendering of buddy icons for user identities and collaboration groups.
@@ -180,21 +67,126 @@ export function render(): string;
  * @author Magnus Lövgren
  * @since Sitevision 3.5.3
  */
-declare namespace buddyIconRenderer {
-  export {
-    setBuddyIconSize,
-    forceUseSmallBuddyIconSize,
-    forceUseLargeBuddyIconSize,
-    forceUseXLargeBuddyIconSize,
-    setLinkBuddyIcon,
-    clearUseLinkBuddyIcon,
-    forceUseLinkBuddyIcon,
-    update,
-    isLoaded,
-    isRenderable,
-    getBuddyIconInfo,
-    render,
-  };
+export interface BuddyIconRenderer {
+  /**
+   * Sets the size for rendered buddy icons.
+   *
+   * <p>Default is <code>BuddyIconSize.SMALL</code></p>
+   * @param aBuddyIconSize the icon size
+   */
+  setBuddyIconSize(aBuddyIconSize: BuddyIconSize): void;
+
+  /**
+   * Utility method for executing <code>setBuddyIconSize(BuddyIconSize.SMALL)</code>
+   * @see #setBuddyIconSize(senselogic.sitevision.api.render.BuddyIconRenderer.BuddyIconSize)
+   * @see BuddyIconSize#SMALL
+   */
+  forceUseSmallBuddyIconSize(): void;
+
+  /**
+   * Utility method for executing <code>setBuddyIconSize(BuddyIconSize.LARGE)</code>
+   * @see #setBuddyIconSize(senselogic.sitevision.api.render.BuddyIconRenderer.BuddyIconSize)
+   * @see BuddyIconSize#LARGE
+   */
+  forceUseLargeBuddyIconSize(): void;
+
+  /**
+   * Utility method for executing <code>setBuddyIconSize(BuddyIconSize.X_LARGE)</code>
+   * @since Sitevision 8.2
+   * @see #setBuddyIconSize(senselogic.sitevision.api.render.BuddyIconRenderer.BuddyIconSize)
+   * @see BuddyIconSize#X_LARGE
+   */
+  forceUseXLargeBuddyIconSize(): void;
+
+  /**
+   * Whether or not rendered buddy icons should be linked.
+   *
+   * <p>Default is <code>true</code></p>
+   * @param aLinkBuddyIcon Whether or not buddy icons should be linked.
+   */
+  setLinkBuddyIcon(aLinkBuddyIcon: boolean): void;
+
+  /**
+   * Utility method for executing <code>setLinkBuddyIcon(false)</code>
+   * @see #setLinkBuddyIcon(boolean)
+   */
+  clearUseLinkBuddyIcon(): void;
+
+  /**
+   * Utility method for executing <code>setLinkBuddyIcon(true)</code>
+   * @see #setLinkBuddyIcon(boolean)
+   */
+  forceUseLinkBuddyIcon(): void;
+
+  /**
+   * Updates the renderer with a new buddy icon supported node.
+   *
+   * <p>
+   *    If <code>aBuddyIconNode</code> is not a type that can be represented by a buddy icon, the argument will be considered as <code>null</code>,
+   *    i.e. the renderer will not have any renderable node in subsequent render execution.
+   * </p>
+   * @param aBuddyIconNode a node that can be rendered as a buddy icon.
+   */
+  update(aBuddyIconNode: Node): void;
+
+  /**
+   * Whether or not this renderer contains a node that can be rendered.
+   * @return <code>true</code> if a renderable node is loaded, <code>false</code> if not.
+   */
+  isLoaded(): boolean;
+
+  /**
+   * Helper method to check if a certain node can be rendered as a buddy icon.
+   *
+   * <p>
+   *    Nodes with the following primary node types are potentially renderable:
+   * </p>
+   * <ul>
+   *    <li><code>sv:userIdentity</code></li>
+   *    <li><code>sv:user</code> <em>(non-anonymous)</em> &raquo; <em>will be renderable if a sv:userIdentity can be extracted</em></li>
+   *    <li><code>sv:simpleUser</code> &raquo; <em>will be renderable if a sv:userIdentity can be extracted</em></li>
+   *    <li style="margin-bottom:1em"><code>sv:systemUser</code> &raquo; <em>will be renderable if a sv:userIdentity can be extracted</em></li>
+   *    <li><code>sv:collaborationGroup</code></li>
+   *    <li><code>sv:collaborationGroupPage</code> &raquo; <em>will be renderable if a sv:collaborationGroup can be extracted</em></li>
+   * </ul>
+   * @param aNode the node to check
+   * @return <code>true</code> if <code>aNode</code> is supported by this renderer, <code>false</code> if not
+   */
+  isRenderable(aNode: Node): boolean;
+
+  /**
+   * BuddyIconInfo for current state.
+   *
+   * <p>
+   *    <em>
+   *       The data this method provides is used by the {@link #render()} method.
+   *       The intent of this method is to facilitate custom buddy icon rendering solutions.
+   *       See {@link BuddyIconInfo} for such example.
+   *    </em>
+   * </p>
+   *
+   * <p>
+   *    Note! Returned BuddyIconInfo object is never null but its <code>uri</code> will potentially be null and its
+   *    <code>width</code>/<code>height</code> might be zero.
+   *    Typically when this renderer has no valid/renderable node loaded, see {@link #isLoaded()}.
+   * </p>
+   * @return the BuddyIconInfo for current state, is never null.
+   * @since Sitevision 8.2
+   */
+  getBuddyIconInfo(): BuddyIconInfo;
+
+  /**
+   * Builds a html string based on current state.
+   *
+   * <strong>Size note!</strong> Profile images will never be upscaled. If a buddy icon size is larger than the actual size of the profile image,
+   * the image will be rendered with the largest possible buddy icon size.
+   * @return a html string, ready to print out on a page. Might be empty but never <code>null</code>.
+   */
+  render(): string;
 }
 
-export default buddyIconRenderer;
+declare namespace BuddyIconRenderer {}
+
+declare var buddyIconRenderer: BuddyIconRenderer;
+
+export = buddyIconRenderer;

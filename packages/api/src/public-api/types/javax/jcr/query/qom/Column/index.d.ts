@@ -14,7 +14,7 @@
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type Column = {
+type Column = {
   /**
    * Gets the name of the selector.
    * @return the selector name; non-null
@@ -34,3 +34,5 @@ export type Column = {
    */
   getColumnName(): string;
 };
+
+export = Column;

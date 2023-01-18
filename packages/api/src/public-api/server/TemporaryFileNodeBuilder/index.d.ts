@@ -1,30 +1,5 @@
-import type { Node } from "../../types/javax/jcr/Node";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Sets the name of the file.
- *
- * <p>
- *    <em>The file name will also be used as the name of the Node that is built.</em>
- * </p>
- * @param aFileName the file name
- * @return this builder
- */
-export function setFileName(aFileName: string): TemporaryFileNodeBuilder;
-
-/**
- * Sets the file.
- * @param aFile the file
- * @return this builder
- */
-export function setFile(aFile: unknown): TemporaryFileNodeBuilder;
-
-/**
- * Creates a volatile and short-lived temporary file node using current state.
- * @return a volatile and short-lived temporary file node
- * @throws IllegalStateException if no file is set or no file name is set
- */
-export function build(): Node;
+import type Node from "../../types/javax/jcr/Node";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builds volatile and short-lived nodes with primary node type <em>sv:temporaryFile</em>.
@@ -53,8 +28,35 @@ export function build(): Node;
  * @author Magnus Lövgren
  * @since Sitevision 4.5.4
  */
-declare namespace temporaryFileNodeBuilder {
-  export { setFileName, setFile, build };
+export interface TemporaryFileNodeBuilder extends Builder {
+  /**
+   * Sets the name of the file.
+   *
+   * <p>
+   *    <em>The file name will also be used as the name of the Node that is built.</em>
+   * </p>
+   * @param aFileName the file name
+   * @return this builder
+   */
+  setFileName(aFileName: string): TemporaryFileNodeBuilder;
+
+  /**
+   * Sets the file.
+   * @param aFile the file
+   * @return this builder
+   */
+  setFile(aFile: unknown): TemporaryFileNodeBuilder;
+
+  /**
+   * Creates a volatile and short-lived temporary file node using current state.
+   * @return a volatile and short-lived temporary file node
+   * @throws IllegalStateException if no file is set or no file name is set
+   */
+  build(): Node;
 }
 
-export default temporaryFileNodeBuilder;
+declare namespace TemporaryFileNodeBuilder {}
+
+declare var temporaryFileNodeBuilder: TemporaryFileNodeBuilder;
+
+export = temporaryFileNodeBuilder;

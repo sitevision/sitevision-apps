@@ -8,6 +8,8 @@
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type Constraint = {
+type Constraint = {
   undefined;
 };
+
+export = Constraint;

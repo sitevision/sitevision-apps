@@ -1,20 +1,6 @@
-import type { Node } from "../../types/javax/jcr/Node";
-import type { TextModuleRenderer } from "../../types/senselogic/sitevision/api/render/TextModuleRenderer";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Sets the page of this builder.
- * @param aPageNode a page (sv:page, sv:article, sv:sitePage)
- * @return this builder
- */
-export function setPage(aPageNode: Node): TextModuleRendererBuilder;
-
-/**
- * Creates a TextModuleRenderer instance for the page of this builder.
- * @return a Text module renderer instance
- * @throws IllegalStateException if no valid page is set
- */
-export function build(): TextModuleRenderer;
+import type Node from "../../types/javax/jcr/Node";
+import type TextModuleRenderer from "../../types/senselogic/sitevision/api/render/TextModuleRenderer";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -62,8 +48,24 @@ export function build(): TextModuleRenderer;
  * @author Magnus Lövgren
  * @since Sitevision 7
  */
-declare namespace textModuleRendererBuilder {
-  export { setPage, build };
+export interface TextModuleRendererBuilder extends Builder {
+  /**
+   * Sets the page of this builder.
+   * @param aPageNode a page (sv:page, sv:article, sv:sitePage)
+   * @return this builder
+   */
+  setPage(aPageNode: Node): TextModuleRendererBuilder;
+
+  /**
+   * Creates a TextModuleRenderer instance for the page of this builder.
+   * @return a Text module renderer instance
+   * @throws IllegalStateException if no valid page is set
+   */
+  build(): TextModuleRenderer;
 }
 
-export default textModuleRendererBuilder;
+declare namespace TextModuleRendererBuilder {}
+
+declare var textModuleRendererBuilder: TextModuleRendererBuilder;
+
+export = textModuleRendererBuilder;

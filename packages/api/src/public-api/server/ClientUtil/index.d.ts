@@ -1,10 +1,4 @@
 /**
- * Gets the Internet Protocol (IP) address of the client (or last proxy) that initiated currently executing request.
- * @return a <code>String</code> containing the IP address of the client that sent the request, or <code>null</code> if indeterminable
- */
-export function getClientAddress(): string;
-
-/**
  * Client utility interface.
  *
  * <p>
@@ -19,8 +13,16 @@ export function getClientAddress(): string;
  * @author Magnus Lövgren
  * @since Sitevision 2.6_02
  */
-declare namespace clientUtil {
-  export { getClientAddress };
+export interface ClientUtil {
+  /**
+   * Gets the Internet Protocol (IP) address of the client (or last proxy) that initiated currently executing request.
+   * @return a <code>String</code> containing the IP address of the client that sent the request, or <code>null</code> if indeterminable
+   */
+  getClientAddress(): string;
 }
 
-export default clientUtil;
+declare namespace ClientUtil {}
+
+declare var clientUtil: ClientUtil;
+
+export = clientUtil;

@@ -1,40 +1,5 @@
-import type { Filter } from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Adds a filter query.
- *
- * <p>
- *    <em>Solr note: this is the 'fq' param</em>
- * </p>
- *
- * <p>
- *    <strong>Query syntax note! </strong>Query strings should be expressed according to the <em>Solr query syntax</em>.
- *    The syntax is basically the <em>
- *    <a href="http://lucene.apache.org/core/4_10_3/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description">
- *    Lucene query syntax</a></em>
- *    with <em><a href="http://wiki.apache.org/solr/SolrQuerySyntax#Differences_From_Lucene_Query_Parser">some minor differences</a></em>.
- *    Also note that a general recommendation is to always use the <em>prefix operators</em> (<code>+</code>/<code>-</code>) instead of the
- *    <em>boolean keywords</em> (AND/OR/NOT) to avoid unexpected behaviour. For deeper understanding, see for example
- *    <a href="http://searchhub.org/2011/12/28/why-not-and-or-and-not/">Why Not AND, OR, And NOT?</a>.
- * </p>
- * @param aFilterQuery the filter query, a <code>null</code> or whitespace-only value will be ignored
- * @return this builder
- */
-export function addFilterQuery(aFilterQuery: string): FilterBuilder;
-
-/**
- * Removes all previously added filter queries.
- * @return this builder
- */
-export function clearFilterQueries(): FilterBuilder;
-
-/**
- * Creates a Filter component instance using currently specified state/behaviour.
- * @return a filter component
- * @throws IllegalStateException if no filter query exist
- */
-export function build(): Filter;
+import type Filter from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -99,8 +64,45 @@ export function build(): Filter;
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-declare namespace filterBuilder {
-  export { addFilterQuery, clearFilterQueries, build };
+export interface FilterBuilder extends Builder {
+  /**
+   * Adds a filter query.
+   *
+   * <p>
+   *    <em>Solr note: this is the 'fq' param</em>
+   * </p>
+   *
+   * <p>
+   *    <strong>Query syntax note! </strong>Query strings should be expressed according to the <em>Solr query syntax</em>.
+   *    The syntax is basically the <em>
+   *    <a href="http://lucene.apache.org/core/4_10_3/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description">
+   *    Lucene query syntax</a></em>
+   *    with <em><a href="http://wiki.apache.org/solr/SolrQuerySyntax#Differences_From_Lucene_Query_Parser">some minor differences</a></em>.
+   *    Also note that a general recommendation is to always use the <em>prefix operators</em> (<code>+</code>/<code>-</code>) instead of the
+   *    <em>boolean keywords</em> (AND/OR/NOT) to avoid unexpected behaviour. For deeper understanding, see for example
+   *    <a href="http://searchhub.org/2011/12/28/why-not-and-or-and-not/">Why Not AND, OR, And NOT?</a>.
+   * </p>
+   * @param aFilterQuery the filter query, a <code>null</code> or whitespace-only value will be ignored
+   * @return this builder
+   */
+  addFilterQuery(aFilterQuery: string): FilterBuilder;
+
+  /**
+   * Removes all previously added filter queries.
+   * @return this builder
+   */
+  clearFilterQueries(): FilterBuilder;
+
+  /**
+   * Creates a Filter component instance using currently specified state/behaviour.
+   * @return a filter component
+   * @throws IllegalStateException if no filter query exist
+   */
+  build(): Filter;
 }
 
-export default filterBuilder;
+declare namespace FilterBuilder {}
+
+declare var filterBuilder: FilterBuilder;
+
+export = filterBuilder;

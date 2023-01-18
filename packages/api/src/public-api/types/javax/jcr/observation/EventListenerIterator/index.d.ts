@@ -1,5 +1,5 @@
-import type { EventListener } from "../EventListener";
-import type { RangeIterator } from "../../RangeIterator";
+import type EventListener from "../EventListener";
+import type RangeIterator from "../../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>EventListener</code>s with
@@ -9,7 +9,7 @@ import type { RangeIterator } from "../../RangeIterator";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-export type EventListenerIterator = {
+type EventListenerIterator = RangeIterator & {
   /**
    * Returns the next <code>EventListener</code> in the iteration.
    * @return the next <code>EventListener</code> in the iteration.
@@ -17,3 +17,5 @@ export type EventListenerIterator = {
    */
   nextEventListener(): EventListener;
 };
+
+export = EventListenerIterator;

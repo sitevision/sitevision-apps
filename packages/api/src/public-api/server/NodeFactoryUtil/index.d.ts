@@ -2,19 +2,6 @@ import TemporaryNodeBuilder from "../TemporaryNodeBuilder";
 import TemporaryFileNodeBuilder from "../TemporaryFileNodeBuilder";
 
 /**
- * Gets a builder for creating temporary nodes (sv:temporary).
- * @return a builder for creating temporary nodes
- */
-export function getTemporaryNodeBuilder(): TemporaryNodeBuilder;
-
-/**
- * Gets a builder for creating temporary file nodes (sv:temporaryFile).
- * @return a builder for creating temporary file nodes
- * @since Sitevision 4.5.4
- */
-export function getTemporaryFileNodeBuilder(): TemporaryFileNodeBuilder;
-
-/**
  * Node factory utility interface.
  *
  * <p>
@@ -25,8 +12,23 @@ export function getTemporaryFileNodeBuilder(): TemporaryFileNodeBuilder;
  * @author Magnus Lövgren
  * @since Sitevision 4.1.2
  */
-declare namespace nodeFactoryUtil {
-  export { getTemporaryNodeBuilder, getTemporaryFileNodeBuilder };
+export interface NodeFactoryUtil {
+  /**
+   * Gets a builder for creating temporary nodes (sv:temporary).
+   * @return a builder for creating temporary nodes
+   */
+  getTemporaryNodeBuilder(): TemporaryNodeBuilder;
+
+  /**
+   * Gets a builder for creating temporary file nodes (sv:temporaryFile).
+   * @return a builder for creating temporary file nodes
+   * @since Sitevision 4.5.4
+   */
+  getTemporaryFileNodeBuilder(): TemporaryFileNodeBuilder;
 }
 
-export default nodeFactoryUtil;
+declare namespace NodeFactoryUtil {}
+
+declare var nodeFactoryUtil: NodeFactoryUtil;
+
+export = nodeFactoryUtil;

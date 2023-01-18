@@ -1,94 +1,4 @@
-import type { VelocityContext } from "../../types/senselogic/sitevision/api/render/velocity/VelocityContext";
-
-/**
- * Creates and returns an empty VelocityContext instance.
- * @param aWriter the rendering output (typically RenderResponse.getWriter()), not <code>null</code>
- * @return a VelocityContext instance that can be used in the render method
- * @throws IllegalArgumentException if aWriter is <code>null</code>
- */
-export function getVelocityContext(aWriter: unknown): VelocityContext;
-
-/**
- * Creates and returns a VelocityContext instance with the default Sitevision API mappings.
- *
- * <table style="margin-top:20px; width:600px; border:1px solid black">
- *    <caption style="text-align:left">Pre-added mappings in VelocityContext (if aPortletRequest is non-null)</caption>
- *    <tr>
- *       <th style="text-align:left; background-color:black; color:white">Name (available via $)</th>
- *       <th style="text-align:left; background-color:black; color:white">Value (an object instance)</th>
- *    </tr>
- *    <tr>
- *       <td><code>request</code></td>
- *       <td>the <code>PortletRequest</code> instance</td>
- *    </tr>
- *    <tr>
- *       <td><code>sitevisionUtils</code></td>
- *       <td>an instance of {@link senselogic.sitevision.api.Utils}</td>
- *    </tr>
- *    <tr>
- *       <td><code>jcrSession</code></td>
- *       <td>an instance of {@link javax.jcr.Session}</td>
- *    </tr>
- *    <tr>
- *       <td><code>velocityEvaluator</code></td>
- *       <td>an instance of {@link VelocityEvaluator}</td>
- *    </tr>
- * </table>
- * @param aPortletRequest the request to use as base for adding the default Sitevision API mappings. No mappings will be added if <code>null</code>.
- * @param aWriter the rendering output <em>(typically RenderResponse.getWriter())</em>, not <code>null</code>
- * @return a VelocityContext instance that can be used in the render method
- * @throws IllegalArgumentException if aWriter is <code>null</code>
- */
-export function getVelocityContext(
-  aPortletRequest: unknown,
-  aWriter: unknown
-): VelocityContext;
-
-/**
- * Creates and returns a VelocityContext instance with the default Sitevision API mappings.
- *
- * <table style="margin-top:20px; width:600px; border:1px solid black">
- *    <caption style="text-align:left">Pre-added mappings in VelocityContext (if aServletRequest is non-null)</caption>
- *    <tr>
- *       <th style="text-align:left; background-color:black; color:white">Name (available via $)</th>
- *       <th style="text-align:left; background-color:black; color:white">Value (an object instance)</th>
- *    </tr>
- *    <tr>
- *       <td><code>request</code></td>
- *       <td>the <code>ServletRequest</code> instance</td>
- *    </tr>
- *    <tr>
- *       <td><code>sitevisionUtils</code></td>
- *       <td>an instance of {@link senselogic.sitevision.api.Utils}</td>
- *    </tr>
- *    <tr>
- *       <td><code>jcrSession</code></td>
- *       <td>an instance of {@link javax.jcr.Session}</td>
- *    </tr>
- *    <tr>
- *       <td><code>velocityEvaluator</code></td>
- *       <td>an instance of {@link VelocityEvaluator}</td>
- *    </tr>
- * </table>
- * @param aServletRequest the request to use as base for adding the default Sitevision API mappings. No mappings will be added if <code>null</code>.
- * @param aWriter the rendering output <em>(typically HttpServletResponse.getWriter())</em>, not <code>null</code>
- * @return a VelocityContext instance that can be used in the render method
- * @throws IllegalArgumentException if aWriter is <code>null</code>
- */
-export function getVelocityContext(
-  aServletRequest: unknown,
-  aWriter: unknown
-): VelocityContext;
-
-/**
- * Renders a Velocity template string.
- * @param aContext a context with mappings needed by aTemplate (Note! this must be an instance created via any of the methods above, a custom VelocityContext implementation is not allowed).
- * @param aTemplate the template string (i.e. if the actual template is in a file, you must read it and put it in a string that can be passed to this method)
- * @throws IllegalArgumentException if aTemplate is <code>null</code>, if aContext is <code>null</code> or not created via VelocityRenderer
- * @throws VelocityException if parsing/evaluation of aTemplate fails
- * @throws IOException if an I/O exception occurs during the rendering process
- */
-export function render(aContext: VelocityContext, aTemplate: string): void;
+import type VelocityContext from "../../types/senselogic/sitevision/api/render/velocity/VelocityContext";
 
 /**
  * A renderer that can be used in custom portlets for rendering Velocity templates.
@@ -193,8 +103,100 @@ export function render(aContext: VelocityContext, aTemplate: string): void;
  * @author Magnus Lövgren
  * @since Sitevision 3.0
  */
-declare namespace velocityRenderer {
-  export { getVelocityContext, render };
+export interface VelocityRenderer {
+  /**
+   * Creates and returns an empty VelocityContext instance.
+   * @param aWriter the rendering output (typically RenderResponse.getWriter()), not <code>null</code>
+   * @return a VelocityContext instance that can be used in the render method
+   * @throws IllegalArgumentException if aWriter is <code>null</code>
+   */
+  getVelocityContext(aWriter: unknown): VelocityContext;
+
+  /**
+   * Creates and returns a VelocityContext instance with the default Sitevision API mappings.
+   *
+   * <table style="margin-top:20px; width:600px; border:1px solid black">
+   *    <caption style="text-align:left">Pre-added mappings in VelocityContext (if aPortletRequest is non-null)</caption>
+   *    <tr>
+   *       <th style="text-align:left; background-color:black; color:white">Name (available via $)</th>
+   *       <th style="text-align:left; background-color:black; color:white">Value (an object instance)</th>
+   *    </tr>
+   *    <tr>
+   *       <td><code>request</code></td>
+   *       <td>the <code>PortletRequest</code> instance</td>
+   *    </tr>
+   *    <tr>
+   *       <td><code>sitevisionUtils</code></td>
+   *       <td>an instance of {@link senselogic.sitevision.api.Utils}</td>
+   *    </tr>
+   *    <tr>
+   *       <td><code>jcrSession</code></td>
+   *       <td>an instance of {@link javax.jcr.Session}</td>
+   *    </tr>
+   *    <tr>
+   *       <td><code>velocityEvaluator</code></td>
+   *       <td>an instance of {@link VelocityEvaluator}</td>
+   *    </tr>
+   * </table>
+   * @param aPortletRequest the request to use as base for adding the default Sitevision API mappings. No mappings will be added if <code>null</code>.
+   * @param aWriter the rendering output <em>(typically RenderResponse.getWriter())</em>, not <code>null</code>
+   * @return a VelocityContext instance that can be used in the render method
+   * @throws IllegalArgumentException if aWriter is <code>null</code>
+   */
+  getVelocityContext(
+    aPortletRequest: unknown,
+    aWriter: unknown
+  ): VelocityContext;
+
+  /**
+   * Creates and returns a VelocityContext instance with the default Sitevision API mappings.
+   *
+   * <table style="margin-top:20px; width:600px; border:1px solid black">
+   *    <caption style="text-align:left">Pre-added mappings in VelocityContext (if aServletRequest is non-null)</caption>
+   *    <tr>
+   *       <th style="text-align:left; background-color:black; color:white">Name (available via $)</th>
+   *       <th style="text-align:left; background-color:black; color:white">Value (an object instance)</th>
+   *    </tr>
+   *    <tr>
+   *       <td><code>request</code></td>
+   *       <td>the <code>ServletRequest</code> instance</td>
+   *    </tr>
+   *    <tr>
+   *       <td><code>sitevisionUtils</code></td>
+   *       <td>an instance of {@link senselogic.sitevision.api.Utils}</td>
+   *    </tr>
+   *    <tr>
+   *       <td><code>jcrSession</code></td>
+   *       <td>an instance of {@link javax.jcr.Session}</td>
+   *    </tr>
+   *    <tr>
+   *       <td><code>velocityEvaluator</code></td>
+   *       <td>an instance of {@link VelocityEvaluator}</td>
+   *    </tr>
+   * </table>
+   * @param aServletRequest the request to use as base for adding the default Sitevision API mappings. No mappings will be added if <code>null</code>.
+   * @param aWriter the rendering output <em>(typically HttpServletResponse.getWriter())</em>, not <code>null</code>
+   * @return a VelocityContext instance that can be used in the render method
+   * @throws IllegalArgumentException if aWriter is <code>null</code>
+   */
+  getVelocityContext(
+    aServletRequest: unknown,
+    aWriter: unknown
+  ): VelocityContext;
+
+  /**
+   * Renders a Velocity template string.
+   * @param aContext a context with mappings needed by aTemplate (Note! this must be an instance created via any of the methods above, a custom VelocityContext implementation is not allowed).
+   * @param aTemplate the template string (i.e. if the actual template is in a file, you must read it and put it in a string that can be passed to this method)
+   * @throws IllegalArgumentException if aTemplate is <code>null</code>, if aContext is <code>null</code> or not created via VelocityRenderer
+   * @throws VelocityException if parsing/evaluation of aTemplate fails
+   * @throws IOException if an I/O exception occurs during the rendering process
+   */
+  render(aContext: VelocityContext, aTemplate: string): void;
 }
 
-export default velocityRenderer;
+declare namespace VelocityRenderer {}
+
+declare var velocityRenderer: VelocityRenderer;
+
+export = velocityRenderer;

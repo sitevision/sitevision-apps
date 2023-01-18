@@ -1,7 +1,5 @@
 export default {
   getString: () => {},
-  getStream: () => {},
-  getBinary: () => {},
   getLong: () => {},
   getDouble: () => {},
   getDecimal: () => {},

@@ -1,26 +1,5 @@
-import type { RestAppInvoker } from "../../types/senselogic/sitevision/api/script/app/RestAppInvoker";
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * Creates a RestAppInvoker via the Path of a Headless custom module.
- * @param aPath the path of the Headless custom module (sv:headlessCustomModule or sv:marketplaceHeadlessCustomModule)
- * @return the RestAppInvoker for the active RESTApp of the module, or null if no matching RESTApp could be found
- */
-export function fromPath(aPath: string): RestAppInvoker;
-
-/**
- * Creates a RestAppInvoker via a RESTApp Node or a Headless custom module Node.
- * @param aNode the RESTApp (sv:restApp) or the Headless custom module (sv:headlessCustomModule or sv:marketplaceHeadlessCustomModule)
- * @return the RestAppInvoker for the RESTApp, or null if no matching RESTApp could be found
- */
-export function fromNode(aNode: Node): RestAppInvoker;
-
-/**
- * Creates a RestAppInvoker via the Identifier of a RESTApp or a Headless custom module.
- * @param aIdentifier the identifier of the RESTApp (sv:restApp) or the Headless custom module (sv:headlessCustomModule or sv:marketplaceHeadlessCustomModule), i.e. an identifier prefixed with "361.", "188." or "211.".
- * @return the RestAppInvoker for the resolved RESTApp, or null if no matching RESTApp could be found
- */
-export function fromIdentifier(aIdentifier: string): RestAppInvoker;
+import type RestAppInvoker from "../../types/senselogic/sitevision/api/script/app/RestAppInvoker";
+import type Node from "../../types/javax/jcr/Node";
 
 /**
  * Creates RestAppInvoker instances.
@@ -66,8 +45,31 @@ export function fromIdentifier(aIdentifier: string): RestAppInvoker;
  * @since Sitevision 7
  * @see RestAppInvoker
  */
-declare namespace restAppInvokerFactory {
-  export { fromPath, fromNode, fromIdentifier };
+export interface RestAppInvokerFactory {
+  /**
+   * Creates a RestAppInvoker via the Path of a Headless custom module.
+   * @param aPath the path of the Headless custom module (sv:headlessCustomModule or sv:marketplaceHeadlessCustomModule)
+   * @return the RestAppInvoker for the active RESTApp of the module, or null if no matching RESTApp could be found
+   */
+  fromPath(aPath: string): RestAppInvoker;
+
+  /**
+   * Creates a RestAppInvoker via a RESTApp Node or a Headless custom module Node.
+   * @param aNode the RESTApp (sv:restApp) or the Headless custom module (sv:headlessCustomModule or sv:marketplaceHeadlessCustomModule)
+   * @return the RestAppInvoker for the RESTApp, or null if no matching RESTApp could be found
+   */
+  fromNode(aNode: Node): RestAppInvoker;
+
+  /**
+   * Creates a RestAppInvoker via the Identifier of a RESTApp or a Headless custom module.
+   * @param aIdentifier the identifier of the RESTApp (sv:restApp) or the Headless custom module (sv:headlessCustomModule or sv:marketplaceHeadlessCustomModule), i.e. an identifier prefixed with "361.", "188." or "211.".
+   * @return the RestAppInvoker for the resolved RESTApp, or null if no matching RESTApp could be found
+   */
+  fromIdentifier(aIdentifier: string): RestAppInvoker;
 }
 
-export default restAppInvokerFactory;
+declare namespace RestAppInvokerFactory {}
+
+declare var restAppInvokerFactory: RestAppInvokerFactory;
+
+export = restAppInvokerFactory;

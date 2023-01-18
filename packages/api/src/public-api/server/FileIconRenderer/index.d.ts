@@ -1,152 +1,4 @@
 /**
- * The locale to use when extracting the decription of file icons.
- * <p>Default is the locale of the currently executing portlet.</p>
- * <p>
- *    <strong>Note!</strong> Icons (icon and default icon) that has been loaded with a different locale will be removed whenever an invocation
- *    of this method changes the locale.
- * </p>
- * @param aLocale the locale to use when extracting the icon description
- */
-export function setLocale(aLocale: unknown): void;
-
-/**
- * Which type if file icons (small or large) that should be rendered.
- * <p>Default is <code>true</code>.</p>
- * <p>
- *    <strong>Note!</strong> Icons (icon and default icon) that has been loaded with a different useSmallIcons state will be removed whenever
- *    an invocation of this method changes the useSmallIcons state.
- * </p>
- * @param aUseSmallIcons whether or not to use small icons (<code>true</code> == "use small icons", <code>false</code> == "use large icons")
- */
-export function setUseSmallIcons(aUseSmallIcons: boolean): void;
-
-/**
- * Utility method for executing <code>setUseSmallIcons(false)</code>, i.e. "use large icons when rendering".
- * @see #setUseSmallIcons(boolean)
- */
-export function clearUseSmallIcons(): void;
-
-/**
- * Utility method for executing <code>setUseSmallIcons(true)</code>, i.e. "use small icons when rendering".
- * @see #setUseSmallIcons(boolean)
- */
-export function forceUseSmallIcons(): void;
-
-/**
- * If file icon descriptions should be used or not.
- * <p>Default is <code>true</code>.</p>
- * <p>Note that file icon descriptions may be locale-dependent, see {@link #setLocale(java.util.Locale)}.</p>
- * @param aUseDescription whether or not a file icon description should be used when rendering
- */
-export function setUseDescription(aUseDescription: boolean): void;
-
-/**
- * Utility method for executing <code>setUseDescription(false)</code>, i.e. "don't use description when rendering".
- * @see #setUseDescription(boolean)
- */
-export function clearUseDescription(): void;
-
-/**
- * Utility method for executing <code>setUseDescription(true)</code>, i.e. "use description when rendering".
- * @see #setUseDescription(boolean)
- */
-export function forceUseDescription(): void;
-
-/**
- * Uses a content type to load the fallback icon that should be used when rendering if no icon is loaded.
- * @param aContentType the content type (mime type) that decides what file icon to load
- * @return true if a default file icon was loaded, false if not
- */
-export function loadDefaultIconByContentType(aContentType: string): boolean;
-
-/**
- * Uses a URI to load the fallback icon that should be used when rendering if no icon is loaded.
- * <p>
- * This method tries to extract a file extension from the URI and use that extension to load the default file icon.
- * If the URI doesn't end with a file extension, default icon loading will fail.
- * </p>
- * @param aURI the uri that decides what file icon to load
- * @return <code>true</code> if a default file icon was loaded, <code>false</code> if not
- */
-export function loadDefaultIconByURI(aURI: string): boolean;
-
-/**
- * Uses a file extension to load the fallback icon that should be used when rendering if no icon is loaded.
- * @param aFileExtension the file extension that decides what file icon to load
- * @return <code>true</code> if a default file icon was loaded, <code>false</code> if not
- */
-export function loadDefaultIconByFileExtension(aFileExtension: string): boolean;
-
-/**
- * Whether or not a default icon is loaded.
- * @return <code>true</code> if a default icon is loaded, <code>false</code> if not.
- */
-export function isDefaultIconLoaded(): boolean;
-
-/**
- * Removes loaded default icon (does nothing if no default icon is loaded)
-  
-    */
-export function clearDefaultIcon(): void;
-
-/**
- * Uses a content type to load the icon that should be rendered.
- * @param aContentType the content type (mime type) that decides what file icon to load
- * @return <code>true</code> if a file icon was loaded, <code>false</code> if not
- */
-export function loadIconByContentType(aContentType: string): boolean;
-
-/**
- * Uses a URI to load the icon that should be rendered.
- * <p>
- * This method tries to extract a file extension from the URI and use that extension to load the icon.
- * If the URI doesn't end with a file extension, icon loading will fail.
- * </p>
- * @param aURI the URI that decides what file icon to load
- * @return <code>true</code> if a file icon was loaded, <code>false</code> if not
- */
-export function loadIconByURI(aURI: string): boolean;
-
-/**
- * Uses a URI to load the icon that should be rendered.
- * @param aFileExtension the file extension that decides what file icon to load
- * @return <code>true</code> if a file icon was loaded, <code>false</code> if not
- */
-export function loadIconByFileExtension(aFileExtension: string): boolean;
-
-/**
- * Whether or not an icon is loaded.
- * @return <code>true</code> if an icon is loaded, <code>false</code> if not.
- */
-export function isIconLoaded(): boolean;
-
-/**
- * Removes loaded icon (does nothing if no icon is loaded)
-  
-    */
-export function clearIcon(): void;
-
-/**
- * Sets the CSS class name(-s) to use when rendering.
- * @param aFontClass the CSS class name(-s) expression. An empty string is equivalent to <code>null</code> - no class attribute will be rendered
- * @since Sitevision 3.0
- */
-export function setFontClass(aFontClass: string): void;
-
-/**
- * Removes the CSS class name(-s).
- * No class attribute will be rendered until a fontClass is set again.
- * @since Sitevision 3.0
- */
-export function clearFontClass(): void;
-
-/**
- * Builds a html img element based on current state.
- * @return a html img element based on current state, or empty string if no icon and no default icon was loaded
- */
-export function render(): string;
-
-/**
  * FileIconRenderer is a stateful utility interface that can be used to render valid xhtml img elements based on the file icons of the website.
  *
  * <p>
@@ -297,29 +149,158 @@ export function render(): string;
  * @author Magnus Lövgren
  * @since Sitevision 2.6.1_08
  */
-declare namespace fileIconRenderer {
-  export {
-    setLocale,
-    setUseSmallIcons,
-    clearUseSmallIcons,
-    forceUseSmallIcons,
-    setUseDescription,
-    clearUseDescription,
-    forceUseDescription,
-    loadDefaultIconByContentType,
-    loadDefaultIconByURI,
-    loadDefaultIconByFileExtension,
-    isDefaultIconLoaded,
-    clearDefaultIcon,
-    loadIconByContentType,
-    loadIconByURI,
-    loadIconByFileExtension,
-    isIconLoaded,
-    clearIcon,
-    setFontClass,
-    clearFontClass,
-    render,
-  };
+export interface FileIconRenderer {
+  /**
+   * The locale to use when extracting the decription of file icons.
+   * <p>Default is the locale of the currently executing portlet.</p>
+   * <p>
+   *    <strong>Note!</strong> Icons (icon and default icon) that has been loaded with a different locale will be removed whenever an invocation
+   *    of this method changes the locale.
+   * </p>
+   * @param aLocale the locale to use when extracting the icon description
+   */
+  setLocale(aLocale: unknown): void;
+
+  /**
+   * Which type if file icons (small or large) that should be rendered.
+   * <p>Default is <code>true</code>.</p>
+   * <p>
+   *    <strong>Note!</strong> Icons (icon and default icon) that has been loaded with a different useSmallIcons state will be removed whenever
+   *    an invocation of this method changes the useSmallIcons state.
+   * </p>
+   * @param aUseSmallIcons whether or not to use small icons (<code>true</code> == "use small icons", <code>false</code> == "use large icons")
+   */
+  setUseSmallIcons(aUseSmallIcons: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseSmallIcons(false)</code>, i.e. "use large icons when rendering".
+   * @see #setUseSmallIcons(boolean)
+   */
+  clearUseSmallIcons(): void;
+
+  /**
+   * Utility method for executing <code>setUseSmallIcons(true)</code>, i.e. "use small icons when rendering".
+   * @see #setUseSmallIcons(boolean)
+   */
+  forceUseSmallIcons(): void;
+
+  /**
+   * If file icon descriptions should be used or not.
+   * <p>Default is <code>true</code>.</p>
+   * <p>Note that file icon descriptions may be locale-dependent, see {@link #setLocale(java.util.Locale)}.</p>
+   * @param aUseDescription whether or not a file icon description should be used when rendering
+   */
+  setUseDescription(aUseDescription: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseDescription(false)</code>, i.e. "don't use description when rendering".
+   * @see #setUseDescription(boolean)
+   */
+  clearUseDescription(): void;
+
+  /**
+   * Utility method for executing <code>setUseDescription(true)</code>, i.e. "use description when rendering".
+   * @see #setUseDescription(boolean)
+   */
+  forceUseDescription(): void;
+
+  /**
+   * Uses a content type to load the fallback icon that should be used when rendering if no icon is loaded.
+   * @param aContentType the content type (mime type) that decides what file icon to load
+   * @return true if a default file icon was loaded, false if not
+   */
+  loadDefaultIconByContentType(aContentType: string): boolean;
+
+  /**
+   * Uses a URI to load the fallback icon that should be used when rendering if no icon is loaded.
+   * <p>
+   * This method tries to extract a file extension from the URI and use that extension to load the default file icon.
+   * If the URI doesn't end with a file extension, default icon loading will fail.
+   * </p>
+   * @param aURI the uri that decides what file icon to load
+   * @return <code>true</code> if a default file icon was loaded, <code>false</code> if not
+   */
+  loadDefaultIconByURI(aURI: string): boolean;
+
+  /**
+   * Uses a file extension to load the fallback icon that should be used when rendering if no icon is loaded.
+   * @param aFileExtension the file extension that decides what file icon to load
+   * @return <code>true</code> if a default file icon was loaded, <code>false</code> if not
+   */
+  loadDefaultIconByFileExtension(aFileExtension: string): boolean;
+
+  /**
+   * Whether or not a default icon is loaded.
+   * @return <code>true</code> if a default icon is loaded, <code>false</code> if not.
+   */
+  isDefaultIconLoaded(): boolean;
+
+  /**
+ * Removes loaded default icon (does nothing if no default icon is loaded)
+  
+    */
+  clearDefaultIcon(): void;
+
+  /**
+   * Uses a content type to load the icon that should be rendered.
+   * @param aContentType the content type (mime type) that decides what file icon to load
+   * @return <code>true</code> if a file icon was loaded, <code>false</code> if not
+   */
+  loadIconByContentType(aContentType: string): boolean;
+
+  /**
+   * Uses a URI to load the icon that should be rendered.
+   * <p>
+   * This method tries to extract a file extension from the URI and use that extension to load the icon.
+   * If the URI doesn't end with a file extension, icon loading will fail.
+   * </p>
+   * @param aURI the URI that decides what file icon to load
+   * @return <code>true</code> if a file icon was loaded, <code>false</code> if not
+   */
+  loadIconByURI(aURI: string): boolean;
+
+  /**
+   * Uses a URI to load the icon that should be rendered.
+   * @param aFileExtension the file extension that decides what file icon to load
+   * @return <code>true</code> if a file icon was loaded, <code>false</code> if not
+   */
+  loadIconByFileExtension(aFileExtension: string): boolean;
+
+  /**
+   * Whether or not an icon is loaded.
+   * @return <code>true</code> if an icon is loaded, <code>false</code> if not.
+   */
+  isIconLoaded(): boolean;
+
+  /**
+ * Removes loaded icon (does nothing if no icon is loaded)
+  
+    */
+  clearIcon(): void;
+
+  /**
+   * Sets the CSS class name(-s) to use when rendering.
+   * @param aFontClass the CSS class name(-s) expression. An empty string is equivalent to <code>null</code> - no class attribute will be rendered
+   * @since Sitevision 3.0
+   */
+  setFontClass(aFontClass: string): void;
+
+  /**
+   * Removes the CSS class name(-s).
+   * No class attribute will be rendered until a fontClass is set again.
+   * @since Sitevision 3.0
+   */
+  clearFontClass(): void;
+
+  /**
+   * Builds a html img element based on current state.
+   * @return a html img element based on current state, or empty string if no icon and no default icon was loaded
+   */
+  render(): string;
 }
 
-export default fileIconRenderer;
+declare namespace FileIconRenderer {}
+
+declare var fileIconRenderer: FileIconRenderer;
+
+export = fileIconRenderer;

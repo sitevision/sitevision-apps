@@ -1,7 +1,7 @@
-import type { Privilege } from "../Privilege";
+import type Privilege from "../Privilege";
 
-import type { AccessControlPolicy } from "../AccessControlPolicy";
-import type { AccessControlPolicyIterator } from "../AccessControlPolicyIterator";
+import type AccessControlPolicy from "../AccessControlPolicy";
+import type AccessControlPolicyIterator from "../AccessControlPolicyIterator";
 
 /**
  * The <code>AccessControlManager</code> object is accessed via {@link
@@ -12,7 +12,7 @@ import type { AccessControlPolicyIterator } from "../AccessControlPolicyIterator
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type AccessControlManager = {
+type AccessControlManager = {
   /**
    * Returns the privileges supported for absolute path <code>absPath</code>,
    * which must be an existing node.
@@ -200,3 +200,5 @@ export type AccessControlManager = {
    */
   removePolicy(absPath: string, policy: AccessControlPolicy): void;
 };
+
+export = AccessControlManager;

@@ -7,7 +7,7 @@
  * @since JCR 2.0
  * @since Sitevision 3.5
  */
-export type Binary = {
+type Binary = {
   /**
    * Returns an {@link InputStream} representation of this value. Each call to
    * <code>getStream()</code> returns a new stream. The API consumer is
@@ -20,26 +20,6 @@ export type Binary = {
    * @throws RepositoryException if an error occurs.
    */
   getStream(): unknown;
-
-  /**
-   * Reads successive bytes from the specified <code>position</code> in this
-   * <code>Binary</code> into the passed byte array until either the byte
-   * array is full or the end of the <code>Binary</code> is encountered.
-   * <p>
-   * If {@link #dispose()} has been called on this <code>Binary</code>
-   * object, then this method will throw the runtime exception
-   * {@link java.lang.IllegalStateException}.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @param b the buffer into which the data is read.
-   * @param position the position in this Binary from which to start reading bytes.
-   * @return the number of bytes read into the buffer, or -1 if there is no more data because the end of the Binary has been reached.
-   * @throws IOException if an I/O error occurs.
-   * @throws NullPointerException if b is null.
-   * @throws IllegalArgumentException if offset is negative.
-   * @throws RepositoryException if another error occurs.
-   */
-  read(b: unknown, position: number): number;
 
   /**
    * Returns the size of this <code>Binary</code> value in bytes.
@@ -61,3 +41,5 @@ export type Binary = {
     */
   dispose(): void;
 };
+
+export = Binary;

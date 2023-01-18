@@ -10,7 +10,7 @@
  * </em>
  * @author Rickard Öberg
  */
-export type AuthenticationFilterChain = {
+type AuthenticationFilterChain = {
   /**
    * A filter chain that can be used to populate the shared state and/or options for a JAAS login module.
    * @param aRequest the request
@@ -28,3 +28,5 @@ export type AuthenticationFilterChain = {
     aChain: AuthenticationFilterChain
   ): void;
 };
+
+export = AuthenticationFilterChain;

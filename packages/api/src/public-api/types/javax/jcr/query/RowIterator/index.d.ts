@@ -1,5 +1,5 @@
-import type { Row } from "../Row";
-import type { RangeIterator } from "../../RangeIterator";
+import type Row from "../Row";
+import type RangeIterator from "../../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>Row</code>s with
@@ -9,7 +9,7 @@ import type { RangeIterator } from "../../RangeIterator";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-export type RowIterator = {
+type RowIterator = RangeIterator & {
   /**
    * Returns the next <code>Row</code> in the iteration.
    * @return the next <code>Row</code> in the iteration.
@@ -17,3 +17,5 @@ export type RowIterator = {
    */
   nextRow(): Row;
 };
+
+export = RowIterator;

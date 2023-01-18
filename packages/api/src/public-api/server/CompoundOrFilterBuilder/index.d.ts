@@ -1,29 +1,5 @@
-import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Adds a node filter to this builder.
- *
- * <p>
- *    <em>Tip!</em> For best performance, it's likely a good idea to add the "cheapest" filter first!
- * </p>
- * @param aFilter the node filter to add, <code>null</code> will be ignored
- * @return this builder
- */
-export function addFilter(aFilter: Filter): CompoundOrFilterBuilder;
-
-/**
- * Removes all previously added filters.
- * @return this builder
- */
-export function clearFilters(): CompoundOrFilterBuilder;
-
-/**
- * Creates a node filter instance that will perform the <em>OR</em> operation for all currently specified filters.
- * @return a node filter
- * @throws IllegalStateException if this builder contains no filters.
- */
-export function build(): Filter;
+import type Filter from "../../types/senselogic/sitevision/api/base/Filter";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builds a compound filter that requires that <em>any</em> of the added filters matches.
@@ -49,8 +25,34 @@ export function build(): Filter;
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-declare namespace compoundOrFilterBuilder {
-  export { addFilter, clearFilters, build };
+export interface CompoundOrFilterBuilder extends Builder {
+  /**
+   * Adds a node filter to this builder.
+   *
+   * <p>
+   *    <em>Tip!</em> For best performance, it's likely a good idea to add the "cheapest" filter first!
+   * </p>
+   * @param aFilter the node filter to add, <code>null</code> will be ignored
+   * @return this builder
+   */
+  addFilter(aFilter: Filter): CompoundOrFilterBuilder;
+
+  /**
+   * Removes all previously added filters.
+   * @return this builder
+   */
+  clearFilters(): CompoundOrFilterBuilder;
+
+  /**
+   * Creates a node filter instance that will perform the <em>OR</em> operation for all currently specified filters.
+   * @return a node filter
+   * @throws IllegalStateException if this builder contains no filters.
+   */
+  build(): Filter;
 }
 
-export default compoundOrFilterBuilder;
+declare namespace CompoundOrFilterBuilder {}
+
+declare var compoundOrFilterBuilder: CompoundOrFilterBuilder;
+
+export = compoundOrFilterBuilder;

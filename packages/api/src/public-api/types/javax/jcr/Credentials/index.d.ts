@@ -6,6 +6,8 @@
  * GuestCredentials} for examples of such a class.
   
     */
-export type Credentials = {
+type Credentials = {
   undefined;
 };
+
+export = Credentials;

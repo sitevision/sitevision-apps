@@ -1,4 +1,4 @@
-import type { Binary } from "../../../../../javax/jcr/Binary";
+import type Binary from "../../../../../javax/jcr/Binary";
 
 /**
  * Utility interface for getting Node property values in a specific version.
@@ -52,7 +52,7 @@ import type { Binary } from "../../../../../javax/jcr/Binary";
  * @see OfflineVersionPropertyUtil
  * @see OnlineVersionPropertyUtil
  */
-export type VersionedPropertyUtil = {
+type VersionedPropertyUtil = {
   /**
    * Gets a String property from a potential Node in a specific version.
    *
@@ -449,3 +449,5 @@ export type VersionedPropertyUtil = {
     aDefaultValue: Binary
   ): Binary;
 };
+
+export = VersionedPropertyUtil;

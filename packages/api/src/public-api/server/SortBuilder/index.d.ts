@@ -1,25 +1,5 @@
-import type { Sort } from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Adds a sort field.
- * @param aSearchSortField a sort field, a <code>null</code> value is ignored
- * @return this builder
- */
-export function addSortField(aSearchSortField: unknown): SortBuilder;
-
-/**
- * Removes all previously added sort fields.
- * @return this builder
- */
-export function clearSortFields(): SortBuilder;
-
-/**
- * Creates a Sort component instance using currently specified state/behaviour.
- * @return a Sort component
- * @throws IllegalStateException if no sort fields are added
- */
-export function build(): Sort;
+import type Sort from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -104,8 +84,30 @@ export function build(): Sort;
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-declare namespace sortBuilder {
-  export { addSortField, clearSortFields, build };
+export interface SortBuilder extends Builder {
+  /**
+   * Adds a sort field.
+   * @param aSearchSortField a sort field, a <code>null</code> value is ignored
+   * @return this builder
+   */
+  addSortField(aSearchSortField: unknown): SortBuilder;
+
+  /**
+   * Removes all previously added sort fields.
+   * @return this builder
+   */
+  clearSortFields(): SortBuilder;
+
+  /**
+   * Creates a Sort component instance using currently specified state/behaviour.
+   * @return a Sort component
+   * @throws IllegalStateException if no sort fields are added
+   */
+  build(): Sort;
 }
 
-export default sortBuilder;
+declare namespace SortBuilder {}
+
+declare var sortBuilder: SortBuilder;
+
+export = sortBuilder;

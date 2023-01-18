@@ -1,25 +1,4 @@
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * Gets the file icon node for a given file extension.
- * @param aFileExtension the file extension (e.g "pdf", "PDF", "doc"). The extension is case insensitive.
- * @return the file icon node for aFileExtension, or <code>null</code> if the extension has no icon mapping
- */
-export function getFileIcons(aFileExtension: string): Node;
-
-/**
- * Gets the small file icon URI for a given file extension
- * @param aFileExtension the file extension (e.g "pdf", "PDF", "doc"). The extension is case insensitive.
- * @return the small file icon URI for aFileExtension, or <code>null</code> if no small icon is specified for the extension
- */
-export function getSmallFileIconURI(aFileExtension: string): string;
-
-/**
- * Gets the large file icon URI for a given file extension
- * @param aFileExtension the file extension (e.g "pdf", "PDF", "doc"). The extension is case insensitive.
- * @return the large file icon URI for aFileExtension, or <code>null</code> if no large icon is specified for the extension
- */
-export function getLargeFileIconURI(aFileExtension: string): string;
+import type Node from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for Icons.
@@ -30,8 +9,31 @@ export function getLargeFileIconURI(aFileExtension: string): string;
  * </p>
  * @author Magnus Lövgren
  */
-declare namespace iconUtil {
-  export { getFileIcons, getSmallFileIconURI, getLargeFileIconURI };
+export interface IconUtil {
+  /**
+   * Gets the file icon node for a given file extension.
+   * @param aFileExtension the file extension (e.g "pdf", "PDF", "doc"). The extension is case insensitive.
+   * @return the file icon node for aFileExtension, or <code>null</code> if the extension has no icon mapping
+   */
+  getFileIcons(aFileExtension: string): Node;
+
+  /**
+   * Gets the small file icon URI for a given file extension
+   * @param aFileExtension the file extension (e.g "pdf", "PDF", "doc"). The extension is case insensitive.
+   * @return the small file icon URI for aFileExtension, or <code>null</code> if no small icon is specified for the extension
+   */
+  getSmallFileIconURI(aFileExtension: string): string;
+
+  /**
+   * Gets the large file icon URI for a given file extension
+   * @param aFileExtension the file extension (e.g "pdf", "PDF", "doc"). The extension is case insensitive.
+   * @return the large file icon URI for aFileExtension, or <code>null</code> if no large icon is specified for the extension
+   */
+  getLargeFileIconURI(aFileExtension: string): string;
 }
 
-export default iconUtil;
+declare namespace IconUtil {}
+
+declare var iconUtil: IconUtil;
+
+export = iconUtil;

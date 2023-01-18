@@ -1,73 +1,4 @@
-import type { SearchResult } from "../../types/senselogic/sitevision/api/search/SearchResult";
-
-/**
- * <p>
- *    Searches the default index using the <em>multi-field</em> ("edismax") parser.
- * </p>
- *
- * <p>
- *    Here is a simple example written in server-side javascript:
- * </p>
- * <pre><code>
- * var searchUtil = request.getAttribute("sitevision.utils").getSearchUtil();
- * var result = searchUtil.search("test*", null, 0, 10);
- * if (result.hasHits()) {
- *    out.println("Approximate hit count: " + result.getApproximateCount() + "&lt;br/&gt;");
- *    var hits = result.getHits();
- *    while (hits.hasNext()) {
- *       var hit = hits.next();
- *       out.print("&lt;a href=\"" + hit.getField('uri') + "\" title=\"\"&gt;");
- *       out.print(hit.getField('title'));
- *       out.print("&lt;/a&gt;");
- *       out.println("&lt;br/&gt;");
- *    }
- * } else {
- *    out.println("No hits for query = '" + result.getQuery() + "'&lt;br/&gt;");
- * }
- * </code></pre>
- *
- * <p>
- *    <em>Note! <code>aQuery</code> will be stripped from Local params,
- *    see {@link senselogic.sitevision.api.search.query.QueryStringUtil#stripLocalParams(String)}.</em>
- * </p>
- * @param aQuery The search query according to the <em>Solr query syntax</em>
- * @param sortFields A <code>List</code> of {@link SearchSortField} objects. May be <code>null</code>.
- * @param aStartAtHit number of leading hits to be skipped
- * @param aMaxHitsToReturn maximum total number of hits to be returned
- * @return The search returns a {@link SearchResult} and is never <code>null</code>
- */
-export function search(
-  aQuery: string,
-  sortFields: unknown,
-  aStartAtHit: number,
-  aMaxHitsToReturn: number
-): SearchResult;
-
-/**
- * <p>
- *    Searches the default index using the <em>single-field</em> ("standard") parser with a specified default field.
- * </p>
- *
- * <p>
- *    <em>Note! <code>aQuery</code> will be stripped from Local params,
- *    see {@link senselogic.sitevision.api.search.query.QueryStringUtil#stripLocalParams(String)}.</em>
- * </p>
- * @param aQuery The search query according to the <em>Solr query syntax</em>
- * @param aFieldName name of the field that should be queried
- * @param sortFields A <code>List</code> of {@link SearchSortField} objects. May be <code>null</code>.
- * @param aStartAtHit number of leading hits to be skipped
- * @param aMaxHitsToReturn maximum total number of hits to be returned
- * @return a {@link SearchResult} and is never <code>null</code>
- * @since Sitevision 2.7_06
- * @since Sitevision 3.0
- */
-export function search(
-  aQuery: string,
-  aFieldName: string,
-  sortFields: unknown,
-  aStartAtHit: number,
-  aMaxHitsToReturn: number
-): SearchResult;
+import type SearchResult from "../../types/senselogic/sitevision/api/search/SearchResult";
 
 /**
  * <p>
@@ -122,8 +53,79 @@ export function search(
  * @since Sitevision 2.6_06
  * @see senselogic.sitevision.api.search.searcher.Searcher
  */
-declare namespace searchUtil {
-  export { search };
+export interface SearchUtil {
+  /**
+   * <p>
+   *    Searches the default index using the <em>multi-field</em> ("edismax") parser.
+   * </p>
+   *
+   * <p>
+   *    Here is a simple example written in server-side javascript:
+   * </p>
+   * <pre><code>
+   * var searchUtil = request.getAttribute("sitevision.utils").getSearchUtil();
+   * var result = searchUtil.search("test*", null, 0, 10);
+   * if (result.hasHits()) {
+   *    out.println("Approximate hit count: " + result.getApproximateCount() + "&lt;br/&gt;");
+   *    var hits = result.getHits();
+   *    while (hits.hasNext()) {
+   *       var hit = hits.next();
+   *       out.print("&lt;a href=\"" + hit.getField('uri') + "\" title=\"\"&gt;");
+   *       out.print(hit.getField('title'));
+   *       out.print("&lt;/a&gt;");
+   *       out.println("&lt;br/&gt;");
+   *    }
+   * } else {
+   *    out.println("No hits for query = '" + result.getQuery() + "'&lt;br/&gt;");
+   * }
+   * </code></pre>
+   *
+   * <p>
+   *    <em>Note! <code>aQuery</code> will be stripped from Local params,
+   *    see {@link senselogic.sitevision.api.search.query.QueryStringUtil#stripLocalParams(String)}.</em>
+   * </p>
+   * @param aQuery The search query according to the <em>Solr query syntax</em>
+   * @param sortFields A <code>List</code> of {@link SearchSortField} objects. May be <code>null</code>.
+   * @param aStartAtHit number of leading hits to be skipped
+   * @param aMaxHitsToReturn maximum total number of hits to be returned
+   * @return The search returns a {@link SearchResult} and is never <code>null</code>
+   */
+  search(
+    aQuery: string,
+    sortFields: unknown,
+    aStartAtHit: number,
+    aMaxHitsToReturn: number
+  ): SearchResult;
+
+  /**
+   * <p>
+   *    Searches the default index using the <em>single-field</em> ("standard") parser with a specified default field.
+   * </p>
+   *
+   * <p>
+   *    <em>Note! <code>aQuery</code> will be stripped from Local params,
+   *    see {@link senselogic.sitevision.api.search.query.QueryStringUtil#stripLocalParams(String)}.</em>
+   * </p>
+   * @param aQuery The search query according to the <em>Solr query syntax</em>
+   * @param aFieldName name of the field that should be queried
+   * @param sortFields A <code>List</code> of {@link SearchSortField} objects. May be <code>null</code>.
+   * @param aStartAtHit number of leading hits to be skipped
+   * @param aMaxHitsToReturn maximum total number of hits to be returned
+   * @return a {@link SearchResult} and is never <code>null</code>
+   * @since Sitevision 2.7_06
+   * @since Sitevision 3.0
+   */
+  search(
+    aQuery: string,
+    aFieldName: string,
+    sortFields: unknown,
+    aStartAtHit: number,
+    aMaxHitsToReturn: number
+  ): SearchResult;
 }
 
-export default searchUtil;
+declare namespace SearchUtil {}
+
+declare var searchUtil: SearchUtil;
+
+export = searchUtil;

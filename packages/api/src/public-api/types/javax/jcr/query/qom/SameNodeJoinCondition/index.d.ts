@@ -1,4 +1,4 @@
-import type { JoinCondition } from "../JoinCondition";
+import type JoinCondition from "../JoinCondition";
 
 /**
  * Tests whether two nodes are "the same" according to the <code>isSame</code>
@@ -15,7 +15,7 @@ import type { JoinCondition } from "../JoinCondition";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type SameNodeJoinCondition = {
+type SameNodeJoinCondition = JoinCondition & {
   /**
    * Gets the name of the first selector.
    * @return the selector name; non-null
@@ -34,3 +34,5 @@ export type SameNodeJoinCondition = {
    */
   getSelector2Path(): string;
 };
+
+export = SameNodeJoinCondition;

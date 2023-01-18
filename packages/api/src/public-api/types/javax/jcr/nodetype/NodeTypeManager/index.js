@@ -4,11 +4,4 @@ export default {
   getAllNodeTypes: () => {},
   getPrimaryNodeTypes: () => {},
   getMixinNodeTypes: () => {},
-  createNodeTypeTemplate: () => {},
-  createNodeDefinitionTemplate: () => {},
-  createPropertyDefinitionTemplate: () => {},
-  registerNodeType: () => {},
-  registerNodeTypes: () => {},
-  unregisterNodeType: () => {},
-  unregisterNodeTypes: () => {},
 };

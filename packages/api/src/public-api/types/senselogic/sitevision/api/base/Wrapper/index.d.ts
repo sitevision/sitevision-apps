@@ -13,10 +13,12 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-export type Wrapper = {
+type Wrapper = {
   /**
    * Gets the wrapped object.
    * @return the wrapped object, i.e. the instance that was used when this wrapper was created
    */
   unwrap(): unknown;
 };
+
+export = Wrapper;

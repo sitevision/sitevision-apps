@@ -9,7 +9,7 @@
  * @since Sitevision 3.5
  * @since JCR 2.0
  */
-export type RetentionPolicy = {
+type RetentionPolicy = {
   /**
    * Returns the name of the retention policy. A JCR name.
    * @return the name of the access control policy. A JCR name.
@@ -17,3 +17,5 @@ export type RetentionPolicy = {
    */
   getName(): string;
 };
+
+export = RetentionPolicy;

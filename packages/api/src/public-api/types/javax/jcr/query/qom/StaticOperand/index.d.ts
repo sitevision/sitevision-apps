@@ -1,4 +1,4 @@
-import type { Operand } from "../Operand";
+import type Operand from "../Operand";
 
 /**
  * An operand whose value can be determined from static analysis of the query,
@@ -7,6 +7,8 @@ import type { Operand } from "../Operand";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type StaticOperand = {
+type StaticOperand = Operand & {
   undefined;
 };
+
+export = StaticOperand;

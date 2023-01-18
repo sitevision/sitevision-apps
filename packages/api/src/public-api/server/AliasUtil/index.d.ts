@@ -1,11 +1,4 @@
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * Gets the alias name for a given Node.
- * @param aNode a Node that is the target of an alias, typically a sv:page, sv:article or sv:file
- * @return the first found alias name for aNode, or null if aNode is null or no matching alias could be found
- */
-export function getAliasName(aNode: Node): string;
+import type Node from "../../types/javax/jcr/Node";
 
 /**
  * Alias utility interface.
@@ -18,8 +11,17 @@ export function getAliasName(aNode: Node): string;
  * @author Magnus Lövgren
  * @since Sitevision 2022.10.2
  */
-declare namespace aliasUtil {
-  export { getAliasName };
+export interface AliasUtil {
+  /**
+   * Gets the alias name for a given Node.
+   * @param aNode a Node that is the target of an alias, typically a sv:page, sv:article or sv:file
+   * @return the first found alias name for aNode, or null if aNode is null or no matching alias could be found
+   */
+  getAliasName(aNode: Node): string;
 }
 
-export default aliasUtil;
+declare namespace AliasUtil {}
+
+declare var aliasUtil: AliasUtil;
+
+export = aliasUtil;

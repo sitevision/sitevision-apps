@@ -1,20 +1,15 @@
-import type { QueryResult } from "../QueryResult";
+import type QueryResult from "../QueryResult";
 
-import type { Node } from "../../Node";
-import type { Value } from "../../Value";
+import type Node from "../../Node";
+import type Value from "../../Value";
 
 /**
  * A <code>Query</code> object.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>A string constant representing the XPath query language as defined in JCR
- * 1.0.A string constant representing the SQL query language as defined in JCR
- * 1.0.A string constant representing the JCR-SQL2 query language.A string constant representing the JCR-JQOM query language.
- * @deprecated As of JCR 2.0, this language is deprecated.
- * @deprecated As of JCR 2.0, this language is deprecated.
- * @since JCR 2.0
- * @since JCR 2.0
- */
-export type Query = {
+ * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+  
+    */
+type Query = {
   /**
    * Executes this query and returns a <code>{@link QueryResult}</code>
    * object.
@@ -144,4 +139,32 @@ export type Query = {
    * @since JCR 2.0
    */
   getBindVariableNames(): string;
+
+  /**
+   * A string constant representing the XPath query language as defined in JCR
+   * 1.0.
+   * @deprecated As of JCR 2.0, this language is deprecated.
+   */
+  XPATH: string;
+
+  /**
+   * A string constant representing the SQL query language as defined in JCR
+   * 1.0.
+   * @deprecated As of JCR 2.0, this language is deprecated.
+   */
+  SQL: string;
+
+  /**
+   * A string constant representing the JCR-SQL2 query language.
+   * @since JCR 2.0
+   */
+  JCR_SQL2: string;
+
+  /**
+   * A string constant representing the JCR-JQOM query language.
+   * @since JCR 2.0
+   */
+  JCR_JQOM: string;
 };
+
+export = Query;

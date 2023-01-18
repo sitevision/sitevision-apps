@@ -1,5 +1,5 @@
-import type { StaticOperand } from "../StaticOperand";
-import type { Constraint } from "../Constraint";
+import type StaticOperand from "../StaticOperand";
+import type Constraint from "../Constraint";
 
 /**
  * Performs a full-text search.
@@ -67,7 +67,7 @@ import type { Constraint } from "../Constraint";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type FullTextSearch = {
+type FullTextSearch = Constraint & {
   /**
    * Gets the name of the selector against which to apply this constraint.
    * @return the selector name; non-null
@@ -86,3 +86,5 @@ export type FullTextSearch = {
    */
   getFullTextSearchExpression(): StaticOperand;
 };
+
+export = FullTextSearch;

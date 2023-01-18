@@ -6,42 +6,6 @@ import LinkTargetBuilder from "../LinkTargetBuilder";
 import PageUtil from "../PageUtil";
 
 /**
- * Gets an instance of an article utility class
- * @return an article utility class
- */
-export function getArticleUtil(): ArticleUtil;
-
-/**
- * Gets an instance of a file utility class
- * @return a file utility class
- */
-export function getFileUtil(): FileUtil;
-
-/**
- * Gets an instance of an image utility class
- * @return an image utility class
- */
-export function getImageUtil(): ImageUtil;
-
-/**
- * Gets an instance of a link page utility class.
- * @return an instance of a link page utility class
- */
-export function getLinkPageUtil(): LinkPageUtil;
-
-/**
- * Gets an instance of a link target builder class.
- * @return an instance of a link target builder class
- */
-export function getLinkTargetBuilder(): LinkTargetBuilder;
-
-/**
- * Gets an instance of a page utility class
- * @return a page utility class
- */
-export function getPageUtil(): PageUtil;
-
-/**
  * Factory for creating instances of web resource utilities.
  *
  * <p>
@@ -52,15 +16,46 @@ export function getPageUtil(): PageUtil;
  * @author Magnus Lövgren
  * @since Sitevision 4.2
  */
-declare namespace webResourceFactory {
-  export {
-    getArticleUtil,
-    getFileUtil,
-    getImageUtil,
-    getLinkPageUtil,
-    getLinkTargetBuilder,
-    getPageUtil,
-  };
+export interface WebResourceFactory {
+  /**
+   * Gets an instance of an article utility class
+   * @return an article utility class
+   */
+  getArticleUtil(): ArticleUtil;
+
+  /**
+   * Gets an instance of a file utility class
+   * @return a file utility class
+   */
+  getFileUtil(): FileUtil;
+
+  /**
+   * Gets an instance of an image utility class
+   * @return an image utility class
+   */
+  getImageUtil(): ImageUtil;
+
+  /**
+   * Gets an instance of a link page utility class.
+   * @return an instance of a link page utility class
+   */
+  getLinkPageUtil(): LinkPageUtil;
+
+  /**
+   * Gets an instance of a link target builder class.
+   * @return an instance of a link target builder class
+   */
+  getLinkTargetBuilder(): LinkTargetBuilder;
+
+  /**
+   * Gets an instance of a page utility class
+   * @return a page utility class
+   */
+  getPageUtil(): PageUtil;
 }
 
-export default webResourceFactory;
+declare namespace WebResourceFactory {}
+
+declare var webResourceFactory: WebResourceFactory;
+
+export = webResourceFactory;

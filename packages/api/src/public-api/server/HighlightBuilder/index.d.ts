@@ -1,79 +1,5 @@
-import type { Highlight } from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Adds a field that should be highlighted.
- *
- * <p>
- *    <em>Solr note: this is the 'hl.fl' param</em>
- * </p>
- * @param aHighlightedField name of the field, a <code>null</code> or whitespace-only value will be ignored
- * @return this builder
- */
-export function addHighlightedField(
-  aHighlightedField: string
-): HighlightBuilder;
-
-/**
- * Removes all previously added highlighted fields.
- * @return this builder
- */
-export function clearHighlightedFields(): HighlightBuilder;
-
-/**
- * Sets the number of chars that highlighted fragment should contain.
- *
- * <p>
- *    If no char count is specified, the default value of the index config will be used (200).
- * </p>
- *
- * <p>
- *    <em>Solr note: this is the 'hl.fragsize' param</em>
- * </p>
- * @param aCharCount the char count
- * @return this builder
- * @throws IllegalArgumentException if <code>aCharCount</code> is zero or negative
- */
-export function setFragmentCharCount(aCharCount: number): HighlightBuilder;
-
-/**
- * Sets the start value for the highlighted section(s) of a fragment.
- *
- * <p>
- *    If the pre string and post string are not specified, the default value of the index config will be used
- *    ('&lt;mark&gt;' and '&lt;/mark&gt;').
- * </p>
- *
- * <p>
- *    <em>Solr note: this is the 'hl.simple.pre' param</em>
- * </p>
- * @param aPreString a fragment start
- * @return this builder
- */
-export function setFragmentPreString(aPreString: string): HighlightBuilder;
-
-/**
- * Sets the end value for the highlighted section(s) of a fragment.
- *
- * <p>
- *    <strong>Note! </strong> The fragment <em>pre</em> value must match the fragment <em>post</em> string!
- *    E.g: if the <em>pre</em> string is "&lt;em&gt;", the <em>post</em> string would typically be "&lt;/em&gt;".
- * </p>
- *
- * <p>
- *    <em>Solr note: this is the 'hl.simple.post' param</em>
- * </p>
- * @param aPostString a fragment end
- * @return this builder
- */
-export function setFragmentPostString(aPostString: string): HighlightBuilder;
-
-/**
- * Creates a Highlight component instance using currently specified state/behaviour.
- * @return a Highlight component
- * @throws IllegalStateException if no highlighted field is specified, or if pre and post strings doesn't match (e.g. one of them is null)
- */
-export function build(): Highlight;
+import type Highlight from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -151,15 +77,82 @@ export function build(): Highlight;
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-declare namespace highlightBuilder {
-  export {
-    addHighlightedField,
-    clearHighlightedFields,
-    setFragmentCharCount,
-    setFragmentPreString,
-    setFragmentPostString,
-    build,
-  };
+export interface HighlightBuilder extends Builder {
+  /**
+   * Adds a field that should be highlighted.
+   *
+   * <p>
+   *    <em>Solr note: this is the 'hl.fl' param</em>
+   * </p>
+   * @param aHighlightedField name of the field, a <code>null</code> or whitespace-only value will be ignored
+   * @return this builder
+   */
+  addHighlightedField(aHighlightedField: string): HighlightBuilder;
+
+  /**
+   * Removes all previously added highlighted fields.
+   * @return this builder
+   */
+  clearHighlightedFields(): HighlightBuilder;
+
+  /**
+   * Sets the number of chars that highlighted fragment should contain.
+   *
+   * <p>
+   *    If no char count is specified, the default value of the index config will be used (200).
+   * </p>
+   *
+   * <p>
+   *    <em>Solr note: this is the 'hl.fragsize' param</em>
+   * </p>
+   * @param aCharCount the char count
+   * @return this builder
+   * @throws IllegalArgumentException if <code>aCharCount</code> is zero or negative
+   */
+  setFragmentCharCount(aCharCount: number): HighlightBuilder;
+
+  /**
+   * Sets the start value for the highlighted section(s) of a fragment.
+   *
+   * <p>
+   *    If the pre string and post string are not specified, the default value of the index config will be used
+   *    ('&lt;mark&gt;' and '&lt;/mark&gt;').
+   * </p>
+   *
+   * <p>
+   *    <em>Solr note: this is the 'hl.simple.pre' param</em>
+   * </p>
+   * @param aPreString a fragment start
+   * @return this builder
+   */
+  setFragmentPreString(aPreString: string): HighlightBuilder;
+
+  /**
+   * Sets the end value for the highlighted section(s) of a fragment.
+   *
+   * <p>
+   *    <strong>Note! </strong> The fragment <em>pre</em> value must match the fragment <em>post</em> string!
+   *    E.g: if the <em>pre</em> string is "&lt;em&gt;", the <em>post</em> string would typically be "&lt;/em&gt;".
+   * </p>
+   *
+   * <p>
+   *    <em>Solr note: this is the 'hl.simple.post' param</em>
+   * </p>
+   * @param aPostString a fragment end
+   * @return this builder
+   */
+  setFragmentPostString(aPostString: string): HighlightBuilder;
+
+  /**
+   * Creates a Highlight component instance using currently specified state/behaviour.
+   * @return a Highlight component
+   * @throws IllegalStateException if no highlighted field is specified, or if pre and post strings doesn't match (e.g. one of them is null)
+   */
+  build(): Highlight;
 }
 
-export default highlightBuilder;
+declare namespace HighlightBuilder {}
+
+declare var highlightBuilder: HighlightBuilder;
+
+export = highlightBuilder;

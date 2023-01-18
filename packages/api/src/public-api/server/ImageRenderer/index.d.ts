@@ -1,340 +1,9 @@
-import type { ImageScaler } from "../../types/senselogic/sitevision/api/render/ImageScaler";
+import type ImageScaler from "../../types/senselogic/sitevision/api/render/ImageScaler";
 
-import type { Node } from "../../types/javax/jcr/Node";
+import type Node from "../../types/javax/jcr/Node";
 
-/**
- * Sets the image scaler that should be used by the renderer if <code>useImageScaler</code> is <code>true</code>.
- * <p>
- * An image scaler is obtained via {@link senselogic.sitevision.api.Utils#getImageScaler(int, int)}
- * </p>
- * @param anImageScaler the image scaler that can be used by the renderer to create scaled images
- */
-export function setImageScaler(anImageScaler: ImageScaler): void;
-
-/**
- * Removes the image scaler, i.e. executes <code>setImageScaler(null)</code>
- * @see #setImageScaler(ImageScaler)
- */
-export function clearImageScaler(): void;
-
-/**
- * Whether or not an image scaler is loaded.
- * @return <code>true</code> if an image scaler is loaded, <code>false</code> if not.
- */
-export function isImageScalerLoaded(): boolean;
-
-/**
- * Decides if an image scaler should be used or not.
- * <p>
- * Default is <code>true</code>.
- * </p>
- * @param useImageScaler decides if an image scaler should be used or not. If <code>true</code>, an image scaler will be used if it is set. If <code>false</code>, no image scaler will be used even if it is set.
- */
-export function setUseImageScaler(useImageScaler: boolean): void;
-
-/**
- * Utility method for executing <code>setUseImageScaler(true)</code>
- * @see #setUseImageScaler(boolean)
- */
-export function forceUseImageScaler(): void;
-
-/**
- * Utility method for executing <code>setUseImageScaler(false)</code>
- * @see #setUseImageScaler(boolean)
- */
-export function clearUseImageScaler(): void;
-
-/**
- * Sets a hover image that will be activated on the onmouseover javascript event.
- * @param anImageNode the hover image (a node with primary node type sv:image)
- */
-export function setHoverImage(anImageNode: Node): void;
-
-/**
- * Utility method for executing <code>setHoverImage(null)</code>
- * @see #setHoverImage(javax.jcr.Node)
- */
-export function clearHoverImage(): void;
-
-/**
- * Whether or not a hover image is loaded.
- * @return <code>true</code> if a hover image node is loaded, <code>false</code> if not.
- */
-export function isHoverImageLoaded(): boolean;
-
-/**
- * Sets the image to be rendered.
- * <p>
- * If <code>anImageNode</code> is not a proper image, the image will be considered as <code>null</code>, i.e.
- * the renderer will not have any image in subsequent render execution.
- * </p>
- * @param anImageNode the image (a node with primary node type sv:image)
- */
-export function setImage(anImageNode: Node): void;
-
-/**
- * Updates the renderer with a new image. The description will be removed.
- * <p>
- * If <code>anImageNode</code> is not a proper image, the image will be considered as <code>null</code>, i.e.
- * the renderer will not have any image in subsequent render execution.
- * </p>
- * @param anImageNode the image (a node with primary node type sv:image)
- */
-export function update(anImageNode: Node): void;
-
-/**
- * Updates the renderer with a new image and a new description.
- * <p>
- * If <code>anImageNode</code> is not a proper image, the image will be considered as <code>null</code>, i.e.
- * the renderer will not have any image in subsequent render execution.
- * </p>
- * @param anImageNode the image (a node with primary node type sv:image)
- * @param aDescription an image description, or <code>null</code> to clear any previous description
- */
-export function update(anImageNode: Node, aDescription: string): void;
-
-/**
- * Whether or not an image is loaded.
- * @return <code>true</code> if an image node is loaded, <code>false</code> if not.
- */
-export function isImageLoaded(): boolean;
-
-/**
- * A description fallback strategy that makes it possible to render a description value even if no description has been set.
- * When autoDescription is enabled, the renderer will try to use the image description metadata if no description is set.
- * <p>
- * Default is <code>false</code>.
- * </p>
- * @param useAutoDescription whether or not the renderer should try to get a description via metadata if no description is set
- */
-export function setUseAutoDescription(useAutoDescription: boolean): void;
-
-/**
- * Utility method for executing <code>setUseAutoDescription(true)</code>
- * @see #setUseAutoDescription(boolean)
- */
-export function forceUseAutoDescription(): void;
-
-/**
- * Utility method for executing <code>setUseAutoDescription(false)</code>
- * @see #setUseAutoDescription(boolean)
- */
-export function clearUseAutoDescription(): void;
-
-/**
- * The <code>srcset</code> attribute rendering strategy.
- * <p>
- *    Default is {@link SourceSetMode#AUTO}.
- * </p>
- * @param aSourceSetMode the source set mode, determines whether or not a <code>srcset</code> attribute should be rendered
- * @since Sitevision 4.1
- */
-export function setSourceSetMode(aSourceSetMode: unknown): void;
-
-/**
- * Utility method for executing <code>setSourceSetMode({@link SourceSetMode#ON})</code>.
- * @see #setSourceSetMode(SourceSetMode)
- * @since Sitevision 4.1
- */
-export function forceSourceSetMode(): void;
-
-/**
- * Utility method for executing <code>setSourceSetMode({@link SourceSetMode#OFF})</code>.
- * @see #setSourceSetMode(SourceSetMode)
- * @since Sitevision 4.1
- */
-export function clearSourceSetMode(): void;
-
-/**
- * Utility method for executing <code>setSourceSetMode({@link SourceSetMode#AUTO})</code>.
- * @see #setSourceSetMode(SourceSetMode)
- * @since Sitevision 4.1
- */
-export function resetSourceSetMode(): void;
-
-/**
- * The width/height rendering strategy.
- * <p>
- *    Default is {@link DimensionMode#AUTO}.
- * </p>
- * @param aDimensionMode the dimension mode, determines how to render width/height css style properties
- * @since Sitevision 5
- */
-export function setDimensionMode(aDimensionMode: unknown): void;
-
-/**
- * Utility method for executing <code>setDimensionMode({@link DimensionMode#ON})</code>.
- * @since Sitevision 5
- */
-export function forceDimensionMode(): void;
-
-/**
- * Utility method for executing <code>setDimensionMode({@link DimensionMode#OFF})</code>.
- * @since Sitevision 5
- */
-export function clearDimensionMode(): void;
-
-/**
- * Utility method for executing <code>setDimensionMode({@link DimensionMode#AUTO})</code>.
- * @since Sitevision 5
- */
-export function resetDimensionMode(): void;
-
-/**
- * A title strategy that makes it possible to render a title attribute with the description as value.
- * If titleRendering is disabled, no title attribute will be rendered at all. If titleRendering is
- * enabled, the renderer will always render a title attribute and the descripton will be used as value.
- * <p>
- * Default is <code>false</code>.
- * </p>
- * @param useTitleRendering whether or not a title attribute should be rendered
- * @see #setUseAutoTitle(boolean)
- * @since Sitevision 2.6.2_04
- */
-export function setUseTitleRendering(useTitleRendering: boolean): void;
-
-/**
- * Utility method for executing <code>setUseTitleRendering(true)</code>
- * @see #setUseTitleRendering(boolean)
- * @since Sitevision 2.6.2_04
- */
-export function forceUseTitleRendering(): void;
-
-/**
- * Utility method for executing <code>setUseTitleRendering(false)</code>
- * @see #setUseTitleRendering(boolean)
- * @since Sitevision 2.6.2_04
- */
-export function clearUseTitleRendering(): void;
-
-/**
- * A title fallback strategy that makes it possible to render a title value even if no description is available.
- * When autoTitle is enabled, the renderer will try to use the image description metadata as title value if no description is available.
- * <p>
- * Default is <code>false</code>.
- * </p>
- * <p>
- *    <strong>Note!</strong>
- *    This setting would typically be activated <em>only</em> if the title should be rendered (<code>useTitleRendering</code>
- *    is <code>true</code>) and the autoDescription is not activated (<code>useAutoDescription</code> is <code>false</code>).
- *    <em>Remember - the title value is always the description, so any other cases than previously stated won't actually add anything new
- *    to your code/output...</em>
- * </p>
- * @param useAutoTitle whether or not the renderer should try to get a description via metadata to use as title value if no description is available
- * @see #setUseTitleRendering(boolean)
- * @since Sitevision 2.6.2_04
- */
-export function setUseAutoTitle(useAutoTitle: boolean): void;
-
-/**
- * Utility method for executing <code>setUseAutoTitle(true)</code>
- * @see #setUseAutoTitle(boolean)
- * @since Sitevision 2.6.2_04
- */
-export function forceUseAutoTitle(): void;
-
-/**
- * Utility method for executing <code>setUseAutoTitle(false)</code>
- * @see #setUseAutoTitle(boolean)
- * @since Sitevision 2.6.2_04
- */
-export function clearUseAutoTitle(): void;
-
-/**
- * Sets the image description (alt attribute on the img element).
- * If there are no description (i.e. description is <code>null</code>) when the result is rendered, an empty alt attribute will be rendered
- * unless the useAutoDescription feature is active (see {@link #setUseAutoDescription(boolean)}).
- * <p>
- * Default is <code>null</code>.
- * </p>
- * @param aDescription an alternative description of the image
- */
-export function setDescription(aDescription: string): void;
-
-/**
- * Removes the description, i.e. executes <code>setDescription(null)</code>
- * @see #setDescription(String)
- */
-export function clearDescription(): void;
-
-/**
- * Sets the style (style attribute on the img element).
- * If there are no style (i.e. style is <code>null</code>) when the result is rendered, no style attribute will be rendered
- * <p>
- * Default is <code>border:none</code>.
- * </p>
- * @param aStyle the style of the rendered element
- * @since Sitevision 2.6.1_10
- */
-export function setStyle(aStyle: string): void;
-
-/**
- * Removes the style, i.e. executes <code>setStyle(null)</code>
- * @see #setStyle(String)
- * @since Sitevision 2.6.1_10
- */
-export function clearStyle(): void;
-
-/**
- * Sets whether or not descriptions should be encoded.
- * <p>
- * Default is <code>true</code>.
- * </p>
- * @param performEncoding whether descriptions should be encoded or not.
- */
-export function setUseEncoding(performEncoding: boolean): void;
-
-/**
- * Utility method for executing <code>setUseEncoding(true)</code>
- * @see #setUseEncoding(boolean)
- */
-export function forceUseEncoding(): void;
-
-/**
- * Utility method for executing <code>setUseEncoding(false)</code>
- * @see #setUseEncoding(boolean)
- */
-export function clearUseEncoding(): void;
-
-/**
- * Sets whether or not the image should be lazy loaded (loaded when it appears in the browser's viewport).
- * <p>
- *    <em>Note!</em> Lazy loading depends on JavaScript being enabled.
- *    Be sure to include an <code>img</code> in a <code>noscript</code>-tag for non JavaScript users.
- * </p>
- *
- * <p>
- *    Default is <code>false</code>.
- * </p>
- * @param aLazyLoad whether the image should be lazy loaded.
- * @since Sitevision 5.0
- */
-export function setLazyLoad(aLazyLoad: boolean): void;
-
-/**
- * Utility method for executing <code>setLazyLoad(true)</code>
- * @see #setLazyLoad(boolean)
- * @since Sitevision 5.0
- */
-export function forceUseLazyLoad(): void;
-
-/**
- * Utility method for executing <code>setLazyLoad(false)</code>
- * @see #setLazyLoad(boolean)
- * @since Sitevision 5.0
- */
-export function clearUseLazyLoad(): void;
-
-/**
- * Builds a xhtml img element based on current state.
- *
- * <p>
- *    <em>Note!</em> The render method is not thread safe (see <a href="#threadnote">thread note above</a>)
- *    and not all image types can be rendered when using an image scaler (see <a href="#imagesupport">image support note above</a>).
- * </p>
- * @return if the renderer has a loaded image a xhtml img element, ready to print out on a page, will be returned. If there are no image to render or rendering fails, an empty string will be returned.
- */
-export function render(): string;
+import SourceSetMode from "../SourceSetMode";
+import DimensionMode from "../DimensionMode";
 
 /**
  * ImageRenderer is a stateful utility interface that can be used to render valid xhtml img elements based on images of the website.
@@ -496,49 +165,344 @@ export function render(): string;
  * @author Magnus Lövgren
  * @since Sitevision 2.6.1_08
  */
-declare namespace imageRenderer {
-  export {
-    setImageScaler,
-    clearImageScaler,
-    isImageScalerLoaded,
-    setUseImageScaler,
-    forceUseImageScaler,
-    clearUseImageScaler,
-    setHoverImage,
-    clearHoverImage,
-    isHoverImageLoaded,
-    setImage,
-    update,
-    isImageLoaded,
-    setUseAutoDescription,
-    forceUseAutoDescription,
-    clearUseAutoDescription,
-    setSourceSetMode,
-    forceSourceSetMode,
-    clearSourceSetMode,
-    resetSourceSetMode,
-    setDimensionMode,
-    forceDimensionMode,
-    clearDimensionMode,
-    resetDimensionMode,
-    setUseTitleRendering,
-    forceUseTitleRendering,
-    clearUseTitleRendering,
-    setUseAutoTitle,
-    forceUseAutoTitle,
-    clearUseAutoTitle,
-    setDescription,
-    clearDescription,
-    setStyle,
-    clearStyle,
-    setUseEncoding,
-    forceUseEncoding,
-    clearUseEncoding,
-    setLazyLoad,
-    forceUseLazyLoad,
-    clearUseLazyLoad,
-    render,
-  };
+export interface ImageRenderer {
+  /**
+   * Sets the image scaler that should be used by the renderer if <code>useImageScaler</code> is <code>true</code>.
+   * <p>
+   * An image scaler is obtained via {@link senselogic.sitevision.api.Utils#getImageScaler(int, int)}
+   * </p>
+   * @param anImageScaler the image scaler that can be used by the renderer to create scaled images
+   */
+  setImageScaler(anImageScaler: ImageScaler): void;
+
+  /**
+   * Removes the image scaler, i.e. executes <code>setImageScaler(null)</code>
+   * @see #setImageScaler(ImageScaler)
+   */
+  clearImageScaler(): void;
+
+  /**
+   * Whether or not an image scaler is loaded.
+   * @return <code>true</code> if an image scaler is loaded, <code>false</code> if not.
+   */
+  isImageScalerLoaded(): boolean;
+
+  /**
+   * Decides if an image scaler should be used or not.
+   * <p>
+   * Default is <code>true</code>.
+   * </p>
+   * @param useImageScaler decides if an image scaler should be used or not. If <code>true</code>, an image scaler will be used if it is set. If <code>false</code>, no image scaler will be used even if it is set.
+   */
+  setUseImageScaler(useImageScaler: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseImageScaler(true)</code>
+   * @see #setUseImageScaler(boolean)
+   */
+  forceUseImageScaler(): void;
+
+  /**
+   * Utility method for executing <code>setUseImageScaler(false)</code>
+   * @see #setUseImageScaler(boolean)
+   */
+  clearUseImageScaler(): void;
+
+  /**
+   * Sets a hover image that will be activated on the onmouseover javascript event.
+   * @param anImageNode the hover image (a node with primary node type sv:image)
+   */
+  setHoverImage(anImageNode: Node): void;
+
+  /**
+   * Utility method for executing <code>setHoverImage(null)</code>
+   * @see #setHoverImage(javax.jcr.Node)
+   */
+  clearHoverImage(): void;
+
+  /**
+   * Whether or not a hover image is loaded.
+   * @return <code>true</code> if a hover image node is loaded, <code>false</code> if not.
+   */
+  isHoverImageLoaded(): boolean;
+
+  /**
+   * Sets the image to be rendered.
+   * <p>
+   * If <code>anImageNode</code> is not a proper image, the image will be considered as <code>null</code>, i.e.
+   * the renderer will not have any image in subsequent render execution.
+   * </p>
+   * @param anImageNode the image (a node with primary node type sv:image)
+   */
+  setImage(anImageNode: Node): void;
+
+  /**
+   * Updates the renderer with a new image. The description will be removed.
+   * <p>
+   * If <code>anImageNode</code> is not a proper image, the image will be considered as <code>null</code>, i.e.
+   * the renderer will not have any image in subsequent render execution.
+   * </p>
+   * @param anImageNode the image (a node with primary node type sv:image)
+   */
+  update(anImageNode: Node): void;
+
+  /**
+   * Updates the renderer with a new image and a new description.
+   * <p>
+   * If <code>anImageNode</code> is not a proper image, the image will be considered as <code>null</code>, i.e.
+   * the renderer will not have any image in subsequent render execution.
+   * </p>
+   * @param anImageNode the image (a node with primary node type sv:image)
+   * @param aDescription an image description, or <code>null</code> to clear any previous description
+   */
+  update(anImageNode: Node, aDescription: string): void;
+
+  /**
+   * Whether or not an image is loaded.
+   * @return <code>true</code> if an image node is loaded, <code>false</code> if not.
+   */
+  isImageLoaded(): boolean;
+
+  /**
+   * A description fallback strategy that makes it possible to render a description value even if no description has been set.
+   * When autoDescription is enabled, the renderer will try to use the image description metadata if no description is set.
+   * <p>
+   * Default is <code>false</code>.
+   * </p>
+   * @param useAutoDescription whether or not the renderer should try to get a description via metadata if no description is set
+   */
+  setUseAutoDescription(useAutoDescription: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseAutoDescription(true)</code>
+   * @see #setUseAutoDescription(boolean)
+   */
+  forceUseAutoDescription(): void;
+
+  /**
+   * Utility method for executing <code>setUseAutoDescription(false)</code>
+   * @see #setUseAutoDescription(boolean)
+   */
+  clearUseAutoDescription(): void;
+
+  /**
+   * The <code>srcset</code> attribute rendering strategy.
+   * <p>
+   *    Default is {@link SourceSetMode#AUTO}.
+   * </p>
+   * @param aSourceSetMode the source set mode, determines whether or not a <code>srcset</code> attribute should be rendered
+   * @since Sitevision 4.1
+   */
+  setSourceSetMode(aSourceSetMode: SourceSetMode): void;
+
+  /**
+   * Utility method for executing <code>setSourceSetMode({@link SourceSetMode#ON})</code>.
+   * @see #setSourceSetMode(SourceSetMode)
+   * @since Sitevision 4.1
+   */
+  forceSourceSetMode(): void;
+
+  /**
+   * Utility method for executing <code>setSourceSetMode({@link SourceSetMode#OFF})</code>.
+   * @see #setSourceSetMode(SourceSetMode)
+   * @since Sitevision 4.1
+   */
+  clearSourceSetMode(): void;
+
+  /**
+   * Utility method for executing <code>setSourceSetMode({@link SourceSetMode#AUTO})</code>.
+   * @see #setSourceSetMode(SourceSetMode)
+   * @since Sitevision 4.1
+   */
+  resetSourceSetMode(): void;
+
+  /**
+   * The width/height rendering strategy.
+   * <p>
+   *    Default is {@link DimensionMode#AUTO}.
+   * </p>
+   * @param aDimensionMode the dimension mode, determines how to render width/height css style properties
+   * @since Sitevision 5
+   */
+  setDimensionMode(aDimensionMode: DimensionMode): void;
+
+  /**
+   * Utility method for executing <code>setDimensionMode({@link DimensionMode#ON})</code>.
+   * @since Sitevision 5
+   */
+  forceDimensionMode(): void;
+
+  /**
+   * Utility method for executing <code>setDimensionMode({@link DimensionMode#OFF})</code>.
+   * @since Sitevision 5
+   */
+  clearDimensionMode(): void;
+
+  /**
+   * Utility method for executing <code>setDimensionMode({@link DimensionMode#AUTO})</code>.
+   * @since Sitevision 5
+   */
+  resetDimensionMode(): void;
+
+  /**
+   * A title strategy that makes it possible to render a title attribute with the description as value.
+   * If titleRendering is disabled, no title attribute will be rendered at all. If titleRendering is
+   * enabled, the renderer will always render a title attribute and the descripton will be used as value.
+   * <p>
+   * Default is <code>false</code>.
+   * </p>
+   * @param useTitleRendering whether or not a title attribute should be rendered
+   * @see #setUseAutoTitle(boolean)
+   * @since Sitevision 2.6.2_04
+   */
+  setUseTitleRendering(useTitleRendering: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseTitleRendering(true)</code>
+   * @see #setUseTitleRendering(boolean)
+   * @since Sitevision 2.6.2_04
+   */
+  forceUseTitleRendering(): void;
+
+  /**
+   * Utility method for executing <code>setUseTitleRendering(false)</code>
+   * @see #setUseTitleRendering(boolean)
+   * @since Sitevision 2.6.2_04
+   */
+  clearUseTitleRendering(): void;
+
+  /**
+   * A title fallback strategy that makes it possible to render a title value even if no description is available.
+   * When autoTitle is enabled, the renderer will try to use the image description metadata as title value if no description is available.
+   * <p>
+   * Default is <code>false</code>.
+   * </p>
+   * <p>
+   *    <strong>Note!</strong>
+   *    This setting would typically be activated <em>only</em> if the title should be rendered (<code>useTitleRendering</code>
+   *    is <code>true</code>) and the autoDescription is not activated (<code>useAutoDescription</code> is <code>false</code>).
+   *    <em>Remember - the title value is always the description, so any other cases than previously stated won't actually add anything new
+   *    to your code/output...</em>
+   * </p>
+   * @param useAutoTitle whether or not the renderer should try to get a description via metadata to use as title value if no description is available
+   * @see #setUseTitleRendering(boolean)
+   * @since Sitevision 2.6.2_04
+   */
+  setUseAutoTitle(useAutoTitle: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseAutoTitle(true)</code>
+   * @see #setUseAutoTitle(boolean)
+   * @since Sitevision 2.6.2_04
+   */
+  forceUseAutoTitle(): void;
+
+  /**
+   * Utility method for executing <code>setUseAutoTitle(false)</code>
+   * @see #setUseAutoTitle(boolean)
+   * @since Sitevision 2.6.2_04
+   */
+  clearUseAutoTitle(): void;
+
+  /**
+   * Sets the image description (alt attribute on the img element).
+   * If there are no description (i.e. description is <code>null</code>) when the result is rendered, an empty alt attribute will be rendered
+   * unless the useAutoDescription feature is active (see {@link #setUseAutoDescription(boolean)}).
+   * <p>
+   * Default is <code>null</code>.
+   * </p>
+   * @param aDescription an alternative description of the image
+   */
+  setDescription(aDescription: string): void;
+
+  /**
+   * Removes the description, i.e. executes <code>setDescription(null)</code>
+   * @see #setDescription(String)
+   */
+  clearDescription(): void;
+
+  /**
+   * Sets the style (style attribute on the img element).
+   * If there are no style (i.e. style is <code>null</code>) when the result is rendered, no style attribute will be rendered
+   * <p>
+   * Default is <code>border:none</code>.
+   * </p>
+   * @param aStyle the style of the rendered element
+   * @since Sitevision 2.6.1_10
+   */
+  setStyle(aStyle: string): void;
+
+  /**
+   * Removes the style, i.e. executes <code>setStyle(null)</code>
+   * @see #setStyle(String)
+   * @since Sitevision 2.6.1_10
+   */
+  clearStyle(): void;
+
+  /**
+   * Sets whether or not descriptions should be encoded.
+   * <p>
+   * Default is <code>true</code>.
+   * </p>
+   * @param performEncoding whether descriptions should be encoded or not.
+   */
+  setUseEncoding(performEncoding: boolean): void;
+
+  /**
+   * Utility method for executing <code>setUseEncoding(true)</code>
+   * @see #setUseEncoding(boolean)
+   */
+  forceUseEncoding(): void;
+
+  /**
+   * Utility method for executing <code>setUseEncoding(false)</code>
+   * @see #setUseEncoding(boolean)
+   */
+  clearUseEncoding(): void;
+
+  /**
+   * Sets whether or not the image should be lazy loaded (loaded when it appears in the browser's viewport).
+   * <p>
+   *    <em>Note!</em> Lazy loading depends on JavaScript being enabled.
+   *    Be sure to include an <code>img</code> in a <code>noscript</code>-tag for non JavaScript users.
+   * </p>
+   *
+   * <p>
+   *    Default is <code>false</code>.
+   * </p>
+   * @param aLazyLoad whether the image should be lazy loaded.
+   * @since Sitevision 5.0
+   */
+  setLazyLoad(aLazyLoad: boolean): void;
+
+  /**
+   * Utility method for executing <code>setLazyLoad(true)</code>
+   * @see #setLazyLoad(boolean)
+   * @since Sitevision 5.0
+   */
+  forceUseLazyLoad(): void;
+
+  /**
+   * Utility method for executing <code>setLazyLoad(false)</code>
+   * @see #setLazyLoad(boolean)
+   * @since Sitevision 5.0
+   */
+  clearUseLazyLoad(): void;
+
+  /**
+   * Builds a xhtml img element based on current state.
+   *
+   * <p>
+   *    <em>Note!</em> The render method is not thread safe (see <a href="#threadnote">thread note above</a>)
+   *    and not all image types can be rendered when using an image scaler (see <a href="#imagesupport">image support note above</a>).
+   * </p>
+   * @return if the renderer has a loaded image a xhtml img element, ready to print out on a page, will be returned. If there are no image to render or rendering fails, an empty string will be returned.
+   */
+  render(): string;
 }
 
-export default imageRenderer;
+declare namespace ImageRenderer {}
+
+declare var imageRenderer: ImageRenderer;
+
+export = imageRenderer;

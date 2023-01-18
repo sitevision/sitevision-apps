@@ -18,6 +18,8 @@
  * @since Sitevision 3.6
  * @see senselogic.sitevision.api.metadata.builder.RelatedValueBuilder
  */
-export type RelatedValue = {
+type RelatedValue = {
   undefined;
 };
+
+export = RelatedValue;

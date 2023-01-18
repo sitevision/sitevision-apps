@@ -12,7 +12,7 @@
  * @author Rickard Öberg
  * @see Secret
  */
-export type SecretStore = {
+type SecretStore = {
   /**
    * Sets a secret for a specified key.
    * @param aKey the identifier for secret
@@ -51,3 +51,5 @@ export type SecretStore = {
     */
   removeAllSecrets(): void;
 };
+
+export = SecretStore;

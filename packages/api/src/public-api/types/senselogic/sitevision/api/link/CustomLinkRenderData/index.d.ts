@@ -4,7 +4,7 @@
  * @since Sitevision 4.0.4
  * @see CustomLinkProcessor#getRenderData(String)
  */
-export type CustomLinkRenderData = {
+type CustomLinkRenderData = {
   /**
    * Returns the data attributes that should be used when rendering a link accepted by the {@link CustomLinkProcessor}.
    *
@@ -36,3 +36,5 @@ export type CustomLinkRenderData = {
    */
   getDataAttributes(): unknown;
 };
+
+export = CustomLinkRenderData;

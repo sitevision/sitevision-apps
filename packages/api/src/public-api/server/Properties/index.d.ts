@@ -1,77 +1,4 @@
 /**
- * Gets named properties from a given Node-resolvable object.
- *
- * <p>
- *    <em>See code examples in the interface description above.</em>
- * </p>
- * @param aJcrNodeResolvable something that can be resolved as a Node. Typically a Node, a Node identifier or a relative URL of a Node (the URI property)
- * @param aPropertyNames the names of the properties of interest
- * @return the properties as a native Javascript object
- * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
- * @see #getEscaped(Object, String...)
- */
-export function get(
-  aJcrNodeResolvable: unknown,
-  aPropertyNames: string
-): unknown;
-
-/**
- * Gets escaped named properties from a given Node-resolvable object.
- *
- * <p>
- *    This method is equivalent with {@link #get(Object, String...)} except that all string values will be escaped.
- * </p>
- * @param aJcrNodeResolvable something that can be resolved as a Node. Typically a Node, a Node identifier or a relative URL of a Node (the URI property)
- * @param aPropertyNames the names of the properties of interest
- * @return the escaped properties as a native Javascript object
- * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
- * @since Sitevision 6.2
- */
-export function getEscaped(
-  aJcrNodeResolvable: unknown,
-  aPropertyNames: string
-): unknown;
-
-/**
- * Processes an iterable object and returns an array of named properties for each Node-resolvable object that is iterated.
- *
- * <p>
- *    This method is conceptually equivalent with the {@link #get(Object, String...) get} method but
- *    the core functionality of this method is to process something that can be iterated in order to handle <em>multiple</em> nodes
- *    and deliver properties for them as an array.
- * </p>
- *
- * <p>
- *    <em>See code examples in the interface description above.</em>
- * </p>
- * @param aIterable something that can be resolved as a Node or something that can be iterated and contains objects that can be resolved as a Node. Typically an array, {@link javax.jcr.NodeIterator}, {@link senselogic.sitevision.api.search.SearchResult}, {@link java.util.Collection} or {@link senselogic.sitevision.api.base.FilterSplit} (the <em>accepted</em> nodes will be processed)
- * @param aPropertyNames the names of the properties of interest
- * @return a native Javascript array with properties
- * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
- * @see senselogic.sitevision.api.node.NodeIteratorUtil
- * @see #getArrayEscaped(Object, String...)
- * @since Sitevision 6.1
- */
-export function getArray(aIterable: unknown, aPropertyNames: string): unknown;
-
-/**
- * Processes an iterable object and returns an array of escaped named properties for each Node-resolvable object that is iterated.
- *
- * <p>
- *    This method is equivalent with {@link #getArray(Object, String...)} except that all string values will be escaped.
- * </p>
- * @param aIterable something that can be resolved as a Node or something that can be iterated and contains objects that can be resolved as a Node. Typically an array, {@link javax.jcr.NodeIterator}, {@link senselogic.sitevision.api.search.SearchResult}, {@link java.util.Collection} or {@link senselogic.sitevision.api.base.FilterSplit} (the <em>accepted</em> nodes will be processed)
- * @param aPropertyNames the names of the properties of interest
- * @return a native Javascript array with escaped properties
- * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
- * @since Sitevision 6.2
- */
-export function getArrayEscaped(
-  aIterable: unknown,
-  aPropertyNames: string
-): unknown;
-
-/**
  * Utility interface for getting multiple Node property values in server-side Javascript.
  *
  * <p>
@@ -169,8 +96,74 @@ export function getArrayEscaped(
  * @author Magnus Lövgren
  * @since Sitevision 4.5.2
  */
-declare namespace properties {
-  export { get, getEscaped, getArray, getArrayEscaped };
+export interface Properties {
+  /**
+   * Gets named properties from a given Node-resolvable object.
+   *
+   * <p>
+   *    <em>See code examples in the interface description above.</em>
+   * </p>
+   * @param aJcrNodeResolvable something that can be resolved as a Node. Typically a Node, a Node identifier or a relative URL of a Node (the URI property)
+   * @param aPropertyNames the names of the properties of interest
+   * @return the properties as a native Javascript object
+   * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
+   * @see #getEscaped(Object, String...)
+   */
+  get(aJcrNodeResolvable: unknown, aPropertyNames: string): unknown;
+
+  /**
+   * Gets escaped named properties from a given Node-resolvable object.
+   *
+   * <p>
+   *    This method is equivalent with {@link #get(Object, String...)} except that all string values will be escaped.
+   * </p>
+   * @param aJcrNodeResolvable something that can be resolved as a Node. Typically a Node, a Node identifier or a relative URL of a Node (the URI property)
+   * @param aPropertyNames the names of the properties of interest
+   * @return the escaped properties as a native Javascript object
+   * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
+   * @since Sitevision 6.2
+   */
+  getEscaped(aJcrNodeResolvable: unknown, aPropertyNames: string): unknown;
+
+  /**
+   * Processes an iterable object and returns an array of named properties for each Node-resolvable object that is iterated.
+   *
+   * <p>
+   *    This method is conceptually equivalent with the {@link #get(Object, String...) get} method but
+   *    the core functionality of this method is to process something that can be iterated in order to handle <em>multiple</em> nodes
+   *    and deliver properties for them as an array.
+   * </p>
+   *
+   * <p>
+   *    <em>See code examples in the interface description above.</em>
+   * </p>
+   * @param aIterable something that can be resolved as a Node or something that can be iterated and contains objects that can be resolved as a Node. Typically an array, {@link javax.jcr.NodeIterator}, {@link senselogic.sitevision.api.search.SearchResult}, {@link java.util.Collection} or {@link senselogic.sitevision.api.base.FilterSplit} (the <em>accepted</em> nodes will be processed)
+   * @param aPropertyNames the names of the properties of interest
+   * @return a native Javascript array with properties
+   * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
+   * @see senselogic.sitevision.api.node.NodeIteratorUtil
+   * @see #getArrayEscaped(Object, String...)
+   * @since Sitevision 6.1
+   */
+  getArray(aIterable: unknown, aPropertyNames: string): unknown;
+
+  /**
+   * Processes an iterable object and returns an array of escaped named properties for each Node-resolvable object that is iterated.
+   *
+   * <p>
+   *    This method is equivalent with {@link #getArray(Object, String...)} except that all string values will be escaped.
+   * </p>
+   * @param aIterable something that can be resolved as a Node or something that can be iterated and contains objects that can be resolved as a Node. Typically an array, {@link javax.jcr.NodeIterator}, {@link senselogic.sitevision.api.search.SearchResult}, {@link java.util.Collection} or {@link senselogic.sitevision.api.base.FilterSplit} (the <em>accepted</em> nodes will be processed)
+   * @param aPropertyNames the names of the properties of interest
+   * @return a native Javascript array with escaped properties
+   * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
+   * @since Sitevision 6.2
+   */
+  getArrayEscaped(aIterable: unknown, aPropertyNames: string): unknown;
 }
 
-export default properties;
+declare namespace Properties {}
+
+declare var properties: Properties;
+
+export = properties;

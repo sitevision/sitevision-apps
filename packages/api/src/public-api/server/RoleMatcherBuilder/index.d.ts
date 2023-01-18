@@ -1,37 +1,6 @@
-import type { Node } from "../../types/javax/jcr/Node";
-import type { RoleMatcher } from "../../types/senselogic/sitevision/api/security/RoleMatcher";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Sets the user (sv:user, sv:simpleUser).
- * @param aUser the user
- * @return this builder
- */
-export function setUser(aUser: Node): RoleMatcherBuilder;
-
-/**
- * Adds a role (sv:role).
- * @param aRole the role to add
- * @return this builder
- */
-export function addRole(aRole: Node): RoleMatcherBuilder;
-
-/**
- * Clears the state of this builder.
- *
- * <p>
- *    Sets the <em>user</em> and the <em>roles</em> to null.
- * </p>
- * @return this builder
- */
-export function clear(): RoleMatcherBuilder;
-
-/**
- * Creates a read-only RoleMatcher instance using current state of this builder.
- * @return a RoleMatcher instance
- * @throws IllegalStateException if user is not properly set or if no roles are added
- */
-export function build(): RoleMatcher;
+import type Node from "../../types/javax/jcr/Node";
+import type RoleMatcher from "../../types/senselogic/sitevision/api/security/RoleMatcher";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder of RoleMatcher instances.
@@ -49,8 +18,41 @@ export function build(): RoleMatcher;
  * @author Magnus Lövgren
  * @since Sitevision 6.1
  */
-declare namespace roleMatcherBuilder {
-  export { setUser, addRole, clear, build };
+export interface RoleMatcherBuilder extends Builder {
+  /**
+   * Sets the user (sv:user, sv:simpleUser).
+   * @param aUser the user
+   * @return this builder
+   */
+  setUser(aUser: Node): RoleMatcherBuilder;
+
+  /**
+   * Adds a role (sv:role).
+   * @param aRole the role to add
+   * @return this builder
+   */
+  addRole(aRole: Node): RoleMatcherBuilder;
+
+  /**
+   * Clears the state of this builder.
+   *
+   * <p>
+   *    Sets the <em>user</em> and the <em>roles</em> to null.
+   * </p>
+   * @return this builder
+   */
+  clear(): RoleMatcherBuilder;
+
+  /**
+   * Creates a read-only RoleMatcher instance using current state of this builder.
+   * @return a RoleMatcher instance
+   * @throws IllegalStateException if user is not properly set or if no roles are added
+   */
+  build(): RoleMatcher;
 }
 
-export default roleMatcherBuilder;
+declare namespace RoleMatcherBuilder {}
+
+declare var roleMatcherBuilder: RoleMatcherBuilder;
+
+export = roleMatcherBuilder;

@@ -1,5 +1,1 @@
-export default {
-  skip: () => {},
-  getSize: () => {},
-  getPosition: () => {},
-};
+export default {};

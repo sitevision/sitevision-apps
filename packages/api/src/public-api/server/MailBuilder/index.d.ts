@@ -1,109 +1,5 @@
-import type { Mail } from "../../types/senselogic/sitevision/api/mail/Mail";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Sets the from address.
- * @param aFromAddress the from address. A whitespace-only address will be ignored, default (null) will be set instead.
- * @return this builder
- */
-export function setFrom(aFromAddress: string): MailBuilder;
-
-/**
- * Adds a reply-to address.
- * @param aReplyToAddress a reply-to address. A null or whitespace-only address will be ignored.
- * @return this builder
- */
-export function addReplyTo(aReplyToAddress: string): MailBuilder;
-
-/**
- * Removes all previously added reply-to addresses.
- * @return this builder
- */
-export function clearReplyTos(): MailBuilder;
-
-/**
- * Sets the subject.
- * @param aSubject a subject
- * @return this builder
- */
-export function setSubject(aSubject: string): MailBuilder;
-
-/**
- * Sets the text message.
- * @param aTextMessage a text message
- * @return this builder
- */
-export function setTextMessage(aTextMessage: string): MailBuilder;
-
-/**
- * Sets the html message.
- * @param aHtmlMessage a html message
- * @return this builder
- * @since Sitevision 4.3
- */
-export function setHtmlMessage(aHtmlMessage: string): MailBuilder;
-
-/**
- * Adds a recipient address (TO).
- * @param aRecipientAddress a recipient address. A null or whitespace-only address will be ignored.
- * @return this builder
- */
-export function addRecipient(aRecipientAddress: string): MailBuilder;
-
-/**
- * Removes all previously added recipient addresses (TO).
- * @return this builder
- */
-export function clearRecipients(): MailBuilder;
-
-/**
- * Convenience method for removing all addresses for all recipient types (TO/CC/BCC).
- * @return this builder
- * @since Sitevision 3.6.3
- * @see #clearRecipients()
- * @see #clearCopyRecipients()
- * @see #clearBlindCopyRecipients()
- */
-export function clearAllRecipients(): MailBuilder;
-
-/**
- * Adds a carbon copy recipient address (CC).
- * @param aCopyRecipientAddress a carbon copy recipient address. A null or whitespace-only address will be ignored.
- * @return this builder
- * @since Sitevision 3.6.3
- */
-export function addCopyRecipient(aCopyRecipientAddress: string): MailBuilder;
-
-/**
- * Removes all previously added carbon copy recipient addresses (CC).
- * @return this builder
- * @since Sitevision 3.6.3
- */
-export function clearCopyRecipients(): MailBuilder;
-
-/**
- * Adds a blind carbon copy recipient address (BCC).
- * @param aBlindCopyRecipientAddress a blind carbon copy recipient address. A null or whitespace-only address will be ignored.
- * @return this builder
- * @since Sitevision 3.6.3
- */
-export function addBlindCopyRecipient(
-  aBlindCopyRecipientAddress: string
-): MailBuilder;
-
-/**
- * Removes all previously added blind carbon copy recipient addresses (BCC).
- * @return this builder
- * @since Sitevision 3.6.3
- */
-export function clearBlindCopyRecipients(): MailBuilder;
-
-/**
- * Creates a Mail instance using current state of this builder.
- * @return a mail that can be sent
- * @throws IllegalStateException will be thrown if subject is null, if there are no recipients or if a recipient address is invalid, if the from address, a copy address, blind copy address or reply-to address is invalid.
- */
-export function build(): Mail;
+import type Mail from "../../types/senselogic/sitevision/api/mail/Mail";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder to create a Mail instances that can be sent.
@@ -217,23 +113,112 @@ export function build(): Mail;
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-declare namespace mailBuilder {
-  export {
-    setFrom,
-    addReplyTo,
-    clearReplyTos,
-    setSubject,
-    setTextMessage,
-    setHtmlMessage,
-    addRecipient,
-    clearRecipients,
-    clearAllRecipients,
-    addCopyRecipient,
-    clearCopyRecipients,
-    addBlindCopyRecipient,
-    clearBlindCopyRecipients,
-    build,
-  };
+export interface MailBuilder extends Builder {
+  /**
+   * Sets the from address.
+   * @param aFromAddress the from address. A whitespace-only address will be ignored, default (null) will be set instead.
+   * @return this builder
+   */
+  setFrom(aFromAddress: string): MailBuilder;
+
+  /**
+   * Adds a reply-to address.
+   * @param aReplyToAddress a reply-to address. A null or whitespace-only address will be ignored.
+   * @return this builder
+   */
+  addReplyTo(aReplyToAddress: string): MailBuilder;
+
+  /**
+   * Removes all previously added reply-to addresses.
+   * @return this builder
+   */
+  clearReplyTos(): MailBuilder;
+
+  /**
+   * Sets the subject.
+   * @param aSubject a subject
+   * @return this builder
+   */
+  setSubject(aSubject: string): MailBuilder;
+
+  /**
+   * Sets the text message.
+   * @param aTextMessage a text message
+   * @return this builder
+   */
+  setTextMessage(aTextMessage: string): MailBuilder;
+
+  /**
+   * Sets the html message.
+   * @param aHtmlMessage a html message
+   * @return this builder
+   * @since Sitevision 4.3
+   */
+  setHtmlMessage(aHtmlMessage: string): MailBuilder;
+
+  /**
+   * Adds a recipient address (TO).
+   * @param aRecipientAddress a recipient address. A null or whitespace-only address will be ignored.
+   * @return this builder
+   */
+  addRecipient(aRecipientAddress: string): MailBuilder;
+
+  /**
+   * Removes all previously added recipient addresses (TO).
+   * @return this builder
+   */
+  clearRecipients(): MailBuilder;
+
+  /**
+   * Convenience method for removing all addresses for all recipient types (TO/CC/BCC).
+   * @return this builder
+   * @since Sitevision 3.6.3
+   * @see #clearRecipients()
+   * @see #clearCopyRecipients()
+   * @see #clearBlindCopyRecipients()
+   */
+  clearAllRecipients(): MailBuilder;
+
+  /**
+   * Adds a carbon copy recipient address (CC).
+   * @param aCopyRecipientAddress a carbon copy recipient address. A null or whitespace-only address will be ignored.
+   * @return this builder
+   * @since Sitevision 3.6.3
+   */
+  addCopyRecipient(aCopyRecipientAddress: string): MailBuilder;
+
+  /**
+   * Removes all previously added carbon copy recipient addresses (CC).
+   * @return this builder
+   * @since Sitevision 3.6.3
+   */
+  clearCopyRecipients(): MailBuilder;
+
+  /**
+   * Adds a blind carbon copy recipient address (BCC).
+   * @param aBlindCopyRecipientAddress a blind carbon copy recipient address. A null or whitespace-only address will be ignored.
+   * @return this builder
+   * @since Sitevision 3.6.3
+   */
+  addBlindCopyRecipient(aBlindCopyRecipientAddress: string): MailBuilder;
+
+  /**
+   * Removes all previously added blind carbon copy recipient addresses (BCC).
+   * @return this builder
+   * @since Sitevision 3.6.3
+   */
+  clearBlindCopyRecipients(): MailBuilder;
+
+  /**
+   * Creates a Mail instance using current state of this builder.
+   * @return a mail that can be sent
+   * @throws IllegalStateException will be thrown if subject is null, if there are no recipients or if a recipient address is invalid, if the from address, a copy address, blind copy address or reply-to address is invalid.
+   */
+  build(): Mail;
 }
 
-export default mailBuilder;
+declare namespace MailBuilder {}
+
+declare var mailBuilder: MailBuilder;
+
+export = mailBuilder;

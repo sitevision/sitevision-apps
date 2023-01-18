@@ -1,13 +1,13 @@
-import type { NodeType } from "../NodeType";
+import type NodeType from "../NodeType";
 
-import type { ItemDefinition } from "../ItemDefinition";
+import type ItemDefinition from "../ItemDefinition";
 
 /**
  * A node definition. Used in node type definitions.
  * @see NodeType#getChildNodeDefinitions
  * @see javax.jcr.Node#getDefinition
  */
-export type NodeDefinition = {
+type NodeDefinition = ItemDefinition & {
   /**
    * Gets the minimum set of primary node types that the child node must have.
    * Returns an array to support those implementations with multiple
@@ -98,3 +98,5 @@ export type NodeDefinition = {
    */
   allowsSameNameSiblings(): boolean;
 };
+
+export = NodeDefinition;

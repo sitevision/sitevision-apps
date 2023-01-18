@@ -13,7 +13,7 @@
  * @since Sitevision 3.6.2
  * @see senselogic.sitevision.api.node.NodeFilterUtil
  */
-export type Filter = {
+type Filter = {
   /**
    * Whether a given object matches the filter requirements or not.
    * @param anObject the object to check
@@ -21,3 +21,5 @@ export type Filter = {
    */
   accept(anObject: unknown): boolean;
 };
+
+export = Filter;

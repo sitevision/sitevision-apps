@@ -1,14 +1,14 @@
-import type { Node } from "../Node";
-import Session from "../../../../server/Session";
+import type Node from "../Node";
+import { Session } from "../../../../server/Session";
 
-import type { ItemVisitor } from "../ItemVisitor";
+import type ItemVisitor from "../ItemVisitor";
 
 /**
  * The <code>Item</code> is the base interface of <code>{@link Node}</code> and
  * <code>{@link Property}</code>.
   
     */
-export type Item = {
+type Item = {
   /**
    * Returns the normalized absolute path to this item.
    * @return the normalized absolute path of this <code>Item</code>.
@@ -26,31 +26,6 @@ export type Item = {
   getName(): string;
 
   /**
-   * Returns the ancestor of this <code>Item</code> at the specified depth. An
-   * ancestor of depth <i>x</i> is the <code>Item</code> that is <i>x</i>
-   * levels down along the path from the root node to <i>this</i>
-   * <code>Item</code>. <ul> <li><i>depth</i> = 0 returns the root node of a
-   * workspace. <li><i>depth</i> = 1 returns the child of the root node along
-   * the path to <i>this</i> <code>Item</code>. <li><i>depth</i> = 2 returns
-   * the grandchild of the root node along the path to <i>this</i>
-   * <code>Item</code>. <li>And so on to <i>depth</i> = <i>n</i>, where
-   * <i>n</i> is the depth of <i>this</i> <code>Item</code>, which returns
-   * <i>this</i> <code>Item</code> itself. </ul>
-   * <p>
-   * If this node has more than one path (i.e., if it is a descendant of a
-   * shared node) then the path used to define the ancestor is
-   * implementaion-dependent.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @param depth An integer, 0 &lt;= <i>depth</i> &lt;= <i>n</i> where <i>n</i> is the depth of <i>this</i> <code>Item</code>.
-   * @return The ancestor of this <code>Item</code> at the specified <code>depth</code>.
-   * @throws ItemNotFoundException if <i>depth</i> &lt; 0 or <i>depth</i> &gt; <i>n</i> where <i>n</i> is the is the depth of this item.
-   * @throws AccessDeniedException if the current session does not have sufficent access to retrieve the specified node.
-   * @throws RepositoryException if another error occurs.
-   */
-  getAncestor(depth: number): Item;
-
-  /**
    * Returns the parent of this <code>Item</code>.
    * @return The parent of this <code>Item</code>.
    * @throws ItemNotFoundException if this <code>Item</code> is the root node of a workspace.
@@ -60,28 +35,6 @@ export type Item = {
   getParent(): Node;
 
   /**
-   * Returns the depth of this <code>Item</code> in the workspace item graph.
-   * <ul> <li>The root node returns 0. <li>A property or child node of the
-   * root node returns 1. <li>A property or child node of a child node of the
-   * root returns 2. <li>And so on to <i>this</i> <code>Item</code>. </ul>
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @return The depth of this <code>Item</code> in the workspace item graph.
-   * @throws RepositoryException if an error occurs.
-   */
-  getDepth(): number;
-
-  /**
-   * Returns the <code>Session</code> through which this <code>Item</code> was
-   * acquired.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @return the <code>Session</code> through which this <code>Item</code> was acquired.
-   * @throws RepositoryException if an error occurs.
-   */
-  getSession(): Session;
-
-  /**
    * Indicates whether this <code>Item</code> is a <code>Node</code> or a
    * <code>Property</code>. Returns <code>true</code> if this
    * <code>Item</code> is a <code>Node</code>; Returns <code>false</code> if
@@ -89,74 +42,6 @@ export type Item = {
    * @return <code>true</code> if this <code>Item</code> is a <code>Node</code>, <code>false</code> if it is a <code>Property</code>.
    */
   isNode(): boolean;
-
-  /**
-   * Returns <code>true</code> if this is a new item, meaning that it exists
-   * only in transient storage on the <code>Session</code> and has not yet
-   * been saved. Within a transaction, <code>isNew</code> on an
-   * <code>Item</code> may return <code>false</code> (because the item has
-   * been saved) even if that <code>Item</code> is not in persistent storage
-   * (because the transaction has not yet been committed).
-   * <p>
-   * Note that if an item returns <code>true</code> on <code>isNew</code>,
-   * then by definition is parent will return <code>true</code> on
-   * <code>isModified</code>.
-   * <p>
-   * Note that in read-only implementations, this method will always return
-   * <code>false</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @return <code>true</code> if this item is new; <code>false</code> otherwise.
-   */
-  isNew(): boolean;
-
-  /**
-   * Returns <code>true</code> if this <code>Item</code> has been saved but
-   * has subsequently been modified through the current session and therefore
-   * the state of this item as recorded in the session differs from the state
-   * of this item as saved. Within a transaction, <code>isModified</code> on
-   * an <code>Item</code> may return <code>false</code> (because the
-   * <code>Item</code> has been saved since the modification) even if the
-   * modification in question is not in persistent storage (because the
-   * transaction has not yet been committed).
-   * <p>
-   * Note that in read-only implementations, this method will always return
-   * <code>false</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @return <code>true</code> if this item is modified; <code>false</code> otherwise.
-   */
-  isModified(): boolean;
-
-  /**
-   * Returns <code>true</code> if this <code>Item</code> object (the Java
-   * object instance) represents the same actual workspace item as the object
-   * <code>otherItem</code>.
-   * <p>
-   * Two <code>Item</code> objects represent the same workspace item if and
-   * only if all the following are true: <ul> <li>Both objects were acquired
-   * through <code>Session</code> objects that were created by the same
-   * <code>Repository</code> object.</li> <li>Both objects were acquired
-   * through <code>Session</code> objects bound to the same repository
-   * workspace.</li> <li>The objects are either both <code>Node</code> objects
-   * or both <code>Property</code> objects.</li> <li>If they are
-   * <code>Node</code> objects, they have the same identifier.</li> <li>If
-   * they are <code>Property</code> objects they have identical names and
-   * <code>isSame</code> is true of their parent nodes.</li> </ul> This method
-   * does not compare the <i>states</i> of the two items. For example, if two
-   * <code>Item</code> objects representing the same actual workspace item
-   * have been retrieved through two different sessions and one has been
-   * modified, then this method will still return <code>true</code> when
-   * comparing these two objects. Note that if two <code>Item</code> objects
-   * representing the same workspace item are retrieved through the
-   * <i>same</i> session they will always reflect the same state.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @param otherItem the <code>Item</code> object to be tested for identity with this <code>Item</code>.
-   * @return <code>true</code> if this <code>Item</code> object and <code>otherItem</code> represent the same actual repository item; <code>false</code> otherwise.
-   * @throws RepositoryException if an error occurs.
-   */
-  isSame(otherItem: Item): boolean;
 
   /**
    * Accepts an <code>ItemVisitor</code>. Calls the appropriate
@@ -236,3 +121,5 @@ export type Item = {
    */
   remove(): void;
 };
+
+export = Item;

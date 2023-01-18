@@ -1,20 +1,5 @@
-import type { Monitor } from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Sets the query logging mode on or off.
- * @param aEnableQueryLogging whether or not the query logging mode should be turned on (true) or off (false).
- * @return this builder
- */
-export function setEnableQueryLogging(
-  aEnableQueryLogging: boolean
-): MonitorBuilder;
-
-/**
- * Creates a Monitor component instance using currently specified state/behaviour.
- * @return a monitor component
- */
-export function build(): Monitor;
+import type Monitor from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -45,8 +30,23 @@ export function build(): Monitor;
  * @author Magnus Lövgren
  * @since Sitevision 4.1
  */
-declare namespace monitorBuilder {
-  export { setEnableQueryLogging, build };
+export interface MonitorBuilder extends Builder {
+  /**
+   * Sets the query logging mode on or off.
+   * @param aEnableQueryLogging whether or not the query logging mode should be turned on (true) or off (false).
+   * @return this builder
+   */
+  setEnableQueryLogging(aEnableQueryLogging: boolean): MonitorBuilder;
+
+  /**
+   * Creates a Monitor component instance using currently specified state/behaviour.
+   * @return a monitor component
+   */
+  build(): Monitor;
 }
 
-export default monitorBuilder;
+declare namespace MonitorBuilder {}
+
+declare var monitorBuilder: MonitorBuilder;
+
+export = monitorBuilder;

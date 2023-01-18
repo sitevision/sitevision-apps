@@ -1,44 +1,8 @@
-import type { LinkValue } from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
-import type { Node } from "../../types/javax/jcr/Node";
+import type LinkValue from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
+import type Node from "../../types/javax/jcr/Node";
 
-import type { RelatedValue } from "../../types/senselogic/sitevision/api/metadata/value/RelatedValue";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Adds a link value.
- * @param aLinkValue the link value to add
- * @return this builder
- * @throws IllegalArgumentException if <code>aLinkValue</code> is <code>null</code> or not an instance created via {@link senselogic.sitevision.api.metadata.builder.LinkValueBuilder}
- */
-export function addLinkValue(aLinkValue: LinkValue): RelatedValueBuilder;
-
-/**
- * Adds a user value.
- * @param aUserNode the user node to add (a node with primary node type <em>sv:user</em> or <em>sv:simpleUser</em>)
- * @return this builder
- * @throws IllegalArgumentException if <code>aUserNode</code> is <code>null</code> or an invalid user node (e.g. sv:systemUser - <em>Anonymous</em>, <em>System</em>, <em>Indexer</em>, <em>Validator</em> or <em>Extractor</em>)
- */
-export function addUser(aUserNode: Node): RelatedValueBuilder;
-
-/**
- * Adds a text value.
- * @param aText the text to add. A <code>null</code> or whitespace-only value will be completely ignored.
- * @return this builder
- */
-export function addText(aText: string): RelatedValueBuilder;
-
-/**
- * Removes all currently added values.
- * @return this builder
- */
-export function clearValues(): RelatedValueBuilder;
-
-/**
- * Creates a RelatedValue instance using current state of this builder.
- * @return a related value
- * @throws IllegalStateException if the builder contains no values.
- */
-export function build(): RelatedValue;
+import type RelatedValue from "../../types/senselogic/sitevision/api/metadata/value/RelatedValue";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder to create RelatedValue instances that can be used to set related metadata.
@@ -85,8 +49,46 @@ export function build(): RelatedValue;
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-declare namespace relatedValueBuilder {
-  export { addLinkValue, addUser, addText, clearValues, build };
+export interface RelatedValueBuilder extends Builder {
+  /**
+   * Adds a link value.
+   * @param aLinkValue the link value to add
+   * @return this builder
+   * @throws IllegalArgumentException if <code>aLinkValue</code> is <code>null</code> or not an instance created via {@link senselogic.sitevision.api.metadata.builder.LinkValueBuilder}
+   */
+  addLinkValue(aLinkValue: LinkValue): RelatedValueBuilder;
+
+  /**
+   * Adds a user value.
+   * @param aUserNode the user node to add (a node with primary node type <em>sv:user</em> or <em>sv:simpleUser</em>)
+   * @return this builder
+   * @throws IllegalArgumentException if <code>aUserNode</code> is <code>null</code> or an invalid user node (e.g. sv:systemUser - <em>Anonymous</em>, <em>System</em>, <em>Indexer</em>, <em>Validator</em> or <em>Extractor</em>)
+   */
+  addUser(aUserNode: Node): RelatedValueBuilder;
+
+  /**
+   * Adds a text value.
+   * @param aText the text to add. A <code>null</code> or whitespace-only value will be completely ignored.
+   * @return this builder
+   */
+  addText(aText: string): RelatedValueBuilder;
+
+  /**
+   * Removes all currently added values.
+   * @return this builder
+   */
+  clearValues(): RelatedValueBuilder;
+
+  /**
+   * Creates a RelatedValue instance using current state of this builder.
+   * @return a related value
+   * @throws IllegalStateException if the builder contains no values.
+   */
+  build(): RelatedValue;
 }
 
-export default relatedValueBuilder;
+declare namespace RelatedValueBuilder {}
+
+declare var relatedValueBuilder: RelatedValueBuilder;
+
+export = relatedValueBuilder;

@@ -1,115 +1,12 @@
-import type { Filter } from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
-import type { Highlight } from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
-import type { Node } from "../../types/javax/jcr/Node";
-import type { Parser } from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
-import type { Sort } from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
-import type { SpellCheck } from "../../types/senselogic/sitevision/api/search/searcher/component/SpellCheck";
-import type { Monitor } from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
-import type { Searcher } from "../../types/senselogic/sitevision/api/search/searcher/Searcher";
-import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
-
-/**
- * Sets the filter component.
- *
- * <p>
- *    A <code>Filter</code> instance is created via the {@link FilterBuilder#build()} method.
- * </p>
- * @param aFilter the filter component
- * @return this builder
- * @see FilterBuilder
- */
-export function setFilter(aFilter: Filter): SearcherBuilder;
-
-/**
- * Sets the highlight component.
- *
- * <p>
- *    A <code>Highlight</code> instance is created via the {@link HighlightBuilder#build()} method.
- * </p>
- * @param aHighlight the highlight component
- * @return this builder
- * @see HighlightBuilder
- */
-export function setHighlight(aHighlight: Highlight): SearcherBuilder;
-
-/**
- * Sets the index to search in.
- *
- * <p>
- *    <strong>Note!</strong> If no index is set, the <code>Searcher</code> that is constructed will use
- *    the <em>default node index</em> (i.e. the main index with pages/images/files etc.).
- * </p>
- *
- * <p>
- *    <strong>Tip!</strong> Use the {@link senselogic.sitevision.api.search.index.IndexUtil} utility to get an index.
- * </p>
- * @param anIndex the index
- * @return this builder
- * @throws IllegalArgumentException if <code>anIndex</code> isn't an index node (primary node type name should be <code>sv:nodeIndex</code> or <code>sv:applicationIndex</code>)
- */
-export function setIndex(anIndex: Node): SearcherBuilder;
-
-/**
- * Sets the parser component.
- *
- * <p>
- *    A <code>Parser</code> instance is created via the {@link ExtendedDismaxParserBuilder#build()} method
- *    or the {@link StandardParserBuilder#build()} method.
- * </p>
- *
- * <p>
- *    <strong>Note!</strong> If no Parser is set, the <code>Searcher</code> that is constructed will use a <em>default multi-field
- *    parser</em> (that can be constructed via {@link ExtendedDismaxParserBuilder}).
- * </p>
- * @param aParser the parser component
- * @return this builder
- * @see ExtendedDismaxParserBuilder
- * @see StandardParserBuilder
- */
-export function setParser(aParser: Parser): SearcherBuilder;
-
-/**
- * Sets the sort component.
- *
- * <p>
- *    A <code>Sort</code> instance is created via the {@link SortBuilder#build()} method.
- * </p>
- * @param aSort the sort component
- * @return this builder
- * @see SortBuilder
- */
-export function setSort(aSort: Sort): SearcherBuilder;
-
-/**
- * Sets the spell check (suggestions/did-you-mean) component.
- *
- * <p>
- *    A <code>SpellCheck</code> instance is created via the {@link SpellCheckBuilder#build()} method.
- * </p>
- * @param aSpellCheck the spell check component
- * @return this builder
- * @see SpellCheckBuilder
- */
-export function setSpellCheck(aSpellCheck: SpellCheck): SearcherBuilder;
-
-/**
- * Sets the monitor component.
- *
- * <p>
- *    A <code>Monitor</code> instance is created via the {@link MonitorBuilder#build()} method.
- * </p>
- * @param aMonitor the monitor component
- * @return this builder
- * @see MonitorBuilder
- * @since Sitevision 4.1
- */
-export function setMonitor(aMonitor: Monitor): SearcherBuilder;
-
-/**
- * Creates a Searcher instance using currently specified components.
- * @return a Searcher instance
- */
-export function build(): Searcher;
+import type Filter from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
+import type Highlight from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
+import type Node from "../../types/javax/jcr/Node";
+import type Parser from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
+import type Sort from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
+import type SpellCheck from "../../types/senselogic/sitevision/api/search/searcher/component/SpellCheck";
+import type Monitor from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
+import type Searcher from "../../types/senselogic/sitevision/api/search/searcher/Searcher";
+import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -206,17 +103,113 @@ export function build(): Searcher;
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-declare namespace searcherBuilder {
-  export {
-    setFilter,
-    setHighlight,
-    setIndex,
-    setParser,
-    setSort,
-    setSpellCheck,
-    setMonitor,
-    build,
-  };
+export interface SearcherBuilder extends Builder {
+  /**
+   * Sets the filter component.
+   *
+   * <p>
+   *    A <code>Filter</code> instance is created via the {@link FilterBuilder#build()} method.
+   * </p>
+   * @param aFilter the filter component
+   * @return this builder
+   * @see FilterBuilder
+   */
+  setFilter(aFilter: Filter): SearcherBuilder;
+
+  /**
+   * Sets the highlight component.
+   *
+   * <p>
+   *    A <code>Highlight</code> instance is created via the {@link HighlightBuilder#build()} method.
+   * </p>
+   * @param aHighlight the highlight component
+   * @return this builder
+   * @see HighlightBuilder
+   */
+  setHighlight(aHighlight: Highlight): SearcherBuilder;
+
+  /**
+   * Sets the index to search in.
+   *
+   * <p>
+   *    <strong>Note!</strong> If no index is set, the <code>Searcher</code> that is constructed will use
+   *    the <em>default node index</em> (i.e. the main index with pages/images/files etc.).
+   * </p>
+   *
+   * <p>
+   *    <strong>Tip!</strong> Use the {@link senselogic.sitevision.api.search.index.IndexUtil} utility to get an index.
+   * </p>
+   * @param anIndex the index
+   * @return this builder
+   * @throws IllegalArgumentException if <code>anIndex</code> isn't an index node (primary node type name should be <code>sv:nodeIndex</code> or <code>sv:applicationIndex</code>)
+   */
+  setIndex(anIndex: Node): SearcherBuilder;
+
+  /**
+   * Sets the parser component.
+   *
+   * <p>
+   *    A <code>Parser</code> instance is created via the {@link ExtendedDismaxParserBuilder#build()} method
+   *    or the {@link StandardParserBuilder#build()} method.
+   * </p>
+   *
+   * <p>
+   *    <strong>Note!</strong> If no Parser is set, the <code>Searcher</code> that is constructed will use a <em>default multi-field
+   *    parser</em> (that can be constructed via {@link ExtendedDismaxParserBuilder}).
+   * </p>
+   * @param aParser the parser component
+   * @return this builder
+   * @see ExtendedDismaxParserBuilder
+   * @see StandardParserBuilder
+   */
+  setParser(aParser: Parser): SearcherBuilder;
+
+  /**
+   * Sets the sort component.
+   *
+   * <p>
+   *    A <code>Sort</code> instance is created via the {@link SortBuilder#build()} method.
+   * </p>
+   * @param aSort the sort component
+   * @return this builder
+   * @see SortBuilder
+   */
+  setSort(aSort: Sort): SearcherBuilder;
+
+  /**
+   * Sets the spell check (suggestions/did-you-mean) component.
+   *
+   * <p>
+   *    A <code>SpellCheck</code> instance is created via the {@link SpellCheckBuilder#build()} method.
+   * </p>
+   * @param aSpellCheck the spell check component
+   * @return this builder
+   * @see SpellCheckBuilder
+   */
+  setSpellCheck(aSpellCheck: SpellCheck): SearcherBuilder;
+
+  /**
+   * Sets the monitor component.
+   *
+   * <p>
+   *    A <code>Monitor</code> instance is created via the {@link MonitorBuilder#build()} method.
+   * </p>
+   * @param aMonitor the monitor component
+   * @return this builder
+   * @see MonitorBuilder
+   * @since Sitevision 4.1
+   */
+  setMonitor(aMonitor: Monitor): SearcherBuilder;
+
+  /**
+   * Creates a Searcher instance using currently specified components.
+   * @return a Searcher instance
+   */
+  build(): Searcher;
 }
 
-export default searcherBuilder;
+declare namespace SearcherBuilder {}
+
+declare var searcherBuilder: SearcherBuilder;
+
+export = searcherBuilder;

@@ -1,48 +1,10 @@
 /**
  * An event fired by the observation mechanism.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>Generated on persist when a node is added. <ul> <li>{@link #getPath}
- * returns the absolute path of the node that was added.</li> <li>{@link
- * #getIdentifier} returns the identifier of the node that was added.</li>
- * <li>{@link #getInfo} returns an empty <code>Map</code> object.</li>
- * </ul>Generated on persist when a node is removed. <ul> <li>{@link #getPath}
- * returns the absolute path of the node that was removed.</li> <li>{@link
- * #getIdentifier} returns the identifier of the node that was removed.</li>
- * <li>{@link #getInfo} returns an empty <code>Map</code> object.</li>
- * </ul>Generated on persist when a property is added. <ul> <li>{@link #getPath}
- * returns the absolute path of the property that was added.</li> <li>{@link
- * #getIdentifier} returns the identifier of the parent node of the property
- * that was added. <li>{@link #getInfo} returns an empty <code>Map</code>
- * object.</li> </ul>Generated on persist when a property is removed. <ul> <li>{@link
- * #getPath} returns the absolute path of the property that was
- * removed.</li> <li>{@link #getIdentifier} returns the identifier of the
- * parent node of the property that was removed. <li>{@link #getInfo}
- * returns an empty <code>Map</code> object.</li> </ul>Generated on persist when a property is changed. <ul> <li>{@link
- * #getPath} returns the absolute path of the property that was
- * changed.</li> <li>{@link #getIdentifier} returns the identifier of the
- * parent node of the property that was changed. <li>{@link #getInfo}
- * returns an empty <code>Map</code> object.</li> </ul>Generated on persist when a node is moved. <ul> <li>{@link #getPath}
- * returns the absolute path of the destination of the move.</li> <li>{@link
- * #getIdentifier} returns the identifier of the moved node. <li> {@link
- * #getInfo} If the method that caused this event was a {@link
- * javax.jcr.Session#move Session.move} or {@link javax.jcr.Workspace#move
- * Workspace.move} then the returned {@link java.util.Map Map} has keys
- * <code>srcAbsPath</code> and <code>destAbsPath</code> with values
- * corresponding to the parameters passed to the <code>move</code> method.
- * <p>
- * If the method that caused this event was a {@link
- * javax.jcr.Node#orderBefore Node.orderBefore} then the returned
- * <code>Map</code> has keys <code>srcChildRelPath</code> and
- * <code>destChildRelPath</code> with values corresponding to the parameters
- * passed to the <code>orderBefore</code> method. </li> </ul>If event bundling is supported, this event is used to indicate a bundle
- * boundary within the event journal. <ul> <li>{@link #getPath} returns
- * <code>null</code>.</li> <li>{@link #getIdentifier} returns
- * <code>null</code>.</li> <li>{@link #getInfo} returns an empty
- * <code>Map</code> object.</li> </ul>
- * @since JCR 2.0
- * @since JCR 2.0
- */
-export type Event = {
+ * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+  
+    */
+type Event = {
   /**
    * Returns the type of this event: a constant defined by this interface. One
    * of: <ul> <li><code>NODE_ADDED</code></li> <li><code>NODE_REMOVED</code></li>
@@ -111,4 +73,85 @@ export type Event = {
    * @since JCR 2.0
    */
   getDate(): number;
+
+  /**
+ * Generated on persist when a node is added. <ul> <li>{@link #getPath}
+ * returns the absolute path of the node that was added.</li> <li>{@link
+ * #getIdentifier} returns the identifier of the node that was added.</li>
+ * <li>{@link #getInfo} returns an empty <code>Map</code> object.</li>
+ * </ul>
+  
+    */
+  NODE_ADDED: number;
+
+  /**
+ * Generated on persist when a node is removed. <ul> <li>{@link #getPath}
+ * returns the absolute path of the node that was removed.</li> <li>{@link
+ * #getIdentifier} returns the identifier of the node that was removed.</li>
+ * <li>{@link #getInfo} returns an empty <code>Map</code> object.</li>
+ * </ul>
+  
+    */
+  NODE_REMOVED: number;
+
+  /**
+ * Generated on persist when a property is added. <ul> <li>{@link #getPath}
+ * returns the absolute path of the property that was added.</li> <li>{@link
+ * #getIdentifier} returns the identifier of the parent node of the property
+ * that was added. <li>{@link #getInfo} returns an empty <code>Map</code>
+ * object.</li> </ul>
+  
+    */
+  PROPERTY_ADDED: number;
+
+  /**
+ * Generated on persist when a property is removed. <ul> <li>{@link
+ * #getPath} returns the absolute path of the property that was
+ * removed.</li> <li>{@link #getIdentifier} returns the identifier of the
+ * parent node of the property that was removed. <li>{@link #getInfo}
+ * returns an empty <code>Map</code> object.</li> </ul>
+  
+    */
+  PROPERTY_REMOVED: number;
+
+  /**
+ * Generated on persist when a property is changed. <ul> <li>{@link
+ * #getPath} returns the absolute path of the property that was
+ * changed.</li> <li>{@link #getIdentifier} returns the identifier of the
+ * parent node of the property that was changed. <li>{@link #getInfo}
+ * returns an empty <code>Map</code> object.</li> </ul>
+  
+    */
+  PROPERTY_CHANGED: number;
+
+  /**
+   * Generated on persist when a node is moved. <ul> <li>{@link #getPath}
+   * returns the absolute path of the destination of the move.</li> <li>{@link
+   * #getIdentifier} returns the identifier of the moved node. <li> {@link
+   * #getInfo} If the method that caused this event was a {@link
+   * javax.jcr.Session#move Session.move} or {@link javax.jcr.Workspace#move
+   * Workspace.move} then the returned {@link java.util.Map Map} has keys
+   * <code>srcAbsPath</code> and <code>destAbsPath</code> with values
+   * corresponding to the parameters passed to the <code>move</code> method.
+   * <p>
+   * If the method that caused this event was a {@link
+   * javax.jcr.Node#orderBefore Node.orderBefore} then the returned
+   * <code>Map</code> has keys <code>srcChildRelPath</code> and
+   * <code>destChildRelPath</code> with values corresponding to the parameters
+   * passed to the <code>orderBefore</code> method. </li> </ul>
+   * @since JCR 2.0
+   */
+  NODE_MOVED: number;
+
+  /**
+   * If event bundling is supported, this event is used to indicate a bundle
+   * boundary within the event journal. <ul> <li>{@link #getPath} returns
+   * <code>null</code>.</li> <li>{@link #getIdentifier} returns
+   * <code>null</code>.</li> <li>{@link #getInfo} returns an empty
+   * <code>Map</code> object.</li> </ul>
+   * @since JCR 2.0
+   */
+  PERSIST: number;
 };
+
+export = Event;

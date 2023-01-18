@@ -1,4 +1,4 @@
-import type { Binary } from "../Binary";
+import type Binary from "../Binary";
 
 /**
  * A generic holder for the value of a property. A <code>Value</code> object can
@@ -52,7 +52,7 @@ import type { Binary } from "../Binary";
  * state change.
   
     */
-export type Value = {
+type Value = {
   /**
    * Returns a <code>String</code> representation of this value.
    * @return A <code>String</code> representation of the value of this property.
@@ -61,35 +61,6 @@ export type Value = {
    * @throws RepositoryException if another error occurs.
    */
   getString(): string;
-
-  /**
-   * Returns an <code>InputStream</code> representation of this value. Uses
-   * the standard conversion to binary (see JCR specification).
-   * <p>
-   * It is the responsibility of the caller to close the returned
-   * <code>InputStream</code>.
-   *
-   * <p><strong>Sitevision note:</strong> Unsupported operation</p>
-   * @return An <code>InputStream</code> representation of this value.
-   * @throws RepositoryException if an error occurs.
-   * @deprecated As of JCR 2.0, {@link #getBinary()} should be used instead.
-   */
-  getStream(): unknown;
-
-  /**
-   * Returns a <code>Binary</code> representation of this value. The {@link
-   * Binary} object in turn provides methods to access the binary data itself.
-   * Uses the standard conversion to binary (see JCR specification).
-   *
-   * <p><strong>Sitevision note:</strong> Limited to the <code>URL</code> and <code>URI</code> properties of nodes with primary
-   * {@link javax.jcr.nodetype.NodeType} <code>sv:file</code> and <code>sv:image</code> and to any {@link javax.jcr.PropertyType#WEAKREFERENCE}
-   * pointing to a <code>Node</code> of type <code>sv:file</code> or <code>sv:image</code></p>
-   * @return A <code>Binary</code> representation of this value.
-   * @throws RepositoryException if an error occurs.
-   * @since JCR 2.0
-   * @since Sitevision 3.5
-   */
-  getBinary(): Binary;
 
   /**
    * Returns a <code>long</code> representation of this value.
@@ -156,3 +127,5 @@ export type Value = {
    */
   getType(): number;
 };
+
+export = Value;

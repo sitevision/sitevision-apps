@@ -1,278 +1,4 @@
-import type { Node } from "../../types/javax/jcr/Node";
-
-/**
- * <p>
- *    Alters the content of a sv:page, sv:article or a sv:template.
- * </p>
- *
- * <p>
- *    If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified as a
- *    HTML string used to generate a portlet structure in the <strong>first</strong> layout available. The provided
- *    content is converted to Sitevision text, table and image modules. It is also possible to specify that a horizontal
- *    or a vertical layout should be created.
- * </p>
- *
- * <p>
- *    <strong>Note that the content (i.e portlets and layouts) of the first layout will be replaced, not appended.</strong>
- * </p>
- *
- * <p>
- *    The current user must be authorized to alter the node or a  <code>ConstraintViolationException</code> is thrown.
- * </p>
- *
- * <p>
- *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
- * </p>
- * @param aNode aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
- * @param aContent the HTML content. May not be <code>null</code>
- * @throws ConstraintViolationException if the current user is not allowed to alter the node
- * @throws RepositoryException if something else goes wrong
- * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
- */
-export function updateContent(aNode: Node, aContent: string): void;
-
-/**
- * <p>
- *    Alters the content of a sv:page, sv:article or a sv:template.
- * </p>
- *
- * <p>
- *    If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified using the
- *    content map containing keys corresponding to layout names (e.g. "mittenspalt") on the page and values containing the
- *    HTML used to generate a portlet structure in the layout. The provided content is converted to
- *    Sitevision text, table and image modules. It is also possible to specify that a horizontal or a vertical
- *    layout should be created.
- * </p>
- *
- * <p>
- *    The names of the content map must correspond to layout names on the page.
- * </p>
- *
- * <p>
- *    <strong>Note that the content of the specified layouts (i.e portlets and layouts) will be replaced, not appended.</strong>
- * </p>
- *
- * <p>
- *    The current user must be authorized to alter the node or a <code>ConstraintViolationException</code> is thrown.
- * </p>
- *
- * <p>
- *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
- * </p>
- * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
- * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
- * @throws ConstraintViolationException if the current user is not allowed to alter the node
- * @throws RepositoryException if something else goes wrong
- * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
- */
-export function updateContent(aNode: Node, aContent: unknown): void;
-
-/**
- * Alters the content of a sv:page, sv:article or a sv:template with raw HTML (a HTML portlet is created).
- *
- * <p>
- *    <strong>Note!</strong> This method creates a single HTML portlet that contains all supplied content. This method
- *    is intended to be used as a <em>temporary solution</em> when the proper {@link #updateContent(javax.jcr.Node, java.util.Map)}
- *    and {@link #updateContent(javax.jcr.Node, String)} methods for some reason can't be used. Typically when converting badly formatted
- *    legacy CMS data into Sitevision content. I.e. this method enables creation of content that later on ought to be manually converted
- *    to proper Sitevision portlets.
- * </p>
- *
- * <p>
- *    <strong>Note!</strong> Content is treated <em>as-is</em>, hence no internal links or references to local resources will be resolved
- *    as with the {@link #updateContent(javax.jcr.Node, java.util.Map)} and {@link #updateContent(javax.jcr.Node, String)} methods.
- *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
- *    Sitevision resource url.
- * </p>
- * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
- * @param aContent the HTML content. May not be <code>null</code>
- * @throws NullPointerException if aNode is null or if aContent is null
- * @throws IllegalArgumentException if aNode is of invalid type
- * @throws ConstraintViolationException if current user is not allowed to alter aNode
- * @throws RepositoryException if something else goes wrong
- * @since Sitevision 3.6
- * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
- */
-export function updateContentWithRawHtml(aNode: Node, aContent: string): void;
-
-/**
- * Alters the content of a sv:page, sv:article or a sv:template with raw HTML (a HTML portlet is created).
- *
- * <p>
- *    <strong>Note!</strong> This method creates a single HTML portlet for each supplied content entry. This method
- *    is intended to be used as a <em>temporary solution</em> when the proper {@link #updateContent(javax.jcr.Node, java.util.Map)}
- *    and {@link #updateContent(javax.jcr.Node, String)} methods for some reason can't be used. Typically when converting badly formatted
- *    legacy CMS data into Sitevision content. I.e. this method enables creation of content that later on ought to be manually converted
- *    to proper Sitevision portlets.
- * </p>
- *
- * <p>
- *    <strong>Note!</strong> Content is treated <em>as-is</em>, hence no internal links or references to local resources will be resolved
- *    as with the {@link #updateContent(javax.jcr.Node, java.util.Map)} and {@link #updateContent(javax.jcr.Node, String)} methods.
- *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
- *    Sitevision resource url.
- * </p>
- * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
- * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
- * @throws NullPointerException if aNode is null or if aContent is null
- * @throws IllegalArgumentException if aNode is of invalid type
- * @throws ConstraintViolationException if current user is not allowed to alter aNode
- * @throws RepositoryException if something else goes wrong
- * @since Sitevision 3.6
- * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
- */
-export function updateContentWithRawHtml(aNode: Node, aContent: unknown): void;
-
-/**
- * Appends the content to the existing node.
- *
- * <p>
- *    If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified as a
- *    HTML string used to generate a portlet structure in the <strong>first</strong> layout available. The provided
- *    content is converted to Sitevision text, table and image modules. It is also possible to specify that a horizontal
- *    or a vertical layout should be created.
- * </p>
- *
- * <p>
- *    <strong>Note that the content (i.e portlets and layouts) of the first layout will be appended, not replaced.</strong>
- * </p>
- *
- * <p>
- *    The current user must be authorized to alter the node or a  <code>ConstraintViolationException</code> is thrown.
- * </p>
- *
- * <p>
- *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
- * </p>
- * @param aNode aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
- * @param aContent the HTML content. May not be <code>null</code>
- * @throws NullPointerException if aNode is null or if aContent is null
- * @throws IllegalArgumentException if aNode is of invalid type
- * @throws ConstraintViolationException if the current user is not allowed to alter the node
- * @throws RepositoryException if something else goes wrong
- * @since Sitevision 2022.08.1
- * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
- */
-export function appendContent(aNode: Node, aContent: string): void;
-
-/**
- * <p>
- *    Append the content to the existing node.
- * </p>
- *
- * <p>
- *    If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified using the
- *    content map containing keys corresponding to layout names (e.g. "mittenspalt") on the page and values containing the
- *    HTML used to generate a portlet structure in the layout. The provided content is converted to
- *    Sitevision text, table and image modules. It is also possible to specify that a horizontal or a vertical
- *    layout should be created.
- * </p>
- *
- * <p>
- *    The names of the content map must correspond to layout names on the page.
- * </p>
- *
- * <p>
- *    <strong>Note that the content of the specified layouts (i.e portlets and layouts) will be appended, not replaced.</strong>
- * </p>
- *
- * <p>
- *    The current user must be authorized to alter the node or a <code>ConstraintViolationException</code> is thrown.
- * </p>
- *
- * <p>
- *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
- * </p>
- * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
- * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
- * @throws NullPointerException if aNode is null or if aContent is null
- * @throws IllegalArgumentException if aNode is of invalid type
- * @throws ConstraintViolationException if the current user is not allowed to alter the node
- * @throws RepositoryException if something else goes wrong
- * @since Sitevision 2022.08.1
- * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
- */
-export function appendContent(aNode: Node, aContent: unknown): void;
-
-/**
- * Appends raw HTML (a HTML portlet is created) to the existing content of a node.
- *
- * <p>
- *    <strong>Note!</strong> This method creates a single HTML portlet that contains all supplied content and appends it to the existing content.
- *    This method is intended to be used as a <em>temporary solution</em> when the proper {@link #updateContent(javax.jcr.Node, java.util.Map)}
- *    and {@link #updateContent(javax.jcr.Node, String)} methods for some reason can't be used. Typically when converting badly formatted legacy
- *    CMS data into Sitevision content. I.e. this method enables creation of content that later on ought to be manually converted to proper
- *    Sitevision portlets.
- * </p>
- *
- * <p>
- *    <strong>Note!</strong> Content is treated <em>as-is</em>, hence no internal links or references to local resources will be resolved
- *    as with the {@link #updateContent(javax.jcr.Node, java.util.Map)} and {@link #updateContent(javax.jcr.Node, String)} methods.
- *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
- *    Sitevision resource url.
- * </p>
- * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
- * @param aContent the HTML content. May not be <code>null</code>
- * @throws NullPointerException if aNode is null or if aContent is null
- * @throws IllegalArgumentException if aNode is of invalid type
- * @throws ConstraintViolationException if current user is not allowed to alter aNode
- * @throws RepositoryException if something else goes wrong
- * @since Sitevision 3.6
- * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
- */
-export function appendContentWithRawHtml(aNode: Node, aContent: string): void;
-
-/**
- * Appends raw HTML (a HTML portlet is created) to the existing content of a node.
- *
- * <p>
- *    <strong>Note!</strong> This method creates a single HTML portlet that contains all supplied content and appends it to the existing content.
- *    This method is intended to be used as a <em>temporary solution</em> when the proper {@link #updateContent(javax.jcr.Node, java.util.Map)}
- *    and {@link #updateContent(javax.jcr.Node, String)} methods for some reason can't be used. Typically when converting badly formatted legacy
- *    CMS data into Sitevision content. I.e. this method enables creation of content that later on ought to be manually converted to proper
- *    Sitevision portlets.
- * </p>
- *
- * <p>
- *    <strong>Note!</strong> Content is treated <em>as-is</em>, hence no internal links or references to local resources will be resolved
- *    as with the {@link #updateContent(javax.jcr.Node, java.util.Map)} and {@link #updateContent(javax.jcr.Node, String)} methods.
- *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
- *    Sitevision resource url.
- * </p>
- * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
- * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
- * @throws NullPointerException if aNode is null or if aContent is null
- * @throws IllegalArgumentException if aNode is of invalid type
- * @throws ConstraintViolationException if current user is not allowed to alter aNode
- * @throws RepositoryException if something else goes wrong
- * @since Sitevision 3.6
- * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
- */
-export function appendContentWithRawHtml(aNode: Node, aContent: unknown): void;
-
-/**
- * Resolves an unresolved URL to a resource (potentially needed for all resource references in HTML content that later is
- * updated or appended as raw HTML).
- *
- * <p>
- *    <strong>Note!</strong> HTML content is treated <em>as-is</em> when using the
- *    {@link #appendContentWithRawHtml(javax.jcr.Node, java.util.Map)}, {@link #appendContentWithRawHtml(javax.jcr.Node, String)},
- *    {@link #updateContentWithRawHtml(javax.jcr.Node, java.util.Map)} or {@link #updateContentWithRawHtml(javax.jcr.Node, String)}.
- *    Hence no internal links or references to local resources will be resolved as with the {@link #updateContent(javax.jcr.Node, java.util.Map)}
- *    and {@link #updateContent(javax.jcr.Node, String)} methods.
- *    This method can be used to manually try to resolve "old" resource url to a "new" Sitevision resource url.
- * </p>
- * @param aNode the node that <code>aUnresolvedURL</code> should be resolved for, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
- * @param aUnresolvedURL an unresolved URL
- * @return the potentially resolved URL
- * @throws NullPointerException if aNode is null or if aUnresolvedURL is null
- * @throws IllegalArgumentException if aNode is of invalid type
- * @since Sitevision 3.6
- */
-export function resolveToResourceURL(
-  aNode: Node,
-  aUnresolvedURL: string
-): string;
+import type Node from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for content manipulation of a sv:page, sv:article or a sv:template.
@@ -457,14 +183,281 @@ export function resolveToResourceURL(
  * @author Mikael Wikblom
  * @since Sitevision 2.6.2
  */
-declare namespace webContentUtil {
-  export {
-    updateContent,
-    updateContentWithRawHtml,
-    appendContent,
-    appendContentWithRawHtml,
-    resolveToResourceURL,
-  };
+export interface WebContentUtil {
+  /**
+   * <p>
+   *    Alters the content of a sv:page, sv:article or a sv:template.
+   * </p>
+   *
+   * <p>
+   *    If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified as a
+   *    HTML string used to generate a portlet structure in the <strong>first</strong> layout available. The provided
+   *    content is converted to Sitevision text, table and image modules. It is also possible to specify that a horizontal
+   *    or a vertical layout should be created.
+   * </p>
+   *
+   * <p>
+   *    <strong>Note that the content (i.e portlets and layouts) of the first layout will be replaced, not appended.</strong>
+   * </p>
+   *
+   * <p>
+   *    The current user must be authorized to alter the node or a  <code>ConstraintViolationException</code> is thrown.
+   * </p>
+   *
+   * <p>
+   *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
+   * </p>
+   * @param aNode aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
+   * @param aContent the HTML content. May not be <code>null</code>
+   * @throws ConstraintViolationException if the current user is not allowed to alter the node
+   * @throws RepositoryException if something else goes wrong
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   */
+  updateContent(aNode: Node, aContent: string): void;
+
+  /**
+   * <p>
+   *    Alters the content of a sv:page, sv:article or a sv:template.
+   * </p>
+   *
+   * <p>
+   *    If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified using the
+   *    content map containing keys corresponding to layout names (e.g. "mittenspalt") on the page and values containing the
+   *    HTML used to generate a portlet structure in the layout. The provided content is converted to
+   *    Sitevision text, table and image modules. It is also possible to specify that a horizontal or a vertical
+   *    layout should be created.
+   * </p>
+   *
+   * <p>
+   *    The names of the content map must correspond to layout names on the page.
+   * </p>
+   *
+   * <p>
+   *    <strong>Note that the content of the specified layouts (i.e portlets and layouts) will be replaced, not appended.</strong>
+   * </p>
+   *
+   * <p>
+   *    The current user must be authorized to alter the node or a <code>ConstraintViolationException</code> is thrown.
+   * </p>
+   *
+   * <p>
+   *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
+   * </p>
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
+   * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
+   * @throws ConstraintViolationException if the current user is not allowed to alter the node
+   * @throws RepositoryException if something else goes wrong
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   */
+  updateContent(aNode: Node, aContent: unknown): void;
+
+  /**
+   * Alters the content of a sv:page, sv:article or a sv:template with raw HTML (a HTML portlet is created).
+   *
+   * <p>
+   *    <strong>Note!</strong> This method creates a single HTML portlet that contains all supplied content. This method
+   *    is intended to be used as a <em>temporary solution</em> when the proper {@link #updateContent(javax.jcr.Node, java.util.Map)}
+   *    and {@link #updateContent(javax.jcr.Node, String)} methods for some reason can't be used. Typically when converting badly formatted
+   *    legacy CMS data into Sitevision content. I.e. this method enables creation of content that later on ought to be manually converted
+   *    to proper Sitevision portlets.
+   * </p>
+   *
+   * <p>
+   *    <strong>Note!</strong> Content is treated <em>as-is</em>, hence no internal links or references to local resources will be resolved
+   *    as with the {@link #updateContent(javax.jcr.Node, java.util.Map)} and {@link #updateContent(javax.jcr.Node, String)} methods.
+   *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
+   *    Sitevision resource url.
+   * </p>
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aContent the HTML content. May not be <code>null</code>
+   * @throws NullPointerException if aNode is null or if aContent is null
+   * @throws IllegalArgumentException if aNode is of invalid type
+   * @throws ConstraintViolationException if current user is not allowed to alter aNode
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 3.6
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   */
+  updateContentWithRawHtml(aNode: Node, aContent: string): void;
+
+  /**
+   * Alters the content of a sv:page, sv:article or a sv:template with raw HTML (a HTML portlet is created).
+   *
+   * <p>
+   *    <strong>Note!</strong> This method creates a single HTML portlet for each supplied content entry. This method
+   *    is intended to be used as a <em>temporary solution</em> when the proper {@link #updateContent(javax.jcr.Node, java.util.Map)}
+   *    and {@link #updateContent(javax.jcr.Node, String)} methods for some reason can't be used. Typically when converting badly formatted
+   *    legacy CMS data into Sitevision content. I.e. this method enables creation of content that later on ought to be manually converted
+   *    to proper Sitevision portlets.
+   * </p>
+   *
+   * <p>
+   *    <strong>Note!</strong> Content is treated <em>as-is</em>, hence no internal links or references to local resources will be resolved
+   *    as with the {@link #updateContent(javax.jcr.Node, java.util.Map)} and {@link #updateContent(javax.jcr.Node, String)} methods.
+   *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
+   *    Sitevision resource url.
+   * </p>
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
+   * @throws NullPointerException if aNode is null or if aContent is null
+   * @throws IllegalArgumentException if aNode is of invalid type
+   * @throws ConstraintViolationException if current user is not allowed to alter aNode
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 3.6
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   */
+  updateContentWithRawHtml(aNode: Node, aContent: unknown): void;
+
+  /**
+   * Appends the content to the existing node.
+   *
+   * <p>
+   *    If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified as a
+   *    HTML string used to generate a portlet structure in the <strong>first</strong> layout available. The provided
+   *    content is converted to Sitevision text, table and image modules. It is also possible to specify that a horizontal
+   *    or a vertical layout should be created.
+   * </p>
+   *
+   * <p>
+   *    <strong>Note that the content (i.e portlets and layouts) of the first layout will be appended, not replaced.</strong>
+   * </p>
+   *
+   * <p>
+   *    The current user must be authorized to alter the node or a  <code>ConstraintViolationException</code> is thrown.
+   * </p>
+   *
+   * <p>
+   *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
+   * </p>
+   * @param aNode aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
+   * @param aContent the HTML content. May not be <code>null</code>
+   * @throws NullPointerException if aNode is null or if aContent is null
+   * @throws IllegalArgumentException if aNode is of invalid type
+   * @throws ConstraintViolationException if the current user is not allowed to alter the node
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 2022.08.1
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   */
+  appendContent(aNode: Node, aContent: string): void;
+
+  /**
+   * <p>
+   *    Append the content to the existing node.
+   * </p>
+   *
+   * <p>
+   *    If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified using the
+   *    content map containing keys corresponding to layout names (e.g. "mittenspalt") on the page and values containing the
+   *    HTML used to generate a portlet structure in the layout. The provided content is converted to
+   *    Sitevision text, table and image modules. It is also possible to specify that a horizontal or a vertical
+   *    layout should be created.
+   * </p>
+   *
+   * <p>
+   *    The names of the content map must correspond to layout names on the page.
+   * </p>
+   *
+   * <p>
+   *    <strong>Note that the content of the specified layouts (i.e portlets and layouts) will be appended, not replaced.</strong>
+   * </p>
+   *
+   * <p>
+   *    The current user must be authorized to alter the node or a <code>ConstraintViolationException</code> is thrown.
+   * </p>
+   *
+   * <p>
+   *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
+   * </p>
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
+   * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
+   * @throws NullPointerException if aNode is null or if aContent is null
+   * @throws IllegalArgumentException if aNode is of invalid type
+   * @throws ConstraintViolationException if the current user is not allowed to alter the node
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 2022.08.1
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   */
+  appendContent(aNode: Node, aContent: unknown): void;
+
+  /**
+   * Appends raw HTML (a HTML portlet is created) to the existing content of a node.
+   *
+   * <p>
+   *    <strong>Note!</strong> This method creates a single HTML portlet that contains all supplied content and appends it to the existing content.
+   *    This method is intended to be used as a <em>temporary solution</em> when the proper {@link #updateContent(javax.jcr.Node, java.util.Map)}
+   *    and {@link #updateContent(javax.jcr.Node, String)} methods for some reason can't be used. Typically when converting badly formatted legacy
+   *    CMS data into Sitevision content. I.e. this method enables creation of content that later on ought to be manually converted to proper
+   *    Sitevision portlets.
+   * </p>
+   *
+   * <p>
+   *    <strong>Note!</strong> Content is treated <em>as-is</em>, hence no internal links or references to local resources will be resolved
+   *    as with the {@link #updateContent(javax.jcr.Node, java.util.Map)} and {@link #updateContent(javax.jcr.Node, String)} methods.
+   *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
+   *    Sitevision resource url.
+   * </p>
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aContent the HTML content. May not be <code>null</code>
+   * @throws NullPointerException if aNode is null or if aContent is null
+   * @throws IllegalArgumentException if aNode is of invalid type
+   * @throws ConstraintViolationException if current user is not allowed to alter aNode
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 3.6
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   */
+  appendContentWithRawHtml(aNode: Node, aContent: string): void;
+
+  /**
+   * Appends raw HTML (a HTML portlet is created) to the existing content of a node.
+   *
+   * <p>
+   *    <strong>Note!</strong> This method creates a single HTML portlet that contains all supplied content and appends it to the existing content.
+   *    This method is intended to be used as a <em>temporary solution</em> when the proper {@link #updateContent(javax.jcr.Node, java.util.Map)}
+   *    and {@link #updateContent(javax.jcr.Node, String)} methods for some reason can't be used. Typically when converting badly formatted legacy
+   *    CMS data into Sitevision content. I.e. this method enables creation of content that later on ought to be manually converted to proper
+   *    Sitevision portlets.
+   * </p>
+   *
+   * <p>
+   *    <strong>Note!</strong> Content is treated <em>as-is</em>, hence no internal links or references to local resources will be resolved
+   *    as with the {@link #updateContent(javax.jcr.Node, java.util.Map)} and {@link #updateContent(javax.jcr.Node, String)} methods.
+   *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
+   *    Sitevision resource url.
+   * </p>
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
+   * @throws NullPointerException if aNode is null or if aContent is null
+   * @throws IllegalArgumentException if aNode is of invalid type
+   * @throws ConstraintViolationException if current user is not allowed to alter aNode
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 3.6
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   */
+  appendContentWithRawHtml(aNode: Node, aContent: unknown): void;
+
+  /**
+   * Resolves an unresolved URL to a resource (potentially needed for all resource references in HTML content that later is
+   * updated or appended as raw HTML).
+   *
+   * <p>
+   *    <strong>Note!</strong> HTML content is treated <em>as-is</em> when using the
+   *    {@link #appendContentWithRawHtml(javax.jcr.Node, java.util.Map)}, {@link #appendContentWithRawHtml(javax.jcr.Node, String)},
+   *    {@link #updateContentWithRawHtml(javax.jcr.Node, java.util.Map)} or {@link #updateContentWithRawHtml(javax.jcr.Node, String)}.
+   *    Hence no internal links or references to local resources will be resolved as with the {@link #updateContent(javax.jcr.Node, java.util.Map)}
+   *    and {@link #updateContent(javax.jcr.Node, String)} methods.
+   *    This method can be used to manually try to resolve "old" resource url to a "new" Sitevision resource url.
+   * </p>
+   * @param aNode the node that <code>aUnresolvedURL</code> should be resolved for, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aUnresolvedURL an unresolved URL
+   * @return the potentially resolved URL
+   * @throws NullPointerException if aNode is null or if aUnresolvedURL is null
+   * @throws IllegalArgumentException if aNode is of invalid type
+   * @since Sitevision 3.6
+   */
+  resolveToResourceURL(aNode: Node, aUnresolvedURL: string): string;
 }
 
-export default webContentUtil;
+declare namespace WebContentUtil {}
+
+declare var webContentUtil: WebContentUtil;
+
+export = webContentUtil;

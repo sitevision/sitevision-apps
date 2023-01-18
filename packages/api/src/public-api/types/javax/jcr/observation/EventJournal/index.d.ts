@@ -1,4 +1,4 @@
-import type { EventIterator } from "../EventIterator";
+import type EventIterator from "../EventIterator";
 
 /**
  * An <code>EventJournal</code> is an extension of <code>EventIterator</code>
@@ -7,7 +7,7 @@ import type { EventIterator } from "../EventIterator";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-export type EventJournal = {
+type EventJournal = EventIterator & {
   /**
    * Skip all elements of the iterator earlier than <code>date</code>.
    * <p>
@@ -17,3 +17,5 @@ export type EventJournal = {
    */
   skipTo(date: number): void;
 };
+
+export = EventJournal;
