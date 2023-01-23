@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Translation utility interface.
@@ -109,4 +109,4 @@ declare namespace TranslationUtil {}
 
 declare var translationUtil: TranslationUtil;
 
-export = translationUtil;
+export default translationUtil;

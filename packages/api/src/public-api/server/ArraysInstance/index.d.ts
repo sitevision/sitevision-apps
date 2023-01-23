@@ -1688,4 +1688,4 @@ declare namespace ArraysInstance {}
 
 declare var arraysInstance: ArraysInstance;
 
-export = arraysInstance;
+export default arraysInstance;

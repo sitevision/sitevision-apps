@@ -1,5 +1,5 @@
-import CompoundComparatorBuilder from "../CompoundComparatorBuilder";
-import type Resolver from "../../types/senselogic/sitevision/api/base/Resolver";
+import type { CompoundComparatorBuilder } from "../CompoundComparatorBuilder";
+import type { Resolver } from "../../types/senselogic/sitevision/api/base/Resolver";
 
 /**
  * Node comparator utility interface.
@@ -232,4 +232,4 @@ declare namespace NodeComparatorUtil {}
 
 declare var nodeComparatorUtil: NodeComparatorUtil;
 
-export = nodeComparatorUtil;
+export default nodeComparatorUtil;

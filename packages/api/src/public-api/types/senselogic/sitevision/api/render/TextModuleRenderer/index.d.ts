@@ -1,4 +1,4 @@
-import type Node from "../../../../../javax/jcr/Node";
+import type { Node } from "../../../../../javax/jcr/Node";
 
 /**
  * TextModuleRenderer is a stateful renderer of Sitevision Text modules on a specific page.
@@ -118,7 +118,7 @@ import type Node from "../../../../../javax/jcr/Node";
  * @author Magnus Lövgren
  * @since Sitevision 7
  */
-type TextModuleRenderer = {
+export type TextModuleRenderer = {
   /**
    * Updates the state of this renderer (potentially "loads" a Text module for rendering) using a Text module Node.
    *
@@ -230,5 +230,3 @@ type TextModuleRenderer = {
    */
   renderPlainHtml(): string;
 };
-
-export = TextModuleRenderer;

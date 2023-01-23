@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type ArticleUtilConstants = {
+export type ArticleUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.webresource.ArticleUtil#PROPERTY_VISIBLE_IN_MENUS}.
    * @return {@link senselogic.sitevision.api.webresource.ArticleUtil#PROPERTY_VISIBLE_IN_MENUS}
@@ -81,5 +81,3 @@ type ArticleUtilConstants = {
    */
   getPROPERTY_PUBLISH_DATE(): string;
 };
-
-export = ArticleUtilConstants;

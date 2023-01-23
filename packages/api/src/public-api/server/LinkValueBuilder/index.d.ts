@@ -1,7 +1,7 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type LinkValue from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { LinkValue } from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder to create LinkValue instances that can be used to set link metadata.
@@ -133,4 +133,4 @@ declare namespace LinkValueBuilder {}
 
 declare var linkValueBuilder: LinkValueBuilder;
 
-export = linkValueBuilder;
+export default linkValueBuilder;

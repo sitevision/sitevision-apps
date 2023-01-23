@@ -146,4 +146,4 @@ declare namespace DateUtil {}
 
 declare var dateUtil: DateUtil;
 
-export = dateUtil;
+export default dateUtil;

@@ -1,9 +1,9 @@
-import type TypedArgument from "../../types/senselogic/sitevision/api/script/factory/TypedArgument";
+import type { TypedArgument } from "../../types/senselogic/sitevision/api/script/factory/TypedArgument";
 
-import ListWrapper from "../ListWrapper";
-import ArraysInstance from "../ArraysInstance";
-import CollectionsInstance from "../CollectionsInstance";
-import MathInstance from "../MathInstance";
+import type { ListWrapper } from "../ListWrapper";
+import type { ArraysInstance } from "../ArraysInstance";
+import type { CollectionsInstance } from "../CollectionsInstance";
+import type { MathInstance } from "../MathInstance";
 
 /**
  * Instance creation utility that can be used in limited scripting languages (such as Velocity).
@@ -489,4 +489,4 @@ declare namespace InstanceCreatorUtil {}
 
 declare var instanceCreatorUtil: InstanceCreatorUtil;
 
-export = instanceCreatorUtil;
+export default instanceCreatorUtil;

@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * User identity utility interface.
@@ -54,4 +54,4 @@ declare namespace UserIdentityUtil {}
 
 declare var userIdentityUtil: UserIdentityUtil;
 
-export = userIdentityUtil;
+export default userIdentityUtil;

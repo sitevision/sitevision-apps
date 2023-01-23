@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Site cookie utility interface.
@@ -168,4 +168,4 @@ declare namespace SiteCookieUtil {}
 
 declare var siteCookieUtil: SiteCookieUtil;
 
-export = siteCookieUtil;
+export default siteCookieUtil;

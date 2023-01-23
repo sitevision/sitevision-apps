@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type IndexingUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.IndexingUtilConstants";
+import type { IndexingUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.IndexingUtilConstants";
 
 /**
  * Indexing utility interface.
@@ -81,4 +81,4 @@ declare namespace IndexingUtil {}
 
 declare var indexingUtil: IndexingUtil;
 
-export = indexingUtil;
+export default indexingUtil;

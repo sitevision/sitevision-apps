@@ -1,5 +1,5 @@
-import type PropertyValue from "../PropertyValue";
-import type DynamicOperand from "../DynamicOperand";
+import type { PropertyValue } from "../PropertyValue";
+import type { DynamicOperand } from "../DynamicOperand";
 
 /**
  * Evaluates to the length (or lengths, if multi-valued) of a property.
@@ -14,12 +14,10 @@ import type DynamicOperand from "../DynamicOperand";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type Length = DynamicOperand & {
+export type Length = DynamicOperand & {
   /**
    * Gets the property value for which to compute the length.
    * @return the property value; non-null
    */
   getPropertyValue(): PropertyValue;
 };
-
-export = Length;

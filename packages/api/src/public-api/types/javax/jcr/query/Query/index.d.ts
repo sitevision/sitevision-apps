@@ -1,7 +1,7 @@
-import type QueryResult from "../QueryResult";
+import type { QueryResult } from "../QueryResult";
 
-import type Node from "../../Node";
-import type Value from "../../Value";
+import type { Node } from "../../Node";
+import type { Value } from "../../Value";
 
 /**
  * A <code>Query</code> object.
@@ -9,7 +9,7 @@ import type Value from "../../Value";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-type Query = {
+export type Query = {
   /**
    * Executes this query and returns a <code>{@link QueryResult}</code>
    * object.
@@ -166,5 +166,3 @@ type Query = {
    */
   JCR_JQOM: string;
 };
-
-export = Query;

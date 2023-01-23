@@ -1,5 +1,5 @@
-import TemporaryNodeBuilder from "../TemporaryNodeBuilder";
-import TemporaryFileNodeBuilder from "../TemporaryFileNodeBuilder";
+import type { TemporaryNodeBuilder } from "../TemporaryNodeBuilder";
+import type { TemporaryFileNodeBuilder } from "../TemporaryFileNodeBuilder";
 
 /**
  * Node factory utility interface.
@@ -31,4 +31,4 @@ declare namespace NodeFactoryUtil {}
 
 declare var nodeFactoryUtil: NodeFactoryUtil;
 
-export = nodeFactoryUtil;
+export default nodeFactoryUtil;

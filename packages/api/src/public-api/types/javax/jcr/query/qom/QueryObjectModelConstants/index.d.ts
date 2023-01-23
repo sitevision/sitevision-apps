@@ -4,7 +4,7 @@
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type QueryObjectModelConstants = {
+export type QueryObjectModelConstants = {
   undefined;
 
   /**
@@ -79,5 +79,3 @@ type QueryObjectModelConstants = {
     */
   JCR_ORDER_DESCENDING: string;
 };
-
-export = QueryObjectModelConstants;

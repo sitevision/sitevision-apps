@@ -20,8 +20,6 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-type Filter = {
+export type Filter = {
   undefined;
 };
-
-export = Filter;

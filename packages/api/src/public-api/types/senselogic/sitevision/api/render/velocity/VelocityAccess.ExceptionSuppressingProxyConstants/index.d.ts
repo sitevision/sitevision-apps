@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type ExceptionSuppressingProxyConstants = {
+export type ExceptionSuppressingProxyConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingProxy#NO_OBJECT_PROXIED_STATUS}.
    * @return {@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingProxy#NO_OBJECT_PROXIED_STATUS}
@@ -27,5 +27,3 @@ type ExceptionSuppressingProxyConstants = {
    */
   getEXCEPTION_THROWN_STATUS(): number;
 };
-
-export = ExceptionSuppressingProxyConstants;

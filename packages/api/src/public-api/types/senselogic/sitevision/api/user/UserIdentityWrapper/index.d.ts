@@ -1,6 +1,6 @@
-import type Node from "../../../../../javax/jcr/Node";
+import type { Node } from "../../../../../javax/jcr/Node";
 
-import type Wrapper from "../../base/Wrapper";
+import type { Wrapper } from "../../base/Wrapper";
 
 /**
  * User identity wrapper interface.
@@ -22,7 +22,7 @@ import type Wrapper from "../../base/Wrapper";
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-type UserIdentityWrapper = Wrapper & {
+export type UserIdentityWrapper = Wrapper & {
   /**
    * Gets the contacts of the wrapped user identity.
    * @return the contacts of the wrapped user identity. Never null.
@@ -407,5 +407,3 @@ type UserIdentityWrapper = Wrapper & {
    */
   getUserIdentity(): Node;
 };
-
-export = UserIdentityWrapper;

@@ -1,5 +1,5 @@
-import type NumericFormatterBuilder from "../../types/senselogic/sitevision/api/format/NumericFormatterBuilder";
-import type Currency from "../../types/senselogic/sitevision/api/i18n/Currency";
+import type { NumericFormatterBuilder } from "../../types/senselogic/sitevision/api/format/NumericFormatterBuilder";
+import type { Currency } from "../../types/senselogic/sitevision/api/i18n/Currency";
 
 /**
  * Factory for creating formatter builders.
@@ -87,4 +87,4 @@ declare namespace FormatterBuilderFactory {}
 
 declare var formatterBuilderFactory: FormatterBuilderFactory;
 
-export = formatterBuilderFactory;
+export default formatterBuilderFactory;

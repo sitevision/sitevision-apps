@@ -1,11 +1,11 @@
-import type Value from "../Value";
+import type { Value } from "../Value";
 
-import type Binary from "../Binary";
+import type { Binary } from "../Binary";
 
-import type Node from "../Node";
-import type PropertyDefinition from "../nodetype/PropertyDefinition";
+import type { Node } from "../Node";
+import type { PropertyDefinition } from "../nodetype/PropertyDefinition";
 
-import type Item from "../Item";
+import type { Item } from "../Item";
 
 /**
  * A <code>Property</code> object represents the smallest granularity of content
@@ -14,7 +14,7 @@ import type Item from "../Item";
  * all of the same type. See <code>{@link Value}</code>.
   
     */
-type Property = Item & {
+export type Property = Item & {
   /**
    * Returns the value of this  property as a <code>Value</code> object.
    * <p>
@@ -671,5 +671,3 @@ type Property = Item & {
    */
   JCR_STATEMENT: string;
 };
-
-export = Property;

@@ -1,5 +1,5 @@
-import type NumericFormatter from "../NumericFormatter";
-import type Builder from "../../base/Builder";
+import type { NumericFormatter } from "../NumericFormatter";
+import type { Builder } from "../../base/Builder";
 
 /**
  * Builder for creating {@link NumericFormatter} instances.
@@ -15,7 +15,7 @@ import type Builder from "../../base/Builder";
  * @author Magnus Lövgren
  * @since Sitevision 6.1
  */
-type NumericFormatterBuilder = Builder & {
+export type NumericFormatterBuilder = Builder & {
   /**
    * Set whether or not grouping will be used in this formatter.
    *
@@ -77,5 +77,3 @@ type NumericFormatterBuilder = Builder & {
    */
   build(): NumericFormatter;
 };
-
-export = NumericFormatterBuilder;

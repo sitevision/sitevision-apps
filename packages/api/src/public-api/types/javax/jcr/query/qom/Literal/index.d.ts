@@ -1,5 +1,5 @@
-import type Value from "../../../Value";
-import type StaticOperand from "../StaticOperand";
+import type { Value } from "../../../Value";
+import type { StaticOperand } from "../StaticOperand";
 
 /**
  * Evaluates to a literal value.
@@ -8,12 +8,10 @@ import type StaticOperand from "../StaticOperand";
  * @since Sitevision 3.5
  * @since JCR 2.0
  */
-type Literal = StaticOperand & {
+export type Literal = StaticOperand & {
   /**
    * Gets the value of the literal.
    * @return the value of the literal.
    */
   getLiteralValue(): Value;
 };
-
-export = Literal;

@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Simple user utility interface.
@@ -42,4 +42,4 @@ declare namespace SimpleUserUtil {}
 
 declare var simpleUserUtil: SimpleUserUtil;
 
-export = simpleUserUtil;
+export default simpleUserUtil;

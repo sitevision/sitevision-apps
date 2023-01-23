@@ -1,4 +1,4 @@
-interface AppInfo {
+export interface AppInfo {
   appVersion: string;
   maxUploadSizeInMB: number;
   appHelpURL: string;
@@ -30,4 +30,8 @@ interface AppInfo {
   'jcr:primaryType': string;
 }
 
-export default {} as AppInfo;
+declare namespace AppInfo {}
+
+declare var appInfo: AppInfo;
+
+export default appInfo;

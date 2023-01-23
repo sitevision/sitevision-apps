@@ -1,4 +1,4 @@
-import type Constraint from "../Constraint";
+import type { Constraint } from "../Constraint";
 
 /**
  * Tests the existence of a property.
@@ -9,7 +9,7 @@ import type Constraint from "../Constraint";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type PropertyExistence = Constraint & {
+export type PropertyExistence = Constraint & {
   /**
    * Gets the name of the selector against which to apply this constraint.
    * @return the selector name; non-null
@@ -22,5 +22,3 @@ type PropertyExistence = Constraint & {
    */
   getPropertyName(): string;
 };
-
-export = PropertyExistence;

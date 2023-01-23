@@ -1,5 +1,5 @@
-import LinkRenderer from "../LinkRenderer";
-import ImageRenderer from "../ImageRenderer";
+import type { LinkRenderer } from "../LinkRenderer";
+import type { ImageRenderer } from "../ImageRenderer";
 
 /**
  * ImageLinkRenderer is a stateful utility interface that combines an ImageRenderer and a LinkRenderer to render valid image links.
@@ -124,4 +124,4 @@ declare namespace ImageLinkRenderer {}
 
 declare var imageLinkRenderer: ImageLinkRenderer;
 
-export = imageLinkRenderer;
+export default imageLinkRenderer;

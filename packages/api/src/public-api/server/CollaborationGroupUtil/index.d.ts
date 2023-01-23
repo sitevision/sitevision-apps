@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import CollaborationGroupType from "../CollaborationGroupType";
+import type CollaborationGroupType from "../CollaborationGroupType";
 
 /**
  * Collaboration group utility interface.
@@ -103,4 +103,4 @@ declare namespace CollaborationGroupUtil {}
 
 declare var collaborationGroupUtil: CollaborationGroupUtil;
 
-export = collaborationGroupUtil;
+export default collaborationGroupUtil;

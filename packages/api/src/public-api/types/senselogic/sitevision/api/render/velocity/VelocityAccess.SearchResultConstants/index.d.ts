@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type SearchResultConstants = {
+export type SearchResultConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.search.SearchResult#STATUS_OK}.
    * @return {@link senselogic.sitevision.api.search.SearchResult#STATUS_OK}
@@ -33,5 +33,3 @@ type SearchResultConstants = {
    */
   getSTATUS_UNEXPECTED_ERROR(): number;
 };
-
-export = SearchResultConstants;

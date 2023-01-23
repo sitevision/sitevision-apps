@@ -1,5 +1,5 @@
-import type Node from "../../types/javax/jcr/Node";
-import type Property from "../../types/javax/jcr/Property";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { Property } from "../../types/javax/jcr/Property";
 
 /**
  * LDAP directory utility interface.
@@ -100,4 +100,4 @@ declare namespace DirectoryUtil {}
 
 declare var directoryUtil: DirectoryUtil;
 
-export = directoryUtil;
+export default directoryUtil;

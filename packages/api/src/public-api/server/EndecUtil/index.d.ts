@@ -348,4 +348,4 @@ declare namespace EndecUtil {}
 
 declare var endecUtil: EndecUtil;
 
-export = endecUtil;
+export default endecUtil;

@@ -1,5 +1,5 @@
-import type Filter from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Filter } from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -105,4 +105,4 @@ declare namespace FilterBuilder {}
 
 declare var filterBuilder: FilterBuilder;
 
-export = filterBuilder;
+export default filterBuilder;

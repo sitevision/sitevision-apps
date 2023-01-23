@@ -1,4 +1,4 @@
-import type AccessControlPolicy from "../AccessControlPolicy";
+import type { AccessControlPolicy } from "../AccessControlPolicy";
 
 /**
  * An <code>NamedAccessControlPolicy</code> is an opaque access control policy
@@ -10,7 +10,7 @@ import type AccessControlPolicy from "../AccessControlPolicy";
  * @since Sitevision 3.5
  * @since JCR 2.0
  */
-type NamedAccessControlPolicy = AccessControlPolicy & {
+export type NamedAccessControlPolicy = AccessControlPolicy & {
   /**
    * Returns the name of the access control policy, which is JCR name and
    * should be unique among the choices applicable to any particular node.
@@ -19,5 +19,3 @@ type NamedAccessControlPolicy = AccessControlPolicy & {
    */
   getName(): string;
 };
-
-export = NamedAccessControlPolicy;

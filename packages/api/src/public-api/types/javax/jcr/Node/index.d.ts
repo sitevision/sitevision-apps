@@ -1,22 +1,22 @@
-import type Value from "../Value";
-import type Property from "../Property";
+import type { Value } from "../Value";
+import type { Property } from "../Property";
 
-import type Binary from "../Binary";
+import type { Binary } from "../Binary";
 
-import type NodeIterator from "../NodeIterator";
-import type PropertyIterator from "../PropertyIterator";
-import type Item from "../Item";
-import type NodeType from "../nodetype/NodeType";
-import type NodeDefinition from "../nodetype/NodeDefinition";
-import type Version from "../version/Version";
-import type VersionHistory from "../version/VersionHistory";
-import type Lock from "../lock/Lock";
+import type { NodeIterator } from "../NodeIterator";
+import type { PropertyIterator } from "../PropertyIterator";
+import type { Item } from "../Item";
+import type { NodeType } from "../nodetype/NodeType";
+import type { NodeDefinition } from "../nodetype/NodeDefinition";
+import type { Version } from "../version/Version";
+import type { VersionHistory } from "../version/VersionHistory";
+import type { Lock } from "../lock/Lock";
 
 /**
  * The <code>Node</code> interface represents a node in a workspace.
   
     */
-type Node = Item & {
+export type Node = Item & {
   /**
    * Sets the specified single-value property to the specified value. If the
    * property does not yet exist, it is created.
@@ -330,5 +330,3 @@ type Node = Item & {
    */
   JCR_FROZEN_NODE: string;
 };
-
-export = Node;

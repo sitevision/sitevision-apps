@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type VersionUtilConstants = {
+export type VersionUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}.
    * @return {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
@@ -21,5 +21,3 @@ type VersionUtilConstants = {
    */
   getOFFLINE_VERSION(): number;
 };
-
-export = VersionUtilConstants;

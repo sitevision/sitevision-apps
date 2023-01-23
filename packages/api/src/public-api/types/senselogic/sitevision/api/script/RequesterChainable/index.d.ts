@@ -8,7 +8,7 @@ import { Requester } from "../../../../../../server/Requester";
  * @since Sitevision 4.2
  * @see Requester
  */
-type RequesterChainable = Requester & {
+export type RequesterChainable = Requester & {
   /**
    * Invoked when a {@link Requester} was successfully executed.
    *
@@ -70,5 +70,3 @@ type RequesterChainable = Requester & {
    */
   fail(aCallback: unknown): RequesterChainable;
 };
-
-export = RequesterChainable;

@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type OutputUtilConstants = {
+export type OutputUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.render.OutputUtil#CONTENT_TYPE_TEXT_PLAIN}.
    * @return {@link senselogic.sitevision.api.render.OutputUtil#CONTENT_TYPE_TEXT_PLAIN}
@@ -27,5 +27,3 @@ type OutputUtilConstants = {
    */
   getCONTENT_TYPE_TEXT_XML(): number;
 };
-
-export = OutputUtilConstants;

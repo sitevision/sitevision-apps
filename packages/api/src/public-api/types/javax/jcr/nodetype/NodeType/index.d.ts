@@ -1,16 +1,16 @@
-import type NodeTypeIterator from "../NodeTypeIterator";
+import type { NodeTypeIterator } from "../NodeTypeIterator";
 
-import type PropertyDefinition from "../PropertyDefinition";
-import type NodeDefinition from "../NodeDefinition";
-import type Value from "../../Value";
-import type NodeTypeDefinition from "../NodeTypeDefinition";
+import type { PropertyDefinition } from "../PropertyDefinition";
+import type { NodeDefinition } from "../NodeDefinition";
+import type { Value } from "../../Value";
+import type { NodeTypeDefinition } from "../NodeTypeDefinition";
 
 /**
  * A <code>NodeType</code> object represents a "live" node type that is
  * registered in the repository.
   
     */
-type NodeType = NodeTypeDefinition & {
+export type NodeType = NodeTypeDefinition & {
   /**
    * Returns <code>true</code> if the name of <i>this</i> node type or any of
    * its direct or indirect supertypes is equal to <code>nodeTypeName</code>,
@@ -308,5 +308,3 @@ type NodeType = NodeTypeDefinition & {
    */
   NT_QUERY: string;
 };
-
-export = NodeType;

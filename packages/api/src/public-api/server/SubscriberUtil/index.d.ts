@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * <p>
@@ -89,4 +89,4 @@ declare namespace SubscriberUtil {}
 
 declare var subscriberUtil: SubscriberUtil;
 
-export = subscriberUtil;
+export default subscriberUtil;

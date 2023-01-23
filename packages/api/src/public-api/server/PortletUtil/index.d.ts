@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type PortletUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.PortletUtilConstants";
+import type { PortletUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.PortletUtilConstants";
 
 /**
  * <p>Portlet utility interface.</p>
@@ -42,4 +42,4 @@ declare namespace PortletUtil {}
 
 declare var portletUtil: PortletUtil;
 
-export = portletUtil;
+export default portletUtil;

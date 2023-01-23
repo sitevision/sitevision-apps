@@ -8,12 +8,10 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type MimeTypeUtilConstants = {
+export type MimeTypeUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.webresource.mime.MimeTypeUtil#GENERIC_MIME_TYPE}.
    * @return {@link senselogic.sitevision.api.webresource.mime.MimeTypeUtil#GENERIC_MIME_TYPE}
    */
   getGENERIC_MIME_TYPE(): string;
 };
-
-export = MimeTypeUtilConstants;

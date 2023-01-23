@@ -17,7 +17,7 @@
  * @since Sitevision 5.0.1
  * @see MessageDigesterFactory
  */
-type MessageDigester = {
+export type MessageDigester = {
   /**
    * Updates the digest with a byte.
    * @param aByte the byte.
@@ -44,5 +44,3 @@ type MessageDigester = {
    */
   getAlgorithm(): string;
 };
-
-export = MessageDigester;

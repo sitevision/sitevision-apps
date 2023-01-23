@@ -116,4 +116,4 @@ declare namespace TimestampUtil {}
 
 declare var timestampUtil: TimestampUtil;
 
-export = timestampUtil;
+export default timestampUtil;

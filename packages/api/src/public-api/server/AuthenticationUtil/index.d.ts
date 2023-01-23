@@ -85,4 +85,4 @@ declare namespace AuthenticationUtil {}
 
 declare var authenticationUtil: AuthenticationUtil;
 
-export = authenticationUtil;
+export default authenticationUtil;

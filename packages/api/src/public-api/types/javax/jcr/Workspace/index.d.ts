@@ -1,12 +1,12 @@
 import { Session } from "../../../../server/Session";
 
-import type Version from "../version/Version";
-import type LockManager from "../lock/LockManager";
-import type QueryManager from "../query/QueryManager";
-import type NamespaceRegistry from "../NamespaceRegistry";
-import type NodeTypeManager from "../nodetype/NodeTypeManager";
-import type ObservationManager from "../observation/ObservationManager";
-import type VersionManager from "../version/VersionManager";
+import type { Version } from "../version/Version";
+import type { LockManager } from "../lock/LockManager";
+import type { QueryManager } from "../query/QueryManager";
+import type { NamespaceRegistry } from "../NamespaceRegistry";
+import type { NodeTypeManager } from "../nodetype/NodeTypeManager";
+import type { ObservationManager } from "../observation/ObservationManager";
+import type { VersionManager } from "../version/VersionManager";
 
 /**
  * A <code>Workspace</code> object represents a view onto a persitent workspace
@@ -18,7 +18,7 @@ import type VersionManager from "../version/VersionManager";
  * associated <code>Session</code> object.
   
     */
-type Workspace = {
+export type Workspace = {
   /**
    * Returns the <code>Session</code> object through which this
    * <code>Workspace</code> object was acquired.
@@ -186,5 +186,3 @@ type Workspace = {
    */
   RELPATH_JCR_XMLCHARACTERS: string;
 };
-
-export = Workspace;

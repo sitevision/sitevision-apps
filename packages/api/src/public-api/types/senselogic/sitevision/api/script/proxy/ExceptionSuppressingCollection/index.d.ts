@@ -83,12 +83,10 @@
  * @author Magnus Lövgren
  * @since Sitevision 2.6.1_09
  */
-type ExceptionSuppressingCollection = {
+export type ExceptionSuppressingCollection = {
   /**
    * Returns an exception suppressing iterator that ensures no exceptions will be thrown during iteration.
    * @return a {@link ExceptionSuppressingIterator} that suppresses exceptions and returns proxied items
    */
   iterator(): unknown;
 };
-
-export = ExceptionSuppressingCollection;

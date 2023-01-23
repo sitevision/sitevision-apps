@@ -1,4 +1,4 @@
-import type MimeTypeUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.MimeTypeUtilConstants";
+import type { MimeTypeUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.MimeTypeUtilConstants";
 
 /**
  * A utility that determines an appropriate MIME type for a file extension or vice versa.
@@ -224,4 +224,4 @@ declare namespace MimeTypeUtil {}
 
 declare var mimeTypeUtil: MimeTypeUtil;
 
-export = mimeTypeUtil;
+export default mimeTypeUtil;

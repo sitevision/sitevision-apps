@@ -655,4 +655,4 @@ declare namespace CollectionsInstance {}
 
 declare var collectionsInstance: CollectionsInstance;
 
-export = collectionsInstance;
+export default collectionsInstance;

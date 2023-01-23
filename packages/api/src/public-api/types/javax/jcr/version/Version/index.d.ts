@@ -1,6 +1,6 @@
-import type VersionHistory from "../VersionHistory";
+import type { VersionHistory } from "../VersionHistory";
 
-import type Node from "../../Node";
+import type { Node } from "../../Node";
 
 /**
  * A <code>Version</code> object wraps an <code>nt:version</code> node. It
@@ -9,7 +9,7 @@ import type Node from "../../Node";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-type Version = Node & {
+export type Version = Node & {
   /**
    * Returns the <code>VersionHistory</code> that contains this
    * <code>Version</code>.
@@ -90,5 +90,3 @@ type Version = Node & {
    */
   getFrozenNode(): Node;
 };
-
-export = Version;

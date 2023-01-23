@@ -1,7 +1,7 @@
-import type DynamicOperand from "../DynamicOperand";
+import type { DynamicOperand } from "../DynamicOperand";
 
-import type StaticOperand from "../StaticOperand";
-import type Constraint from "../Constraint";
+import type { StaticOperand } from "../StaticOperand";
+import type { Constraint } from "../Constraint";
 
 /**
  * Filters node-tuples based on the outcome of a binary operation.
@@ -61,7 +61,7 @@ import type Constraint from "../Constraint";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type Comparison = Constraint & {
+export type Comparison = Constraint & {
   /**
    * Gets the first operand.
    * @return the operand; non-null
@@ -80,5 +80,3 @@ type Comparison = Constraint & {
    */
   getOperand2(): StaticOperand;
 };
-
-export = Comparison;

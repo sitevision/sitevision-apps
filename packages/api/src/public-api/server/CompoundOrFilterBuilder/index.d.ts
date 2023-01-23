@@ -1,5 +1,5 @@
-import type Filter from "../../types/senselogic/sitevision/api/base/Filter";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builds a compound filter that requires that <em>any</em> of the added filters matches.
@@ -55,4 +55,4 @@ declare namespace CompoundOrFilterBuilder {}
 
 declare var compoundOrFilterBuilder: CompoundOrFilterBuilder;
 
-export = compoundOrFilterBuilder;
+export default compoundOrFilterBuilder;

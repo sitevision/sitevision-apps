@@ -1,5 +1,5 @@
-import type Monitor from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Monitor } from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -49,4 +49,4 @@ declare namespace MonitorBuilder {}
 
 declare var monitorBuilder: MonitorBuilder;
 
-export = monitorBuilder;
+export default monitorBuilder;

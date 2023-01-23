@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * LinkRenderer is a stateful utility interface that can be used to build valid html text links that uses link icons according to the
@@ -884,4 +884,4 @@ declare namespace LinkRenderer {}
 
 declare var linkRenderer: LinkRenderer;
 
-export = linkRenderer;
+export default linkRenderer;

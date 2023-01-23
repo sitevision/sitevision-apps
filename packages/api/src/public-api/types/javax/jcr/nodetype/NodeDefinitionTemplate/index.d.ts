@@ -1,4 +1,4 @@
-import type NodeDefinition from "../NodeDefinition";
+import type { NodeDefinition } from "../NodeDefinition";
 
 /**
  * The <code>NodeDefinitionTemplate</code> interface extends
@@ -14,7 +14,7 @@ import type NodeDefinition from "../NodeDefinition";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type NodeDefinitionTemplate = NodeDefinition & {
+export type NodeDefinitionTemplate = NodeDefinition & {
   /**
    * Sets the name of the node. This must be a JCR name in either
    * qualified or expanded form.
@@ -69,5 +69,3 @@ type NodeDefinitionTemplate = NodeDefinition & {
    */
   setSameNameSiblings(allowSameNameSiblings: boolean): void;
 };
-
-export = NodeDefinitionTemplate;

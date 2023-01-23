@@ -19,7 +19,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 4.1
  */
-type Resolver = {
+export type Resolver = {
   /**
    * Resolves a value from an object.
    * @param aObject the object to operate on
@@ -27,5 +27,3 @@ type Resolver = {
    */
   resolve(aObject: unknown): unknown;
 };
-
-export = Resolver;

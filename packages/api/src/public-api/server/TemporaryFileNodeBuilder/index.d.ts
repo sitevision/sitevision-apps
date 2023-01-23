@@ -1,5 +1,5 @@
-import type Node from "../../types/javax/jcr/Node";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builds volatile and short-lived nodes with primary node type <em>sv:temporaryFile</em>.
@@ -59,4 +59,4 @@ declare namespace TemporaryFileNodeBuilder {}
 
 declare var temporaryFileNodeBuilder: TemporaryFileNodeBuilder;
 
-export = temporaryFileNodeBuilder;
+export default temporaryFileNodeBuilder;

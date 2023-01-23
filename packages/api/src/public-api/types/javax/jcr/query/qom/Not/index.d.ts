@@ -1,4 +1,4 @@
-import type Constraint from "../Constraint";
+import type { Constraint } from "../Constraint";
 
 /**
  * Performs a logical negation of another constraint.
@@ -9,12 +9,10 @@ import type Constraint from "../Constraint";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type Not = Constraint & {
+export type Not = Constraint & {
   /**
    * Gets the constraint negated by this <code>Not</code> constraint.
    * @return the constraint; non-null
    */
   getConstraint(): Constraint;
 };
-
-export = Not;

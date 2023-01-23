@@ -466,4 +466,4 @@ declare namespace ScriptUtil {}
 
 declare var scriptUtil: ScriptUtil;
 
-export = scriptUtil;
+export default scriptUtil;

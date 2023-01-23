@@ -7,7 +7,7 @@
  * repository content with namespaces that are not included in the registry.
  * @see Workspace#getNamespaceRegistry
  */
-type NamespaceRegistry = {
+export type NamespaceRegistry = {
   /**
    * Returns an array holding all currently registered prefixes.
    * @return a string array.
@@ -105,5 +105,3 @@ type NamespaceRegistry = {
     */
   NAMESPACE_EMPTY: string;
 };
-
-export = NamespaceRegistry;

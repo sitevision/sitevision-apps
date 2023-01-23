@@ -4,8 +4,6 @@
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type Operand = {
+export type Operand = {
   undefined;
 };
-
-export = Operand;

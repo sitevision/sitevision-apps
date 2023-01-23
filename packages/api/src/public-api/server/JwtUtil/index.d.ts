@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * JSON Web Token (JWT) utilities.
@@ -145,4 +145,4 @@ declare namespace JwtUtil {}
 
 declare var jwtUtil: JwtUtil;
 
-export = jwtUtil;
+export default jwtUtil;

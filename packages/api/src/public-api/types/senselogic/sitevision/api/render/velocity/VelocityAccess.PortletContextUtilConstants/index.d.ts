@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type PortletContextUtilConstants = {
+export type PortletContextUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.context.PortletContextUtil#ONLINE_VERSION}.
    * @return {@link senselogic.sitevision.api.context.PortletContextUtil#ONLINE_VERSION}
@@ -23,5 +23,3 @@ type PortletContextUtilConstants = {
    */
   getOFFLINE_VERSION(): number;
 };
-
-export = PortletContextUtilConstants;

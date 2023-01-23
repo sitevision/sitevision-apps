@@ -1,8 +1,8 @@
-import type Filter from "../../types/senselogic/sitevision/api/base/Filter";
+import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
 
-import type FilterSplit from "../../types/senselogic/sitevision/api/base/FilterSplit";
-import CompoundAndFilterBuilder from "../CompoundAndFilterBuilder";
-import CompoundOrFilterBuilder from "../CompoundOrFilterBuilder";
+import type { FilterSplit } from "../../types/senselogic/sitevision/api/base/FilterSplit";
+import type { CompoundAndFilterBuilder } from "../CompoundAndFilterBuilder";
+import type { CompoundOrFilterBuilder } from "../CompoundOrFilterBuilder";
 
 /**
  * Node filter utility interface.
@@ -748,4 +748,4 @@ declare namespace NodeFilterUtil {}
 
 declare var nodeFilterUtil: NodeFilterUtil;
 
-export = nodeFilterUtil;
+export default nodeFilterUtil;

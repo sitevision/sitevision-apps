@@ -1,4 +1,4 @@
-import type AuthenticationFilterChain from "../AuthenticationFilterChain";
+import type { AuthenticationFilterChain } from "../AuthenticationFilterChain";
 
 /**
  * <p>
@@ -12,7 +12,7 @@ import type AuthenticationFilterChain from "../AuthenticationFilterChain";
  * </em>
  * @author Rickard Öberg
  */
-type AuthenticationFilter = {
+export type AuthenticationFilter = {
   /**
    * A filter that can be used to populate the shared state and/or options for a JAAS login module.
    * @param aRequest the request
@@ -62,5 +62,3 @@ type AuthenticationFilter = {
     */
   REDIRECT: string;
 };
-
-export = AuthenticationFilter;

@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 6.1
  */
-type NumericFormatter = {
+export type NumericFormatter = {
   /**
    * Formats a double value.
    *
@@ -60,5 +60,3 @@ type NumericFormatter = {
    */
   parse(aSource: string): number;
 };
-
-export = NumericFormatter;

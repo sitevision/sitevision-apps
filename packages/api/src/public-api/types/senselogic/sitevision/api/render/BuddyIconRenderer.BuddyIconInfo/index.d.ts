@@ -28,7 +28,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 8.2
  */
-type BuddyIconInfo = {
+export type BuddyIconInfo = {
   /**
    * The URI of current buddy icon.
    * @return the URI of the buddy icon, might be null
@@ -47,5 +47,3 @@ type BuddyIconInfo = {
    */
   getHeight(): number;
 };
-
-export = BuddyIconInfo;

@@ -1,5 +1,5 @@
-import type Sort from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Sort } from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -110,4 +110,4 @@ declare namespace SortBuilder {}
 
 declare var sortBuilder: SortBuilder;
 
-export = sortBuilder;
+export default sortBuilder;

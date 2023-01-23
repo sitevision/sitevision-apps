@@ -3,7 +3,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.0.2
  */
-type MessageTextLinker = {
+export type MessageTextLinker = {
   /**
    * Creates links found in plain message text.
    * @param aText the text that might contain links
@@ -11,5 +11,3 @@ type MessageTextLinker = {
    */
   autoLink(aText: string): string;
 };
-
-export = MessageTextLinker;

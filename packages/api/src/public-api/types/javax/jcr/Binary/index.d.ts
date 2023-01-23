@@ -7,7 +7,7 @@
  * @since JCR 2.0
  * @since Sitevision 3.5
  */
-type Binary = {
+export type Binary = {
   /**
    * Returns an {@link InputStream} representation of this value. Each call to
    * <code>getStream()</code> returns a new stream. The API consumer is
@@ -41,5 +41,3 @@ type Binary = {
     */
   dispose(): void;
 };
-
-export = Binary;

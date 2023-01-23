@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.4
  */
-type IndexingUtilConstants = {
+export type IndexingUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.search.index.IndexingUtil#MIN_RESOURCE_PRIORITY}.
    * @return {@link senselogic.sitevision.api.search.index.IndexingUtil#MIN_RESOURCE_PRIORITY}
@@ -27,5 +27,3 @@ type IndexingUtilConstants = {
    */
   getMAX_RESOURCE_PRIORITY(): number;
 };
-
-export = IndexingUtilConstants;

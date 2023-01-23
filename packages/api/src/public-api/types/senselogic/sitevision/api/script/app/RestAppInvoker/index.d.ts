@@ -139,7 +139,7 @@
  * @see senselogic.sitevision.api.script.RestApi
  * @see senselogic.sitevision.api.script.Requester
  */
-type RestAppInvoker = {
+export type RestAppInvoker = {
   /**
    * Executes GET for a route of the RESTApp.
    *
@@ -236,5 +236,3 @@ type RestAppInvoker = {
    */
   delete(aRoute: string, aOptions: unknown): unknown;
 };
-
-export = RestAppInvoker;

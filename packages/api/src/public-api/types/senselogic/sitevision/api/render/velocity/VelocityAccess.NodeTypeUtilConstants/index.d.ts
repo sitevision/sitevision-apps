@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type NodeTypeUtilConstants = {
+export type NodeTypeUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#APPLICATION_INDEX_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#APPLICATION_INDEX_TYPE}
@@ -1239,5 +1239,3 @@ type NodeTypeUtilConstants = {
    */
   getOAUTH2_CONFIGURATION_TYPE(): string;
 };
-
-export = NodeTypeUtilConstants;

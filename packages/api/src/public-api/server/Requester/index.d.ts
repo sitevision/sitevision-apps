@@ -1,4 +1,4 @@
-import type RequesterChainable from "../../types/senselogic/sitevision/api/script/RequesterChainable";
+import type { RequesterChainable } from "../../types/senselogic/sitevision/api/script/RequesterChainable";
 
 /**
  * Script utility for handling data (typically JSON) from an external website.
@@ -422,4 +422,4 @@ declare namespace Requester {}
 
 declare var requester: Requester;
 
-export = requester;
+export default requester;

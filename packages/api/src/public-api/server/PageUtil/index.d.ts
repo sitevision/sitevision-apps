@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type PageUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.PageUtilConstants";
+import type { PageUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.PageUtilConstants";
 
 /**
  * Page utility interface that handles nodes with primary node type <code>sv:page</code>.
@@ -294,4 +294,4 @@ declare namespace PageUtil {}
 
 declare var pageUtil: PageUtil;
 
-export = pageUtil;
+export default pageUtil;

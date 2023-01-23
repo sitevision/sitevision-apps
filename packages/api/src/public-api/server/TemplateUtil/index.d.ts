@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Template utility interface that primarily handles nodes with primary node type <code>sv:template</code>.
@@ -145,4 +145,4 @@ declare namespace TemplateUtil {}
 
 declare var templateUtil: TemplateUtil;
 
-export = templateUtil;
+export default templateUtil;

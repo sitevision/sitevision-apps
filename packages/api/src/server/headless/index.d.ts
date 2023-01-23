@@ -1,8 +1,8 @@
-interface HeadlessContentParams {
+export interface HeadlessContentParams {
   textPortletFormat?: 'JSON' | 'PLAIN';
 }
 
-interface ImageContent {
+export interface ImageContent {
   mimeType: string;
   displayName: string;
   URL: string;
@@ -11,25 +11,25 @@ interface ImageContent {
   URI?: string;
 }
 
-interface TextElement {
+export interface TextElement {
   type: 'text';
   content: string;
 }
 
-interface HtmlElement {
+export interface HtmlElement {
   type: 'block' | 'inline';
   htmlTag: string;
   attributes?: Record<string, string>;
   children: (HtmlElement | TextElement)[];
 }
 
-interface FileContent {
+export interface FileContent {
   mimeType: string;
   displayName: string;
   URL: string;
 }
 
-interface VideoContent {
+export interface VideoContent {
   displayName: string;
   mimeType: string;
   URL: string;
@@ -39,59 +39,61 @@ interface VideoContent {
   URI?: string;
 }
 
-interface HeadlessContent {
+export interface HeadlessContent {
   type: string;
 }
 
-interface HeadlessImageContent extends HeadlessContent {
+export interface HeadlessImageContent extends HeadlessContent {
   type: 'image';
   properties: {
     image: ImageContent;
   };
 }
 
-interface HeadlessImagesContent extends HeadlessContent {
+export interface HeadlessImagesContent extends HeadlessContent {
   type: 'images';
   properties: {
     images: ImageContent[];
   };
 }
 
-interface HeadlessVideoContent extends HeadlessContent {
+export interface HeadlessVideoContent extends HeadlessContent {
   type: 'video';
   properties: {
     video: VideoContent;
   };
 }
 
-interface HeadlessTextContent extends HeadlessContent {
+export interface HeadlessTextContent extends HeadlessContent {
   type: 'text';
   properties: {
     textContent: string | HtmlElement[];
   };
 }
 
-interface HeadlessFilesContent extends HeadlessContent {
+export interface HeadlessFilesContent extends HeadlessContent {
   type: 'files';
   properties: {
     files: FileContent[];
   };
 }
 
-export function getHeadlessContent(
-  callback: (
-    params: HeadlessContentParams
-  ) => (
-    | HeadlessImageContent
-    | HeadlessImagesContent
-    | HeadlessVideoContent
-    | HeadlessTextContent
-    | HeadlessFilesContent
-  )[]
-): void;
-
-declare namespace headless {
-  export { getHeadlessContent };
+export interface Headless {
+  getHeadlessContent(
+    callback: (
+      params: HeadlessContentParams
+    ) => (
+      | HeadlessImageContent
+      | HeadlessImagesContent
+      | HeadlessVideoContent
+      | HeadlessTextContent
+      | HeadlessFilesContent
+    )[]
+  ): void;
 }
+
+declare namespace Headless {}
+
+declare var headless: Headless;
 
 export default headless;

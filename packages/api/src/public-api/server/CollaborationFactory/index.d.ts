@@ -1,8 +1,8 @@
-import type Node from "../../types/javax/jcr/Node";
-import type CollaborationGroupWrapper from "../../types/senselogic/sitevision/api/collaboration/CollaborationGroupWrapper";
-import CollaborationGroupUtil from "../CollaborationGroupUtil";
-import CollaborationGroupFolderUtil from "../CollaborationGroupFolderUtil";
-import CollaborationGroupTemplateUtil from "../CollaborationGroupTemplateUtil";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { CollaborationGroupWrapper } from "../../types/senselogic/sitevision/api/collaboration/CollaborationGroupWrapper";
+import type { CollaborationGroupUtil } from "../CollaborationGroupUtil";
+import type { CollaborationGroupFolderUtil } from "../CollaborationGroupFolderUtil";
+import type { CollaborationGroupTemplateUtil } from "../CollaborationGroupTemplateUtil";
 
 /**
  * Factory for creating collaboration-related instances.
@@ -51,4 +51,4 @@ declare namespace CollaborationFactory {}
 
 declare var collaborationFactory: CollaborationFactory;
 
-export = collaborationFactory;
+export default collaborationFactory;

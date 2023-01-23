@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type SearchHitConstants = {
+export type SearchHitConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.search.SearchHit#TYPE_INTERNAL}.
    * @return {@link senselogic.sitevision.api.search.SearchHit#TYPE_INTERNAL}
@@ -21,5 +21,3 @@ type SearchHitConstants = {
    */
   getTYPE_EXTERNAL(): number;
 };
-
-export = SearchHitConstants;

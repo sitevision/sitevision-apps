@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Script utility for server-side invoke of the local Sitevision REST API.
@@ -217,4 +217,4 @@ declare namespace RestApi {}
 
 declare var restApi: RestApi;
 
-export = restApi;
+export default restApi;

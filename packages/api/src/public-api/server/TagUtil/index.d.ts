@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Tag utility interface for tree nodes.
@@ -129,4 +129,4 @@ declare namespace TagUtil {}
 
 declare var tagUtil: TagUtil;
 
-export = tagUtil;
+export default tagUtil;

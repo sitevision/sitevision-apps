@@ -1,4 +1,4 @@
-import type DynamicOperand from "../DynamicOperand";
+import type { DynamicOperand } from "../DynamicOperand";
 
 /**
  * Determines the relative order of two node-tuples by evaluating {@link
@@ -36,7 +36,7 @@ import type DynamicOperand from "../DynamicOperand";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type Ordering = {
+export type Ordering = {
   /**
    * The operand by which to order.
    * @return the operand; non-null
@@ -49,5 +49,3 @@ type Ordering = {
    */
   getOrder(): string;
 };
-
-export = Ordering;

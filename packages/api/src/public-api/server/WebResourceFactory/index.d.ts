@@ -1,9 +1,9 @@
-import ArticleUtil from "../ArticleUtil";
-import FileUtil from "../FileUtil";
-import ImageUtil from "../ImageUtil";
-import LinkPageUtil from "../LinkPageUtil";
-import LinkTargetBuilder from "../LinkTargetBuilder";
-import PageUtil from "../PageUtil";
+import type { ArticleUtil } from "../ArticleUtil";
+import type { FileUtil } from "../FileUtil";
+import type { ImageUtil } from "../ImageUtil";
+import type { LinkPageUtil } from "../LinkPageUtil";
+import type { LinkTargetBuilder } from "../LinkTargetBuilder";
+import type { PageUtil } from "../PageUtil";
 
 /**
  * Factory for creating instances of web resource utilities.
@@ -58,4 +58,4 @@ declare namespace WebResourceFactory {}
 
 declare var webResourceFactory: WebResourceFactory;
 
-export = webResourceFactory;
+export default webResourceFactory;

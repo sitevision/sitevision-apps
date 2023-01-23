@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type MathInstanceConstants = {
+export type MathInstanceConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.script.factory.MathInstance#E}.
    * @return {@link senselogic.sitevision.api.script.factory.MathInstance#E}
@@ -21,5 +21,3 @@ type MathInstanceConstants = {
    */
   getPI(): number;
 };
-
-export = MathInstanceConstants;

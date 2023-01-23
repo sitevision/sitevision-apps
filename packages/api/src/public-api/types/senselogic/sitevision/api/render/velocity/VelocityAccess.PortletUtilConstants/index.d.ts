@@ -8,12 +8,10 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type PortletUtilConstants = {
+export type PortletUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.resource.PortletUtil#PORTLET_PREFERENCES_TYPE_USER}.
    * @return {@link senselogic.sitevision.api.resource.PortletUtil#PORTLET_PREFERENCES_TYPE_USER}
    */
   getPORTLET_PREFERENCES_TYPE_USER(): number;
 };
-
-export = PortletUtilConstants;

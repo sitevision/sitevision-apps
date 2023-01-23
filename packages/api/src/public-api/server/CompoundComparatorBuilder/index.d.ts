@@ -1,4 +1,4 @@
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builds a compound comparator that allows comparison based on multiple comparators.
@@ -55,4 +55,4 @@ declare namespace CompoundComparatorBuilder {}
 
 declare var compoundComparatorBuilder: CompoundComparatorBuilder;
 
-export = compoundComparatorBuilder;
+export default compoundComparatorBuilder;

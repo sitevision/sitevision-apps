@@ -1,4 +1,4 @@
-import type JoinCondition from "../JoinCondition";
+import type { JoinCondition } from "../JoinCondition";
 
 /**
  * Tests whether the {@link #getDescendantSelectorName descendantSelector} node
@@ -14,7 +14,7 @@ import type JoinCondition from "../JoinCondition";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type DescendantNodeJoinCondition = JoinCondition & {
+export type DescendantNodeJoinCondition = JoinCondition & {
   /**
    * Gets the name of the descendant selector.
    * @return the selector name; non-null
@@ -27,5 +27,3 @@ type DescendantNodeJoinCondition = JoinCondition & {
    */
   getAncestorSelectorName(): string;
 };
-
-export = DescendantNodeJoinCondition;

@@ -178,4 +178,4 @@ declare namespace InstanceTypeUtil {}
 
 declare var instanceTypeUtil: InstanceTypeUtil;
 
-export = instanceTypeUtil;
+export default instanceTypeUtil;

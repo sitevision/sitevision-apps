@@ -1,14 +1,14 @@
-import type Value from "../Value";
+import type { Value } from "../Value";
 
-import type Binary from "../Binary";
-import type Node from "../Node";
+import type { Binary } from "../Binary";
+import type { Node } from "../Node";
 
 /**
  * The <code>ValueFactory</code> object provides methods for the creation Value
  * objects that can then be used to set properties.
  * @since Sitevision 3.0
  */
-type ValueFactory = {
+export type ValueFactory = {
   /**
    * Returns a <code>Value</code> object of {@link PropertyType#STRING} with
    * the specified <code>value</code>.
@@ -70,5 +70,3 @@ type ValueFactory = {
    */
   createValue(value: Node): Value;
 };
-
-export = ValueFactory;

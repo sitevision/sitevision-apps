@@ -1,5 +1,5 @@
-import type Value from "../Value";
-import type Credentials from "../Credentials";
+import type { Value } from "../Value";
+import type { Credentials } from "../Credentials";
 import { Session } from "../../../../server/Session";
 
 /**
@@ -7,7 +7,7 @@ import { Session } from "../../../../server/Session";
  * object is usually acquired through the {@link RepositoryFactory}.
   
     */
-type Repository = {
+export type Repository = {
   /**
    * Returns a string array holding all descriptor keys available for this
    * implementation, both the standard descriptors defined by the string
@@ -507,5 +507,3 @@ type Repository = {
    */
   QUERY_XPATH_DOC_ORDER: string;
 };
-
-export = Repository;

@@ -1,4 +1,4 @@
-import type VersionedPropertyUtil from "../../types/senselogic/sitevision/api/property/VersionedPropertyUtil";
+import type { VersionedPropertyUtil } from "../../types/senselogic/sitevision/api/property/VersionedPropertyUtil";
 
 /**
  * Utility interface for getting Node property values in the {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION ONLINE_VERSION}.
@@ -33,4 +33,4 @@ declare namespace OnlineVersionPropertyUtil {}
 
 declare var onlineVersionPropertyUtil: OnlineVersionPropertyUtil;
 
-export = onlineVersionPropertyUtil;
+export default onlineVersionPropertyUtil;

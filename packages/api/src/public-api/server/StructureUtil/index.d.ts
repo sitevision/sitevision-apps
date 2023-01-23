@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for alterations of the node structure.
@@ -96,4 +96,4 @@ declare namespace StructureUtil {}
 
 declare var structureUtil: StructureUtil;
 
-export = structureUtil;
+export default structureUtil;

@@ -1,4 +1,4 @@
-import type Resolver from "../../types/senselogic/sitevision/api/base/Resolver";
+import type { Resolver } from "../../types/senselogic/sitevision/api/base/Resolver";
 
 /**
  * Node resolver utility interface.
@@ -408,4 +408,4 @@ declare namespace NodeResolverUtil {}
 
 declare var nodeResolverUtil: NodeResolverUtil;
 
-export = nodeResolverUtil;
+export default nodeResolverUtil;

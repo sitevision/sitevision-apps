@@ -1,4 +1,4 @@
-import MailBuilder from "../MailBuilder";
+import type { MailBuilder } from "../MailBuilder";
 
 /**
  * Mail utility interface.
@@ -74,4 +74,4 @@ declare namespace MailUtil {}
 
 declare var mailUtil: MailUtil;
 
-export = mailUtil;
+export default mailUtil;

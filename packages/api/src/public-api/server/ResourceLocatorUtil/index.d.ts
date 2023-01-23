@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for locating resources.
@@ -446,4 +446,4 @@ declare namespace ResourceLocatorUtil {}
 
 declare var resourceLocatorUtil: ResourceLocatorUtil;
 
-export = resourceLocatorUtil;
+export default resourceLocatorUtil;

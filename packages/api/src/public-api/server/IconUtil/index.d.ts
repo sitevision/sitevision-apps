@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for Icons.
@@ -36,4 +36,4 @@ declare namespace IconUtil {}
 
 declare var iconUtil: IconUtil;
 
-export = iconUtil;
+export default iconUtil;

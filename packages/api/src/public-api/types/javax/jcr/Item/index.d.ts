@@ -1,14 +1,14 @@
-import type Node from "../Node";
+import type { Node } from "../Node";
 import { Session } from "../../../../server/Session";
 
-import type ItemVisitor from "../ItemVisitor";
+import type { ItemVisitor } from "../ItemVisitor";
 
 /**
  * The <code>Item</code> is the base interface of <code>{@link Node}</code> and
  * <code>{@link Property}</code>.
   
     */
-type Item = {
+export type Item = {
   /**
    * Returns the normalized absolute path to this item.
    * @return the normalized absolute path of this <code>Item</code>.
@@ -121,5 +121,3 @@ type Item = {
    */
   remove(): void;
 };
-
-export = Item;

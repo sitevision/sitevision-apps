@@ -1,5 +1,5 @@
-import type Value from "../../Value";
-import type PropertyDefinition from "../PropertyDefinition";
+import type { Value } from "../../Value";
+import type { PropertyDefinition } from "../PropertyDefinition";
 
 /**
  * The <code>PropertyDefinitionTemplate</code> interface extends
@@ -16,7 +16,7 @@ import type PropertyDefinition from "../PropertyDefinition";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type PropertyDefinitionTemplate = PropertyDefinition & {
+export type PropertyDefinitionTemplate = PropertyDefinition & {
   /**
    * Sets the name of the property. This must be a JCR name in either
    * qualified or expanded form.
@@ -92,5 +92,3 @@ type PropertyDefinitionTemplate = PropertyDefinition & {
    */
   setQueryOrderable(queryOrderable: boolean): void;
 };
-
-export = PropertyDefinitionTemplate;

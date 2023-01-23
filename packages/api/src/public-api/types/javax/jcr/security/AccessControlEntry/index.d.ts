@@ -1,4 +1,4 @@
-import type Privilege from "../Privilege";
+import type { Privilege } from "../Privilege";
 
 /**
  * An <code>AccessControlEntry</code> represents the association of one or more
@@ -7,7 +7,7 @@ import type Privilege from "../Privilege";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type AccessControlEntry = {
+export type AccessControlEntry = {
   /**
    * Returns the principal associated with this access control entry.
    * @return a <code>Principal</code>.
@@ -20,5 +20,3 @@ type AccessControlEntry = {
    */
   getPrivileges(): Privilege;
 };
-
-export = AccessControlEntry;

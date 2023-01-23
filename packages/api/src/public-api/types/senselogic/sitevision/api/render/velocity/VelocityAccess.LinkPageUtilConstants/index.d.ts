@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 4.2
  */
-type LinkPageUtilConstants = {
+export type LinkPageUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.webresource.LinkPageUtil#PROPERTY_VISIBLE_IN_MENUS}.
    * @return {@link senselogic.sitevision.api.webresource.LinkPageUtil#PROPERTY_VISIBLE_IN_MENUS}
@@ -63,5 +63,3 @@ type LinkPageUtilConstants = {
    */
   getPROPERTY_PUBLISH_DATE(): string;
 };
-
-export = LinkPageUtilConstants;

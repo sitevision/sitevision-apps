@@ -1,38 +1,38 @@
-import type Source from "../Source";
-import type Constraint from "../Constraint";
-import type Ordering from "../Ordering";
-import type Column from "../Column";
-import type QueryObjectModel from "../QueryObjectModel";
+import type { Source } from "../Source";
+import type { Constraint } from "../Constraint";
+import type { Ordering } from "../Ordering";
+import type { Column } from "../Column";
+import type { QueryObjectModel } from "../QueryObjectModel";
 
-import type Selector from "../Selector";
-import type JoinCondition from "../JoinCondition";
-import type Join from "../Join";
-import type EquiJoinCondition from "../EquiJoinCondition";
-import type SameNodeJoinCondition from "../SameNodeJoinCondition";
-import type ChildNodeJoinCondition from "../ChildNodeJoinCondition";
-import type DescendantNodeJoinCondition from "../DescendantNodeJoinCondition";
-import type And from "../And";
-import type Or from "../Or";
-import type Not from "../Not";
-import type DynamicOperand from "../DynamicOperand";
-import type StaticOperand from "../StaticOperand";
-import type Comparison from "../Comparison";
-import type PropertyExistence from "../PropertyExistence";
-import type FullTextSearch from "../FullTextSearch";
-import type SameNode from "../SameNode";
-import type ChildNode from "../ChildNode";
-import type DescendantNode from "../DescendantNode";
-import type PropertyValue from "../PropertyValue";
-import type Length from "../Length";
-import type NodeName from "../NodeName";
-import type NodeLocalName from "../NodeLocalName";
-import type FullTextSearchScore from "../FullTextSearchScore";
-import type LowerCase from "../LowerCase";
-import type UpperCase from "../UpperCase";
-import type BindVariableValue from "../BindVariableValue";
-import type Value from "../../../Value";
-import type Literal from "../Literal";
-import type QueryObjectModelConstants from "../QueryObjectModelConstants";
+import type { Selector } from "../Selector";
+import type { JoinCondition } from "../JoinCondition";
+import type { Join } from "../Join";
+import type { EquiJoinCondition } from "../EquiJoinCondition";
+import type { SameNodeJoinCondition } from "../SameNodeJoinCondition";
+import type { ChildNodeJoinCondition } from "../ChildNodeJoinCondition";
+import type { DescendantNodeJoinCondition } from "../DescendantNodeJoinCondition";
+import type { And } from "../And";
+import type { Or } from "../Or";
+import type { Not } from "../Not";
+import type { DynamicOperand } from "../DynamicOperand";
+import type { StaticOperand } from "../StaticOperand";
+import type { Comparison } from "../Comparison";
+import type { PropertyExistence } from "../PropertyExistence";
+import type { FullTextSearch } from "../FullTextSearch";
+import type { SameNode } from "../SameNode";
+import type { ChildNode } from "../ChildNode";
+import type { DescendantNode } from "../DescendantNode";
+import type { PropertyValue } from "../PropertyValue";
+import type { Length } from "../Length";
+import type { NodeName } from "../NodeName";
+import type { NodeLocalName } from "../NodeLocalName";
+import type { FullTextSearchScore } from "../FullTextSearchScore";
+import type { LowerCase } from "../LowerCase";
+import type { UpperCase } from "../UpperCase";
+import type { BindVariableValue } from "../BindVariableValue";
+import type { Value } from "../../../Value";
+import type { Literal } from "../Literal";
+import type { QueryObjectModelConstants } from "../QueryObjectModelConstants";
 
 /**
  * A <code>QueryObjectModelFactory</code> creates instances of the JCR query
@@ -44,7 +44,7 @@ import type QueryObjectModelConstants from "../QueryObjectModelConstants";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type QueryObjectModelFactory = QueryObjectModelConstants & {
+export type QueryObjectModelFactory = QueryObjectModelConstants & {
   /**
    * Creates a query with one or more selectors.
    * @param source the node-tuple source; non-null
@@ -500,5 +500,3 @@ type QueryObjectModelFactory = QueryObjectModelConstants & {
     columnName: string
   ): Column;
 };
-
-export = QueryObjectModelFactory;

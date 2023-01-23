@@ -1,8 +1,8 @@
-import type Node from "../../types/javax/jcr/Node";
-import type Property from "../../types/javax/jcr/Property";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { Property } from "../../types/javax/jcr/Property";
 
-import LinkValueBuilder from "../LinkValueBuilder";
-import RelatedValueBuilder from "../RelatedValueBuilder";
+import type { LinkValueBuilder } from "../LinkValueBuilder";
+import type { RelatedValueBuilder } from "../RelatedValueBuilder";
 
 /**
  * <p>
@@ -346,4 +346,4 @@ declare namespace MetadataUtil {}
 
 declare var metadataUtil: MetadataUtil;
 
-export = metadataUtil;
+export default metadataUtil;

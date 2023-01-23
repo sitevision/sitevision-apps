@@ -1,4 +1,4 @@
-import type MessageDigester from "../../types/senselogic/sitevision/api/security/MessageDigester";
+import type { MessageDigester } from "../../types/senselogic/sitevision/api/security/MessageDigester";
 
 /**
  * Factory that provides message digester instances that can perform
@@ -48,4 +48,4 @@ declare namespace MessageDigesterFactory {}
 
 declare var messageDigesterFactory: MessageDigesterFactory;
 
-export = messageDigesterFactory;
+export default messageDigesterFactory;

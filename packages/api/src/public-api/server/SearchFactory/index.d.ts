@@ -1,16 +1,16 @@
-import ExtendedDismaxParserBuilder from "../ExtendedDismaxParserBuilder";
-import FilterBuilder from "../FilterBuilder";
-import HighlightBuilder from "../HighlightBuilder";
-import IndexUtil from "../IndexUtil";
-import IndexingUtil from "../IndexingUtil";
-import SearcherBuilder from "../SearcherBuilder";
-import SortBuilder from "../SortBuilder";
+import type { ExtendedDismaxParserBuilder } from "../ExtendedDismaxParserBuilder";
+import type { FilterBuilder } from "../FilterBuilder";
+import type { HighlightBuilder } from "../HighlightBuilder";
+import type { IndexUtil } from "../IndexUtil";
+import type { IndexingUtil } from "../IndexingUtil";
+import type { SearcherBuilder } from "../SearcherBuilder";
+import type { SortBuilder } from "../SortBuilder";
 
-import SearchUtil from "../SearchUtil";
-import SpellCheckBuilder from "../SpellCheckBuilder";
-import StandardParserBuilder from "../StandardParserBuilder";
-import QueryStringUtil from "../QueryStringUtil";
-import MonitorBuilder from "../MonitorBuilder";
+import type { SearchUtil } from "../SearchUtil";
+import type { SpellCheckBuilder } from "../SpellCheckBuilder";
+import type { StandardParserBuilder } from "../StandardParserBuilder";
+import type { QueryStringUtil } from "../QueryStringUtil";
+import type { MonitorBuilder } from "../MonitorBuilder";
 
 /**
  * Factory for creating search-related instances.
@@ -113,4 +113,4 @@ declare namespace SearchFactory {}
 
 declare var searchFactory: SearchFactory;
 
-export = searchFactory;
+export default searchFactory;

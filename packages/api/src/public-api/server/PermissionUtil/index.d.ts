@@ -1,5 +1,5 @@
-import type Node from "../../types/javax/jcr/Node";
-import Permission from "../PermissionUtil.Permission";
+import type { Node } from "../../types/javax/jcr/Node";
+import type Permission from "../PermissionUtil.Permission";
 
 /**
  * Permissions utilities interface for checking permissions.
@@ -419,4 +419,4 @@ declare namespace PermissionUtil {}
 
 declare var permissionUtil: PermissionUtil;
 
-export = permissionUtil;
+export default permissionUtil;

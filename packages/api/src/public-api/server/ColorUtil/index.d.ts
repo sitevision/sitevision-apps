@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for Colors.
@@ -45,4 +45,4 @@ declare namespace ColorUtil {}
 
 declare var colorUtil: ColorUtil;
 
-export = colorUtil;
+export default colorUtil;

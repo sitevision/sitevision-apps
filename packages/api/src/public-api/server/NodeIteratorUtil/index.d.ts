@@ -1,9 +1,9 @@
-import type NodeIterator from "../../types/javax/jcr/NodeIterator";
-import type Filter from "../../types/senselogic/sitevision/api/base/Filter";
+import type { NodeIterator } from "../../types/javax/jcr/NodeIterator";
+import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
 
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type FilterSplit from "../../types/senselogic/sitevision/api/base/FilterSplit";
+import type { FilterSplit } from "../../types/senselogic/sitevision/api/base/FilterSplit";
 
 /**
  * Node iterator utility interface.
@@ -231,4 +231,4 @@ declare namespace NodeIteratorUtil {}
 
 declare var nodeIteratorUtil: NodeIteratorUtil;
 
-export = nodeIteratorUtil;
+export default nodeIteratorUtil;

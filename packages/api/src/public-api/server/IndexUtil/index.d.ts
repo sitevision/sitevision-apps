@@ -1,5 +1,5 @@
-import IndexType from "../IndexUtil.IndexType";
-import type Node from "../../types/javax/jcr/Node";
+import type IndexType from "../IndexUtil.IndexType";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Index utility interface.
@@ -51,4 +51,4 @@ declare namespace IndexUtil {}
 
 declare var indexUtil: IndexUtil;
 
-export = indexUtil;
+export default indexUtil;

@@ -1,5 +1,5 @@
-import type SpellCheck from "../../types/senselogic/sitevision/api/search/searcher/component/SpellCheck";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { SpellCheck } from "../../types/senselogic/sitevision/api/search/searcher/component/SpellCheck";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -57,4 +57,4 @@ declare namespace SpellCheckBuilder {}
 
 declare var spellCheckBuilder: SpellCheckBuilder;
 
-export = spellCheckBuilder;
+export default spellCheckBuilder;

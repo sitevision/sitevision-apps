@@ -4,7 +4,7 @@
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-type Event = {
+export type Event = {
   /**
    * Returns the type of this event: a constant defined by this interface. One
    * of: <ul> <li><code>NODE_ADDED</code></li> <li><code>NODE_REMOVED</code></li>
@@ -153,5 +153,3 @@ type Event = {
    */
   PERSIST: number;
 };
-
-export = Event;

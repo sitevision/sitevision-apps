@@ -1,4 +1,4 @@
-import type Node from "../../../../../javax/jcr/Node";
+import type { Node } from "../../../../../javax/jcr/Node";
 
 /**
  * Role assignment representation that can be applied on a node to update its roles setup.
@@ -16,7 +16,7 @@ import type Node from "../../../../../javax/jcr/Node";
  * @author Magnus Lövgren
  * @since Sitevision 5.1
  */
-type RoleAssignment = {
+export type RoleAssignment = {
   /**
    * Applies this role assignment on a given node.
    * @param aNode the node of the role assignment operation, typically a sv:page
@@ -59,5 +59,3 @@ type RoleAssignment = {
    */
   revoke(aNode: Node): void;
 };
-
-export = RoleAssignment;

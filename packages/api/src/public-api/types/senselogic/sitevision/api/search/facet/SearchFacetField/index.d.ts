@@ -4,7 +4,7 @@
  * @since Sitevision 3.0
  * @see senselogic.sitevision.api.search.SearchResult#getFacetFields()
  */
-type SearchFacetField = {
+export type SearchFacetField = {
   /**
    * Returns the name of this facet field.
    * @return the facet field name
@@ -23,5 +23,3 @@ type SearchFacetField = {
    */
   getValueCount(): number;
 };
-
-export = SearchFacetField;

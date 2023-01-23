@@ -1,7 +1,7 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import LinkRenderer from "../LinkRenderer";
-import type OutputUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.OutputUtilConstants";
+import type { LinkRenderer } from "../LinkRenderer";
+import type { OutputUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.OutputUtilConstants";
 
 /**
  * Output utility interface with methods that return complete content snippets.
@@ -403,4 +403,4 @@ declare namespace OutputUtil {}
 
 declare var outputUtil: OutputUtil;
 
-export = outputUtil;
+export default outputUtil;

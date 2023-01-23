@@ -1,5 +1,5 @@
-import type PropertyDefinition from "../PropertyDefinition";
-import type NodeDefinition from "../NodeDefinition";
+import type { PropertyDefinition } from "../PropertyDefinition";
+import type { NodeDefinition } from "../NodeDefinition";
 
 /**
  * The <code>NodeTypeDefinition</code> interface provides methods for
@@ -14,7 +14,7 @@ import type NodeDefinition from "../NodeDefinition";
  * implementing the subinterface <code>NodeType</code> will be encountered.
  * @since JCR 2.0
  */
-type NodeTypeDefinition = {
+export type NodeTypeDefinition = {
   /**
    * Returns the name of the node type.
    * <p>
@@ -57,5 +57,3 @@ type NodeTypeDefinition = {
    */
   isMixin(): boolean;
 };
-
-export = NodeTypeDefinition;

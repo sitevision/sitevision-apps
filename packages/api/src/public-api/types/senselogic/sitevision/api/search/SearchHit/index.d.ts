@@ -1,6 +1,6 @@
-import type Node from "../../../../../javax/jcr/Node";
+import type { Node } from "../../../../../javax/jcr/Node";
 
-import { SearchHitConstants } from "../../render/velocity/VelocityAccess.SearchHitConstants";
+import type { SearchHitConstants } from "../../render/velocity/VelocityAccess.SearchHitConstants";
 
 /**
  * <p>
@@ -23,7 +23,7 @@ import { SearchHitConstants } from "../../render/velocity/VelocityAccess.SearchH
  * @author Mikael Wikblom
  * @since Sitevision 2.6_06
  */
-type SearchHit = SearchHitConstants & {
+export type SearchHit = SearchHitConstants & {
   /**
    * <p>Checks if the value(-s) for a specified field contains a specific value.</p>
    *
@@ -789,5 +789,3 @@ type SearchHit = SearchHitConstants & {
     */
   TYPE_EXTERNAL: number;
 };
-
-export = SearchHit;

@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * System user utility interface.
@@ -165,4 +165,4 @@ declare namespace SystemUserUtil {}
 
 declare var systemUserUtil: SystemUserUtil;
 
-export = systemUserUtil;
+export default systemUserUtil;

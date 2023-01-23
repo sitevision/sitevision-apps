@@ -3,7 +3,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 4.0
  */
-type Loadable = {
+export type Loadable = {
   /**
    * Loads a resource that is identified with a specific name.
    * @param aName the name of the resource
@@ -11,5 +11,3 @@ type Loadable = {
    */
   load(aName: string): unknown;
 };
-
-export = Loadable;

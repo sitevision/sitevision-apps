@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type NodeTypeUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.NodeTypeUtilConstants";
+import type { NodeTypeUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.NodeTypeUtilConstants";
 
 /**
  * Node type utility interface.
@@ -1473,4 +1473,4 @@ declare namespace NodeTypeUtil {}
 
 declare var nodeTypeUtil: NodeTypeUtil;
 
-export = nodeTypeUtil;
+export default nodeTypeUtil;

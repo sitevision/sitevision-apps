@@ -130,4 +130,4 @@ declare namespace LogUtil {}
 
 declare var logUtil: LogUtil;
 
-export = logUtil;
+export default logUtil;

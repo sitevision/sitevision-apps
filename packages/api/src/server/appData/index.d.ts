@@ -1,11 +1,13 @@
 import type { Node } from '../../types/javax/jcr/Node';
 
-export function get(key: string): unknown;
-export function getNode(key: string): Node;
-export function getArray(key: string): Node[];
-
-declare namespace appData {
-  export { get, getNode, getArray };
+export interface AppData {
+  get(key: string): unknown;
+  getNode(key: string): Node;
+  getArray(key: string): Node[];
 }
+
+declare namespace AppData {}
+
+declare var appData: AppData;
 
 export default appData;

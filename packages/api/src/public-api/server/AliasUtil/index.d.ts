@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Alias utility interface.
@@ -24,4 +24,4 @@ declare namespace AliasUtil {}
 
 declare var aliasUtil: AliasUtil;
 
-export = aliasUtil;
+export default aliasUtil;

@@ -24,8 +24,6 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-type Highlight = {
+export type Highlight = {
   undefined;
 };
-
-export = Highlight;

@@ -1,8 +1,8 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type LinkTarget from "../../types/senselogic/sitevision/api/webresource/LinkTarget";
+import type { LinkTarget } from "../../types/senselogic/sitevision/api/webresource/LinkTarget";
 
-import type LinkPageUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.LinkPageUtilConstants";
+import type { LinkPageUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.LinkPageUtilConstants";
 
 /**
  * Link page utility interface that handles nodes in the page tree with primary node type <code>sv:link</code>.
@@ -342,4 +342,4 @@ declare namespace LinkPageUtil {}
 
 declare var linkPageUtil: LinkPageUtil;
 
-export = linkPageUtil;
+export default linkPageUtil;

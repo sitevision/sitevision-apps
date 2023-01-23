@@ -417,4 +417,4 @@ declare namespace QueryStringUtil {}
 
 declare var queryStringUtil: QueryStringUtil;
 
-export = queryStringUtil;
+export default queryStringUtil;

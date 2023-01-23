@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Collaboration group folder utility interface that handles nodes with primary node type <code>sv:collaborationGroupFolder</code>.
@@ -41,4 +41,4 @@ declare namespace CollaborationGroupFolderUtil {}
 
 declare var collaborationGroupFolderUtil: CollaborationGroupFolderUtil;
 
-export = collaborationGroupFolderUtil;
+export default collaborationGroupFolderUtil;

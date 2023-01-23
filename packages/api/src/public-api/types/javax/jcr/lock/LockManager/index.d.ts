@@ -1,4 +1,4 @@
-import type Lock from "../Lock";
+import type { Lock } from "../Lock";
 
 /**
  * This interface encapsulates methods for the management of locks.
@@ -7,7 +7,7 @@ import type Lock from "../Lock";
  * @since Sitevision 3.5
  * @since JCR 2.0
  */
-type LockManager = {
+export type LockManager = {
   /**
    * Adds the specified lock token to the current <code>Session</code>.
    * Holding a lock token makes the current <code>Session</code> the owner of
@@ -153,5 +153,3 @@ type LockManager = {
    */
   unlock(absPath: string): void;
 };
-
-export = LockManager;

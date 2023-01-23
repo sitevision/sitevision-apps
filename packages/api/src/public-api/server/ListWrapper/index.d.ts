@@ -1,4 +1,4 @@
-import type Wrapper from "../../types/senselogic/sitevision/api/base/Wrapper";
+import type { Wrapper } from "../../types/senselogic/sitevision/api/base/Wrapper";
 
 /**
  * An convenience <code>java.util.List</code> wrapper that delegates method calls to the wrapped list.
@@ -150,4 +150,4 @@ declare namespace ListWrapper {}
 
 declare var listWrapper: ListWrapper;
 
-export = listWrapper;
+export default listWrapper;

@@ -1,8 +1,8 @@
-import RoleAssignmentBuilder from "../RoleAssignmentBuilder";
-import RoleMatcherBuilder from "../RoleMatcherBuilder";
+import type { RoleAssignmentBuilder } from "../RoleAssignmentBuilder";
+import type { RoleMatcherBuilder } from "../RoleMatcherBuilder";
 
-import type Node from "../../types/javax/jcr/Node";
-import Permission from "../PermissionUtil.Permission";
+import type { Node } from "../../types/javax/jcr/Node";
+import type Permission from "../PermissionUtil.Permission";
 
 /**
  * Role utility interface.
@@ -49,4 +49,4 @@ declare namespace RoleUtil {}
 
 declare var roleUtil: RoleUtil;
 
-export = roleUtil;
+export default roleUtil;

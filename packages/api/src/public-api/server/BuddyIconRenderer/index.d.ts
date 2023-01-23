@@ -1,7 +1,7 @@
-import BuddyIconSize from "../BuddyIconRenderer.BuddyIconSize";
+import type BuddyIconSize from "../BuddyIconRenderer.BuddyIconSize";
 
-import type Node from "../../types/javax/jcr/Node";
-import type BuddyIconInfo from "../../types/senselogic/sitevision/api/render/BuddyIconRenderer.BuddyIconInfo";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { BuddyIconInfo } from "../../types/senselogic/sitevision/api/render/BuddyIconRenderer.BuddyIconInfo";
 
 /**
  * BuddyIconRenderer is a stateful utility interface for rendering of buddy icons for user identities and collaboration groups.
@@ -189,4 +189,4 @@ declare namespace BuddyIconRenderer {}
 
 declare var buddyIconRenderer: BuddyIconRenderer;
 
-export = buddyIconRenderer;
+export default buddyIconRenderer;

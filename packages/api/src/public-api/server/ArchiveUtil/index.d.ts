@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Archive utility interface that handles nodes with primary node type <code>sv:archive</code>.
@@ -55,4 +55,4 @@ declare namespace ArchiveUtil {}
 
 declare var archiveUtil: ArchiveUtil;
 
-export = archiveUtil;
+export default archiveUtil;

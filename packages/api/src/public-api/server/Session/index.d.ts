@@ -1,15 +1,15 @@
-import type Repository from "../../types/javax/jcr/Repository";
+import type { Repository } from "../../types/javax/jcr/Repository";
 
-import type Workspace from "../../types/javax/jcr/Workspace";
-import type Node from "../../types/javax/jcr/Node";
-import type Credentials from "../../types/javax/jcr/Credentials";
-import type Item from "../../types/javax/jcr/Item";
-import type Property from "../../types/javax/jcr/Property";
+import type { Workspace } from "../../types/javax/jcr/Workspace";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { Credentials } from "../../types/javax/jcr/Credentials";
+import type { Item } from "../../types/javax/jcr/Item";
+import type { Property } from "../../types/javax/jcr/Property";
 
-import type ValueFactory from "../../types/javax/jcr/ValueFactory";
+import type { ValueFactory } from "../../types/javax/jcr/ValueFactory";
 
-import type AccessControlManager from "../../types/javax/jcr/security/AccessControlManager";
-import type RetentionManager from "../../types/javax/jcr/retention/RetentionManager";
+import type { AccessControlManager } from "../../types/javax/jcr/security/AccessControlManager";
+import type { RetentionManager } from "../../types/javax/jcr/retention/RetentionManager";
 
 /**
  * The <code>Session</code> object provides read and (in level 2) write access
@@ -305,4 +305,4 @@ declare namespace Session {}
 
 declare var session: Session;
 
-export = session;
+export default session;

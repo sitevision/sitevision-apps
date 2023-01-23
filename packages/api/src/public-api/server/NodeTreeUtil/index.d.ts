@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type Filter from "../../types/senselogic/sitevision/api/base/Filter";
+import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
 
 /**
  * Node tree utility interface.
@@ -228,4 +228,4 @@ declare namespace NodeTreeUtil {}
 
 declare var nodeTreeUtil: NodeTreeUtil;
 
-export = nodeTreeUtil;
+export default nodeTreeUtil;

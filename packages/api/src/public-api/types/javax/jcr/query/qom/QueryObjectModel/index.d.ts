@@ -1,8 +1,8 @@
-import type Source from "../Source";
-import type Constraint from "../Constraint";
-import type Ordering from "../Ordering";
-import type Column from "../Column";
-import type Query from "../../Query";
+import type { Source } from "../Source";
+import type { Constraint } from "../Constraint";
+import type { Ordering } from "../Ordering";
+import type { Column } from "../Column";
+import type { Query } from "../../Query";
 
 /**
  * A query in the JCR query object model.
@@ -36,7 +36,7 @@ import type Query from "../../Query";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type QueryObjectModel = Query & {
+export type QueryObjectModel = Query & {
   /**
    * Gets the node-tuple source for this query.
    * @return the node-tuple source; non-null
@@ -61,5 +61,3 @@ type QueryObjectModel = Query & {
    */
   getColumns(): Column;
 };
-
-export = QueryObjectModel;

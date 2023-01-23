@@ -1,6 +1,6 @@
-import type XmlElementHandler from "../../types/senselogic/sitevision/api/xml/XmlElementHandler";
+import type { XmlElementHandler } from "../../types/senselogic/sitevision/api/xml/XmlElementHandler";
 
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for parsing XML.
@@ -118,4 +118,4 @@ declare namespace XmlParserUtil {}
 
 declare var xmlParserUtil: XmlParserUtil;
 
-export = xmlParserUtil;
+export default xmlParserUtil;

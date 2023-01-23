@@ -1,4 +1,4 @@
-import type MathInstanceConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.MathInstanceConstants";
+import type { MathInstanceConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.MathInstanceConstants";
 
 /**
  * Instance wrapper for the <code>java.lang.Math</code> class that delegates all method calls to
@@ -639,4 +639,4 @@ declare namespace MathInstance {}
 
 declare var mathInstance: MathInstance;
 
-export = mathInstance;
+export default mathInstance;

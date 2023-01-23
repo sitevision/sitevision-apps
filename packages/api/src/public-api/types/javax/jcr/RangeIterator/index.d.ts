@@ -5,6 +5,4 @@
  * packages.
   
     */
-type RangeIterator = {};
-
-export = RangeIterator;
+export type RangeIterator = {};

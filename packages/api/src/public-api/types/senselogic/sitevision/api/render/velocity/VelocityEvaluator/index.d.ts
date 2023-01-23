@@ -10,7 +10,7 @@
  * @since Sitevision 2.7_06
  * @since Sitevision 3.0
  */
-type VelocityEvaluator = {
+export type VelocityEvaluator = {
   /**
    * Renders a template that is parsed/evaluated by Velocity.
    *
@@ -51,5 +51,3 @@ type VelocityEvaluator = {
    */
   evaluate(aTemplate: string): void;
 };
-
-export = VelocityEvaluator;

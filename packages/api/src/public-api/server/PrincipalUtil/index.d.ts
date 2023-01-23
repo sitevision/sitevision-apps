@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * <p>Principal utility interface.</p>
@@ -45,4 +45,4 @@ declare namespace PrincipalUtil {}
 
 declare var principalUtil: PrincipalUtil;
 
-export = principalUtil;
+export default principalUtil;

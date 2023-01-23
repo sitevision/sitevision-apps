@@ -1,4 +1,4 @@
-import type VelocityContext from "../../types/senselogic/sitevision/api/render/velocity/VelocityContext";
+import type { VelocityContext } from "../../types/senselogic/sitevision/api/render/velocity/VelocityContext";
 
 /**
  * A renderer that can be used in custom portlets for rendering Velocity templates.
@@ -199,4 +199,4 @@ declare namespace VelocityRenderer {}
 
 declare var velocityRenderer: VelocityRenderer;
 
-export = velocityRenderer;
+export default velocityRenderer;

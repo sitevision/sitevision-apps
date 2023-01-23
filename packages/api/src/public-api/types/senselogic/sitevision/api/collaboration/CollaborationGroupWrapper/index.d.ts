@@ -1,10 +1,10 @@
-import type Node from "../../../../../javax/jcr/Node";
+import type { Node } from "../../../../../javax/jcr/Node";
 
 import { CollaborationGroupType } from "../../../../../../server/CollaborationGroupType";
 
 import { CollaborationGroupState } from "../../../../../../server/CollaborationGroupState";
 
-import type Wrapper from "../../base/Wrapper";
+import type { Wrapper } from "../../base/Wrapper";
 
 /**
  * Collaboration group administration interface.
@@ -22,7 +22,7 @@ import type Wrapper from "../../base/Wrapper";
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-type CollaborationGroupWrapper = Wrapper & {
+export type CollaborationGroupWrapper = Wrapper & {
   /**
    * Gets the admins of the wrapped collaboration group.
    * @return the admins of the wrapped collaboration group. Never null.
@@ -295,5 +295,3 @@ type CollaborationGroupWrapper = Wrapper & {
    */
   getCollaborationGroup(): Node;
 };
-
-export = CollaborationGroupWrapper;

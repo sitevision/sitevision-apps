@@ -1,5 +1,5 @@
-import type RestAppInvoker from "../../types/senselogic/sitevision/api/script/app/RestAppInvoker";
-import type Node from "../../types/javax/jcr/Node";
+import type { RestAppInvoker } from "../../types/senselogic/sitevision/api/script/app/RestAppInvoker";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Creates RestAppInvoker instances.
@@ -72,4 +72,4 @@ declare namespace RestAppInvokerFactory {}
 
 declare var restAppInvokerFactory: RestAppInvokerFactory;
 
-export = restAppInvokerFactory;
+export default restAppInvokerFactory;

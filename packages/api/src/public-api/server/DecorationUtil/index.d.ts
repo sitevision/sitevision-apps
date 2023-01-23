@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for Decorations.
@@ -22,4 +22,4 @@ declare namespace DecorationUtil {}
 
 declare var decorationUtil: DecorationUtil;
 
-export = decorationUtil;
+export default decorationUtil;

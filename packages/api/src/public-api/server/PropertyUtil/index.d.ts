@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type Binary from "../../types/javax/jcr/Binary";
+import type { Binary } from "../../types/javax/jcr/Binary";
 
 /**
  * Utility interface for getting Node property values.
@@ -1532,4 +1532,4 @@ declare namespace PropertyUtil {}
 
 declare var propertyUtil: PropertyUtil;
 
-export = propertyUtil;
+export default propertyUtil;

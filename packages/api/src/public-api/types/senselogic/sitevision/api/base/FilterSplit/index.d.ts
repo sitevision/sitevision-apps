@@ -1,4 +1,4 @@
-import type Filter from "../Filter";
+import type { Filter } from "../Filter";
 
 /**
  * This is the base interface for all filter splits in the Sitevision Utility API.
@@ -19,7 +19,7 @@ import type Filter from "../Filter";
  * @author Magnus Lövgren
  * @since Sitevision 3.6.3
  */
-type FilterSplit = {
+export type FilterSplit = {
   /**
    * Gets the list of items that was accepted by the filter.
    *
@@ -42,5 +42,3 @@ type FilterSplit = {
    */
   getFilter(): Filter;
 };
-
-export = FilterSplit;

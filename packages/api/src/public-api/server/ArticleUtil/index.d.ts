@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type ArticleUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.ArticleUtilConstants";
+import type { ArticleUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.ArticleUtilConstants";
 
 /**
  * Article utility interface that handles nodes with primary node type <code>sv:article</code>.
@@ -324,4 +324,4 @@ declare namespace ArticleUtil {}
 
 declare var articleUtil: ArticleUtil;
 
-export = articleUtil;
+export default articleUtil;

@@ -4,7 +4,7 @@
  * @see senselogic.sitevision.api.xml.XmlElementHandler
  * @since Sitevision 5.1
  */
-type XmlElement = {
+export type XmlElement = {
   /**
    * Gets the name of the element
    * @return the element name
@@ -51,5 +51,3 @@ type XmlElement = {
    */
   getElements(): unknown;
 };
-
-export = XmlElement;

@@ -1,4 +1,4 @@
-import type SearchResult from "../../types/senselogic/sitevision/api/search/SearchResult";
+import type { SearchResult } from "../../types/senselogic/sitevision/api/search/SearchResult";
 
 /**
  * <p>
@@ -128,4 +128,4 @@ declare namespace SearchUtil {}
 
 declare var searchUtil: SearchUtil;
 
-export = searchUtil;
+export default searchUtil;

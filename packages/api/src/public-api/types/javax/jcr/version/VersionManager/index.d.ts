@@ -1,8 +1,8 @@
-import type Version from "../Version";
+import type { Version } from "../Version";
 
-import type VersionHistory from "../VersionHistory";
-import type NodeIterator from "../../NodeIterator";
-import type Node from "../../Node";
+import type { VersionHistory } from "../VersionHistory";
+import type { NodeIterator } from "../../NodeIterator";
+import type { Node } from "../../Node";
 
 /**
  * The <code>VersionManager</code> object is accessed via {@link
@@ -16,7 +16,7 @@ import type Node from "../../Node";
  * @since Sitevision 3.5
  * @since JCR 2.0
  */
-type VersionManager = {
+export type VersionManager = {
   /**
    * Creates for the versionable node at <code>absPath</code> a new version
    * with a system generated version name and returns that version (which will
@@ -678,5 +678,3 @@ type VersionManager = {
    */
   merge(activityNode: Node): NodeIterator;
 };
-
-export = VersionManager;

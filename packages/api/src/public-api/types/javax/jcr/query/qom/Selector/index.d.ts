@@ -1,4 +1,4 @@
-import type Source from "../Source";
+import type { Source } from "../Source";
 
 /**
  * Selects a subset of the nodes in the repository based on node type.
@@ -14,7 +14,7 @@ import type Source from "../Source";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type Selector = Source & {
+export type Selector = Source & {
   /**
    * Gets the name of the required node type.
    * @return the node type name; non-null
@@ -30,5 +30,3 @@ type Selector = Source & {
    */
   getSelectorName(): string;
 };
-
-export = Selector;

@@ -61,4 +61,4 @@ declare namespace XSLTUtil {}
 
 declare var xSLTUtil: XSLTUtil;
 
-export = xSLTUtil;
+export default xSLTUtil;

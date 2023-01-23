@@ -1,10 +1,10 @@
-import type NodeType from "../NodeType";
+import type { NodeType } from "../NodeType";
 
 /**
  * Superclass of {@link NodeDefinition} and {@link PropertyDefinition}.
   
     */
-type ItemDefinition = {
+export type ItemDefinition = {
   /**
    * Reports whether the child item is protected. In level 2 implementations,
    * a protected item is one that cannot be removed (except by removing its
@@ -25,5 +25,3 @@ type ItemDefinition = {
    */
   isProtected(): boolean;
 };
-
-export = ItemDefinition;

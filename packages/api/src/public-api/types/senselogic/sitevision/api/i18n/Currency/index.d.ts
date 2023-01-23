@@ -11,7 +11,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 6.1
  */
-type Currency = {
+export type Currency = {
   /**
    * Gets the ISO 4217 currency code of this currency.
    *
@@ -75,5 +75,3 @@ type Currency = {
    */
   getSymbol(aLocale: unknown): string;
 };
-
-export = Currency;

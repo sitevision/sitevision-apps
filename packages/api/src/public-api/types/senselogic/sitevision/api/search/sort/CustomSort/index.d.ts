@@ -5,7 +5,7 @@
  * @see senselogic.sitevision.api.search.SearchResult#getCustomSorts()
  * @since Sitevision 3.1
  */
-type CustomSort = {
+export type CustomSort = {
   /**
    * Gets the name of this custom sort.
    * @return the sort name
@@ -63,5 +63,3 @@ type CustomSort = {
    */
   getSortQueryParams(): string;
 };
-
-export = CustomSort;

@@ -1,12 +1,12 @@
-import type Filter from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
-import type Highlight from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
-import type Node from "../../types/javax/jcr/Node";
-import type Parser from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
-import type Sort from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
-import type SpellCheck from "../../types/senselogic/sitevision/api/search/searcher/component/SpellCheck";
-import type Monitor from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
-import type Searcher from "../../types/senselogic/sitevision/api/search/searcher/Searcher";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Filter } from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
+import type { Highlight } from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { Parser } from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
+import type { Sort } from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
+import type { SpellCheck } from "../../types/senselogic/sitevision/api/search/searcher/component/SpellCheck";
+import type { Monitor } from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
+import type { Searcher } from "../../types/senselogic/sitevision/api/search/searcher/Searcher";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -212,4 +212,4 @@ declare namespace SearcherBuilder {}
 
 declare var searcherBuilder: SearcherBuilder;
 
-export = searcherBuilder;
+export default searcherBuilder;

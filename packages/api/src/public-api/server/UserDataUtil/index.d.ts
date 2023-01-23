@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * User data utility interface.
@@ -139,4 +139,4 @@ declare namespace UserDataUtil {}
 
 declare var userDataUtil: UserDataUtil;
 
-export = userDataUtil;
+export default userDataUtil;

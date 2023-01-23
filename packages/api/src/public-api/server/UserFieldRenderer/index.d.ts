@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * UserFieldRenderer is a stateful utility interface for rendering user field values for user identities.
@@ -183,4 +183,4 @@ declare namespace UserFieldRenderer {}
 
 declare var userFieldRenderer: UserFieldRenderer;
 
-export = userFieldRenderer;
+export default userFieldRenderer;

@@ -1,5 +1,5 @@
-import type Node from "../../types/javax/jcr/Node";
-import DocType from "../DocType";
+import type { Node } from "../../types/javax/jcr/Node";
+import type DocType from "../DocType";
 
 /**
  * A utility interface for checking what DOCTYPE a page uses.
@@ -139,4 +139,4 @@ declare namespace DocTypeUtil {}
 
 declare var docTypeUtil: DocTypeUtil;
 
-export = docTypeUtil;
+export default docTypeUtil;

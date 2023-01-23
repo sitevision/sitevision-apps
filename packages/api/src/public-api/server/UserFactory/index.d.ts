@@ -1,10 +1,10 @@
-import UserIdentityUtil from "../UserIdentityUtil";
-import type Node from "../../types/javax/jcr/Node";
-import type UserIdentityWrapper from "../../types/senselogic/sitevision/api/user/UserIdentityWrapper";
-import SystemUserUtil from "../SystemUserUtil";
-import UserUtil from "../UserUtil";
-import SimpleUserUtil from "../SimpleUserUtil";
-import UserDataUtil from "../UserDataUtil";
+import type { UserIdentityUtil } from "../UserIdentityUtil";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { UserIdentityWrapper } from "../../types/senselogic/sitevision/api/user/UserIdentityWrapper";
+import type { SystemUserUtil } from "../SystemUserUtil";
+import type { UserUtil } from "../UserUtil";
+import type { SimpleUserUtil } from "../SimpleUserUtil";
+import type { UserDataUtil } from "../UserDataUtil";
 
 /**
  * Factory for creating user-related instances.
@@ -63,4 +63,4 @@ declare namespace UserFactory {}
 
 declare var userFactory: UserFactory;
 
-export = userFactory;
+export default userFactory;

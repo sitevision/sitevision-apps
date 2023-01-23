@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Folder utility interface that handles nodes with primary node type <code>sv:folder</code>.
@@ -109,4 +109,4 @@ declare namespace FolderUtil {}
 
 declare var folderUtil: FolderUtil;
 
-export = folderUtil;
+export default folderUtil;

@@ -1,5 +1,5 @@
-import type Parser from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Parser } from "../../types/senselogic/sitevision/api/search/searcher/component/Parser";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -104,4 +104,4 @@ declare namespace StandardParserBuilder {}
 
 declare var standardParserBuilder: StandardParserBuilder;
 
-export = standardParserBuilder;
+export default standardParserBuilder;

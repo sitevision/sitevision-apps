@@ -4,7 +4,7 @@
  * @since Sitevision 3.0
  * @see senselogic.sitevision.api.search.SearchResult#getSuggestions()
  */
-type SearchSuggestion = {
+export type SearchSuggestion = {
   /**
    * Number of expected hits for this suggestion
    * @return number of expected hits, or <code>-1</code> if unavailable
@@ -17,5 +17,3 @@ type SearchSuggestion = {
    */
   getName(): string;
 };
-
-export = SearchSuggestion;

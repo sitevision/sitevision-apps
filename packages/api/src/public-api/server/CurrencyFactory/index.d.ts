@@ -1,4 +1,4 @@
-import type Currency from "../../types/senselogic/sitevision/api/i18n/Currency";
+import type { Currency } from "../../types/senselogic/sitevision/api/i18n/Currency";
 
 /**
  * Factory for creating Currency instances.
@@ -83,4 +83,4 @@ declare namespace CurrencyFactory {}
 
 declare var currencyFactory: CurrencyFactory;
 
-export = currencyFactory;
+export default currencyFactory;

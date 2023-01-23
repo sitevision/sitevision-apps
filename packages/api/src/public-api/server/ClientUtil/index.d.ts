@@ -25,4 +25,4 @@ declare namespace ClientUtil {}
 
 declare var clientUtil: ClientUtil;
 
-export = clientUtil;
+export default clientUtil;

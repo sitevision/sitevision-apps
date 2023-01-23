@@ -1,12 +1,12 @@
-import type Value from "../../Value";
+import type { Value } from "../../Value";
 
-import type ItemDefinition from "../ItemDefinition";
+import type { ItemDefinition } from "../ItemDefinition";
 
 /**
  * A property definition. Used in node type definitions.
   
     */
-type PropertyDefinition = ItemDefinition & {
+export type PropertyDefinition = ItemDefinition & {
   /**
    * Reports whether this property can have multiple values. Note that the
    * <code>isMultiple</code> flag is special in that a given node type may
@@ -24,5 +24,3 @@ type PropertyDefinition = ItemDefinition & {
    */
   isMultiple(): boolean;
 };
-
-export = PropertyDefinition;

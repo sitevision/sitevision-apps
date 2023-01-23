@@ -1,6 +1,6 @@
-import type Query from "../Query";
-import type QueryObjectModelFactory from "../qom/QueryObjectModelFactory";
-import type Node from "../../Node";
+import type { Query } from "../Query";
+import type { QueryObjectModelFactory } from "../qom/QueryObjectModelFactory";
+import type { Node } from "../../Node";
 
 /**
  * This interface encapsulates methods for the management of search queries.
@@ -9,7 +9,7 @@ import type Node from "../../Node";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-type QueryManager = {
+export type QueryManager = {
   /**
    * Creates a new query by specifying the query <code>statement</code> itself
    * and the <code>language</code> in which the query is stated. The
@@ -56,5 +56,3 @@ type QueryManager = {
    */
   getSupportedQueryLanguages(): string;
 };
-
-export = QueryManager;

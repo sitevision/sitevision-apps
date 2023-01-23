@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Publishing/unpublishing utility interface.
@@ -264,4 +264,4 @@ declare namespace PublishingUtil {}
 
 declare var publishingUtil: PublishingUtil;
 
-export = publishingUtil;
+export default publishingUtil;

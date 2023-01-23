@@ -1,4 +1,4 @@
-import type VersionUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.VersionUtilConstants";
+import type { VersionUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.VersionUtilConstants";
 
 /**
  * Versioning utility interface.
@@ -35,4 +35,4 @@ declare namespace VersionUtil {}
 
 declare var versionUtil: VersionUtil;
 
-export = versionUtil;
+export default versionUtil;

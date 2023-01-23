@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * <p>Bookmark utility interface. Bookmarks are potentially clustered between sitevision instances.
@@ -89,4 +89,4 @@ declare namespace BookmarkUtil {}
 
 declare var bookmarkUtil: BookmarkUtil;
 
-export = bookmarkUtil;
+export default bookmarkUtil;

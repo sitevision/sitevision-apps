@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Trashcan utility interface for delete and restore of nodes.
@@ -125,4 +125,4 @@ declare namespace TrashcanUtil {}
 
 declare var trashcanUtil: TrashcanUtil;
 
-export = trashcanUtil;
+export default trashcanUtil;

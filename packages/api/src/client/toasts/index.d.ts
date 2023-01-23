@@ -1,4 +1,4 @@
-interface ToastOptions {
+export interface ToastOptions {
   heading?: string;
   message: string;
   type?: string;
@@ -7,10 +7,12 @@ interface ToastOptions {
   checkmark?: boolean;
 }
 
-export function publish(options: ToastOptions): void;
-
-declare namespace toasts {
-  export { publish };
+export interface Toasts {
+  publish(options: ToastOptions): void;
 }
+
+declare namespace Toasts {}
+
+declare var toasts: Toasts;
 
 export default toasts;

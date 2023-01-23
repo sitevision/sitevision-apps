@@ -1,5 +1,5 @@
-import type Version from "../Version";
-import type RangeIterator from "../../RangeIterator";
+import type { Version } from "../Version";
+import type { RangeIterator } from "../../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>Version</code>s objects with
@@ -9,7 +9,7 @@ import type RangeIterator from "../../RangeIterator";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-type VersionIterator = RangeIterator & {
+export type VersionIterator = RangeIterator & {
   /**
    * Returns the next <code>Version</code> in the iteration.
    * @return the next <code>Version</code> in the iteration.
@@ -17,5 +17,3 @@ type VersionIterator = RangeIterator & {
    */
   nextVersion(): Version;
 };
-
-export = VersionIterator;

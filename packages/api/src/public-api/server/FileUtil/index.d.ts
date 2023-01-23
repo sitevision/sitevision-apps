@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * File utility interface that handles nodes with primary node type <code>sv:file</code> and <code>sv:temporaryFile</code>.
@@ -292,4 +292,4 @@ declare namespace FileUtil {}
 
 declare var fileUtil: FileUtil;
 
-export = fileUtil;
+export default fileUtil;

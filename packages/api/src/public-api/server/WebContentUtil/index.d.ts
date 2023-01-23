@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for content manipulation of a sv:page, sv:article or a sv:template.
@@ -460,4 +460,4 @@ declare namespace WebContentUtil {}
 
 declare var webContentUtil: WebContentUtil;
 
-export = webContentUtil;
+export default webContentUtil;

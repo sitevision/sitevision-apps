@@ -1,7 +1,7 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type LinkTarget from "../../types/senselogic/sitevision/api/webresource/LinkTarget";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { LinkTarget } from "../../types/senselogic/sitevision/api/webresource/LinkTarget";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder to create link target instances that can be used to create and update a Link page
@@ -130,4 +130,4 @@ declare namespace LinkTargetBuilder {}
 
 declare var linkTargetBuilder: LinkTargetBuilder;
 
-export = linkTargetBuilder;
+export default linkTargetBuilder;

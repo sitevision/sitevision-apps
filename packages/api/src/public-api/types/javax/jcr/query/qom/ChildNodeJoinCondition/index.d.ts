@@ -1,4 +1,4 @@
-import type JoinCondition from "../JoinCondition";
+import type { JoinCondition } from "../JoinCondition";
 
 /**
  * Tests whether the {@link #getChildSelectorName childSelector} node is a child
@@ -12,7 +12,7 @@ import type JoinCondition from "../JoinCondition";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type ChildNodeJoinCondition = JoinCondition & {
+export type ChildNodeJoinCondition = JoinCondition & {
   /**
    * Gets the name of the child selector.
    * @return the selector name; non-null
@@ -25,5 +25,3 @@ type ChildNodeJoinCondition = JoinCondition & {
    */
   getParentSelectorName(): string;
 };
-
-export = ChildNodeJoinCondition;

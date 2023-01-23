@@ -20,8 +20,6 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-type Sort = {
+export type Sort = {
   undefined;
 };
-
-export = Sort;

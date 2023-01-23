@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Content Node utility interface.
@@ -59,4 +59,4 @@ declare namespace ContentNodeUtil {}
 
 declare var contentNodeUtil: ContentNodeUtil;
 
-export = contentNodeUtil;
+export default contentNodeUtil;

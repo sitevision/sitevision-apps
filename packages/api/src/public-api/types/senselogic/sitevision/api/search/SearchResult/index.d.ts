@@ -1,6 +1,6 @@
-import type SearchHighlighter from "../SearchHighlighter";
+import type { SearchHighlighter } from "../SearchHighlighter";
 
-import { SearchResultConstants } from "../../render/velocity/VelocityAccess.SearchResultConstants";
+import type { SearchResultConstants } from "../../render/velocity/VelocityAccess.SearchResultConstants";
 
 /**
  * <p>
@@ -15,7 +15,7 @@ import { SearchResultConstants } from "../../render/velocity/VelocityAccess.Sear
  * @author Mikael Wikblom
  * @since Sitevision 2.6_06
  */
-type SearchResult = SearchResultConstants & {
+export type SearchResult = SearchResultConstants & {
   /**
    * <p>Accessor to the lazy loaded <code>Iterator</code> containing the search hits. Iterating the
    * <code>Iterator</code> potentially changes the status of the <code>SearchResult</code>object.</p>
@@ -297,5 +297,3 @@ type SearchResult = SearchResultConstants & {
    */
   STATUS_UNEXPECTED_ERROR: number;
 };
-
-export = SearchResult;

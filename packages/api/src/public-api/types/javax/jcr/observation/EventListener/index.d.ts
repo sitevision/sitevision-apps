@@ -1,4 +1,4 @@
-import type EventIterator from "../EventIterator";
+import type { EventIterator } from "../EventIterator";
 
 /**
  * An event listener.
@@ -12,12 +12,10 @@ import type EventIterator from "../EventIterator";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-type EventListener = {
+export type EventListener = {
   /**
    * This method is called when a bundle of events is dispatched.
    * @param events The event set received.
    */
   onEvent(events: EventIterator): void;
 };
-
-export = EventListener;

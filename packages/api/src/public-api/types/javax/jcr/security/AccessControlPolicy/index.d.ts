@@ -6,8 +6,6 @@
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type AccessControlPolicy = {
+export type AccessControlPolicy = {
   undefined;
 };
-
-export = AccessControlPolicy;

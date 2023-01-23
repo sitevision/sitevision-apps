@@ -1,6 +1,6 @@
-import type Source from "../Source";
+import type { Source } from "../Source";
 
-import type JoinCondition from "../JoinCondition";
+import type { JoinCondition } from "../JoinCondition";
 
 /**
  * Performs a join between two node-tuple sources.
@@ -8,7 +8,7 @@ import type JoinCondition from "../JoinCondition";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type Join = Source & {
+export type Join = Source & {
   /**
    * Gets the left node-tuple source.
    * @return the left source; non-null
@@ -33,5 +33,3 @@ type Join = Source & {
    */
   getJoinCondition(): JoinCondition;
 };
-
-export = Join;

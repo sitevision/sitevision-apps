@@ -1,4 +1,4 @@
-import type SearchResult from "../../SearchResult";
+import type { SearchResult } from "../../SearchResult";
 
 /**
  * <p>
@@ -149,7 +149,7 @@ import type SearchResult from "../../SearchResult";
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-type Searcher = {
+export type Searcher = {
   /**
    * Executes a search using the components/behaviour that was specified when the <code>Searcher</code> was created.
    *
@@ -239,5 +239,3 @@ type Searcher = {
     aMaxHitsToReturn: number
   ): SearchResult;
 };
-
-export = Searcher;

@@ -1,4 +1,4 @@
-import type Binary from "../Binary";
+import type { Binary } from "../Binary";
 
 /**
  * A generic holder for the value of a property. A <code>Value</code> object can
@@ -52,7 +52,7 @@ import type Binary from "../Binary";
  * state change.
   
     */
-type Value = {
+export type Value = {
   /**
    * Returns a <code>String</code> representation of this value.
    * @return A <code>String</code> representation of the value of this property.
@@ -127,5 +127,3 @@ type Value = {
    */
   getType(): number;
 };
-
-export = Value;

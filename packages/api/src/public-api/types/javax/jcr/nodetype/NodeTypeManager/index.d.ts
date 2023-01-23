@@ -1,17 +1,17 @@
-import type NodeType from "../NodeType";
+import type { NodeType } from "../NodeType";
 
-import type NodeTypeIterator from "../NodeTypeIterator";
-import type NodeTypeTemplate from "../NodeTypeTemplate";
-import type NodeTypeDefinition from "../NodeTypeDefinition";
-import type NodeDefinitionTemplate from "../NodeDefinitionTemplate";
-import type PropertyDefinitionTemplate from "../PropertyDefinitionTemplate";
+import type { NodeTypeIterator } from "../NodeTypeIterator";
+import type { NodeTypeTemplate } from "../NodeTypeTemplate";
+import type { NodeTypeDefinition } from "../NodeTypeDefinition";
+import type { NodeDefinitionTemplate } from "../NodeDefinitionTemplate";
+import type { PropertyDefinitionTemplate } from "../PropertyDefinitionTemplate";
 
 /**
  * Allows for the retrieval and (in implementations that support it) the
  * registration of node types. Accessed via {@link Workspace#getNodeTypeManager}.
   
     */
-type NodeTypeManager = {
+export type NodeTypeManager = {
   /**
    * Returns the named node type.
    * @param nodeTypeName the name of an existing node type.
@@ -53,5 +53,3 @@ type NodeTypeManager = {
    */
   getMixinNodeTypes(): NodeTypeIterator;
 };
-
-export = NodeTypeManager;

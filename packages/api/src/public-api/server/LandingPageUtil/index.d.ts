@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for getting landing pages.
@@ -97,4 +97,4 @@ declare namespace LandingPageUtil {}
 
 declare var landingPageUtil: LandingPageUtil;
 
-export = landingPageUtil;
+export default landingPageUtil;

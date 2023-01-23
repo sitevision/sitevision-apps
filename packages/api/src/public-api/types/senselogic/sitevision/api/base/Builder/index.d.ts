@@ -91,12 +91,10 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
-type Builder = {
+export type Builder = {
   /**
    * Creates an instance of type <em>T</em> using current state of this builder.
    * @return an instance of type <em>T</em>
    */
   build(): unknown;
 };
-
-export = Builder;

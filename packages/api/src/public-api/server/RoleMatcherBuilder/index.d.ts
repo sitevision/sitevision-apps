@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
-import type RoleMatcher from "../../types/senselogic/sitevision/api/security/RoleMatcher";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { RoleMatcher } from "../../types/senselogic/sitevision/api/security/RoleMatcher";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder of RoleMatcher instances.
@@ -55,4 +55,4 @@ declare namespace RoleMatcherBuilder {}
 
 declare var roleMatcherBuilder: RoleMatcherBuilder;
 
-export = roleMatcherBuilder;
+export default roleMatcherBuilder;

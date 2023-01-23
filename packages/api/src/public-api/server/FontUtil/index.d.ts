@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for Fonts.
@@ -45,4 +45,4 @@ declare namespace FontUtil {}
 
 declare var fontUtil: FontUtil;
 
-export = fontUtil;
+export default fontUtil;

@@ -1,5 +1,5 @@
-import type Mail from "../../types/senselogic/sitevision/api/mail/Mail";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Mail } from "../../types/senselogic/sitevision/api/mail/Mail";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder to create a Mail instances that can be sent.
@@ -221,4 +221,4 @@ declare namespace MailBuilder {}
 
 declare var mailBuilder: MailBuilder;
 
-export = mailBuilder;
+export default mailBuilder;

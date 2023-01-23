@@ -1,4 +1,4 @@
-import { ExceptionSuppressingProxyConstants } from "../../../render/velocity/VelocityAccess.ExceptionSuppressingProxyConstants";
+import type { ExceptionSuppressingProxyConstants } from "../../../render/velocity/VelocityAccess.ExceptionSuppressingProxyConstants";
 
 /**
  * Proxies an object and delegates all interface method invocations to the proxied object in order to ensure that no invocation
@@ -69,7 +69,7 @@ import { ExceptionSuppressingProxyConstants } from "../../../render/velocity/Vel
  * @author Magnus Lövgren
  * @since Sitevision 2.6.1_09
  */
-type ExceptionSuppressingProxy = ExceptionSuppressingProxyConstants & {
+export type ExceptionSuppressingProxy = ExceptionSuppressingProxyConstants & {
   /**
    * Returns current status
    * @return {@link #NO_OBJECT_PROXIED_STATUS} or {@link #NO_EXCEPTION_THROWN_STATUS} or {@link #EXCEPTION_THROWN_STATUS}
@@ -106,5 +106,3 @@ type ExceptionSuppressingProxy = ExceptionSuppressingProxyConstants & {
     */
   EXCEPTION_THROWN_STATUS: number;
 };
-
-export = ExceptionSuppressingProxy;

@@ -303,4 +303,4 @@ declare namespace FileIconRenderer {}
 
 declare var fileIconRenderer: FileIconRenderer;
 
-export = fileIconRenderer;
+export default fileIconRenderer;

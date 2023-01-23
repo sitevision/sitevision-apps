@@ -20,7 +20,7 @@
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
-type Privilege = {
+export type Privilege = {
   /**
    * Returns the name of this privilege.
    * <p>
@@ -187,5 +187,3 @@ type Privilege = {
     */
   JCR_ALL: string;
 };
-
-export = Privilege;

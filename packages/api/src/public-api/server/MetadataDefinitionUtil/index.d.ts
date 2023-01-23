@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for getting metadata definitions.
@@ -111,4 +111,4 @@ declare namespace MetadataDefinitionUtil {}
 
 declare var metadataDefinitionUtil: MetadataDefinitionUtil;
 
-export = metadataDefinitionUtil;
+export default metadataDefinitionUtil;

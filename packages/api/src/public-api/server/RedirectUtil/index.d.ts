@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Redirect utility interface (301 redirects for <em>"old urls"</em>).
@@ -75,4 +75,4 @@ declare namespace RedirectUtil {}
 
 declare var redirectUtil: RedirectUtil;
 
-export = redirectUtil;
+export default redirectUtil;

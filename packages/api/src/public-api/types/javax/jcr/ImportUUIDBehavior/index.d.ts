@@ -6,7 +6,7 @@
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-type ImportUUIDBehavior = {
+export type ImportUUIDBehavior = {
   undefined;
 
   /**
@@ -33,5 +33,3 @@ type ImportUUIDBehavior = {
     */
   IMPORT_UUID_COLLISION_THROW: number;
 };
-
-export = ImportUUIDBehavior;

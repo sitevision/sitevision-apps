@@ -1,20 +1,22 @@
 import type { Node } from '../../types/javax/jcr/Node';
 
-interface AccessTokenStatus {
+export interface AccessTokenStatus {
   isValid: boolean;
   scopes: string[];
 }
 
-export function createLoginLink(
-  oauth2Config: Node,
-  redirectUrl: string,
-  scopes: string[]
-): string;
+export interface OAuth2 {
+  createLoginLink(
+    oauth2Config: Node,
+    redirectUrl: string,
+    scopes: string[]
+  ): string;
 
-export function getAccessTokenStatus(oauth2Config: Node): AccessTokenStatus;
-
-declare namespace oauth2 {
-  export { createLoginLink, getAccessTokenStatus };
+  getAccessTokenStatus(oauth2Config: Node): AccessTokenStatus;
 }
+
+declare namespace Oauth2 {}
+
+declare var oauth2: OAuth2;
 
 export default oauth2;

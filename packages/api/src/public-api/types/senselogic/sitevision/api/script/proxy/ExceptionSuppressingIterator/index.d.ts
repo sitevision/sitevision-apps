@@ -1,4 +1,4 @@
-import type ExceptionSuppressingProxy from "../ExceptionSuppressingProxy";
+import type { ExceptionSuppressingProxy } from "../ExceptionSuppressingProxy";
 
 /**
  * Decorates an iterator with exception suppressing behaviour and returns {@link ExceptionSuppressingProxy}s in order to ensure that no
@@ -28,7 +28,7 @@ import type ExceptionSuppressingProxy from "../ExceptionSuppressingProxy";
  * @author Magnus Lövgren
  * @since Sitevision 2.6.1_09
  */
-type ExceptionSuppressingIterator = {
+export type ExceptionSuppressingIterator = {
   /**
    * Returns <code>true</code> if decorated iterator has more elements. (In other words, returns <code>true</code>
    * if <code>next</code> would return an element rather than throwing an exception.)
@@ -80,5 +80,3 @@ type ExceptionSuppressingIterator = {
     */
   remove(): void;
 };
-
-export = ExceptionSuppressingIterator;

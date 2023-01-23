@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type PortletContextUtilConstants from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.PortletContextUtilConstants";
+import type { PortletContextUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.PortletContextUtilConstants";
 
 /**
  * Portlet context utility interface.
@@ -126,4 +126,4 @@ declare namespace PortletContextUtil {}
 
 declare var portletContextUtil: PortletContextUtil;
 
-export = portletContextUtil;
+export default portletContextUtil;

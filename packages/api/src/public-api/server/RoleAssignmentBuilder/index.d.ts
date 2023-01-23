@@ -1,6 +1,6 @@
-import type Node from "../../types/javax/jcr/Node";
-import type RoleAssignment from "../../types/senselogic/sitevision/api/security/RoleAssignment";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Node } from "../../types/javax/jcr/Node";
+import type { RoleAssignment } from "../../types/senselogic/sitevision/api/security/RoleAssignment";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder of RoleAssignment instances.
@@ -56,4 +56,4 @@ declare namespace RoleAssignmentBuilder {}
 
 declare var roleAssignmentBuilder: RoleAssignmentBuilder;
 
-export = roleAssignmentBuilder;
+export default roleAssignmentBuilder;

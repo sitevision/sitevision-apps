@@ -1,8 +1,8 @@
-import type LinkValue from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
-import type Node from "../../types/javax/jcr/Node";
+import type { LinkValue } from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import type RelatedValue from "../../types/senselogic/sitevision/api/metadata/value/RelatedValue";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { RelatedValue } from "../../types/senselogic/sitevision/api/metadata/value/RelatedValue";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * Builder to create RelatedValue instances that can be used to set related metadata.
@@ -91,4 +91,4 @@ declare namespace RelatedValueBuilder {}
 
 declare var relatedValueBuilder: RelatedValueBuilder;
 
-export = relatedValueBuilder;
+export default relatedValueBuilder;

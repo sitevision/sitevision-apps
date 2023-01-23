@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Device utility interface.
@@ -35,4 +35,4 @@ declare namespace DeviceUtil {}
 
 declare var deviceUtil: DeviceUtil;
 
-export = deviceUtil;
+export default deviceUtil;

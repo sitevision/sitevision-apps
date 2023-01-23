@@ -8,12 +8,10 @@
  * @author Magnus Lövgren
  * @since Sitevision 8.2
  */
-type QueryStringUtilConstants = {
+export type QueryStringUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.search.query.QueryStringUtil#MATCH_ALL_QUERY}.
    * @return {@link senselogic.sitevision.api.search.query.QueryStringUtil#MATCH_ALL_QUERY}
    */
   getMATCH_ALL_QUERY(): string;
 };
-
-export = QueryStringUtilConstants;

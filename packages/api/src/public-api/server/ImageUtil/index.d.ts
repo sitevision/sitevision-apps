@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Image utility interface that handles nodes with primary node type <code>sv:image</code>.
@@ -265,4 +265,4 @@ declare namespace ImageUtil {}
 
 declare var imageUtil: ImageUtil;
 
-export = imageUtil;
+export default imageUtil;

@@ -1,8 +1,8 @@
-import type Version from "../Version";
-import type VersionIterator from "../VersionIterator";
-import type NodeIterator from "../../NodeIterator";
+import type { Version } from "../Version";
+import type { VersionIterator } from "../VersionIterator";
+import type { NodeIterator } from "../../NodeIterator";
 
-import type Node from "../../Node";
+import type { Node } from "../../Node";
 
 /**
  * A <code>VersionHistory</code> object wraps an <code>nt:versionHistory</code>
@@ -11,7 +11,7 @@ import type Node from "../../Node";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-type VersionHistory = Node & {
+export type VersionHistory = Node & {
   /**
    * Returns the identifier of the versionable node for which this is the
    * version history.
@@ -226,5 +226,3 @@ type VersionHistory = Node & {
    */
   removeVersion(versionName: string): void;
 };
-
-export = VersionHistory;

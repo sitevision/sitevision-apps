@@ -1,9 +1,9 @@
-import type ImageScaler from "../../types/senselogic/sitevision/api/render/ImageScaler";
+import type { ImageScaler } from "../../types/senselogic/sitevision/api/render/ImageScaler";
 
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
-import SourceSetMode from "../SourceSetMode";
-import DimensionMode from "../DimensionMode";
+import type SourceSetMode from "../SourceSetMode";
+import type DimensionMode from "../DimensionMode";
 
 /**
  * ImageRenderer is a stateful utility interface that can be used to render valid xhtml img elements based on images of the website.
@@ -505,4 +505,4 @@ declare namespace ImageRenderer {}
 
 declare var imageRenderer: ImageRenderer;
 
-export = imageRenderer;
+export default imageRenderer;

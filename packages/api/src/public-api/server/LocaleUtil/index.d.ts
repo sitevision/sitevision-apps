@@ -411,4 +411,4 @@ declare namespace LocaleUtil {}
 
 declare var localeUtil: LocaleUtil;
 
-export = localeUtil;
+export default localeUtil;

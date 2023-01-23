@@ -1,5 +1,5 @@
-import type Event from "../Event";
-import type RangeIterator from "../../RangeIterator";
+import type { Event } from "../Event";
+import type { RangeIterator } from "../../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>Event</code>s with
@@ -9,7 +9,7 @@ import type RangeIterator from "../../RangeIterator";
  * <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
-type EventIterator = RangeIterator & {
+export type EventIterator = RangeIterator & {
   /**
    * Returns the next <code>Event</code> in the iteration.
    * @return the next <code>Event</code> in the iteration.
@@ -17,5 +17,3 @@ type EventIterator = RangeIterator & {
    */
   nextEvent(): Event;
 };
-
-export = EventIterator;

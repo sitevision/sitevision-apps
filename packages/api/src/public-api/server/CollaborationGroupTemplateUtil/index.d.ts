@@ -1,4 +1,4 @@
-import type Node from "../../types/javax/jcr/Node";
+import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Collaboration group template utility interface that handles nodes with primary node type <code>sv:collaborationGroupTemplate</code>.
@@ -60,4 +60,4 @@ declare namespace CollaborationGroupTemplateUtil {}
 
 declare var collaborationGroupTemplateUtil: CollaborationGroupTemplateUtil;
 
-export = collaborationGroupTemplateUtil;
+export default collaborationGroupTemplateUtil;

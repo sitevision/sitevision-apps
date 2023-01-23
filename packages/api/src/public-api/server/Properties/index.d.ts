@@ -166,4 +166,4 @@ declare namespace Properties {}
 
 declare var properties: Properties;
 
-export = properties;
+export default properties;

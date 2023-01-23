@@ -8,7 +8,7 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-type PageUtilConstants = {
+export type PageUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.webresource.PageUtil#PROPERTY_VISIBLE_IN_MENUS}.
    * @return {@link senselogic.sitevision.api.webresource.PageUtil#PROPERTY_VISIBLE_IN_MENUS}
@@ -87,5 +87,3 @@ type PageUtilConstants = {
    */
   getPROPERTY_TITLE(): string;
 };
-
-export = PageUtilConstants;

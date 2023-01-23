@@ -1,5 +1,5 @@
-import type Highlight from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
-import type Builder from "../../types/senselogic/sitevision/api/base/Builder";
+import type { Highlight } from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
+import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
  * <p>
@@ -155,4 +155,4 @@ declare namespace HighlightBuilder {}
 
 declare var highlightBuilder: HighlightBuilder;
 
-export = highlightBuilder;
+export default highlightBuilder;
