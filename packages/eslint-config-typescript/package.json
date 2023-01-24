@@ -1,0 +1,26 @@
+{
+  "name": "@sitevision/eslint-config-typescript",
+  "author": "Sitevision AB",
+  "version": "1.0.1",
+  "main": "./index.js",
+  "description": "Eslint config for Sitevision Apps using TypeScript",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sitevision/sitevision-apps.git",
+    "directory": "packages/eslint-config-typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/sitevision/sitevision-apps/issues"
+  },
+  "devDependencies": {
+    "eslint": "^8.27.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.27.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1"
+  }
+}
