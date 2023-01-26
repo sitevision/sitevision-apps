@@ -1,7 +1,7 @@
 {
   "name": "@sitevision/sitevision-scripts",
   "type": "module",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Scripts for create-sitevision-app",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@jest/globals": "^29.3.1",
     "@sitevision/babel-preset-react-client": "^1.0.3",
-    "@sitevision/babel-preset-react-server": "^1.0.3",
+    "@sitevision/babel-preset-react-server": "^1.0.4",
     "@sitevision/eslint-config-recommended": "^1.0.3",
     "@sitevision/eslint-config-webapp-react": "^1.0.3",
     "@testing-library/jest-dom": "^5.16.5",
