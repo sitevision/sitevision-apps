@@ -47,10 +47,12 @@ export const getServerConfig = ({
             from: './src/config/',
             to: './config',
             transform: (content, absolutePath) => {
-              const { ext: extension } = path.parse(absolutePath);
+              const { ext: extension, base: filename } =
+                path.parse(absolutePath);
 
               if (extension === '.js') {
                 const result = babel.transformSync(content, {
+                  filename,
                   compact: false,
                   presets: ['@sitevision/babel-preset-react-server'],
                 });
