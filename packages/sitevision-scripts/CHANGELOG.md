@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.3](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.1.2...@sitevision/sitevision-scripts@3.1.3) (2023-01-26)
+
+### Bug Fixes
+
+- **sitevision-scripts:** Add missing dependency ([8f652f1](https://github.com/sitevision/sitevision-apps/commit/8f652f1c5ad4e19cbbac51f5767d7016cc6783ec))
+
 ## [3.1.2](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.1.1...@sitevision/sitevision-scripts@3.1.2) (2023-01-26)
 
 **Note:** Version bump only for package @sitevision/sitevision-scripts
