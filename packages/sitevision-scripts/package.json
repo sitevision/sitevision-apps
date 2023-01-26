@@ -26,6 +26,7 @@
     "@sitevision/babel-preset-react-client": "^1.0.3",
     "@sitevision/babel-preset-react-server": "^1.0.4",
     "@sitevision/eslint-config-recommended": "^1.0.3",
+    "@sitevision/eslint-config-typescript": "^1.0.1",
     "@sitevision/eslint-config-webapp-react": "^1.0.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
