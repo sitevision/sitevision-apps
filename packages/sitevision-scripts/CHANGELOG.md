@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.4](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.1.3...@sitevision/sitevision-scripts@3.1.4) (2023-01-26)
+
+### Bug Fixes
+
+- **sitevision-scripts:** Provide filename for correct preset resolve ([9271893](https://github.com/sitevision/sitevision-apps/commit/92718930cfc718fbd47dd7639206bf9ff59ec889))
+
 ## [3.1.3](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.1.2...@sitevision/sitevision-scripts@3.1.3) (2023-01-26)
 
 ### Bug Fixes
