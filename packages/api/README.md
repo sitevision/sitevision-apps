@@ -2,4 +2,4 @@
 
 TypeScript definitions for Sitevision Public API.
 
-For mor information and documentation visit https://developer.sitevision.se
+For more information and documentation visit https://developer.sitevision.se
