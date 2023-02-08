@@ -19,7 +19,7 @@ export interface TextElement {
 export interface HtmlElement {
   type: 'block' | 'inline';
   htmlTag: string;
-  attributes?: Record<string, string>;
+  attributes?: { [key: string]: string | number };
   children: (HtmlElement | TextElement)[];
 }
 

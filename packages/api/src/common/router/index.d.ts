@@ -13,8 +13,8 @@ export interface Request {
   invalidateSession(): void;
   header(headerName: string): string | null;
   file(fileParameterName: string): Node;
-  params: Record<string, string | number>;
-  cookies: Record<string, string>;
+  params: { [key: string]: string };
+  cookies: { [key: string]: string };
   xhr: boolean;
   session: any;
   hostname: string;
