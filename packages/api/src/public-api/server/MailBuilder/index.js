@@ -1,0 +1,16 @@
+export default {
+  setFrom: () => {},
+  addReplyTo: () => {},
+  clearReplyTos: () => {},
+  setSubject: () => {},
+  setTextMessage: () => {},
+  setHtmlMessage: () => {},
+  addRecipient: () => {},
+  clearRecipients: () => {},
+  clearAllRecipients: () => {},
+  addCopyRecipient: () => {},
+  clearCopyRecipients: () => {},
+  addBlindCopyRecipient: () => {},
+  clearBlindCopyRecipients: () => {},
+  build: () => {},
+};

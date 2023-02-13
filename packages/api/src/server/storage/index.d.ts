@@ -1,11 +1,27 @@
-interface CollectionDataStore {
+export interface OrderByOptions {
+  field: string;
+  order: 'ASC' | 'DESC';
+}
+
+export interface FindOptions {
+  count?: number;
+  skip?: number;
+  orderBy?: OrderByOptions | OrderByOptions[];
+}
+
+export interface CollectionDataStore {
   add(data: any): void;
   addAll(data: any[]): void;
-  get(dsid: string): any;
+  get(dsid: string): unknown;
   set(dsid: string, data: any): void;
   remove(dsid: string): void;
   removeAll(): void;
-  find(query: string, count: number, skip: number): SearchResult;
+
+  find(query: string, options?: FindOptions): SearchResult;
+  /**
+   * @deprecated
+   */
+  find(query: string, count?: number, skip?: number): SearchResult;
 
   /**
    * Performs instant indexing (blocking) of a collection data store post.
@@ -23,7 +39,7 @@ interface CollectionDataStore {
 /**
  * @since 5.2
  */
-interface KeyValueDataStore {
+export interface KeyValueDataStore {
   /**
    * Stores data associated with a key.
    * Returns current data stored on the key.
@@ -40,7 +56,7 @@ interface KeyValueDataStore {
    * @since 5.2
    * @param key A key to retrieve data from
    */
-  get(key: string): any;
+  get(key: string): unknown;
 
   /**
    * Removes data associated with a key.
@@ -52,21 +68,25 @@ interface KeyValueDataStore {
   remove(key: string): void;
 }
 
-interface SearchResult {
-  toArray(): any[];
-  each(callback: (err: DataStoreError, data: any) => void): void;
+export interface SearchResult {
+  toArray(): unknown[];
+  each(
+    callback: (err: DataStoreError | undefined, data: unknown) => void
+  ): void;
   hasNext(): boolean;
-  next(): any;
-  length(callback: (err: DataStoreError, length: number) => void): void;
+  next(): unknown;
+  length(
+    callback: (err: DataStoreError | undefined, length: number) => void
+  ): void;
 }
 
-interface DataStoreError {
+export interface DataStoreError {
   dataStore: string;
   type: DataStoreErrorType;
   message: string;
 }
 
-declare enum DataStoreErrorType {
+export enum DataStoreErrorType {
   validation_failed,
   read_only,
   item_not_found,
@@ -75,20 +95,22 @@ declare enum DataStoreErrorType {
   unknown,
 }
 
-/**
- * Get an instance of a CollectionDataStore
- * @param identifier The name of a data store
- */
-export function getCollectionDataStore(identifier: string): CollectionDataStore;
+export interface Storage {
+  /**
+   * Get an instance of a CollectionDataStore
+   * @param identifier The name of a data store
+   */
+  getCollectionDataStore(identifier: string): CollectionDataStore;
 
-/**
- * Get an instance of a KeyValueDataStore
- * @param identifier The name of a data store
- */
-export function getKeyValueDataStore(identifier: string): KeyValueDataStore;
-
-declare namespace storage {
-  export { getCollectionDataStore, getKeyValueDataStore };
+  /**
+   * Get an instance of a KeyValueDataStore
+   * @param identifier The name of a data store
+   */
+  getKeyValueDataStore(identifier: string): KeyValueDataStore;
 }
+
+declare namespace Storage {}
+
+declare const storage: Storage;
 
 export default storage;

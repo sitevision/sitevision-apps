@@ -6,7 +6,7 @@ import App from './components/App';
 
 router.get('/', (req, res) => {
   const message = 'Hello, world!';
-  const name = appData.get('name');
+  const name = appData.get('name') as string;
 
   res.agnosticRender(renderToString(<App message={message} name={name} />), {
     message,

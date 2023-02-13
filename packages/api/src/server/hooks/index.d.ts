@@ -1,21 +1,21 @@
-import { IRequest } from '../../common/router';
+import { Cookie, Request } from '../../common/router';
 
-interface IHooksResponse {
-  set(name, value): void;
-  cookie(cookie): void;
+export interface HooksResponse {
+  set(name: string, value: string): void;
+  cookie(cookie: Cookie): void;
   clearCookie(name: string);
   redirect(url: string);
 }
 
-export function beforeRender(
-  callback: (req: IRequest, res: IHooksResponse) => void
-): void;
+export interface Hooks {
+  beforeRender(callback: (req: Request, res: HooksResponse) => void): void;
 
-export function getPageTitle(callback: (req: IRequest) => string);
-export function addHeadElement(callback: (req: IRequest) => string);
-
-declare namespace hooks {
-  export { beforeRender, getPageTitle, addHeadElement };
+  getPageTitle(callback: (req: Request) => string);
+  addHeadElement(callback: (req: Request) => string);
 }
+
+declare namespace Hooks {}
+
+declare var hooks: Hooks;
 
 export default hooks;
