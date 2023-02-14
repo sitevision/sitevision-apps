@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.6](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.1.5...@sitevision/sitevision-scripts@3.1.6) (2023-02-14)
+
+### Bug Fixes
+
+- **sitevision-scripts:** Set target version for server bundles ([9e27638](https://github.com/sitevision/sitevision-apps/commit/9e27638dc6447eafeb257d565291d470d9eb1b76)), closes [#81](https://github.com/sitevision/sitevision-apps/issues/81) [#83](https://github.com/sitevision/sitevision-apps/issues/83)
+
 ## [3.1.4](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.1.3...@sitevision/sitevision-scripts@3.1.4) (2023-01-26)
 
 ### Bug Fixes
