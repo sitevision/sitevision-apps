@@ -2,7 +2,7 @@ import path from 'path';
 import {
   getJsModuleLoader,
   getBabelLoader,
-  getTypescriptLoader,
+  getTypeScriptLoader,
 } from './webpack.loaders.js';
 import { getExternals, getServerOptimization } from './utils.js';
 
@@ -19,7 +19,7 @@ export const getServerStandaloneEntryConfig = ({ entry, outputPath }) => ({
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.wasm'],
   },
   module: {
-    rules: [getJsModuleLoader(), getTypescriptLoader(), getBabelLoader()],
+    rules: [getJsModuleLoader(), getTypeScriptLoader(true), getBabelLoader()],
   },
   externals: [getExternals('commonjs')],
   optimization: getServerOptimization(),

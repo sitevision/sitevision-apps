@@ -8,7 +8,7 @@ import {
   getSvgLoader,
   getJsonLoader,
   getFontLoader,
-  getTypescriptLoader,
+  getTypeScriptLoader,
 } from './webpack.loaders.js';
 import { getExternals } from './utils.js';
 
@@ -61,7 +61,7 @@ export const getClientConfig = ({
     module: {
       rules: [
         getJsModuleLoader(),
-        getTypescriptLoader(),
+        getTypeScriptLoader(),
         getClientBabelLoader(),
         getCssLoader(cssPrefix, !serverSideOnly),
         getImageLoader(publicPath),

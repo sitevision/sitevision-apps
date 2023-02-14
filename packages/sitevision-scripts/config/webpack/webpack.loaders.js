@@ -4,10 +4,17 @@ import * as properties from '../../util/properties.js';
 
 const packageJson = properties.getPackageJson();
 
-export const getTypescriptLoader = () => ({
+export const getTypeScriptLoader = (server) => ({
   test: /\.tsx?$/,
   use: {
     loader: 'ts-loader',
+    options: server
+      ? {
+          compilerOptions: {
+            target: 'es5',
+          },
+        }
+      : undefined,
   },
 });
 
