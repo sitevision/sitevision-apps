@@ -11,7 +11,7 @@ import {
   getImageLoader,
   getCssLoader,
   getFontLoader,
-  getTypescriptLoader,
+  getTypeScriptLoader,
 } from './webpack.loaders.js';
 
 export const getServerConfig = ({
@@ -86,7 +86,7 @@ export const getServerConfig = ({
     module: {
       rules: [
         getJsModuleLoader(),
-        getTypescriptLoader(),
+        getTypeScriptLoader(true),
         getBabelLoader(),
         getCssLoader(cssPrefix, serverSideOnly),
         getImageLoader(publicPath),
