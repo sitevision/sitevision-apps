@@ -1,8 +1,8 @@
 import type { Node } from "../../../../../javax/jcr/Node";
 
-import { CollaborationGroupType } from "../../../../../../server/CollaborationGroupType";
+import type CollaborationGroupType from "../../../../../../server/CollaborationGroupType";
 
-import { CollaborationGroupState } from "../../../../../../server/CollaborationGroupState";
+import type CollaborationGroupState from "../../../../../../server/CollaborationGroupState";
 
 import type { Wrapper } from "../../base/Wrapper";
 

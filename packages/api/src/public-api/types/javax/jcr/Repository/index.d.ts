@@ -1,6 +1,6 @@
 import type { Value } from "../Value";
 import type { Credentials } from "../Credentials";
-import { Session } from "../../../../server/Session";
+import type { Session } from "../../../../server/Session";
 
 /**
  * The entry point into the content repository. The <code>Repository</code>

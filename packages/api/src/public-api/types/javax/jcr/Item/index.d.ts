@@ -1,5 +1,5 @@
 import type { Node } from "../Node";
-import { Session } from "../../../../server/Session";
+import type { Session } from "../../../../server/Session";
 
 import type { ItemVisitor } from "../ItemVisitor";
 

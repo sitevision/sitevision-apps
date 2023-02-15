@@ -1,4 +1,4 @@
-import { Session } from "../../../../server/Session";
+import type { Session } from "../../../../server/Session";
 
 import type { Version } from "../version/Version";
 import type { LockManager } from "../lock/LockManager";

@@ -16,13 +16,15 @@
   "scripts": {
     "prepack": "yarn build",
     "build": "rimraf dist/ && rimraf build/ && scripts/copysrc.sh && node scripts/generateindex.js && babel build --out-dir dist --copy-files && copyfiles package.json README.md dist/",
+    "test": "tsc --noEmit dist/index.d.ts",
     "deploy": "yarn build && npm publish dist"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "copyfiles": "^2.4.1",
     "fs-extra": "11.1.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.5"
   },
   "publishConfig": {
     "access": "public",

@@ -1,0 +1,4 @@
+{
+  "include": ["dist"],
+  "exclude": ["node_modules"]
+}

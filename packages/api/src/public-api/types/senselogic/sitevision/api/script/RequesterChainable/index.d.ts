@@ -1,4 +1,4 @@
-import { Requester } from "../../../../../../server/Requester";
+import type { Requester } from "../../../../../../server/Requester";
 
 /**
  * The chainable result of a {@link Requester} invocation.
