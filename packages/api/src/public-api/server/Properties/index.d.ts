@@ -103,7 +103,7 @@ export interface Properties {
    * <p>
    *    <em>See code examples in the interface description above.</em>
    * </p>
-   * @param aJcrNodeResolvable something that can be resolved as a Node. Typically a Node, a Node identifier or a relative URL of a Node (the URI property)
+   * @param aJcrNodeResolvable something that can be resolved as a Node.&#xA; Typically a Node, a Node identifier or a relative URL of a Node (the URI property)
    * @param aPropertyNames the names of the properties of interest
    * @return the properties as a native Javascript object
    * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
@@ -117,7 +117,7 @@ export interface Properties {
    * <p>
    *    This method is equivalent with {@link #get(Object, String...)} except that all string values will be escaped.
    * </p>
-   * @param aJcrNodeResolvable something that can be resolved as a Node. Typically a Node, a Node identifier or a relative URL of a Node (the URI property)
+   * @param aJcrNodeResolvable something that can be resolved as a Node.&#xA; Typically a Node, a Node identifier or a relative URL of a Node (the URI property)
    * @param aPropertyNames the names of the properties of interest
    * @return the escaped properties as a native Javascript object
    * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
@@ -137,7 +137,7 @@ export interface Properties {
    * <p>
    *    <em>See code examples in the interface description above.</em>
    * </p>
-   * @param aIterable something that can be resolved as a Node or something that can be iterated and contains objects that can be resolved as a Node. Typically an array, {@link javax.jcr.NodeIterator}, {@link senselogic.sitevision.api.search.SearchResult}, {@link java.util.Collection} or {@link senselogic.sitevision.api.base.FilterSplit} (the <em>accepted</em> nodes will be processed)
+   * @param aIterable something that can be resolved as a Node or something that can be iterated and contains objects that can be resolved&#xA; as a Node. Typically an array, {@link javax.jcr.NodeIterator}, {@link senselogic.sitevision.api.search.SearchResult},&#xA; {@link java.util.Collection} or {@link senselogic.sitevision.api.base.FilterSplit}&#xA; (the <em>accepted</em> nodes will be processed)
    * @param aPropertyNames the names of the properties of interest
    * @return a native Javascript array with properties
    * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
@@ -153,7 +153,7 @@ export interface Properties {
    * <p>
    *    This method is equivalent with {@link #getArray(Object, String...)} except that all string values will be escaped.
    * </p>
-   * @param aIterable something that can be resolved as a Node or something that can be iterated and contains objects that can be resolved as a Node. Typically an array, {@link javax.jcr.NodeIterator}, {@link senselogic.sitevision.api.search.SearchResult}, {@link java.util.Collection} or {@link senselogic.sitevision.api.base.FilterSplit} (the <em>accepted</em> nodes will be processed)
+   * @param aIterable something that can be resolved as a Node or something that can be iterated and contains objects that can be resolved&#xA; as a Node. Typically an array, {@link javax.jcr.NodeIterator}, {@link senselogic.sitevision.api.search.SearchResult},&#xA; {@link java.util.Collection} or {@link senselogic.sitevision.api.base.FilterSplit}&#xA; (the <em>accepted</em> nodes will be processed)
    * @param aPropertyNames the names of the properties of interest
    * @return a native Javascript array with escaped properties
    * @throws Exception if the scripting engine fails to convert property values to a native Javascript object

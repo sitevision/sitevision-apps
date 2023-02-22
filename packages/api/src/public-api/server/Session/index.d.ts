@@ -118,7 +118,7 @@ export interface Session {
    * for example, <code>SimpleCredentials</code> does allow for them). This
    * method returns an empty array if the <code>Credentials</code> instance
    * did not provide attributes.
-   * @return A string array containing the names of all attributes passed in the credentials used to acquire this session.
+   * @return A string array containing the names of all attributes passed in&#xA; the credentials used to acquire this session.
    */
   getAttributeNames(): string;
 
@@ -126,8 +126,8 @@ export interface Session {
    * Returns the value of the named attribute as an <code>Object</code>, or
    * <code>null</code> if no attribute of the given name exists. See {@link
    * Session#getAttributeNames}.
-   * @param name the name of an attribute passed in the credentials used to acquire this session.
-   * @return the value of the attribute or <code>null</code> if no attribute of the given name exists.
+   * @param name the name of an attribute passed in the credentials used to&#xA; acquire this session.
+   * @return the value of the attribute or <code>null</code> if no attribute&#xA; of the given name exists.
    */
   getAttribute(name: string): unknown;
 
@@ -141,7 +141,7 @@ export interface Session {
   /**
    * Returns the root node of the workspace, "/". This node is the main access
    * point to the content of the workspace.
-   * @return The root node of the workspace: a <code>{@link Node}</code> object.
+   * @return The root node of the workspace: a <code>{@link Node}</code>&#xA; object.
    * @throws RepositoryException if an error occurs.
    */
   getRootNode(): Node;
@@ -161,7 +161,7 @@ export interface Session {
    * <code>Session</code>.
    * @param credentials A <code>Credentials</code> object
    * @return a <code>Session</code> object
-   * @throws LoginException if the current session does not have sufficient access to perform the operation.
+   * @throws LoginException if the current session does not have sufficient&#xA; access to perform the operation.
    * @throws RepositoryException if another error occurs.
    */
   impersonate(credentials: Credentials): Session;
@@ -171,7 +171,7 @@ export interface Session {
    * referenceable and non-referenceable nodes.
    * @param id An identifier.
    * @return A <code>Node</code>.
-   * @throws ItemNotFoundException if no node with the specified identifier exists or if this <code>Session</code> does not have read access to the node with the specified identifier.
+   * @throws ItemNotFoundException if no node with the specified identifier&#xA; exists or if this <code>Session</code> does not have read access to the&#xA; node with the specified identifier.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
    */
@@ -189,7 +189,7 @@ export interface Session {
    * more efficient than <code>getItem</code>.
    * @param absPath An absolute path.
    * @return the specified <code>Item</code>.
-   * @throws PathNotFoundException if no accessible item is found at the specified path.
+   * @throws PathNotFoundException if no accessible item is found at the&#xA; specified path.
    * @throws RepositoryException if another error occurs.
    */
   getItem(absPath: string): Item;
@@ -198,7 +198,7 @@ export interface Session {
    * Returns the node at the specified absolute path in the workspace.
    * @param absPath An absolute path.
    * @return the specified <code>Node</code>.
-   * @throws PathNotFoundException If no accessible node is found at the specifed path.
+   * @throws PathNotFoundException If no accessible node is found at the&#xA; specifed path.
    * @throws RepositoryException If another error occurs.
    * @since JCR 2.0
    */
@@ -208,7 +208,7 @@ export interface Session {
    * Returns the property at the specified absolute path in the workspace.
    * @param absPath An absolute path.
    * @return the specified <code>Property</code>.
-   * @throws PathNotFoundException If no accessible property is found at the specified path.
+   * @throws PathNotFoundException If no accessible property is found at the&#xA; specified path.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
    */
@@ -220,7 +220,7 @@ export interface Session {
    * <code>false</code>.
    * @param absPath An absolute path.
    * @return a <code>boolean</code>
-   * @throws RepositoryException if <code>absPath</code> is not a well-formed absolute path.
+   * @throws RepositoryException if <code>absPath</code> is not a well-formed&#xA; absolute path.
    */
   itemExists(absPath: string): boolean;
 
@@ -230,7 +230,7 @@ export interface Session {
    * <code>false</code>.
    * @param absPath An absolute path.
    * @return a <code>boolean</code>
-   * @throws RepositoryException if <code>absPath</code> is not a well-formed absolute path.
+   * @throws RepositoryException if <code>absPath</code> is not a well-formed&#xA; absolute path.
    * @since JCR 2.0
    */
   nodeExists(absPath: string): boolean;
@@ -241,7 +241,7 @@ export interface Session {
    * <code>false</code>.
    * @param absPath An absolute path.
    * @return a <code>boolean</code>
-   * @throws RepositoryException if <code>absPath</code> is not a well-formed absolute path.
+   * @throws RepositoryException if <code>absPath</code> is not a well-formed&#xA; absolute path.
    * @since JCR 2.0
    */
   propertyExists(absPath: string): boolean;
@@ -251,7 +251,7 @@ export interface Session {
    * <code>Value</code> objects for use when setting repository properties.
    * @since Sitevision 3.0
    * @return a <code>ValueFactory</code>
-   * @throws UnsupportedRepositoryOperationException if writing to the repository is not supported.
+   * @throws UnsupportedRepositoryOperationException&#xA; if writing to the&#xA; repository is not supported.
    * @throws RepositoryException if another error occurs.
    */
   getValueFactory(): ValueFactory;
@@ -269,7 +269,7 @@ export interface Session {
    * currently set in this <code>Session</code>.
    * @param prefix a string
    * @return a string
-   * @throws NamespaceException if the specified <code>prefix</code> is unknown.
+   * @throws NamespaceException if the specified <code>prefix</code> is&#xA; unknown.
    * @throws RepositoryException if another error occurs
    */
   getNamespaceURI(prefix: string): string;
@@ -296,7 +296,7 @@ export interface Session {
    * by the client. Otherwise, returns <code>false</code>. A usable
    * <code>Session</code> is one that is neither logged-out, timed-out nor in
    * any other way disconnected from the repository.
-   * @return <code>true</code> if this <code>Session</code> is usable, <code>false</code> otherwise.
+   * @return <code>true</code> if this <code>Session</code> is usable,&#xA; <code>false</code> otherwise.
    */
   isLive(): boolean;
 }

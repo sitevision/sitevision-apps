@@ -8,16 +8,16 @@ import type { SearchHit } from "../SearchHit";
  * </p>
  * @author Magnus Lövgren
  * @since Sitevision 2.7_06
- * @deprecated This interface will do absolutely nothing as of Sitevision 3.0 (search engine has been replaced). Interface methods will not do anything (i.e. always return <code>null</code>) and this interface will be completely removed in future releases of Sitevision.
+ * @deprecated This interface will do absolutely nothing as of Sitevision 3.0 (search engine has been replaced).&#xA; Interface methods will not do anything (i.e. always return <code>null</code>) and this interface will be completely removed in&#xA; future releases of Sitevision.
  */
 export type SearchHighlighter = {
   /**
    * Returns a highlighted fragment for the default highlighting field.
-   * @param aHighlightPreElement the opening element to the left of a highlighted word(-s), e.g <code>"&lt;strong style=\"background-color:yellow\"&gt;"</code>
+   * @param aHighlightPreElement the opening element to the left of a highlighted word(-s),&#xA; e.g <code>"&lt;strong style=\"background-color:yellow\"&gt;"</code>
    * @param aHighlightPostElement the closing element to the right of a highlighted word(-s), e.g <code>"&lt;/strong&gt;"</code>
    * @param aSearchHit the search hit that should be highlighted
-   * @return a highlighted text fragment with all matches surrounded with <code>aHighlightPreElement</code> and <code>aHighlightPostElement</code>, <code>null</code> if nothing could be highlighted
-   * @deprecated As of Sitevision 3.0 this method will always return <code>null</code>. Do <strong>not</strong> use this interface at all, it will be completely removed in future releases of Sitevision.
+   * @return a highlighted text fragment with all matches surrounded with <code>aHighlightPreElement</code> and <code>aHighlightPostElement</code>,&#xA; <code>null</code> if nothing could be highlighted
+   * @deprecated As of Sitevision 3.0 this method will always return <code>null</code>. Do <strong>not</strong> use this interface at all,&#xA; it will be completely removed in future releases of Sitevision.
    */
   getHighlightedFragment(
     aHighlightPreElement: string,
@@ -27,12 +27,12 @@ export type SearchHighlighter = {
 
   /**
    * Returns a highlighted fragment for a specified field.
-   * @param aHighlightPreElement the opening element to the left of a highlighted word(-s), e.g <code>"&lt;strong style=\"background-color:yellow\"&gt;"</code>
+   * @param aHighlightPreElement the opening element to the left of a highlighted word(-s),&#xA; e.g <code>"&lt;strong style=\"background-color:yellow\"&gt;"</code>
    * @param aHighlightPostElement the closing element to the right of a highlighted word(-s), e.g <code>"&lt;/strong&gt;"</code>
    * @param aSearchHit the search hit that should be highlighted
-   * @param aHighlightingFieldName the field that should be highlighted. A default field will be used if <code>aHighlightingFieldName</code> is <code>null</code>. The field that with most characters will be used if multiple fields match. Binary fields are ignored.
-   * @return a highlighted text fragment with all matches surrounded with <code>aHighlightPreElement</code> and <code>aHighlightPostElement</code>, <code>null</code> if nothing could be highlighted
-   * @deprecated As of Sitevision 3.0 this method will always return <code>null</code>. Do <strong>not</strong> use this interface at all, it will be completely removed in future releases of Sitevision.
+   * @param aHighlightingFieldName the field that should be highlighted. A default field will be used if&#xA; <code>aHighlightingFieldName</code> is <code>null</code>.&#xA; The field that with most characters will be used if multiple fields match. Binary fields are ignored.
+   * @return a highlighted text fragment with all matches surrounded with <code>aHighlightPreElement</code> and <code>aHighlightPostElement</code>,&#xA; <code>null</code> if nothing could be highlighted
+   * @deprecated As of Sitevision 3.0 this method will always return <code>null</code>. Do <strong>not</strong> use this interface at all,&#xA; it will be completely removed in future releases of Sitevision.
    */
   getHighlightedFragment(
     aHighlightPreElement: string,

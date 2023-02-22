@@ -59,7 +59,7 @@ export type DirectoryAttributes = {
    * equals <code>true</code>.
    * @param anAttributeName The attribute name for which to get the attribute value for.
    * @param returnAsString If <code>true</code> the value is returned as a <code>String</code>.
-   * @return The attribute value as a <code>String</code> if <code>returnAsString</code> equals <code>true</code> or <code>null</code> if no value maps to the given name.
+   * @return The attribute value as a <code>String</code> if <code>returnAsString</code> equals <code>true</code>&#xA; or <code>null</code> if no value maps to the given name.
    */
   getAttributeValue(anAttributeName: string, returnAsString: boolean): unknown;
 };

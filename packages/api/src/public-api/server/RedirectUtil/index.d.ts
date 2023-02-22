@@ -27,8 +27,8 @@ export interface RedirectUtil {
    * </p>
    * @param aNode a node, typically a <code>sv:page</code>
    * @param aRelativeURI the relative URI that should trigger a 301 redirect to <code>aNode</code>.
-   * @throws IllegalArgumentException if <code>aNode</code> is <code>null</code> or an invalid node, if <code>aRelativeURI</code> is <code>null</code>, whitespace-only or an absolute URI.
-   * @throws RepositoryException if current user is not authorized to alter <code>aNode</code>, if <code>aNode</code> is already locked or something else goes wrong
+   * @throws IllegalArgumentException if <code>aNode</code> is <code>null</code> or an invalid node,&#xA; if <code>aRelativeURI</code> is <code>null</code>, whitespace-only or an absolute URI.
+   * @throws RepositoryException if current user is not authorized to alter <code>aNode</code>,&#xA; if <code>aNode</code> is already locked or something else goes wrong
    */
   addRedirectURI(aNode: Node, aRelativeURI: string): void;
 
@@ -40,8 +40,8 @@ export interface RedirectUtil {
    * </p>
    * @param aNode a node, typically a <code>sv:page</code>
    * @param aRelativeURIs a collection of relative URIs that should trigger 301 redirects to <code>aNode</code>.
-   * @throws IllegalArgumentException if <code>aNode</code> is <code>null</code> or an invalid node, if <code>aRelativeURI</code> is <code>null</code>, empty or doesn't contain any non-whitespace only or an non-absolute URI.
-   * @throws RepositoryException if current user is not authorized to alter <code>aNode</code>, if <code>aNode</code> is already locked or something else goes wrong
+   * @throws IllegalArgumentException if <code>aNode</code> is <code>null</code> or an invalid node,&#xA; if <code>aRelativeURI</code> is <code>null</code>, empty or doesn't contain any non-whitespace only or an non-absolute URI.
+   * @throws RepositoryException if current user is not authorized to alter <code>aNode</code>,&#xA; if <code>aNode</code> is already locked or something else goes wrong
    */
   addRedirectURIs(aNode: Node, aRelativeURIs: unknown): void;
 
@@ -53,8 +53,8 @@ export interface RedirectUtil {
    * </p>
    * @param aNode a node, typically a <code>sv:page</code>
    * @param aRelativeURI the relative URI that should be removed from <code>aNode</code>.
-   * @throws IllegalArgumentException if <code>aNode</code> is <code>null</code> or an invalid node, if <code>aRelativeURI</code> is <code>null</code>, whitespace-only or an absolute URI.
-   * @throws RepositoryException if current user is not authorized to alter <code>aNode</code>, if <code>aNode</code> is already locked or something else goes wrong
+   * @throws IllegalArgumentException if <code>aNode</code> is <code>null</code> or an invalid node,&#xA; if <code>aRelativeURI</code> is <code>null</code>, whitespace-only or an absolute URI.
+   * @throws RepositoryException if current user is not authorized to alter <code>aNode</code>,&#xA; if <code>aNode</code> is already locked or something else goes wrong
    */
   removeRedirectURI(aNode: Node, aRelativeURI: string): void;
 
@@ -66,7 +66,7 @@ export interface RedirectUtil {
    * </p>
    * @param aNode a node, typically a <code>sv:page</code>
    * @throws IllegalArgumentException if <code>aNode</code> is <code>null</code> or an invalid node,
-   * @throws RepositoryException if current user is not authorized to alter <code>aNode</code>, if <code>aNode</code> is already locked or something else goes wrong
+   * @throws RepositoryException if current user is not authorized to alter <code>aNode</code>,&#xA; if <code>aNode</code> is already locked or something else goes wrong
    */
   removeAllRedirectURIs(aNode: Node): void;
 }

@@ -31,7 +31,7 @@ export interface PortletContextUtil extends PortletContextUtilConstants {
 
   /**
    * Gets current page (i.e. the page node for the currently executing portlet).
-   * @return current page <code>Node</code>, or <code>null</code> if indeterminable (i.e. this method is not called from within a portlet or current portlet is not bound to any page)
+   * @return current page <code>Node</code>, or <code>null</code> if indeterminable (i.e. this method is not called from within a portlet or&#xA; current portlet is not bound to any page)
    */
   getCurrentPage(): Node;
 
@@ -43,7 +43,7 @@ export interface PortletContextUtil extends PortletContextUtilConstants {
 
   /**
    * Gets current module element (module element draft or module element).
-   * @return current module element as <code>Node</code>, or <code>null</code> if indeterminable (i.e. this method is not called from within a module element)
+   * @return current module element as <code>Node</code>, or <code>null</code> if indeterminable&#xA; (i.e. this method is not called from within a module element)
    * @since Sitevision 4.2
    */
   getCurrentModuleElement(): Node;
@@ -83,7 +83,7 @@ export interface PortletContextUtil extends PortletContextUtilConstants {
 
   /**
    * Gets current version.
-   * @return {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION}, or {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
+   * @return {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION}, or&#xA; {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
    * @since Sitevision 2.6
    * @deprecated Use {@link senselogic.sitevision.api.versioning.VersionUtil#getCurrentVersion()}
    */

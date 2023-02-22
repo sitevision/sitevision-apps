@@ -6,7 +6,7 @@ import type SourceSetMode from "../SourceSetMode";
 import type DimensionMode from "../DimensionMode";
 
 /**
- * ImageRenderer is a stateful utility interface that can be used to render valid xhtml img elements based on images of the website.
+ * ImageRenderer is a stateful utility interface that can be used to render valid html img elements based on images of the website.
  *
  * <p>
  * ImageRenderer is very suitable when rendering more than one image or when you want to render images in different sizes than the original
@@ -43,7 +43,7 @@ import type DimensionMode from "../DimensionMode";
  *       Default is <code>false</code>.
  *    </li>
  *    <li>
- *       <em>useEncoding</em> - Whether to encode description and title or not. Default is <code>true</code>.
+ *       <em>useEncoding</em> - Whether to encode description, title, data-attributes and aria-attributes or not. Default is <code>true</code>.
  *    </li>
  *    <li>
  *       <em>sourceSetMode</em> - The <code>srcset</code> attribute rendering strategy. Default is {@link SourceSetMode#AUTO}.
@@ -60,6 +60,15 @@ import type DimensionMode from "../DimensionMode";
  *    </li>
  *    <li>
  *       <em>dimensionMode</em> - The <code>width/height</code> css style properties rendering strategy. Default is {@link DimensionMode#AUTO}.
+ *    </li>
+ *    <li>
+ *       <em>cssClasses</em> - Custom css class values. Default is <code>null</code> (no custom classes).
+ *    </li>
+ *    <li>
+ *       <em>dataAttributes</em> - Custom HTML5 data-x attributes and values. Default is <code>null</code> (no custom data attributes).
+ *    </li>
+ *    <li>
+ *       <em>ariaAttributes</em> - Custom HTML5 aria-x attributes and values. Default is <code>null</code> (no custom aria attributes).
  *    </li>
  * </ul>
  *
@@ -192,7 +201,7 @@ export interface ImageRenderer {
    * <p>
    * Default is <code>true</code>.
    * </p>
-   * @param useImageScaler decides if an image scaler should be used or not. If <code>true</code>, an image scaler will be used if it is set. If <code>false</code>, no image scaler will be used even if it is set.
+   * @param useImageScaler decides if an image scaler should be used or not.&#xA; If <code>true</code>, an image scaler will be used if it is set. If <code>false</code>, no image scaler will be used even if it is set.
    */
   setUseImageScaler(useImageScaler: boolean): void;
 
@@ -384,7 +393,7 @@ export interface ImageRenderer {
    *    <em>Remember - the title value is always the description, so any other cases than previously stated won't actually add anything new
    *    to your code/output...</em>
    * </p>
-   * @param useAutoTitle whether or not the renderer should try to get a description via metadata to use as title value if no description is available
+   * @param useAutoTitle whether or not the renderer should try to get a description via metadata to use as title value if no description&#xA; is available
    * @see #setUseTitleRendering(boolean)
    * @since Sitevision 2.6.2_04
    */
@@ -490,13 +499,113 @@ export interface ImageRenderer {
   clearUseLazyLoad(): void;
 
   /**
-   * Builds a xhtml img element based on current state.
+   * Adds an HTML5 data-* attribute to the image element.
+   * Data attributes are optional when the result is rendered. Default is no data attributes.
+   * <p>
+   *    There can only be one data attribute per name (i.e. when a data attribute is added it will always replace the possibly existing
+   *    data attribute that already use that name).
+   * </p>
+   *
+   * <p>
+   *    Notes about names and values:
+   * </p>
+   * <ul>
+   *    <li>
+   *       A <strong>name</strong> that is <code>null</code> or <em>whitespace-only</em> will be completely ignored,
+   *       i.e. no data attribute will be rendered.
+   *    </li>
+   *    <li>
+   *       A <strong>name</strong> that isn't properly prefixed with <em>"data-"</em> will be prefixed when the data attribute is rendered.
+   *    </li>
+   *    <li>
+   *       A <strong>value</strong> that is <code>null</code> or <em>whitespace-only</em> will be rendered as a data attribute without value.
+   *    </li>
+   *    <li>
+   *       A <strong>value</strong> should not be escaped/encoded. The <em>useEncoding</em> attribute will determine what to do
+   *       when the data attributes are rendered.
+   *    </li>
+   * </ul>
+   * @param aName the name of the data attribute
+   * @param aValue the value of the data attribute
+   * @since Sitevision 2023.02.1
+   */
+  addDataAttribute(aName: string, aValue: string): void;
+
+  /**
+   * Removes all existing data attributes
+   * @since Sitevision 2023.02.1
+   */
+  clearDataAttributes(): void;
+
+  /**
+   * Adds an aria-* attribute to the image element.
+   * Aria attributes are optional when the result is rendered. Default is no aria attributes.
+   * <p>
+   *    There can only be one aria attribute per name (i.e. when an aria attribute is added it will always replace the possibly existing
+   *    aria attribute that already use that name).
+   * </p>
+   *
+   * <p>
+   *    Notes about names and values:
+   * </p>
+   * <ul>
+   *    <li>
+   *       A <strong>name</strong> that is <code>null</code> or <em>whitespace-only</em> will be completely ignored,
+   *       i.e. no aria attribute will be rendered.
+   *    </li>
+   *    <li>
+   *       A <strong>name</strong> that isn't properly prefixed with <em>"aria-"</em> will be prefixed when the aria attribute is rendered.
+   *    </li>
+   *    <li>
+   *       A <strong>value</strong> that is <code>null</code> or <em>whitespace-only</em> will be rendered as an aria attribute without value.
+   *    </li>
+   *    <li>
+   *       A <strong>value</strong> should not be escaped/encoded. The <em>useEncoding</em> attribute will determine what to do
+   *       when the aria attributes are rendered.
+   *    </li>
+   * </ul>
+   * @param aName the name of the aria attribute
+   * @param aValue the value of the aria attribute
+   * @since Sitevision 2023.02.1
+   */
+  addAriaAttribute(aName: string, aValue: string): void;
+
+  /**
+   * Removes all existing aria attributes
+   * @since Sitevision 2023.02.1
+   */
+  clearAriaAttributes(): void;
+
+  /**
+   * Adds a css class to the class attribute for the image element.
+   * <p>
+   *    Notes about css classes:
+   * </p>
+   * <ul>
+   *    <li>
+   *       A <strong>class</strong> that is <code>null</code> or <em>whitespace-only</em> will be completely ignored,
+   *       i.e. no css class will be added to the class attribute.
+   *    </li>
+   * </ul>
+   * @param aClassName the name of the css class
+   * @since Sitevision 2023.02.1
+   */
+  addCssClass(aClassName: string): void;
+
+  /**
+   * Removes all existing css classes
+   * @since Sitevision 2023.02.1
+   */
+  clearCssClasses(): void;
+
+  /**
+   * Builds a html img element based on current state.
    *
    * <p>
    *    <em>Note!</em> The render method is not thread safe (see <a href="#threadnote">thread note above</a>)
    *    and not all image types can be rendered when using an image scaler (see <a href="#imagesupport">image support note above</a>).
    * </p>
-   * @return if the renderer has a loaded image a xhtml img element, ready to print out on a page, will be returned. If there are no image to render or rendering fails, an empty string will be returned.
+   * @return if the renderer has a loaded image a html img element, ready to print out on a page, will be returned.&#xA; If there are no image to render or rendering fails, an empty string will be returned.
    */
   render(): string;
 }

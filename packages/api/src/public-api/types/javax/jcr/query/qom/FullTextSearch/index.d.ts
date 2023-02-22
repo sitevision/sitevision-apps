@@ -76,7 +76,7 @@ export type FullTextSearch = Constraint & {
 
   /**
    * Gets the name of the property.
-   * @return the property name if the full-text search scope is a property, otherwise null if the full-text search scope is the node (or node subgraph, in some implementations).
+   * @return the property name if the full-text search scope is a property,&#xA; otherwise null if the full-text search scope is the node (or node&#xA; subgraph, in some implementations).
    */
   getPropertyName(): string;
 

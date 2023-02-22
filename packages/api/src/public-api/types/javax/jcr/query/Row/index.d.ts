@@ -21,7 +21,7 @@ export type Row = {
    * Returns the value of the indicated column in this <code>Row</code>.
    * @param columnName name of query result table column
    * @return a <code>Value</code>
-   * @throws ItemNotFoundException if <code>columnName</code> is not among the column names of the query result table.
+   * @throws ItemNotFoundException if <code>columnName</code> is not among the&#xA; column names of the query result table.
    * @throws RepositoryException if another error occurs.
    */
   getValue(columnName: string): Value;
@@ -29,7 +29,7 @@ export type Row = {
   /**
    * Returns the <code>Node</code> corresponding to this <code>Row</code>.
    * @return a <code>Node</code>
-   * @throws RepositoryException if this query has more than one selector (and therefore, this <code>Row</code> corresponds to more than one <code>Node</code>) or if another error occurs.
+   * @throws RepositoryException if this query has more than one selector (and&#xA; therefore, this <code>Row</code> corresponds to more than one&#xA; <code>Node</code>) or if another error occurs.
    * @since JCR 2.0
    */
   getNode(): Node;
@@ -42,7 +42,7 @@ export type Row = {
    * <code>null</code>.
    * @param selectorName a <code>String</code>
    * @return a <code>Node</code>
-   * @throws RepositoryException if <code>selectorName</code> is not the alias of a selector in this query or if another error occurs.
+   * @throws RepositoryException if <code>selectorName</code> is not the alias&#xA; of a selector in this query or if another error occurs.
    * @since JCR 2.0
    */
   getNode(selectorName: string): Node;
@@ -52,7 +52,7 @@ export type Row = {
    * implementations may be able gain efficiency by not resolving the actual
    * <code>Node</code>.
    * @return a <code>String</code>
-   * @throws RepositoryException if this query has more than one selector (and therefore, this <code>Row</code> corresponds to more than one <code>Node</code>) or if another error occurs.
+   * @throws RepositoryException if this query has more than one selector (and&#xA; therefore, this <code>Row</code> corresponds to more than one&#xA; <code>Node</code>) or if another error occurs.
    * @since JCR 2.0
    */
   getPath(): string;
@@ -66,7 +66,7 @@ export type Row = {
    * <code>null</code>.
    * @param selectorName a <code>String</code>
    * @return a <code>String</code>
-   * @throws RepositoryException if <code>selectorName</code> is not the alias of a selector in this query or if another error occurs.
+   * @throws RepositoryException if <code>selectorName</code> is not the alias&#xA; of a selector in this query or if another error occurs.
    * @since JCR 2.0
    */
   getPath(selectorName: string): string;
@@ -85,7 +85,7 @@ export type Row = {
    * represented by a <code>SCORE()</code> function. In JCR-JQOM it is
    * represented by a Java object of type <code>javax.jcr.query.qom.FullTextSearchScore</code>.
    * @return a <code>double</code>
-   * @throws RepositoryException if this query has more than one selector (and therefore, this <code>Row</code> corresponds to more than one <code>Node</code>) or if another error occurs.
+   * @throws RepositoryException if this query has more than one selector (and&#xA; therefore, this <code>Row</code> corresponds to more than one&#xA; <code>Node</code>) or if another error occurs.
    * @since JCR 2.0
    */
   getScore(): number;
@@ -111,7 +111,7 @@ export type Row = {
    * the selector.
    * @param selectorName a <code>String</code>
    * @return a <code>double</code>
-   * @throws RepositoryException if <code>selectorName</code> is not the alias of a selector in this query or if another error occurs.
+   * @throws RepositoryException if <code>selectorName</code> is not the alias&#xA; of a selector in this query or if another error occurs.
    * @since JCR 2.0
    */
   getScore(selectorName: string): number;

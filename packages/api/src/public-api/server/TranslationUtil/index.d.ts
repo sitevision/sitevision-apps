@@ -80,7 +80,7 @@ export interface TranslationUtil {
   /**
    * Gets the page node a given node is potentially translated from (the translation source).
    * @param aPageNode the page node that is translated
-   * @return the page node aPageNode was translated from, or null if the page node isn't translated from another page or if current user doesn't have {@link senselogic.sitevision.api.security.PermissionUtil.Permission#READ} permissions on the from node.
+   * @return the page node aPageNode was translated from, or null if the page node isn't translated from another page or if current user&#xA; doesn't have {@link senselogic.sitevision.api.security.PermissionUtil.Permission#READ} permissions on the from node.
    * @since Sitevision 4.3.1
    */
   getTranslatedFrom(aPageNode: Node): Node;
@@ -94,9 +94,9 @@ export interface TranslationUtil {
    *    {@link senselogic.sitevision.api.security.PermissionUtil.Permission#WRITE}
    *    on @aTranslationPageNode.
    * </p>
-   * @param aOriginalPageNode the original page node to be configured as translated from on aTranslationPageNode. It will be configured as original in aTranslationPageNode as well if aOriginalPageNode doesn't have any original configured.
+   * @param aOriginalPageNode the original page node to be configured as translated from on aTranslationPageNode. It will be configured as&#xA; original in aTranslationPageNode as well if aOriginalPageNode doesn't have any original configured.
    * @param aTranslationPageNode the translation page node to be configured as translation of aOriginalPageNode
-   * @return true if aTranslationPageNode could be configured as translation of aOriginalPageNode, false otherwise.
+   * @return true if aTranslationPageNode could be configured as translation of aOriginalPageNode,&#xA; false otherwise.
    * @since Sitevision 4.3.2
    */
   setTranslatedFrom(

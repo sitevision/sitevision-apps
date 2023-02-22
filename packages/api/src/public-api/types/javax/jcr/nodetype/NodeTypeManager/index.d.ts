@@ -16,7 +16,7 @@ export type NodeTypeManager = {
    * Returns the named node type.
    * @param nodeTypeName the name of an existing node type.
    * @return A <code>NodeType</code> object.
-   * @throws NoSuchNodeTypeException if no node type by the given name exists.
+   * @throws NoSuchNodeTypeException if no node type by the given name&#xA; exists.
    * @throws RepositoryException if another error occurs.
    */
   getNodeType(nodeTypeName: string): NodeType;

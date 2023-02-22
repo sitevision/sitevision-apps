@@ -155,7 +155,7 @@ export type VersionedPropertyUtil = {
    * </p>
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the value for <code>aPropertyName</code> as <code>String</code>. If the property is single valued a list with one element is returned. If no node or property exists, <code>null</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>String</code>.&#xA; If the property is single valued a list with one element is returned. If no node or property exists, <code>null</code> is returned.
    */
   getStrings(aNodeIdentifier: string, aPropertyName: string): unknown;
 
@@ -173,7 +173,7 @@ export type VersionedPropertyUtil = {
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for <code>aPropertyName</code> as <code>String</code>. If the property is single valued a list with one element is returned. If no node or property exists, <code>aDefaultValue</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>String</code>.&#xA; If the property is single valued a list with one element is returned.&#xA; If no node or property exists, <code>aDefaultValue</code> is returned.
    */
   getStrings(
     aNodeIdentifier: string,
@@ -197,7 +197,7 @@ export type VersionedPropertyUtil = {
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on aNode
    * @param aPropertyName the name of the property for the "inner/nested" <code>Node</code>
-   * @return the value for <code>aPropertyName</code> as <code>String</code>. If the property is single valued a list with one element is returned. If no node or property exists, <code>null</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>String</code>.&#xA; If the property is single valued a list with one element is returned. If no node or property exists, <code>null</code> is returned.
    */
   getNestedStrings(
     aNodeIdentifier: string,
@@ -223,7 +223,7 @@ export type VersionedPropertyUtil = {
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on aNode
    * @param aPropertyName the name of the property for the "inner/nested" <code>Node</code>
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for <code>aPropertyName</code> as <code>String</code>. If the property is single valued a list with one element is returned. If no node or property exists, <code>aDefaultValue</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>String</code>.&#xA; If the property is single valued a list with one element is returned.&#xA; If no node or property exists, <code>aDefaultValue</code> is returned.
    */
   getNestedStrings(
     aNodeIdentifier: string,
@@ -245,7 +245,7 @@ export type VersionedPropertyUtil = {
    * </p>
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the <code>int</code> value for aPropertyName. If no node or property exists or it isn't compatible with an <code>int</code>, 0 is returned.
+   * @return the <code>int</code> value for aPropertyName.&#xA; If no node or property exists or it isn't compatible with an <code>int</code>, 0 is returned.
    */
   getInt(aNodeIdentifier: string, aPropertyName: string): number;
 
@@ -263,7 +263,7 @@ export type VersionedPropertyUtil = {
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the <code>int</code> value for <code>aPropertyName</code>. If no node or property exists or it isn't compatible with an <code>int</code>, <code>aDefaultValue</code> is returned.
+   * @return the <code>int</code> value for <code>aPropertyName</code>.&#xA; If no node or property exists or it isn't compatible with an <code>int</code>, <code>aDefaultValue</code> is returned.
    */
   getInt(
     aNodeIdentifier: string,
@@ -284,7 +284,7 @@ export type VersionedPropertyUtil = {
    * </p>
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the value for <code>aPropertyName</code> as <code>boolean</code>. If no node or property exists or it isn't compatible with a <code>boolean</code>, <code>false</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>boolean</code>.&#xA; If no node or property exists or it isn't compatible with a <code>boolean</code>, <code>false</code> is returned.
    */
   getBoolean(aNodeIdentifier: string, aPropertyName: string): boolean;
 
@@ -302,7 +302,7 @@ export type VersionedPropertyUtil = {
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for <code>aPropertyName</code> as <code>boolean</code>. If no node or property exists or it isn't compatible with a <code>boolean</code>, <code>aDefaultValue</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>boolean</code>.&#xA; If no node or property exists or it isn't compatible with a <code>boolean</code>, <code>aDefaultValue</code> is returned.
    */
   getBoolean(
     aNodeIdentifier: string,
@@ -323,7 +323,7 @@ export type VersionedPropertyUtil = {
    * </p>
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the value for <code>aPropertyName</code> as <code>Calendar</code>. If no node or property exists or it isn't a <code>Calendar</code>, <code>null</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>Calendar</code>.&#xA; If no node or property exists or it isn't a <code>Calendar</code>, <code>null</code> is returned.
    */
   getCalendar(aNodeIdentifier: string, aPropertyName: string): unknown;
 
@@ -341,7 +341,7 @@ export type VersionedPropertyUtil = {
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for <code>aPropertyName</code> as <code>Calendar</code>. If no node or property exists or it isn't compatible with a <code>Calendar</code>, <code>aDefaultValue</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>Calendar</code>.&#xA; If no node or property exists or it isn't compatible with a <code>Calendar</code>, <code>aDefaultValue</code> is returned.
    */
   getCalendar(
     aNodeIdentifier: string,
@@ -362,7 +362,7 @@ export type VersionedPropertyUtil = {
    * </p>
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the value for <code>aPropertyName</code> as <code>double</code>. If no node or property exists or it isn't a <code>double</code>, <code>0.0</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>double</code>.&#xA; If no node or property exists or it isn't a <code>double</code>, <code>0.0</code> is returned.
    * @since Sitevision 3.5
    */
   getDouble(aNodeIdentifier: string, aPropertyName: string): number;
@@ -381,7 +381,7 @@ export type VersionedPropertyUtil = {
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for <code>aPropertyName</code> as <code>double</code>. If no node or property exists or it isn't compatible with a <code>double</code>, <code>aDefaultValue</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>double</code>.&#xA; If no node or property exists or it isn't compatible with a <code>double</code>, <code>aDefaultValue</code> is returned.
    * @since Sitevision 3.5
    */
   getDouble(
@@ -412,7 +412,7 @@ export type VersionedPropertyUtil = {
    * </p>
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the value for <code>aPropertyName</code> as <code>Binary</code>. If no node or property exists or it isn't a <code>Binary</code>, <code>null</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>Binary</code>.&#xA; If no node or property exists or it isn't a <code>Binary</code>, <code>null</code> is returned.
    * @since Sitevision 3.5
    */
   getBinary(aNodeIdentifier: string, aPropertyName: string): Binary;
@@ -440,7 +440,7 @@ export type VersionedPropertyUtil = {
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for <code>aPropertyName</code> as <code>Binary</code>. f no node or property exists or it isn't compatible with a <code>Binary</code>, <code>aDefaultValue</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>Binary</code>.&#xA; f no node or property exists or it isn't compatible with a <code>Binary</code>, <code>aDefaultValue</code> is returned.
    * @since Sitevision 3.5
    */
   getBinary(

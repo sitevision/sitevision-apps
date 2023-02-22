@@ -110,13 +110,13 @@ export type Query = {
    * Implementations may differ on when this validation is performed.
    * @param absPath absolute path the query should be stored at
    * @return the newly created node.
-   * @throws ItemExistsException if an item at the specified path already exists, same-name siblings are not allowed and this implementation performs this validation immediately.
-   * @throws PathNotFoundException if the specified path implies intermediary <code>Node</code>s that do not exist or the last element of <code>relPath</code> has an index, and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if a node type or implementation-specific constraint is violated or if an attempt is made to add a node as the child of a property and this implementation performs this validation immediately.
-   * @throws VersionException if the node to which the new child is being added is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the addition of the node and this implementation performs this validation immediately.
-   * @throws UnsupportedRepositoryOperationException if persistent queries are not supported.
-   * @throws RepositoryException if another error occurs or if the <code>absPath</code> provided has an index on its final element.
+   * @throws ItemExistsException if an item at the specified path already&#xA; exists, same-name siblings are not allowed and this implementation&#xA; performs this validation immediately.
+   * @throws PathNotFoundException if the specified path implies intermediary&#xA; <code>Node</code>s that do not exist or the last element of&#xA; <code>relPath</code> has an index, and this implementation performs this&#xA; validation immediately.
+   * @throws ConstraintViolationException if a node type or&#xA; implementation-specific constraint is violated or if an attempt is made&#xA; to add a node as the child of a property and this implementation performs&#xA; this validation immediately.
+   * @throws VersionException if the node to which the new child is being&#xA; added is read-only due to a checked-in node and this implementation&#xA; performs this validation immediately.
+   * @throws LockException if a lock prevents the addition of the node and&#xA; this implementation performs this validation immediately.
+   * @throws UnsupportedRepositoryOperationException&#xA; if persistent queries are&#xA; not supported.
+   * @throws RepositoryException if another error occurs or if the&#xA; <code>absPath</code> provided has an index on its final element.
    */
   storeAsNode(absPath: string): Node;
 
@@ -125,7 +125,7 @@ export type Query = {
    * <code>varName</code>.
    * @param varName name of variable in query
    * @param value value to bind
-   * @throws IllegalArgumentException if <code>varName</code> is not a valid variable in this query.
+   * @throws IllegalArgumentException if <code>varName</code> is not a valid&#xA; variable in this query.
    * @throws javax.jcr.RepositoryException if an error occurs.
    * @since JCR 2.0
    */

@@ -47,7 +47,7 @@ export type VelocityEvaluator = {
    *       your velocity file path would likely be <code>"../resources/myvelocityfile.vm"</code>.
    *    </em>
    * </p>
-   * @param aTemplate a String containing the Velocity code to be parsed or a path to a velocity template file (suffix must be ".vm" and path must not contain any space character)
+   * @param aTemplate a String containing the Velocity code to be parsed or a path to a velocity template file&#xA; (suffix must be ".vm" and path must not contain any space character)
    */
   evaluate(aTemplate: string): void;
 };

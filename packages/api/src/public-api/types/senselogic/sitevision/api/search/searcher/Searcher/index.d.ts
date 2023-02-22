@@ -160,7 +160,7 @@ export type Searcher = {
    * @param aQuery the query string
    * @param aMaxHitsToReturn maximum total number of hits to be returned
    * @return the search result, never <code>null</code>
-   * @throws IllegalArgumentException if <code>aQuery</code> is null or whitespace-only, if <code>aStartAtHit</code> is negative, if <code>aMaxHitsToReturn</code> is negative or zero.
+   * @throws IllegalArgumentException if <code>aQuery</code> is null or whitespace-only, if <code>aStartAtHit</code> is negative,&#xA; if <code>aMaxHitsToReturn</code> is negative or zero.
    */
   search(aQuery: string, aMaxHitsToReturn: number): SearchResult;
 
@@ -179,10 +179,10 @@ export type Searcher = {
    *    see {@link senselogic.sitevision.api.search.query.QueryStringUtil#stripLocalParams(String)}.</em>
    * </p>
    * @param aQuery the query string
-   * @param aDisplayQuery the "human friendly" variant of the query string that can be used/retrieved when rendering the search result. Note! If <code>aDisplayQuery</code> is <code>null</code>, <code>aQuery</code> will be used as <code>aDisplayQuery</code>.
+   * @param aDisplayQuery the "human friendly" variant of the query string that can be used/retrieved when rendering the search result.&#xA; Note! If <code>aDisplayQuery</code> is <code>null</code>, <code>aQuery</code> will be used as <code>aDisplayQuery</code>.
    * @param aMaxHitsToReturn maximum total number of hits to be returned
    * @return the search result, never <code>null</code>
-   * @throws IllegalArgumentException if <code>aQuery</code> is null or whitespace-only, if <code>aStartAtHit</code> is negative, if <code>aMaxHitsToReturn</code> is negative or zero.
+   * @throws IllegalArgumentException if <code>aQuery</code> is null or whitespace-only, if <code>aStartAtHit</code> is negative,&#xA; if <code>aMaxHitsToReturn</code> is negative or zero.
    * @since Sitevision 3.6.4
    */
   search(
@@ -202,7 +202,7 @@ export type Searcher = {
    * @param aStartAtHit number of leading hits to be skipped
    * @param aMaxHitsToReturn maximum total number of hits to be returned
    * @return the search result, never <code>null</code>
-   * @throws IllegalArgumentException if <code>aQuery</code> is null or whitespace-only, if <code>aStartAtHit</code> is negative, if <code>aMaxHitsToReturn</code> is negative or zero.
+   * @throws IllegalArgumentException if <code>aQuery</code> is null or whitespace-only, if <code>aStartAtHit</code> is negative,&#xA; if <code>aMaxHitsToReturn</code> is negative or zero.
    */
   search(
     aQuery: string,
@@ -225,11 +225,11 @@ export type Searcher = {
    *    see {@link senselogic.sitevision.api.search.query.QueryStringUtil#stripLocalParams(String)}.</em>
    * </p>
    * @param aQuery the query string
-   * @param aDisplayQuery the "human friendly" variant of the query string that can be used/retrieved when rendering the search result. Note! If <code>aDisplayQuery</code> is <code>null</code>, <code>aQuery</code> will be used as <code>aDisplayQuery</code>.
+   * @param aDisplayQuery the "human friendly" variant of the query string that can be used/retrieved when rendering the search result.&#xA; Note! If <code>aDisplayQuery</code> is <code>null</code>, <code>aQuery</code> will be used as <code>aDisplayQuery</code>.
    * @param aStartAtHit number of leading hits to be skipped
    * @param aMaxHitsToReturn maximum total number of hits to be returned
    * @return the search result, never <code>null</code>
-   * @throws IllegalArgumentException if <code>aQuery</code> is null or whitespace-only, if <code>aStartAtHit</code> is negative, if <code>aMaxHitsToReturn</code> is negative or zero.
+   * @throws IllegalArgumentException if <code>aQuery</code> is null or whitespace-only, if <code>aStartAtHit</code> is negative,&#xA; if <code>aMaxHitsToReturn</code> is negative or zero.
    * @since Sitevision 3.6.4
    */
   search(

@@ -27,11 +27,11 @@ export type Node = Item & {
    * @param name the name of the property to be set.
    * @param value a <code>String</code> object.
    * @param type the type of the property.
-   * @return the <code>Property</code> object set, or <code>null</code> if this method was used to remove a property (by setting its value to <code>null</code>).
-   * @throws ValueFormatException if <code>value</code> cannot be converted to the specified type or if the property already exists and is multi-valued.
-   * @throws VersionException if this node is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the property and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
+   * @return the <code>Property</code> object set, or <code>null</code> if&#xA; this method was used to remove a property (by setting its value&#xA; to <code>null</code>).
+   * @throws ValueFormatException if <code>value</code> cannot be converted to&#xA; the specified type or if the property already exists and is&#xA; multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
    * @throws RepositoryException if another error occurs.
    */
   setProperty(name: string, value: string, type: number): Property;
@@ -49,12 +49,12 @@ export type Node = Item & {
    * @param name The name of a property of this node
    * @param value The value to assigned
    * @return The updated <code>Property</code> object
-   * @throws ValueFormatException if <code>value</code> cannot be converted to the type of the specified property or if the property already exists and is multi-valued.
-   * @throws VersionException if this node is read-only due to a checked-in node and this implementation performs this validation immediately.
-   * @throws LockException if a lock prevents the setting of the property and this implementation performs this validation immediately.
-   * @throws ConstraintViolationException if the change would violate a node-type or other constraint and this implementation performs this validation immediately.
+   * @throws ValueFormatException if <code>value</code> cannot be converted to&#xA; the type of the specified property or if the property already exists and&#xA; is multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
    * @throws RepositoryException if another error occurs.
-   * @deprecated As of JCR 2.0, {@link #setProperty(String, Binary)} should be used instead.
+   * @deprecated As of JCR 2.0, {@link #setProperty(String, Binary)} should be&#xA; used instead.
    */
   setProperty(name: string, value: unknown): Property;
 
@@ -76,7 +76,7 @@ export type Node = Item & {
    * to the implementation.
    * @param relPath The relative path of the node to retrieve.
    * @return The node at <code>relPath</code>.
-   * @throws PathNotFoundException if no node exists at the specified path or the current <code>Session</code> does not read access to the node at the specified path.
+   * @throws PathNotFoundException if no node exists at the specified path or&#xA; the current <code>Session</code> does not read access to the node at the&#xA; specified path.
    * @throws RepositoryException If another error occurs.
    */
   getNode(relPath: string): Node;
@@ -87,7 +87,7 @@ export type Node = Item & {
    * <code>Node</code>. The same reacquisition semantics apply as with {@link
    * #getNode(String)}. If this node has no accessible child nodes, then an
    * empty iterator is returned.
-   * @return A <code>NodeIterator</code> over all child <code>Node</code>s of this <code>Node</code>.
+   * @return A <code>NodeIterator</code> over all child <code>Node</code>s of&#xA; this <code>Node</code>.
    * @throws RepositoryException if an error occurs.
    */
   getNodes(): NodeIterator;
@@ -133,7 +133,7 @@ export type Node = Item & {
    * <code>{@link #getNode(String)}</code>.
    * @param relPath The relative path of the property to retrieve.
    * @return The property at <code>relPath</code>.
-   * @throws PathNotFoundException if no property exists at the specified path or if the current <p> <code>Session</code> does not have read access to the specified property.
+   * @throws PathNotFoundException if no property exists at the specified path&#xA; or if the current&#xA; <p>&#xA; <code>Session</code> does not have read access to the specified&#xA; property.
    * @throws RepositoryException If another error occurs.
    */
   getProperty(relPath: string): Property;
@@ -196,9 +196,9 @@ export type Node = Item & {
    * call to {@link #isNodeType(String) isNodeType("mix:referenceable")} can
    * be made.
    * @return the UUID of this node.
-   * @throws UnsupportedRepositoryOperationException if this node nonreferenceable.
+   * @throws UnsupportedRepositoryOperationException&#xA; if this node&#xA; nonreferenceable.
    * @throws RepositoryException if another error occurs.
-   * @deprecated As of JCR 2.0, {@link #getIdentifier()} should be used instead.
+   * @deprecated As of JCR 2.0, {@link #getIdentifier()} should be used&#xA; instead.
    */
   getUUID(): string;
 
@@ -219,7 +219,7 @@ export type Node = Item & {
    * <code>Session</code> exists at <code>relPath</code> and
    * <code>false</code> otherwise.
    * @param relPath The path of a (possible) node.
-   * @return <code>true</code> if a node exists at <code>relPath</code>; <code>false</code> otherwise.
+   * @return <code>true</code> if a node exists at <code>relPath</code>;&#xA; <code>false</code> otherwise.
    * @throws RepositoryException if an error occurs.
    */
   hasNode(relPath: string): boolean;
@@ -230,7 +230,7 @@ export type Node = Item & {
    * <code>Session</code> exists at <code>relPath</code> and
    * <code>false</code> otherwise.
    * @param relPath The path of a (possible) property.
-   * @return <code>true</code> if a property exists at <code>relPath</code>; <code>false</code> otherwise.
+   * @return <code>true</code> if a property exists at <code>relPath</code>;&#xA; <code>false</code> otherwise.
    * @throws RepositoryException if an error occurs.
    */
   hasProperty(relPath: string): boolean;
@@ -239,7 +239,7 @@ export type Node = Item & {
    * Indicates whether this node has child nodes. Returns <code>true</code> if
    * this node has one or more child nodes accessible through the current
    * <code>Session</code>; <code>false</code> otherwise.
-   * @return <code>true</code> if this node has one or more child nodes; <code>false</code> otherwise.
+   * @return <code>true</code> if this node has one or more child nodes;&#xA; <code>false</code> otherwise.
    * @throws RepositoryException if an error occurs.
    */
   hasNodes(): boolean;
@@ -248,7 +248,7 @@ export type Node = Item & {
    * Indicates whether this node has properties. Returns <code>true</code> if
    * this node has one or more properties accessible through the current
    * <code>Session</code>; <code>false</code> otherwise.
-   * @return <code>true</code> if this node has one or more properties; <code>false</code> otherwise.
+   * @return <code>true</code> if this node has one or more properties;&#xA; <code>false</code> otherwise.
    * @throws RepositoryException if an error occurs.
    */
   hasProperties(): boolean;
@@ -281,7 +281,7 @@ export type Node = Item & {
    * <p>
    * This method respects the effective node type of the node.
    * @param nodeTypeName the name of a node type.
-   * @return <code>true</code> If this node is of the specified primary node type or mixin type, or a subtype thereof. Returns <code>false</code> otherwise.
+   * @return <code>true</code> If this node is of the specified primary node&#xA; type or mixin type, or a subtype thereof. Returns&#xA; <code>false</code> otherwise.
    * @throws RepositoryException if an error occurs.
    */
   isNodeType(nodeTypeName: string): boolean;

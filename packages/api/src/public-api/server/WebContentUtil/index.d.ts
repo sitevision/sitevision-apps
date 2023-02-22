@@ -207,7 +207,7 @@ export interface WebContentUtil {
    * <p>
    *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
    * </p>
-   * @param aNode aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
+   * @param aNode aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>.&#xA; May not be <code>null</code> and may not be the site page.
    * @param aContent the HTML content. May not be <code>null</code>
    * @throws ConstraintViolationException if the current user is not allowed to alter the node
    * @throws RepositoryException if something else goes wrong
@@ -243,7 +243,7 @@ export interface WebContentUtil {
    * <p>
    *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
    * </p>
-   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>.&#xA; May not be <code>null</code> and may not be the site page.
    * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
    * @throws ConstraintViolationException if the current user is not allowed to alter the node
    * @throws RepositoryException if something else goes wrong
@@ -268,7 +268,7 @@ export interface WebContentUtil {
    *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
    *    Sitevision resource url.
    * </p>
-   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>.&#xA; May not be <code>null</code> and may not be the site page
    * @param aContent the HTML content. May not be <code>null</code>
    * @throws NullPointerException if aNode is null or if aContent is null
    * @throws IllegalArgumentException if aNode is of invalid type
@@ -296,7 +296,7 @@ export interface WebContentUtil {
    *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
    *    Sitevision resource url.
    * </p>
-   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>.&#xA; May not be <code>null</code> and may not be the site page
    * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
    * @throws NullPointerException if aNode is null or if aContent is null
    * @throws IllegalArgumentException if aNode is of invalid type
@@ -328,7 +328,7 @@ export interface WebContentUtil {
    * <p>
    *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
    * </p>
-   * @param aNode aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
+   * @param aNode aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>.&#xA; May not be <code>null</code> and may not be the site page.
    * @param aContent the HTML content. May not be <code>null</code>
    * @throws NullPointerException if aNode is null or if aContent is null
    * @throws IllegalArgumentException if aNode is of invalid type
@@ -367,7 +367,7 @@ export interface WebContentUtil {
    * <p>
    *    If no node or no content is specified a <code>NullPointerException</code> is thrown.
    * </p>
-   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page.
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>.&#xA; May not be <code>null</code> and may not be the site page.
    * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
    * @throws NullPointerException if aNode is null or if aContent is null
    * @throws IllegalArgumentException if aNode is of invalid type
@@ -395,7 +395,7 @@ export interface WebContentUtil {
    *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
    *    Sitevision resource url.
    * </p>
-   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>.&#xA; May not be <code>null</code> and may not be the site page
    * @param aContent the HTML content. May not be <code>null</code>
    * @throws NullPointerException if aNode is null or if aContent is null
    * @throws IllegalArgumentException if aNode is of invalid type
@@ -423,7 +423,7 @@ export interface WebContentUtil {
    *    The {@link #resolveToResourceURL(javax.jcr.Node, String)} can be used to manually try to resolve "old" resource url to a "new"
    *    Sitevision resource url.
    * </p>
-   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aNode the node that will be altered, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>.&#xA; May not be <code>null</code> and may not be the site page
    * @param aContent a map containing the HTML content. The keys must correspond to layout names on the node. May not be <code>null</code>
    * @throws NullPointerException if aNode is null or if aContent is null
    * @throws IllegalArgumentException if aNode is of invalid type
@@ -446,7 +446,7 @@ export interface WebContentUtil {
    *    and {@link #updateContent(javax.jcr.Node, String)} methods.
    *    This method can be used to manually try to resolve "old" resource url to a "new" Sitevision resource url.
    * </p>
-   * @param aNode the node that <code>aUnresolvedURL</code> should be resolved for, typically a node with primary node type <code>sv:page</code> or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
+   * @param aNode the node that <code>aUnresolvedURL</code> should be resolved for, typically a node with primary node type <code>sv:page</code>&#xA; or <code>sv:article</code>. May not be <code>null</code> and may not be the site page
    * @param aUnresolvedURL an unresolved URL
    * @return the potentially resolved URL
    * @throws NullPointerException if aNode is null or if aUnresolvedURL is null

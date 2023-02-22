@@ -62,7 +62,7 @@ export interface RestAppInvokerFactory {
 
   /**
    * Creates a RestAppInvoker via the Identifier of a RESTApp or a Headless custom module.
-   * @param aIdentifier the identifier of the RESTApp (sv:restApp) or the Headless custom module (sv:headlessCustomModule or sv:marketplaceHeadlessCustomModule), i.e. an identifier prefixed with "361.", "188." or "211.".
+   * @param aIdentifier the identifier of the RESTApp (sv:restApp) or the Headless custom module&#xA; (sv:headlessCustomModule or sv:marketplaceHeadlessCustomModule), i.e. an identifier&#xA; prefixed with "361.", "188." or "211.".
    * @return the RestAppInvoker for the resolved RESTApp, or null if no matching RESTApp could be found
    */
   fromIdentifier(aIdentifier: string): RestAppInvoker;

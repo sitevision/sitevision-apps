@@ -61,9 +61,9 @@ export type VersionManager = {
    * there is no need to call <code>save</code>.
    * @param absPath an absolute path.
    * @return the created version.
-   * @throws VersionException if <code>jcr:predecessors</code> does not contain at least one value or if a child item of the node at <code>absPath</code> has an <code>OnParentVersion</code> status of <code>ABORT</code>. This includes the case where an unresolved merge failure exists on the node, as indicated by the presence of a <code>jcr:mergeFailed</code> property.
-   * @throws UnsupportedRepositoryOperationException If the node at <code>absPath</code> node is not versionable.
-   * @throws InvalidItemStateException If unsaved changes exist on the node at <code>absPath</code> or the node at <code>absPath</code> is a configuration proxy node and the configuration it represents includes a versionabe node that has never been checked-in.
+   * @throws VersionException if <code>jcr:predecessors</code> does not&#xA; contain at least one value or if a child item of the node at&#xA; <code>absPath</code> has an <code>OnParentVersion</code> status of&#xA; <code>ABORT</code>. This includes the case where an unresolved merge&#xA; failure exists on the node, as indicated by the presence of a&#xA; <code>jcr:mergeFailed</code> property.
+   * @throws UnsupportedRepositoryOperationException&#xA; If the node at&#xA; <code>absPath</code> node is not versionable.
+   * @throws InvalidItemStateException If unsaved changes exist on the node at&#xA; <code>absPath</code> or the node at <code>absPath</code> is&#xA; a configuration proxy node and the configuration it represents&#xA; includes a versionabe node that has never been checked-in.
    * @throws LockException if a lock prevents the operation.
    * @throws RepositoryException If another error occurs.
    */
@@ -84,7 +84,7 @@ export type VersionManager = {
    * at <code>absPath</code> is already checked-out, this method has no
    * effect.
    * @param absPath an absolute path.
-   * @throws UnsupportedRepositoryOperationException If the node at <code>absPath</code> is not versionable.
+   * @throws UnsupportedRepositoryOperationException&#xA; If the node at&#xA; <code>absPath</code> is not versionable.
    * @throws LockException if a lock prevents the checkout.
    * @throws RepositoryException If another error occurs.
    */
@@ -98,9 +98,9 @@ export type VersionManager = {
    * <code>checkout()</code>.
    * @param absPath an absolute path.
    * @return the created version.
-   * @throws VersionException if a child item of the node at <code>absPath</code> has an <code>OnParentVersion</code> of <code>ABORT</code>. This includes the case where an unresolved merge failure exists on the node, as indicated by the presence of the <code>jcr:mergeFailed</code>.
-   * @throws UnsupportedRepositoryOperationException if the node at <code>absPath</code> is not versionable.
-   * @throws InvalidItemStateException if there are unsaved changes pending on the node at <code>absPath</code>.
+   * @throws VersionException if a child item of the node at&#xA; <code>absPath</code> has an <code>OnParentVersion</code> of&#xA; <code>ABORT</code>. This includes the case where an unresolved merge&#xA; failure exists on the node, as indicated by the presence of the&#xA; <code>jcr:mergeFailed</code>.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the node at&#xA; <code>absPath</code> is not versionable.
+   * @throws InvalidItemStateException if there are unsaved changes pending on&#xA; the node at <code>absPath</code>.
    * @throws LockException if a lock prevents the operation.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
@@ -130,7 +130,7 @@ export type VersionManager = {
    * <code>nt:versionHistory</code> node holding the node's versions.
    * @param absPath an absolute path.
    * @return a <code>VersionHistory</code> object
-   * @throws UnsupportedRepositoryOperationException if the node at <code>absPath</code> is not versionable.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the node at&#xA; <code>absPath</code> is not versionable.
    * @throws RepositoryException If another error occurs.
    */
   getVersionHistory(absPath: string): VersionHistory;
@@ -140,7 +140,7 @@ export type VersionManager = {
    * <code>absPath</code>.
    * @param absPath an absolute path.
    * @return a <code>Version</code> object.
-   * @throws UnsupportedRepositoryOperationException if the node at <code>absPath</code> is not versionable.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the node at&#xA; <code>absPath</code> is not versionable.
    * @throws RepositoryException If another error occurs.
    */
   getBaseVersion(absPath: string): Version;
@@ -188,11 +188,11 @@ export type VersionManager = {
    * flag.
    * @param versions The set of versions to be restored.
    * @param removeExisting governs what happens on identifier collision.
-   * @throws ItemExistsException if <code>removeExisting</code> is <code>false</code> and an identifier collision occurs with a node being restored.
-   * @throws UnsupportedRepositoryOperationException if one or more of the nodes to be restored is not versionable.
-   * @throws VersionException if the set of versions to be restored is such that the original path location of one or more of the versions cannot be determined or if the <code>restore</code> would change the state of a existing versionable node that is currently checked-in or if a root version (<code>jcr:rootVersion</code>) is among those being restored.
+   * @throws ItemExistsException if <code>removeExisting</code> is&#xA; <code>false</code> and an identifier collision occurs with a node being&#xA; restored.
+   * @throws UnsupportedRepositoryOperationException&#xA; if one or more of the&#xA; nodes to be restored is not versionable.
+   * @throws VersionException if the set of versions to be restored is such&#xA; that the original path location of one or more of the versions cannot be&#xA; determined or if the <code>restore</code> would change the state of a&#xA; existing versionable node that is currently checked-in or if a root&#xA; version (<code>jcr:rootVersion</code>) is among those being restored.
    * @throws LockException if a lock prevents the restore.
-   * @throws InvalidItemStateException if this <code>Session</code> has pending unsaved changes.
+   * @throws InvalidItemStateException if this <code>Session</code> has&#xA; pending unsaved changes.
    * @throws RepositoryException if another error occurs.
    */
   restore(versions: Version, removeExisting: boolean): void;
@@ -227,12 +227,12 @@ export type VersionManager = {
    * flag.
    * @param absPath an absolute path.
    * @param versionName a <code>Version</code> object
-   * @param removeExisting a boolean flag that governs what happens in case of an identifier collision.
-   * @throws UnsupportedRepositoryOperationException if the node at <code>absPath</code> is not versionable.
-   * @throws VersionException if the specified <code>version</code> is not part of this node's version history or if an attempt is made to restore the root version (<code>jcr:rootVersion</code>) or if no node exists at <code>absPath</code>.
-   * @throws ItemExistsException if <code>removeExisting</code> is <code>false</code> and an identifier collision occurs.
+   * @param removeExisting a boolean flag that governs what happens in case of&#xA; an identifier collision.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the node at&#xA; <code>absPath</code> is not versionable.
+   * @throws VersionException if the specified <code>version</code> is not&#xA; part of this node's version history or if an attempt is made to restore&#xA; the root version (<code>jcr:rootVersion</code>) or if no node exists&#xA; at <code>absPath</code>.
+   * @throws ItemExistsException if <code>removeExisting</code> is&#xA; <code>false</code> and an identifier collision occurs.
    * @throws LockException if a lock prevents the restore.
-   * @throws InvalidItemStateException if this <code>Session</code> (not necessarily the <code>Node</code> at <code>absPath</code>) has pending unsaved changes.
+   * @throws InvalidItemStateException if this <code>Session</code> (not&#xA; necessarily the <code>Node</code> at <code>absPath</code>) has pending&#xA; unsaved changes.
    * @throws RepositoryException If another error occurs.
    */
   restore(absPath: string, versionName: string, removeExisting: boolean): void;
@@ -262,11 +262,11 @@ export type VersionManager = {
    * <code>VERSION</code> are also governed by the <code>removeExisting</code>
    * flag.
    * @param version a <code>Version</code> object
-   * @param removeExisting a boolean flag that governs what happens in case of an identifier collision.
-   * @throws UnsupportedRepositoryOperationException if versioning is not supported.
-   * @throws VersionException if the specified <code>version</code> does not have a corresponding node in the workspace <code>this</code> VersionManager has been created for or if an attempt is made to restore the root version (<code>jcr:rootVersion</code>).
-   * @throws ItemExistsException if <code>removeExisting</code> is <code>false</code> and an identifier collision occurs.
-   * @throws InvalidItemStateException if this <code>Session</code> (not necessarily the <code>Node</code> at <code>absPath</code>) has pending unsaved changes.
+   * @param removeExisting a boolean flag that governs what happens in case of&#xA; an identifier collision.
+   * @throws UnsupportedRepositoryOperationException&#xA; if versioning is not&#xA; supported.
+   * @throws VersionException if the specified <code>version</code> does not&#xA; have a corresponding node in the workspace <code>this</code>&#xA; VersionManager has been created for or if an attempt is made to restore&#xA; the root version (<code>jcr:rootVersion</code>).
+   * @throws ItemExistsException if <code>removeExisting</code> is&#xA; <code>false</code> and an identifier collision occurs.
+   * @throws InvalidItemStateException if this <code>Session</code> (not&#xA; necessarily the <code>Node</code> at <code>absPath</code>) has pending&#xA; unsaved changes.
    * @throws LockException if a lock prevents the restore.
    * @throws RepositoryException if another error occurs.
    */
@@ -306,16 +306,16 @@ export type VersionManager = {
    * <p>
    * If the <code>restore</code> succeeds, the changes made to this node are
    * dispatched immediately; there is no need to call <code>save</code>.
-   * @param absPath an absolute the path to which the version is to be restored.
+   * @param absPath an absolute the path to which the version is to be&#xA; restored.
    * @param version a version object
    * @param removeExisting covers what happens on identifier collision.
-   * @throws PathNotFoundException if the parent of <code>absPath</code> does not exist.
-   * @throws ItemExistsException if removeExisting is false and an identifier collision occurs
-   * @throws ConstraintViolationException If the would-be parent of the location <code>absPath</code> is actually a property, or if a node type restriction would be violated
-   * @throws VersionException if the parent node of <code>absPath</code> is read-only due to a checked-in node or if a node exists at <code>absPath</code> or if an attempt is made to restore the root version.
-   * @throws UnsupportedRepositoryOperationException if versioning is not supported.
+   * @throws PathNotFoundException if the parent of <code>absPath</code> does&#xA; not exist.
+   * @throws ItemExistsException if removeExisting is false and an identifier&#xA; collision occurs
+   * @throws ConstraintViolationException If the would-be parent of the&#xA; location <code>absPath</code> is actually a property, or if a node type&#xA; restriction would be violated
+   * @throws VersionException if the parent node of <code>absPath</code> is&#xA; read-only due to a checked-in node or if a node exists at&#xA; <code>absPath</code> or if an attempt is made to restore&#xA; the root version.
+   * @throws UnsupportedRepositoryOperationException&#xA; if versioning is not&#xA; supported.
    * @throws LockException if a lock prevents the restore.
-   * @throws InvalidItemStateException if this <code>Session</code> (not necessarily the <code>Node</code> at <code>absPath</code>) has pending unsaved changes.
+   * @throws InvalidItemStateException if this <code>Session</code> (not&#xA; necessarily the <code>Node</code> at <code>absPath</code>) has pending&#xA; unsaved changes.
    * @throws RepositoryException if another error occurs
    */
   restore(absPath: string, version: Version, removeExisting: boolean): void;
@@ -347,12 +347,12 @@ export type VersionManager = {
    * flag.
    * @param absPath an absolute path.
    * @param versionLabel a String
-   * @param removeExisting a boolean flag that governs what happens in case of an identifier collision.
-   * @throws UnsupportedRepositoryOperationException if the node at <code>absPath</code> is not versionable.
-   * @throws VersionException if the specified <code>versionLabel</code> does not exist in this node's version history or if no node exists at <code>absPath</code>.
-   * @throws ItemExistsException if <code>removeExisting</code> is <code>false</code> and an identifier collision occurs.
+   * @param removeExisting a boolean flag that governs what happens in case of&#xA; an identifier collision.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the node at&#xA; <code>absPath</code> is not versionable.
+   * @throws VersionException if the specified <code>versionLabel</code> does&#xA; not exist in this node's version history or if no node exists&#xA; at <code>absPath</code>.
+   * @throws ItemExistsException if <code>removeExisting</code> is&#xA; <code>false</code> and an identifier collision occurs.
    * @throws LockException if a lock prevents the restore.
-   * @throws InvalidItemStateException if this <code>Session</code> (not necessarily the <code>Node</code> at <code>absPath</code>) has pending unsaved changes.
+   * @throws InvalidItemStateException if this <code>Session</code> (not&#xA; necessarily the <code>Node</code> at <code>absPath</code>) has pending&#xA; unsaved changes.
    * @throws RepositoryException If another error occurs.
    */
   restoreByLabel(
@@ -395,11 +395,11 @@ export type VersionManager = {
    * @param absPath an absolute path.
    * @param srcWorkspace the name of the source workspace.
    * @param bestEffort a boolean
-   * @return iterator over all nodes that received a merge result of "fail" in the course of this operation.
-   * @throws MergeException if <code>bestEffort</code> is <code>false</code> and a failed merge result is encountered.
-   * @throws InvalidItemStateException if this session (not necessarily the node at <code>absPath</code>) has pending unsaved changes.
-   * @throws NoSuchWorkspaceException if the specified <code>srcWorkspace</code> does not exist.
-   * @throws AccessDeniedException if the current session does not have sufficient rights to perform the operation.
+   * @return iterator over all nodes that received a merge result of "fail" in&#xA; the course of this operation.
+   * @throws MergeException if <code>bestEffort</code> is <code>false</code>&#xA; and a failed merge result is encountered.
+   * @throws InvalidItemStateException if this session (not necessarily the&#xA; node at <code>absPath</code>) has pending unsaved changes.
+   * @throws NoSuchWorkspaceException if the specified&#xA; <code>srcWorkspace</code> does not exist.
+   * @throws AccessDeniedException if the current session does not have&#xA; sufficient rights to perform the operation.
    * @throws LockException if a lock prevents the merge.
    * @throws RepositoryException if another error occurs.
    */
@@ -442,11 +442,11 @@ export type VersionManager = {
    * @param srcWorkspace the name of the source workspace.
    * @param bestEffort a boolean
    * @param isShallow a boolean
-   * @return iterator over all nodes that received a merge result of "fail" in the course of this operation.
-   * @throws MergeException if <code>bestEffort</code> is <code>false</code> and a failed merge result is encountered.
-   * @throws InvalidItemStateException if this session (not necessarily this node) has pending unsaved changes.
-   * @throws NoSuchWorkspaceException if <code>srcWorkspace</code> does not exist.
-   * @throws AccessDeniedException if the current session does not have sufficient rights to perform the operation.
+   * @return iterator over all nodes that received a merge result of "fail" in&#xA; the course of this operation.
+   * @throws MergeException if <code>bestEffort</code> is <code>false</code>&#xA; and a failed merge result is encountered.
+   * @throws InvalidItemStateException if this session (not necessarily this&#xA; node) has pending unsaved changes.
+   * @throws NoSuchWorkspaceException if <code>srcWorkspace</code> does not&#xA; exist.
+   * @throws AccessDeniedException if the current session does not have&#xA; sufficient rights to perform the operation.
    * @throws LockException if a lock prevents the merge.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
@@ -529,10 +529,10 @@ export type VersionManager = {
    * to call <code>save</code>.
    * </p>
    * @param absPath an absolute path.
-   * @param version a version referred to by the <code>jcr:mergeFailed</code> property of the node at <code>absPath</code>.
-   * @throws VersionException if the version specified is not among those referenced in this node's <code>jcr:mergeFailed</code> or if the node is currently checked-in.
-   * @throws InvalidItemStateException if there are unsaved changes pending on the node at <code>absPath</code>.
-   * @throws UnsupportedRepositoryOperationException if the node at <code>absPath</code> is not versionable.
+   * @param version a version referred to by the <code>jcr:mergeFailed</code>&#xA; property of the node at <code>absPath</code>.
+   * @throws VersionException if the version specified is not among those&#xA; referenced in this node's <code>jcr:mergeFailed</code> or if the node is&#xA; currently checked-in.
+   * @throws InvalidItemStateException if there are unsaved changes pending on&#xA; the node at <code>absPath</code>.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the node at&#xA; <code>absPath</code> is not versionable.
    * @throws RepositoryException if another error occurs.
    */
   doneMerge(absPath: string, version: Version): void;
@@ -547,10 +547,10 @@ export type VersionManager = {
    * If successful, these changes are dispatched immediately; there is no need
    * to call <code>save</code>.
    * @param absPath an absolute path.
-   * @param version a version referred to by the <code>jcr:mergeFailed</code> property of the node at <code>absPath</code>.
-   * @throws VersionException if the version specified is not among those referenced in the <code>jcr:mergeFailed</code> property of the node at <code>absPath</code> or if the node is currently checked-in.
-   * @throws InvalidItemStateException if there are unsaved changes pending on the node at <code>absPath</code>.
-   * @throws UnsupportedRepositoryOperationException if the node at <code>absPath</code> is not versionable.
+   * @param version a version referred to by the <code>jcr:mergeFailed</code>&#xA; property of the node at <code>absPath</code>.
+   * @throws VersionException if the version specified is not among those&#xA; referenced in the <code>jcr:mergeFailed</code> property of the node at&#xA; <code>absPath</code> or if the node is currently checked-in.
+   * @throws InvalidItemStateException if there are unsaved changes pending on&#xA; the node at <code>absPath</code>.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the node at&#xA; <code>absPath</code> is not versionable.
    * @throws RepositoryException if another error occurs.
    */
   cancelMerge(absPath: string, version: Version): void;
@@ -571,7 +571,7 @@ export type VersionManager = {
    * required.
    * @param absPath an absolute path.
    * @return a new <code>nt:configuration</code> node
-   * @throws UnsupportedRepositoryOperationException if <i>N</i> is not versionable.
+   * @throws UnsupportedRepositoryOperationException&#xA; if <i>N</i> is not&#xA; versionable.
    * @throws RepositoryException if no node exists at <code>absPath</code> or another error occurs .
    * @since JCR 2.0
    */
@@ -587,8 +587,8 @@ export type VersionManager = {
    * set <code>nt:activity</code> node is returned, or <code>null</code> if no activity
    * was previously set.
    * @param activity an activity node
-   * @return The previously set <code>nt:activity</code> node is returned, or <code>null</code> if no activity was previously set.
-   * @throws UnsupportedRepositoryOperationException if the repository does not support activities or if <code>activity</code> is not a <code>nt:activity</code> node.
+   * @return The previously set <code>nt:activity</code> node is returned,&#xA; or <code>null</code> if no activity was previously set.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the repository does&#xA; not support activities or if <code>activity</code> is not a&#xA; <code>nt:activity</code> node.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
    */
@@ -598,7 +598,7 @@ export type VersionManager = {
    * Returns the node representing the current activity or <code>null</code>
    * if there is no current activity.
    * @return An <code>nt:activity</code> node or <code>null</code>.
-   * @throws UnsupportedRepositoryOperationException if the repository does not support activities.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the repository does&#xA; not support activities.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
    */
@@ -618,7 +618,7 @@ export type VersionManager = {
    * <p>
    * @param title a String
    * @return the new activity <code>Node</code>.
-   * @throws UnsupportedRepositoryOperationException if the repository does not support activities.
+   * @throws UnsupportedRepositoryOperationException&#xA; if the repository does&#xA; not support activities.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
    */
@@ -633,7 +633,7 @@ export type VersionManager = {
    * The change is dispatched immediately and does not require a <code>save</code>.
    * @param activityNode an activity Node.
    * @throws UnsupportedRepositoryOperationException if the repository does not support activities.
-   * @throws VersionException if a <code>REFERENCE</code> to the <code>activityNode</code> exists in version storage.
+   * @throws VersionException if a <code>REFERENCE</code> to the <code>activityNode</code> exists in&#xA; version storage.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
    */
@@ -668,11 +668,11 @@ export type VersionManager = {
    * The changes are dispatched immediately and do not require a <code>save</code>.
    * @param activityNode an <code>nt:activity</code> node
    * @return a <code>NodeIterator</code>
-   * @throws AccessDeniedException if the current session does not have sufficient rights to perform the operation.
-   * @throws VersionException if the specified node is not an <code>nt:activity</code> node.
-   * @throws MergeException in the same cases as in a regular shallow merge (see {@link #merge(String, String, boolean, boolean)}.
+   * @throws AccessDeniedException if the current session does not have&#xA; sufficient rights to perform the operation.
+   * @throws VersionException if the specified node is not an&#xA; <code>nt:activity</code> node.
+   * @throws MergeException in the same cases as in a regular shallow merge&#xA; (see {@link #merge(String, String, boolean, boolean)}.
    * @throws LockException if a lock prevents the merge.
-   * @throws InvalidItemStateException if this <code>Session</code> has pending unsaved changes.
+   * @throws InvalidItemStateException if this <code>Session</code> has&#xA; pending unsaved changes.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
    */

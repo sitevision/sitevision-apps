@@ -314,7 +314,7 @@ export interface QueryStringUtil {
    * </table>
    * @param aStringToSplit the string that should be transformed
    * @param aSplitExpression the regular expression to split up <code>aStringToSplit</code> in parts
-   * @return the result of the operation. if <code>aStringToSplit</code> is <code>null</code>, <code>null</code> will always be returned. if <code>aSplitExpression</code> is <code>null</code>, <code>aStringToSplit</code> will always be returned. if <code>aSplitExpression</code> is a non-matching expression, a trimmed <code>aStringToSplit</code> will always be returned, and it will be quoted if <code>aStringToSplit</code> contains a space char.
+   * @return the result of the operation.&#xA; if <code>aStringToSplit</code> is <code>null</code>, <code>null</code> will always be returned.&#xA; if <code>aSplitExpression</code> is <code>null</code>, <code>aStringToSplit</code> will always be returned.&#xA; if <code>aSplitExpression</code> is a non-matching expression, a trimmed <code>aStringToSplit</code> will&#xA; always be returned, and it will be quoted if <code>aStringToSplit</code> contains a space char.
    */
   splitToQueryParts(aStringToSplit: string, aSplitExpression: string): string;
 
@@ -331,7 +331,7 @@ export interface QueryStringUtil {
    * </p>
    * @param aStringsToSplit a collection of strings
    * @param aSplitExpression the regular expression to split up the strings in the <code>aStringsToSplit</code> collection in parts
-   * @return the result of the {@link #splitToQueryParts(String, String)} operation for all strings in <code>aStringsToSplit</code>. if <code>aStringsToSplit</code> is <code>null</code> or empty, <code>null</code> will always be returned.
+   * @return the result of the {@link #splitToQueryParts(String, String)} operation for all strings in <code>aStringsToSplit</code>.&#xA; if <code>aStringsToSplit</code> is <code>null</code> or empty, <code>null</code> will always be returned.
    * @see #splitToQueryParts(String, String)
    */
   splitCollectionToQueryParts(
@@ -393,7 +393,7 @@ export interface QueryStringUtil {
    * </table>
    * @param aFieldName the field expression
    * @param aValueExpression the value expression
-   * @return a properly grouped field query. Note that <code>null</code> will be returned if <code>aFieldName</code> or <code>aValueExpression</code> is <code>null</code> or whitespace only.
+   * @return a properly grouped field query. Note that <code>null</code> will be returned if <code>aFieldName</code> or&#xA; <code>aValueExpression</code> is <code>null</code> or whitespace only.
    */
   getFieldQuery(aFieldName: string, aValueExpression: string): string;
 

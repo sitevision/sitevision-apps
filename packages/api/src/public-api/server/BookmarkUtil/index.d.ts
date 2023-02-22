@@ -33,7 +33,7 @@ export interface BookmarkUtil {
 
   /**
    * Adds a bookmark for the current user. This operation is synchronized
-   * @param bookmark the node to be bookmarked must be a <code>sv:page</code>, <code>sv:sitePage</code> or an <code>sv:article</code>
+   * @param bookmark the node to be bookmarked must be a <code>sv:page</code>,&#xA; <code>sv:sitePage</code> or an <code>sv:article</code>
    * @param categories a comma separated list of categories to where this bookmark belongs
    * @throws IllegalArgumentException if <code>bookmark</code> is node of wrong type
    * @throws NullPointerException if <code>bookmark</code> is <code>null</code>
@@ -43,7 +43,7 @@ export interface BookmarkUtil {
 
   /**
    * Adds a bookmark for the current user. This operation is synchronized
-   * @param bookmark the node to be bookmarked must be a <code>sv:page</code>, <code>sv:sitePage</code> or an <code>sv:article</code>
+   * @param bookmark the node to be bookmarked must be a <code>sv:page</code>,&#xA; <code>sv:sitePage</code> or an <code>sv:article</code>
    * @throws IllegalArgumentException if bookmark is node of wrong type
    * @throws NullPointerException if <code>bookmark</code> is <code>null</code>
    */

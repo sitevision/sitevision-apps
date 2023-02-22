@@ -26,7 +26,7 @@ export type CustomSort = {
 
   /**
    * Whether the sort order is descending or not.
-   * @return <code>true</code> if the order of this custom this sort is <em>descending</em>, <code>false</code> otherwise (i.e. order is <em>ascending</em>)
+   * @return <code>true</code> if the order of this custom this sort is <em>descending</em>, <code>false</code>&#xA; otherwise (i.e. order is <em>ascending</em>)
    */
   isDescending(): boolean;
 

@@ -13,7 +13,7 @@ export type VersionIterator = RangeIterator & {
   /**
    * Returns the next <code>Version</code> in the iteration.
    * @return the next <code>Version</code> in the iteration.
-   * @throws java.util.NoSuchElementException if iteration has no more <code>Version</code>s.
+   * @throws java.util.NoSuchElementException&#xA; if iteration has no more&#xA; <code>Version</code>s.
    */
   nextVersion(): Version;
 };

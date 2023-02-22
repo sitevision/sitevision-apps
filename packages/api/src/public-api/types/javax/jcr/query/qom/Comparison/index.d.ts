@@ -70,7 +70,7 @@ export type Comparison = Constraint & {
 
   /**
    * Gets the operator.
-   * @return either <ul> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_EQUAL_TO},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_NOT_EQUAL_TO},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LESS_THAN},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LESS_THAN_OR_EQUAL_TO},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_GREATER_THAN},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_GREATER_THAN_OR_EQUAL_TO}, or</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LIKE}</li> </ul>
+   * @return either <ul> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_EQUAL_TO},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_OPERATOR_NOT_EQUAL_TO},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LESS_THAN},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LESS_THAN_OR_EQUAL_TO},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_OPERATOR_GREATER_THAN},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_OPERATOR_GREATER_THAN_OR_EQUAL_TO},&#xA; or</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LIKE}</li>&#xA; </ul>
    */
   getOperator(): string;
 

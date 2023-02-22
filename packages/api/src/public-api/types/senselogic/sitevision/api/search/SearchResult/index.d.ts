@@ -181,7 +181,7 @@ export type SearchResult = SearchResultConstants & {
    *    <li>returns <code>exactCount</code> if the estimated hit count is <em>lower</em> than 100</li>
    *    <li>returns <code>approximateCount</code> if the estimated hit count is <em>equal or higher</em> than 100</li>
    * </ul>
-   * @param aHitCountThreshold threshold for when "exact" count is less important, i.e. threshold for when to use approximate count instead of exact count.
+   * @param aHitCountThreshold threshold for when "exact" count is less important, i.e. threshold for when to use&#xA; approximate count instead of exact count.
    * @return the effective hit count
    * @see #getApproximateCount()
    * @see #getExactCount()
@@ -216,7 +216,7 @@ export type SearchResult = SearchResultConstants & {
   /**
    * <p>The current status of the search. This value might change when iterating the
    * <code>Iterator</code> containing the {@link SearchHit} objects.</p>
-   * @return The current status of the search. The value corresponds to any of the <code>STATUS</code> fields {@link #STATUS_OK}, {@link #STATUS_INDEX_NOT_AVAILABLE}, {@link #STATUS_PARSE_ERROR}, {@link #STATUS_UNEXPECTED_ERROR}
+   * @return The current status of the search. The value corresponds to any of the <code>STATUS</code> fields&#xA; {@link #STATUS_OK}, {@link #STATUS_INDEX_NOT_AVAILABLE}, {@link #STATUS_PARSE_ERROR},&#xA; {@link #STATUS_UNEXPECTED_ERROR}
    */
   getStatus(): number;
 

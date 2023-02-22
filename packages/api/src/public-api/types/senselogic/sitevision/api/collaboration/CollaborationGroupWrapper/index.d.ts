@@ -49,7 +49,7 @@ export type CollaborationGroupWrapper = Wrapper & {
    *    {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_COLLABORATION_GROUP} on the group.
    * </p>
    * @param aUserIdentity a user identity (or user)
-   * @return <code>true</code> if <code>aUserIdentity</code> was added as admin of the wrapped group, <code>false</code> otherwise. <code>false</code> is always returned if <code>aUserIdentity</code> is <code>null</code> or already <em>is</em> admin of the wrapped collaboration group.
+   * @return <code>true</code> if <code>aUserIdentity</code> was added as admin of the wrapped group, <code>false</code> otherwise.&#xA; <code>false</code> is always returned if <code>aUserIdentity</code> is <code>null</code> or already <em>is</em> admin of the&#xA; wrapped collaboration group.
    * @since Sitevision 4.5.4
    */
   addAdmin(aUserIdentity: Node): boolean;
@@ -86,7 +86,7 @@ export type CollaborationGroupWrapper = Wrapper & {
    *    {@link senselogic.sitevision.api.security.PermissionUtil.Permission#READ} on the wrapped group.
    * </p>
    * @param aUserIdentity a user identity (or user)
-   * @return <code>true</code> if <code>aUserIdentity</code> was added as member of the wrapped group, <code>false</code> otherwise. <code>false</code> is always returned if <code>aUserIdentity</code> is <code>null</code> or already <em>are</em> a member (or admin) of the wrapped collaboration group.
+   * @return <code>true</code> if <code>aUserIdentity</code> was added as member of the wrapped group, <code>false</code> otherwise.&#xA; <code>false</code> is always returned if <code>aUserIdentity</code> is <code>null</code> or already <em>are</em> a member (or admin) of the&#xA; wrapped collaboration group.
    */
   addMember(aUserIdentity: Node): boolean;
 
@@ -106,7 +106,7 @@ export type CollaborationGroupWrapper = Wrapper & {
    *    and {@link senselogic.sitevision.api.security.PermissionUtil.Permission#READ} on the wrapped group.
    * </p>
    * @param aUserIdentity a user identity (or user)
-   * @return <code>true</code> if <code>aUserIdentity</code> was removed as member from the wrapped group, <code>false</code> otherwise. <code>false</code> is always returned if <code>aUserIdentity</code> is <code>null</code> or <em>not a member (or admin)</em> or <em>last admin</em> of the wrapped collaboration group.
+   * @return <code>true</code> if <code>aUserIdentity</code> was removed as member from the wrapped group, <code>false</code> otherwise.&#xA; <code>false</code> is always returned if <code>aUserIdentity</code> is <code>null</code> or <em>not a member (or admin)</em>&#xA; or <em>last admin</em> of the wrapped collaboration group.
    */
   removeMember(aUserIdentity: Node): boolean;
 

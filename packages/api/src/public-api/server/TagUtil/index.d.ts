@@ -83,7 +83,7 @@ export interface TagUtil {
    *    tagUtil.addTags(pageNode, tags);</code></pre>
    * @param aTaggableNode a taggable node (sv:page, sv:article, sv:sitePage, sv:collaborationGroupPage, sv:file or sv:image)
    * @param aTagNodes a var-args array of sv:tag nodes
-   * @throws IllegalArgumentException if aTaggableNode is null or an unsupported type, or if or aTagNodes is null, empty or contains an unsupported type
+   * @throws IllegalArgumentException if aTaggableNode is null or an unsupported type,&#xA; or if or aTagNodes is null, empty or contains an unsupported type
    * @throws RepositoryException if mutation is not allowed or fails
    */
   addTags(aTaggableNode: Node, aTagNodes: Node): void;

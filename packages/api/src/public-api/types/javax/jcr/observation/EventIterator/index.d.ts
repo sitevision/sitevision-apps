@@ -13,7 +13,7 @@ export type EventIterator = RangeIterator & {
   /**
    * Returns the next <code>Event</code> in the iteration.
    * @return the next <code>Event</code> in the iteration.
-   * @throws java.util.NoSuchElementException if iteration has no more <code>Event</code>s.
+   * @throws java.util.NoSuchElementException&#xA; if iteration has no more&#xA; <code>Event</code>s.
    */
   nextEvent(): Event;
 };

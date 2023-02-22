@@ -25,7 +25,7 @@ export interface MailUtil {
   /**
    * Checks if a mail address has a valid format.
    * @param aMailAddress the address to check
-   * @return <code>true</code> if <code>aMailAddress</code> has a valid format and can be used to create a <code>javax.mail.internet.InternetAddress</code>, <code>false</code> otherwise.
+   * @return <code>true</code> if <code>aMailAddress</code> has a valid format and can be used to create a&#xA; <code>javax.mail.internet.InternetAddress</code>, <code>false</code> otherwise.
    */
   isValidAddress(aMailAddress: string): boolean;
 

@@ -27,6 +27,7 @@ export interface TrashcanUtil {
    * <ul>
    *    <li><code>sv:archive</code></li>
    *    <li><code>sv:article</code></li>
+   *    <li><code>sv:collaborationGroupPage</code> <em>(since Sitevision 2023.02.1)</em></li>
    *    <li><code>sv:file</code></li>
    *    <li><code>sv:folder</code></li>
    *    <li><code>sv:image</code></li>
@@ -48,7 +49,7 @@ export interface TrashcanUtil {
    *    If no node is specified a <code>NullPointerException</code> is thrown.
    * </p>
    * @param aNode the node that will be moved to the site trashcan. May not be <code>null</code>
-   * @throws ConstraintViolationException if an invalid node is specified or if the current user is not authorized to perform the delete operation
+   * @throws ConstraintViolationException if an invalid node is specified or if the current user is not&#xA; authorized to perform the delete operation
    * @throws RepositoryException if something else goes wrong
    * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveDeletePermission(Node, Node)
    */
@@ -73,7 +74,7 @@ export interface TrashcanUtil {
    *    If no node is specified a <code>NullPointerException</code> is thrown.
    * </p>
    * @param aNode the node that should be restored. This node must be located in the site trashcan. May not be null
-   * @throws ConstraintViolationException is thrown if the current user is not authorized to perform the restore operation
+   * @throws ConstraintViolationException is thrown if the current user is not authorized to perform the&#xA; restore operation
    * @throws RepositoryException is thrown if something else goes wrong
    */
   restoreNode(aNode: Node): void;
@@ -95,7 +96,7 @@ export interface TrashcanUtil {
    * <p>
    *    If no node is specified a <code>NullPointerException</code> is thrown.
    * </p>
-   * @param aNode the node that should be removed from the site trashcan. This node must be located in the site trashcan. May not be <code>null</code>
+   * @param aNode the node that should be removed from the site trashcan. This node must be located in the site trashcan.&#xA; May not be <code>null</code>
    * @throws ConstraintViolationException if the current user is not authorized to perform the delete operation
    * @throws RepositoryException if something else goes wrong
    */
@@ -114,7 +115,7 @@ export interface TrashcanUtil {
    *    Note that some nodes can't be put in the trashcan (e.g. sv:user, sv:color, sv:portlet, sv:layout etc).
    *    For such nodes <code>false</code> will be returned.
    * </p>
-   * @param aNode the node to be checked if it is located in the site trashcan. May not be <code>null</code>
+   * @param aNode the node to be checked if it is located in the site trashcan.&#xA; May not be <code>null</code>
    * @return <code>true</code> if the <code>Node</code> is in site trashcan, <code>false</code> otherwise
    * @since Sitevision 6.2
    */

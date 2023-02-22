@@ -26,7 +26,7 @@ export type NamespaceRegistry = {
    * Returns the URI to which the given <code>prefix</code> is mapped.
    * @param prefix a string.
    * @return a string.
-   * @throws NamespaceException if a mapping with the specified <code>prefix</code> does not exist.
+   * @throws NamespaceException if a mapping with the specified&#xA; <code>prefix</code> does not exist.
    * @throws RepositoryException if another error occurs.
    */
   getURI(prefix: string): string;
@@ -35,7 +35,7 @@ export type NamespaceRegistry = {
    * Returns the prefix which is mapped to the given <code>uri</code>.
    * @param uri a string.
    * @return a string.
-   * @throws NamespaceException if a mapping with the specified <code>uri</code> does not exist.
+   * @throws NamespaceException if a mapping with the specified&#xA; <code>uri</code> does not exist.
    * @throws RepositoryException if another error occurs.
    */
   getPrefix(uri: string): string;

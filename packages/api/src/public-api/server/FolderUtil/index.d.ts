@@ -38,7 +38,7 @@ export interface FolderUtil {
    * @param aParent the parent node of the sv:folder. May not be <code>null</code>
    * @param aName the name of the folder. May not be <code>null</code>
    * @return the newly created sv:folder node.
-   * @throws ConstraintViolationException if an invalid parent is specified or if the current user is not authorized to create a folder
+   * @throws ConstraintViolationException if an invalid parent is specified or if the current user&#xA; is not authorized to create a folder
    * @throws RepositoryException if something else goes wrong
    */
   createFolder(aParent: Node, aName: string): Node;

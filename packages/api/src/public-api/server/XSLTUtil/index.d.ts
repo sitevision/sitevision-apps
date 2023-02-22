@@ -49,7 +49,7 @@ export interface XSLTUtil {
    *    <em>Note!</em> The contents of the XSL Template is always handled as UTF-8.
    * </p>
    * @param aSource the source that should be transformed, HTML, XHTML or XML. Must not be null
-   * @param aXslTemplate the UTF-8 XSL template; a sv:file Node, a sv:temporaryFile Node, a sv:link Node that targets a sv:file, a char array or a CharSequence (typically a String). Must not be null
+   * @param aXslTemplate the UTF-8 XSL template;&#xA; a sv:file Node, a sv:temporaryFile Node, a sv:link Node that targets a sv:file, a char array or a CharSequence&#xA; (typically a String). Must not be null
    * @return the transformation result
    * @throws IOException if the transformation fails (e.g. the aSource is really bad/interpretable HTML or aXslTemplate is invalid XSL)
    * @throws RepositoryException if aNode-operation on aXslTemplate fails

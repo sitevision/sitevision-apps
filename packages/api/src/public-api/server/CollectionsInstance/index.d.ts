@@ -45,7 +45,7 @@ export interface CollectionsInstance {
    * Sorts the specified list according to the order induced by the specified comparator.
    * @param <T> the class of the objects in the list
    * @param aList the list to be sorted.
-   * @param aComparator the comparator to determine the order of the list. A <tt>null</tt> value indicates that the elements' <i>natural ordering</i> should be used.
+   * @param aComparator the comparator to determine the order of the list. A <tt>null</tt> value indicates that the elements'&#xA; <i>natural ordering</i> should be used.
    * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> using the specified comparator.
    * @throws UnsupportedOperationException if the specified list's list-iterator does not support the <tt>set</tt> operation.
    */
@@ -56,8 +56,8 @@ export interface CollectionsInstance {
    * @param <T> the class of the objects in the list
    * @param aList the list to be searched.
    * @param aKey the key to be searched for.
-   * @return the index of the search key, if it is contained in the list; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the list: the index of the first element greater than the key, or <tt>aList.size()</tt> if all elements in the list are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
-   * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> (for example, strings and integers), or the search key is not mutually comparable with the elements of the list.
+   * @return the index of the search key, if it is contained in the list; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>.&#xA; The <i>insertion point</i> is defined as the point at which the key would be inserted into the list: the index of&#xA; the first element greater than the key, or <tt>aList.size()</tt> if all elements in the list are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> (for example, strings and integers), or the&#xA; search key is not mutually comparable with the elements of the list.
    */
   binarySearch(aList: unknown, aKey: unknown): number;
 
@@ -66,9 +66,9 @@ export interface CollectionsInstance {
    * @param <T> the class of the objects in the list
    * @param aList the list to be searched.
    * @param aKey the key to be searched for.
-   * @param aComparator the comparator by which the list is ordered. A <tt>null</tt> value indicates that the elements' Comparable natural ordering should be used.
-   * @return the index of the search key, if it is contained in the list; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the list: the index of the first element greater than the key, or <tt>aList.size()</tt> if all elements in the list are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
-   * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> using the specified comparator, or the search key is not mutually comparable with the elements of the list using this comparator.
+   * @param aComparator the comparator by which the list is ordered. A <tt>null</tt> value indicates that the elements' Comparable natural&#xA; ordering should be used.
+   * @return the index of the search key, if it is contained in the list; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the list: the index of the first&#xA; element greater than the key, or <tt>aList.size()</tt> if all elements in the list are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> using the specified comparator,&#xA; or the search key is not mutually comparable with the elements of the list using this comparator.
    */
   binarySearch(aList: unknown, aKey: unknown, aComparator: unknown): number;
 
@@ -99,7 +99,7 @@ export interface CollectionsInstance {
    * @param aList The list in which to swap elements.
    * @param anIndex the index of one element to be swapped.
    * @param anAnotherIndex the index of the other element to be swapped.
-   * @throws IndexOutOfBoundsException if either <tt>anIndex</tt> or <tt>j</tt> is out of range (anIndex &lt; 0 || anIndex &gt;= aList.size() || anAnotherIndex &lt; 0 || anAnotherIndex &gt;= aList.size()).
+   * @throws IndexOutOfBoundsException if either <tt>anIndex</tt> or <tt>j</tt> is out of range (anIndex &lt; 0 || anIndex &gt;= aList.size()&#xA; || anAnotherIndex &lt; 0 || anAnotherIndex &gt;= aList.size()).
    */
   swap(aList: unknown, anIndex: number, anAnotherIndex: number): void;
 
@@ -136,7 +136,7 @@ export interface CollectionsInstance {
    * Returns the minimum element of the given collection, according to the order induced by the specified comparator.
    * @param <T> the class of the objects in the collection
    * @param aCollection the collection whose minimum element is to be determined.
-   * @param aComparator the comparator with which to determine the minimum element. A <tt>null</tt> value indicates that the elements' <i>natural ordering</i> should be used.
+   * @param aComparator the comparator with which to determine the minimum element. A <tt>null</tt> value indicates that the elements'&#xA; <i>natural ordering</i> should be used.
    * @return the minimum element of the given collection, according to the specified comparator.
    * @throws ClassCastException if the collection contains elements that are not <i>mutually comparable</i> using the specified comparator.
    * @throws NoSuchElementException if the collection is empty.
@@ -159,7 +159,7 @@ export interface CollectionsInstance {
    * order induced by the specified comparator.
    * @param <T> the class of the objects in the collection
    * @param aCollection the collection whose maximum element is to be determined.
-   * @param aComparator the comparator with which to determine the maximum element. A <tt>null</tt> value indicates that the elements' <i>natural ordering</i> should be used.
+   * @param aComparator the comparator with which to determine the maximum element. A <tt>null</tt> value indicates that the elements'&#xA; <i>natural ordering</i> should be used.
    * @return the maximum element of the given collection, according to the specified comparator.
    * @throws ClassCastException if the collection contains elements that are not <i>mutually comparable</i> using the specified comparator.
    * @throws NoSuchElementException if the collection is empty.
@@ -169,7 +169,7 @@ export interface CollectionsInstance {
   /**
    * Rotates the elements in the specified list by the specified distance.
    * @param aList the list to be rotated.
-   * @param aDistance the distance to rotate the list. There are no constraints on this value; it may be zero, negative, or greater than <tt>aList.size()</tt>.
+   * @param aDistance the distance to rotate the list. There are no constraints on this value; it may be zero, negative, or greater than&#xA; <tt>aList.size()</tt>.
    * @throws UnsupportedOperationException if the specified list or its list-iterator does not support the <tt>set</tt> operation.
    */
   rotate(aList: unknown, aDistance: number): void;
@@ -180,7 +180,7 @@ export interface CollectionsInstance {
    * @param aList the list in which replacement is to occur.
    * @param anOldValue the old value to be replaced.
    * @param aNewValue the new value with which <tt>anOldValue</tt> is to be replaced.
-   * @return <tt>true</tt> if <tt>aList</tt> contained one or more elements <tt>e</tt> such that <tt>(anOldValue==null ? e==null : anOldValue.equals(e))</tt>.
+   * @return <tt>true</tt> if <tt>aList</tt> contained one or more elements <tt>e</tt> such that&#xA; <tt>(anOldValue==null ? e==null : anOldValue.equals(e))</tt>.
    * @throws UnsupportedOperationException if the specified list or its list-iterator does not support the <tt>set</tt> operation.
    */
   replaceAll(aList: unknown, anOldValue: unknown, aNewValue: unknown): boolean;
@@ -190,7 +190,7 @@ export interface CollectionsInstance {
    * target list within the specified source list, or -1 if there is no such occurrence.
    * @param aSource the list in which to search for the first occurrence of <tt>target</tt>.
    * @param aTarget the list to search for as a subList of <tt>aSource</tt>.
-   * @return the starting position of the first occurrence of the specified target list within the specified source list, or -1 if there is no such occurrence.
+   * @return the starting position of the first occurrence of the specified target list within the specified source list,&#xA; or -1 if there is no such occurrence.
    */
   indexOfSubList(aSource: unknown, aTarget: unknown): number;
 
@@ -199,7 +199,7 @@ export interface CollectionsInstance {
    * target list within the specified source list, or -1 if there is no such occurrence.
    * @param aSource the list in which to search for the last occurrence of <tt>target</tt>.
    * @param aTarget the list to search for as a subList of <tt>aSource</tt>.
-   * @return the starting position of the last occurrence of the specified target list within the specified source list, or -1 if there is no such occurrence.
+   * @return the starting position of the last occurrence of the specified target list within the specified source list,&#xA; or -1 if there is no such occurrence.
    */
   lastIndexOfSubList(aSource: unknown, aTarget: unknown): number;
 
@@ -427,7 +427,7 @@ export interface CollectionsInstance {
    * Returns a comparator that imposes the reverse of the <i>natural ordering</i> on a collection of objects that implement
    * the <tt>Comparable</tt> interface.
    * @param <T> the class of the objects compared by the comparator
-   * @return a comparator that imposes the reverse of the <i>natural ordering</i> on a collection of objects that implement the <tt>Comparable</tt> interface.
+   * @return a comparator that imposes the reverse of the <i>natural ordering</i> on a collection of objects that implement&#xA; the <tt>Comparable</tt> interface.
    */
   reverseOrder(): unknown;
 
@@ -480,7 +480,7 @@ export interface CollectionsInstance {
    * @param aValues the elements to insert into <tt>aCollection</tt>
    * @return <tt>true</tt> if the collection changed as a result of the call
    * @throws UnsupportedOperationException if <tt>aCollection</tt> does not support the <tt>add</tt> operation
-   * @throws NullPointerException if <tt>aValues</tt> contains one or more null values and <tt>aCollection</tt> does not permit null elements, or if <tt>aCollection</tt> or <tt>aValues</tt> are <tt>null</tt>
+   * @throws NullPointerException if <tt>aValues</tt> contains one or more null values and <tt>aCollection</tt> does not permit null&#xA; elements, or if <tt>aCollection</tt> or <tt>aValues</tt> are <tt>null</tt>
    * @throws IllegalArgumentException if some property of a value in <tt>aValues</tt> prevents it from being added to <tt>aCollection</tt>
    */
   addAll(aCollection: unknown, aValues: unknown): boolean;

@@ -13,7 +13,7 @@ export type EventJournal = EventIterator & {
    * <p>
    * If an attempt is made to skip past the last element of the iterator, no
    * exception is thrown but the subsequent {@link #nextEvent()} will fail.
-   * @param date a long value that represents an offset in milliseconds from the Epoch, January 1, 1970 00:00:00.000 GMT (Gregorian).
+   * @param date a long value that represents an offset in milliseconds from&#xA; the Epoch, January 1, 1970 00:00:00.000 GMT (Gregorian).
    */
   skipTo(date: number): void;
 };

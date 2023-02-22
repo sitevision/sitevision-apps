@@ -44,7 +44,7 @@ export type SearchHit = SearchHitConstants & {
    *       }</code></pre>
    * @param aFieldName the name of the field.
    * @param aValue the value to look for in the field value(-s).
-   * @return whether or not the value for the field <code>aFieldName</code> contains <code>aValue</code>. If the <code>aFieldName</code> field is <em>multi-valued</em>, this method will return <code>true</code> if <em>any</em> of the field values contains <code>aValue</code>, <code>false</code> otherwise. A <code>null</code> or empty value for <code>aFieldName</code> or <code>aValue</code> will always return <code>false</code>.
+   * @return whether or not the value for the field <code>aFieldName</code> contains <code>aValue</code>.&#xA; If the <code>aFieldName</code> field is <em>multi-valued</em>, this method will return <code>true</code> if <em>any</em> of the field values&#xA; contains <code>aValue</code>, <code>false</code> otherwise.&#xA; A <code>null</code> or empty value for <code>aFieldName</code> or <code>aValue</code> will always return <code>false</code>.
    * @see #fieldEquals(String, String)
    * @see #fieldEqualsIgnoreCase(String, String)
    * @see #fieldMatches(String, String)
@@ -91,7 +91,7 @@ export type SearchHit = SearchHitConstants & {
    *       }</code></pre>
    * @param aFieldName the name of the field.
    * @param aValue the value to compare to the field value(-s).
-   * @return whether or not the value for the field <code>aFieldName</code> equals <code>aValue</code>. If the <code>aFieldName</code> field is <em>multi-valued</em>, this method will return <code>true</code> if <em>any</em> of the field values equals <code>aValue</code>, <code>false</code> otherwise. A <code>null</code> or empty value for <code>aFieldName</code> or <code>aValue</code> will always return <code>false</code>.
+   * @return whether or not the value for the field <code>aFieldName</code> equals <code>aValue</code>.&#xA; If the <code>aFieldName</code> field is <em>multi-valued</em>, this method will return <code>true</code> if <em>any</em> of the field values&#xA; equals <code>aValue</code>, <code>false</code> otherwise.&#xA; A <code>null</code> or empty value for <code>aFieldName</code> or <code>aValue</code> will always return <code>false</code>.
    * @see #fieldEqualsIgnoreCase(String, String)
    * @see #fieldContains(String, String)
    * @see #fieldMatches(String, String)
@@ -124,7 +124,7 @@ export type SearchHit = SearchHitConstants & {
    * </p>
    * @param aFieldName the name of the field.
    * @param aValue the value to case-insensitively compare to the field value(-s).
-   * @return whether or not the value for the field <code>aFieldName</code> case-insensitively equals <code>aValue</code>. If the <code>aFieldName</code> field is <em>multi-valued</em>, this method will return <code>true</code> if <em>any</em> of the field values case-insensitively equals <code>aValue</code>, <code>false</code> otherwise. A <code>null</code> or empty value for <code>aFieldName</code> or <code>aValue</code> will always return <code>false</code>.
+   * @return whether or not the value for the field <code>aFieldName</code> case-insensitively equals <code>aValue</code>.&#xA; If the <code>aFieldName</code> field is <em>multi-valued</em>, this method will return <code>true</code> if <em>any</em> of the field values&#xA; case-insensitively equals <code>aValue</code>, <code>false</code> otherwise.&#xA; A <code>null</code> or empty value for <code>aFieldName</code> or <code>aValue</code> will always return <code>false</code>.
    * @see #fieldEquals(String, String)
    * @see #fieldContains(String, String)
    * @see #fieldMatches(String, String)
@@ -166,7 +166,7 @@ export type SearchHit = SearchHitConstants & {
    * </p>
    * @param aFieldName the name of the field.
    * @param aRegularExpression the regular expression to match to the field value(-s).
-   * @return whether or not the value for the field <code>aFieldName</code> matches a <code>aRegularExpression</code>. If the <code>aFieldName</code> field is <em>multi-valued</em>, this method will return <code>true</code> if <em>any</em> of the field values matches <code>aRegularExpression</code>, <code>false</code> otherwise. A <code>null</code> or empty value for <code>aFieldName</code> or <code>aRegularExpression</code> will always return <code>false</code>.
+   * @return whether or not the value for the field <code>aFieldName</code> matches a <code>aRegularExpression</code>.&#xA; If the <code>aFieldName</code> field is <em>multi-valued</em>, this method will return <code>true</code> if&#xA; <em>any</em> of the field values matches <code>aRegularExpression</code>, <code>false</code> otherwise.&#xA; A <code>null</code> or empty value for <code>aFieldName</code> or <code>aRegularExpression</code> will always return <code>false</code>.
    * @throws PatternSyntaxException if the regular syntax expression of <code>aRegularExpression</code> is invalid.
    * @see #fieldContains(String, String)
    * @see #fieldEquals(String, String)
@@ -295,7 +295,7 @@ export type SearchHit = SearchHitConstants & {
    * </p>
    * @param aFieldName the name of the field.
    * @param aDefaultValue the default/fallback value.
-   * @return the XML escaped content of the first index field specified by <code>aFieldName</code>, or <code>aDefaultValue</code> if no such field exist. Note that <code>aDefaultValue</code> is <em>not</em> XML escaped by this method!
+   * @return the XML escaped content of the first index field specified by <code>aFieldName</code>,&#xA; or <code>aDefaultValue</code> if no such field exist.&#xA; Note that <code>aDefaultValue</code> is <em>not</em> XML escaped by this method!
    * @see #getField(String, String)
    * @since Sitevision 4
    */
@@ -304,7 +304,7 @@ export type SearchHit = SearchHitConstants & {
   /**
    * <p>The indexed content as string for a specified field (with option to use first or largest field if multiple fields match).</p>
    * @param aFieldName The name of the field.
-   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
+   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match&#xA; (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
    * @return the content of the index field with name <code>aFieldName</code>, or <code>null</code> if no such field exist.
    * @see #getField(String)
    * @see #getField(String, boolean, String)
@@ -346,7 +346,7 @@ export type SearchHit = SearchHitConstants & {
    *    Use {@link #getHighlightedField(String, int)} instead to get the XML escaped content of a highlighted field.
    * </p>
    * @param aFieldName The name of the field.
-   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
+   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match&#xA; (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
    * @return the XML escaped content of the index field with name <code>aFieldName</code>, or <code>null</code> if no such field exist.
    * @see #getField(String, boolean)
    * @since Sitevision 4
@@ -364,7 +364,7 @@ export type SearchHit = SearchHitConstants & {
    *    that enables you to avoid <code>null</code> checks.
    * </p>
    * @param aFieldName The name of the field.
-   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
+   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match&#xA; (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
    * @param aDefaultValue the default/fallback value.
    * @return the content of the index field with name <code>aFieldName</code>, or <code>aDefaultValue</code> if no such field exist.
    * @see #getField(String)
@@ -414,9 +414,9 @@ export type SearchHit = SearchHitConstants & {
    *    Use {@link #getHighlightedField(String, int)} instead to get the XML escaped content of a highlighted field.
    * </p>
    * @param aFieldName The name of the field.
-   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
+   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match&#xA; (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
    * @param aDefaultValue the default/fallback value.
-   * @return the XML escaped content of the index field with name <code>aFieldName</code>, or <code>aDefaultValue</code> if no such field exist. Note that <code>aDefaultValue</code> is <em>not</em> XML escaped by this method!
+   * @return the XML escaped content of the index field with name <code>aFieldName</code>, or <code>aDefaultValue</code> if no such field exist.&#xA; Note that <code>aDefaultValue</code> is <em>not</em> XML escaped by this method!
    * @see #getField(String, boolean, String)
    * @since Sitevision 4
    */
@@ -478,8 +478,8 @@ export type SearchHit = SearchHitConstants & {
    *    <em>Calling this method is is equivalent to calling <code>SearchHit.getFieldsTruncated(aFieldName, maxContentLength, true)</code>.</em>
    * </p>
    * @param aFieldName the name of the field.
-   * @param maxContentLength max length of the content that should be returned. A value lower than 1 will be ignored (i.e. content will not be truncated).
-   * @return the contents of the index field with name <code>aFieldName</code> truncated so it contains at most <code>maxContentLength</code> characters, or an <code>empty List</code> if no such field exist.
+   * @param maxContentLength max length of the content that should be returned. A value lower than 1 will be ignored&#xA; (i.e. content will not be truncated).
+   * @return the contents of the index field with name <code>aFieldName</code> truncated so it contains at most&#xA; <code>maxContentLength</code> characters, or an <code>empty List</code> if no such field exist.
    * @see #getFieldsTruncated(String, int, boolean)
    * @since Sitevision 3.0.3
    */
@@ -497,9 +497,9 @@ export type SearchHit = SearchHitConstants & {
    *    <strong>Note!</strong> If the field is highlighted, use {@link #getHighlightedFields(String, int)} instead.
    * </p>
    * @param aFieldName the name of the field.
-   * @param maxContentLength max length of the content that should be returned. A value lower than 1 will be ignored (i.e. content will not be truncated).
-   * @param useLenientTruncation whether or not the truncation should be lenient. A value of <code>true</code> indicates that the truncation should be after the last complete word but less or equal to <code>maxContentLength</code> A value of <code>false</code> indicates that the truncation should be absolute, i.e. truncation is made at <code>maxContentLength</code> even if it cuts a word.
-   * @return the contents of the index field with name <code>aFieldName</code> truncated so it contains at most <code>maxContentLength</code> characters, or an <code>empty List</code> if no such field exist.
+   * @param maxContentLength max length of the content that should be returned. A value lower than 1 will be ignored&#xA; (i.e. content will not be truncated).
+   * @param useLenientTruncation whether or not the truncation should be lenient.&#xA; A value of <code>true</code> indicates that the truncation should be after the last complete word but less or equal to&#xA; <code>maxContentLength</code>&#xA; A value of <code>false</code> indicates that the truncation should be absolute, i.e. truncation is made at <code>maxContentLength</code>&#xA; even if it cuts a word.
+   * @return the contents of the index field with name <code>aFieldName</code> truncated so it contains at most <code>maxContentLength</code>&#xA; characters,&#xA; or an <code>empty List</code> if no such field exist.
    * @see #getFieldsTruncated(String, int)
    * @since Sitevision 3.0.3
    */
@@ -516,7 +516,7 @@ export type SearchHit = SearchHitConstants & {
    *    <strong>Note!</strong> This method returns the content as Boolean for the <em>first</em> field that matches <code>aFieldName</code>.
    * </p>
    * @param aFieldName the name of the field.
-   * @return the Boolean/content of the first index field specified by <code>aFieldName</code>, or <code>null</code> if no such field exist or if it's value can't be treated as a Boolean.
+   * @return the Boolean/content of the first index field specified by <code>aFieldName</code>,&#xA; or <code>null</code> if no such field exist or if it's value can't be treated as a Boolean.
    * @see #getBooleanFields(String)
    * @since Sitevision 3.0
    */
@@ -530,7 +530,7 @@ export type SearchHit = SearchHitConstants & {
    *    {@link #getBooleanField(String)} instead.
    * </p>
    * @param aFieldName the name of the field.
-   * @return a list of Boolean values from the index field specified by <code>aFieldName</code>, or an <code>empty List</code> if no such field exist or no value can be treated as a Boolean.
+   * @return a list of Boolean values from the index field specified by <code>aFieldName</code>,&#xA; or an <code>empty List</code> if no such field exist or no value can be treated as a Boolean.
    * @see #getBooleanField(String)
    * @since Sitevision 3.0.3
    */
@@ -543,7 +543,7 @@ export type SearchHit = SearchHitConstants & {
    * <strong>Note!</strong> This method returns the content as Date for the <em>first</em> field that matches <code>aFieldName</code>.
    * </p>
    * @param aFieldName the name of the field.
-   * @return the Date/content of the first index field specified by <code>aFieldName</code>, or <code>null</code> if no such field exist or if it's value can't be treated as a Date.
+   * @return the Date/content of the first index field specified by <code>aFieldName</code>,&#xA; or <code>null</code> if no such field exist or if it's value can't be treated as a Date.
    * @see #getDateFields(String)
    * @since Sitevision 3.0
    */
@@ -557,7 +557,7 @@ export type SearchHit = SearchHitConstants & {
    *    {@link #getDateField(String)} instead.
    * </p>
    * @param aFieldName the name of the field.
-   * @return a list of Date values from the index field specified by <code>aFieldName</code>, or an <code>empty List</code> if no such field exist or no value can be treated as a Date.
+   * @return a list of Date values from the index field specified by <code>aFieldName</code>,&#xA; or an <code>empty List</code> if no such field exist or no value can be treated as a Date.
    * @see #getDateField(String)
    * @since Sitevision 3.0.3
    */
@@ -570,7 +570,7 @@ export type SearchHit = SearchHitConstants & {
    *    <strong>Note!</strong> This method returns the content as Float for the <em>first</em> field that matches <code>aFieldName</code>.
    * </p>
    * @param aFieldName the name of the field.
-   * @return the Float/content of the first index field specified by <code>aFieldName</code>, or <code>null</code> if no such field exist or if it's value can't be treated as a Float.
+   * @return the Float/content of the first index field specified by <code>aFieldName</code>,&#xA; or <code>null</code> if no such field exist or if it's value can't be treated as a Float.
    * @see #getFloatFields(String)
    * @since Sitevision 3.0
    */
@@ -584,7 +584,7 @@ export type SearchHit = SearchHitConstants & {
    *    {@link #getFloatField(String)} instead.
    * </p>
    * @param aFieldName the name of the field.
-   * @return a list of Float values from the index field specified by <code>aFieldName</code>, or an <code>empty List</code> if no such field exist or no value can be treated as a Float.
+   * @return a list of Float values from the index field specified by <code>aFieldName</code>,&#xA; or an <code>empty List</code> if no such field exist or no value can be treated as a Float.
    * @see #getFloatField(String)
    * @since Sitevision 3.0.3
    */
@@ -597,7 +597,7 @@ export type SearchHit = SearchHitConstants & {
    *    <strong>Note!</strong> This method returns the content as Long for the <em>first</em> field that matches <code>aFieldName</code>.
    * </p>
    * @param aFieldName the name of the field.
-   * @return the Long/content of the first index field specified by <code>aFieldName</code>, or <code>null</code> if no such field exist or if it's value can't be treated as a Long.
+   * @return the Long/content of the first index field specified by <code>aFieldName</code>,&#xA; or <code>null</code> if no such field exist or if it's value can't be treated as a Long.
    * @see #getLongFields(String)
    * @since Sitevision 3.0
    */
@@ -611,7 +611,7 @@ export type SearchHit = SearchHitConstants & {
    *    {@link #getLongField(String)} instead.
    * </p>
    * @param aFieldName the name of the field.
-   * @return a list of Long values from the index field specified by <code>aFieldName</code>, or an <code>empty List</code> if no such field exist or no value can be treated as a Long.
+   * @return a list of Long values from the index field specified by <code>aFieldName</code>,&#xA; or an <code>empty List</code> if no such field exist or no value can be treated as a Long.
    * @see #getLongField(String)
    * @since Sitevision 3.0.3
    */
@@ -625,8 +625,8 @@ export type SearchHit = SearchHitConstants & {
    *    elements that surround the possible "highlighted" fragments!
    * </p>
    * @param aFieldName the name of the highlighted field.
-   * @param maxNonHighlightedLength max length of the content that should be returned if no encoded highlighting result exists for given field. A value lower than 1 will be ignored (i.e. content will not be truncated).
-   * @return an encoded string containing an highlighted excerpt - or an encoded excerpt of the field truncated lenient to <code>maxNonHighlightedLength</code>, or <code>null</code> if no such field exist.
+   * @param maxNonHighlightedLength max length of the content that should be returned if no encoded highlighting result exists for given field.&#xA; A value lower than 1 will be ignored (i.e. content will not be truncated).
+   * @return an encoded string containing an highlighted excerpt - or an encoded excerpt of the field truncated lenient to&#xA; <code>maxNonHighlightedLength</code>,&#xA; or <code>null</code> if no such field exist.
    * @see #getHighlightedFields(String, int)
    * @since Sitevision 3.0
    */
@@ -649,8 +649,8 @@ export type SearchHit = SearchHitConstants & {
    *    with the html elements that surround the possible "highlighted" fragments!
    * </p>
    * @param aFieldName the name of the highlighted field.
-   * @param maxNonHighlightedLength max length of the content for each item if no encoded highlighting result exists for given field. A value lower than 1 will be ignored (i.e. content will not be truncated).
-   * @return a list of encoded strings, each containing an highlighted excerpt - or an encoded excerpt of the field truncated lenient to <code>maxNonHighlightedLength</code>, or <code>empty List</code> if no such field exist.
+   * @param maxNonHighlightedLength max length of the content for each item if no encoded highlighting result exists for given field.&#xA; A value lower than 1 will be ignored (i.e. content will not be truncated).
+   * @return a list of encoded strings, each containing an highlighted excerpt - or an encoded excerpt of the field truncated lenient to&#xA; <code>maxNonHighlightedLength</code>, or <code>empty List</code> if no such field exist.
    * @see #getHighlightedField(String, int)
    * @since Sitevision 3.0.3
    */
@@ -671,8 +671,8 @@ export type SearchHit = SearchHitConstants & {
    *    <strong>Note!</strong> If the field is highlighted, use {@link #getHighlightedField(String, int)} instead.
    * </p>
    * @param aFieldName the name of the field.
-   * @param maxContentLength max length of the content that should be returned. A value lower than 1 will be ignored (i.e. content will not be truncated).
-   * @return the content of the index field with name <code>aFieldName</code> truncated so it contains at most <code>maxContentLength</code> characters, or <code>null</code> if no such field exist.
+   * @param maxContentLength max length of the content that should be returned. A value lower than 1 will be ignored&#xA; (i.e. content will not be truncated).
+   * @return the content of the index field with name <code>aFieldName</code> truncated so it contains at most&#xA; <code>maxContentLength</code> characters, or <code>null</code> if no such field exist.
    * @see #getFieldTruncated(String, boolean, boolean, int)
    * @since Sitevision 2.7_06
    */
@@ -688,10 +688,10 @@ export type SearchHit = SearchHitConstants & {
    *    <strong>Note!</strong> If the field is highlighted, use {@link #getHighlightedField(String, int)} instead.
    * </p>
    * @param aFieldName the name of the field.
-   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
-   * @param useLenientTruncation whether or not the truncation should be lenient. A value of <code>true</code> indicates that the truncation should be after the last complete word but less or equal to <code>maxContentLength</code> A value of <code>false</code> indicates that the truncation should be absolute, i.e. truncation is made at <code>maxContentLength</code> even if it cuts a word.
-   * @param maxContentLength max length of the content that should be returned. A value lower than 1 will be ignored (i.e. content will not be truncated).
-   * @return the content of the index field with name <code>aFieldName</code> truncated so it contains at most <code>maxContentLength</code> characters, or <code>null</code> if no such field exist.
+   * @param useMaxCharsField whether the field that contains the most characters or the first field should be used if multiple fields match&#xA; (i.e. <code>true</code> == use the matching field that contains most characters, <code>false</code> == use first matching field).
+   * @param useLenientTruncation whether or not the truncation should be lenient.&#xA; A value of <code>true</code> indicates that the truncation should be after the last complete word but less or equal to&#xA; <code>maxContentLength</code>&#xA; A value of <code>false</code> indicates that the truncation should be absolute, i.e. truncation is made at <code>maxContentLength</code>&#xA; even if it cuts a word.
+   * @param maxContentLength max length of the content that should be returned. A value lower than 1 will be ignored&#xA; (i.e. content will not be truncated).
+   * @return the content of the index field with name <code>aFieldName</code> truncated so it contains at most&#xA; <code>maxContentLength</code> characters, or <code>null</code> if no such field exist.
    * @since Sitevision 2.7_06
    */
   getFieldTruncated(
@@ -752,7 +752,7 @@ export type SearchHit = SearchHitConstants & {
 
   /**
    * <p>The type of <code>SearchHit</code> object.</p>
-   * @return The type of the <code>SearchHit</code>. The value corresponds to any of the <code>TYPE</code> fields {@link #TYPE_INTERNAL}, {@link #TYPE_EXTERNAL},
+   * @return The type of the <code>SearchHit</code>. The value corresponds to any of the <code>TYPE</code> fields&#xA; {@link #TYPE_INTERNAL}, {@link #TYPE_EXTERNAL},
    * @see #TYPE_INTERNAL
    * @see #TYPE_EXTERNAL
    */

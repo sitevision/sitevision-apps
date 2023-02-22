@@ -36,7 +36,7 @@ export interface DateUtil {
   /**
    * Gets the date format pattern used in the Sitevision editor for a specific Locale.
    * @param aLocale the <code>Locale</code> that specifies the date format pattern
-   * @return the date format pattern used in the Sitevision editor that corresponds to <code>aLocale</code>. If <code>aLocale</code> is <code>null</code> then the current locale (as of {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}) is used to locate the format pattern. If no pattern exist for <code>aLocale</code> then the pattern that corresponds to <code>Locale.ENGLISH</code> will be returned.
+   * @return the date format pattern used in the Sitevision editor that corresponds to <code>aLocale</code>.&#xA; If <code>aLocale</code> is <code>null</code> then the current locale (as of&#xA; {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()})&#xA; is used to locate the format pattern. If no pattern exist for <code>aLocale</code> then the pattern that corresponds to&#xA; <code>Locale.ENGLISH</code> will be returned.
    */
   getEditorFormatPattern(aLocale: unknown): string;
 
@@ -49,7 +49,7 @@ export interface DateUtil {
    * </p>
    * @param aFormatPattern date to string pattern according to SimpleDateFormat. Default pattern will be used if aFormatPattern is null or blank
    * @param aDate the Date
-   * @return returns a String representation of aDate according to aFormatPattern (and resolved Locale). Returns null if formatting fails or aDate is null
+   * @return returns a String representation of aDate according to aFormatPattern (and resolved Locale).&#xA; Returns null if formatting fails or aDate is null
    * @see #getDateAsString(String, Date, Locale)
    */
   getDateAsString(aFormatPattern: string, aDate: unknown): string;
@@ -59,7 +59,7 @@ export interface DateUtil {
    * @param aFormatPattern date to string pattern according to SimpleDateFormat. Default pattern will be used if aFormatPattern is null or blank
    * @param aDate the Date
    * @param aLocale the Locale
-   * @return returns a String representation of aDate according to aFormatPattern (and resolved Locale). Returns null if formatting fails or aDate or aLocale is null
+   * @return returns a String representation of aDate according to aFormatPattern (and resolved Locale).&#xA; Returns null if formatting fails or aDate or aLocale is null
    * @since Sitevision 8.2
    */
   getDateAsString(
@@ -77,7 +77,7 @@ export interface DateUtil {
    * </p>
    * @param aFormatPattern date to string pattern according to SimpleDateFormat. Default pattern will be used if aFormatPattern is null or blank
    * @param aCalendar the Calendar
-   * @return returns a String representation of aCalendar according to aFormatPattern (and resolved Locale). Returns null if formatting fails or aCalendar is null
+   * @return returns a String representation of aCalendar according to aFormatPattern (and resolved Locale).&#xA; Returns null if formatting fails or aCalendar is null
    * @see #getCalendarAsString(String, Calendar, Locale)
    */
   getCalendarAsString(aFormatPattern: string, aCalendar: unknown): string;
@@ -87,7 +87,7 @@ export interface DateUtil {
    * @param aFormatPattern date to string pattern according to SimpleDateFormat. Default pattern will be used if aFormatPattern is null or blank
    * @param aCalendar the Calendar
    * @param aLocale the Locale
-   * @return returns a String representation of aCalendar according to aFormatPattern (and resolved Locale). Returns null if formatting fails or aCalendar or aLocale is null
+   * @return returns a String representation of aCalendar according to aFormatPattern (and resolved Locale).&#xA; Returns null if formatting fails or aCalendar or aLocale is null
    * @since Sitevision 8.2
    */
   getCalendarAsString(

@@ -152,7 +152,7 @@ export interface PageUtil extends PageUtilConstants {
    * @param aTemplate the template used for the page. May not be <code>null</code>
    * @param aName the name of the sv:page. May not be <code>null</code>
    * @return a sv:page node corresponding to the newly created page. Will never return <code>null</code>
-   * @throws ConstraintViolationException if an invalid parent is specified or if the current user is not authorized to create a page
+   * @throws ConstraintViolationException if an invalid parent is specified or if the current user&#xA; is not authorized to create a page
    * @throws RepositoryException if something else goes wrong
    * @see #createPage(javax.jcr.Node, javax.jcr.Node, String, java.util.Map, java.util.Map)
    */
@@ -226,7 +226,7 @@ export interface PageUtil extends PageUtilConstants {
    * @param properties the page properties. May be <code>null</code>
    * @param content a map containing the HTML content. The keys must correspond to layout names on the node. May be <code>null</code>
    * @return a sv:page node corresponding to the newly created page. Will never return <code>null</code>
-   * @throws ConstraintViolationException if an invalid parent is specified or if the current user is not authorized to create the page
+   * @throws ConstraintViolationException if an invalid parent is specified or if the current user&#xA; is not authorized to create the page
    * @throws RepositoryException if something else goes wrong
    * @see #createPage(javax.jcr.Node, javax.jcr.Node, String)
    */
@@ -284,7 +284,7 @@ export interface PageUtil extends PageUtilConstants {
    * a <code>ConstraintViolationException</code> will be thrown.</p>
    * @param aPage the page that should be renamed. May not be <code>null</code>
    * @param aName the new name of the page. May not be <code>null</code>
-   * @throws ConstraintViolationException if the current user is not authorized to alter the name of the page
+   * @throws ConstraintViolationException if the current user is not authorized to alter the name of the&#xA; page
    * @throws RepositoryException if something else goes wrong
    */
   renamePage(aPage: Node, aName: string): void;

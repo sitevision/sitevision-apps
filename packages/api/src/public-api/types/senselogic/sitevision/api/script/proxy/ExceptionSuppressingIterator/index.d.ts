@@ -36,7 +36,7 @@ export type ExceptionSuppressingIterator = {
    * <p>
    * This method will never throw an exception
    * </p>
-   * @return <code>true</code> if the decorated iterator has more elements, <code>false</code> if not or if an exception is thrown by the decorated iterator
+   * @return <code>true</code> if the decorated iterator has more elements, <code>false</code> if not or if an exception is thrown&#xA; by the decorated iterator
    */
   hasNext(): boolean;
 

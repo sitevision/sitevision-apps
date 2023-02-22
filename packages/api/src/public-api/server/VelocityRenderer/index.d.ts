@@ -138,7 +138,7 @@ export interface VelocityRenderer {
    *       <td>an instance of {@link VelocityEvaluator}</td>
    *    </tr>
    * </table>
-   * @param aPortletRequest the request to use as base for adding the default Sitevision API mappings. No mappings will be added if <code>null</code>.
+   * @param aPortletRequest the request to use as base for adding the default Sitevision API mappings.&#xA; No mappings will be added if <code>null</code>.
    * @param aWriter the rendering output <em>(typically RenderResponse.getWriter())</em>, not <code>null</code>
    * @return a VelocityContext instance that can be used in the render method
    * @throws IllegalArgumentException if aWriter is <code>null</code>
@@ -174,7 +174,7 @@ export interface VelocityRenderer {
    *       <td>an instance of {@link VelocityEvaluator}</td>
    *    </tr>
    * </table>
-   * @param aServletRequest the request to use as base for adding the default Sitevision API mappings. No mappings will be added if <code>null</code>.
+   * @param aServletRequest the request to use as base for adding the default Sitevision API mappings.&#xA; No mappings will be added if <code>null</code>.
    * @param aWriter the rendering output <em>(typically HttpServletResponse.getWriter())</em>, not <code>null</code>
    * @return a VelocityContext instance that can be used in the render method
    * @throws IllegalArgumentException if aWriter is <code>null</code>
@@ -186,8 +186,8 @@ export interface VelocityRenderer {
 
   /**
    * Renders a Velocity template string.
-   * @param aContext a context with mappings needed by aTemplate (Note! this must be an instance created via any of the methods above, a custom VelocityContext implementation is not allowed).
-   * @param aTemplate the template string (i.e. if the actual template is in a file, you must read it and put it in a string that can be passed to this method)
+   * @param aContext a context with mappings needed by aTemplate (Note! this must be an instance created via any of the methods above,&#xA; a custom VelocityContext implementation is not allowed).
+   * @param aTemplate the template string (i.e. if the actual template is in a file,&#xA; you must read it and put it in a string that can be passed to this method)
    * @throws IllegalArgumentException if aTemplate is <code>null</code>, if aContext is <code>null</code> or not created via VelocityRenderer
    * @throws VelocityException if parsing/evaluation of aTemplate fails
    * @throws IOException if an I/O exception occurs during the rendering process

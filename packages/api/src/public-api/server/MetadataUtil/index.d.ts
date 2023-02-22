@@ -230,7 +230,7 @@ export interface MetadataUtil {
    * <code>Node</code> and the value is <code>null</code></p>
    * @param aNode the <code>Node</code> that contains the metadata value. May not be <code>null</code>
    * @param aProperty the metadata <code>Property</code> that should be queried. May not be <code>null</code>
-   * @param aVersion {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION} or {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
+   * @param aVersion {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION}&#xA; or {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
    * @return a <code>boolean</code> indicating the inheritance
    * @throws RepositoryException if anything goes wrong
    * @since Sitevision 2.6.1_04
@@ -265,7 +265,7 @@ export interface MetadataUtil {
    * <code>Node</code> and the value is <code>null</code></p>
    * @param aNode the <code>Node</code> that contains the metadata value. May not be <code>null</code>
    * @param aPropertyName the name of the metadata property that should be queried. May not be <code>null</code>
-   * @param aVersion {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION} or {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
+   * @param aVersion {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION}&#xA; or {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
    * @return a <code>boolean</code> indicating the inheritance
    * @throws RepositoryException if anything goes wrong
    * @since Sitevision 2.6.1_04

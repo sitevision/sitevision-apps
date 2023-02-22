@@ -77,7 +77,7 @@ export interface NodeIteratorUtil {
   /**
    * Gets an iterator for default menu items (i.e. non-hidden pages, link pages etc. where current user has read permission)
    * @param aParent the base node for the iterator
-   * @return a <code>NodeIterator</code> for the sub nodes of <code>aParent</code>, or <code>null</code> if indeterminable (i.e. <code>aParent</code> is not a <code>Node</code> in the page tree)
+   * @return a <code>NodeIterator</code> for the sub nodes of <code>aParent</code>, or <code>null</code> if indeterminable&#xA; (i.e. <code>aParent</code> is not a <code>Node</code> in the page tree)
    */
   getMenuItems(aParent: Node): NodeIterator;
 
@@ -108,7 +108,7 @@ export interface NodeIteratorUtil {
    * Gets an iterator for default menu items (i.e. getMenuItems(Node)), including folders
    * @see #getMenuItems(Node)
    * @param aParent the base node for the iterator
-   * @return a <code>NodeIterator</code> for the sub nodes of <code>aParent</code>, or <code>null</code> if indeterminable (i.e. <code>aParent</code> is not a <code>Node</code> in the page tree)
+   * @return a <code>NodeIterator</code> for the sub nodes of <code>aParent</code>, or <code>null</code> if indeterminable&#xA; (i.e. <code>aParent</code> is not a <code>Node</code> in the page tree)
    */
   getMenuItemsIncludingFolders(aParent: Node): NodeIterator;
 
@@ -145,7 +145,7 @@ export interface NodeIteratorUtil {
    * </p>
    * @param aNodeIterator a node iterator
    * @param aFilter a node filter
-   * @return first node that matches <code>aFilter</code>, or <code>null</code>. If <code>aFilter</code> is <code>null</code>, the filter will be ignored (all nodes will be accepted). If <code>aNodeIterator</code> is <code>null</code>, <code>null</code> will be returned.
+   * @return first node that matches <code>aFilter</code>, or <code>null</code>.&#xA; If <code>aFilter</code> is <code>null</code>, the filter will be ignored (all nodes will be accepted).&#xA; If <code>aNodeIterator</code> is <code>null</code>, <code>null</code> will be returned.
    * @since Sitevision 3.6.2
    */
   findFirst(aNodeIterator: NodeIterator, aFilter: Filter): Node;
@@ -162,7 +162,7 @@ export interface NodeIteratorUtil {
    * @param aNodeIterator a node iterator
    * @param aFilter a node filter
    * @param aMaxNodesToFind max number of nodes to include in the result
-   * @return a list of nodes that matches <code>aFilter</code>, never <code>null</code>. The list will contain at most <code>aMaxNodesToFind</code> nodes. If <code>aFilter</code> is <code>null</code>, the filter will be ignored (all nodes will be accepted). If <code>aNodeIterator</code> is <code>null</code>, an empty list will be returned. If <code>aMaxNodesToFind</code> is negative, an empty list will be returned.
+   * @return a list of nodes that matches <code>aFilter</code>, never <code>null</code>.&#xA; The list will contain at most <code>aMaxNodesToFind</code> nodes.&#xA; If <code>aFilter</code> is <code>null</code>, the filter will be ignored (all nodes will be accepted).&#xA; If <code>aNodeIterator</code> is <code>null</code>, an empty list will be returned.&#xA; If <code>aMaxNodesToFind</code> is negative, an empty list will be returned.
    * @since Sitevision 3.6.2
    */
   findNodes(
@@ -182,7 +182,7 @@ export interface NodeIteratorUtil {
    * </p>
    * @param aNodeIterator a node iterator
    * @param aFilter a node filter
-   * @return a list of nodes that matches <code>aFilter</code>, never <code>null</code>. If <code>aFilter</code> is <code>null</code>, the filter will be ignored (all nodes will be accepted). If <code>aNodeIterator</code> is <code>null</code>, an empty list will be returned.
+   * @return a list of nodes that matches <code>aFilter</code>, never <code>null</code>.&#xA; If <code>aFilter</code> is <code>null</code>, the filter will be ignored (all nodes will be accepted).&#xA; If <code>aNodeIterator</code> is <code>null</code>, an empty list will be returned.
    * @since Sitevision 3.6.2
    */
   findAll(aNodeIterator: NodeIterator, aFilter: Filter): unknown;

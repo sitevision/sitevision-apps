@@ -47,7 +47,7 @@ export interface ImageUtil {
    * </p>
    * @param aParent the parent node for the images. May not be <code>null</code>
    * @param aImages a map of file name to URI pairs May not be <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid parent node is specified or if image exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid&#xA; parent node is specified or if image exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    */
   createImages(aParent: Node, aImages: unknown): void;
@@ -80,7 +80,7 @@ export interface ImageUtil {
    * @param aFileName the fileName property of the sv:image. May not be <code>null</code>
    * @param aUri the URI pointing to the file resource. May not be <code>null</code>
    * @return a sv:image node corresponding to the newly created image. Will never return <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid parent node is specified or if image exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid&#xA; parent node is specified or if image exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    */
   createImage(aParent: Node, aFileName: string, aUri: string): Node;
@@ -111,7 +111,7 @@ export interface ImageUtil {
    * @param aFileName the fileName property of the sv:image. May not be <code>null</code>
    * @param aBase64EncodedString a base64 encoded string. May not be <code>null</code>
    * @return a sv:image node corresponding to the newly created image. Will never return <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid parent node is specified, if <code>aBase64EncodedString</code> is not base64 encoded or if image exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid&#xA; parent node is specified, if <code>aBase64EncodedString</code> is not base64 encoded or if image exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.5.4
    */
@@ -142,7 +142,7 @@ export interface ImageUtil {
    * @param aParent the parent node of the image
    * @param aTemporaryFile a sv:temporaryFile (typically created via {@link senselogic.sitevision.api.node.builder.TemporaryFileNodeBuilder})
    * @return a sv:image node corresponding to the newly created image. Will never return <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid parent node is specified, if an invalid temporary node is specified or if image exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid&#xA; parent node is specified, if an invalid temporary node is specified or if image exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.5.4
    */
@@ -167,7 +167,7 @@ export interface ImageUtil {
    * </p>
    * @param aImage the image. May not be <code>null</code>
    * @param aUri the URI pointing to the file resource to fetch new binary content from. May not be <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the image node, if an invalid node is specified, if the end part of <code>aUri</code> doesn't match the file extension of <code>aImage</code> or if image exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the image node,&#xA; if an invalid node is specified, if the end part of <code>aUri</code> doesn't match the file extension&#xA; of <code>aImage</code> or if image exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 3.6.3
    */
@@ -192,7 +192,7 @@ export interface ImageUtil {
    * </p>
    * @param aImage the image. May not be <code>null</code>
    * @param aBase64EncodedString a base64 encoded string. May not be <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the image node, if an invalid node is specified, if <code>aBase64EncodedString</code> is not base64 encoded or if image exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the image node,&#xA; if an invalid node is specified, if <code>aBase64EncodedString</code> is not base64 encoded or if image exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.5.4
    */
@@ -216,7 +216,7 @@ export interface ImageUtil {
    * </p>
    * @param aImage the image. May not be <code>null</code>
    * @param aTemporaryFile the sv:temporaryFile (typically created via {@link senselogic.sitevision.api.node.builder.TemporaryFileNodeBuilder})
-   * @throws ConstraintViolationException if the user is not authorized to alter the image node, if an invalid node is specified, if the end part of the file represented by <code>aTemporaryFile</code> doesn't match the file extension of <code>aImage</code> or if image exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the image node,&#xA; if an invalid node is specified, if the end part of the file represented by <code>aTemporaryFile</code> doesn't match the file extension&#xA; of <code>aImage</code> or if image exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.5.4
    */
@@ -239,7 +239,7 @@ export interface ImageUtil {
    * </p>
    * @param aImage the sv:image that should be renamed. May not be <code>null</code>
    * @param aName the new name of the image. May not be <code>null</code>
-   * @throws ConstraintViolationException if the current user is not authorized to alter the name of the image or if the image extension doesn't match
+   * @throws ConstraintViolationException if the current user is not authorized to alter the name of the image&#xA; or if the image extension doesn't match
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.5.2
    */

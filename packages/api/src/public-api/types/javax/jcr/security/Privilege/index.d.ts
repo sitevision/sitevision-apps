@@ -34,13 +34,13 @@ export type Privilege = {
 
   /**
    * Returns whether this privilege is an abstract privilege.
-   * @return <code>true</code> if this privilege is an abstract privilege; <code>false</code> otherwise.
+   * @return <code>true</code> if this privilege is an abstract privilege;&#xA; <code>false</code> otherwise.
    */
   isAbstract(): boolean;
 
   /**
    * Returns whether this privilege is an aggregate privilege.
-   * @return <code>true</code> if this privilege is an aggregate privilege; <code>false</code> otherwise.
+   * @return <code>true</code> if this privilege is an aggregate privilege;&#xA; <code>false</code> otherwise.
    */
   isAggregate(): boolean;
 

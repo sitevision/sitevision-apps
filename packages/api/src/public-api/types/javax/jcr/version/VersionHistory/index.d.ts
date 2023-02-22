@@ -15,16 +15,16 @@ export type VersionHistory = Node & {
   /**
    * Returns the identifier of the versionable node for which this is the
    * version history.
-   * @return the identifier of the versionable node for which this is the version history.
+   * @return the identifier of the versionable node for which this is the&#xA; version history.
    * @throws RepositoryException if an error occurs.
-   * @deprecated As of JCR 2.0, {@link #getVersionableIdentifier} should be used instead.
+   * @deprecated As of JCR 2.0, {@link #getVersionableIdentifier} should be&#xA; used instead.
    */
   getVersionableUUID(): string;
 
   /**
    * Returns the identifier of the versionable node for which this is the
    * version history.
-   * @return the identifier of the versionable node for which this is the version history.
+   * @return the identifier of the versionable node for which this is the&#xA; version history.
    * @throws RepositoryException if an error occurs.
    * @since JCR 2.0
    */
@@ -100,7 +100,7 @@ export type VersionHistory = Node & {
    * name.
    * @param versionName a version name
    * @return a <code>Version</code> object.
-   * @throws VersionException if the specified version is not in this version history.
+   * @throws VersionException if the specified version is not in this version&#xA; history.
    * @throws RepositoryException if an error occurs.
    */
   getVersion(versionName: string): Version;
@@ -110,7 +110,7 @@ export type VersionHistory = Node & {
    * label.
    * @param label a version label
    * @return a <code>Version</code> object.
-   * @throws VersionException if the specified <code>label</code> is not in this version history.
+   * @throws VersionException if the specified <code>label</code> is not in&#xA; this version history.
    * @throws RepositoryException if an error occurs.
    */
   getVersionByLabel(label: string): Version;
@@ -139,11 +139,11 @@ export type VersionHistory = Node & {
    * specified <code>versionName</code>. If <code>moveLabel</code> is
    * <code>false</code>, then an attempt to add a label that already exists
    * will fail.
-   * @param versionName the name of the version to which the label is to be added.
-   * @param label the label to be added, A JCR name in either expanded or qualified form.
-   * @param moveLabel if <code>true</code>, then if <code>label</code> is already assigned to a version in this version history, it is moved to the new version specified; if <code>false</code>, then attempting to assign an already used label will throw a <code>LabelExistsVersionException</code>.
-   * @throws LabelExistsVersionException if <code>moveLabel</code> is <code>false</code>, and an attempt is made to add a label that already exists in this version history.
-   * @throws VersionException if the specified version does not exist in this version history or if the specified version is the root version (<code>jcr:rootVersion</code>).
+   * @param versionName the name of the version to which the label is to be&#xA; added.
+   * @param label the label to be added, A JCR name in either expanded or&#xA; qualified form.
+   * @param moveLabel if <code>true</code>, then if <code>label</code> is&#xA; already assigned to a version in this version history, it is moved to the&#xA; new version specified; if <code>false</code>, then attempting to assign&#xA; an already used label will throw a <code>LabelExistsVersionException</code>.
+   * @throws LabelExistsVersionException if <code>moveLabel</code> is&#xA; <code>false</code>, and an attempt is made to add a label that already&#xA; exists in this version history.
+   * @throws VersionException if the specified version does not exist in this&#xA; version history or if the specified version is the root version&#xA; (<code>jcr:rootVersion</code>).
    * @throws RepositoryException if another error occurs.
    */
   addVersionLabel(versionName: string, label: string, moveLabel: boolean): void;
@@ -157,8 +157,8 @@ export type VersionHistory = Node & {
    * <p>
    * This is workspace-write method and therefore the change is made
    * immediately.
-   * @param label a version label. A JCR name in either expanded or qualified form.
-   * @throws VersionException if the name label does not exist in this version history.
+   * @param label a version label. A JCR name in either expanded or qualified&#xA; form.
+   * @throws VersionException if the name label does not exist in this version&#xA; history.
    * @throws RepositoryException if another error occurs.
    */
   removeVersionLabel(label: string): void;
@@ -167,7 +167,7 @@ export type VersionHistory = Node & {
    * Returns <code>true</code> if any version in the history has the given
    * <code>label</code>. The label must be a JCR name in either qualified or
    * expanded form.
-   * @param label a version label. A JCR name in either expanded or qualified form.
+   * @param label a version label. A JCR name in either expanded or qualified&#xA; form.
    * @return a <code>boolean</code>.
    * @throws RepositoryException if an error occurs.
    */
@@ -177,9 +177,9 @@ export type VersionHistory = Node & {
    * Returns true if the given version has the given <code>label</code>. The
    * label must be a JCR name in either qualified or expanded form.
    * @param version a Version object
-   * @param label a version label. A JCR name in either expanded or qualified form.
+   * @param label a version label. A JCR name in either expanded or qualified&#xA; form.
    * @return a <code>boolean</code>.
-   * @throws VersionException if the specified <code>version</code> is not of this version history.
+   * @throws VersionException if the specified <code>version</code> is not of&#xA; this version history.
    * @throws RepositoryException if another error occurs.
    */
   hasVersionLabel(version: Version, label: string): boolean;
@@ -187,7 +187,7 @@ export type VersionHistory = Node & {
   /**
    * Returns all version labels of the history or an empty array if there are
    * none.
-   * @return a <code>String</code> array containing all the labels of the version history.
+   * @return a <code>String</code> array containing all the labels of the&#xA; version history.
    * @throws RepositoryException if an error occurs.
    */
   getVersionLabels(): string;
@@ -197,8 +197,8 @@ export type VersionHistory = Node & {
    * array if none. Throws a <code>VersionException</code> if the specified
    * <code>version</code> is not in this version history.
    * @param version a Version object
-   * @return a <code>String</code> array containing all the labels of the given version
-   * @throws VersionException if the specified <code>version</code> is not in this version history.
+   * @return a <code>String</code> array containing all the labels of the&#xA; given version
+   * @throws VersionException if the specified <code>version</code> is not in&#xA; this version history.
    * @throws RepositoryException if another error occurs.
    */
   getVersionLabels(version: Version): string;
@@ -218,10 +218,10 @@ export type VersionHistory = Node & {
    * with respect to normal repository methods, <code>save</code> does not
    * even function in this context.
    * @param versionName the name of a version in this version history.
-   * @throws ReferentialIntegrityException if the specified version is currently the target of a <code>REFERENCE</code> property elsewhere in the repository (not necessarily in this workspace) and the current <code>Session</code> has read access to that <code>REFERENCE</code> property.
-   * @throws AccessDeniedException if the current Session does not have permission to remove the specified version or if the specified version is currently the target of a <code>REFERENCE</code> property elsewhere in the repository (not just in this workspace) and the current <code>Session</code> does not have read access to that <code>REFERENCE</code> property.
-   * @throws UnsupportedRepositoryOperationException if this operation is not supported by the implementation.
-   * @throws VersionException if the named version is not in this version history.
+   * @throws ReferentialIntegrityException if the specified version is&#xA; currently the target of a <code>REFERENCE</code> property elsewhere in&#xA; the repository (not necessarily in this workspace) and the current&#xA; <code>Session</code> has read access to that <code>REFERENCE</code>&#xA; property.
+   * @throws AccessDeniedException if the current Session does not have&#xA; permission to remove the specified version or if the specified version is&#xA; currently the target of a <code>REFERENCE</code> property elsewhere in&#xA; the repository (not just in this workspace) and the current&#xA; <code>Session</code> does not have read access to that&#xA; <code>REFERENCE</code> property.
+   * @throws UnsupportedRepositoryOperationException&#xA; if this operation is not&#xA; supported by the implementation.
+   * @throws VersionException if the named version is not in this version&#xA; history.
    * @throws RepositoryException if another error occurs.
    */
   removeVersion(versionName: string): void;

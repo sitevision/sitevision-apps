@@ -74,7 +74,7 @@ export interface DirectoryUtil {
    * </p>
    * @param aDirectoryObjectNode a directory object node that has an attribute
    * @param anAttributeName the attribute name
-   * @return the attribute value as <code>Property</code>, or <code>null</code> if indeterminate (e.g. <code>aDirectoryObjectNode</code> is not a directory object node or <code>aDirectoryObjectNode</code> has no attribute named <code>anAttributeName</code>)
+   * @return the attribute value as <code>Property</code>, or <code>null</code> if indeterminate&#xA; (e.g. <code>aDirectoryObjectNode</code> is not a directory object node&#xA; or <code>aDirectoryObjectNode</code> has no attribute named <code>anAttributeName</code>)
    */
   getAttributeAsProperty(
     aDirectoryObjectNode: Node,
@@ -86,7 +86,7 @@ export interface DirectoryUtil {
    * @param aSearchFilter LDAP search filter (as specified by <a href="http://www.ietf.org/rfc/rfc2254.txt">RFC 2254</a>)
    * @param searchBase search base for the search, if <code>null</code> all directories for current node will be searched
    * @param attributes a <code>List</code> of return attributes
-   * @return the search result as a <code>Map</code>. If there are no hits, an empty <code>Map</code> is returned. The <code>Map</code> contains ids as keys and a <code>Map</code> as values containing the returned attributes.
+   * @return the search result as a <code>Map</code>. If there are no hits, an empty <code>Map</code> is returned.&#xA; The <code>Map</code> contains ids as keys and a <code>Map</code> as values containing the returned attributes.
    * @since Sitevision 2.6.1_02
    */
   simpleSearch(

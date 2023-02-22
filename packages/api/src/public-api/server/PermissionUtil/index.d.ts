@@ -29,7 +29,7 @@ export interface PermissionUtil {
    *       incoming http requests can be completely blocked etc).
    *    </em>
    * </p>
-   * @return <code>true</code> if an anonymous user has read permission on current page (e.g. "page is public"), <code>false</code> if not or if indeterminable (i.e. current page can not be determined)
+   * @return <code>true</code> if an anonymous user has read permission on current page (e.g. "page is public"),&#xA; <code>false</code> if not or if indeterminable (i.e. current page can not be determined)
    * @see #hasAnonymousReadPermission(Node)
    * @since Sitevision 2.6.2_05
    */
@@ -38,7 +38,7 @@ export interface PermissionUtil {
   /**
    * Checks if a non-authenticated user has read permission on a certain tree node.
    * @param aTreeNode a node in the page/template/file/image tree
-   * @return true if an anonymous user has read permission on aTreeNode (e.g. "page is public"), false if not or if indeterminable (i.e. aTreeNode is not a tree node)
+   * @return true if an anonymous user has read permission on aTreeNode (e.g. "page is public"),&#xA; false if not or if indeterminable (i.e. aTreeNode is not a tree node)
    * @see #hasAnonymousReadPermission()
    * @since Sitevision 2.6.2_05
    */
@@ -62,7 +62,7 @@ export interface PermissionUtil {
    *       incoming http requests can be completely blocked etc).
    *    </em>
    * </p>
-   * @return true if current user has read permission on current page, false if not or if indeterminable (i.e. current user or current page can not be determined)
+   * @return true if current user has read permission on current page,&#xA; false if not or if indeterminable (i.e. current user or current page can not be determined)
    * @see #hasReadPermission(Node, Node)
    */
   hasReadPermission(): boolean;
@@ -71,7 +71,7 @@ export interface PermissionUtil {
    * Checks if a certain user has read permission on a certain tree node.
    * @param aTreeNode a node in the page/template/file/image tree
    * @param aUserNode a user node (or a user identity node)
-   * @return true if aUserNode has read permission on aTreeNode, false if not or if indeterminable (i.e. aTreeNode is not a tree node or aUserNode is not a user)
+   * @return true if aUserNode has read permission on aTreeNode, false if not or if indeterminable&#xA; (i.e. aTreeNode is not a tree node or aUserNode is not a user)
    * @see #hasReadPermission()
    */
   hasReadPermission(aTreeNode: Node, aUserNode: Node): boolean;
@@ -103,7 +103,7 @@ export interface PermissionUtil {
    * Checks if a certain user has write permission on a certain tree node.
    * @param aTreeNode a node in the page/template/file/image tree
    * @param aUserNode a user node (or a user identity node)
-   * @return true if aUserNode has write permission on aTreeNode, false if not or if indeterminable (i.e. aTreeNode is not a tree node or aUserNode is not a user)
+   * @return true if aUserNode has write permission on aTreeNode, false if not or if indeterminable&#xA; (i.e. aTreeNode is not a tree node or aUserNode is not a user)
    * @see #hasEffectiveWritePermission(Node, Node)
    */
   hasWritePermission(aTreeNode: Node, aUserNode: Node): boolean;
@@ -160,7 +160,7 @@ export interface PermissionUtil {
    * Checks if a certain user has publish permission on a certain page tree node.
    * @param aPageNode a publishable node in the page tree
    * @param aUserNode a user node (or a user identity node)
-   * @return true if aUserNode has publish permission on aPageNode, false if not or if indeterminable (i.e. aPageNode is not a publishable page tree node or aUserNode is not a user)
+   * @return true if aUserNode has publish permission on aPageNode, false if not or if indeterminable&#xA; (i.e. aPageNode is not a publishable page tree node or aUserNode is not a user)
    * @see #hasEffectivePublishPermission(Node, Node)
    * @since Sitevision 2.6.1_04
    */
@@ -215,7 +215,7 @@ export interface PermissionUtil {
    * Checks if a certain user has write subscription permission on a certain page tree node.
    * @param aTreeNode a subscriptionable node in the page tree
    * @param aUserNode a user node (or a user identity node)
-   * @return true if aUserNode has write subscription permission on aTreeNode, false if not or if indeterminable (i.e. aTreeNode is not a subscriptionable page tree node or aUserNode is not a user)
+   * @return true if aUserNode has write subscription permission on aTreeNode, false if not or if indeterminable&#xA; (i.e. aTreeNode is not a subscriptionable page tree node or aUserNode is not a user)
    * @since Sitevision 2.6.2_05
    */
   hasWriteSubscriptionPermission(aTreeNode: Node, aUserNode: Node): boolean;
@@ -224,7 +224,7 @@ export interface PermissionUtil {
    * Checks if a certain user has delete permission on a certain tree node.
    * @param aTreeNode a node in the page/template/file/image tree
    * @param aUserNode a user node (or a user identity node)
-   * @return true if aUserNode has delete permission on aTreeNode, false if not or if indeterminable (i.e. aTreeNode is not a tree node or aUserNode is not a user)
+   * @return true if aUserNode has delete permission on aTreeNode, false if not or if indeterminable&#xA; (i.e. aTreeNode is not a tree node or aUserNode is not a user)
    * @see #hasEffectiveDeletePermission(Node, Node)
    * @since Sitevision 2.6.1_04
    */
@@ -276,7 +276,7 @@ export interface PermissionUtil {
    * Checks if a certain user has create page permission on a certain page tree node.
    * @param aParentNode a parent node (the parent of the page that should be created)
    * @param aUserNode a user node (or a user identity node)
-   * @return true if aUserNode has create page permission on aParentNode, false if not or if indeterminable (i.e. aParentNode is not a page tree node that can have a page as child or aUserNode is not a user)
+   * @return true if aUserNode has create page permission on aParentNode, false if not or if indeterminable&#xA; (i.e. aParentNode is not a page tree node that can have a page as child or aUserNode is not a user)
    * @since Sitevision 2.6.1_04
    */
   hasCreatePagePermission(aParentNode: Node, aUserNode: Node): boolean;
@@ -285,7 +285,7 @@ export interface PermissionUtil {
    * Checks if a certain user has create article permission on a certain page tree node.
    * @param aParentNode a parent node (the parent of the article that should be created)
    * @param aUserNode a user node (or a user identity node)
-   * @return true if aUserNode has create article permission on aParentNode, false if not or if indeterminable (i.e. aParentNode is not a page tree node that can have a article as child or aUserNode is not a user)
+   * @return true if aUserNode has create article permission on aParentNode, false if not or if indeterminable&#xA; (i.e. aParentNode is not a page tree node that can have a article as child or aUserNode is not a user)
    * @since Sitevision 2.6.1_04
    */
   hasCreateArticlePermission(aParentNode: Node, aUserNode: Node): boolean;
@@ -294,7 +294,7 @@ export interface PermissionUtil {
    * Checks if a certain user has create archive permission on a certain page tree node.
    * @param aParentNode a parent node (the parent of the archive that should be created)
    * @param aUserNode a user node (or a user identity node)
-   * @return true if aUserNode has create archive permission on aParentNode, false if not or if indeterminable (i.e. aParentNode is not a page tree node that can have an archive as child or aUserNode is not a user)
+   * @return true if aUserNode has create archive permission on aParentNode, false if not or if indeterminable&#xA; (i.e. aParentNode is not a page tree node that can have an archive as child or aUserNode is not a user)
    * @since Sitevision 2.6.1_04
    */
   hasCreateArchivePermission(aParentNode: Node, aUserNode: Node): boolean;
@@ -303,7 +303,7 @@ export interface PermissionUtil {
    * Checks if a certain user has create folder permission on a certain tree node.
    * @param aParentNode a parent node (the parent of the folder that should be created)
    * @param aUserNode a user node (or a user identity node)
-   * @return true if aUserNode has create folder permission on aParentNode, false if not or if indeterminable (i.e. aParentNode is not a tree node that can have a folder as child or aUserNode is not a user)
+   * @return true if aUserNode has create folder permission on aParentNode, false if not or if indeterminable&#xA; (i.e. aParentNode is not a tree node that can have a folder as child or aUserNode is not a user)
    * @since Sitevision 2.6.1_04
    */
   hasCreateFolderPermission(aParentNode: Node, aUserNode: Node): boolean;
@@ -327,7 +327,7 @@ export interface PermissionUtil {
    *    </em>
    * </p>
    * @param aPermission the permission to check
-   * @return true if current user has aPermission on current page, false if not or if indeterminable (e.g. current user or current page can not be determined)
+   * @return true if current user has aPermission on current page, false if not or if indeterminable&#xA; (e.g. current user or current page can not be determined)
    * @see #hasPermission(Node, Permission)
    * @see #hasPermission(Node, Node, Permission)
    * @since Sitevision 3.6
@@ -353,7 +353,7 @@ export interface PermissionUtil {
    *    </em>
    * </p>
    * @param aPermissions the permissions to check
-   * @return true if current user has aPermissions on current page, false if not or if indeterminable (e.g. current user or current page can not be determined)
+   * @return true if current user has aPermissions on current page, false if not or if indeterminable&#xA; (e.g. current user or current page can not be determined)
    * @see #hasPermissions(Node, Permission...)
    * @see #hasPermissions(Node, Node, Permission...)
    * @since Sitevision 3.6
@@ -364,7 +364,7 @@ export interface PermissionUtil {
    * Checks if current user has certain permission on a certain tree node.
    * @param aTreeNode a node in the page/template/file/image tree
    * @param aPermission the permission to check
-   * @return true if current user has aPermission on aTreeNode, false if not or if indeterminable (e.g. aTreeNode is not a tree node or current user can not be determined)
+   * @return true if current user has aPermission on aTreeNode, false if not or if indeterminable&#xA; (e.g. aTreeNode is not a tree node or current user can not be determined)
    * @see #hasPermission(Permission)
    * @see #hasPermission(Node, Node, Permission)
    * @since Sitevision 3.6
@@ -375,7 +375,7 @@ export interface PermissionUtil {
    * Checks if current user has certain permissions on a certain tree node.
    * @param aTreeNode a node in the page/template/file/image tree
    * @param aPermissions the permissions to check
-   * @return true if current user has aPermissions on aTreeNode, false if not or if indeterminable (e.g. aTreeNode is not a tree node or current user can not be determined)
+   * @return true if current user has aPermissions on aTreeNode, false if not or if indeterminable&#xA; (e.g. aTreeNode is not a tree node or current user can not be determined)
    * @see #hasPermissions(Permission...)
    * @see #hasPermissions(Node, Node, Permission...)
    * @since Sitevision 3.6
@@ -387,7 +387,7 @@ export interface PermissionUtil {
    * @param aTreeNode a node in the page/template/file/image tree
    * @param aUserNode a user node (or a user identity node)
    * @param aPermission the permission to check
-   * @return true if aUserNode has aPermission on aTreeNode, false if not or if indeterminable (e.g. aTreeNode is not a tree node or aUserNode is not a user)
+   * @return true if aUserNode has aPermission on aTreeNode, false if not or if indeterminable&#xA; (e.g. aTreeNode is not a tree node or aUserNode is not a user)
    * @see #hasPermission(Permission)
    * @see #hasPermission(Node, Permission)
    * @since Sitevision 3.6
@@ -403,7 +403,7 @@ export interface PermissionUtil {
    * @param aTreeNode a node in the page/template/file/image tree
    * @param aUserNode a user node (or a user identity node)
    * @param aPermissions the permissions to check
-   * @return true if aUserNode has aPermissions on aTreeNode, false if not or if indeterminable (e.g. aTreeNode is not a tree node or aUserNode is not a user)
+   * @return true if aUserNode has aPermissions on aTreeNode, false if not or if indeterminable&#xA; (e.g. aTreeNode is not a tree node or aUserNode is not a user)
    * @see #hasPermissions(Permission...)
    * @see #hasPermissions(Node, Permission...)
    * @since Sitevision 3.6

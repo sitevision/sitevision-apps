@@ -61,7 +61,7 @@ export type ObservationManager = {
    * repositories observation of changes in the <code>jcr:system</code>
    * subgraph may not be supported
    * @param listener an {@link EventListener} object.
-   * @param eventTypes A combination of one or more event type constants encoded as a bitmask.
+   * @param eventTypes A combination of one or more event type constants&#xA; encoded as a bitmask.
    * @param absPath an absolute path.
    * @param isDeep a <code>boolean</code>.
    * @param uuid array of identifiers.

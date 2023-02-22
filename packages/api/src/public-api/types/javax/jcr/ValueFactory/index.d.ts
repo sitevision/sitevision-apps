@@ -55,7 +55,7 @@ export type ValueFactory = {
    * specified <code>value</code>.
    * @param value a <code>Calendar</code>
    * @return a <code>Value</code> of {@link PropertyType#DATE}
-   * @throws IllegalArgumentException if the specified <code>value</code> cannot be expressed in the ISO 8601-based format defined in the JCR 2.0 specification and the implementation does not support dates incompatible with that format.
+   * @throws IllegalArgumentException if the specified <code>value</code>&#xA; cannot be expressed in the ISO 8601-based format defined in the JCR 2.0&#xA; specification and the implementation does not support dates incompatible&#xA; with that format.
    */
   createValue(value: unknown): Value;
 
@@ -66,7 +66,7 @@ export type ValueFactory = {
    * a reference to that <code>Node</code>.
    * @param value a <code>Node</code>
    * @return a <code>Value</code> of {@link PropertyType#REFERENCE}
-   * @throws RepositoryException if the specified <code>Node</code> is not referenceable, the current <code>Session</code> is no longer active, or another error occurs.
+   * @throws RepositoryException if the specified <code>Node</code> is not&#xA; referenceable, the current <code>Session</code> is no longer active, or&#xA; another error occurs.
    */
   createValue(value: Node): Value;
 };

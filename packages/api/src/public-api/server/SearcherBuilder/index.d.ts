@@ -141,7 +141,7 @@ export interface SearcherBuilder extends Builder {
    * </p>
    * @param anIndex the index
    * @return this builder
-   * @throws IllegalArgumentException if <code>anIndex</code> isn't an index node (primary node type name should be <code>sv:nodeIndex</code> or <code>sv:applicationIndex</code>)
+   * @throws IllegalArgumentException if <code>anIndex</code> isn't an index node (primary node type name should be&#xA; <code>sv:nodeIndex</code> or <code>sv:applicationIndex</code>)
    */
   setIndex(anIndex: Node): SearcherBuilder;
 

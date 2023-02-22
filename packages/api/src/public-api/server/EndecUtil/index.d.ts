@@ -234,7 +234,7 @@ export interface EndecUtil {
   /**
    * Decodes a base64 encoded string to a byte array (using UTF-8 encoding).
    * @param aBase64EncodedString a base64 encoded String
-   * @return aBase64EncodedString base64 decoded as byte array, using UTF-8 encoding. Returns null if aBase64EncodedString is null or can't be decoded.
+   * @return aBase64EncodedString base64 decoded as byte array, using UTF-8 encoding.&#xA; Returns null if aBase64EncodedString is null or can't be decoded.
    * @see #base64decode(String)
    * @since Sitevision 4.5.5.2
    */

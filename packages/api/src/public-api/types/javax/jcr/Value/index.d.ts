@@ -55,9 +55,9 @@ import type { Binary } from "../Binary";
 export type Value = {
   /**
    * Returns a <code>String</code> representation of this value.
-   * @return A <code>String</code> representation of the value of this property.
-   * @throws ValueFormatException if conversion to a <code>String</code> is not possible.
-   * @throws IllegalStateException if <code>getStream</code> has previously been called on this <code>Value</code> instance. In this case a new <code>Value</code> instance must be acquired in order to successfully call this method.
+   * @return A <code>String</code> representation of the value of this&#xA; property.
+   * @throws ValueFormatException if conversion to a <code>String</code> is&#xA; not possible.
+   * @throws IllegalStateException if <code>getStream</code> has previously&#xA; been called on this <code>Value</code> instance. In this case a new&#xA; <code>Value</code> instance must be acquired in order to successfully&#xA; call this method.
    * @throws RepositoryException if another error occurs.
    */
   getString(): string;
@@ -65,7 +65,7 @@ export type Value = {
   /**
    * Returns a <code>long</code> representation of this value.
    * @return A <code>long</code> representation of this value.
-   * @throws ValueFormatException if conversion to an <code>long</code> is not possible.
+   * @throws ValueFormatException if conversion to an <code>long</code> is not&#xA; possible.
    * @throws RepositoryException if another error occurs.
    */
   getLong(): number;
@@ -73,7 +73,7 @@ export type Value = {
   /**
    * Returns a <code>double</code> representation of this value.
    * @return A <code>double</code> representation of this value.
-   * @throws ValueFormatException if conversion to a <code>double</code> is not possible.
+   * @throws ValueFormatException if conversion to a <code>double</code> is&#xA; not possible.
    * @throws RepositoryException if another error occurs.
    */
   getDouble(): number;
@@ -81,7 +81,7 @@ export type Value = {
   /**
    * Returns a <code>BigDecimal</code> representation of this value.
    * @return A <code>BigDecimal</code> representation of this value.
-   * @throws ValueFormatException if conversion to a <code>BigDecimal</code> is not possible.
+   * @throws ValueFormatException if conversion to a <code>BigDecimal</code>&#xA; is not possible.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
    */
@@ -93,7 +93,7 @@ export type Value = {
    * The object returned is a copy of the stored value, so changes to it are
    * not reflected in internal storage.
    * @return A <code>Calendar</code> representation of this value.
-   * @throws ValueFormatException if conversion to a <code>Calendar</code> is not possible.
+   * @throws ValueFormatException if conversion to a <code>Calendar</code> is&#xA; not possible.
    * @throws RepositoryException if another error occurs.
    */
   getDate(): unknown;
@@ -101,7 +101,7 @@ export type Value = {
   /**
    * Returns a <code>Boolean</code> representation of this value.
    * @return A <code>Boolean</code> representation of this value.
-   * @throws ValueFormatException if conversion to a <code>Boolean</code> is not possible.
+   * @throws ValueFormatException if conversion to a <code>Boolean</code> is&#xA; not possible.
    * @throws RepositoryException if another error occurs.
    */
   getBoolean(): boolean;

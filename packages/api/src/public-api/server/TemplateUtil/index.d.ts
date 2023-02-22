@@ -98,7 +98,7 @@ export interface TemplateUtil {
    *    {@link senselogic.sitevision.api.security.PermissionUtil.Permission#READ} on will be considered.
    * </p>
    * @param aPageTemplateName the name of the page template
-   * @return the page template, or <code>null</code> if indeterminable (e.g. no accessible page template named <code>aPageTemplateName</code> could be found)
+   * @return the page template, or <code>null</code> if indeterminable&#xA; (e.g. no accessible page template named <code>aPageTemplateName</code> could be found)
    * @since Sitevision 4.1
    */
   getPageTemplateByName(aPageTemplateName: string): Node;

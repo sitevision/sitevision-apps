@@ -49,10 +49,10 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * Creates a query with one or more selectors.
    * @param source the node-tuple source; non-null
    * @param constraint the constraint, or null if none
-   * @param orderings zero or more orderings; null is equivalent to a zero-length array
+   * @param orderings zero or more orderings; null is equivalent to a&#xA; zero-length array
    * @param columns the columns; null is equivalent to a zero-length array
    * @return the query; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test and the parameters given fail that test. See the individual QOM factory methods for the validity criteria of each query element.
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test and the&#xA; parameters given fail that test. See the individual QOM factory methods&#xA; for the validity criteria of each query element.
    * @throws RepositoryException if another error occurs.
    */
   createQuery(
@@ -77,7 +77,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param nodeTypeName the name of the required node type; non-null
    * @param selectorName the selector name; non-null
    * @return the selector; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   selector(nodeTypeName: string, selectorName: string): Selector;
@@ -89,10 +89,10 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * <code>right</code>.
    * @param left the left node-tuple source; non-null
    * @param right the right node-tuple source; non-null
-   * @param joinType either <ul> <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_INNER},</li> <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_LEFT_OUTER},</li> <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_RIGHT_OUTER}</li> </ul>
+   * @param joinType either <ul> <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_INNER},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_LEFT_OUTER},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_RIGHT_OUTER}</li>&#xA; </ul>
    * @param joinCondition the join condition; non-null
    * @return the join; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   join(
@@ -125,7 +125,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param selector2Name the name of the second selector; non-null
    * @param property2Name the property name in the second selector; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implementation chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implementation chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   equiJoinCondition(
@@ -151,7 +151,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param selector2Name the name of the second selector; non-null
    * @param selector2Path the path relative to the second selector; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   sameNodeJoinCondition(
@@ -172,7 +172,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param childSelectorName the name of the child selector; non-null
    * @param parentSelectorName the name of the parent selector; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   childNodeJoinCondition(
@@ -189,10 +189,10 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * is not the name of a selector in the query, or</li>
    * <li><code>descendantSelector</code> is the same as
    * <code>ancestorSelector</code>. </ul>
-   * @param descendantSelectorName the name of the descendant selector; non-null
+   * @param descendantSelectorName the name of the descendant selector;&#xA; non-null
    * @param ancestorSelectorName the name of the ancestor selector; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   descendantNodeJoinCondition(
@@ -205,7 +205,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param constraint1 the first constraint; non-null
    * @param constraint2 the second constraint; non-null
    * @return the <code>And</code> constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   and(constraint1: Constraint, constraint2: Constraint): And;
@@ -215,7 +215,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param constraint1 the first constraint; non-null
    * @param constraint2 the second constraint; non-null
    * @return the <code>Or</code> constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   or(constraint1: Constraint, constraint2: Constraint): Or;
@@ -224,7 +224,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * Performs a logical negation of another constraint.
    * @param constraint the constraint to be negated; non-null
    * @return the <code>Not</code> constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   not(constraint: Constraint): Not;
@@ -232,10 +232,10 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
   /**
    * Filters node-tuples based on the outcome of a binary operation.
    * @param operand1 the first operand; non-null
-   * @param operator the operator; either <ul> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_EQUAL_TO},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_NOT_EQUAL_TO},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LESS_THAN},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LESS_THAN_OR_EQUAL_TO},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_GREATER_THAN},</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_GREATER_THAN_OR_EQUAL_TO}, or</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LIKE}</li> </ul>
+   * @param operator the operator; either <ul> <li>{@link&#xA; QueryObjectModelConstants#JCR_OPERATOR_EQUAL_TO},</li> <li>{@link&#xA; QueryObjectModelConstants#JCR_OPERATOR_NOT_EQUAL_TO},</li> <li>{@link&#xA; QueryObjectModelConstants#JCR_OPERATOR_LESS_THAN},</li> <li>{@link&#xA; QueryObjectModelConstants#JCR_OPERATOR_LESS_THAN_OR_EQUAL_TO},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_OPERATOR_GREATER_THAN},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_OPERATOR_GREATER_THAN_OR_EQUAL_TO},&#xA; or</li> <li>{@link QueryObjectModelConstants#JCR_OPERATOR_LIKE}</li>&#xA; </ul>
    * @param operand2 the second operand; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   comparison(
@@ -253,7 +253,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param selectorName the selector name; non-null
    * @param propertyName the property name; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   propertyExistence(
@@ -278,10 +278,10 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * valid but the constraint is not satisfied.
    * </p>
    * @param selectorName the selector name; non-null
-   * @param propertyName the property name, or null to search all full-text indexed properties of the node (or node subgraph, in some implementations)
-   * @param fullTextSearchExpression the full-text search expression as a static operand; non-null
+   * @param propertyName the property name, or null to search all full-text&#xA; indexed properties of the node (or node subgraph, in some&#xA; implementations)
+   * @param fullTextSearchExpression the full-text search expression as a&#xA; static operand; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   fullTextSearch(
@@ -304,7 +304,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param selectorName the selector name; non-null
    * @param path an absolute path; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   sameNode(selectorName: string, path: string): SameNode;
@@ -321,7 +321,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param selectorName the selector name; non-null
    * @param path an absolute path; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   childNode(selectorName: string, path: string): ChildNode;
@@ -340,7 +340,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param selectorName the selector name; non-null
    * @param path an absolute path; non-null
    * @return the constraint; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   descendantNode(selectorName: string, path: string): DescendantNode;
@@ -355,16 +355,16 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * @param selectorName the selector name; non-null
    * @param propertyName the property name; non-null
    * @return the operand; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   propertyValue(selectorName: string, propertyName: string): PropertyValue;
 
   /**
    * Evaluates to the length (or lengths, if multi-valued) of a property.
-   * @param propertyValue the property value for which to compute the length; non-null
+   * @param propertyValue the property value for which to compute the length;&#xA; non-null
    * @return the operand; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   length(propertyValue: PropertyValue): Length;
@@ -377,7 +377,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * selector in the query.
    * @param selectorName the selector name; non-null
    * @return the operand; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   nodeName(selectorName: string): NodeName;
@@ -390,7 +390,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * selector in the query.
    * @param selectorName the selector name; non-null
    * @return the operand; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   nodeLocalName(selectorName: string): NodeLocalName;
@@ -403,7 +403,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * selector in the query.
    * @param selectorName the selector name; non-null
    * @return the operand; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   fullTextSearchScore(selectorName: string): FullTextSearchScore;
@@ -411,9 +411,9 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
   /**
    * Evaluates to the lower-case string value (or values, if multi-valued) of
    * an operand.
-   * @param operand the operand whose value is converted to a lower-case string; non-null
+   * @param operand the operand whose value is converted to a lower-case&#xA; string; non-null
    * @return the operand; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   lowerCase(operand: DynamicOperand): LowerCase;
@@ -421,9 +421,9 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
   /**
    * Evaluates to the upper-case string value (or values, if multi-valued) of
    * an operand.
-   * @param operand the operand whose value is converted to a upper-case string; non-null
+   * @param operand the operand whose value is converted to a upper-case&#xA; string; non-null
    * @return the operand; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   upperCase(operand: DynamicOperand): UpperCase;
@@ -435,7 +435,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * prefix.
    * @param bindVariableName the bind variable name; non-null
    * @return the operand; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test.
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test.
    * @throws RepositoryException if the operation otherwise fails
    */
   bindVariable(bindVariableName: string): BindVariableValue;
@@ -444,7 +444,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * Evaluates to a literal value.
    * @param literalValue the value
    * @return the literal; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameter given fails that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses&#xA; to perform that test (and not leave it&#xA; until later, on {@link #createQuery}),&#xA; and the parameter given fails that test
    * @throws RepositoryException if the operation otherwise fails
    */
   literal(literalValue: Value): Literal;
@@ -455,7 +455,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * value.
    * @param operand the operand by which to order; non-null
    * @return the ordering
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   ascending(operand: DynamicOperand): Ordering;
@@ -466,7 +466,7 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * value.
    * @param operand the operand by which to order; non-null
    * @return the ordering
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   descending(operand: DynamicOperand): Ordering;
@@ -488,10 +488,10 @@ export type QueryObjectModelFactory = QueryObjectModelConstants & {
    * node-tuple, the selector node does not have a property named
    * <code>propertyName</code>, the query is valid and the column has null value.
    * @param selectorName the selector name; non-null
-   * @param propertyName the property name, or null to include a column for each single-value non-residual property of the selector's node type
-   * @param columnName the column name; must be null if <code>propertyName</code> is null; must be non-null if <code>propertyName</code> is non-null.
+   * @param propertyName the property name, or null to include a column for&#xA; each single-value non-residual property of the selector's node type
+   * @param columnName the column name; must be null if <code>propertyName</code> is null;&#xA; must be non-null if <code>propertyName</code> is non-null.
    * @return the column; non-null
-   * @throws InvalidQueryException if a particular validity test is possible on this method, the implemention chooses to perform that test (and not leave it until later, on {@link #createQuery}), and the parameters given fail that test
+   * @throws InvalidQueryException if a particular validity test is possible&#xA; on this method, the implemention chooses to perform that test (and not&#xA; leave it until later, on {@link #createQuery}), and the parameters given&#xA; fail that test
    * @throws RepositoryException if the operation otherwise fails
    */
   column(

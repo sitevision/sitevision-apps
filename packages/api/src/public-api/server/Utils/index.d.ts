@@ -397,7 +397,7 @@ export interface Utils {
    * </p>
    * @param aMaxWidth max width in pixels for scaled images, must be 10 or higher
    * @param aMaxHeight max height in pixels for scaled images, must be 10 or higher
-   * @return an image scaler that can be used when rendering scaled images with an {@link senselogic.sitevision.api.render.ImageRenderer}. If <code>aMaxWidth</code> or <code>aMaxHeight</code> has illegal values, <code>null</code> will be returned.
+   * @return an image scaler that can be used when rendering scaled images with an {@link senselogic.sitevision.api.render.ImageRenderer}.&#xA; If <code>aMaxWidth</code> or <code>aMaxHeight</code> has illegal values, <code>null</code> will be returned.
    * @since Sitevision 2.6.1_08
    */
   getImageScaler(aMaxWidth: number, aMaxHeight: number): ImageScaler;
@@ -412,7 +412,7 @@ export interface Utils {
    * method invocations will of course still throw <code>NullPointerException</code>.
    * </p>
    * @param anObject an object to be proxied by an ExceptionSuppressingProxy
-   * @return anObject proxied by an ExceptionSuppressingProxy, or <code>null</code> if <code>anObject</code> is <code>null</code>. If <code>anObject</code> is a <code>ExceptionSuppressingProxy</code>), <code>anObject</code> will be returned "as-is" (no new instance will be created).
+   * @return anObject proxied by an ExceptionSuppressingProxy, or <code>null</code> if <code>anObject</code> is <code>null</code>.&#xA; If <code>anObject</code> is a <code>ExceptionSuppressingProxy</code>),&#xA; <code>anObject</code> will be returned "as-is" (no new instance will be created).
    * @since Sitevision 2.6.1_09
    */
   getExceptionSuppressingProxy(anObject: unknown): ExceptionSuppressingProxy;
@@ -427,8 +427,8 @@ export interface Utils {
    * You should use <code>ExceptionSuppressingCollection</code>
    * with your "regular" collection since the actual proxying is done by the iterator itself.
    * </p>
-   * @param aCollection a collection to be decorated by a ExceptionSuppressingCollection. Note that this should be your "regular" collection, not a already proxied one (i.e. <code>Collection&lt;ExceptionSuppressingProxy&gt;</code>).
-   * @return the collection decorated by a ExceptionSuppressingCollection, or <code>null</code> if <code>aCollection</code> is <code>null</code>. If <code>aCollection</code> is a <code>ExceptionSuppressingCollection</code>), <code>aCollection</code> will be returned "as-is" (no new instance will be created).
+   * @param aCollection a collection to be decorated by a ExceptionSuppressingCollection. Note that this should be your "regular" collection,&#xA; not a already proxied one (i.e. <code>Collection&lt;ExceptionSuppressingProxy&gt;</code>).
+   * @return the collection decorated by a ExceptionSuppressingCollection, or <code>null</code> if <code>aCollection</code> is <code>null</code>.&#xA; If <code>aCollection</code> is a <code>ExceptionSuppressingCollection</code>),&#xA; <code>aCollection</code> will be returned "as-is" (no new instance will be created).
    * @since Sitevision 2.6.1_09
    */
   getExceptionSuppressingCollection(
@@ -438,7 +438,7 @@ export interface Utils {
   /**
    * Creates and returns an instance of an exception-suppressing iterator that returns exception-suppressing dynamic proxys.
    * @param anIterator an iterator to be decorated by a ExceptionSuppressingIterator
-   * @return the iterator decorated by a ExceptionSuppressingIterator, or <code>null</code> if <code>anIterator</code> is <code>null</code>. If <code>anIterator</code> is a <code>ExceptionSuppressingIterator</code>), <code>anIterator</code> will be returned "as-is" (no new instance will be created).
+   * @return the iterator decorated by a ExceptionSuppressingIterator, or <code>null</code> if <code>anIterator</code> is <code>null</code>.&#xA; If <code>anIterator</code> is a <code>ExceptionSuppressingIterator</code>),&#xA; <code>anIterator</code> will be returned "as-is" (no new instance will be created).
    * @since Sitevision 2.6.1_09
    */
   getExceptionSuppressingIterator(
@@ -512,8 +512,8 @@ export interface Utils {
    *    If you don't know what a version is or haven't thought much about it, you would typically use the common property extraction interface -
    *    {@link #getPropertyUtil()}.
    * </p>
-   * @param aVersion {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION} or {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
-   * @return a VersionedPropertyUtil class for aVersion, i.e. {@link senselogic.sitevision.api.property.OfflineVersionPropertyUtil} or {@link senselogic.sitevision.api.property.OnlineVersionPropertyUtil}. if aVersion has an illegal value, null will be returned.
+   * @param aVersion {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION} or&#xA; {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
+   * @return a VersionedPropertyUtil class for aVersion, i.e. {@link senselogic.sitevision.api.property.OfflineVersionPropertyUtil} or&#xA; {@link senselogic.sitevision.api.property.OnlineVersionPropertyUtil}.&#xA; if aVersion has an illegal value, null will be returned.
    * @see senselogic.sitevision.api.property.PropertyUtil
    * @since Sitevision 3.0
    */
@@ -530,7 +530,7 @@ export interface Utils {
    * Gets an instance of a user utility class
    * @return a user utility class
    * @since Sitevision 3.0
-   * @deprecated use {@link #getUserFactory()} to get a {@link senselogic.sitevision.api.user.SystemUserUtil} and {@link senselogic.sitevision.api.user.UserIdentityUtil} instead
+   * @deprecated use {@link #getUserFactory()} to get a {@link senselogic.sitevision.api.user.SystemUserUtil} and&#xA; {@link senselogic.sitevision.api.user.UserIdentityUtil} instead
    */
   getUserUtil(): UserUtil;
 

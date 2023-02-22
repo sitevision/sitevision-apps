@@ -13,7 +13,7 @@ export type Version = Node & {
   /**
    * Returns the <code>VersionHistory</code> that contains this
    * <code>Version</code>.
-   * @return the <code>VersionHistory</code> that contains this <code>Version</code>.
+   * @return the <code>VersionHistory</code> that contains this&#xA; <code>Version</code>.
    * @throws RepositoryException if an error occurs.
    */
   getContainingHistory(): VersionHistory;
@@ -37,7 +37,7 @@ export type Version = Node & {
    * <p>
    * Note that under simple versioning the behavior of this method is
    * equivalent to getting the unique successor (if any) of this version.
-   * @return a <code>Version</code> or <code>null</code> if no linear successor exists.
+   * @return a <code>Version</code> or <code>null</code> if no linear&#xA; successor exists.
    * @throws RepositoryException if an error occurs.
    * @see VersionHistory#getAllLinearVersions
    */
@@ -65,7 +65,7 @@ export type Version = Node & {
    * <p>
    * Note that under simple versioning the behavior of this method is
    * equivalent to getting the unique predecessor (if any) of this version.
-   * @return a <code>Version</code> or <code>null</code> if no linear predecessor exists.
+   * @return a <code>Version</code> or <code>null</code> if no linear&#xA; predecessor exists.
    * @throws RepositoryException if an error occurs.
    * @see VersionHistory#getAllLinearVersions
    */

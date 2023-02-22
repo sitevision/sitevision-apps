@@ -22,8 +22,8 @@ export interface SimpleUserUtil {
    *    This is a convenience for {@link #isMemberOfVirtualGroup(javax.jcr.Node, String)} using current user
    *    (as of {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser()}).
    * </p>
-   * @param aVirtualGroupId id of a virtual group (sv:virtualGroup). Note! The <em>id</em> of a virtual group does not always match the <em>name</em> of the virtual group.
-   * @return <code>true</code> if current user is member of the virtual group resolved via <code>aVirtualGroupId</code>, <code>false</code> otherwise
+   * @param aVirtualGroupId id of a virtual group (sv:virtualGroup).&#xA; Note! The <em>id</em> of a virtual group does not always match the <em>name</em> of the virtual group.
+   * @return <code>true</code> if current user is member of the virtual group resolved via <code>aVirtualGroupId</code>,&#xA; <code>false</code> otherwise
    * @see senselogic.sitevision.api.user.UserUtil#isMemberOfGroup(javax.jcr.Node)
    */
   isMemberOfVirtualGroup(aVirtualGroupId: string): boolean;
@@ -31,8 +31,8 @@ export interface SimpleUserUtil {
   /**
    * Checks if a simple user is member of a virtual group with a specific id.
    * @param aSimpleUser a simple user node (sv:simpleUser)
-   * @param aVirtualGroupId id of a virtual group (sv:virtualGroup). Note! The <em>id</em> of a virtual group does not always match the <em>name</em> of the virtual group.
-   * @return <code>true</code> if <code>aSimpleUser</code> is member of the virtual group resolved via <code>aVirtualGroupId</code>, <code>false</code> otherwise
+   * @param aVirtualGroupId id of a virtual group (sv:virtualGroup).&#xA; Note! The <em>id</em> of a virtual group does not always match the <em>name</em> of the virtual group.
+   * @return <code>true</code> if <code>aSimpleUser</code> is member of the virtual group resolved via <code>aVirtualGroupId</code>,&#xA; <code>false</code> otherwise
    * @see senselogic.sitevision.api.user.UserUtil#isMemberOfGroup(javax.jcr.Node, javax.jcr.Node)
    */
   isMemberOfVirtualGroup(aSimpleUser: Node, aVirtualGroupId: string): boolean;

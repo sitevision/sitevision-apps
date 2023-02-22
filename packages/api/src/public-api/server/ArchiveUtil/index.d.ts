@@ -30,7 +30,7 @@ export interface ArchiveUtil {
    * @param aParent the parent node of the sv:archive. May not be <code>null</code>
    * @param aName the name of the archive. May not be <code>null</code>
    * @return the newly created sv:archive node.
-   * @throws ConstraintViolationException if an invalid parent is specified or if the current user is not authorized to create an archive
+   * @throws ConstraintViolationException if an invalid parent is specified or if the current user&#xA; is not authorized to create an archive
    * @throws RepositoryException if something else goes wrong
    */
   createArchive(aParent: Node, aName: string): Node;
@@ -45,7 +45,7 @@ export interface ArchiveUtil {
    * a <code>ConstraintViolationException</code> will be thrown.</p>
    * @param anArchive the archive that should be renamed. May not be <code>null</code>
    * @param aName the new name of the archive. May not be <code>null</code>
-   * @throws ConstraintViolationException if the current user is not authorized to alter the name of the archive
+   * @throws ConstraintViolationException if the current user is not authorized to alter the name of the&#xA; archive
    * @throws RepositoryException if something else goes wrong
    */
   renameArchive(anArchive: Node, aName: string): void;

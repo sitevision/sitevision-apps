@@ -10,7 +10,7 @@ export type PropertyIterator = RangeIterator & {
   /**
    * Returns the next <code>Property</code> in the iteration.
    * @return the next <code>Property</code> in the iteration.
-   * @throws java.util.NoSuchElementException if iteration has no more <code>Property</code>s.
+   * @throws java.util.NoSuchElementException&#xA; if iteration has no more&#xA; <code>Property</code>s.
    */
   nextProperty(): Property;
 };

@@ -39,7 +39,7 @@ export interface JwtUtil {
    *    <li>HS384</li>
    *    <li>HS512</li>
    * </ul>
-   * @param aClaims The claims to send as payload. Claim values can be of types String, Boolean, Integer, Long and also arrays of Strings or Longs
+   * @param aClaims The claims to send as payload.&#xA; Claim values can be of types String, Boolean, Integer, Long and also arrays of Strings or Longs
    * @param aAlgorithm Hashing algorithm used, viable values are HS256, HS384 and HS512
    * @param aPreSharedKey Pre-shared key used for hashing.
    * @return A JWT token
@@ -81,7 +81,7 @@ export interface JwtUtil {
    *     When signing or decoding JWT using RSA keypair, Sitevision only support keys coded in standard PEM text format.
    *     Private keys can use password, but if a key without password is used, an empty string as password must be supplied.
    * </p>
-   * @param aClaims The claims to send as payload. Claim values can be of types String, Boolean, Integer, Long and also arrays of Strings or Longs
+   * @param aClaims The claims to send as payload.&#xA; Claim values can be of types String, Boolean, Integer, Long and also arrays of Strings or Longs
    * @param aAlgorithm Signing algorithm used, viable values are RS256, RS384 and RS512
    * @param aPrivateKey A sv:file or sv:temporaryFile with the PEM formatted RSA private key.
    * @param aPassword Password for the private key, use an empty string if the key is not password protected.

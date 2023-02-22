@@ -67,7 +67,7 @@ export interface LandingPageUtil {
   /**
    * Gets the messages page of current site.
    * @return the messages page, or null if current site has no such page specified.
-   * @since Sitevision 2023.1.1
+   * @since Sitevision 2023.02.1
    */
   getMessagesPage(): Node;
 

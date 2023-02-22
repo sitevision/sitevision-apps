@@ -29,7 +29,7 @@ export interface PortletUtil extends PortletUtilConstants {
    * @param portlet The <code>Node</code> corresponding to a portlet
    * @param user The <code>Node</code> corresponding to a user
    * @param portletPreferencesType The preferences type <em>(for now, only {@link #PORTLET_PREFERENCES_TYPE_USER} is allowed)</em>
-   * @return <code>PortletPreferences</code> that is effective for the provided user for the specified portlet
+   * @return <code>PortletPreferences</code> that is effective for the provided user for&#xA; the specified portlet
    */
   getPortletPreferences(
     portlet: Node,

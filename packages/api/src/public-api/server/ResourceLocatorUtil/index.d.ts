@@ -17,7 +17,7 @@ export interface ResourceLocatorUtil {
    * <p>
    *    <strong>Note!</strong> If you are interested in the actual <em>start page</em>, you should use the {@link #getSitePage()} method.
    * </p>
-   * @return current site <code>Node</code>, or <code>null</code> if indeterminable (e.g. current portlet and/or current page is not bound to any site)
+   * @return current site <code>Node</code>, or <code>null</code> if indeterminable&#xA; (e.g. current portlet and/or current page is not bound to any site)
    * @see #getSitePage()
    */
   getSite(): Node;
@@ -28,7 +28,7 @@ export interface ResourceLocatorUtil {
    * <p>
    *    <strong>Note!</strong> If you are interested in the actual <em>site</em>, you should use the {@link #getSite()} method.
    * </p>
-   * @return current site page <code>Node</code>, or <code>null</code> if indeterminable (e.g. current portlet and/or current page is not bound to any site)
+   * @return current site page <code>Node</code>, or <code>null</code> if indeterminable&#xA; (e.g. current portlet and/or current page is not bound to any site)
    * @see #getSite()
    */
   getSitePage(): Node;
@@ -255,7 +255,7 @@ export interface ResourceLocatorUtil {
    *    </em>
    * </p>
    * @param aInternalObject a internal Sitevision object
-   * @return a potential JCR Node identifier, or null if aInternalObject is null. The identifier for the sv:sitePage Node is returned if aInternalObject corresponds to the "site". Note that there are no guarantee that returned value actually is a valid JCR Node identifier
+   * @return a potential JCR Node identifier, or null if aInternalObject is null.&#xA; The identifier for the sv:sitePage Node is returned if aInternalObject corresponds to the "site".&#xA; Note that there are no guarantee that returned value actually is a valid JCR Node identifier
    * @since Sitevision 2.6.1_01
    * @deprecated This is a legacy method for really old Velocity templates that uses internal Sitevision objects.
    */

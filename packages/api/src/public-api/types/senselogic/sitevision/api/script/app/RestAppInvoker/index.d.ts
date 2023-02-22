@@ -6,7 +6,7 @@
  *    <a href="https://developer.sitevision.se/restapps" target="_blank">RESTApp</a>
  *    of the local site without any outgoing http connections.
  *    This utility can be used regardless of the RESTApp allows requests or not!
- *    Verb/method restrictions (GET/POST/PUT/DELETE) specified for the RESTApp will be respected.
+ *    Verb/method restrictions (GET/POST/PUT/DELETE/PATCH) specified for the RESTApp will be respected.
  * </p>
  *
  * <div id="options">
@@ -235,4 +235,30 @@ export type RestAppInvoker = {
    * @return a script object representing the response (properties: headers, statusCode, statusMessage, body)
    */
   delete(aRoute: string, aOptions: unknown): unknown;
+
+  /**
+   * Executes PATCH for a route of the RESTApp.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>patch</em> typically indicates a <em>partial update</em> of something.
+   * </p>
+   * @param aRoute a route
+   * @return a script object representing the response (properties: headers, statusCode, statusMessage, body)
+   * @see #patch(String, Object)
+   * @since Sitevision 2023.02.1
+   */
+  patch(aRoute: string): unknown;
+
+  /**
+   * Executes PATCH with options for a route of the RESTApp.
+   *
+   * <p>
+   *    <em>REST hint!</em> A <em>patch</em> typically indicates a <em>partial update</em> of something.
+   * </p>
+   * @param aRoute a route
+   * @param aOptions a options
+   * @return a script object representing the response (properties: headers, statusCode, statusMessage, body)
+   * @since Sitevision 2023.02.1
+   */
+  patch(aRoute: string, aOptions: unknown): unknown;
 };

@@ -21,7 +21,7 @@ export type QueryResult = {
    * Returns an iterator over the <code>Row</code>s of the result table. The
    * rows are returned according to the ordering specified in the query.
    * @return a <code>RowIterator</code>
-   * @throws RepositoryException if this call is the second time either <code>getRows</code> or <code>getNodes</code> has been called on the same <code>QueryResult</code> object or if another error occurs.
+   * @throws RepositoryException if this call is the second time either&#xA; <code>getRows</code> or <code>getNodes</code> has been called on the&#xA; same <code>QueryResult</code> object or if another error occurs.
    */
   getRows(): RowIterator;
 
@@ -29,7 +29,7 @@ export type QueryResult = {
    * Returns an iterator over all nodes that match the query. The nodes are
    * returned according to the ordering specified in the query.
    * @return a <code>NodeIterator</code>
-   * @throws RepositoryException if the query contains more than one selector, if this call is the second time either <code>getRows</code> or <code>getNodes</code> has been called on the same <code>QueryResult</code> object or if another error occurs.
+   * @throws RepositoryException if the query contains more than one selector,&#xA; if this call is the second time either <code>getRows</code> or&#xA; <code>getNodes</code> has been called on the same&#xA; <code>QueryResult</code> object or if another error occurs.
    */
   getNodes(): NodeIterator;
 

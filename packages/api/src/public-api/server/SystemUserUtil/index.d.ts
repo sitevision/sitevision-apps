@@ -40,7 +40,7 @@ export interface SystemUserUtil {
    *    An <em>Anonymous user</em> is not authenticated and can only access public resources.
    * </p>
    * @param aUserNode a user node
-   * @return <code>true</code> if <code>aUserNode</code> is anonymous (i.e. not authenticated), <code>false</code> otherwise (i.e. no match or <code>aUserNode</code> is <code>null</code>)
+   * @return <code>true</code> if <code>aUserNode</code> is anonymous (i.e. not authenticated), <code>false</code> otherwise&#xA; (i.e. no match or <code>aUserNode</code> is <code>null</code>)
    */
   isAnonymous(aUserNode: Node): boolean;
 
@@ -69,7 +69,7 @@ export interface SystemUserUtil {
    *    by the current license(-s).
    * </p>
    * @param aUserNode a user node
-   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision System user, <code>false</code> otherwise (i.e. no match or <code>aUserNode</code> is <code>null</code>)
+   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision System user, <code>false</code> otherwise&#xA; (i.e. no match or <code>aUserNode</code> is <code>null</code>)
    */
   isSystem(aUserNode: Node): boolean;
 
@@ -98,7 +98,7 @@ export interface SystemUserUtil {
    *    metadata/content and such that should be indexed by the Sitevision search engine.
    * </p>
    * @param aUserNode a user node
-   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Indexer, <code>false</code> otherwise (i.e. no match or <code>aUserNode</code> is <code>null</code>)
+   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Indexer, <code>false</code> otherwise&#xA; (i.e. no match or <code>aUserNode</code> is <code>null</code>)
    */
   isIndexer(aUserNode: Node): boolean;
 
@@ -126,7 +126,7 @@ export interface SystemUserUtil {
    *    The <em>Validator user</em> has read permission on all resources and visits/renders pages in order to validate them.
    * </p>
    * @param aUserNode a user node
-   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Validator, <code>false</code> otherwise (i.e. no match or <code>aUserNode</code> is <code>null</code>)
+   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Validator, <code>false</code> otherwise&#xA; (i.e. no match or <code>aUserNode</code> is <code>null</code>)
    * @since Sitevision 4.2.3
    */
   isValidator(aUserNode: Node): boolean;
@@ -156,7 +156,7 @@ export interface SystemUserUtil {
    *    content as static html pages.
    * </p>
    * @param aUserNode a user node
-   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Extractor, <code>false</code> otherwise (i.e. no match or <code>aUserNode</code> is <code>null</code>)
+   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Extractor, <code>false</code> otherwise&#xA; (i.e. no match or <code>aUserNode</code> is <code>null</code>)
    */
   isExtractor(aUserNode: Node): boolean;
 }

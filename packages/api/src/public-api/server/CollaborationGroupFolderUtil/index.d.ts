@@ -27,7 +27,7 @@ export interface CollaborationGroupFolderUtil {
    * Whether or not a collaboration group folder already contains a named collaboration group.
    * @param aCollaborationGroupFolder the collaboration group folder
    * @param aGroupName the name of the collaboration group
-   * @return <code>true</code> if <code>aCollaborationGroupFolder</code> contains (case ignored) a group named <code>aGroupName</code>, <code>false</code> otherwise
+   * @return <code>true</code> if <code>aCollaborationGroupFolder</code> contains (case ignored) a group named <code>aGroupName</code>,&#xA; <code>false</code> otherwise
    * @throws java.lang.NullPointerException if <code>aCollaborationGroupFolder</code> or <code>aGroupName</code> is <code>null</code>
    * @throws RepositoryException if <code>aCollaborationGroupFolder</code> is not a collaboration folder
    */

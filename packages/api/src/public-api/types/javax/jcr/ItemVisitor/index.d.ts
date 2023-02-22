@@ -20,7 +20,7 @@ export type ItemVisitor = {
    * This method is called when the <code>ItemVisitor</code> is passed to the
    * <code>accept</code> method of a <code>Property</code>. If this method
    * throws an exception the visiting process is aborted.
-   * @param property The <code>Property</code> that is accepting this visitor.
+   * @param property The <code>Property</code> that is accepting this&#xA; visitor.
    * @throws RepositoryException if an error occurs
    */
   visit(property: Property): void;

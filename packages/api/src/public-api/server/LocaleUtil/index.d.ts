@@ -141,8 +141,8 @@ export interface LocaleUtil {
    *       the native name for the "rmy" language.
    *    </li>
    * </ul>
-   * @param aLocaleString a language tag ("en-US") or string that contains language only ("en") or language and country ("en_US"), typically what you will get as result of <code>Locale.toString()</code>
-   * @return the native language name for the <code>aLocale</code> that matches <code>aLocaleString</code>, or <code>null</code> if <code>aLocaleString</code> is <code>null</code>, whitespace only or doesn't match a supported Locale
+   * @param aLocaleString a language tag ("en-US") or string that contains language only ("en") or language and country ("en_US"),&#xA; typically what you will get as result of <code>Locale.toString()</code>
+   * @return the native language name for the <code>aLocale</code> that matches <code>aLocaleString</code>,&#xA; or <code>null</code> if <code>aLocaleString</code> is <code>null</code>, whitespace only or doesn't match a supported Locale
    */
   getNativeLanguageNameByString(aLocaleString: string): string;
 
@@ -154,9 +154,9 @@ export interface LocaleUtil {
    *    {@link #getLocalizedLanguageName(java.util.Locale, java.util.Locale)}
    *    method to resolve a <code>Locale</code> and get the localized language name.
    * </p>
-   * @param aLocaleString a string that contains language ("en") or language and country ("en_US"), typically what you will get as result of <code>Locale.toString()</code>
-   * @param aDisplayLocale the locale that should be used when displaying the language name of the <code>Locale</code> resolved by <code>aLocaleString</code>
-   * @return the localized language name for the <code>aLocale</code> that matches <code>aLocaleString</code>, or <code>null</code> if <code>aLocaleString</code> is <code>null</code>, whitespace only or doesn't match a supported Locale
+   * @param aLocaleString a string that contains language ("en") or language and country ("en_US"),&#xA; typically what you will get as result of <code>Locale.toString()</code>
+   * @param aDisplayLocale the locale that should be used when displaying the language name of the <code>Locale</code>&#xA; resolved by <code>aLocaleString</code>
+   * @return the localized language name for the <code>aLocale</code> that matches <code>aLocaleString</code>,&#xA; or <code>null</code> if <code>aLocaleString</code> is <code>null</code>, whitespace only or doesn't match a supported Locale
    */
   getLocalizedLanguageNameByString(
     aLocaleString: string,
@@ -184,8 +184,8 @@ export interface LocaleUtil {
    * <p>
    *    <em>Note! This method only handles supported Locale's, i.e. Locales available via {@link #getAvailableLocales()}.</em>
    * </p>
-   * @param aLocaleString a language tag or the toString() value of a Locale (i.e. a String with a lowercased language - or a lowercased language and uppercased country, separated with underscore).
-   * @return a Locale matching <code>aLocaleString</code>, or <code>null</code> if <code>aLocaleString</code> is <code>null</code>, whitespace only or doesn't match a supported Locale
+   * @param aLocaleString a language tag or the toString() value of a Locale (i.e. a String with a lowercased language - or a lowercased language&#xA; and uppercased country, separated with underscore).
+   * @return a Locale matching <code>aLocaleString</code>,&#xA; or <code>null</code> if <code>aLocaleString</code> is <code>null</code>, whitespace only or doesn't match a supported Locale
    */
   getLocaleByString(aLocaleString: string): unknown;
 

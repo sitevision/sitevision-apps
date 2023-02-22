@@ -19,7 +19,7 @@ export interface CollaborationFactory {
   /**
    * Gets a collaboration group wrapper for a specified collaboration group.
    * @param aCollaborationGroup the collaboration group (or the collaboration group page)
-   * @return a collaboration group wrapper for <code>aCollaborationGroup</code>, or <code>null</code> if <code>aCollaborationGroup</code> isn't a collaboration group or if current user doesn't have {@link senselogic.sitevision.api.security.PermissionUtil.Permission#READ} on <code>aCollaborationGroup</code>.
+   * @return a collaboration group wrapper for <code>aCollaborationGroup</code>, or <code>null</code> if <code>aCollaborationGroup</code>&#xA; isn't a collaboration group or if current user doesn't have {@link senselogic.sitevision.api.security.PermissionUtil.Permission#READ}&#xA; on <code>aCollaborationGroup</code>.
    */
   getCollaborationGroupWrapper(
     aCollaborationGroup: Node

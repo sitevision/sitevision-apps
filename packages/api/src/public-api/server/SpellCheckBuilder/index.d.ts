@@ -40,7 +40,7 @@ export interface SpellCheckBuilder extends Builder {
    * <p>
    *    <em>Solr note: this is the 'spellcheck.q' param</em>
    * </p>
-   * @param aCustomSpellCheckQuery the custom query/expression <em>(Note that a <code>null</code> or whitespace-only value will be ignored by {@link senselogic.sitevision.api.search.searcher.Searcher}).</em>
+   * @param aCustomSpellCheckQuery the custom query/expression <em>(Note that a <code>null</code> or whitespace-only value will be ignored&#xA; by {@link senselogic.sitevision.api.search.searcher.Searcher}).</em>
    * @return this builder
    * @since Sitevision 4.0
    */

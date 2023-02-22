@@ -35,18 +35,18 @@ import type { Node } from "../../types/javax/jcr/Node";
 export interface MetadataDefinitionUtil {
   /**
    * Gets a metadata definition as a {@code Node} from a {@code Node}.
-   * @param aNode the {@code Node} that has a metadata definition
-   * @param aDefinitionName the name of the metadata definition
+   * @param aNode&#xA; the {@code Node} that has a metadata definition
+   * @param aDefinitionName&#xA; the name of the metadata definition
    * @return the value for {@code aDefinitionName} as a {@code Node}. If no definition exists or it is not a {@code Node}, {@code null} is returned.
    */
   getDefinition(aNode: Node, aDefinitionName: string): Node;
 
   /**
    * Gets a metadata definition as a {@code Node} from a {@code Node} with a fallback value if the definition does not exist.
-   * @param aNode the {@code Node} that has a metadata definition
-   * @param aDefinitionName the name of the metadata definition
-   * @param aDefaultValue fallback value if no definition exists
-   * @return the value for {@code aDefinitionName} as a {@code Node}. If no definition exists or it is not a {@code Node}, {@code aDefaultValue} is returned.
+   * @param aNode&#xA; the {@code Node} that has a metadata definition
+   * @param aDefinitionName&#xA; the name of the metadata definition
+   * @param aDefaultValue&#xA; fallback value if no definition exists
+   * @return the value for {@code aDefinitionName} as a {@code Node}. If no definition exists or it is not a {@code Node},&#xA; {@code aDefaultValue} is returned.
    */
   getDefinition(
     aNode: Node,
@@ -56,7 +56,7 @@ export interface MetadataDefinitionUtil {
 
   /**
    * Gets all metadata definitions available for the current user on a {@code Node}
-   * @param aNode the {@code Node} that has a metadata definition
+   * @param aNode&#xA; the {@code Node} that has a metadata definition
    * @return a list of definitions on {@code aNode}, or empty list
    * @since Sitevision 4.2.3
    */
@@ -64,10 +64,10 @@ export interface MetadataDefinitionUtil {
 
   /**
    * Add an alternative to a definition
-   * @param aNode the {@code Node} where the metadata definition is located
-   * @param aDefinitionName the name of the metadata definition. May not be <code>null</code> or whitespace only
-   * @param aAlternativeName the name of the alternative (case in-sensitive). May not be <code>null</code> or whitespace only
-   * @throws RepositoryException if {@code aNode} is invalid, if {@code aNode} does not have a metadata definition named {@code aDefinitionName}, if it already contains an alternative named {@code aAlternativeName}, or if something else goes wrong
+   * @param aNode&#xA; the {@code Node} where the metadata definition is located
+   * @param aDefinitionName&#xA; the name of the metadata definition. May not be <code>null</code> or whitespace only
+   * @param aAlternativeName&#xA; the name of the alternative (case in-sensitive). May not be <code>null</code> or whitespace only
+   * @throws RepositoryException if {@code aNode} is invalid,&#xA; if {@code aNode} does not have a metadata definition named {@code aDefinitionName},&#xA; if it already contains an alternative named {@code aAlternativeName},&#xA; or if something else goes wrong
    * @since Sitevision 4.2.3
    */
   addAlternative(
@@ -78,11 +78,11 @@ export interface MetadataDefinitionUtil {
 
   /**
    * Rename an alternative for a definition
-   * @param aNode the {@code Node} where the metadata definition is located
-   * @param aDefinitionName the name of the metadata definition. May not be <code>null</code> or whitespace only
-   * @param aAlternativeName the name of the alternative (case in-sensitive). May not be <code>null</code> or whitespace only
-   * @param aNewAlternativeName the new name of the alternative. May not be <code>null</code> or whitespace only
-   * @throws RepositoryException if {@code aNode} is invalid, if {@code aNode} does not have a metadata definition named {@code aDefinitionName}, if it does not contain an alternative named {@code aAlternativeName}, if it already contains an alternative named {@code aNewAlternativeName}, or if something else goes wrong
+   * @param aNode&#xA; the {@code Node} where the metadata definition is located
+   * @param aDefinitionName&#xA; the name of the metadata definition. May not be <code>null</code> or whitespace only
+   * @param aAlternativeName&#xA; the name of the alternative (case in-sensitive). May not be <code>null</code> or whitespace only
+   * @param aNewAlternativeName&#xA; the new name of the alternative. May not be <code>null</code> or whitespace only
+   * @throws RepositoryException if {@code aNode} is invalid,&#xA; if {@code aNode} does not have a metadata definition named {@code aDefinitionName},&#xA; if it does not contain an alternative named {@code aAlternativeName},&#xA; if it already contains an alternative named {@code aNewAlternativeName},&#xA; or if something else goes wrong
    * @since Sitevision 8.1
    */
   renameAlternative(
@@ -94,10 +94,10 @@ export interface MetadataDefinitionUtil {
 
   /**
    * Remove an alternative from a definition
-   * @param aNode the {@code Node} where the metadata definition is located
-   * @param aDefinitionName the name of the metadata definition. May not be <code>null</code> or whitespace only
-   * @param aAlternativeName the name of the alternative (case in-sensitive). May not be <code>null</code> or whitespace only
-   * @throws RepositoryException if {@code aNode} is invalid, if {@code aNode} does not have a metadata definition named {@code aDefinitionName}, if it does not contain an alternative named {@code aAlternativeName}, or if something else goes wrong
+   * @param aNode&#xA; the {@code Node} where the metadata definition is located
+   * @param aDefinitionName&#xA; the name of the metadata definition. May not be <code>null</code> or whitespace only
+   * @param aAlternativeName&#xA; the name of the alternative (case in-sensitive). May not be <code>null</code> or whitespace only
+   * @throws RepositoryException if {@code aNode} is invalid,&#xA; if {@code aNode} does not have a metadata definition named {@code aDefinitionName},&#xA; if it does not contain an alternative named {@code aAlternativeName},&#xA; or if something else goes wrong
    * @since Sitevision 8.1
    */
   removeAlternative(

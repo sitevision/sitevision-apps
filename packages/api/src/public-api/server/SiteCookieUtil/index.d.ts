@@ -113,7 +113,7 @@ export interface SiteCookieUtil {
   /**
    * Convenience method that resolves a sv:siteCookie Node from a given cookie identifier.
    * @param aCookieIdentifier the site cookie identifier
-   * @return the sv:siteCookie Node with the "cookieIdentifier" property that matches aCookieIdentifier. Returns null if aCookieIdentifier is null, blank or indeterminable
+   * @return the sv:siteCookie Node with the "cookieIdentifier" property that matches aCookieIdentifier. Returns null if&#xA; aCookieIdentifier is null, blank or indeterminable
    */
   resolveSiteCookieByIdentifier(aCookieIdentifier: string): Node;
 
@@ -159,7 +159,7 @@ export interface SiteCookieUtil {
 
   /**
    * Gets all sv:siteCookie nodes that current user has accepted.
-   * @return the list of sv:siteCookie Nodes current user has accepted. Returns empty list if site has no site cookies or if current user hasn't accepted any sv:siteCookie
+   * @return the list of sv:siteCookie Nodes current user has accepted. Returns empty list if site has no site cookies or if current user hasn't&#xA; accepted any sv:siteCookie
    */
   getUserConsents(): unknown;
 }

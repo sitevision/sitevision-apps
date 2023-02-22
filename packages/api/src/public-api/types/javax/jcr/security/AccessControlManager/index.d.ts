@@ -21,7 +21,7 @@ export type AccessControlManager = {
    * it returns the privileges that the repository supports.
    * @param absPath an absolute path.
    * @return an array of <code>Privilege</code>s.
-   * @throws PathNotFoundException if no node at <code>absPath</code> exists or the session does not have sufficient access to retrieve a node at that location.
+   * @throws PathNotFoundException if no node at <code>absPath</code> exists&#xA; or the session does not have sufficient access to retrieve a node at that&#xA; location.
    * @throws RepositoryException if another error occurs.
    */
   getSupportedPrivileges(absPath: string): Privilege;
@@ -31,8 +31,8 @@ export type AccessControlManager = {
    * Since the privilege name is a JCR name, it may be passed in either
    * qualified or expanded form (see specification for details on JCR names).
    * @param privilegeName the name of an existing privilege.
-   * @return the <code>Privilege</code> with the specified <code>privilegeName</code>.
-   * @throws AccessControlException if no privilege with the specified name exists.
+   * @return the <code>Privilege</code> with the specified&#xA; <code>privilegeName</code>.
+   * @throws AccessControlException if no privilege with the specified name&#xA; exists.
    * @throws RepositoryException if another error occurs.
    */
   privilegeFromName(privilegeName: string): Privilege;
@@ -53,8 +53,8 @@ export type AccessControlManager = {
    * the privilege test methods.
    * @param absPath an absolute path.
    * @param privileges an array of <code>Privilege</code>s.
-   * @return <code>true</code> if the session has the specified privileges; <code>false</code> otherwise.
-   * @throws PathNotFoundException if no node at <code>absPath</code> exists or the session does not have sufficent access to retrieve a node at that location.
+   * @return <code>true</code> if the session has the specified privileges;&#xA; <code>false</code> otherwise.
+   * @throws PathNotFoundException if no node at <code>absPath</code> exists&#xA; or the session does not have sufficent access to retrieve a node at that&#xA; location.
    * @throws RepositoryException if another error occurs.
    */
   hasPrivileges(absPath: string, privileges: Privilege): boolean;
@@ -74,7 +74,7 @@ export type AccessControlManager = {
    * the privilege test methods.
    * @param absPath an absolute path.
    * @return an array of <code>Privilege</code>s.
-   * @throws PathNotFoundException if no node at <code>absPath</code> exists or the session does not have sufficient access to retrieve a node at that location.
+   * @throws PathNotFoundException if no node at <code>absPath</code> exists&#xA; or the session does not have sufficient access to retrieve a node at that&#xA; location.
    * @throws RepositoryException if another error occurs.
    */
   getPrivileges(absPath: string): Privilege;
@@ -88,9 +88,9 @@ export type AccessControlManager = {
    * Use {@link #getEffectivePolicies(String)} in order to determine the
    * policy that effectively applies at <code>absPath</code>.
    * @param absPath an absolute path.
-   * @return an array of <code>AccessControlPolicy</code> objects or an empty array if no policy has been set.
-   * @throws PathNotFoundException if no node at <code>absPath</code> exists or the session does not have sufficient access to retrieve a node at that location.
-   * @throws AccessDeniedException if the session lacks <code>READ_ACCESS_CONTROL</code> privilege for the <code>absPath</code> node.
+   * @return an array of <code>AccessControlPolicy</code> objects or an empty&#xA; array if no policy has been set.
+   * @throws PathNotFoundException if no node at <code>absPath</code> exists&#xA; or the session does not have sufficient access to retrieve a node at that&#xA; location.
+   * @throws AccessDeniedException if the session lacks&#xA; <code>READ_ACCESS_CONTROL</code> privilege for the <code>absPath</code>&#xA; node.
    * @throws RepositoryException if another error occurs.
    */
   getPolicies(absPath: string): AccessControlPolicy;
@@ -101,8 +101,8 @@ export type AccessControlManager = {
    * through this API or some implementation specific (default) policies.
    * @param absPath an absolute path.
    * @return an array of <code>AccessControlPolicy</code> objects.
-   * @throws PathNotFoundException if no node at <code>absPath</code> exists or the session does not have sufficient access to retrieve a node at that location.
-   * @throws AccessDeniedException if the session lacks <code>READ_ACCESS_CONTROL</code> privilege for the <code>absPath</code> node.
+   * @throws PathNotFoundException if no node at <code>absPath</code> exists&#xA; or the session does not have sufficient access to retrieve a node at that&#xA; location.
+   * @throws AccessDeniedException if the session lacks&#xA; <code>READ_ACCESS_CONTROL</code> privilege for the <code>absPath</code>&#xA; node.
    * @throws RepositoryException if another error occurs.
    */
   getEffectivePolicies(absPath: string): AccessControlPolicy;
@@ -111,9 +111,9 @@ export type AccessControlManager = {
    * Returns the access control policies that are capable of being applied to
    * the node at <code>absPath</code>.
    * @param absPath an absolute path.
-   * @return an <code>AccessControlPolicyIterator</code> over the applicable access control policies or an empty iterator if no policies are applicable.
-   * @throws PathNotFoundException if no node at <code>absPath</code> exists or the session does not have sufficient access to retrieve a node at that location.
-   * @throws AccessDeniedException if the session lacks <code>READ_ACCESS_CONTROL</code> privilege for the <code>absPath</code> node.
+   * @return an <code>AccessControlPolicyIterator</code> over the applicable&#xA; access control policies or an empty iterator if no policies are&#xA; applicable.
+   * @throws PathNotFoundException if no node at <code>absPath</code> exists&#xA; or the session does not have sufficient access to retrieve a node at that&#xA; location.
+   * @throws AccessDeniedException if the session lacks&#xA; <code>READ_ACCESS_CONTROL</code> privilege for the <code>absPath</code>&#xA; node.
    * @throws RepositoryException if another error occurs.
    */
   getApplicablePolicies(absPath: string): AccessControlPolicyIterator;
@@ -148,11 +148,11 @@ export type AccessControlManager = {
    * Implementations may differ on when this validation is performed.
    * @param absPath an absolute path.
    * @param policy the <code>AccessControlPolicy</code> to be applied.
-   * @throws PathNotFoundException if no node at <code>absPath</code> exists or the session does not have sufficient access to retrieve a node at that location.
+   * @throws PathNotFoundException if no node at <code>absPath</code> exists&#xA; or the session does not have sufficient access to retrieve a node at that&#xA; location.
    * @throws AccessControlException if the policy is not applicable.
-   * @throws AccessDeniedException if the session lacks <code>MODIFY_ACCESS_CONTROL</code> privilege for the <code>absPath</code> node.
-   * @throws LockException if a lock applies at the node at <code>absPath</code> and this implementation performs this validation immediately.
-   * @throws VersionException if the node at <code>absPath</code> is read-only due to a checked-in node and this implementation performs this validation immediately.
+   * @throws AccessDeniedException if the session lacks&#xA; <code>MODIFY_ACCESS_CONTROL</code> privilege for the <code>absPath</code>&#xA; node.
+   * @throws LockException if a lock applies at the node at&#xA; <code>absPath</code> and this implementation performs this validation&#xA; immediately.
+   * @throws VersionException if the node at <code>absPath</code> is read-only&#xA; due to a checked-in node and this implementation performs this validation&#xA; immediately.
    * @throws RepositoryException if another error occurs.
    */
   setPolicy(absPath: string, policy: AccessControlPolicy): void;
@@ -191,11 +191,11 @@ export type AccessControlManager = {
    * A <code>RepositoryException</code> is thrown if another error occurs.
    * @param absPath an absolute path.
    * @param policy the policy to be removed.
-   * @throws PathNotFoundException if no node at <code>absPath</code> exists or the session does not have sufficient access to retrieve a node at that location.
+   * @throws PathNotFoundException if no node at <code>absPath</code> exists&#xA; or the session does not have sufficient access to retrieve a node at that&#xA; location.
    * @throws AccessControlException if no policy exists.
-   * @throws AccessDeniedException if the session lacks <code>MODIFY_ACCESS_CONTROL</code> privilege for the <code>absPath</code> node.
-   * @throws LockException if a lock applies at the node at <code>absPath</code> and this implementation performs this validation immediately instead of waiting until <code>save</code>.
-   * @throws VersionException if the node at <code>absPath</code> is versionable and checked-in or is non-versionable but its nearest versionable ancestor is checked-in and this implementation performs this validation immediately instead of waiting until <code>save</code>.
+   * @throws AccessDeniedException if the session lacks&#xA; <code>MODIFY_ACCESS_CONTROL</code> privilege for the <code>absPath</code>&#xA; node.
+   * @throws LockException if a lock applies at the node at&#xA; <code>absPath</code> and this implementation performs this validation&#xA; immediately instead of waiting until <code>save</code>.
+   * @throws VersionException if the node at <code>absPath</code> is&#xA; versionable and checked-in or is non-versionable but its nearest&#xA; versionable ancestor is checked-in and this implementation performs this&#xA; validation immediately instead of waiting until <code>save</code>.
    * @throws RepositoryException if another error occurs.
    */
   removePolicy(absPath: string, policy: AccessControlPolicy): void;

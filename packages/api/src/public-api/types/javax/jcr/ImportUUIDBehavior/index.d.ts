@@ -9,27 +9,11 @@
 export type ImportUUIDBehavior = {
   undefined;
 
-  /**
- * 
-  
-    */
   IMPORT_UUID_CREATE_NEW: number;
 
-  /**
- * 
-  
-    */
   IMPORT_UUID_COLLISION_REMOVE_EXISTING: number;
 
-  /**
- * 
-  
-    */
   IMPORT_UUID_COLLISION_REPLACE_EXISTING: number;
 
-  /**
- * 
-  
-    */
   IMPORT_UUID_COLLISION_THROW: number;
 };

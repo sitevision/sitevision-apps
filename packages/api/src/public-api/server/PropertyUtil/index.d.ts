@@ -309,7 +309,7 @@ export interface PropertyUtil {
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on aNode
    * @param aPropertyName the name of the property for the "inner/nested" <code>Node</code>
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for aPropertyName as <code>int</code>. If no property exists or it isn't compatible with an <code>int</code>, aDefaultValue is returned.
+   * @return the value for aPropertyName as <code>int</code>. If no property exists or it isn't compatible with an <code>int</code>,&#xA; aDefaultValue is returned.
    */
   getNestedInt(
     aNode: Node,
@@ -334,7 +334,7 @@ export interface PropertyUtil {
    * @param aNode the base <code>Node</code> that has a property that is a <code>Node</code>
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on aNode
    * @param aPropertyName the name of the property for the "inner/nested" <code>Node</code>
-   * @return the value for aPropertyName as <code>double</code>. If no property exists or it isn't compatible with a <code>double</code>, 0.0 is returned.
+   * @return the value for aPropertyName as <code>double</code>. If no property exists or it isn't compatible with a <code>double</code>,&#xA; 0.0 is returned.
    * @since Sitevision 2.6.1_09
    */
   getNestedDouble(
@@ -361,7 +361,7 @@ export interface PropertyUtil {
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on aNode
    * @param aPropertyName the name of the property for the "inner/nested" <code>Node</code>
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for aPropertyName as <code>double</code>. If no property exists or it isn't compatible with a <code>double</code>, aDefaultValue is returned.
+   * @return the value for aPropertyName as <code>double</code>. If no property exists or it isn't compatible with a <code>double</code>,&#xA; aDefaultValue is returned.
    * @since Sitevision 2.6.1_09
    */
   getNestedDouble(
@@ -387,7 +387,7 @@ export interface PropertyUtil {
    * @param aNode the base <code>Node</code> that has a property that is a <code>Node</code>
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on aNode
    * @param aPropertyName the name of the property for the "inner/nested" <code>Node</code>
-   * @return the value for aPropertyName as <code>boolean</code>. If no property exists or it isn't compatible with a <code>boolean</code>, <code>false</code> is returned.
+   * @return the value for aPropertyName as <code>boolean</code>. If no property exists or it isn't compatible with a <code>boolean</code>,&#xA; <code>false</code> is returned.
    */
   getNestedBoolean(
     aNode: Node,
@@ -413,7 +413,7 @@ export interface PropertyUtil {
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on aNode
    * @param aPropertyName the name of the property for the "inner/nested" <code>Node</code>
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for aPropertyName as <code>boolean</code>. If no property exists or it isn't compatible with a <code>boolean</code>, aDefaultValue is returned.
+   * @return the value for aPropertyName as <code>boolean</code>. If no property exists or it isn't compatible with a <code>boolean</code>,&#xA; aDefaultValue is returned.
    */
   getNestedBoolean(
     aNode: Node,
@@ -552,7 +552,7 @@ export interface PropertyUtil {
    * @param aNode the base <code>Node</code> that has a property that is a <code>Node</code>
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on <code>aNode</code>
    * @param aPropertyName the name of the Binary property for the "inner/nested" <code>Node</code>
-   * @return the value for aPropertyName as <code>Binary</code>. If no property exists or it isn't a <code>Binary</code>, <code>null</code> is returned.
+   * @return the value for aPropertyName as <code>Binary</code>. If no property exists or it isn't a <code>Binary</code>,&#xA; <code>null</code> is returned.
    * @since Sitevision 3.5
    */
   getNestedBinary(
@@ -758,7 +758,7 @@ export interface PropertyUtil {
    * @param aNode the <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the <code>int</code> value for aPropertyName. If no property exists or it isn't compatible with an <code>int</code>, aDefaultValue is returned.
+   * @return the <code>int</code> value for aPropertyName. If no property exists or it isn't compatible with an <code>int</code>,&#xA; aDefaultValue is returned.
    */
   getInt(aNode: Node, aPropertyName: string, aDefaultValue: number): number;
 
@@ -775,7 +775,7 @@ export interface PropertyUtil {
    * </p>
    * @param aNode the <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the <code>double</code> value for aPropertyName. If no property exists or it isn't compatible with a <code>double</code>, 0.0 is returned.
+   * @return the <code>double</code> value for aPropertyName. If no property exists or it isn't compatible with a <code>double</code>,&#xA; 0.0 is returned.
    * @since Sitevision 2.6.1_09
    */
   getDouble(aNode: Node, aPropertyName: string): number;
@@ -794,7 +794,7 @@ export interface PropertyUtil {
    * @param aNode the <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the <code>double</code> value for aPropertyName. If no property exists or it isn't compatible with a <code>double</code>, aDefaultValue is returned.
+   * @return the <code>double</code> value for aPropertyName. If no property exists or it isn't compatible with a <code>double</code>,&#xA; aDefaultValue is returned.
    * @since Sitevision 2.6.1_09
    */
   getDouble(aNode: Node, aPropertyName: string, aDefaultValue: number): number;
@@ -812,7 +812,7 @@ export interface PropertyUtil {
    * </p>
    * @param aNode the <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the value for aPropertyName as <code>boolean</code>. If no property exists or it isn't compatible with a <code>boolean</code>, <code>false</code> is returned.
+   * @return the value for aPropertyName as <code>boolean</code>. If no property exists or it isn't compatible with a <code>boolean</code>,&#xA; <code>false</code> is returned.
    */
   getBoolean(aNode: Node, aPropertyName: string): boolean;
 
@@ -830,7 +830,7 @@ export interface PropertyUtil {
    * @param aNode the <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for aPropertyName as <code>boolean</code>. If no property exists or it isn't compatible with a <code>boolean</code>, aDefaultValue is returned.
+   * @return the value for aPropertyName as <code>boolean</code>. If no property exists or it isn't compatible with a <code>boolean</code>,&#xA; aDefaultValue is returned.
    */
   getBoolean(
     aNode: Node,
@@ -891,7 +891,7 @@ export interface PropertyUtil {
    * @param aNode the <code>Node</code> that has the properties
    * @param aEnablingPropertyName the name of the boolean property that enables the Node denoted by <code>aPropertyName</code>
    * @param aNodePropertyName the name of the property
-   * @return the value for aNodePropertyName as <code>Node</code>. If no property exists or it isn't a <code>Node</code>, <code>null</code> is returned. A <code>Node</code> will never be returned if <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a <code>boolean</code> or isn't <code>true</code>.
+   * @return the value for aNodePropertyName as <code>Node</code>. If no property exists or it isn't a <code>Node</code>,&#xA; <code>null</code> is returned.&#xA; A <code>Node</code> will never be returned if <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a&#xA; <code>boolean</code> or isn't <code>true</code>.
    * @see #getEnabledNode(javax.jcr.Node, String, String, javax.jcr.Node)
    * @since Sitevision 3.0
    */
@@ -917,7 +917,7 @@ export interface PropertyUtil {
    * @param aEnablingPropertyName the name of the boolean property that enables the Node denoted by <code>aPropertyName</code>
    * @param aNodePropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for aNodePropertyName as <code>Node</code>. If no property exists or it isn't a <code>Node</code>, <code>aDefaultValue</code> is returned. If <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a <code>boolean</code> or isn't <code>true</code>, <code>aDefaultValue</code> is returned.
+   * @return the value for aNodePropertyName as <code>Node</code>. If no property exists or it isn't a <code>Node</code>,&#xA; <code>aDefaultValue</code> is returned.&#xA; If <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a <code>boolean</code> or isn't <code>true</code>,&#xA; <code>aDefaultValue</code> is returned.
    * @see #getEnabledNode(javax.jcr.Node, String, String)
    * @since Sitevision 3.0
    */
@@ -964,7 +964,7 @@ export interface PropertyUtil {
    * @param aNode the <code>Node</code> that has the properties
    * @param aEnablingPropertyName the name of the boolean property that enables the String denoted by <code>aStringPropertyName</code>
    * @param aStringPropertyName the name of the String property
-   * @return the value for aStringPropertyName as <code>String</code>. If no property exists, <code>null</code> is returned. Null will always be returned if <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a <code>boolean</code> or isn't <code>true</code>.
+   * @return the value for aStringPropertyName as <code>String</code>. If no property exists, <code>null</code> is returned.&#xA; Null will always be returned if <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a <code>boolean</code>&#xA; or isn't <code>true</code>.
    * @see #getEnabledString(javax.jcr.Node, String, String, String)
    * @since Sitevision 4.0
    */
@@ -990,7 +990,7 @@ export interface PropertyUtil {
    * @param aEnablingPropertyName the name of the boolean property that enables the String denoted by <code>aStringPropertyName</code>
    * @param aStringPropertyName the name of the String property
    * @param aDefaultValue fallback value to return if no value exist
-   * @return the value for aStringPropertyName as <code>String</code>. If no property exists, <code>aDefaultValue</code> is returned. <code>aDefaultValue</code> will always be returned if <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a <code>boolean</code> or isn't <code>true</code>.
+   * @return the value for aStringPropertyName as <code>String</code>. If no property exists, <code>aDefaultValue</code> is returned.&#xA; <code>aDefaultValue</code> will always be returned if <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a&#xA; <code>boolean</code> or isn't <code>true</code>.
    * @see #getEnabledString(javax.jcr.Node, String, String)
    * @since Sitevision 4.0
    */
@@ -1038,7 +1038,7 @@ export interface PropertyUtil {
    * @param aNode the <code>Node</code> that has the properties
    * @param aEnablingPropertyName the name of the boolean property that enables the String denoted by <code>aStringPropertyName</code>
    * @param aStringPropertyName the name of the String property
-   * @return the value for aStringPropertyName as a XML escaped <code>String</code>. If no property exists, <code>null</code> is returned. Null will always be returned if <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a <code>boolean</code> or isn't <code>true</code>.
+   * @return the value for aStringPropertyName as a XML escaped <code>String</code>. If no property exists, <code>null</code> is returned.&#xA; Null will always be returned if <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a <code>boolean</code>&#xA; or isn't <code>true</code>.
    * @see #getEnabledStringEscaped(javax.jcr.Node, String, String, String)
    * @since Sitevision 4.0
    */
@@ -1064,7 +1064,7 @@ export interface PropertyUtil {
    * @param aEnablingPropertyName the name of the boolean property that enables the String denoted by <code>aStringPropertyName</code>
    * @param aStringPropertyName the name of the String property
    * @param aDefaultValue the (non XML escaped) fallback value to return if no value exist
-   * @return the value for aStringPropertyName as a XML escaped <code>String</code>. If no property exists, <code>aDefaultValue</code> is XML escaped and returned. <code>aDefaultValue</code> will always be XML escaped and returned if <code>aEnablingPropertyName</code> doesn't exist, isn't compatible with a <code>boolean</code> or isn't <code>true</code>.
+   * @return the value for aStringPropertyName as a XML escaped <code>String</code>. If no property exists, <code>aDefaultValue</code> is&#xA; XML escaped and returned.&#xA; <code>aDefaultValue</code> will always be XML escaped and returned if <code>aEnablingPropertyName</code> doesn't exist,&#xA; isn't compatible with a <code>boolean</code> or isn't <code>true</code>.
    * @see #getEnabledStringEscaped(javax.jcr.Node, String, String)
    * @since Sitevision 4.0
    */
@@ -1088,7 +1088,7 @@ export interface PropertyUtil {
    * </p>
    * @param aNode the <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the value for aPropertyName as <code>Calendar</code>. If no property exists or it isn't a <code>Calendar</code>, <code>null</code> is returned.
+   * @return the value for aPropertyName as <code>Calendar</code>. If no property exists or it isn't a <code>Calendar</code>,&#xA; <code>null</code> is returned.
    * @since Sitevision 2.6.1_02
    */
   getCalendar(aNode: Node, aPropertyName: string): unknown;
@@ -1107,7 +1107,7 @@ export interface PropertyUtil {
    * @param aNode the <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for aPropertyName as <code>Calendar</code>. If no property exists or it isn't compatible with a <code>Calendar</code>, aDefaultValue is returned.
+   * @return the value for aPropertyName as <code>Calendar</code>. If no property exists or it isn't compatible with a <code>Calendar</code>,&#xA; aDefaultValue is returned.
    * @since Sitevision 2.6.1_02
    */
   getCalendar(
@@ -1136,7 +1136,7 @@ export interface PropertyUtil {
    * @param aNode the base <code>Node</code> that has a property that is a <code>Node</code>
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on <code>aNode</code>
    * @param aPropertyName the name of the Calendar property for the "inner/nested" <code>Node</code>
-   * @return the value for aPropertyName as <code>Calendar</code>. If no property exists or it isn't a <code>Calendar</code>, <code>null</code> is returned.
+   * @return the value for aPropertyName as <code>Calendar</code>. If no property exists or it isn't a <code>Calendar</code>,&#xA; <code>null</code> is returned.
    * @since Sitevision 2.6.1_02
    */
   getNestedCalendar(
@@ -1162,7 +1162,7 @@ export interface PropertyUtil {
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on <code>aNode</code>
    * @param aPropertyName the name of the Calendar property for the "inner/nested" <code>Node</code>
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for aPropertyName as <code>Calendar</code>. If no property exists or it isn't a <code>Calendar</code>, aDefaultValue is returned.
+   * @return the value for aPropertyName as <code>Calendar</code>. If no property exists or it isn't a <code>Calendar</code>,&#xA; aDefaultValue is returned.
    * @since Sitevision 2.6.1_02
    */
   getNestedCalendar(
@@ -1256,7 +1256,7 @@ export interface PropertyUtil {
    * </p>
    * @param aNode the <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the string value(s) for aPropertyName, XML escaped and embedded in a <code>List</code>. If no property exists, <code>null</code> is returned.
+   * @return the string value(s) for aPropertyName, XML escaped and embedded in a <code>List</code>.&#xA; If no property exists, <code>null</code> is returned.
    * @see #getString(javax.jcr.Node, String)
    * @see senselogic.sitevision.api.text.EndecUtil#escapeXML(String)
    * @since Sitevision 3.5
@@ -1336,8 +1336,8 @@ export interface PropertyUtil {
    * </p>
    * @param aNode the <code>Node</code> that has a property
    * @param aPropertyName the name of the property
-   * @return the string value(s) for aPropertyName, XML escaped and embedded in a <code>List</code>. If no property exists, <code>aDefaultValue</code> is returned.
-   * @param aDefaultValue fallback list if no value exists. <strong>Note!</strong> The actual fallback list is <em>never</em> returned but it's values might be used. If the fallback list are about to be returned, a copy of it will be created and all values from the fallback list will be XML escaped and added to the new list before it is returned.
+   * @return the string value(s) for aPropertyName, XML escaped and embedded in a <code>List</code>.&#xA; If no property exists, <code>aDefaultValue</code> is returned.
+   * @param aDefaultValue fallback list if no value exists. <strong>Note!</strong> The actual fallback list is <em>never</em> returned&#xA; but it's values might be used. If the fallback list are about to be returned, a copy of it will be created and&#xA; all values from the fallback list will be XML escaped and added to the new list before it is returned.
    * @see #getString(javax.jcr.Node, String, String)
    * @see senselogic.sitevision.api.text.EndecUtil#escapeXML(String)
    * @since Sitevision 3.5
@@ -1514,8 +1514,8 @@ export interface PropertyUtil {
    * @param aNode the base <code>Node</code> that has a property that is a <code>Node</code>
    * @param aNodePropertyName the name of the "inner/nested" <code>Node</code> that is a property on aNode
    * @param aPropertyName the name of the property for the "inner/nested" <code>Node</code>
-   * @param aDefaultValue fallback list if no value exists. <strong>Note!</strong> The actual fallback list is <em>never</em> returned, but it's values might be used. If the fallback list are about to be returned, a copy of it will be created and all values from the fallback list will be XML escaped and added to the new list before it is returned.
-   * @return the string value(s) for aPropertyName as a <code>List</code>. If no property exists, <code>aDefaultValue</code> is XML escaped and returned.
+   * @param aDefaultValue fallback list if no value exists. <strong>Note!</strong> The actual fallback list is <em>never</em> returned,&#xA; but it's values might be used.&#xA; If the fallback list are about to be returned, a copy of it will be created and all values from the fallback list will&#xA; be XML escaped and added to the new list before it is returned.
+   * @return the string value(s) for aPropertyName as a <code>List</code>. If no property exists, <code>aDefaultValue</code>&#xA; is XML escaped and returned.
    * @see #getNestedStrings(javax.jcr.Node, String, String, java.util.List)
    * @see senselogic.sitevision.api.text.EndecUtil#escapeXML(String)
    * @since Sitevision 3.5

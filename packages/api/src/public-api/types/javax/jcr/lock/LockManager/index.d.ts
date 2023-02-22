@@ -13,7 +13,7 @@ export type LockManager = {
    * Holding a lock token makes the current <code>Session</code> the owner of
    * the lock specified by that particular lock token.
    * @param lockToken a lock token (a string).
-   * @throws LockException if the specified lock token is already held by another <code>Session</code> and the implementation does not support simultaneous ownership of open-scoped locks.
+   * @throws LockException if the specified lock token is already held by&#xA; another <code>Session</code> and the implementation does not support&#xA; simultaneous ownership of open-scoped locks.
    * @throws RepositoryException if another error occurs.
    */
   addLockToken(lockToken: string): void;
@@ -26,8 +26,8 @@ export type LockManager = {
    * @param absPath absolute path of node for which to obtain the lock
    * @return The applicable <code>Lock</code> object.
    * @throws LockException if no lock applies to this node.
-   * @throws AccessDeniedException if the current session does not have sufficent access to get the lock.
-   * @throws PathNotFoundException if no node is found at <code>absPath</code>
+   * @throws AccessDeniedException if the current session does not have&#xA; sufficent access to get the lock.
+   * @throws PathNotFoundException if no node is found at&#xA; <code>absPath</code>
    * @throws RepositoryException if another error occurs.
    */
   getLock(absPath: string): Lock;
@@ -49,7 +49,7 @@ export type LockManager = {
    * by a node above.
    * @param absPath absolute path of node
    * @return a <code>boolean</code>.
-   * @throws PathNotFoundException if no node is found at <code>absPath</code>
+   * @throws PathNotFoundException if no node is found at&#xA; <code>absPath</code>
    * @throws RepositoryException if an error occurs.
    */
   holdsLock(absPath: string): boolean;
@@ -88,15 +88,15 @@ export type LockManager = {
    * immediately; there is no need to call <code>save</code>.  <p> It is
    * possible to lock a node even if it is checked-in.
    * @param absPath absolute path of node to be locked
-   * @param isDeep if <code>true</code> this lock will apply to this node and all its descendants; if <code>false</code>, it applies only to this node.
-   * @param isSessionScoped if <code>true</code>, this lock expires with the current session; if <code>false</code> it expires when explicitly or automatically unlocked for some other reason.
-   * @param timeoutHint desired lock timeout in seconds (servers are free to ignore this value); specify {@link Long#MAX_VALUE} for no timeout.
-   * @param ownerInfo a string containing owner information supplied by the client; servers are free to ignore this value.
+   * @param isDeep if <code>true</code> this lock will apply to this node and&#xA; all its descendants; if <code>false</code>, it applies only to this&#xA; node.
+   * @param isSessionScoped if <code>true</code>, this lock expires with the&#xA; current session; if <code>false</code> it expires when explicitly or&#xA; automatically unlocked for some other reason.
+   * @param timeoutHint desired lock timeout in seconds (servers are free to&#xA; ignore this value); specify {@link Long#MAX_VALUE} for no timeout.
+   * @param ownerInfo a string containing owner information supplied by the&#xA; client; servers are free to ignore this value.
    * @return A <code>Lock</code> object containing a lock token.
-   * @throws LockException if this node is not <code>mix:lockable</code> or this node is already locked or <code>isDeep</code> is <code>true</code> and a descendant node of this node already holds a lock.
-   * @throws AccessDeniedException if this session does not have sufficent access to lock this node.
-   * @throws InvalidItemStateException if this node has pending unsaved changes.
-   * @throws PathNotFoundException if no node is found at <code>absPath</code>
+   * @throws LockException if this node is not <code>mix:lockable</code> or&#xA; this node is already locked or <code>isDeep</code> is <code>true</code>&#xA; and a descendant node of this node already holds a lock.
+   * @throws AccessDeniedException if this session does not have sufficent&#xA; access to lock this node.
+   * @throws InvalidItemStateException if this node has pending unsaved&#xA; changes.
+   * @throws PathNotFoundException if no node is found at&#xA; <code>absPath</code>
    * @throws RepositoryException if another error occurs.
    */
   lock(
@@ -113,7 +113,7 @@ export type LockManager = {
    * node above that node; otherwise returns <code>false</code>.
    * @param absPath absolute path of node
    * @return a <code>boolean</code>.
-   * @throws PathNotFoundException if no node is found at <code>absPath</code>
+   * @throws PathNotFoundException if no node is found at&#xA; <code>absPath</code>
    * @throws RepositoryException if an error occurs.
    */
   isLocked(absPath: string): boolean;
@@ -121,7 +121,7 @@ export type LockManager = {
   /**
    * Removes the specified lock token from this <code>Session</code>.
    * @param lockToken a lock token (a string)
-   * @throws LockException if the current <code>Session</code> does not hold the specified lock token.
+   * @throws LockException if the current <code>Session</code> does not hold&#xA; the specified lock token.
    * @throws RepositoryException if another error occurs.
    */
   removeLockToken(lockToken: string): void;
@@ -145,10 +145,10 @@ export type LockManager = {
    * If the current session does not have sufficient privileges to remove the
    * lock, an <code>AccessDeniedException</code> is thrown.
    * @param absPath absolute path of node to be unlocked
-   * @throws LockException if this node does not currently hold a lock or holds a lock for which this Session does not have the correct lock token.
-   * @throws AccessDeniedException if the current session does not have permission to unlock this node.
-   * @throws InvalidItemStateException if this node has pending unsaved changes.
-   * @throws PathNotFoundException if no node is found at <code>absPath</code>
+   * @throws LockException if this node does not currently hold a lock or&#xA; holds a lock for which this Session does not have the correct lock&#xA; token.
+   * @throws AccessDeniedException if the current session does not have&#xA; permission to unlock this node.
+   * @throws InvalidItemStateException if this node has pending unsaved&#xA; changes.
+   * @throws PathNotFoundException if no node is found at&#xA; <code>absPath</code>
    * @throws RepositoryException if another error occurs.
    */
   unlock(absPath: string): void;

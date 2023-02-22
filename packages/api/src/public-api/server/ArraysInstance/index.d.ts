@@ -148,8 +148,8 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be sorted
    * @param aToIndex the index of the last element (exclusive) to be sorted
    * @throws IllegalArgumentException if <tt>aFromIndex &gt; aToIndex</tt>
-   * @throws ArrayIndexOutOfBoundsException if <tt>aFromIndex &lt; 0</tt> or <tt>aToIndex &gt; anArray.length</tt>
-   * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i> (for example, strings and integers).
+   * @throws ArrayIndexOutOfBoundsException if <tt>aFromIndex &lt; 0</tt> or&#xA; <tt>aToIndex &gt; anArray.length</tt>
+   * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i>&#xA; (for example, strings and integers).
    */
   sort(anArray: unknown, aFromIndex: number, aToIndex: number): void;
 
@@ -157,7 +157,7 @@ export interface ArraysInstance {
    * Sorts the specified array of objects according to the order induced by the specified comparator.
    * @param <T> the class of the objects to be sorted
    * @param anArray the array to be sorted
-   * @param aComparator the comparator to determine the order of the array. A <tt>null</tt> value indicates that the elements' Comparable natural ordering should be used.
+   * @param aComparator the comparator to determine the order of the array. A <tt>null</tt> value indicates that the elements'&#xA; Comparable natural ordering should be used.
    * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i> using the specified comparator.
    */
   sort(anArray: unknown, aComparator: unknown): void;
@@ -168,7 +168,7 @@ export interface ArraysInstance {
    * @param anArray the array to be sorted
    * @param aFromIndex the index of the first element (inclusive) to be sorted
    * @param aToIndex the index of the last element (exclusive) to be sorted
-   * @param aComparator the comparator to determine the order of the array. A <tt>null</tt> value indicates that the elements' Comparable natural ordering should be used.
+   * @param aComparator the comparator to determine the order of the array. A <tt>null</tt> value indicates that the elements'&#xA; Comparable natural ordering should be used.
    * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i> using the specified comparator.
    * @throws IllegalArgumentException if <tt>aFromIndex &gt; aToIndex</tt>
    * @throws ArrayIndexOutOfBoundsException if <tt>aFromIndex &lt; 0</tt> or <tt>aToIndex &gt; anArray.length</tt>
@@ -184,7 +184,7 @@ export interface ArraysInstance {
    * Searches the specified array of longs for the specified value using the binary search algorithm.
    * @param anArray the array to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first&#xA; element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    */
   binarySearch(anArray: number, aKey: number): number;
 
@@ -194,7 +194,7 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be searched
    * @param aToIndex the index of the last element (exclusive) to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array within the specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element in the range greater than the key, or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array within the specified range;&#xA; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the&#xA; key would be inserted into the array: the index of the first element in the range greater than the key,&#xA; or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws IllegalArgumentException if {@code aFromIndex > aToIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code aFromIndex < 0 or aToIndex > anArray.length}
    */
@@ -209,7 +209,7 @@ export interface ArraysInstance {
    * Searches the specified array of ints for the specified value using the binary search algorithm.
    * @param anArray the array to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first&#xA; element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    */
   binarySearch(anArray: number, aKey: number): number;
 
@@ -219,7 +219,7 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be searched
    * @param aToIndex the index of the last element (exclusive) to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array within the specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element in the range greater than the key, or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array within the specified range;&#xA; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the&#xA; key would be inserted into the array: the index of the first element in the range greater than the key,&#xA; or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws IllegalArgumentException if {@code aFromIndex > aToIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code aFromIndex < 0 or aToIndex > anArray.length}
    */
@@ -234,7 +234,7 @@ export interface ArraysInstance {
    * Searches the specified array of shorts for the specified value using the binary search algorithm.
    * @param anArray the array to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first&#xA; element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    */
   binarySearch(anArray: number, aKey: number): number;
 
@@ -244,7 +244,7 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be searched
    * @param aToIndex the index of the last element (exclusive) to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array within the specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element in the range greater than the key, or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array within the specified range;&#xA; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the&#xA; key would be inserted into the array: the index of the first element in the range greater than the key,&#xA; or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws IllegalArgumentException if {@code aFromIndex > aToIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code aFromIndex < 0 or aToIndex > anArray.length}
    */
@@ -259,7 +259,7 @@ export interface ArraysInstance {
    * Searches the specified array of chars for the specified value using the binary search algorithm.
    * @param anArray the array to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first&#xA; element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    */
   binarySearch(anArray: string, aKey: string): number;
 
@@ -269,7 +269,7 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be searched
    * @param aToIndex the index of the last element (exclusive) to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array within the specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element in the range greater than the key, or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array within the specified range;&#xA; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the&#xA; key would be inserted into the array: the index of the first element in the range greater than the key,&#xA; or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws IllegalArgumentException if {@code aFromIndex > aToIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code aFromIndex < 0 or aToIndex > anArray.length}
    */
@@ -284,7 +284,7 @@ export interface ArraysInstance {
    * Searches the specified array of bytes for the specified value using the binary search algorithm.
    * @param anArray the array to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first&#xA; element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    */
   binarySearch(anArray: unknown, aKey: unknown): number;
 
@@ -294,7 +294,7 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be searched
    * @param aToIndex the index of the last element (exclusive) to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array within the specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element in the range greater than the key, or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array within the specified range;&#xA; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the&#xA; key would be inserted into the array: the index of the first element in the range greater than the key,&#xA; or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws IllegalArgumentException if {@code aFromIndex > aToIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code aFromIndex < 0 or aToIndex > anArray.length}
    */
@@ -309,7 +309,7 @@ export interface ArraysInstance {
    * Searches the specified array of doubles for the specified value using the binary search algorithm.
    * @param anArray the array to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first&#xA; element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    */
   binarySearch(anArray: number, aKey: number): number;
 
@@ -319,7 +319,7 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be searched
    * @param aToIndex the index of the last element (exclusive) to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array within the specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element in the range greater than the key, or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array within the specified range;&#xA; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the&#xA; key would be inserted into the array: the index of the first element in the range greater than the key,&#xA; or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws IllegalArgumentException if {@code aFromIndex > aToIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code aFromIndex < 0 or aToIndex > anArray.length}
    */
@@ -334,7 +334,7 @@ export interface ArraysInstance {
    * Searches the specified array of floats for the specified value using the binary search algorithm.
    * @param anArray the array to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first&#xA; element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    */
   binarySearch(anArray: number, aKey: number): number;
 
@@ -344,7 +344,7 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be searched
    * @param aToIndex the index of the last element (exclusive) to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array within the specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element in the range greater than the key, or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array within the specified range;&#xA; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the&#xA; key would be inserted into the array: the index of the first element in the range greater than the key,&#xA; or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws IllegalArgumentException if {@code aFromIndex > aToIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code aFromIndex < 0 or aToIndex > anArray.length}
    */
@@ -359,7 +359,7 @@ export interface ArraysInstance {
    * Searches the specified array for the specified object using the binary search algorithm.
    * @param anArray the array to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first&#xA; element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws ClassCastException if the search key is not comparable to the elements of the array.
    */
   binarySearch(anArray: unknown, aKey: unknown): number;
@@ -370,7 +370,7 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be searched
    * @param aToIndex the index of the last element (exclusive) to be searched
    * @param aKey the value to be searched for
-   * @return index of the search key, if it is contained in the array within the specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element in the range greater than the key, or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @return index of the search key, if it is contained in the array within the specified range;&#xA; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the&#xA; key would be inserted into the array: the index of the first element in the range greater than the key,&#xA; or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws ClassCastException if the search key is not comparable to the elements of the array within the specified range.
    * @throws IllegalArgumentException if {@code aFromIndex > aToIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code aFromIndex < 0 or aToIndex > anArray.length}
@@ -387,9 +387,9 @@ export interface ArraysInstance {
    * @param <T> the class of the objects to be searched
    * @param anArray the array to be searched
    * @param aKey the value to be searched for
-   * @param aComparator the comparator by which the array is ordered. A <tt>null</tt> value indicates that the elements' Comparable natural ordering should be used.
-   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
-   * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i> using the specified comparator, or the search key is not comparable to the elements of the array using this comparator.
+   * @param aComparator the comparator by which the array is ordered. A <tt>null</tt> value indicates that the elements'&#xA; Comparable natural ordering should be used.
+   * @return index of the search key, if it is contained in the array; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first&#xA; element greater than the key, or <tt>anArray.length</tt> if all elements in the array are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i> using the specified comparator,&#xA; or the search key is not comparable to the elements of the array using this comparator.
    */
   binarySearch(anArray: unknown, aKey: unknown, aComparator: unknown): number;
 
@@ -400,9 +400,9 @@ export interface ArraysInstance {
    * @param aFromIndex the index of the first element (inclusive) to be searched
    * @param aToIndex the index of the last element (exclusive) to be searched
    * @param aKey the value to be searched for
-   * @param aComparator the comparator by which the array is ordered. A <tt>null</tt> value indicates that the elements' Comparable natural ordering should be used.
-   * @return index of the search key, if it is contained in the array within the specified range; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the key would be inserted into the array: the index of the first element in the range greater than the key, or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
-   * @throws ClassCastException if the range contains elements that are not <i>mutually comparable</i> using the specified comparator, or the search key is not comparable to the elements in the range using this comparator.
+   * @param aComparator the comparator by which the array is ordered. A <tt>null</tt> value indicates that the elements'&#xA; Comparable natural ordering should be used.
+   * @return index of the search key, if it is contained in the array within the specified range;&#xA; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The <i>insertion point</i> is defined as the point at which the&#xA; key would be inserted into the array: the index of the first element in the range greater than the key,&#xA; or <tt>aToIndex</tt> if all elements in the range are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
+   * @throws ClassCastException if the range contains elements that are not <i>mutually comparable</i> using the specified comparator,&#xA; or the search key is not comparable to the elements in the range using this comparator.
    * @throws IllegalArgumentException if {@code aFromIndex > aToIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code aFromIndex < 0 or aToIndex > anArray.length}
    */
@@ -675,7 +675,7 @@ export interface ArraysInstance {
    * Assigns the specified Object reference to each element of the specified array of Objects.
    * @param anArray the array to be filled
    * @param aValue the value to be stored in all elements of the array
-   * @throws ArrayStoreException if the specified value is not of a runtime type that can be stored in the specified array
+   * @throws ArrayStoreException if the specified value is not of a&#xA; runtime type that can be stored in the specified array
    */
   fill(anArray: unknown, aValue: unknown): void;
 
@@ -718,7 +718,7 @@ export interface ArraysInstance {
    * @return a copy of the original array, truncated or padded with nulls to obtain the specified length
    * @throws NegativeArraySizeException if <tt>aNewLength</tt> is negative
    * @throws NullPointerException if <tt>anArray</tt> is null
-   * @throws ArrayStoreException if an element copied from <tt>anArray</tt> is not of a runtime type that can be stored in an array of class <tt>aNewType</tt>
+   * @throws ArrayStoreException if an element copied from <tt>anArray</tt> is not of a runtime type that can be stored&#xA; in an array of class <tt>aNewType</tt>
    */
   copyOf(anArray: unknown, aNewLength: number, aNewType: unknown): unknown;
 
@@ -828,7 +828,7 @@ export interface ArraysInstance {
    * @throws ArrayIndexOutOfBoundsException if <tt>aFromIndex &lt; 0</tt> or <tt>aFromIndex &gt; anArray.length()</tt>
    * @throws IllegalArgumentException if <tt>aFromIndex &gt; aToIndex</tt>
    * @throws NullPointerException if <tt>anArray</tt> is null
-   * @throws ArrayStoreException if an element copied from <tt>anArray</tt> is not of a runtime type that can be stored in an array of class <tt>aNewType</tt>.
+   * @throws ArrayStoreException if an element copied from <tt>anArray</tt> is not of a runtime type that can be stored in&#xA; an array of class <tt>aNewType</tt>.
    */
   copyOfRange(
     anArray: unknown,
@@ -890,7 +890,7 @@ export interface ArraysInstance {
    * @param anArray the array from which a range is to be copied
    * @param aFromIndex the initial index of the range to be copied, inclusive
    * @param aToIndex the final index of the range to be copied, exclusive. (This index may lie outside the array.)
-   * @return a new array containing the specified range from the original array, truncated or padded with null characters to obtain the required length
+   * @return a new array containing the specified range from the original array, truncated or padded with null characters to obtain&#xA; the required length
    * @throws ArrayIndexOutOfBoundsException if <tt>aFromIndex &lt; 0</tt> or <tt>aFromIndex &gt; anArray.length()</tt>
    * @throws IllegalArgumentException if <tt>aFromIndex &gt; aToIndex</tt>
    * @throws NullPointerException if <tt>anArray</tt> is null
@@ -926,7 +926,7 @@ export interface ArraysInstance {
    * @param anArray the array from which a range is to be copied
    * @param aFromIndex the initial index of the range to be copied, inclusive
    * @param aToIndex the final index of the range to be copied, exclusive. (This index may lie outside the array.)
-   * @return a new array containing the specified range from the original array, truncated or padded with false elements to obtain the required length
+   * @return a new array containing the specified range from the original array, truncated or padded with false elements to obtain&#xA; the required length
    * @throws ArrayIndexOutOfBoundsException if <tt>aFromIndex &lt; 0</tt> or <tt>aFromIndex &gt; anArray.length()</tt>
    * @throws IllegalArgumentException if <tt>aFromIndex &gt; aToIndex</tt>
    * @throws NullPointerException if <tt>anArray</tt> is null
@@ -1234,8 +1234,8 @@ export interface ArraysInstance {
    * to the {@linkplain Comparable natural ordering} of its elements.
    * @param <T> the class of the objects to be sorted
    * @param a the array to be sorted
-   * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i> (for example, strings and integers)
-   * @throws IllegalArgumentException (optional) if the natural ordering of the array elements is found to violate the {@link Comparable} contract
+   * @throws ClassCastException if the array contains elements that are not&#xA; <i>mutually comparable</i> (for example, strings and integers)
+   * @throws IllegalArgumentException (optional) if the natural&#xA; ordering of the array elements is found to violate the&#xA; {@link Comparable} contract
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1249,9 +1249,9 @@ export interface ArraysInstance {
    * @param a the array to be sorted
    * @param fromIndex the index of the first element (inclusive) to be sorted
    * @param toIndex the index of the last element (exclusive) to be sorted
-   * @throws IllegalArgumentException if {@code fromIndex > toIndex} or (optional) if the natural ordering of the array elements is found to violate the {@link Comparable} contract
-   * @throws ArrayIndexOutOfBoundsException if {@code fromIndex < 0} or {@code toIndex > a.length}
-   * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i> (for example, strings and integers).
+   * @throws IllegalArgumentException if {@code fromIndex > toIndex} or&#xA; (optional) if the natural ordering of the array elements is&#xA; found to violate the {@link Comparable} contract
+   * @throws ArrayIndexOutOfBoundsException if {@code fromIndex < 0} or&#xA; {@code toIndex > a.length}
+   * @throws ClassCastException if the array contains elements that are&#xA; not <i>mutually comparable</i> (for example, strings and&#xA; integers).
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1262,9 +1262,9 @@ export interface ArraysInstance {
    * the specified comparator.
    * @param <T> the class of the objects to be sorted
    * @param a the array to be sorted
-   * @param cmp the comparator to determine the order of the array. A {@code null} value indicates that the elements' {@linkplain Comparable natural ordering} should be used.
-   * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i> using the specified comparator
-   * @throws IllegalArgumentException (optional) if the comparator is found to violate the {@link java.util.Comparator} contract
+   * @param cmp the comparator to determine the order of the array. A&#xA; {@code null} value indicates that the elements'&#xA; {@linkplain Comparable natural ordering} should be used.
+   * @throws ClassCastException if the array contains elements that are&#xA; not <i>mutually comparable</i> using the specified comparator
+   * @throws IllegalArgumentException (optional) if the comparator is&#xA; found to violate the {@link java.util.Comparator} contract
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1275,12 +1275,12 @@ export interface ArraysInstance {
    * to the order induced by the specified comparator.
    * @param <T> the class of the objects to be sorted
    * @param a the array to be sorted
-   * @param fromIndex the index of the first element (inclusive) to be sorted
+   * @param fromIndex the index of the first element (inclusive) to be&#xA; sorted
    * @param toIndex the index of the last element (exclusive) to be sorted
-   * @param cmp the comparator to determine the order of the array. A {@code null} value indicates that the elements' {@linkplain Comparable natural ordering} should be used.
-   * @throws IllegalArgumentException if {@code fromIndex > toIndex} or (optional) if the natural ordering of the array elements is found to violate the {@link Comparable} contract
+   * @param cmp the comparator to determine the order of the array. A&#xA; {@code null} value indicates that the elements'&#xA; {@linkplain Comparable natural ordering} should be used.
+   * @throws IllegalArgumentException if {@code fromIndex > toIndex} or&#xA; (optional) if the natural ordering of the array elements is&#xA; found to violate the {@link Comparable} contract
    * @throws ArrayIndexOutOfBoundsException if {@code fromIndex < 0} or {@code toIndex > a.length}
-   * @throws ClassCastException if the array contains elements that are not <i>mutually comparable</i> (for example, strings and integers).
+   * @throws ClassCastException if the array contains elements that are&#xA; not <i>mutually comparable</i> (for example, strings and integers).
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1308,7 +1308,7 @@ export interface ArraysInstance {
    * @param array the array
    * @param fromIndex the index of the first element, inclusive
    * @param toIndex the index of the last element, exclusive
-   * @param op a side-effect-free, associative function to perform the cumulation
+   * @param op a side-effect-free, associative function to perform the&#xA; cumulation
    * @throws IllegalArgumentException if {@code fromIndex > toIndex}
    * @throws ArrayIndexOutOfBoundsException if {@code fromIndex < 0} or {@code toIndex > array.length}
    * @throws NullPointerException if the specified array or function is null
@@ -1508,7 +1508,7 @@ export interface ArraysInstance {
    * @param startInclusive the first index to cover, inclusive
    * @param endExclusive index immediately past the last index to cover
    * @return a spliterator for the array elements
-   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is negative, {@code endExclusive} is less than {@code startInclusive}, or {@code endExclusive} is greater than the array size
+   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is&#xA; negative, {@code endExclusive} is less than&#xA; {@code startInclusive}, or {@code endExclusive} is greater than&#xA; the array size
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1533,7 +1533,7 @@ export interface ArraysInstance {
    * @param startInclusive the first index to cover, inclusive
    * @param endExclusive index immediately past the last index to cover
    * @return a spliterator for the array elements
-   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is negative, {@code endExclusive} is less than {@code startInclusive}, or {@code endExclusive} is greater than the array size
+   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is&#xA; negative, {@code endExclusive} is less than&#xA; {@code startInclusive}, or {@code endExclusive} is greater than&#xA; the array size
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1562,7 +1562,7 @@ export interface ArraysInstance {
    * @param startInclusive the first index to cover, inclusive
    * @param endExclusive index immediately past the last index to cover
    * @return a spliterator for the array elements
-   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is negative, {@code endExclusive} is less than {@code startInclusive}, or {@code endExclusive} is greater than the array size
+   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is&#xA; negative, {@code endExclusive} is less than&#xA; {@code startInclusive}, or {@code endExclusive} is greater than&#xA; the array size
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1587,7 +1587,7 @@ export interface ArraysInstance {
    * @param startInclusive the first index to cover, inclusive
    * @param endExclusive index immediately past the last index to cover
    * @return a spliterator for the array elements
-   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is negative, {@code endExclusive} is less than {@code startInclusive}, or {@code endExclusive} is greater than the array size
+   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is&#xA; negative, {@code endExclusive} is less than&#xA; {@code startInclusive}, or {@code endExclusive} is greater than&#xA; the array size
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1614,7 +1614,7 @@ export interface ArraysInstance {
    * @param startInclusive the first index to cover, inclusive
    * @param endExclusive index immediately past the last index to cover
    * @return a {@code Stream} for the array range
-   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is negative, {@code endExclusive} is less than {@code startInclusive}, or {@code endExclusive} is greater than the array size
+   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is&#xA; negative, {@code endExclusive} is less than&#xA; {@code startInclusive}, or {@code endExclusive} is greater than&#xA; the array size
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1635,7 +1635,7 @@ export interface ArraysInstance {
    * @param startInclusive the first index to cover, inclusive
    * @param endExclusive index immediately past the last index to cover
    * @return an {@code IntStream} for the array range
-   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is negative, {@code endExclusive} is less than {@code startInclusive}, or {@code endExclusive} is greater than the array size
+   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is&#xA; negative, {@code endExclusive} is less than&#xA; {@code startInclusive}, or {@code endExclusive} is greater than&#xA; the array size
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1656,7 +1656,7 @@ export interface ArraysInstance {
    * @param startInclusive the first index to cover, inclusive
    * @param endExclusive index immediately past the last index to cover
    * @return a {@code LongStream} for the array range
-   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is negative, {@code endExclusive} is less than {@code startInclusive}, or {@code endExclusive} is greater than the array size
+   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is&#xA; negative, {@code endExclusive} is less than&#xA; {@code startInclusive}, or {@code endExclusive} is greater than&#xA; the array size
    * @since Sitevision 4.0
    * @since Java 1.8
    */
@@ -1677,7 +1677,7 @@ export interface ArraysInstance {
    * @param startInclusive the first index to cover, inclusive
    * @param endExclusive index immediately past the last index to cover
    * @return a {@code DoubleStream} for the array range
-   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is negative, {@code endExclusive} is less than {@code startInclusive}, or {@code endExclusive} is greater than the array size
+   * @throws ArrayIndexOutOfBoundsException if {@code startInclusive} is&#xA; negative, {@code endExclusive} is less than&#xA; {@code startInclusive}, or {@code endExclusive} is greater than&#xA; the array size
    * @since Sitevision 4.0
    * @since Java 1.8
    */

@@ -1,4 +1,4 @@
 export default {
-  NASHORN: 'NASHORN',
-  RHINO: 'RHINO',
+  NASHORN: "NASHORN",
+  RHINO: "RHINO",
 };

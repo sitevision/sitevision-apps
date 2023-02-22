@@ -101,7 +101,7 @@ export interface XmlParserUtil {
    * Parse a file containing XML encoded with the supplied charset.
    * @param aElementSelection the elements in the XML that should be passed to the XmlElementHandler
    * @param aXmlFile the file containing XML encoded using supplied encoding (sv:file or sv:temporaryFile)
-   * @param aCharset the character encoding of the the file content (an IllegalArgument will be thrown if aCharset can not be resolved as a java.nio.charset.Charset)
+   * @param aCharset the character encoding of the the file content&#xA; (an IllegalArgument will be thrown if aCharset can not be resolved as a java.nio.charset.Charset)
    * @param aXmlElementHandler the XmlElementHandler
    * @throws RepositoryException if an error occurs while accessing the file
    * @throws XmlParserException if an error occurs while parsing the XML

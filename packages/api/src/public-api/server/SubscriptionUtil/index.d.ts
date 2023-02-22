@@ -57,7 +57,7 @@ export interface SubscriptionUtil {
    * @param title the subscription title.
    * @param description the subscription description.
    * @throws ConstraintViolationException if the current user isn't allowed to modify subscriptions.
-   * @throws IllegalArgumentException if the given node <code>aNode</code> is null or if the given node isn't a subscriptionable node.
+   * @throws IllegalArgumentException if the given node <code>aNode</code> is null or if the given node isn't a&#xA; subscriptionable node.
    * @throws RepositoryException if something else goes wrong.
    * @see senselogic.sitevision.api.security.PermissionUtil#hasWriteSubscriptionPermission(javax.jcr.Node, javax.jcr.Node)
    * @since Sitevision 2.6.2_05
@@ -75,7 +75,7 @@ export interface SubscriptionUtil {
    * <p>The current user must have write subscription permission to deactivate subscriptions.</p>
    * @param aNode the <code>Node</code> to deactivate the subscription for.
    * @throws RepositoryException if the current user isn't allowed to modify subscriptions.
-   * @throws IllegalArgumentException if the given node <code>aNode</code> is null or if the given node isn't a subscriptionable node.
+   * @throws IllegalArgumentException if the given node <code>aNode</code> is null or if the given node isn't&#xA; a subscriptionable node.
    * @see senselogic.sitevision.api.security.PermissionUtil#hasWriteSubscriptionPermission(javax.jcr.Node, javax.jcr.Node)
    * @since Sitevision 2.6.2_05
    */
@@ -91,7 +91,7 @@ export interface SubscriptionUtil {
    * @param subject the email subject.
    * @param footer the email footer
    * @throws ConstraintViolationException if the current user isn't allowed to modify subscriptions.
-   * @throws IllegalArgumentException if the given node <code>aNode</code> is null, if the given node isn't a subscriptionable node, if <code>fromAddress</code> is null or not a valid email adress.
+   * @throws IllegalArgumentException if the given node <code>aNode</code> is null, if the given node isn't&#xA; a subscriptionable node, if <code>fromAddress</code> is null or not a&#xA; valid email adress.
    * @throws RepositoryException if something else goes wrong.
    * @see senselogic.sitevision.api.security.PermissionUtil#hasWriteSubscriptionPermission(javax.jcr.Node, javax.jcr.Node)
    * @since Sitevision 2.6.2_05
@@ -126,7 +126,7 @@ export interface SubscriptionUtil {
    * </p>
    * @param aNode a <code>Node</code> that has an active subscription, typically a sv:page or sv:article
    * @param aNotificationText the notification text
-   * @return <code>true</code> if a notification could be scheduled, <code>false</code> otherwise (e.g. if <code>aNode</code> is <code>null</code> or has no <em>active subscription</em>, see {@link #getActiveSubscription(javax.jcr.Node)})
+   * @return <code>true</code> if a notification could be scheduled, <code>false</code> otherwise&#xA; (e.g. if <code>aNode</code> is <code>null</code> or has no <em>active subscription</em>, see {@link #getActiveSubscription(javax.jcr.Node)})
    * @since Sitevision 3.6.3
    */
   notifySubscribersOf(aNode: Node, aNotificationText: string): boolean;

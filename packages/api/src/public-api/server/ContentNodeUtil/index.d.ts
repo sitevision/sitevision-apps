@@ -31,7 +31,7 @@ export interface ContentNodeUtil {
    *    See {@link senselogic.sitevision.api.node.NodeTypeUtil#isAnyRenderableType(Node)} for what type a "Renderable node" can have.
    * </p>
    * @param aContentNode a content node, typically a sv:portlet or sv:layout
-   * @return the renderable parent of aContentNode (typically a sv:page), or null if aContentNode has no renderable parent or if current user doesn't have READ permission on the renderable parent
+   * @return the renderable parent of aContentNode (typically a sv:page), or null if aContentNode has no renderable parent or if current user&#xA; doesn't have READ permission on the renderable parent
    */
   getRenderableParent(aContentNode: Node): Node;
 

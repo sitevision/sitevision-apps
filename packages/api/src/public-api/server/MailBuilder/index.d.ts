@@ -212,7 +212,7 @@ export interface MailBuilder extends Builder {
   /**
    * Creates a Mail instance using current state of this builder.
    * @return a mail that can be sent
-   * @throws IllegalStateException will be thrown if subject is null, if there are no recipients or if a recipient address is invalid, if the from address, a copy address, blind copy address or reply-to address is invalid.
+   * @throws IllegalStateException will be thrown if subject is null, if there are no recipients or&#xA; if a recipient address is invalid, if the from address, a copy address, blind copy address or reply-to address is invalid.
    */
   build(): Mail;
 }

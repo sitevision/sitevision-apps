@@ -13,7 +13,7 @@ export type RowIterator = RangeIterator & {
   /**
    * Returns the next <code>Row</code> in the iteration.
    * @return the next <code>Row</code> in the iteration.
-   * @throws java.util.NoSuchElementException if iteration has no more <code>Row</code>s.
+   * @throws java.util.NoSuchElementException&#xA; if iteration has no more&#xA; <code>Row</code>s.
    */
   nextRow(): Row;
 };

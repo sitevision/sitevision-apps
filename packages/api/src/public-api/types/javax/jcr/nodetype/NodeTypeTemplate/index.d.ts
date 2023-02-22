@@ -23,7 +23,7 @@ export type NodeTypeTemplate = NodeTypeDefinition & {
    * Sets the name of the node type. This must be a JCR name in either
    * qualified or expanded form.
    * @param name a JCR name.
-   * @throws ConstraintViolationException if <code>name</code> is not a syntactically valid JCR name in either qualified or expanded form.
+   * @throws ConstraintViolationException if <code>name</code> is not a&#xA; syntactically valid JCR name in either qualified or expanded form.
    */
   setName(name: string): void;
 
@@ -32,7 +32,7 @@ export type NodeTypeTemplate = NodeTypeDefinition & {
    * These must be a JCR names in either
    * qualified or expanded form.
    * @param names an array of JCR names.
-   * @throws ConstraintViolationException if <code>names</code> includes a name that is not a syntactically valid JCR name in either qualified or expanded form.
+   * @throws ConstraintViolationException if <code>names</code> includes a&#xA; name that is not a syntactically valid JCR name in either qualified or expanded form.
    */
   setDeclaredSuperTypeNames(names: string): void;
 
@@ -58,7 +58,7 @@ export type NodeTypeTemplate = NodeTypeDefinition & {
    * Sets the name of the primary item. This must be a JCR name in either
    * qualified or expanded form.
    * @param name a JCR name.
-   * @throws ConstraintViolationException if <code>name</code> is not a syntactically valid JCR name in either qualified or expanded form.
+   * @throws ConstraintViolationException if <code>name</code> is not a&#xA; syntactically valid JCR name in either qualified or expanded form.
    */
   setPrimaryItemName(name: string): void;
 
@@ -73,7 +73,7 @@ export type NodeTypeTemplate = NodeTypeDefinition & {
    * objects. To define a new <code>NodeTypeTemplate</code> or change an
    * existing one, <code>PropertyDefinitionTemplate</code> objects can be
    * added to or removed from this <code>List</code>.
-   * @return a mutable <code>List</code> of <code>PropertyDefinitionTemplate</code> objects.
+   * @return a mutable <code>List</code> of <code>PropertyDefinitionTemplate</code>&#xA; objects.
    */
   getPropertyDefinitionTemplates(): unknown;
 
@@ -82,7 +82,7 @@ export type NodeTypeTemplate = NodeTypeDefinition & {
    * objects. To define a new <code>NodeTypeTemplate</code> or change an
    * existing one, <code>NodeDefinitionTemplate</code> objects can be added to
    * or removed from this <code>List</code>.
-   * @return a mutable <code>List</code> of <code>NodeDefinitionTemplate</code> objects.
+   * @return a mutable <code>List</code> of <code>NodeDefinitionTemplate</code>&#xA; objects.
    */
   getNodeDefinitionTemplates(): unknown;
 };

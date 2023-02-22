@@ -19,7 +19,7 @@ export type NodeDefinitionTemplate = NodeDefinition & {
    * Sets the name of the node. This must be a JCR name in either
    * qualified or expanded form.
    * @param name a JCR name.
-   * @throws ConstraintViolationException if <code>name</code> is not a syntactically valid JCR name in either qualified or expanded form.
+   * @throws ConstraintViolationException if <code>name</code> is not a&#xA; syntactically valid JCR name in either qualified or expanded form.
    */
   setName(name: string): void;
 
@@ -37,7 +37,7 @@ export type NodeDefinitionTemplate = NodeDefinition & {
 
   /**
    * Sets the on-parent-version status of the node.
-   * @param opv an <code>int</code> constant member of <code>OnParentVersionAction</code>.
+   * @param opv an <code>int</code> constant member of&#xA; <code>OnParentVersionAction</code>.
    */
   setOnParentVersion(opv: number): void;
 
@@ -51,7 +51,7 @@ export type NodeDefinitionTemplate = NodeDefinition & {
    * Sets the names of the required primary types of this node.
    * These must be a JCR names in either qualified or expanded form.
    * @param names an array of JCR names.
-   * @throws ConstraintViolationException if <code>names</code> includes a name that is not a syntactically valid JCR name in either qualified or expanded form.
+   * @throws ConstraintViolationException if <code>names</code> includes a&#xA; name that is not a syntactically valid JCR name in either qualified or expanded form.
    */
   setRequiredPrimaryTypeNames(names: string): void;
 
@@ -59,7 +59,7 @@ export type NodeDefinitionTemplate = NodeDefinition & {
    * Sets the name of the default primary type of this node.
    * This must be a JCR name in either qualified or expanded form.
    * @param name a JCR name.
-   * @throws ConstraintViolationException if <code>name</code> is not a syntactically valid JCR name in either qualified or expanded form.
+   * @throws ConstraintViolationException if <code>name</code> is not a&#xA; syntactically valid JCR name in either qualified or expanded form.
    */
   setDefaultPrimaryTypeName(name: string): void;
 

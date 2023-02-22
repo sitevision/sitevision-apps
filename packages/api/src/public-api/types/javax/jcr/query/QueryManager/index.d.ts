@@ -18,7 +18,7 @@ export type QueryManager = {
    * @param statement a <code>String</code>
    * @param language a <code>String</code>
    * @return a <code>Query</code> object
-   * @throws InvalidQueryException if the query statement is syntactically invalid or the specified language is not supported.
+   * @throws InvalidQueryException if the query statement is syntactically&#xA; invalid or the specified language is not supported.
    * @throws RepositoryException if another error occurs.
    */
   createQuery(statement: string, language: string): Query;
@@ -38,9 +38,9 @@ export type QueryManager = {
    * QueryManager#createQuery} to create a <code>Query</code> object and then
    * calling <code>Query.save</code> to persist the query to a location in the
    * workspace.
-   * @param node a persisted query (that is, a node of type <code>nt:query</code>).
+   * @param node a persisted query (that is, a node of type&#xA; <code>nt:query</code>).
    * @return a <code>Query</code> object.
-   * @throws InvalidQueryException If <code>node</code> is not a valid persisted query (that is, a node of type <code>nt:query</code>).
+   * @throws InvalidQueryException If <code>node</code> is not a valid&#xA; persisted query (that is, a node of type <code>nt:query</code>).
    * @throws RepositoryException if another error occurs
    */
   getQuery(node: Node): Query;

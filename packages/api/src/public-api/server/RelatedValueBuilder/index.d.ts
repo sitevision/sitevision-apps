@@ -54,7 +54,7 @@ export interface RelatedValueBuilder extends Builder {
    * Adds a link value.
    * @param aLinkValue the link value to add
    * @return this builder
-   * @throws IllegalArgumentException if <code>aLinkValue</code> is <code>null</code> or not an instance created via {@link senselogic.sitevision.api.metadata.builder.LinkValueBuilder}
+   * @throws IllegalArgumentException if <code>aLinkValue</code> is <code>null</code> or not an instance created via&#xA; {@link senselogic.sitevision.api.metadata.builder.LinkValueBuilder}
    */
   addLinkValue(aLinkValue: LinkValue): RelatedValueBuilder;
 
@@ -62,7 +62,7 @@ export interface RelatedValueBuilder extends Builder {
    * Adds a user value.
    * @param aUserNode the user node to add (a node with primary node type <em>sv:user</em> or <em>sv:simpleUser</em>)
    * @return this builder
-   * @throws IllegalArgumentException if <code>aUserNode</code> is <code>null</code> or an invalid user node (e.g. sv:systemUser - <em>Anonymous</em>, <em>System</em>, <em>Indexer</em>, <em>Validator</em> or <em>Extractor</em>)
+   * @throws IllegalArgumentException if <code>aUserNode</code> is <code>null</code> or an invalid user node&#xA; (e.g. sv:systemUser - <em>Anonymous</em>, <em>System</em>, <em>Indexer</em>, <em>Validator</em> or <em>Extractor</em>)
    */
   addUser(aUserNode: Node): RelatedValueBuilder;
 

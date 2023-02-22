@@ -28,12 +28,12 @@ export interface CollaborationGroupUtil {
    *       using {@link CollaborationGroupType#OPEN} as group type.
    *    </em>
    * </p>
-   * @param aGroupTemplate the collaboration group template (sv:collaborationGroupTemplate) to use when creating the collaboration group page of the collaboration group
-   * @param aGroupFolder the collaboration group folder (sv:collaborationGroupFolder) where the collaboration group page of the collaboration group should reside
+   * @param aGroupTemplate the collaboration group template (sv:collaborationGroupTemplate) to use when creating the collaboration&#xA; group page of the collaboration group
+   * @param aGroupFolder the collaboration group folder (sv:collaborationGroupFolder) where the collaboration group page of the&#xA; collaboration group should reside
    * @param aGroupName the name of the collaboration group
    * @return The created collaboration group (sv:collaborationGroup)
-   * @throws java.lang.NullPointerException if <code>aGroupTemplate</code>, <code>aGroupFolder</code> or <code>aGroupName</code> is <code>null</code>
-   * @throws ConstraintViolationException if <code>aGroupTemplate</code> or <code>aGroupFolder</code> is of invalid type, if <code>aGroupName</code> is whitespace only, if <code>aGroupFolder</code> already contains a collaboration group named <code>aGroupName</code> (case ignored) or if current user is not authorized to create the collaboration group
+   * @throws java.lang.NullPointerException if <code>aGroupTemplate</code>, <code>aGroupFolder</code> or <code>aGroupName</code>&#xA; is <code>null</code>
+   * @throws ConstraintViolationException if <code>aGroupTemplate</code> or <code>aGroupFolder</code> is of invalid type,&#xA; if <code>aGroupName</code> is whitespace only,&#xA; if <code>aGroupFolder</code> already contains a collaboration group named <code>aGroupName</code> (case ignored)&#xA; or if current user is not authorized to create the collaboration group
    * @throws RepositoryException if something else goes wrong
    * @see #createCollaborationGroup(Node, Node, String, CollaborationGroupType)
    */
@@ -64,13 +64,13 @@ export interface CollaborationGroupUtil {
    *    use {@link CollaborationGroupFolderUtil} to get the default group folder (and perhaps check if the collaboration folder already contains
    *    a collaboration group with specified name). Use {@link CollaborationGroupWrapper} to update the group that is created.
    * </p>
-   * @param aGroupTemplate the collaboration group template (sv:collaborationGroupTemplate) to use when creating the collaboration group page of the collaboration group
-   * @param aGroupFolder the collaboration group folder (sv:collaborationGroupFolder) where the collaboration group page of the collaboration group should reside
+   * @param aGroupTemplate the collaboration group template (sv:collaborationGroupTemplate) to use when creating the collaboration group page of&#xA; the collaboration group
+   * @param aGroupFolder the collaboration group folder (sv:collaborationGroupFolder) where the collaboration group page of the collaboration&#xA; group should reside
    * @param aGroupName the name of the collaboration group
    * @param aGroupType the group type, note that {@link CollaborationGroupType#CLOSED} needs additional permission
    * @return The created collaboration group (sv:collaborationGroup)
-   * @throws java.lang.NullPointerException if <code>aGroupTemplate</code>, <code>aGroupFolder</code>, <code>aGroupName</code> or <code>aGroupType</code> is <code>null</code>
-   * @throws ConstraintViolationException if <code>aGroupTemplate</code> or <code>aGroupFolder</code> is of invalid type, if <code>aGroupName</code> is whitespace only, if <code>aGroupFolder</code> already contains a collaboration group named <code>aGroupName</code> (case ignored) or if current user is not authorized to create the collaboration group (see permission note above)
+   * @throws java.lang.NullPointerException if <code>aGroupTemplate</code>, <code>aGroupFolder</code>, <code>aGroupName</code>&#xA; or <code>aGroupType</code> is <code>null</code>
+   * @throws ConstraintViolationException if <code>aGroupTemplate</code> or <code>aGroupFolder</code> is of invalid type,&#xA; if <code>aGroupName</code> is whitespace only,&#xA; if <code>aGroupFolder</code> already contains a collaboration group named <code>aGroupName</code> (case ignored)&#xA; or if current user is not authorized to create the collaboration group (see permission note above)
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.1
    */
@@ -93,7 +93,7 @@ export interface CollaborationGroupUtil {
    *    {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_COLLABORATION_GROUP} on the collaboration group page.
    * </p>
    * @param aCollaborationGroup a collaboration group to remove
-   * @return <code>true</code> if <code>aCollaborationGroup</code> was removed, i.e. collaboration group page was moved to trashcan, <code>false</code> otherwise.
+   * @return <code>true</code> if <code>aCollaborationGroup</code> was removed, i.e. collaboration group page was moved to trashcan,&#xA; <code>false</code> otherwise.
    * @since Sitevision 4.5.3
    */
   removeCollaborationGroup(aCollaborationGroup: Node): boolean;

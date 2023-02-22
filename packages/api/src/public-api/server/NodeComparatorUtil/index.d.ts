@@ -100,8 +100,8 @@ export interface NodeComparatorUtil {
    * <p>
    *    <em>Note! This comparator imposes orderings that are inconsistent with equals.</em>
    * </p>
-   * @param aPropertyName the name of the property. <em>Note! If aPropertyName is <code>null</code> or whitespace only, the returned comparator will be non-comparing, i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.</em>
-   * @param aLocale the locale that should be used when comparing two properties. If aLocale is <code>null</code>, the current locale (as of {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()} will be used).
+   * @param aPropertyName the name of the property.&#xA; <em>Note! If aPropertyName is <code>null</code> or whitespace only, the returned comparator will be non-comparing,&#xA; i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.</em>
+   * @param aLocale the locale that should be used when comparing two properties.&#xA; If aLocale is <code>null</code>, the current locale (as of&#xA; {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()} will be used).
    * @return a comparator
    */
   getPropertyComparator(aPropertyName: string, aLocale: unknown): unknown;
@@ -117,7 +117,7 @@ export interface NodeComparatorUtil {
    * <p>
    *    <em>Note! This comparator imposes orderings that are inconsistent with equals.</em>
    * </p>
-   * @param aCalendarPropertyName the name of the calendar property <em>Note! If aCalendarPropertyName is <code>null</code> or whitespace only, the returned comparator will be non-comparing, i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.</em>
+   * @param aCalendarPropertyName the name of the calendar property&#xA; <em>Note! If aCalendarPropertyName is <code>null</code> or whitespace only, the returned comparator will be non-comparing,&#xA; i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.</em>
    * @return a comparator
    * @since Sitevision 3.6.3
    */
@@ -134,7 +134,7 @@ export interface NodeComparatorUtil {
    * <p>
    *    <em>Note! This comparator imposes orderings that are inconsistent with equals.</em>
    * </p>
-   * @param aIntPropertyName the name of the int property <em>Note! If aIntPropertyName is <code>null</code> or whitespace only, the returned comparator will be non-comparing, i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.</em>
+   * @param aIntPropertyName the name of the int property&#xA; <em>Note! If aIntPropertyName is <code>null</code> or whitespace only, the returned comparator will be non-comparing,&#xA; i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.</em>
    * @return a comparator
    * @since Sitevision 3.6.3
    */
@@ -151,7 +151,7 @@ export interface NodeComparatorUtil {
    * <p>
    *    <em>Note! This comparator imposes orderings that are inconsistent with equals.</em>
    * </p>
-   * @param aNodeComparator a comparator <em>Note! If aNodeComparator is <code>null</code>, the returned comparator will be non-comparing, i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.</em>
+   * @param aNodeComparator a comparator&#xA; <em>Note! If aNodeComparator is <code>null</code>, the returned comparator will be non-comparing,&#xA; i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.</em>
    * @return a comparator
    * @since Sitevision 3.6.3
    */
@@ -221,7 +221,7 @@ export interface NodeComparatorUtil {
    * </p>
    * @param aResolver the node value resolver
    * @param <V> The comparable value type
-   * @return a node comparator. Note! If aResolver is null, the returned comparator will be non-comparing, i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.
+   * @return a node comparator.&#xA; Note! If aResolver is null, the returned comparator will be non-comparing,&#xA; i.e. a NO-OP comparator that always will return 0 ("equal") for all nodes.
    * @see NodeResolverUtil
    * @since Sitevision 4.1
    */

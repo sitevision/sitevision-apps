@@ -45,7 +45,7 @@ export type Ordering = {
 
   /**
    * Gets the order.
-   * @return either <ul> <li>{@link QueryObjectModelConstants#JCR_ORDER_ASCENDING} or</li> <li>{@link QueryObjectModelConstants#JCR_ORDER_DESCENDING}</li> </ul>
+   * @return either <ul> <li>{@link QueryObjectModelConstants#JCR_ORDER_ASCENDING}&#xA; or</li> <li>{@link QueryObjectModelConstants#JCR_ORDER_DESCENDING}</li>&#xA; </ul>
    */
   getOrder(): string;
 };

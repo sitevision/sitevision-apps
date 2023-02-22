@@ -47,8 +47,8 @@ export type AccessControlList = AccessControlPolicy & {
    * AccessControlPolicy)} and <code>save</code> is performed.
    * @param principal a <code>Principal</code>.
    * @param privileges an array of <code>Privilege</code>s.
-   * @return <code>true</code> if this policy was modify; <code>false</code> otherwise.
-   * @throws AccessControlException if the specified principal or any of the privileges does not exist or if some other access control related exception occurs.
+   * @return <code>true</code> if this policy was modify; <code>false</code>&#xA; otherwise.
+   * @throws AccessControlException if the specified principal or any of the&#xA; privileges does not exist or if some other access control related&#xA; exception occurs.
    * @throws RepositoryException if another error occurs.
    */
   addAccessControlEntry(principal: unknown, privileges: Privilege): boolean;
@@ -61,7 +61,7 @@ export type AccessControlList = AccessControlPolicy & {
    * been re-set to a node by calling {@link AccessControlManager#setPolicy(String,
    * AccessControlPolicy)} and <code>save</code> is performed.
    * @param ace the access control entry to be removed.
-   * @throws AccessControlException if the specified entry is not present on the specified node.
+   * @throws AccessControlException if the specified entry is not present on&#xA; the specified node.
    * @throws RepositoryException if another error occurs.
    */
   removeAccessControlEntry(ace: AccessControlEntry): void;

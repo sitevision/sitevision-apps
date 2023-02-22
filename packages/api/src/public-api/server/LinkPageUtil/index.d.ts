@@ -153,7 +153,7 @@ export interface LinkPageUtil extends LinkPageUtilConstants {
    * @param aName the name of the link page. May not be <code>null</code> or whitespace only
    * @param aLinkTarget the target of the link page. May not be <code>null</code>
    * @return a sv:link node corresponding to the newly created link page
-   * @throws ConstraintViolationException if an invalid parent is specified or if the current user is not authorized to create a link page
+   * @throws ConstraintViolationException if an invalid parent is specified or if the current user&#xA; is not authorized to create a link page
    * @throws RepositoryException if something else goes wrong
    */
   createLinkPage(aParent: Node, aName: string, aLinkTarget: LinkTarget): Node;
@@ -230,7 +230,7 @@ export interface LinkPageUtil extends LinkPageUtilConstants {
    * @param aLinkTarget the target of the link page. May not be <code>null</code>
    * @param aProperties the link page properties. May be <code>null</code> or empty
    * @return a sv:link node corresponding to the newly created link page
-   * @throws ConstraintViolationException if an invalid parent is specified or if the current user is not authorized to create the link page
+   * @throws ConstraintViolationException if an invalid parent is specified or if the current user&#xA; is not authorized to create the link page
    * @throws RepositoryException if something else goes wrong
    */
   createLinkPage(
@@ -259,7 +259,7 @@ export interface LinkPageUtil extends LinkPageUtilConstants {
    * </p>
    * @param aLinkPage the link page. May not be <code>null</code>
    * @param aName the name of the link page. May not be <code>null</code> or whitespace only
-   * @throws ConstraintViolationException if an invalid link page is specified or if the current user is not authorized to update the link page
+   * @throws ConstraintViolationException if an invalid link page is specified or if the current user&#xA; is not authorized to update the link page
    * @throws RepositoryException if something else goes wrong
    */
   renameLinkPage(aLinkPage: Node, aName: string): void;
@@ -279,7 +279,7 @@ export interface LinkPageUtil extends LinkPageUtilConstants {
    * </p>
    * @param aLinkPage the link page. May not be <code>null</code>
    * @param aLinkTarget the target of the link page. May not be <code>null</code>
-   * @throws ConstraintViolationException if an invalid link page is specified or if the current user is not authorized to update the link page
+   * @throws ConstraintViolationException if an invalid link page is specified or if the current user&#xA; is not authorized to update the link page
    * @throws RepositoryException if something else goes wrong
    */
   updateLinkPageTarget(aLinkPage: Node, aLinkTarget: LinkTarget): void;
@@ -332,7 +332,7 @@ export interface LinkPageUtil extends LinkPageUtilConstants {
    * </ul>
    * @param aLinkPage the link page. May not be <code>null</code>
    * @param aProperties the link page properties. Should not be <code>null</code> or empty
-   * @throws ConstraintViolationException if an invalid link page is specified or if the current user is not authorized to update the link page
+   * @throws ConstraintViolationException if an invalid link page is specified or if the current user&#xA; is not authorized to update the link page
    * @throws RepositoryException if something else goes wrong
    */
   updateLinkPage(aLinkPage: Node, aProperties: unknown): void;

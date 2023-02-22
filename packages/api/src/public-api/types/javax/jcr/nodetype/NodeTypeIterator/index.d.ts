@@ -9,7 +9,7 @@ export type NodeTypeIterator = RangeIterator & {
   /**
    * Returns the next <code>NodeType</code> in the iteration.
    * @return the next <code>NodeType</code> in the iteration.
-   * @throws java.util.NoSuchElementException if iteration has no more <code>NodeType</code>s.
+   * @throws java.util.NoSuchElementException&#xA; if iteration has no more&#xA; <code>NodeType</code>s.
    */
   nextNodeType(): NodeType;
 };

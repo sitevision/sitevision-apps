@@ -218,7 +218,7 @@ export interface InstanceCreatorUtil {
    *    {@link #getCustomArgument(String, Object)} instead.
    * </p>
    * @param aValue an object, not <code>null</code>
-   * @return a typed argument for <code>aValue</code> object, <code>null</code> if <code>aValue</code> is <code>null</code>. The class value of <code>TypedArgument</code> will be set via <code>aValue.getClass()</code>.
+   * @return a typed argument for <code>aValue</code> object, <code>null</code> if <code>aValue</code> is <code>null</code>.&#xA; The class value of <code>TypedArgument</code> will be set via <code>aValue.getClass()</code>.
    * @see InstanceCreatorUtil#getNullArgument(String)
    * @see InstanceCreatorUtil#getCustomArgument(String, Object)
    */
@@ -273,7 +273,7 @@ export interface InstanceCreatorUtil {
    * Gets a typed argument for an <code>Enum</code> value for a specified enum class.
    * @param aQualifiedEnumClassName a fully qualified name of the enum class (i.e. including packages)
    * @param anEnum an Enum instance or a String with the name of the Enum
-   * @return a typed argument that uses a specified enum as type, or <code>null</code> if an <code>aQualifiedEnumClassName</code> or <code>anEnum</code> is invalid
+   * @return a typed argument that uses a specified enum as type, or <code>null</code> if an <code>aQualifiedEnumClassName</code>&#xA; or <code>anEnum</code> is invalid
    * @see #getEnumInstance(String, String)
    */
   getEnumArgument(

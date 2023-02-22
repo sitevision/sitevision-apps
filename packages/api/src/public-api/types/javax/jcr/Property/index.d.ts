@@ -39,7 +39,7 @@ export type Property = Item & {
    * Returns a <code>String</code> representation of the value of this
    * property. A shortcut for <code>Property.getValue().getString()</code>.
    * @return A string representation of the value of this property.
-   * @throws ValueFormatException if conversion to a <code>String</code> is not possible or if the property is multi-valued.
+   * @throws ValueFormatException if conversion to a <code>String</code> is&#xA; not possible or if the property is multi-valued.
    * @throws RepositoryException if another error occurs.
    * @see Value
    */
@@ -48,8 +48,8 @@ export type Property = Item & {
   /**
    * Returns a <code>long</code> representation of the value of this property.
    * A shortcut for <code>Property.getValue().getLong()</code>.
-   * @return A <code>long</code> representation of the value of this property.
-   * @throws ValueFormatException if conversion to a <code>long</code> is not possible or if the property is multi-valued.
+   * @return A <code>long</code> representation of the value of this&#xA; property.
+   * @throws ValueFormatException if conversion to a <code>long</code> is not&#xA; possible or if the property is multi-valued.
    * @throws RepositoryException if another error occurs.
    * @see Value
    */
@@ -58,8 +58,8 @@ export type Property = Item & {
   /**
    * Returns a <code>double</code> representation of the value of this
    * property. A shortcut for <code>Property.getValue().getDouble()</code>.
-   * @return A <code>double</code> representation of the value of this property.
-   * @throws ValueFormatException if conversion to a <code>double</code> is not possible or if the property is multi-valued.
+   * @return A <code>double</code> representation of the value of this&#xA; property.
+   * @throws ValueFormatException if conversion to a <code>double</code> is&#xA; not possible or if the property is multi-valued.
    * @throws RepositoryException if another error occurs.
    * @see Value
    */
@@ -68,8 +68,8 @@ export type Property = Item & {
   /**
    * Returns a <code>BigDecimal</code> representation of the value of this
    * property. A shortcut for <code>Property.getValue().getDecimal()</code>.
-   * @return A <code>BigDecimal</code> representation of the value of this property.
-   * @throws ValueFormatException if conversion to a <code>BigDecimal</code> is not possible or if the property is multi-valued.
+   * @return A <code>BigDecimal</code> representation of the value of this&#xA; property.
+   * @throws ValueFormatException if conversion to a <code>BigDecimal</code>&#xA; is not possible or if the property is multi-valued.
    * @throws RepositoryException if another error occurs
    * @see Value
    * @since JCR 2.0
@@ -79,8 +79,8 @@ export type Property = Item & {
   /**
    * Returns a <code>Calendar</code> representation of the value of this
    * property. A shortcut for <code>Property.getValue().getDate()</code>.
-   * @return A <code>Calendar</code> representation of the value of this property.
-   * @throws ValueFormatException if conversion to a string is not possible or if the property is multi-valued.
+   * @return A <code>Calendar</code> representation of the value of this&#xA; property.
+   * @throws ValueFormatException if conversion to a string is not possible or&#xA; if the property is multi-valued.
    * @throws RepositoryException if another error occurs.
    * @see Value
    */
@@ -89,8 +89,8 @@ export type Property = Item & {
   /**
    * Returns a <code>boolean</code> representation of the value of this
    * property. A shortcut for <code>Property.getValue().getBoolean()</code>.
-   * @return A <code>boolean</code> representation of the value of this property.
-   * @throws ValueFormatException if conversion to a <code>boolean</code> is not possible or if the property is multi-valued.
+   * @return A <code>boolean</code> representation of the value of this&#xA; property.
+   * @throws ValueFormatException if conversion to a <code>boolean</code> is&#xA; not possible or if the property is multi-valued.
    * @throws RepositoryException if another error occurs.
    * @see Value
    */
@@ -108,8 +108,8 @@ export type Property = Item & {
    * "<code>..</code>" to the parent of the parent node and "<code>foo</code>"
    * to a sibling node of this property.
    * @return the referenced Node
-   * @throws ValueFormatException if this property cannot be converted to a referring type (<code>REFERENCE</code>, <code>WEAKREFERENCE</code> or <code>PATH</code>), if the property is multi-valued or if this property is a referring type but is currently part of the frozen state of a version in version storage.
-   * @throws ItemNotFoundException If this property is of type <code>PATH</code> or <code>WEAKREFERENCE</code> and no target node accessible by the current <code>Session</code> exists in this workspace. Note that this applies even if the property is a <code>PATHS</code> and a <i>property</i> exists at the specified location. To dereference to a target property (as opposed to a target node), the method <code>Property.getProperty</code> is used.
+   * @throws ValueFormatException if this property cannot be converted to a&#xA; referring type (<code>REFERENCE</code>, <code>WEAKREFERENCE</code> or&#xA; <code>PATH</code>), if the property is multi-valued or if this property&#xA; is a referring type but is currently part of the frozen state of a&#xA; version in version storage.
+   * @throws ItemNotFoundException If this property is of type&#xA; <code>PATH</code> or <code>WEAKREFERENCE</code> and no target node&#xA; accessible by the current <code>Session</code> exists in this workspace.&#xA; Note that this applies even if the property is a <code>PATHS</code> and a&#xA; <i>property</i> exists at the specified location. To dereference to a&#xA; target property (as opposed to a target node), the method&#xA; <code>Property.getProperty</code> is used.
    * @throws RepositoryException if another error occurs.
    */
   getNode(): Node;
@@ -139,8 +139,8 @@ export type Property = Item & {
    * If this property is currently part of the frozen state of a version in
    * version storage, this method will throw a <code>ValueFormatException</code>.
    * @return the referenced property
-   * @throws ValueFormatException if this property cannot be converted to a <code>PATH</code>, if the property is multi-valued or if this property is a referring type but is currently part of the frozen state of a version in version storage.
-   * @throws ItemNotFoundException If no property accessible by the current <code>Session</code> exists in this workspace at the specified path. Note that this applies even if a <i>node</i> exists at the specified location. To dereference to a target node, the method <code>Property.getNode</code> is used.
+   * @throws ValueFormatException if this property cannot be converted to a&#xA; <code>PATH</code>, if the property is multi-valued or if this property is&#xA; a referring type but is currently part of the frozen state of a version&#xA; in version storage.
+   * @throws ItemNotFoundException If no property accessible by the current&#xA; <code>Session</code> exists in this workspace at the specified path. Note&#xA; that this applies even if a <i>node</i> exists at the specified location.&#xA; To dereference to a target node, the method <code>Property.getNode</code>&#xA; is used.
    * @throws RepositoryException if another error occurs.
    * @since JCR 2.0
    */
@@ -183,7 +183,7 @@ export type Property = Item & {
   /**
    * Returns <code>true</code> if this property is multi-valued and
    * <code>false</code> if this property is single-valued.
-   * @return <code>true</code> if this property is multi-valued; <code>false</code> otherwise.
+   * @return <code>true</code> if this property is multi-valued;&#xA; <code>false</code> otherwise.
    * @throws RepositoryException if an error occurs.
    */
   isMultiple(): boolean;

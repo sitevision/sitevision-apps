@@ -102,7 +102,7 @@ export interface NodeFilterUtil {
    * Applies a node filter to a list and gets the result.
    * @param aNodeList the list of nodes
    * @param aNodeFilter a node filter
-   * @return a list of all nodes of <code>aNodeList</code> that is accepted by <code>aNodeFilter</code>, never <code>null</code>. <code>aNodeList</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
+   * @return a list of all nodes of <code>aNodeList</code> that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeList</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    */
   getFilteredList(aNodeList: unknown, aNodeFilter: Filter): unknown;
 
@@ -110,7 +110,7 @@ export interface NodeFilterUtil {
    * Applies a node filter to a Map with Node values and gets the result.
    * @param aNodeValueMap a map with node values
    * @param aNodeFilter a node filter
-   * @return a Map with all <code>aNodeValueMap</code> entries with a value that is accepted by <code>aNodeFilter</code>, never <code>null</code>. <code>aNodeValueMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
+   * @return a Map with all <code>aNodeValueMap</code> entries with a value that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeValueMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    * @since Sitevision 4.3.1
    */
   getFilteredValueMap(aNodeValueMap: unknown, aNodeFilter: Filter): unknown;
@@ -119,7 +119,7 @@ export interface NodeFilterUtil {
    * Applies a node filter to a Map with Node keys and gets the result.
    * @param aNodeKeyMap a map with node keys
    * @param aNodeFilter a node filter
-   * @return a Map with all <code>aNodeKeyMap</code> entries with a key that is accepted by <code>aNodeFilter</code>, never <code>null</code>. <code>aNodeKeyMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
+   * @return a Map with all <code>aNodeKeyMap</code> entries with a key that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeKeyMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    * @since Sitevision 4.3.1
    */
   getFilteredKeyMap(aNodeKeyMap: unknown, aNodeFilter: Filter): unknown;
@@ -247,7 +247,7 @@ export interface NodeFilterUtil {
    *    This convenience method is conceptually equivalent - but also more efficient - than building a "match any of" filter via
    *    {@link #getCompoundOrFilterBuilder() CompoundOrFilter} with a number of {@link #getPrimaryNodeTypeFilter(String) PrimaryNodeTypeFilters}.
    * </p>
-   * @param aPrimaryNodeTypeNames a collection of primary node type names, must not be null. Null and blank collection items will be silently ignored (such value are not a valid node type name)
+   * @param aPrimaryNodeTypeNames a collection of primary node type names, must not be null.&#xA; Null and blank collection items will be silently ignored (such value are not a valid node type name)
    * @return a filter that matches all Nodes that has a primary node type that is present in aPrimaryNodeTypeNames.
    * @throws NullPointerException if aPrimaryNodeTypeNames is null
    * @see #getNoneOfPrimaryNodeTypesFilter(Collection)
@@ -264,7 +264,7 @@ export interface NodeFilterUtil {
    *    {@link #getCompoundOrFilterBuilder() CompoundOrFilter} with a number of {@link #getPrimaryNodeTypeFilter(String) PrimaryNodeTypeFilters}
    *    and a {@link #getInvertedFilter(Filter) InvertedFilter}
    * </p>
-   * @param aExcludedPrimaryNodeTypeNames a collection of primary node type names, must not be null. Null and blank collection items will be silently ignored (such value are not a valid node type name)
+   * @param aExcludedPrimaryNodeTypeNames a collection of primary node type names, must not be null.&#xA; Null and blank collection items will be silently ignored (such value are not a valid node type name)
    * @return a filter that matches all Nodes that does not have a primary node type present in aExcludedPrimaryNodeTypeNames.
    * @throws NullPointerException if aExcludedPrimaryNodeTypeNames is null
    * @see #getAnyOfPrimaryNodeTypesFilter(Collection)
@@ -311,7 +311,7 @@ export interface NodeFilterUtil {
    * Gets a filter that matches case-insensitive by a specified string property.
    * @param aPropertyName the name of the property
    * @param aCaseInsensitiveValue the case-insensitive value of the property
-   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> with value <code>aCaseInsensitiveValue</code>
+   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> with value&#xA; <code>aCaseInsensitiveValue</code>
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aCaseInsensitiveValue</code> is <code>null</code>
    */
   getIgnoreCaseStringPropertyFilter(
@@ -327,7 +327,7 @@ export interface NodeFilterUtil {
    * </p>
    * @param aPropertyName the name of the property
    * @param aStartsWithValue the value the property should start with
-   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that starts with value <code>aStartsWithValue</code>
+   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that starts with value&#xA; <code>aStartsWithValue</code>
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aStartsWithValue</code> is <code>null</code>
    */
   getStartsWithStringPropertyFilter(
@@ -343,7 +343,7 @@ export interface NodeFilterUtil {
    * </p>
    * @param aPropertyName the name of the property
    * @param aEndsWithValue the value the property should end with
-   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that ends with value <code>aEndsWithValue</code>
+   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that ends with value&#xA; <code>aEndsWithValue</code>
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aEndsWithValue</code> is <code>null</code>
    */
   getEndsWithStringPropertyFilter(
@@ -359,7 +359,7 @@ export interface NodeFilterUtil {
    * </p>
    * @param aPropertyName the name of the property
    * @param aContainsValue the value the property should contain
-   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that contains value <code>aContainsValue</code>
+   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that contains value&#xA; <code>aContainsValue</code>
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aContainsValue</code> is <code>null</code>
    */
   getContainsStringPropertyFilter(
@@ -375,7 +375,7 @@ export interface NodeFilterUtil {
    * </p>
    * @param aPropertyName the name of the property
    * @param aContainsValue the value the property should contain
-   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that contains value <code>aContainsValue</code>
+   * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that contains value&#xA; <code>aContainsValue</code>
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aContainsValue</code> is <code>null</code>
    */
   getContainsStringMultiPropertyFilter(
@@ -436,7 +436,7 @@ export interface NodeFilterUtil {
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aMatchValue the value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code>
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code>
    * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedBoolean(javax.jcr.Node, String, String)
    */
@@ -484,8 +484,8 @@ export interface NodeFilterUtil {
    * @param aPropertyName the name of the property
    * @param aMinValue the min value of the property
    * @param aMaxValue the max value of the property
-   * @return a filter that matches all nodes that has a int property named <code>aPropertyName</code> with value within inclusive range <code>[aMinValue..aMaxValue]</code>
-   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or if <code>aMinValue</code> is greater than <code>aMaxValue</code>
+   * @return a filter that matches all nodes that has a int property named <code>aPropertyName</code> with value within&#xA; inclusive range <code>[aMinValue..aMaxValue]</code>
+   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aMinValue</code> is greater than <code>aMaxValue</code>
    */
   getRangeIntPropertyFilter(
     aPropertyName: string,
@@ -498,7 +498,7 @@ export interface NodeFilterUtil {
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aMatchValue the value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code>
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code>
    * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedInt(javax.jcr.Node, String, String)
    */
@@ -513,7 +513,7 @@ export interface NodeFilterUtil {
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aMinValue the min value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code> or higher
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code> or higher
    * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedInt(javax.jcr.Node, String, String)
    */
@@ -528,7 +528,7 @@ export interface NodeFilterUtil {
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aMaxValue the max value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code> or lower
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code> or lower
    * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedInt(javax.jcr.Node, String, String)
    */
@@ -549,8 +549,8 @@ export interface NodeFilterUtil {
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aMinValue the min value of the property
    * @param aMaxValue the max value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value within inclusive range <code>[aMinValue..aMaxValue]</code>
-   * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only, or if <code>aMinValue</code> is greater than <code>aMaxValue</code>
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value within inclusive range <code>[aMinValue..aMaxValue]</code>
+   * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aMinValue</code> is greater than <code>aMaxValue</code>
    */
   getRangeNestedIntPropertyFilter(
     aNodePropertyName: string,
@@ -574,7 +574,7 @@ export interface NodeFilterUtil {
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aMatchValue the value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code>
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code>
    * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedDouble(javax.jcr.Node, String, String)
    */
@@ -612,8 +612,8 @@ export interface NodeFilterUtil {
    * @param aPropertyName the name of the property
    * @param aMinValue the min value of the property
    * @param aMaxValue the max value of the property
-   * @return a filter that matches all nodes that has a double property named <code>aPropertyName</code> with value within inclusive range <code>[aMinValue..aMaxValue]</code>
-   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or if <code>aMinValue</code> is greater than <code>aMaxValue</code>
+   * @return a filter that matches all nodes that has a double property named <code>aPropertyName</code> with value within&#xA; inclusive range <code>[aMinValue..aMaxValue]</code>
+   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aMinValue</code> is greater than <code>aMaxValue</code>
    */
   getRangeDoublePropertyFilter(
     aPropertyName: string,
@@ -626,7 +626,7 @@ export interface NodeFilterUtil {
    * @param aPropertyName the name of the property
    * @param aMatchValue the value of the property
    * @return a filter that matches all nodes that has a Calendar property named <code>aPropertyName</code> with value <code>aMatchValue</code>
-   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or <code>aMatchValue</code> is <code>null</code>
+   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or <code>aMatchValue</code> is&#xA; <code>null</code>
    * @see senselogic.sitevision.api.property.PropertyUtil#getCalendar(javax.jcr.Node, String)
    */
   getCalendarPropertyFilter(
@@ -639,8 +639,8 @@ export interface NodeFilterUtil {
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aMatchValue the value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code>
-   * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only, or if <code>aMatchValue</code> is <code>null</code>
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value <code>aMatchValue</code>
+   * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aMatchValue</code> is <code>null</code>
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedCalendar(javax.jcr.Node, String, String)
    */
   getNestedCalendarPropertyFilter(
@@ -653,8 +653,8 @@ export interface NodeFilterUtil {
    * Gets a filter that matches by a before value for a specified Calendar property.
    * @param aPropertyName the name of the property
    * @param aBeforeThresholdValue the before threshold value of the property
-   * @return a filter that matches all nodes that has a Calendar property named <code>aPropertyName</code> with value before <code>aBeforeThresholdValue</code>
-   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or <code>aBeforeThresholdValue</code> is <code>null</code>
+   * @return a filter that matches all nodes that has a Calendar property named <code>aPropertyName</code> with value before&#xA; <code>aBeforeThresholdValue</code>
+   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or <code>aBeforeThresholdValue</code>&#xA; is <code>null</code>
    */
   getBeforeCalendarPropertyFilter(
     aPropertyName: string,
@@ -666,8 +666,8 @@ export interface NodeFilterUtil {
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aBeforeThresholdValue the before threshold value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value before <code>aBeforeThresholdValue</code>
-   * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only, or if <code>aBeforeThresholdValue</code> is <code>null</code>
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value before <code>aBeforeThresholdValue</code>
+   * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aBeforeThresholdValue</code> is <code>null</code>
    */
   getBeforeNestedCalendarPropertyFilter(
     aNodePropertyName: string,
@@ -679,8 +679,8 @@ export interface NodeFilterUtil {
    * Gets a filter that matches by an after value for a specified Calendar property.
    * @param aPropertyName the name of the property
    * @param aAfterThresholdValue the after threshold value of the property
-   * @return a filter that matches all nodes that has a Calendar property named <code>aPropertyName</code> with value after <code>aAfterThresholdValue</code>
-   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or <code>aAfterThresholdValue</code> is <code>null</code>
+   * @return a filter that matches all nodes that has a Calendar property named <code>aPropertyName</code> with value after&#xA; <code>aAfterThresholdValue</code>
+   * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or <code>aAfterThresholdValue</code>&#xA; is <code>null</code>
    */
   getAfterCalendarPropertyFilter(
     aPropertyName: string,
@@ -692,8 +692,8 @@ export interface NodeFilterUtil {
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aAfterThresholdValue the after threshold value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value after <code>aAfterThresholdValue</code>
-   * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only, or if <code>aAfterThresholdValue</code> is <code>null</code>
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value after <code>aAfterThresholdValue</code>
+   * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aAfterThresholdValue</code> is <code>null</code>
    */
   getAfterNestedCalendarPropertyFilter(
     aNodePropertyName: string,
@@ -712,8 +712,8 @@ export interface NodeFilterUtil {
    * @param aPropertyName the name of the property
    * @param aAfterThresholdValue the after threshold value of the property
    * @param aBeforeThresholdValue the before threshold value of the property
-   * @return a filter that matches all nodes that has a Calendar property named <code>aPropertyName</code> with value between exclusive range <code>[aAfterThresholdValue..aBeforeThresholdValue]</code>
-   * @throws IllegalArgumentException IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or if <code>aAfterThresholdValue</code> or <code>aBeforeThresholdValue</code> is <code>null</code>, or if <code>aAfterThresholdValue</code> is after <code>aBeforeThresholdValue</code>
+   * @return a filter that matches all nodes that has a Calendar property named <code>aPropertyName</code> with value between&#xA; exclusive range <code>[aAfterThresholdValue..aBeforeThresholdValue]</code>
+   * @throws IllegalArgumentException IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aAfterThresholdValue</code> or <code>aBeforeThresholdValue</code> is <code>null</code>,&#xA; or if <code>aAfterThresholdValue</code> is after <code>aBeforeThresholdValue</code>
    */
   getRangeCalendarPropertyFilter(
     aPropertyName: string,
@@ -733,8 +733,8 @@ export interface NodeFilterUtil {
    * @param aPropertyName the name of the property
    * @param aAfterThresholdValue the after threshold value of the property
    * @param aBeforeThresholdValue the before threshold value of the property
-   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node, which in turn has a property named <code>aNodePropertyName</code> with value between exclusive range <code>[aAfterThresholdValue..aBeforeThresholdValue]</code>
-   * @throws IllegalArgumentException IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only, or if <code>aAfterThresholdValue</code> or <code>aBeforeThresholdValue</code> is <code>null</code>, or if <code>aAfterThresholdValue</code> is after <code>aBeforeThresholdValue</code>
+   * @return a filter that matches all nodes that has a property named <code>aNodePropertyName</code> that can be resolved as a node,&#xA; which in turn has a property named <code>aNodePropertyName</code> with value between&#xA; exclusive range <code>[aAfterThresholdValue..aBeforeThresholdValue]</code>
+   * @throws IllegalArgumentException IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code>&#xA; or whitespace only,&#xA; or if <code>aAfterThresholdValue</code> or <code>aBeforeThresholdValue</code> is <code>null</code>,&#xA; or if <code>aAfterThresholdValue</code> is after <code>aBeforeThresholdValue</code>
    */
   getRangeNestedCalendarPropertyFilter(
     aNodePropertyName: string,

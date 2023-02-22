@@ -140,7 +140,7 @@ export interface ArticleUtil extends ArticleUtilConstants {
    * @param aTemplate the template used for the article. May not be <code>null</code>
    * @param aName the name of the sv:article. May not be <code>null</code>
    * @return a sv:article node corresponding to the newly created article. Will never return <code>null</code>
-   * @throws javax.jcr.nodetype.ConstraintViolationException if an invalid parent is specified or if the current user is not authorized to create the article
+   * @throws javax.jcr.nodetype.ConstraintViolationException if an invalid parent is specified or if the current user&#xA; is not authorized to create the article
    * @throws RepositoryException if something else goes wrong
    * @see #createArticle(javax.jcr.Node, javax.jcr.Node, String, java.util.Map, java.util.Map)
    */
@@ -231,7 +231,7 @@ export interface ArticleUtil extends ArticleUtilConstants {
    * @param properties the article properties. May be <code>null</code>
    * @param content a map containing the HTML content. The keys must correspond to layout names on the node. May be <code>null</code>
    * @return a sv:article node corresponding to the newly created article. Will never return <code>null</code>
-   * @throws javax.jcr.nodetype.ConstraintViolationException if an invalid parent is specified or if the current user is not authorized to create the article
+   * @throws javax.jcr.nodetype.ConstraintViolationException if an invalid parent is specified or if the current user&#xA; is not authorized to create the article
    * @throws RepositoryException if something else goes wrong
    * @see #createArticle(javax.jcr.Node, javax.jcr.Node, String)
    */
@@ -314,7 +314,7 @@ export interface ArticleUtil extends ArticleUtilConstants {
    * a <code>ConstraintViolationException</code> will be thrown.</p>
    * @param anArticle the article that should be renamed. May not be <code>null</code>
    * @param aName the new name of the article. May not be <code>null</code>
-   * @throws javax.jcr.nodetype.ConstraintViolationException if the current user is not authorized to alter the name of the article
+   * @throws javax.jcr.nodetype.ConstraintViolationException if the current user is not authorized to alter the name of the&#xA; article
    * @throws RepositoryException if something else goes wrong
    */
   renameArticle(anArticle: Node, aName: string): void;

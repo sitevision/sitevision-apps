@@ -12,7 +12,7 @@
 export type Mail = {
   /**
    * Sends this mail synchronously.
-   * @return <code>true</code> if no error was reported from the Sitevision mail service, <code>false</code> otherwise. <strong><em>Important node!</em></strong> A <code>true</code> value implies that the mail is sent as far as the Sitevision mail service can tell, but it doesn't guarantee that the actual mail server (whose configuration is specified on the Sitevision server node) has done so. The mail might be queued, quarantined or silently ignored by the mail server.
+   * @return <code>true</code> if no error was reported from the Sitevision mail service, <code>false</code> otherwise.&#xA; <strong><em>Important node!</em></strong> A <code>true</code> value implies that the mail is sent as far as the Sitevision&#xA; mail service can tell, but it doesn't guarantee that the actual mail server (whose configuration is specified on the&#xA; Sitevision server node) has done so. The mail might be queued, quarantined or silently ignored by the mail server.
    */
   send(): boolean;
 

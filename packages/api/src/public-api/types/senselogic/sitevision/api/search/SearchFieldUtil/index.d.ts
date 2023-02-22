@@ -44,7 +44,7 @@ export type SearchFieldUtil = {
    * <strong>Note!</strong> This method does <em>NOT</em> handle variants!
    * </p>
    * @param aLocaleFieldValue a String containing a language - or a language and country, separated with underscrore.
-   * @return a Locale matching <code>aLocaleFieldValue</code>, returns <code>null</code> if indeterminable (e.g <code>aLocaleFieldValue</code> is <code>null</code>)
+   * @return a Locale matching <code>aLocaleFieldValue</code>, returns <code>null</code> if indeterminable&#xA; (e.g <code>aLocaleFieldValue</code> is <code>null</code>)
    * @deprecated use {@link senselogic.sitevision.api.i18n.LocaleUtil#getLocaleByString(String)} instead
    */
   localeFieldToLocale(aLocaleFieldValue: string): unknown;

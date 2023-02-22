@@ -13,7 +13,7 @@ export type AccessControlPolicyIterator = RangeIterator & {
   /**
    * Returns the next <code>AccessControlPolicy</code> in the iteration.
    * @return the next <code>AccessControlPolicy</code> in the iteration.
-   * @throws java.util.NoSuchElementException if iteration has no more <code>AccessControlPolicy</code>s.
+   * @throws java.util.NoSuchElementException&#xA; if iteration has no more&#xA; <code>AccessControlPolicy</code>s.
    */
   nextAccessControlPolicy(): AccessControlPolicy;
 };

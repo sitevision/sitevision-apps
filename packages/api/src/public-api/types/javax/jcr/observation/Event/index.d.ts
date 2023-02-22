@@ -19,7 +19,7 @@ export type Event = {
    * Returns the absolute path associated with this event or <code>null</code>
    * if this event has no associated identifier. The meaning of the associated
    * path depends upon the type of the event. See event type constants above.
-   * @return the absolute path associated with this event or <code>null</code>.
+   * @return the absolute path associated with this event or&#xA; <code>null</code>.
    * @throws RepositoryException if an error occurs.
    */
   getPath(): string;
@@ -47,7 +47,7 @@ export type Event = {
    * Returns the information map associated with this event. The meaning of
    * the map depends upon the type of the event. See event type constants
    * above.
-   * @return A <code>Map</code> containing parameter information for instances of a <code>NODE_MOVED</code> event.
+   * @return A <code>Map</code> containing parameter information for instances&#xA; of a <code>NODE_MOVED</code> event.
    * @throws RepositoryException if an error occurs.
    * @since JCR 2.0
    */

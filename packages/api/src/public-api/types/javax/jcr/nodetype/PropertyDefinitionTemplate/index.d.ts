@@ -21,7 +21,7 @@ export type PropertyDefinitionTemplate = PropertyDefinition & {
    * Sets the name of the property. This must be a JCR name in either
    * qualified or expanded form.
    * @param name a JCR name.
-   * @throws ConstraintViolationException if <code>name</code> is not a syntactically valid JCR name in either qualified or expanded form.
+   * @throws ConstraintViolationException if <code>name</code> is not a&#xA; syntactically valid JCR name in either qualified or expanded form.
    */
   setName(name: string): void;
 
@@ -39,7 +39,7 @@ export type PropertyDefinitionTemplate = PropertyDefinition & {
 
   /**
    * Sets the on-parent-version status of the property.
-   * @param opv an <code>int</code> constant member of <code>OnParentVersionAction</code>.
+   * @param opv an <code>int</code> constant member of&#xA; <code>OnParentVersionAction</code>.
    */
   setOnParentVersion(opv: number): void;
 
@@ -51,7 +51,7 @@ export type PropertyDefinitionTemplate = PropertyDefinition & {
 
   /**
    * Sets the required type of the property.
-   * @param type an <code>int</code> constant member of <code>PropertyType</code>.
+   * @param type an <code>int</code> constant member of&#xA; <code>PropertyType</code>.
    */
   setRequiredType(type: number): void;
 
@@ -76,7 +76,7 @@ export type PropertyDefinitionTemplate = PropertyDefinition & {
 
   /**
    * Sets the queryable status of the property.
-   * @param operators an array of String constants. See {@link PropertyDefinition#getAvailableQueryOperators()} .
+   * @param operators an array of String constants. See {@link&#xA; PropertyDefinition#getAvailableQueryOperators()} .
    */
   setAvailableQueryOperators(operators: string): void;
 

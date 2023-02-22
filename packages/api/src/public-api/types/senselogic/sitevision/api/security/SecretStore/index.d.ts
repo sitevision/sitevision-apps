@@ -45,9 +45,5 @@ export type SecretStore = {
    */
   setSecrets(aSecrets: unknown): void;
 
-  /**
- * 
-  
-    */
   removeAllSecrets(): void;
 };

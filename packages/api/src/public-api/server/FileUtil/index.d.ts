@@ -40,7 +40,7 @@ export interface FileUtil {
    * @param aParent the parent node for the files
    * @param aFileMappings a map of file name to URI pairs
    * @throws java.lang.NullPointerException if <code>aParent</code> or <code>aFileMappings</code> is <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid parent node is specified or if file exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid&#xA; parent node is specified or if file exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    */
   createFiles(aParent: Node, aFileMappings: unknown): void;
@@ -66,7 +66,7 @@ export interface FileUtil {
    * @param aUri the URI pointing to the file resource retrievable from the Sitevision server
    * @return a sv:file node corresponding to the newly created file. Will never return <code>null</code>
    * @throws java.lang.NullPointerException if <code>aParent</code>, <code>aFileName</code> or <code>aUri</code> is <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid parent node is specified or if file exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid&#xA; parent node is specified or if file exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    */
   createFile(aParent: Node, aFileName: string, aUri: string): Node;
@@ -91,7 +91,7 @@ export interface FileUtil {
    * @param aBase64EncodedString a base64 encoded string
    * @return a sv:file node corresponding to the newly created file. Will never return <code>null</code>
    * @throws java.lang.NullPointerException if <code>aParent</code>, <code>aFileName</code> or <code>aBase64EncodedString</code> is <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid parent node is specified, if <code>aBase64EncodedString</code> is not base64 encoded or if file exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid parent node is specified, if&#xA; <code>aBase64EncodedString</code> is not base64 encoded or if file exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.5.4
    */
@@ -115,7 +115,7 @@ export interface FileUtil {
    * @param aParent the parent node of the file
    * @param aTemporaryFile a sv:temporaryFile (typically created via {@link senselogic.sitevision.api.node.builder.TemporaryFileNodeBuilder})
    * @return a sv:file node corresponding to the newly created file. Will never return <code>null</code>
-   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid parent node is specified, if an invalid temporary node is specified or if file exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid&#xA; parent node is specified, if an invalid temporary node is specified or if file exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.5.4
    */
@@ -140,7 +140,7 @@ export interface FileUtil {
    * </p>
    * @param aFile the file
    * @param aUri the URI pointing to the file resource to fetch new binary content from
-   * @throws ConstraintViolationException if the user is not authorized to alter the file node, if an invalid node is specified, if the end part of <code>aUri</code> doesn't match the file extension of <code>aFile</code> or if file exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the file node,&#xA; if an invalid node is specified, if the end part of <code>aUri</code> doesn't match the file extension&#xA; of <code>aFile</code> or if file exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 3.6.3
    */
@@ -163,7 +163,7 @@ export interface FileUtil {
    * </p>
    * @param aFile the file
    * @param aBase64EncodedString a base64 encoded string
-   * @throws ConstraintViolationException if the user is not authorized to alter the file node, if an invalid node is specified, if <code>aBase64EncodedString</code> is not base64 encoded, if file exceeds file size limit or if file exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the file node, if an invalid node is specified, if&#xA; <code>aBase64EncodedString</code> is not base64 encoded, if file exceeds file size limit&#xA; or if file exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.5.4
    */
@@ -185,7 +185,7 @@ export interface FileUtil {
    * </p>
    * @param aFile the file
    * @param aTemporaryFile the sv:temporaryFile (typically created via {@link senselogic.sitevision.api.node.builder.TemporaryFileNodeBuilder})
-   * @throws ConstraintViolationException if the user is not authorized to alter the file node, if an invalid node is specified, if the end part of the file represented by <code>aTemporaryFile</code> doesn't match the file extension of <code>aFile</code> or if file exceeds file size limit
+   * @throws ConstraintViolationException if the user is not authorized to alter the file node,&#xA; if an invalid node is specified, if the end part of the file represented by <code>aTemporaryFile</code> doesn't match the file extension&#xA; of <code>aFile</code> or if file exceeds file size limit
    * @throws RepositoryException if something else goes wrong
    * @since Sitevision 4.5.4
    */

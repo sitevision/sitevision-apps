@@ -18,14 +18,14 @@ export interface TimestampUtil {
   /**
    * Formats current timestamp.
    * @param aFormatPattern a date to string pattern according to SimpleDateFormat.
-   * @return a formatted String representing current timestamp using Locale according to {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}. If aLocale can not be resolved Locale.ENGLISH is used. If aFormatPattern is not valid current timestamp is returned as String.
+   * @return a formatted String representing current timestamp using Locale according to&#xA; {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}. If aLocale can not be resolved Locale.ENGLISH is used.&#xA; If aFormatPattern is not valid current timestamp is returned as String.
    */
   formatCurrent(aFormatPattern: string): string;
 
   /**
    * Formats current timestamp using a specified Locale.
    * @param aFormatPattern a date to string pattern according to SimpleDateFormat.
-   * @param aLocale a locale. If aLocale is null the current locale (as of {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}) will be used. If aLocale can not be resolved Locale.ENGLISH will be used.
+   * @param aLocale a locale. If aLocale is null the current locale (as of&#xA; {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}) will be used. If aLocale can not be resolved&#xA; Locale.ENGLISH will be used.
    * @return a formatted String representing current timestamp. If aFormatPattern is not valid current timestamp is returned as String.
    */
   formatCurrent(aFormatPattern: string, aLocale: unknown): string;
@@ -34,7 +34,7 @@ export interface TimestampUtil {
    * Formats a given timestamp.
    * @param aTimestamp a timestamp.
    * @param aFormatPattern a date to string pattern according to SimpleDateFormat.
-   * @return a formatted String representing aTimestamp using Locale according to {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}. If aLocale can not be resolved Locale.ENGLISH is used. If aTimestamp is negative or aFormatPattern is not valid the given timestamp is returned as String.
+   * @return a formatted String representing aTimestamp using Locale according to&#xA; {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}. If aLocale can not be resolved Locale.ENGLISH is used.&#xA; If aTimestamp is negative or aFormatPattern is not valid the given timestamp is returned as String.
    */
   format(aTimestamp: number, aFormatPattern: string): string;
 
@@ -42,8 +42,8 @@ export interface TimestampUtil {
    * Formats a given timestamp using a specified Locale.
    * @param aTimestamp a timestamp.
    * @param aFormatPattern a date to string pattern according to SimpleDateFormat.
-   * @param aLocale a locale. If aLocale is null the current locale (as of {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}) will be used. If aLocale can not be resolved Locale.ENGLISH will be used.
-   * @return a formatted String representing the aTimestamp. If aTimestamp is negative or aFormatPattern is not valid the given timestamp is returned as String.
+   * @param aLocale a locale. If aLocale is null the current locale (as of&#xA; {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}) will be used. If aLocale can not be resolved&#xA; Locale.ENGLISH will be used.
+   * @return a formatted String representing the aTimestamp. If aTimestamp is negative or aFormatPattern is not valid the given timestamp&#xA; is returned as String.
    */
   format(aTimestamp: number, aFormatPattern: string, aLocale: unknown): string;
 

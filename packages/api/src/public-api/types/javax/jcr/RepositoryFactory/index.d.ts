@@ -68,9 +68,9 @@ export type RepositoryFactory = {
    * <code>parameters</code>) and this factory is not able to identify a
    * default repository.  <p> An implementation of this method must be
    * thread-safe.
-   * @param parameters map of string key/value pairs as repository arguments or <code>null</code> if none are provided and a client wishes to connect to a default repository.
-   * @return a repository instance or <code>null</code> if this implementation does not understand the passed <code>parameters</code>.
-   * @throws RepositoryException if if no suitable repository is found or another error occurs.
+   * @param parameters map of string key/value pairs as repository arguments&#xA; or <code>null</code> if none are provided and a client wishes to connect&#xA; to a default repository.
+   * @return a repository instance or <code>null</code> if this implementation&#xA; does not understand the passed <code>parameters</code>.
+   * @throws RepositoryException if if no suitable repository is found or&#xA; another error occurs.
    */
   getRepository(parameters: unknown): Repository;
 };

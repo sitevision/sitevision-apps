@@ -23,14 +23,14 @@ export type Column = {
 
   /**
    * Gets the name of the property.
-   * @return the property name, or null to include a column for each single-value non-residual property of the selector's node type
+   * @return the property name, or null to include a column for each&#xA; single-value non-residual property of the selector's node type
    */
   getPropertyName(): string;
 
   /**
    * Gets the column name.
    * <p>
-   * @return the column name; must be null if <code>getPropertyName</code> is null and non-null otherwise
+   * @return the column name; must be null if <code>getPropertyName</code> is&#xA; null and non-null otherwise
    */
   getColumnName(): string;
 };

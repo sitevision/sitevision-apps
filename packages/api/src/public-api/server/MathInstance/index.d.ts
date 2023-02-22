@@ -82,14 +82,14 @@ export interface MathInstance extends MathInstanceConstants {
   /**
    * Converts an angle measured in radians to an approximately equivalent angle measured in degrees.
    * @param anAngleInRadians an angle, in radians
-   * @return the measurement of the angle <code>anAngleInRadians</code> in degrees.
+   * @return the measurement of the angle <code>anAngleInRadians</code>&#xA; in degrees.
    */
   toDegrees(anAngleInRadians: number): number;
 
   /**
    * Returns Euler's number <i>e</i> raised to the power of a <code>double</code> value.
    * @param anExponent the exponent to raise <i>e</i> to.
-   * @return the value <i>e</i><sup><code>anExponent</code></sup>, where <i>e</i> is the base of the natural logarithms.
+   * @return the value <i>e</i><sup><code>anExponent</code></sup>,&#xA; where <i>e</i> is the base of the natural logarithms.
    */
   exp(anExponent: number): number;
 
@@ -110,7 +110,7 @@ export interface MathInstance extends MathInstanceConstants {
   /**
    * Returns the correctly rounded positive square root of a <code>double</code> value.
    * @param aValue a value.
-   * @return the positive square root of <code>aValue</code>. If the argument is NaN or less than zero, the result is NaN.
+   * @return the positive square root of <code>aValue</code>.&#xA; If the argument is NaN or less than zero, the result is NaN.
    */
   sqrt(aValue: number): number;
 
@@ -133,7 +133,7 @@ export interface MathInstance extends MathInstanceConstants {
    * Returns the smallest (closest to negative infinity) <code>double</code> value that is greater than
    * or equal to the argument and is equal to a mathematical integer.
    * @param aValue a value.
-   * @return the smallest (closest to negative infinity) floating-point value that is greater than or equal to the argument and is equal to a mathematical integer.
+   * @return the smallest (closest to negative infinity) floating-point value that is greater than&#xA; or equal to the argument and is equal to a mathematical integer.
    */
   ceil(aValue: number): number;
 
@@ -141,7 +141,7 @@ export interface MathInstance extends MathInstanceConstants {
    * Returns the largest (closest to positive infinity) <code>double</code> value that is less than
    * or equal to the argument and is equal to a mathematical integer.
    * @param aValue a value.
-   * @return the largest (closest to positive infinity) floating-point value that less than or equal to the argument and is equal to a mathematical integer.
+   * @return the largest (closest to positive infinity) floating-point value that less than or equal to&#xA; the argument and is equal to a mathematical integer.
    */
   floor(aValue: number): number;
 
@@ -158,7 +158,7 @@ export interface MathInstance extends MathInstanceConstants {
    * (<code>x</code>,&nbsp;<code>y</code>) to polar coordinates (r,&nbsp;<i>theta</i>).
    * @param y the ordinate coordinate
    * @param x the abscissa coordinate
-   * @return the <i>theta</i> component of the point (<i>r</i>,&nbsp;<i>theta</i>) in polar coordinates that corresponds to the point (<i>x</i>,&nbsp;<i>y</i>) in Cartesian coordinates.
+   * @return the <i>theta</i> component of the point (<i>r</i>,&nbsp;<i>theta</i>) in polar coordinates&#xA; that corresponds to the point (<i>x</i>,&nbsp;<i>y</i>) in Cartesian coordinates.
    */
   atan2(y: number, x: number): number;
 
@@ -187,7 +187,7 @@ export interface MathInstance extends MathInstanceConstants {
   /**
    * Returns a <code>double</code> value with a positive sign, greater
    * than or equal to <code>0.0</code> and less than <code>1.0</code>.
-   * @return a pseudorandom <code>double</code> greater than or equal to <code>0.0</code> and less than <code>1.0</code>.
+   * @return a pseudorandom <code>double</code> greater than or equal&#xA; to <code>0.0</code> and less than <code>1.0</code>.
    */
   random(): number;
 
@@ -336,13 +336,13 @@ export interface MathInstance extends MathInstanceConstants {
    * Returns sqrt(<i>x</i><sup>2</sup>&nbsp;+<i>y</i><sup>2</sup>) without intermediate overflow or underflow.
    * @param x a value
    * @param y a value
-   * @return sqrt(<i>x</i><sup>2</sup>&nbsp;+<i>y</i><sup>2</sup>) without intermediate overflow or underflow
+   * @return sqrt(<i>x</i><sup>2</sup>&nbsp;+<i>y</i><sup>2</sup>)&#xA; without intermediate overflow or underflow
    */
   hypot(x: number, y: number): number;
 
   /**
    * Returns <i>e</i><sup>x</sup>&nbsp;-1.
-   * @param x the exponent to raise <i>e</i> to in the computation of <i>e</i><sup><code>x</code></sup>&nbsp;-1.
+   * @param x the exponent to raise <i>e</i> to in the computation of&#xA; <i>e</i><sup><code>x</code></sup>&nbsp;-1.
    * @return the value <i>e</i><sup><code>x</code></sup>&nbsp;-&nbsp;1.
    */
   expm1(x: number): number;
@@ -571,7 +571,7 @@ export interface MathInstance extends MathInstanceConstants {
    * Returns the largest (closest to positive infinity) {@code int} value that is less than or equal to the algebraic quotient.
    * @param x the dividend
    * @param y the divisor
-   * @return the largest (closest to positive infinity) {@code int} value that is less than or equal to the algebraic quotient.
+   * @return the largest (closest to positive infinity)&#xA; {@code int} value that is less than or equal to the algebraic quotient.
    * @throws ArithmeticException if the divisor {@code y} is zero
    * @see #floorMod(int, int)
    * @see #floor(double)
@@ -584,7 +584,7 @@ export interface MathInstance extends MathInstanceConstants {
    * Returns the largest (closest to positive infinity) {@code long} value that is less than or equal to the algebraic quotient.
    * @param x the dividend
    * @param y the divisor
-   * @return the largest (closest to positive infinity) {@code long} value that is less than or equal to the algebraic quotient.
+   * @return the largest (closest to positive infinity)&#xA; {@code long} value that is less than or equal to the algebraic quotient.
    * @throws ArithmeticException if the divisor {@code y} is zero
    * @see #floorMod(long, long)
    * @see #floor(double)

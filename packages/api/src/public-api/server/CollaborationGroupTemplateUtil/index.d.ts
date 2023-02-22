@@ -36,7 +36,7 @@ export interface CollaborationGroupTemplateUtil {
    *    {@link senselogic.sitevision.api.security.PermissionUtil.Permission#READ} on will be considered.
    * </p>
    * @param aCollaborationGroupTemplateName name of the template
-   * @return a collaboration group template, or <code>null</code> if indeterminable (e.g. no accessible collaboration group template named <code>aCollaborationGroupTemplateName</code> could be found)
+   * @return a collaboration group template, or <code>null</code> if indeterminable (e.g. no accessible collaboration group template named&#xA; <code>aCollaborationGroupTemplateName</code> could be found)
    * @since Sitevision 4.1
    */
   getCollaborationGroupTemplateByName(

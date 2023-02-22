@@ -166,10 +166,6 @@ export type Repository = {
     */
   OPTION_VERSIONING_SUPPORTED: string;
 
-  /**
- * 
-  
-    */
   OPTION_SIMPLE_VERSIONING_SUPPORTED: string;
 
   /**

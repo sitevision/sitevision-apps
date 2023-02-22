@@ -17,7 +17,7 @@ export type UserUtil = {
   /**
    * Checks if a user node is anonymous (not authenticated).
    * @param aUserNode a user node
-   * @return <code>true</code> if <code>aUserNode</code> is anonymous (i.e. not authenticated), <code>false</code> otherwise (i.e. no match or <code>aUserNode</code> is <code>null</code>)
+   * @return <code>true</code> if <code>aUserNode</code> is anonymous (i.e. not authenticated), <code>false</code> otherwise&#xA; (i.e. no match or <code>aUserNode</code> is <code>null</code>)
    * @deprecated use {@link senselogic.sitevision.api.user.SystemUserUtil#isAnonymous(javax.jcr.Node)} instead
    */
   isAnonymous(aUserNode: Node): boolean;
@@ -32,7 +32,7 @@ export type UserUtil = {
   /**
    * Checks if a user node is the Sitevision System user.
    * @param aUserNode a user node
-   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision System user, <code>false</code> otherwise (i.e. no match or <code>aUserNode</code> is <code>null</code>)
+   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision System user, <code>false</code> otherwise&#xA; (i.e. no match or <code>aUserNode</code> is <code>null</code>)
    * @deprecated use {@link senselogic.sitevision.api.user.SystemUserUtil#isSystem(javax.jcr.Node)} instead
    */
   isSystem(aUserNode: Node): boolean;
@@ -47,7 +47,7 @@ export type UserUtil = {
   /**
    * Checks if a user node is the Sitevision Indexer.
    * @param aUserNode a user node
-   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Indexer, <code>false</code> otherwise (i.e. no match or <code>aUserNode</code> is <code>null</code>)
+   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Indexer, <code>false</code> otherwise&#xA; (i.e. no match or <code>aUserNode</code> is <code>null</code>)
    * @deprecated use {@link senselogic.sitevision.api.user.SystemUserUtil#isIndexer(javax.jcr.Node)} instead
    */
   isIndexer(aUserNode: Node): boolean;
@@ -62,7 +62,7 @@ export type UserUtil = {
   /**
    * Checks if a user node is the Sitevision Extractor.
    * @param aUserNode a user node
-   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Extractor, <code>false</code> otherwise (i.e. no match or <code>aUserNode</code> is <code>null</code>)
+   * @return <code>true</code> if <code>aUserNode</code> is the Sitevision Extractor, <code>false</code> otherwise&#xA; (i.e. no match or <code>aUserNode</code> is <code>null</code>)
    * @deprecated use {@link senselogic.sitevision.api.user.SystemUserUtil#isExtractor(javax.jcr.Node)} instead
    */
   isExtractor(aUserNode: Node): boolean;
@@ -70,7 +70,7 @@ export type UserUtil = {
   /**
    * Gets the corresponding <code>sv:userIdentity</code> Node for a specified <code>sv:user</code> Node.
    * @param aUserNode a user node
-   * @return the corresponding sv:userIdentity Node for <code>aUserNode</code>, or <code>null</code> if <code>aUserNode</code> is <code>null</code> or has no corresponding user identity for current site.
+   * @return the corresponding sv:userIdentity Node for <code>aUserNode</code>, or <code>null</code>&#xA; if <code>aUserNode</code> is <code>null</code> or has no corresponding user identity for current site.
    * @since Sitevision 3.5.1
    * @deprecated use {@link senselogic.sitevision.api.user.UserIdentityUtil#getUserIdentity(javax.jcr.Node)} instead
    */

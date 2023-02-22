@@ -97,7 +97,7 @@ export type Lock = {
    * If this lock's time-to-live is governed by a timer, this method resets
    * that timer so that the lock does not timeout and expire. If this lock's
    * time-to-live is not governed by a timer, then this method has no effect.
-   * @throws LockException if this <code>Session</code> does not hold the correct lock token for this lock.
+   * @throws LockException if this <code>Session</code> does not hold the&#xA; correct lock token for this lock.
    * @throws RepositoryException if another error occurs.
    */
   refresh(): void;

@@ -29,7 +29,7 @@ export interface UserIdentityUtil {
    *    <em>Note that neither anonymous users, the indexer or the extractor can have a user identity!</em>
    * </p>
    * @param aUserNode a user node that presumably do not have a corresponding user identity
-   * @return the existing or created sv:userIdentity Node for <code>aUserNode</code>, or <code>null</code> if <code>aUserNode</code> is <code>null</code> or isn't allowed to have user identity for current site (e.g. user is anonymized).
+   * @return the existing or created sv:userIdentity Node for <code>aUserNode</code>, or <code>null</code>&#xA; if <code>aUserNode</code> is <code>null</code> or isn't allowed to have user identity for current site (e.g. user is anonymized).
    * @see #getUserIdentity(javax.jcr.Node)
    */
   getOrCreateUserIdentity(aUserNode: Node): Node;
@@ -45,7 +45,7 @@ export interface UserIdentityUtil {
    *    the user identity of current user.
    * </p>
    * @param aUserNode a user node
-   * @return the corresponding sv:userIdentity Node for <code>aUserNode</code>, or <code>null</code> if <code>aUserNode</code> is <code>null</code> or has no corresponding user identity for current site (e.g. user is anonymized).
+   * @return the corresponding sv:userIdentity Node for <code>aUserNode</code>, or <code>null</code>&#xA; if <code>aUserNode</code> is <code>null</code> or has no corresponding user identity for current site (e.g. user is anonymized).
    */
   getUserIdentity(aUserNode: Node): Node;
 }

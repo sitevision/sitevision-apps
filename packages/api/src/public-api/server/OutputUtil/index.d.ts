@@ -65,7 +65,7 @@ export interface OutputUtil extends OutputUtilConstants {
    * <li><code>&lt;p&gt;Hello world! one &lt; two&lt;/p&gt;</code></li>
    * </ul>
    * @param aText the text to be embedded in a html element
-   * @param aFontNode a <code>Node</code> of primary type <code>sv:font</code> that determines the type of html element to use and the class attribute value of the element
+   * @param aFontNode a <code>Node</code> of primary type <code>sv:font</code> that determines the type of html element to use and the&#xA; class attribute value of the element
    * @return <code>aText</code> embedded in a html element, or empty <code>String</code> if <code>aText</code> is <code>null</code>
    * @see #getEscapedHtmlText(String, javax.jcr.Node)
    * @since Sitevision 2.6.1_02
@@ -118,7 +118,7 @@ export interface OutputUtil extends OutputUtilConstants {
    * will return the same result as if the {@link #getHtmlText(String, javax.jcr.Node) getHtmlText(String, Node)} method had been invoked.
    * </p>
    * @param aText the text to be embedded in a html element
-   * @param aFontNode a <code>Node</code> of primary type <code>sv:font</code> that determines the type of html element to use and the class attribute value of the element
+   * @param aFontNode a <code>Node</code> of primary type <code>sv:font</code> that determines the type of html element to use and the&#xA; class attribute value of the element
    * @param aStyle the style that should be inserted in the style attribute of the element
    * @return <code>aText</code> embedded in a html element, or empty <code>String</code> if <code>aText</code> is <code>null</code>
    * @see #getEscapedHtmlText(String, javax.jcr.Node, String)
@@ -160,7 +160,7 @@ export interface OutputUtil extends OutputUtilConstants {
    * <li><code>&lt;p&gt;Hello world! one &amp;lt; two&lt;/p&gt;</code></li>
    * </ul>
    * @param aPlainText the text to be escaped and embedded in a html element
-   * @param aFontNode a <code>Node</code> of primary type <code>sv:font</code> that determines the type of html element to use and the class attribute value of the element
+   * @param aFontNode a <code>Node</code> of primary type <code>sv:font</code> that determines the type of html element to use and the&#xA; class attribute value of the element
    * @return <code>aPlainText</code> escaped and embedded in a html element, or empty String if <code>aPlainText</code> is null
    * @see #getHtmlText(String, javax.jcr.Node)
    * @since Sitevision 2.6.1_02
@@ -214,7 +214,7 @@ export interface OutputUtil extends OutputUtilConstants {
    * method had been invoked.
    * </p>
    * @param aPlainText the text to be escaped and embedded in a html element
-   * @param aFontNode a <code>Node</code> of primary type <code>sv:font</code> that determines the type of html element to use and the class attribute value of the element
+   * @param aFontNode a <code>Node</code> of primary type <code>sv:font</code> that determines the type of html element to use and the&#xA; class attribute value of the element
    * @param aStyle the style that should be inserted in the style attribute of the element
    * @return <code>aPlainText</code> embedded in a html element, or empty <code>String</code> if <code>aPlainText</code> is <code>null</code>
    * @see #getHtmlText(String, javax.jcr.Node, String)
@@ -235,8 +235,8 @@ export interface OutputUtil extends OutputUtilConstants {
    *    considered for hyperlinking.
    * </p>
    * @param aText a text that might contain hyperlinkable parts
-   * @param aClass the class of the hyperlinks (the <code>class</code> attribute of the <code>a</code> element). if <code>aClass</code> is <code>null</code> or empty, it will not be used in any hyperlinks.
-   * @param aStyle the style of the hyperlinks (the <code>style</code> attribute of the <code>a</code> element) if <code>aStyle</code> is <code>null</code> or empty, it will not be used in any hyperlinks.
+   * @param aClass the class of the hyperlinks (the <code>class</code> attribute of the <code>a</code> element).&#xA; if <code>aClass</code> is <code>null</code> or empty, it will not be used in any hyperlinks.
+   * @param aStyle the style of the hyperlinks (the <code>style</code> attribute of the <code>a</code> element)&#xA; if <code>aStyle</code> is <code>null</code> or empty, it will not be used in any hyperlinks.
    * @return <code>aText</code> hyperlinked
    * @since Sitevision 2.6.1_06
    * @see OutputUtil#getHyperlinkedText(String)
@@ -280,8 +280,8 @@ export interface OutputUtil extends OutputUtilConstants {
    * </p>
    * @param aPageNode a page node (sv:page, sv:article, sv:sitePage) where current user has READ permission, must not be null or "current page".
    * @param aPagePartNode a page part node that exist as content on aPageNode (or null if you want the complete output from aPageNode).
-   * @param aContentType a content-type marker, i.e. <a href="#CONTENT_TYPE_TEXT_PLAIN">CONTENT_TYPE_TEXT_PLAIN</a>, <a href="#CONTENT_TYPE_TEXT_HTML">CONTENT_TYPE_TEXT_HTML</a> or <a href="#CONTENT_TYPE_TEXT_XML">CONTENT_TYPE_TEXT_XML</a>.
-   * @return the output result for specified aContentType. If aPageNode is null or "current page", an empty String is returned. If current user doesn't have READ permission on aPageNode, an empty String is returned. If aPagePartNode is null, the output result of aPageNode is returned. If aPagePartNode doesn't exist as content on aPageNode, an empty String is returned.
+   * @param aContentType a content-type marker, i.e.&#xA; <a href="#CONTENT_TYPE_TEXT_PLAIN">CONTENT_TYPE_TEXT_PLAIN</a>,&#xA; <a href="#CONTENT_TYPE_TEXT_HTML">CONTENT_TYPE_TEXT_HTML</a> or&#xA; <a href="#CONTENT_TYPE_TEXT_XML">CONTENT_TYPE_TEXT_XML</a>.
+   * @return the output result for specified aContentType.&#xA; If aPageNode is null or "current page", an empty String is returned.&#xA; If current user doesn't have READ permission on aPageNode, an empty String is returned.&#xA; If aPagePartNode is null, the output result of aPageNode is returned.&#xA; If aPagePartNode doesn't exist as content on aPageNode, an empty String is returned.
    * @since Sitevision 2.6
    */
   getNodeOutput(
@@ -388,7 +388,7 @@ export interface OutputUtil extends OutputUtilConstants {
    * @param aDescendantNode the node the web path should be rendered for
    * @param aLinkRenderer the link renderer that determines how links are rendered
    * @param aSeparator the separator that should be put between the links. <em>Note! This is not encoded by this method.</em>
-   * @return a linked web path, or empty string if aDescendantNode is <code>null</code>, <code>aLinkRenderer</code> is <code>null</code>, <code>aSeparator</code> is <code>null</code> or no web path could be created.
+   * @return a linked web path, or empty string if aDescendantNode is <code>null</code>, <code>aLinkRenderer</code> is <code>null</code>,&#xA; <code>aSeparator</code> is <code>null</code> or no web path could be created.
    * @see senselogic.sitevision.api.node.NodeTreeUtil#getWebPathNodes(javax.jcr.Node)
    * @since Sitevision 3.0.2
    */

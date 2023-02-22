@@ -240,7 +240,7 @@ export interface ScriptUtil {
   /**
    * Gets the date format pattern used in the Sitevision editor for a specific Locale.
    * @param aLocale the <code>Locale</code> that specifies the date format pattern
-   * @return the date format pattern used in the Sitevision editor that corresponds to <code>aLocale</code>. If <code>aLocale</code> is <code>null</code> then the current locale (as of {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()}) is used to locate the format pattern. If no pattern exist for <code>aLocale</code> then the pattern that corresponds to <code>Locale.ENGLISH</code> will be returned.
+   * @return the date format pattern used in the Sitevision editor that corresponds to <code>aLocale</code>.&#xA; If <code>aLocale</code> is <code>null</code> then the current locale (as of&#xA; {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentLocale()})&#xA; is used to locate the format pattern. If no pattern exist for <code>aLocale</code> then the pattern that corresponds to&#xA; <code>Locale.ENGLISH</code> will be returned.
    * @since Sitevision 2.6.1_02
    * @deprecated use {@link senselogic.sitevision.api.date.DateUtil#getEditorFormatPattern(java.util.Locale)} instead
    */
@@ -248,9 +248,9 @@ export interface ScriptUtil {
 
   /**
    * Methods that formats a date according to a <code>SimpleDateFormat</code> pattern
-   * @param aFormatPattern date to string pattern according to <code>SimpleDateFormat</code>. If <code>null</code> is specified the default format is used
+   * @param aFormatPattern date to string pattern according to <code>SimpleDateFormat</code>. If <code>null</code>&#xA; is specified the default format is used
    * @param aDate the <code>Date</code>
-   * @return returns a <code>String</code> representation of <code>aDate</code> according to <code>aFormatPattern</code>. Returns <code>null</code> if <code>aDate</code> is <code>null</code>.
+   * @return returns a <code>String</code> representation of <code>aDate</code> according to <code>aFormatPattern</code>.&#xA; Returns <code>null</code> if <code>aDate</code> is <code>null</code>.
    * @since Sitevision 2.6_06
    * @deprecated use {@link senselogic.sitevision.api.date.DateUtil#getDateAsString(String, java.util.Date)} instead
    */
@@ -258,9 +258,9 @@ export interface ScriptUtil {
 
   /**
    * Methods that formats the date of a calendar according to a <code>SimpleDateFormat</code> pattern
-   * @param aFormatPattern date to string pattern according to <code>SimpleDateFormat</code>. If <code>null</code> is specified the default format is used
+   * @param aFormatPattern date to string pattern according to <code>SimpleDateFormat</code>. If <code>null</code>&#xA; is specified the default format is used
    * @param aCalendar the <code>Calendar</code>
-   * @return returns a <code>String</code> representation of the date of <code>aCalendar</code> according to <code>aFormatPattern</code>. Returns <code>null</code> if <code>aDate</code> is <code>null</code>.
+   * @return returns a <code>String</code> representation of the date of <code>aCalendar</code> according to <code>aFormatPattern</code>.&#xA; Returns <code>null</code> if <code>aDate</code> is <code>null</code>.
    * @since Sitevision 2.6.1_02
    * @deprecated use {@link senselogic.sitevision.api.date.DateUtil#getCalendarAsString(String, java.util.Calendar)} instead
    */
@@ -275,7 +275,7 @@ export interface ScriptUtil {
    * &nbsp;&nbsp; <code>456456456</code> -&gt; "<code>440 MB</code>"
    * </p>
    * @param aSize a size that should be presented for humans
-   * @return a human presentable byte-suffixed size with two significant digits. If <code>aSize</code> is less than 0 or larger than 1125899906842624 (1024 TB), an empty String will be returned.
+   * @return a human presentable byte-suffixed size with two significant digits. If <code>aSize</code> is less than 0 or larger than&#xA; 1125899906842624 (1024 TB), an empty String will be returned.
    * @since Sitevision 2.6.1_04
    */
   getHumanPresentableSize(aSize: number): string;
@@ -315,7 +315,7 @@ export interface ScriptUtil {
   /**
    * Method that returns true for values that can be interpreted as the true value.
    * @param anObject an Object that might be interpreted as a true value
-   * @return returns <code>true</code> if <code>anObject</code> is a <code>Boolean</code> with a <code>true</code> value or a <code>String</code> with a "<code>true</code>" value, <code>false</code> otherwise.
+   * @return returns <code>true</code> if <code>anObject</code> is a <code>Boolean</code> with a <code>true</code> value&#xA; or a <code>String</code> with a "<code>true</code>" value, <code>false</code> otherwise.
    * @since Sitevision 2.6.1_04
    */
   isTrue(anObject: unknown): boolean;
@@ -323,7 +323,7 @@ export interface ScriptUtil {
   /**
    * Method that returns true for values that can be interpreted as the false value.
    * @param anObject an Object that might be interpreted as a false value
-   * @return returns <code>true</code> if <code>anObject</code> is a <code>Boolean</code> with a <code>false</code> value or a <code>String</code> with a "<code>false</code>" value, <code>false</code> otherwise.
+   * @return returns <code>true</code> if <code>anObject</code> is a <code>Boolean</code> with a <code>false</code> value&#xA; or a <code>String</code> with a "<code>false</code>" value, <code>false</code> otherwise.
    * @since Sitevision 2.6.1_04
    */
   isFalse(anObject: unknown): boolean;
@@ -339,8 +339,8 @@ export interface ScriptUtil {
    *    joinArray([], "-")                        -&gt; ""
    *    joinArray(null, "-")                      -&gt; null
    * </code></pre>
-   * @param anArray the array that should be joined to a single string. <code>null</code> elements will be treated as empty (<code>""</code>) and for non-String elements <code>toString()</code> will be invoked on the element to get a string representation.
-   * @param aSeparator the separator that should delimit the elements of <code>anArray</code> in the resulting joined string. <code>null</code> will be treated as empty (<code>""</code>)
+   * @param anArray the array that should be joined to a single string. <code>null</code> elements will be treated as empty&#xA; (<code>""</code>) and for non-String elements <code>toString()</code>&#xA; will be invoked on the element to get a string representation.
+   * @param aSeparator the separator that should delimit the elements of <code>anArray</code> in the resulting joined string.&#xA; <code>null</code> will be treated as empty (<code>""</code>)
    * @return the joined <code>String</code>. If <code>anArray</code> is <code>null</code>, <code>null</code> will be returned
    * @see #joinCollection(java.util.Collection, String)
    * @since Sitevision 2.6.1_04
@@ -353,8 +353,8 @@ export interface ScriptUtil {
    * <p>
    * For examples, see {@link #joinArray(Object[], String)}
    * </p>
-   * @param aCollection the collection that should be joined to a single string. <code>null</code> items will be treated as empty (<code>""</code>) and for non-String items <code>toString()</code> will be invoked on the item to get a string representation.
-   * @param aSeparator the separator that should delimit the items of <code>aCollection</code> in the resulting joined string. <code>null</code> will be treated as empty (<code>""</code>)
+   * @param aCollection the collection that should be joined to a single string. <code>null</code> items will be treated as empty&#xA; (<code>""</code>) and for non-String items <code>toString()</code>&#xA; will be invoked on the item to get a string representation.
+   * @param aSeparator the separator that should delimit the items of <code>aCollection</code> in the resulting joined string.&#xA; <code>null</code> will be treated as empty (<code>""</code>)
    * @return the joined <code>String</code>. If <code>aCollection</code> is <code>null</code>, <code>null</code> will be returned
    * @see #joinArray(Object[], String)
    * @since Sitevision 2.6.1_04
@@ -386,9 +386,9 @@ export interface ScriptUtil {
    *    <em>## Format and print result</em>
    *    &lt;p&gt;$scriptUtil.messageFormat($pattern, $argsList)&lt;/p&gt;
    * </code></pre>
-   * @param aMessageFormatPattern a pattern accepted by the Java <a href="http://docs.oracle.com/javase/8/docs/api/java/text/MessageFormat.html">MessageFormat</a> class
+   * @param aMessageFormatPattern a pattern accepted by the Java&#xA; <a href="http://docs.oracle.com/javase/8/docs/api/java/text/MessageFormat.html">MessageFormat</a> class
    * @param anArguments arguments needed by the pattern
-   * @return the result of the pattern evaluation or <code>null</code> if evaluation fails. Returns <code>null</code> if <code>aMessageFormatPattern</code> is <code>null</code> or if <code>anArguments</code> doesn't contain any arguments.
+   * @return the result of the pattern evaluation or <code>null</code> if evaluation fails. Returns <code>null</code> if&#xA; <code>aMessageFormatPattern</code> is <code>null</code> or if <code>anArguments</code> doesn't contain any arguments.
    * @since Sitevision 3.0
    */
   messageFormat(aMessageFormatPattern: string, anArguments: unknown): string;
