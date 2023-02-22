@@ -16,7 +16,7 @@
   "scripts": {
     "prepack": "yarn build",
     "build": "rimraf dist/ && rimraf build/ && scripts/copysrc.sh && node scripts/generateindex.js && babel build --out-dir dist --copy-files && copyfiles package.json README.md dist/",
-    "test": "tsc --noEmit dist/index.d.ts",
+    "test": "yarn build && tsc --noEmit dist/index.d.ts && echo 'No errors found.'",
     "deploy": "yarn build && npm publish dist"
   },
   "devDependencies": {
