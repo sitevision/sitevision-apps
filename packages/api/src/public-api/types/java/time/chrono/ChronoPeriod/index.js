@@ -1,0 +1,18 @@
+export default {
+  between: () => {},
+  get: () => {},
+  getUnits: () => {},
+  getChronology: () => {},
+  isZero: () => {},
+  isNegative: () => {},
+  plus: () => {},
+  minus: () => {},
+  multipliedBy: () => {},
+  negated: () => {},
+  normalized: () => {},
+  addTo: () => {},
+  subtractFrom: () => {},
+  equals: () => {},
+  hashCode: () => {},
+  toString: () => {},
+};

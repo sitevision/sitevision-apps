@@ -2,19 +2,19 @@ import type { MessageDigester } from "../../types/senselogic/sitevision/api/secu
 
 /**
  * Factory that provides message digester instances that can perform
- * hash computation using a specific algorithm.
+ *  hash computation using a specific algorithm.
  *
- * <p>
- *    Message digests are secure one-way hash functions that take arbitrary-sized
- *    data and output a fixed-length hash value. This factory provides instances
- *    that supports common message digest algorithms, such as MD5 and SHA-256.
- * </p>
+ *  <p>
+ *     Message digests are secure one-way hash functions that take arbitrary-sized
+ *     data and output a fixed-length hash value. This factory provides instances
+ *     that supports common message digest algorithms, such as MD5 and SHA-256.
+ *  </p>
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via
- *    {@link senselogic.sitevision.api.Utils#getMessageDigesterFactory()}. See {@link senselogic.sitevision.api.Utils}
- *    for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link senselogic.sitevision.api.Utils#getMessageDigesterFactory()}. See {@link senselogic.sitevision.api.Utils}
+ *     for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 5.0.1
  */

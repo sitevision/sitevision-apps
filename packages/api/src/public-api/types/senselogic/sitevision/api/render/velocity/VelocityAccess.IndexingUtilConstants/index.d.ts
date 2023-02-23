@@ -1,10 +1,10 @@
 /**
  * Get methods for accessing field constants defined in {@link senselogic.sitevision.api.search.index.IndexingUtil}.
  *
- * <p>
- *    The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.search.index.IndexingUtil}
- *    constants in Velocity, e.g: <code>$indexingUtil.MAX_RESOURCE_PRIORITY</code>
- * </p>
+ *  <p>
+ *     The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.search.index.IndexingUtil}
+ *     constants in Velocity, e.g: <code>$indexingUtil.MAX_RESOURCE_PRIORITY</code>
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6.4
  */

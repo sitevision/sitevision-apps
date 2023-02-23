@@ -2,30 +2,30 @@ import type { MathInstanceConstants } from "../../types/senselogic/sitevision/ap
 
 /**
  * Instance wrapper for the <code>java.lang.Math</code> class that delegates all method calls to
- * the corresponding <code>Math</code> method.
+ *  the corresponding <code>Math</code> method.
  *
- * <p>
- *    <em>Note! Method documentations in this interface are only excerpts. For full documentation, see official java.lang.Math Javadoc</em>
- * </p>
+ *  <p>
+ *     <em>Note! Method documentations in this interface are only excerpts. For full documentation, see official java.lang.Math Javadoc</em>
+ *  </p>
  *
- * <p>
- * An instance of the Sitevision class implementing this interface can be obtained via {@link InstanceCreatorUtil#getMathInstance()}.
- * See {@link InstanceCreatorUtil} for how to obtain an instance of the <code>InstanceCreatorUtil</code> interface.
- * </p>
+ *  <p>
+ *  An instance of the Sitevision class implementing this interface can be obtained via {@link InstanceCreatorUtil#getMathInstance()}.
+ *  See {@link InstanceCreatorUtil} for how to obtain an instance of the <code>InstanceCreatorUtil</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.1
  */
 export interface MathInstance extends MathInstanceConstants {
   /**
  * The <code>double</code> value that is closer than any other to
- * <i>e</i>, the base of the natural logarithms.
+ *  <i>e</i>, the base of the natural logarithms.
   
     */
   E: 2.718281828459045;
 
   /**
  * The <code>double</code> value that is closer than any other to
- * <i>pi</i>, the ratio of the circumference of a circle to its diameter.
+ *  <i>pi</i>, the ratio of the circumference of a circle to its diameter.
   
     */
   PI: 3.141592653589793;
@@ -131,7 +131,7 @@ export interface MathInstance extends MathInstanceConstants {
 
   /**
    * Returns the smallest (closest to negative infinity) <code>double</code> value that is greater than
-   * or equal to the argument and is equal to a mathematical integer.
+   *  or equal to the argument and is equal to a mathematical integer.
    * @param aValue a value.
    * @return the smallest (closest to negative infinity) floating-point value that is greater than&#xA; or equal to the argument and is equal to a mathematical integer.
    */
@@ -139,7 +139,7 @@ export interface MathInstance extends MathInstanceConstants {
 
   /**
    * Returns the largest (closest to positive infinity) <code>double</code> value that is less than
-   * or equal to the argument and is equal to a mathematical integer.
+   *  or equal to the argument and is equal to a mathematical integer.
    * @param aValue a value.
    * @return the largest (closest to positive infinity) floating-point value that less than or equal to&#xA; the argument and is equal to a mathematical integer.
    */
@@ -147,7 +147,7 @@ export interface MathInstance extends MathInstanceConstants {
 
   /**
    * Returns the <code>double</code> value that is closest in value to the argument and is equal to
-   * a mathematical integer.
+   *  a mathematical integer.
    * @param aValue a value.
    * @return the closest floating-point value to <code>aValue</code> that is equal to a mathematical integer.
    */
@@ -155,7 +155,7 @@ export interface MathInstance extends MathInstanceConstants {
 
   /**
    * Returns the angle <i>theta</i> from the conversion of rectangular coordinates
-   * (<code>x</code>,&nbsp;<code>y</code>) to polar coordinates (r,&nbsp;<i>theta</i>).
+   *  (<code>x</code>,&nbsp;<code>y</code>) to polar coordinates (r,&nbsp;<i>theta</i>).
    * @param y the ordinate coordinate
    * @param x the abscissa coordinate
    * @return the <i>theta</i> component of the point (<i>r</i>,&nbsp;<i>theta</i>) in polar coordinates&#xA; that corresponds to the point (<i>x</i>,&nbsp;<i>y</i>) in Cartesian coordinates.
@@ -186,7 +186,7 @@ export interface MathInstance extends MathInstanceConstants {
 
   /**
    * Returns a <code>double</code> value with a positive sign, greater
-   * than or equal to <code>0.0</code> and less than <code>1.0</code>.
+   *  than or equal to <code>0.0</code> and less than <code>1.0</code>.
    * @return a pseudorandom <code>double</code> greater than or equal&#xA; to <code>0.0</code> and less than <code>1.0</code>.
    */
   random(): number;
@@ -416,7 +416,7 @@ export interface MathInstance extends MathInstanceConstants {
 
   /**
    * Return <code>aDouble</code> &times; 2<sup><code>aScaleFactor</code></sup> rounded as if performed
-   * by a single correctly rounded floating-point multiply to a member of the double value set.
+   *  by a single correctly rounded floating-point multiply to a member of the double value set.
    * @param aDouble number to be scaled by a power of two.
    * @param aScaleFactor power of 2 used to scale <code>aDouble</code>
    * @return <code>aDouble</code> &times; 2<sup><code>aScaleFactor</code></sup>
@@ -425,7 +425,7 @@ export interface MathInstance extends MathInstanceConstants {
 
   /**
    * Return <code>aFloat</code> &times; 2<sup><code>aScaleFactor</code></sup> rounded as if performed
-   * by a single correctly rounded floating-point multiply to a member of the float value set.
+   *  by a single correctly rounded floating-point multiply to a member of the float value set.
    * @param aFloat number to be scaled by a power of two.
    * @param aScaleFactor power of 2 used to scale <code>aFloat</code>
    * @return <code>aFloat</code> &times; 2<sup><code>aScaleFactor</code></sup>

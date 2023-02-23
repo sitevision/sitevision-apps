@@ -1,10 +1,10 @@
 /**
  * Get methods for accessing field constants defined in {@link senselogic.sitevision.api.search.SearchResult}.
  *
- * <p>
- *    The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.search.SearchResult}
- *    constants in Velocity, e.g: <code>$searchResult.STATUS_OK</code>
- * </p>
+ *  <p>
+ *     The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.search.SearchResult}
+ *     constants in Velocity, e.g: <code>$searchResult.STATUS_OK</code>
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */

@@ -4,10 +4,10 @@ import type Permission from "../PermissionUtil.Permission";
 /**
  * Permissions utilities interface for checking permissions.
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getPermissionUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getPermissionUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 2.6
  */
@@ -15,20 +15,20 @@ export interface PermissionUtil {
   /**
    * Checks if a non-authenticated user has read permission on current page.
    *
-   * <p>
-   *    This is a convenience method for {@link #hasAnonymousReadPermission(Node)} that uses PortletContextUtil to get
-   *    {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page}.
-   * </p>
-   * <p>
-   *    <em>
-   *       <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
-   *       A RESTApp should therefore typically never use any convenience method that relies on "current page".
-   *       This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
-   *       as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
-   *       that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
-   *       incoming http requests can be completely blocked etc).
-   *    </em>
-   * </p>
+   *  <p>
+   *     This is a convenience method for {@link #hasAnonymousReadPermission(Node)} that uses PortletContextUtil to get
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page}.
+   *  </p>
+   *  <p>
+   *     <em>
+   *        <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
+   *        A RESTApp should therefore typically never use any convenience method that relies on "current page".
+   *        This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
+   *        as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
+   *        that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
+   *        incoming http requests can be completely blocked etc).
+   *     </em>
+   *  </p>
    * @return <code>true</code> if an anonymous user has read permission on current page (e.g. "page is public"),&#xA; <code>false</code> if not or if indeterminable (i.e. current page can not be determined)
    * @see #hasAnonymousReadPermission(Node)
    * @since Sitevision 2.6.2_05
@@ -47,21 +47,21 @@ export interface PermissionUtil {
   /**
    * Checks if current user has read permission on current page.
    *
-   * <p>
-   *    This is a convenience method for {@link #hasReadPermission(Node, Node)} that uses PortletContextUtil to get
-   *    {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page} and
-   *    {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser() current user}.
-   * </p>
-   * <p>
-   *    <em>
-   *       <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
-   *       A RESTApp should therefore typically never use any convenience method that relies on "current page".
-   *       This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
-   *       as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
-   *       that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
-   *       incoming http requests can be completely blocked etc).
-   *    </em>
-   * </p>
+   *  <p>
+   *     This is a convenience method for {@link #hasReadPermission(Node, Node)} that uses PortletContextUtil to get
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page} and
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser() current user}.
+   *  </p>
+   *  <p>
+   *     <em>
+   *        <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
+   *        A RESTApp should therefore typically never use any convenience method that relies on "current page".
+   *        This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
+   *        as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
+   *        that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
+   *        incoming http requests can be completely blocked etc).
+   *     </em>
+   *  </p>
    * @return true if current user has read permission on current page,&#xA; false if not or if indeterminable (i.e. current user or current page can not be determined)
    * @see #hasReadPermission(Node, Node)
    */
@@ -79,21 +79,21 @@ export interface PermissionUtil {
   /**
    * Checks if current user has write permission on current page.
    *
-   * <p>
-   *    This is a convenience method for {@link #hasWritePermission(Node, Node)} that uses PortletContextUtil to get
-   *    {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page} and
-   *    {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser() current user}.
-   * </p>
-   * <p>
-   *    <em>
-   *       <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
-   *       A RESTApp should therefore typically never use any convenience method that relies on "current page".
-   *       This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
-   *       as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
-   *       that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
-   *       incoming http requests can be completely blocked etc).
-   *    </em>
-   * </p>
+   *  <p>
+   *     This is a convenience method for {@link #hasWritePermission(Node, Node)} that uses PortletContextUtil to get
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page} and
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser() current user}.
+   *  </p>
+   *  <p>
+   *     <em>
+   *        <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
+   *        A RESTApp should therefore typically never use any convenience method that relies on "current page".
+   *        This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
+   *        as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
+   *        that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
+   *        incoming http requests can be completely blocked etc).
+   *     </em>
+   *  </p>
    * @return true if current user has write permission on current page, false if not or if indeterminable
    * @see #hasWritePermission(Node, Node)
    */
@@ -111,43 +111,43 @@ export interface PermissionUtil {
   /**
    * Checks if a certain user has <em>effective</em> write permission on a certain tree node.
    *
-   * <p>
-   *    This is a extended version of {@link #hasWritePermission(Node, Node)} that delivers a more accurate runtime result.
-   * </p>
-   * <p>
-   *    Even though a User strict formally has {@link Permission#WRITE} permission on a Node, some additional state might
-   *    in practice prohibit actual write operations anyway. This method also checks such cases. For example:
-   * </p>
-   * <ul>
-   *    <li>
-   *       The Node is <strong>Locked</strong>
-   *       <ul>
-   *           <li><em>This method will return false if the Node is locked by another User</em></li>
-   *       </ul>
-   *    </li>
-   *    <li>
-   *       The Node is part of a <strong>Publishing project</strong>
-   *       <ul>
-   *          <li><em>This method will return false if the Node is in the "ready/done" state</em></li>
-   *          <li>
-   *             <em>This method will return false if the User isn't a project member or have {@link Permission#MANAGE_PUBLISHING_PROJECT}</em>
-   *          </li>
-   *       </ul>
-   *    </li>
-   *    <li>
-   *       The Node is in a pending <strong>Publishing flow</strong>
-   *       <ul>
-   *           <li><em>This method will return false</em></li>
-   *       </ul>
-   *    </li>
-   * </ul>
-   * <p>
-   *    <em>
-   *       <strong>Note!</strong> This method is more reliable than its static "hasWritePermission" sibling, but in a runtime environment anything
-   *       can happen at any given time! Hence, even if this method returns true - there are absolutely no guarantee that the true state will remain
-   *       when an actual mutating operation is performed shortly after.
-   *    </em>
-   * </p>
+   *  <p>
+   *     This is a extended version of {@link #hasWritePermission(Node, Node)} that delivers a more accurate runtime result.
+   *  </p>
+   *  <p>
+   *     Even though a User strict formally has {@link Permission#WRITE} permission on a Node, some additional state might
+   *     in practice prohibit actual write operations anyway. This method also checks such cases. For example:
+   *  </p>
+   *  <ul>
+   *     <li>
+   *        The Node is <strong>Locked</strong>
+   *        <ul>
+   *            <li><em>This method will return false if the Node is locked by another User</em></li>
+   *        </ul>
+   *     </li>
+   *     <li>
+   *        The Node is part of a <strong>Publishing project</strong>
+   *        <ul>
+   *           <li><em>This method will return false if the Node is in the "ready/done" state</em></li>
+   *           <li>
+   *              <em>This method will return false if the User isn't a project member or have {@link Permission#MANAGE_PUBLISHING_PROJECT}</em>
+   *           </li>
+   *        </ul>
+   *     </li>
+   *     <li>
+   *        The Node is in a pending <strong>Publishing flow</strong>
+   *        <ul>
+   *            <li><em>This method will return false</em></li>
+   *        </ul>
+   *     </li>
+   *  </ul>
+   *  <p>
+   *     <em>
+   *        <strong>Note!</strong> This method is more reliable than its static "hasWritePermission" sibling, but in a runtime environment anything
+   *        can happen at any given time! Hence, even if this method returns true - there are absolutely no guarantee that the true state will remain
+   *        when an actual mutating operation is performed shortly after.
+   *     </em>
+   *  </p>
    * @param aTreeNode a node in the page/template/file/image tree
    * @param aUserNode a user node (or a user identity node)
    * @return true if aUserNode has effective write permission on aTreeNode, false if not or if indeterminable
@@ -169,40 +169,40 @@ export interface PermissionUtil {
   /**
    * Checks if a certain user has <em>effective</em> publish permission on a certain page tree node.
    *
-   * <p>
-   *    This is a extended version of {@link #hasPublishPermission(Node, Node)} that delivers a more accurate runtime result.
-   * </p>
-   * <p>
-   *    Even though a User strict formally has {@link Permission#PUBLISH} permission on a Node, some additional state might
-   *    in practice prohibit actual publish operations anyway. This method also checks such cases. For example:
-   * </p>
-   * <ul>
-   *    <li>
-   *       The Node is <strong>Locked</strong>
-   *       <ul>
-   *           <li><em>This method will return false if the Node is locked by another User</em></li>
-   *       </ul>
-   *    </li>
-   *    <li>
-   *       The Node is part of a <strong>Publishing project</strong>
-   *       <ul>
-   *          <li><em>This method will return false</em></li>
-   *       </ul>
-   *    </li>
-   *    <li>
-   *       The Node is in a pending <strong>Publishing flow</strong>
-   *       <ul>
+   *  <p>
+   *     This is a extended version of {@link #hasPublishPermission(Node, Node)} that delivers a more accurate runtime result.
+   *  </p>
+   *  <p>
+   *     Even though a User strict formally has {@link Permission#PUBLISH} permission on a Node, some additional state might
+   *     in practice prohibit actual publish operations anyway. This method also checks such cases. For example:
+   *  </p>
+   *  <ul>
+   *     <li>
+   *        The Node is <strong>Locked</strong>
+   *        <ul>
+   *            <li><em>This method will return false if the Node is locked by another User</em></li>
+   *        </ul>
+   *     </li>
+   *     <li>
+   *        The Node is part of a <strong>Publishing project</strong>
+   *        <ul>
    *           <li><em>This method will return false</em></li>
-   *       </ul>
-   *    </li>
-   * </ul>
-   * <p>
-   *    <em>
-   *       <strong>Note!</strong> This method is more reliable than its static "hasPublishPermission" sibling, but in a runtime environment anything
-   *       can happen at any given time! Hence, even if this method returns true - there are absolutely no guarantee that the true state will remain
-   *       when an actual publish operation is performed shortly after.
-   *    </em>
-   * </p>
+   *        </ul>
+   *     </li>
+   *     <li>
+   *        The Node is in a pending <strong>Publishing flow</strong>
+   *        <ul>
+   *            <li><em>This method will return false</em></li>
+   *        </ul>
+   *     </li>
+   *  </ul>
+   *  <p>
+   *     <em>
+   *        <strong>Note!</strong> This method is more reliable than its static "hasPublishPermission" sibling, but in a runtime environment anything
+   *        can happen at any given time! Hence, even if this method returns true - there are absolutely no guarantee that the true state will remain
+   *        when an actual publish operation is performed shortly after.
+   *     </em>
+   *  </p>
    * @param aPageNode a publishable node in the page/template/decorations tree
    * @param aUserNode a user node (or a user identity node)
    * @return true if aUserNode has effective publish permission on aTreeNode, false if not or if indeterminable
@@ -233,37 +233,37 @@ export interface PermissionUtil {
   /**
    * Checks if a certain user has <em>effective</em> delete permission on a certain tree node.
    *
-   * <p>
-   *    This is a extended version of {@link #hasDeletePermission(Node, Node)} that delivers a more accurate runtime result.
-   * </p>
-   * <p>
-   *    Even though a User strict formally has {@link Permission#DELETE} and {@link Permission#WRITE} permission on a Node, some additional
-   *    state might in practice prohibit actual delete operations anyway. This method also checks such cases. For example:
-   * </p>
-   * <ul>
-   *    <li>
-   *       The Node is part of a <strong>Publishing project</strong>
-   *       <ul>
-   *          <li><em>This method will return false if the Node is in the "ready/done" state</em></li>
-   *          <li>
-   *             <em>This method will return false if the User isn't a project member or have {@link Permission#MANAGE_PUBLISHING_PROJECT}</em>
-   *          </li>
-   *       </ul>
-   *    </li>
-   *    <li>
-   *       The Node is in a pending <strong>Publishing flow</strong>
-   *       <ul>
-   *           <li><em>This method will return false</em></li>
-   *       </ul>
-   *    </li>
-   * </ul>
-   * <p>
-   *    <em>
-   *       <strong>Note!</strong> This method is more reliable than its static "hasDeletePermission" sibling, but in a runtime environment anything
-   *       can happen at any given time! Hence, even if this method returns true - there are absolutely no guarantee that the true state will remain
-   *       when an actual delete operation is performed shortly after.
-   *    </em>
-   * </p>
+   *  <p>
+   *     This is a extended version of {@link #hasDeletePermission(Node, Node)} that delivers a more accurate runtime result.
+   *  </p>
+   *  <p>
+   *     Even though a User strict formally has {@link Permission#DELETE} and {@link Permission#WRITE} permission on a Node, some additional
+   *     state might in practice prohibit actual delete operations anyway. This method also checks such cases. For example:
+   *  </p>
+   *  <ul>
+   *     <li>
+   *        The Node is part of a <strong>Publishing project</strong>
+   *        <ul>
+   *           <li><em>This method will return false if the Node is in the "ready/done" state</em></li>
+   *           <li>
+   *              <em>This method will return false if the User isn't a project member or have {@link Permission#MANAGE_PUBLISHING_PROJECT}</em>
+   *           </li>
+   *        </ul>
+   *     </li>
+   *     <li>
+   *        The Node is in a pending <strong>Publishing flow</strong>
+   *        <ul>
+   *            <li><em>This method will return false</em></li>
+   *        </ul>
+   *     </li>
+   *  </ul>
+   *  <p>
+   *     <em>
+   *        <strong>Note!</strong> This method is more reliable than its static "hasDeletePermission" sibling, but in a runtime environment anything
+   *        can happen at any given time! Hence, even if this method returns true - there are absolutely no guarantee that the true state will remain
+   *        when an actual delete operation is performed shortly after.
+   *     </em>
+   *  </p>
    * @param aTreeNode a node in the page/template/file/image tree
    * @param aUserNode a user node (or a user identity node)
    * @return true if aUserNode has effective delete permission on aTreeNode, false if not or if indeterminable
@@ -311,21 +311,21 @@ export interface PermissionUtil {
   /**
    * Checks if current user has a certain permission on current page.
    *
-   * <p>
-   *    This is a convenience method for {@link #hasPermission(Node, Node, Permission)} that uses PortletContextUtil to get
-   *    {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page} and
-   *    {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser() current user}.
-   * </p>
-   * <p>
-   *    <em>
-   *       <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
-   *       A RESTApp should therefore typically never use any convenience method that relies on "current page".
-   *       This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
-   *       as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
-   *       that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
-   *       incoming http requests can be completely blocked etc).
-   *    </em>
-   * </p>
+   *  <p>
+   *     This is a convenience method for {@link #hasPermission(Node, Node, Permission)} that uses PortletContextUtil to get
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page} and
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser() current user}.
+   *  </p>
+   *  <p>
+   *     <em>
+   *        <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
+   *        A RESTApp should therefore typically never use any convenience method that relies on "current page".
+   *        This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
+   *        as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
+   *        that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
+   *        incoming http requests can be completely blocked etc).
+   *     </em>
+   *  </p>
    * @param aPermission the permission to check
    * @return true if current user has aPermission on current page, false if not or if indeterminable&#xA; (e.g. current user or current page can not be determined)
    * @see #hasPermission(Node, Permission)
@@ -337,28 +337,28 @@ export interface PermissionUtil {
   /**
    * Checks if current user has certain permissions on current page.
    *
-   * <p>
-   *    This is a convenience method for {@link #hasPermissions(Node, Node, Permission...)} that uses PortletContextUtil to get
-   *    {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page} and
-   *    {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser() current user}.
-   * </p>
-   * <p>
-   *    <em>
-   *       <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
-   *       A RESTApp should therefore typically never use any convenience method that relies on "current page".
-   *       This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
-   *       as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
-   *       that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
-   *       incoming http requests can be completely blocked etc).
-   *    </em>
-   * </p>
+   *  <p>
+   *     This is a convenience method for {@link #hasPermissions(Node, Node, Permission...)} that uses PortletContextUtil to get
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage() current page} and
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser() current user}.
+   *  </p>
+   *  <p>
+   *     <em>
+   *        <strong>Note!</strong> RESTApps has no "current page" concept whatsoever.
+   *        A RESTApp should therefore typically never use any convenience method that relies on "current page".
+   *        This method uses the {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getSitePage() site page}
+   *        as "current page" for best effort when invoked from a RESTApp. Beware of unexpected results and also note
+   *        that RESTApps has its own complementary restrictions (e.g. only some users can call certain http methods,
+   *        incoming http requests can be completely blocked etc).
+   *     </em>
+   *  </p>
    * @param aPermissions the permissions to check
    * @return true if current user has aPermissions on current page, false if not or if indeterminable&#xA; (e.g. current user or current page can not be determined)
    * @see #hasPermissions(Node, Permission...)
    * @see #hasPermissions(Node, Node, Permission...)
    * @since Sitevision 3.6
    */
-  hasPermissions(aPermissions: Permission): boolean;
+  hasPermissions(aPermissions: Permission[]): boolean;
 
   /**
    * Checks if current user has certain permission on a certain tree node.
@@ -380,7 +380,7 @@ export interface PermissionUtil {
    * @see #hasPermissions(Node, Node, Permission...)
    * @since Sitevision 3.6
    */
-  hasPermissions(aTreeNode: Node, aPermissions: Permission): boolean;
+  hasPermissions(aTreeNode: Node, aPermissions: Permission[]): boolean;
 
   /**
    * Checks if a certain user has a certain permission on a certain tree node.
@@ -411,7 +411,7 @@ export interface PermissionUtil {
   hasPermissions(
     aTreeNode: Node,
     aUserNode: Node,
-    aPermissions: Permission
+    aPermissions: Permission[]
   ): boolean;
 }
 

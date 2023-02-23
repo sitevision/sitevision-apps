@@ -3,10 +3,10 @@ import type { RangeIterator } from "../../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>Row</code>s with
- * <code>nextRow</code> as well as a <code>skip</code> method inherited from
- * <code>RangeIterator</code>.
- *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <code>nextRow</code> as well as a <code>skip</code> method inherited from
+ *  <code>RangeIterator</code>.
+ * 
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
 export type RowIterator = RangeIterator & {

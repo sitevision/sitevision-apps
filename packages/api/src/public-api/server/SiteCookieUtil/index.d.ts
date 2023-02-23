@@ -1,17 +1,19 @@
+import type { List } from "../../types/java/util/List";
+import type { String } from "../../types/java/lang/String";
 import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Site cookie utility interface.
  *
- * <p>
- *    Contains methods for retrieving sv:siteCookie Nodes of current site and current user's consent status of them.
- * </p>
+ *  <p>
+ *     Contains methods for retrieving sv:siteCookie Nodes of current site and current user's consent status of them.
+ *  </p>
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via
- *    {@link senselogic.sitevision.api.Utils#getSiteCookieUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link senselogic.sitevision.api.Utils#getSiteCookieUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @see senselogic.sitevision.api.resource.ResourceLocatorUtil#getSiteCookieRepository()
  * @author Karl Eklöf
  * @since Sitevision 9.1
@@ -21,7 +23,7 @@ export interface SiteCookieUtil {
    * Necessary Site cookies (sv:siteCookie) of current site.
    * @return the necessary site cookies of current site, or empty list if current site has no site cookies
    */
-  getNecessarySiteCookies(): unknown;
+  getNecessarySiteCookies(): List;
 
   /**
    * Gets the necessary site cookies category title.
@@ -39,7 +41,7 @@ export interface SiteCookieUtil {
    * Analytics Site cookies (sv:siteCookie) of current site.
    * @return the analytics site cookies of current site, or empty list if current site has no site cookies
    */
-  getAnalyticsSiteCookies(): unknown;
+  getAnalyticsSiteCookies(): List;
 
   /**
    * Gets the analytics site cookies category title.
@@ -57,7 +59,7 @@ export interface SiteCookieUtil {
    * Marketing Site cookies (sv:siteCookie) of current site.
    * @return the marketing site cookies of current site, or empty list if current site has no site cookies
    */
-  getMarketingSiteCookies(): unknown;
+  getMarketingSiteCookies(): List;
 
   /**
    * Gets the marketing site cookies category title.
@@ -76,7 +78,7 @@ export interface SiteCookieUtil {
    * @return the functional site cookies of current site, or empty list if current site has no site cookies
    * @since Sitevision 9.1.1
    */
-  getFunctionalSiteCookies(): unknown;
+  getFunctionalSiteCookies(): List;
 
   /**
    * Gets the functional site cookies category title.
@@ -96,7 +98,7 @@ export interface SiteCookieUtil {
    * Custom Site cookies (sv:siteCookie) of current site.
    * @return the custom site cookies of current site, or empty list if current site has no site cookies
    */
-  getCustomSiteCookies(): unknown;
+  getCustomSiteCookies(): List;
 
   /**
    * Gets the custom site cookies category title.
@@ -115,7 +117,7 @@ export interface SiteCookieUtil {
    * @param aCookieIdentifier the site cookie identifier
    * @return the sv:siteCookie Node with the "cookieIdentifier" property that matches aCookieIdentifier. Returns null if&#xA; aCookieIdentifier is null, blank or indeterminable
    */
-  resolveSiteCookieByIdentifier(aCookieIdentifier: string): Node;
+  resolveSiteCookieByIdentifier(aCookieIdentifier: String | string): Node;
 
   /**
    * Checks whether or not current user explicitly has accepted a specific site cookie.
@@ -147,21 +149,21 @@ export interface SiteCookieUtil {
   /**
    * Generates a consent string that can be saved as cookie value for the cookie named {@link #getUserConsentCookieName()}.
    *
-   * <p>
-   *    <em>Note!</em> All "user selectable" sv:siteCookie Nodes that are <em>not</em> present in <code>aAllowCookieIdList</code>
-   *    will be treated as rejected.
-   * </p>
+   *  <p>
+   *     <em>Note!</em> All "user selectable" sv:siteCookie Nodes that are <em>not</em> present in <code>aAllowCookieIdList</code>
+   *     will be treated as rejected.
+   *  </p>
    * @param aAllowCookieIdList the list of sv:siteCookie accepted by current user
    * @return a string that represents the accept/reject status for current sv:siteCookie's
    * @throws IllegalArgumentException if aAllowCookieIdList is null or contains other than sv:siteCookie Nodes
    */
-  createUserConsentCookieValue(aAllowCookieIdList: unknown): string;
+  createUserConsentCookieValue(aAllowCookieIdList: List | unknown[]): string;
 
   /**
    * Gets all sv:siteCookie nodes that current user has accepted.
    * @return the list of sv:siteCookie Nodes current user has accepted. Returns empty list if site has no site cookies or if current user hasn't&#xA; accepted any sv:siteCookie
    */
-  getUserConsents(): unknown;
+  getUserConsents(): List;
 }
 
 declare namespace SiteCookieUtil {}

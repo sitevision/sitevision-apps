@@ -1,0 +1,16 @@
+export default {
+  getAvailableLocales: () => {},
+  ofDefaultLocale: () => {},
+  of: () => {},
+  getZeroDigit: () => {},
+  withZeroDigit: () => {},
+  getPositiveSign: () => {},
+  withPositiveSign: () => {},
+  getNegativeSign: () => {},
+  withNegativeSign: () => {},
+  getDecimalSeparator: () => {},
+  withDecimalSeparator: () => {},
+  equals: () => {},
+  hashCode: () => {},
+  toString: () => {},
+};

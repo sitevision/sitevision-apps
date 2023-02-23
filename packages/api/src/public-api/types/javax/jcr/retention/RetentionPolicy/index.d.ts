@@ -1,8 +1,10 @@
+import type { String } from "../../../../java/lang/String";
+
 /**
  * An <code>RetentionPolicy</code> is an object with a name and an optional
- * description.
+ *  description.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @see RetentionManager#getRetentionPolicy(String)
  * @see RetentionManager#setRetentionPolicy(String, RetentionPolicy)
  * @see RetentionManager#removeRetentionPolicy(String)

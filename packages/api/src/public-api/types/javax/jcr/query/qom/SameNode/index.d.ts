@@ -1,15 +1,16 @@
+import type { String } from "../../../../../java/lang/String";
 import type { Constraint } from "../Constraint";
 
 /**
  * Tests whether the {@link #getSelectorName selector} node is reachable by
- * absolute path {@link #getPath path}.
- * <p>
- * A node-tuple satisfies the constraint only if:
- * <pre>  selectorNode.isSame(session.getNode(path))</pre>
- * would return true, where <code>selectorNode</code> is the node for the
- * specified selector.
+ *  absolute path {@link #getPath path}.
+ *  <p>
+ *  A node-tuple satisfies the constraint only if:
+ *  <pre>  selectorNode.isSame(session.getNode(path))</pre>
+ *  would return true, where <code>selectorNode</code> is the node for the
+ *  specified selector.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type SameNode = Constraint & {

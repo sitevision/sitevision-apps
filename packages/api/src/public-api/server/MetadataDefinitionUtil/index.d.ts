@@ -1,34 +1,36 @@
 import type { Node } from "../../types/javax/jcr/Node";
+import type { String } from "../../types/java/lang/String";
+import type { List } from "../../types/java/util/List";
 
 /**
  * Utility interface for getting metadata definitions.
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via
- *    {@link senselogic.sitevision.api.Utils#getMetadataDefinitionUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link senselogic.sitevision.api.Utils#getMetadataDefinitionUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  *
- * <p>
- *    <strong>Velocity example:</strong> This code gets all properties and nodes for a metadata definition named 'aMetadataName'.
- * </p>
+ *  <p>
+ *     <strong>Velocity example:</strong> This code gets all properties and nodes for a metadata definition named 'aMetadataName'.
+ *  </p>
  *
- * <pre><code>
- *   #set ($page = ...)
+ *  <pre><code>
+ *    #set ($page = ...)
  *
- *   #set ($definitionUtil = $sitevisionUtils.metadataDefinitionUtil)
- *   #set($definition = $definitionUtil.getDefinition($page, 'aMetadataName'))
+ *    #set ($definitionUtil = $sitevisionUtils.metadataDefinitionUtil)
+ *    #set($definition = $definitionUtil.getDefinition($page, 'aMetadataName'))
  *
- *   #set($nodes = $definition.getNodes())
- *   #foreach($node in $nodes)
- *      $node
- *   #end
+ *    #set($nodes = $definition.getNodes())
+ *    #foreach($node in $nodes)
+ *       $node
+ *    #end
  *
- *   #set($properties = $definition.getProperties())
- *   #foreach($property in $properties)
- *      $property
- *   #end
- * </code></pre>
+ *    #set($properties = $definition.getProperties())
+ *    #foreach($property in $properties)
+ *       $property
+ *    #end
+ *  </code></pre>
  * @author Daniel Pyykkö
  * @since Sitevision 2.6.2_04
  */
@@ -39,7 +41,7 @@ export interface MetadataDefinitionUtil {
    * @param aDefinitionName&#xA; the name of the metadata definition
    * @return the value for {@code aDefinitionName} as a {@code Node}. If no definition exists or it is not a {@code Node}, {@code null} is returned.
    */
-  getDefinition(aNode: Node, aDefinitionName: string): Node;
+  getDefinition(aNode: Node, aDefinitionName: String | string): Node;
 
   /**
    * Gets a metadata definition as a {@code Node} from a {@code Node} with a fallback value if the definition does not exist.
@@ -50,7 +52,7 @@ export interface MetadataDefinitionUtil {
    */
   getDefinition(
     aNode: Node,
-    aDefinitionName: string,
+    aDefinitionName: String | string,
     aDefaultValue: Node
   ): Node;
 
@@ -60,7 +62,7 @@ export interface MetadataDefinitionUtil {
    * @return a list of definitions on {@code aNode}, or empty list
    * @since Sitevision 4.2.3
    */
-  getDefinitions(aNode: Node): unknown;
+  getDefinitions(aNode: Node): List;
 
   /**
    * Add an alternative to a definition
@@ -72,8 +74,8 @@ export interface MetadataDefinitionUtil {
    */
   addAlternative(
     aNode: Node,
-    aDefinitionName: string,
-    aAlternativeName: string
+    aDefinitionName: String | string,
+    aAlternativeName: String | string
   ): void;
 
   /**
@@ -87,9 +89,9 @@ export interface MetadataDefinitionUtil {
    */
   renameAlternative(
     aNode: Node,
-    aDefinitionName: string,
-    aAlternativeName: string,
-    aNewAlternativeName: string
+    aDefinitionName: String | string,
+    aAlternativeName: String | string,
+    aNewAlternativeName: String | string
   ): void;
 
   /**
@@ -102,8 +104,8 @@ export interface MetadataDefinitionUtil {
    */
   removeAlternative(
     aNode: Node,
-    aDefinitionName: string,
-    aAlternativeName: string
+    aDefinitionName: String | string,
+    aAlternativeName: String | string
   ): void;
 }
 

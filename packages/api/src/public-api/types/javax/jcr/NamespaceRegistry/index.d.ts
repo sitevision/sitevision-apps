@@ -1,10 +1,12 @@
+import type { String } from "../../../java/lang/String";
+
 /**
  * Each repository has a single, persistent namespace registry represented by
- * the <code>NamespaceRegistry</code> object, accessed via {@link
- * Workspace#getNamespaceRegistry}. The namespace registry contains the default
- * prefixes of the registered namespaces. The namespace registry may contain
- * namespaces that are not used in repository content, and there may be
- * repository content with namespaces that are not included in the registry.
+ *  the <code>NamespaceRegistry</code> object, accessed via {@link
+ *  Workspace#getNamespaceRegistry}. The namespace registry contains the default
+ *  prefixes of the registered namespaces. The namespace registry may contain
+ *  namespaces that are not used in repository content, and there may be
+ *  repository content with namespaces that are not included in the registry.
  * @see Workspace#getNamespaceRegistry
  */
 export type NamespaceRegistry = {
@@ -29,7 +31,7 @@ export type NamespaceRegistry = {
    * @throws NamespaceException if a mapping with the specified&#xA; <code>prefix</code> does not exist.
    * @throws RepositoryException if another error occurs.
    */
-  getURI(prefix: string): string;
+  getURI(prefix: String | string): string;
 
   /**
    * Returns the prefix which is mapped to the given <code>uri</code>.
@@ -38,7 +40,7 @@ export type NamespaceRegistry = {
    * @throws NamespaceException if a mapping with the specified&#xA; <code>uri</code> does not exist.
    * @throws RepositoryException if another error occurs.
    */
-  getPrefix(uri: string): string;
+  getPrefix(uri: String | string): string;
 
   /**
  * A constant for the predefined namespace prefix "jcr".
@@ -72,35 +74,35 @@ export type NamespaceRegistry = {
 
   /**
  * A constant for the predefined namespace mapped by default to the prefix
- * "jcr".
+ *  "jcr".
   
     */
   NAMESPACE_JCR: string;
 
   /**
  * A constant for the predefined namespace mapped by default to the prefix
- * "nt".
+ *  "nt".
   
     */
   NAMESPACE_NT: string;
 
   /**
  * A constant for the predefined namespace mapped by default to the prefix
- * "mix".
+ *  "mix".
   
     */
   NAMESPACE_MIX: string;
 
   /**
  * A constant for the predefined namespace mapped by default to the prefix
- * "xml".
+ *  "xml".
   
     */
   NAMESPACE_XML: string;
 
   /**
  * A constant for the predefined namespace mapped by default to the prefix
- * "" (the empty prefix).
+ *  "" (the empty prefix).
   
     */
   NAMESPACE_EMPTY: string;

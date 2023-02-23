@@ -1,10 +1,11 @@
+import type { String } from "../../../../../java/lang/String";
 import type { DynamicOperand } from "../DynamicOperand";
 
 /**
  * Evaluates to a <code>NAME</code> value equal to the local (unprefixed) name
- * of a node.
+ *  of a node.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type NodeLocalName = DynamicOperand & {

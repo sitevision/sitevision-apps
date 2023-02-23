@@ -1,12 +1,13 @@
+import type { String } from "../../../../../java/lang/String";
 import type { Constraint } from "../Constraint";
 
 /**
  * Tests the existence of a property.
- * <p>
- * A node-tuple satisfies the constraint if the selector node has a property
- * named {@link #getPropertyName property}.
+ *  <p>
+ *  A node-tuple satisfies the constraint if the selector node has a property
+ *  named {@link #getPropertyName property}.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type PropertyExistence = Constraint & {

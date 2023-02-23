@@ -4,11 +4,11 @@ import type { TemporaryFileNodeBuilder } from "../TemporaryFileNodeBuilder";
 /**
  * Node factory utility interface.
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via
- *    {@link senselogic.sitevision.api.Utils#getNodeFactoryUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link senselogic.sitevision.api.Utils#getNodeFactoryUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 4.1.2
  */

@@ -1,11 +1,12 @@
+import type { String } from "../../../../../java/lang/String";
 import type { SearchHit } from "../SearchHit";
 
 /**
  * <p>
- * This interface is deprecated and non-functional as of Sitevision 3.0. The Sitevision search engine has been replaced
- * (from Lucene to Solr) and highlighting of arbitrary fields in a search result via <code>SearchHighlighter</code> is no longer possible.
- * In Solr you should specify the field(-s) that should be highlighted when you execute the query.
- * </p>
+ *  This interface is deprecated and non-functional as of Sitevision 3.0. The Sitevision search engine has been replaced
+ *  (from Lucene to Solr) and highlighting of arbitrary fields in a search result via <code>SearchHighlighter</code> is no longer possible.
+ *  In Solr you should specify the field(-s) that should be highlighted when you execute the query.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 2.7_06
  * @deprecated This interface will do absolutely nothing as of Sitevision 3.0 (search engine has been replaced).&#xA; Interface methods will not do anything (i.e. always return <code>null</code>) and this interface will be completely removed in&#xA; future releases of Sitevision.
@@ -20,8 +21,8 @@ export type SearchHighlighter = {
    * @deprecated As of Sitevision 3.0 this method will always return <code>null</code>. Do <strong>not</strong> use this interface at all,&#xA; it will be completely removed in future releases of Sitevision.
    */
   getHighlightedFragment(
-    aHighlightPreElement: string,
-    aHighlightPostElement: string,
+    aHighlightPreElement: String | string,
+    aHighlightPostElement: String | string,
     aSearchHit: SearchHit
   ): string;
 
@@ -35,9 +36,9 @@ export type SearchHighlighter = {
    * @deprecated As of Sitevision 3.0 this method will always return <code>null</code>. Do <strong>not</strong> use this interface at all,&#xA; it will be completely removed in future releases of Sitevision.
    */
   getHighlightedFragment(
-    aHighlightPreElement: string,
-    aHighlightPostElement: string,
+    aHighlightPreElement: String | string,
+    aHighlightPostElement: String | string,
     aSearchHit: SearchHit,
-    aHighlightingFieldName: string
+    aHighlightingFieldName: String | string
   ): string;
 };

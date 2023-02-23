@@ -1,19 +1,21 @@
 import type { Node } from "../../types/javax/jcr/Node";
+import type { Locale } from "../../types/java/util/Locale";
 
+import type { String } from "../../types/java/lang/String";
 import type { PortletContextUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.PortletContextUtilConstants";
 
 /**
  * Portlet context utility interface.
  *
- * <p>
- *    Contains methods for retrieving information about present portlet execution context.
- * </p>
+ *  <p>
+ *     Contains methods for retrieving information about present portlet execution context.
+ *  </p>
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via
- *    {@link senselogic.sitevision.api.Utils#getPortletContextUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link senselogic.sitevision.api.Utils#getPortletContextUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  */
 export interface PortletContextUtil extends PortletContextUtilConstants {
@@ -53,7 +55,7 @@ export interface PortletContextUtil extends PortletContextUtilConstants {
    * @return current <code>Locale</code>, or default <code>Locale</code> if indeterminable
    * @see senselogic.sitevision.api.node.NodeResolverUtil#getLocaleResolver()
    */
-  getCurrentLocale(): unknown;
+  getCurrentLocale(): Locale;
 
   /**
    * Gets current user.
@@ -72,10 +74,10 @@ export interface PortletContextUtil extends PortletContextUtilConstants {
   /**
    * Gets current decorated node (applicable during render of a sv:decorationTemplate).
    *
-   * <p>
-   *    This method returns the "decorated" node (typically a sv:portlet or sv:layout) during render of a sv:decorationTemplate.
-   *    In other words - it returns the node that is decorated with the template-based decoration that is now rendering.
-   * </p>
+   *  <p>
+   *     This method returns the "decorated" node (typically a sv:portlet or sv:layout) during render of a sv:decorationTemplate.
+   *     In other words - it returns the node that is decorated with the template-based decoration that is now rendering.
+   *  </p>
    * @return the decorated node or null if indeterminable (i.e. the caller is not a part of a decoration template that is being rendered right now)
    * @since Sitevision 5.1
    */
@@ -92,30 +94,30 @@ export interface PortletContextUtil extends PortletContextUtilConstants {
   /**
    * Gets a unique namespace for the specific portlet that is rendering.
    *
-   * <p>
-   *    The namespace is based on the prefix (aPrefix) and the current portlet's id.
-   *    If you have two portlets of same type on the same page, the namespaces will differ. This can for instance be very useful when you
-   *    connect a &lt;label&gt; with an &lt;input&gt;. Example in Velocity:
-   * </p>
-   * <pre><code>
-   *   #set ($portletContextUtil = $sitevisionUtils.portletContextUtil)
-   *   ...
-   *   #set ($ns = $portletContextUtil.getPortletNamespace('name'))
-   *   &lt;label for="$ns"&gt;Name: &lt;/label&gt;&lt;input id="$ns" name="name" type="text" /&gt;</code></pre>
-   * The namespace generated in the above example (i.e. <code>$ns</code>) could be something like: <code>name12_2b9561c511855e0ab91800015</code>
+   *  <p>
+   *     The namespace is based on the prefix (aPrefix) and the current portlet's id.
+   *     If you have two portlets of same type on the same page, the namespaces will differ. This can for instance be very useful when you
+   *     connect a &lt;label&gt; with an &lt;input&gt;. Example in Velocity:
+   *  </p>
+   *  <pre><code>
+   *    #set ($portletContextUtil = $sitevisionUtils.portletContextUtil)
+   *    ...
+   *    #set ($ns = $portletContextUtil.getPortletNamespace('name'))
+   *    &lt;label for="$ns"&gt;Name: &lt;/label&gt;&lt;input id="$ns" name="name" type="text" /&gt;</code></pre>
+   *  The namespace generated in the above example (i.e. <code>$ns</code>) could be something like: <code>name12_2b9561c511855e0ab91800015</code>
    * @param aPrefix the prefix for the namespace (ensure it only contains chars that are valid in an id value if you use it as such)
    * @return a unique prefixed namespace for current portlet, or aPrefix if indeterminable
    */
-  getPortletNamespace(aPrefix: string): string;
+  getPortletNamespace(aPrefix: String | string): string;
 
   /**
    * Gets a unique nonce for this request.
    *
-   * <p>
-   *    The nonce should be used for all client-side inline javascript (e.g. <code>&lt;script nonce="..."&gt; ... &lt;script&gt;</code>).
-   *    If not specified, the script might be blocked and ignored by the client/browser due to the content security policy settings of the page
-   *    (i.e. typically when the CSP has no "unsafe-inline" specified).
-   * </p>
+   *  <p>
+   *     The nonce should be used for all client-side inline javascript (e.g. <code>&lt;script nonce="..."&gt; ... &lt;script&gt;</code>).
+   *     If not specified, the script might be blocked and ignored by the client/browser due to the content security policy settings of the page
+   *     (i.e. typically when the CSP has no "unsafe-inline" specified).
+   *  </p>
    * @return A unique identifier for this request.
    * @since Sitevision 2022.08.1
    */

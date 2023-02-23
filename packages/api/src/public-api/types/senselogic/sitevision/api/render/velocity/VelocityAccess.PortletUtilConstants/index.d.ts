@@ -1,10 +1,10 @@
 /**
  * Get methods for accessing field constants defined in {@link senselogic.sitevision.api.resource.PortletUtil}.
  *
- * <p>
- *    The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.resource.PortletUtil}
- *    constants in Velocity, e.g: <code>$portletUtil.PORTLET_PREFERENCES_TYPE_USER</code>
- * </p>
+ *  <p>
+ *     The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.resource.PortletUtil}
+ *     constants in Velocity, e.g: <code>$portletUtil.PORTLET_PREFERENCES_TYPE_USER</code>
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */

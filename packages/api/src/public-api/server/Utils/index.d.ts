@@ -38,11 +38,11 @@ import type { FileIconRenderer } from "../FileIconRenderer";
 import type { ImageRenderer } from "../ImageRenderer";
 
 import type { ImageScaler } from "../../types/senselogic/sitevision/api/render/ImageScaler";
-
+import type { Object } from "../../types/java/lang/Object";
 import type { ExceptionSuppressingProxy } from "../../types/senselogic/sitevision/api/script/proxy/ExceptionSuppressingProxy";
-
+import type { Collection } from "../../types/java/util/Collection";
 import type { ExceptionSuppressingCollection } from "../../types/senselogic/sitevision/api/script/proxy/ExceptionSuppressingCollection";
-
+import type { Iterator } from "../../types/java/util/Iterator";
 import type { ExceptionSuppressingIterator } from "../../types/senselogic/sitevision/api/script/proxy/ExceptionSuppressingIterator";
 import type { SubscriptionUtil } from "../SubscriptionUtil";
 import type { SubscriberUtil } from "../SubscriberUtil";
@@ -89,40 +89,40 @@ import type { AliasUtil } from "../AliasUtil";
 /**
  * Main entry point to get instances of interfaces in the Sitevision Utility API.
  *
- * <p>
- *    An instance of this interface can be obtained from your portlet via the request attribute "<code>sitevision.utils</code>".
- *    Once you have obtained an <code>Utils</code> instance, you can use it to retrieve instances of all other interfaces in the Sitevision API.
- *    In all JCR capable portlets that are bundled with Sitevision and exposes a "Custom template", you always have an <code>Utils</code> instance
- *    available as "<code>$sitevisionUtils</code>" in the VelocityContext.
- * </p>
+ *  <p>
+ *     An instance of this interface can be obtained from your portlet via the request attribute "<code>sitevision.utils</code>".
+ *     Once you have obtained an <code>Utils</code> instance, you can use it to retrieve instances of all other interfaces in the Sitevision API.
+ *     In all JCR capable portlets that are bundled with Sitevision and exposes a "Custom template", you always have an <code>Utils</code> instance
+ *     available as "<code>$sitevisionUtils</code>" in the VelocityContext.
+ *  </p>
  *
- * <p>
- *    Example of how to get hold of a {@link senselogic.sitevision.api.property.PropertyUtil PropertyUtil} instance from your JSR 286 portlet:
- * </p>
- * <pre><code>
- *    Utils utils = (Utils) aRequest.getAttribute("sitevision.utils");
- *    PropertyUtil propertyUtil = utils.getPropertyUtil();
- *    ...
- *    propertyUtil.get...
- * </code></pre>
+ *  <p>
+ *     Example of how to get hold of a {@link senselogic.sitevision.api.property.PropertyUtil PropertyUtil} instance from your JSR 286 portlet:
+ *  </p>
+ *  <pre><code>
+ *     Utils utils = (Utils) aRequest.getAttribute("sitevision.utils");
+ *     PropertyUtil propertyUtil = utils.getPropertyUtil();
+ *     ...
+ *     propertyUtil.get...
+ *  </code></pre>
  *
- * <p>
- *    Example of how to get hold of a {@link senselogic.sitevision.api.property.PropertyUtil PropertyUtil} instance in Velocity for a JCR capable
- *    standard Sitevision portlet with a "Custom template" (e.g. the JCR Menu portlet):
- * </p>
- * <pre><code>
- *    #set($propertyUtil = $sitevisionUtils.propertyUtil)
- *    ...
- *    $propertyUtil.get...
- * </code></pre>
+ *  <p>
+ *     Example of how to get hold of a {@link senselogic.sitevision.api.property.PropertyUtil PropertyUtil} instance in Velocity for a JCR capable
+ *     standard Sitevision portlet with a "Custom template" (e.g. the JCR Menu portlet):
+ *  </p>
+ *  <pre><code>
+ *     #set($propertyUtil = $sitevisionUtils.propertyUtil)
+ *     ...
+ *     $propertyUtil.get...
+ *  </code></pre>
  *
- * <p>
- *    <em>If sitevisionUtils is not available on the VelocityContext, you can use the PortletRequest instead if available
- *    (e.g. the Script portlet):</em>
- * </p>
- * <pre><em><code>
- *    #set($propertyUtil = $request.getAttribute('sitevision.utils').propertyUtil)
- * </code></em></pre>
+ *  <p>
+ *     <em>If sitevisionUtils is not available on the VelocityContext, you can use the PortletRequest instead if available
+ *     (e.g. the Script portlet):</em>
+ *  </p>
+ *  <pre><em><code>
+ *     #set($propertyUtil = $request.getAttribute('sitevision.utils').propertyUtil)
+ *  </code></em></pre>
  * @author Magnus Lövgren
  */
 export interface Utils {
@@ -152,8 +152,8 @@ export interface Utils {
 
   /**
    * Creates and returns a new instance of a stateful link renderer.
-   * Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
-   * (i.e. Just call this method once in the rendering phase of your portlet)
+   *  Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
+   *  (i.e. Just call this method once in the rendering phase of your portlet)
    * @return a stateful link renderer
    */
   getLinkRenderer(): LinkRenderer;
@@ -369,8 +369,8 @@ export interface Utils {
 
   /**
    * Creates and returns a new instance of a stateful file icon renderer.
-   * Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
-   * (i.e. Just call this method once in the rendering phase of your portlet)
+   *  Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
+   *  (i.e. Just call this method once in the rendering phase of your portlet)
    * @return a stateful file icon renderer
    * @since Sitevision 2.6.1_08
    */
@@ -378,8 +378,8 @@ export interface Utils {
 
   /**
    * Creates and returns a new instance of a stateful image renderer.
-   * Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
-   * (i.e. Just call this method once in the rendering phase of your portlet)
+   *  Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
+   *  (i.e. Just call this method once in the rendering phase of your portlet)
    * @return a stateful image renderer
    * @since Sitevision 2.6.1_08
    */
@@ -387,14 +387,14 @@ export interface Utils {
 
   /**
    * Gets an instance of an immutable image scaler that enables scaling of images to a certain size.
-   * <p>
-   * Image scaler instance will respect the size ratio of the original image when scaling it.
-   * </p>
-   * <p>
-   * Note that an image scaler must be created in context of a currently executing portlet. In other words:
-   * if {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPortlet()}
-   * is <code>null</code>, no image scaler can be created (i.e. this method will return <code>null</code>).
-   * </p>
+   *  <p>
+   *  Image scaler instance will respect the size ratio of the original image when scaling it.
+   *  </p>
+   *  <p>
+   *  Note that an image scaler must be created in context of a currently executing portlet. In other words:
+   *  if {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPortlet()}
+   *  is <code>null</code>, no image scaler can be created (i.e. this method will return <code>null</code>).
+   *  </p>
    * @param aMaxWidth max width in pixels for scaled images, must be 10 or higher
    * @param aMaxHeight max height in pixels for scaled images, must be 10 or higher
    * @return an image scaler that can be used when rendering scaled images with an {@link senselogic.sitevision.api.render.ImageRenderer}.&#xA; If <code>aMaxWidth</code> or <code>aMaxHeight</code> has illegal values, <code>null</code> will be returned.
@@ -405,12 +405,12 @@ export interface Utils {
   /**
    * Creates and returns an instance of an exception-suppressing proxy.
    *
-   * <p>
-   * <strong>Note! </strong>Be aware of <code>null</code>'s. They are never proxied. If you try to proxy <code>null</code>, this method
-   * will just return <code>null</code>, not a proxy instance. In other words: even though you're trying to use a
-   * <code>ExceptionSuppressingProxy</code> to suppress exceptions,
-   * method invocations will of course still throw <code>NullPointerException</code>.
-   * </p>
+   *  <p>
+   *  <strong>Note! </strong>Be aware of <code>null</code>'s. They are never proxied. If you try to proxy <code>null</code>, this method
+   *  will just return <code>null</code>, not a proxy instance. In other words: even though you're trying to use a
+   *  <code>ExceptionSuppressingProxy</code> to suppress exceptions,
+   *  method invocations will of course still throw <code>NullPointerException</code>.
+   *  </p>
    * @param anObject an object to be proxied by an ExceptionSuppressingProxy
    * @return anObject proxied by an ExceptionSuppressingProxy, or <code>null</code> if <code>anObject</code> is <code>null</code>.&#xA; If <code>anObject</code> is a <code>ExceptionSuppressingProxy</code>),&#xA; <code>anObject</code> will be returned "as-is" (no new instance will be created).
    * @since Sitevision 2.6.1_09
@@ -420,19 +420,19 @@ export interface Utils {
   /**
    * Creates and returns an instance of a collection decorator that exposes an exception-suppressing iterator.
    *
-   * <p>
-   * <strong>Note!</strong> The sole purpose of the <code>ExceptionSuppressingCollection</code> is to provide easy access to a decorated iterator
-   * ({@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingIterator}).
-   * You should <em>not</em> create a collection of object proxys (i.e. <code>Collection&lt;ExceptionSuppressingProxy&gt;</code>) yourself.
-   * You should use <code>ExceptionSuppressingCollection</code>
-   * with your "regular" collection since the actual proxying is done by the iterator itself.
-   * </p>
+   *  <p>
+   *  <strong>Note!</strong> The sole purpose of the <code>ExceptionSuppressingCollection</code> is to provide easy access to a decorated iterator
+   *  ({@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingIterator}).
+   *  You should <em>not</em> create a collection of object proxys (i.e. <code>Collection&lt;ExceptionSuppressingProxy&gt;</code>) yourself.
+   *  You should use <code>ExceptionSuppressingCollection</code>
+   *  with your "regular" collection since the actual proxying is done by the iterator itself.
+   *  </p>
    * @param aCollection a collection to be decorated by a ExceptionSuppressingCollection. Note that this should be your "regular" collection,&#xA; not a already proxied one (i.e. <code>Collection&lt;ExceptionSuppressingProxy&gt;</code>).
    * @return the collection decorated by a ExceptionSuppressingCollection, or <code>null</code> if <code>aCollection</code> is <code>null</code>.&#xA; If <code>aCollection</code> is a <code>ExceptionSuppressingCollection</code>),&#xA; <code>aCollection</code> will be returned "as-is" (no new instance will be created).
    * @since Sitevision 2.6.1_09
    */
   getExceptionSuppressingCollection(
-    aCollection: unknown
+    aCollection: Collection | unknown[]
   ): ExceptionSuppressingCollection;
 
   /**
@@ -442,7 +442,7 @@ export interface Utils {
    * @since Sitevision 2.6.1_09
    */
   getExceptionSuppressingIterator(
-    anIterator: unknown
+    anIterator: Iterator
   ): ExceptionSuppressingIterator;
 
   /**
@@ -482,8 +482,8 @@ export interface Utils {
 
   /**
    * Creates and returns a new instance of a stateful image link renderer.
-   * Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
-   * (i.e. Just call this method once in the rendering phase of your portlet)
+   *  Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
+   *  (i.e. Just call this method once in the rendering phase of your portlet)
    * @return an image link renderer
    * @since Sitevision 2.6.2_04
    */
@@ -506,12 +506,12 @@ export interface Utils {
   /**
    * Gets an instance of a property utility class for a specified version.
    *
-   * <p>
-   *    <strong>Note!</strong> This method returns an exotic sibling interface to {@link senselogic.sitevision.api.property.PropertyUtil} that
-   *    can be used to extract property values from <em>an other version than the one you are currently executing in</em>.
-   *    If you don't know what a version is or haven't thought much about it, you would typically use the common property extraction interface -
-   *    {@link #getPropertyUtil()}.
-   * </p>
+   *  <p>
+   *     <strong>Note!</strong> This method returns an exotic sibling interface to {@link senselogic.sitevision.api.property.PropertyUtil} that
+   *     can be used to extract property values from <em>an other version than the one you are currently executing in</em>.
+   *     If you don't know what a version is or haven't thought much about it, you would typically use the common property extraction interface -
+   *     {@link #getPropertyUtil()}.
+   *  </p>
    * @param aVersion {@link senselogic.sitevision.api.versioning.VersionUtil#OFFLINE_VERSION} or&#xA; {@link senselogic.sitevision.api.versioning.VersionUtil#ONLINE_VERSION}
    * @return a VersionedPropertyUtil class for aVersion, i.e. {@link senselogic.sitevision.api.property.OfflineVersionPropertyUtil} or&#xA; {@link senselogic.sitevision.api.property.OnlineVersionPropertyUtil}.&#xA; if aVersion has an illegal value, null will be returned.
    * @see senselogic.sitevision.api.property.PropertyUtil
@@ -564,8 +564,8 @@ export interface Utils {
 
   /**
    * Creates and returns a new instance of a stateful buddy icon renderer.
-   * Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
-   * (i.e. Just call this method once in the rendering phase of your portlet)
+   *  Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
+   *  (i.e. Just call this method once in the rendering phase of your portlet)
    * @return a stateful buddy icon renderer
    * @since Sitevision 3.5.3
    */
@@ -573,8 +573,8 @@ export interface Utils {
 
   /**
    * Creates and returns a new instance of a stateful user field renderer.
-   * Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
-   * (i.e. Just call this method once in the rendering phase of your portlet)
+   *  Since the renderer is stateful, re-use of the same instance instead of getting a new is preferred for best performance.
+   *  (i.e. Just call this method once in the rendering phase of your portlet)
    * @return a stateful user field renderer
    * @since Sitevision 3.5.3
    */

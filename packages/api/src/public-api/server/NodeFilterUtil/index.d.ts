@@ -1,99 +1,104 @@
+import type { List } from "../../types/java/util/List";
 import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
-
+import type { Map } from "../../types/java/util/Map";
+import type { Collection } from "../../types/java/util/Collection";
 import type { FilterSplit } from "../../types/senselogic/sitevision/api/base/FilterSplit";
 import type { CompoundAndFilterBuilder } from "../CompoundAndFilterBuilder";
 import type { CompoundOrFilterBuilder } from "../CompoundOrFilterBuilder";
+import type { String } from "../../types/java/lang/String";
+
+import type { Calendar } from "../../types/java/util/Calendar";
 
 /**
  * Node filter utility interface.
  *
- * <p>
- *    A node filter is used to <em>match</em> a node against one or more criteria as specified by the filter.
- * </p>
+ *  <p>
+ *     A node filter is used to <em>match</em> a node against one or more criteria as specified by the filter.
+ *  </p>
  *
- * <ul>
- *    <li>
- *       In its simplest form it can replace a <code>null</code> check and an <code>equals</code> check for a certain value
- *       of a node (e.g. see {@link #getStringPropertyFilter(String, String)}).
- *    </li>
- *    <li>
- *       In its most complex form it can be a <em>Compound</em> filter that executes multiple checks to deliver the
- *       aggregated result of individual filters that are combined together using the logical <em>AND</em> and <em>OR</em>
- *       operators in between (e.g. see {@link #getCompoundAndFilterBuilder()}).
- *    </li>
- * </ul>
+ *  <ul>
+ *     <li>
+ *        In its simplest form it can replace a <code>null</code> check and an <code>equals</code> check for a certain value
+ *        of a node (e.g. see {@link #getStringPropertyFilter(String, String)}).
+ *     </li>
+ *     <li>
+ *        In its most complex form it can be a <em>Compound</em> filter that executes multiple checks to deliver the
+ *        aggregated result of individual filters that are combined together using the logical <em>AND</em> and <em>OR</em>
+ *        operators in between (e.g. see {@link #getCompoundAndFilterBuilder()}).
+ *     </li>
+ *  </ul>
  *
- * <p>
- *    A filter can be used "standalone" to simplify your code, but can also be used in utilities with methods that supports node filters.
- *    Examples of such utilities are {@link senselogic.sitevision.api.node.NodeIteratorUtil} and {@link senselogic.sitevision.api.node.NodeTreeUtil}.
- * </p>
+ *  <p>
+ *     A filter can be used "standalone" to simplify your code, but can also be used in utilities with methods that supports node filters.
+ *     Examples of such utilities are {@link senselogic.sitevision.api.node.NodeIteratorUtil} and {@link senselogic.sitevision.api.node.NodeTreeUtil}.
+ *  </p>
  *
- * <h3>A Velocity example</h3>
- * <p>
- *    This example uses Velocity to demonstrate how to build a filter that matches <em>image</em> nodes that has a <em>width</em> of at least 700
- *    or a <em>height</em> of at least 500.
- * </p>
- * <pre><code>    #set ($nodeFilterUtil = $sitevisionUtils.NodeFilterUtil)
- *    #set ($nodeTypeUtil = $sitevisionUtils.NodeTypeUtil)
+ *  <h3>A Velocity example</h3>
+ *  <p>
+ *     This example uses Velocity to demonstrate how to build a filter that matches <em>image</em> nodes that has a <em>width</em> of at least 700
+ *     or a <em>height</em> of at least 500.
+ *  </p>
+ *  <pre><code>    #set ($nodeFilterUtil = $sitevisionUtils.NodeFilterUtil)
+ *     #set ($nodeTypeUtil = $sitevisionUtils.NodeTypeUtil)
  *
- *    <em>## Set up individual filters needed</em>
- *    #set ($imageFilter = $nodeFilterUtil.getPrimaryNodeTypeFilter($nodeTypeUtil.IMAGE_TYPE))
- *    #set ($minWidthFilter = $nodeFilterUtil.getMinIntPropertyFilter('width', 700))
- *    #set ($minHeightFilter = $nodeFilterUtil.getMinIntPropertyFilter('height', 500))
+ *     <em>## Set up individual filters needed</em>
+ *     #set ($imageFilter = $nodeFilterUtil.getPrimaryNodeTypeFilter($nodeTypeUtil.IMAGE_TYPE))
+ *     #set ($minWidthFilter = $nodeFilterUtil.getMinIntPropertyFilter('width', 700))
+ *     #set ($minHeightFilter = $nodeFilterUtil.getMinIntPropertyFilter('height', 500))
  *
- *    <em>## The width and the height filters should be logically combined with the OR operator</em>
- *    #set ($sizeFilterBuilder = $nodeFilterUtil.CompoundOrFilterBuilder)
- *    #set ($sizeFilter = $sizeFilterBuilder.addFilter($minWidthFilter).addFilter($minHeightFilter).build())
+ *     <em>## The width and the height filters should be logically combined with the OR operator</em>
+ *     #set ($sizeFilterBuilder = $nodeFilterUtil.CompoundOrFilterBuilder)
+ *     #set ($sizeFilter = $sizeFilterBuilder.addFilter($minWidthFilter).addFilter($minHeightFilter).build())
  *
- *    <em>## The type and the size filters should be logically combined with the AND operator</em>
- *    #set ($sizedImageFilterBuilder = $nodeFilterUtil.CompoundAndFilterBuilder)
- *    #set ($sizedImageFilter = $sizedImageFilterBuilder.addFilter($imageFilter).addFilter($sizeFilter).build())</code></pre>
- * <p>
- *    Now the <em>$sizedImageFilter</em> can be used to match individual nodes, for example:
- * </p>
- * <pre><code>    #if ($sizedImageFilter.accept($myNode))
- *       <em>## Handle matching image</em>
- *       ...
- *    #end</code></pre>
- * <p>
- *    The <em>$sizedImageFilter</em> can also be used to match multiple nodes via a filter-supporting utility.
- *    {@link senselogic.sitevision.api.node.NodeIteratorUtil} is an example of such utility.
- *    It provides support to find the <em>first</em>, <em>all</em> or a <em>given number</em> of matches of the nodes provided by
- *    a <code>NodeIterator</code>, for example:
- * </p>
- * <pre><code>    #set ($nodeIteratorUtil = $sitevisionUtils.NodeIteratorUtil)
- *    #set ($matches = $nodeIteratorUtil.findNodes($aNodeIterator, $sizedImageFilter, 5)) <em>## Max 5 matches</em>
- *    #if (!$matches.isEmpty())
- *       <em>## Handle matching images</em>
- *       ...
- *    #end</code></pre>
- * <p>
- *    <strong>Tip!</strong> See {@link senselogic.sitevision.api.base.Builder} for how to work with builders.
- * </p>
+ *     <em>## The type and the size filters should be logically combined with the AND operator</em>
+ *     #set ($sizedImageFilterBuilder = $nodeFilterUtil.CompoundAndFilterBuilder)
+ *     #set ($sizedImageFilter = $sizedImageFilterBuilder.addFilter($imageFilter).addFilter($sizeFilter).build())</code></pre>
+ *  <p>
+ *     Now the <em>$sizedImageFilter</em> can be used to match individual nodes, for example:
+ *  </p>
+ *  <pre><code>    #if ($sizedImageFilter.accept($myNode))
+ *        <em>## Handle matching image</em>
+ *        ...
+ *     #end</code></pre>
+ *  <p>
+ *     The <em>$sizedImageFilter</em> can also be used to match multiple nodes via a filter-supporting utility.
+ *     {@link senselogic.sitevision.api.node.NodeIteratorUtil} is an example of such utility.
+ *     It provides support to find the <em>first</em>, <em>all</em> or a <em>given number</em> of matches of the nodes provided by
+ *     a <code>NodeIterator</code>, for example:
+ *  </p>
+ *  <pre><code>    #set ($nodeIteratorUtil = $sitevisionUtils.NodeIteratorUtil)
+ *     #set ($matches = $nodeIteratorUtil.findNodes($aNodeIterator, $sizedImageFilter, 5)) <em>## Max 5 matches</em>
+ *     #if (!$matches.isEmpty())
+ *        <em>## Handle matching images</em>
+ *        ...
+ *     #end</code></pre>
+ *  <p>
+ *     <strong>Tip!</strong> See {@link senselogic.sitevision.api.base.Builder} for how to work with builders.
+ *  </p>
  *
- * <p>
- *    <strong>Beware of nulls!</strong> Invoking the {@link Filter#accept(Object) accept} method on a node filter with
- *    <code>null</code> should always be avoided! Filters returned from this class are forgiving and will typically handle <code>null</code>
- *    but the result might be unexpected, depending on what the filter is actually used for.
- *    For instance: Invoking a {@link #getHasPropertyFilter(String) HasPropertyfilter} with <code>null</code> will return
- *    <code>false</code> <em>(i.e. "null is not accepted")</em>. But consequently will the same filter wrapped in a
- *    {@link #getInvertedFilter(Filter) InvertedFilter} return <code>true</code> <em>(i.e. "null is accepted")</em>.
- * </p>
+ *  <p>
+ *     <strong>Beware of nulls!</strong> Invoking the {@link Filter#accept(Object) accept} method on a node filter with
+ *     <code>null</code> should always be avoided! Filters returned from this class are forgiving and will typically handle <code>null</code>
+ *     but the result might be unexpected, depending on what the filter is actually used for.
+ *     For instance: Invoking a {@link #getHasPropertyFilter(String) HasPropertyfilter} with <code>null</code> will return
+ *     <code>false</code> <em>(i.e. "null is not accepted")</em>. But consequently will the same filter wrapped in a
+ *     {@link #getInvertedFilter(Filter) InvertedFilter} return <code>true</code> <em>(i.e. "null is accepted")</em>.
+ *  </p>
  *
- * <p>
- *    <em>
- *       <strong>Disclaimer!</strong> The Property-based filters for the Java native <code>int</code> type (i.e. <code>get*IntPropertyValue</code>)
- *       is <strong>not</strong> guaranteed to always deliver proper result for the native's "edge" values.
- *       Such filter invoked with <code>Integer.MIN_VALUE</code> or <code>Integer.MAX_VALUE</code> can under very rare circumstances
- *       return false when it actually should have returned true. This is a performance consideration and should under normal circumstances
- *       never cause any trouble (the value of a int property for a Node is extremely seldom, if ever, an "edge" value).
- *    </em>
- * </p>
+ *  <p>
+ *     <em>
+ *        <strong>Disclaimer!</strong> The Property-based filters for the Java native <code>int</code> type (i.e. <code>get*IntPropertyValue</code>)
+ *        is <strong>not</strong> guaranteed to always deliver proper result for the native's "edge" values.
+ *        Such filter invoked with <code>Integer.MIN_VALUE</code> or <code>Integer.MAX_VALUE</code> can under very rare circumstances
+ *        return false when it actually should have returned true. This is a performance consideration and should under normal circumstances
+ *        never cause any trouble (the value of a int property for a Node is extremely seldom, if ever, an "edge" value).
+ *     </em>
+ *  </p>
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getNodeFilterUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getNodeFilterUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
@@ -104,7 +109,7 @@ export interface NodeFilterUtil {
    * @param aNodeFilter a node filter
    * @return a list of all nodes of <code>aNodeList</code> that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeList</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    */
-  getFilteredList(aNodeList: unknown, aNodeFilter: Filter): unknown;
+  getFilteredList(aNodeList: List | unknown[], aNodeFilter: Filter): List;
 
   /**
    * Applies a node filter to a Map with Node values and gets the result.
@@ -113,7 +118,7 @@ export interface NodeFilterUtil {
    * @return a Map with all <code>aNodeValueMap</code> entries with a value that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeValueMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    * @since Sitevision 4.3.1
    */
-  getFilteredValueMap(aNodeValueMap: unknown, aNodeFilter: Filter): unknown;
+  getFilteredValueMap(aNodeValueMap: Map | {}, aNodeFilter: Filter): Map;
 
   /**
    * Applies a node filter to a Map with Node keys and gets the result.
@@ -122,36 +127,39 @@ export interface NodeFilterUtil {
    * @return a Map with all <code>aNodeKeyMap</code> entries with a key that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeKeyMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    * @since Sitevision 4.3.1
    */
-  getFilteredKeyMap(aNodeKeyMap: unknown, aNodeFilter: Filter): unknown;
+  getFilteredKeyMap(aNodeKeyMap: Map | {}, aNodeFilter: Filter): Map;
 
   /**
    * Gets the filtering result of a split operation for a collection of nodes with a node filter as divider.
    *
-   * <p>
-   *    This method would typically be used instead of {@link #getFilteredList(java.util.List, senselogic.sitevision.api.base.Filter)}
-   *    when you are also interested in the nodes that does NOT match the filter.
-   * </p>
+   *  <p>
+   *     This method would typically be used instead of {@link #getFilteredList(java.util.List, senselogic.sitevision.api.base.Filter)}
+   *     when you are also interested in the nodes that does NOT match the filter.
+   *  </p>
    *
-   * <p>
-   *    When nodes are available via a <code>NodeIterator</code>, you would typically use the
-   *    {@link senselogic.sitevision.api.node.NodeIteratorUtil#split(javax.jcr.NodeIterator, senselogic.sitevision.api.base.Filter)}
-   *    instead!
-   * </p>
+   *  <p>
+   *     When nodes are available via a <code>NodeIterator</code>, you would typically use the
+   *     {@link senselogic.sitevision.api.node.NodeIteratorUtil#split(javax.jcr.NodeIterator, senselogic.sitevision.api.base.Filter)}
+   *     instead!
+   *  </p>
    * @param aNodeCollection a node collection
    * @param aNodeFilter a node filter
    * @return the result of the filtering operation
    * @since Sitevision 3.6.3
    * @see senselogic.sitevision.api.node.NodeIteratorUtil#split(javax.jcr.NodeIterator, senselogic.sitevision.api.base.Filter)
    */
-  split(aNodeCollection: unknown, aNodeFilter: Filter): FilterSplit;
+  split(
+    aNodeCollection: Collection | unknown[],
+    aNodeFilter: Filter
+  ): FilterSplit;
 
   /**
    * Gets a builder for creating a compound filter that requires that <em>all</em> of the containing filters matches.
    *
-   * <p>
-   *    The CompoundAndFilterBuilder builds a node filter of multiple filters that are combined using the logical
-   *    <em>AND</em> operator.
-   * </p>
+   *  <p>
+   *     The CompoundAndFilterBuilder builds a node filter of multiple filters that are combined using the logical
+   *     <em>AND</em> operator.
+   *  </p>
    * @return a CompoundAndFilterBuilder
    */
   getCompoundAndFilterBuilder(): CompoundAndFilterBuilder;
@@ -159,10 +167,10 @@ export interface NodeFilterUtil {
   /**
    * Gets a builder for creating a compound filter that requires that <em>any</em> of the containing filters matches.
    *
-   * <p>
-   *    The CompoundOrFilterBuilder builds a node filter of multiple filters that are combined using the logical
-   *    <em>OR</em> operator.
-   * </p>
+   *  <p>
+   *     The CompoundOrFilterBuilder builds a node filter of multiple filters that are combined using the logical
+   *     <em>OR</em> operator.
+   *  </p>
    * @return a CompoundOrFilterBuilder
    * @see #getAnyOfPrimaryNodeTypesFilter(Collection)
    */
@@ -209,7 +217,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aIdentifier</code> is <code>null</code> or whitespace only
    * @since Sitevision 4.1
    */
-  getIdentifierFilter(aIdentifier: string): Filter;
+  getIdentifierFilter(aIdentifier: String | string): Filter;
 
   /**
    * Gets a filter that matches by a specified node identifier prefix.
@@ -218,7 +226,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aIdentifierPrefix</code> is <code>null</code> or whitespace only
    * @since Sitevision 4.1
    */
-  getIdentifierPrefixFilter(aIdentifierPrefix: string): Filter;
+  getIdentifierPrefixFilter(aIdentifierPrefix: String | string): Filter;
 
   /**
    * Gets a filter that matches by a specified node identifier suffix.
@@ -227,7 +235,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aIdentifierSuffix</code> is <code>null</code> or whitespace only
    * @since Sitevision 4.1
    */
-  getIdentifierSuffixFilter(aIdentifierSuffix: string): Filter;
+  getIdentifierSuffixFilter(aIdentifierSuffix: String | string): Filter;
 
   /**
    * Gets a filter that matches by a specified primary node type.
@@ -238,15 +246,15 @@ export interface NodeFilterUtil {
    * @see #getNoneOfPrimaryNodeTypesFilter(Collection)
    * @see senselogic.sitevision.api.node.NodeTypeUtil
    */
-  getPrimaryNodeTypeFilter(aPrimaryNodeTypeName: string): Filter;
+  getPrimaryNodeTypeFilter(aPrimaryNodeTypeName: String | string): Filter;
 
   /**
    * Gets a filter that matches all nodes that has a primary node type that is present in given collection.
    *
-   * <p>
-   *    This convenience method is conceptually equivalent - but also more efficient - than building a "match any of" filter via
-   *    {@link #getCompoundOrFilterBuilder() CompoundOrFilter} with a number of {@link #getPrimaryNodeTypeFilter(String) PrimaryNodeTypeFilters}.
-   * </p>
+   *  <p>
+   *     This convenience method is conceptually equivalent - but also more efficient - than building a "match any of" filter via
+   *     {@link #getCompoundOrFilterBuilder() CompoundOrFilter} with a number of {@link #getPrimaryNodeTypeFilter(String) PrimaryNodeTypeFilters}.
+   *  </p>
    * @param aPrimaryNodeTypeNames a collection of primary node type names, must not be null.&#xA; Null and blank collection items will be silently ignored (such value are not a valid node type name)
    * @return a filter that matches all Nodes that has a primary node type that is present in aPrimaryNodeTypeNames.
    * @throws NullPointerException if aPrimaryNodeTypeNames is null
@@ -254,16 +262,18 @@ export interface NodeFilterUtil {
    * @see senselogic.sitevision.api.node.NodeTypeUtil
    * @since Sitevision 8.1
    */
-  getAnyOfPrimaryNodeTypesFilter(aPrimaryNodeTypeNames: unknown): Filter;
+  getAnyOfPrimaryNodeTypesFilter(
+    aPrimaryNodeTypeNames: Collection | unknown[]
+  ): Filter;
 
   /**
    * Gets a filter that matches all nodes that does not have a primary node type present in given collection.
    *
-   * <p>
-   *    This convenience method is conceptually equivalent - but also more efficient - than building a "match none of" filter via
-   *    {@link #getCompoundOrFilterBuilder() CompoundOrFilter} with a number of {@link #getPrimaryNodeTypeFilter(String) PrimaryNodeTypeFilters}
-   *    and a {@link #getInvertedFilter(Filter) InvertedFilter}
-   * </p>
+   *  <p>
+   *     This convenience method is conceptually equivalent - but also more efficient - than building a "match none of" filter via
+   *     {@link #getCompoundOrFilterBuilder() CompoundOrFilter} with a number of {@link #getPrimaryNodeTypeFilter(String) PrimaryNodeTypeFilters}
+   *     and a {@link #getInvertedFilter(Filter) InvertedFilter}
+   *  </p>
    * @param aExcludedPrimaryNodeTypeNames a collection of primary node type names, must not be null.&#xA; Null and blank collection items will be silently ignored (such value are not a valid node type name)
    * @return a filter that matches all Nodes that does not have a primary node type present in aExcludedPrimaryNodeTypeNames.
    * @throws NullPointerException if aExcludedPrimaryNodeTypeNames is null
@@ -272,7 +282,7 @@ export interface NodeFilterUtil {
    * @since Sitevision 8.1
    */
   getNoneOfPrimaryNodeTypesFilter(
-    aExcludedPrimaryNodeTypeNames: unknown
+    aExcludedPrimaryNodeTypeNames: Collection | unknown[]
   ): Filter;
 
   /**
@@ -282,7 +292,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see javax.jcr.Node#hasProperty(String)
    */
-  getHasPropertyFilter(aPropertyName: string): Filter;
+  getHasPropertyFilter(aPropertyName: String | string): Filter;
 
   /**
    * Gets a filter that matches by a specified string property.
@@ -292,7 +302,10 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aMatchValue</code> is <code>null</code>
    * @see senselogic.sitevision.api.property.PropertyUtil#getString(javax.jcr.Node, String)
    */
-  getStringPropertyFilter(aPropertyName: string, aMatchValue: string): Filter;
+  getStringPropertyFilter(
+    aPropertyName: String | string,
+    aMatchValue: String | string
+  ): Filter;
 
   /**
    * Gets a filter that matches by a specified multi-valued string property.
@@ -303,8 +316,8 @@ export interface NodeFilterUtil {
    * @see senselogic.sitevision.api.property.PropertyUtil#getStrings(javax.jcr.Node, String)
    */
   getStringMultiPropertyFilter(
-    aPropertyName: string,
-    aMatchValue: string
+    aPropertyName: String | string,
+    aMatchValue: String | string
   ): Filter;
 
   /**
@@ -315,82 +328,82 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aCaseInsensitiveValue</code> is <code>null</code>
    */
   getIgnoreCaseStringPropertyFilter(
-    aPropertyName: string,
-    aCaseInsensitiveValue: string
+    aPropertyName: String | string,
+    aCaseInsensitiveValue: String | string
   ): Filter;
 
   /**
    * Gets a filter that matches by the value-starts-with of a specified string property.
    *
-   * <p>
-   *    <em>The starts-with check is performed using the <code>String.startsWith(String)</code> method.</em>
-   * </p>
+   *  <p>
+   *     <em>The starts-with check is performed using the <code>String.startsWith(String)</code> method.</em>
+   *  </p>
    * @param aPropertyName the name of the property
    * @param aStartsWithValue the value the property should start with
    * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that starts with value&#xA; <code>aStartsWithValue</code>
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aStartsWithValue</code> is <code>null</code>
    */
   getStartsWithStringPropertyFilter(
-    aPropertyName: string,
-    aStartsWithValue: string
+    aPropertyName: String | string,
+    aStartsWithValue: String | string
   ): Filter;
 
   /**
    * Gets a filter that matches by the value-ends-with of a specified string property.
    *
-   * <p>
-   *    <em>The ends-with check is performed using the <code>String.endsWith(String)</code> method.</em>
-   * </p>
+   *  <p>
+   *     <em>The ends-with check is performed using the <code>String.endsWith(String)</code> method.</em>
+   *  </p>
    * @param aPropertyName the name of the property
    * @param aEndsWithValue the value the property should end with
    * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that ends with value&#xA; <code>aEndsWithValue</code>
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aEndsWithValue</code> is <code>null</code>
    */
   getEndsWithStringPropertyFilter(
-    aPropertyName: string,
-    aEndsWithValue: string
+    aPropertyName: String | string,
+    aEndsWithValue: String | string
   ): Filter;
 
   /**
    * Gets a filter that matches by the value-contains of a specified string property.
    *
-   * <p>
-   *    <em>The contains check is performed using the <code>String.contains(String)</code> method.</em>
-   * </p>
+   *  <p>
+   *     <em>The contains check is performed using the <code>String.contains(String)</code> method.</em>
+   *  </p>
    * @param aPropertyName the name of the property
    * @param aContainsValue the value the property should contain
    * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that contains value&#xA; <code>aContainsValue</code>
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aContainsValue</code> is <code>null</code>
    */
   getContainsStringPropertyFilter(
-    aPropertyName: string,
-    aContainsValue: string
+    aPropertyName: String | string,
+    aContainsValue: String | string
   ): Filter;
 
   /**
    * Gets a filter that matches by the value-contains of a specified multi-valued string property.
    *
-   * <p>
-   *    <em>The contains check is performed using the <code>String.contains(String)</code> method for each extracted property value.</em>
-   * </p>
+   *  <p>
+   *     <em>The contains check is performed using the <code>String.contains(String)</code> method for each extracted property value.</em>
+   *  </p>
    * @param aPropertyName the name of the property
    * @param aContainsValue the value the property should contain
    * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that contains value&#xA; <code>aContainsValue</code>
    * @throws IllegalArgumentException if <code>aPropertyName</code> or <code>aContainsValue</code> is <code>null</code>
    */
   getContainsStringMultiPropertyFilter(
-    aPropertyName: string,
-    aContainsValue: string
+    aPropertyName: String | string,
+    aContainsValue: String | string
   ): Filter;
 
   /**
    * Gets a filter that matches by a regular expression of a specified string property.
    *
-   * <p>
-   *    <em>The regular expression is compiled to a <code>Pattern</code> and the check is performed using the
-   *    <code>matches()</code> method of the <code>Matcher</code> extracted from the compiled pattern via
-   *    <code>Pattern.matcher(String)</code>.</em>
-   * </p>
+   *  <p>
+   *     <em>The regular expression is compiled to a <code>Pattern</code> and the check is performed using the
+   *     <code>matches()</code> method of the <code>Matcher</code> extracted from the compiled pattern via
+   *     <code>Pattern.matcher(String)</code>.</em>
+   *  </p>
    * @param aPropertyName the name of the property
    * @param aRegularExpression the regular expression
    * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that matches <code>aRegularExpression</code>
@@ -398,18 +411,18 @@ export interface NodeFilterUtil {
    * @throws PatternSyntaxException if the compilation of <code>aRegularExpression</code> fails
    */
   getPatternStringPropertyFilter(
-    aPropertyName: string,
-    aRegularExpression: string
+    aPropertyName: String | string,
+    aRegularExpression: String | string
   ): Filter;
 
   /**
    * Gets a filter that matches by a regular expression of a specified multi-valued string property.
    *
-   * <p>
-   *    <em>The regular expression is compiled to a <code>Pattern</code> and the check for each extracted property value is performed using the
-   *    <code>matches()</code> method of the <code>Matcher</code> extracted from the compiled pattern via
-   *    <code>Pattern.matcher(String)</code>.</em>
-   * </p>
+   *  <p>
+   *     <em>The regular expression is compiled to a <code>Pattern</code> and the check for each extracted property value is performed using the
+   *     <code>matches()</code> method of the <code>Matcher</code> extracted from the compiled pattern via
+   *     <code>Pattern.matcher(String)</code>.</em>
+   *  </p>
    * @param aPropertyName the name of the property
    * @param aRegularExpression the regular expression
    * @return a filter that matches all nodes that has a string property named <code>aPropertyName</code> that matches <code>aRegularExpression</code>
@@ -417,8 +430,8 @@ export interface NodeFilterUtil {
    * @throws PatternSyntaxException if the compilation of <code>aRegularExpression</code> fails
    */
   getPatternStringMultiPropertyFilter(
-    aPropertyName: string,
-    aRegularExpression: string
+    aPropertyName: String | string,
+    aRegularExpression: String | string
   ): Filter;
 
   /**
@@ -429,7 +442,10 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see senselogic.sitevision.api.property.PropertyUtil#getBoolean(javax.jcr.Node, String)
    */
-  getBooleanPropertyFilter(aPropertyName: string, aMatchValue: boolean): Filter;
+  getBooleanPropertyFilter(
+    aPropertyName: String | string,
+    aMatchValue: boolean
+  ): Filter;
 
   /**
    * Gets a filter that matches by a nested node's specified boolean property.
@@ -441,8 +457,8 @@ export interface NodeFilterUtil {
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedBoolean(javax.jcr.Node, String, String)
    */
   getNestedBooleanPropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
     aMatchValue: boolean
   ): Filter;
 
@@ -454,7 +470,10 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see senselogic.sitevision.api.property.PropertyUtil#getInt(javax.jcr.Node, String)
    */
-  getIntPropertyFilter(aPropertyName: string, aMatchValue: number): Filter;
+  getIntPropertyFilter(
+    aPropertyName: String | string,
+    aMatchValue: number
+  ): Filter;
 
   /**
    * Gets a filter that matches by the min value of a specified int property.
@@ -463,7 +482,10 @@ export interface NodeFilterUtil {
    * @return a filter that matches all nodes that has a int property named <code>aPropertyName</code> with value <code>aMinValue</code> or higher
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only
    */
-  getMinIntPropertyFilter(aPropertyName: string, aMinValue: number): Filter;
+  getMinIntPropertyFilter(
+    aPropertyName: String | string,
+    aMinValue: number
+  ): Filter;
 
   /**
    * Gets a filter that matches by the max value of a specified int property.
@@ -472,15 +494,18 @@ export interface NodeFilterUtil {
    * @return a filter that matches all nodes that has a int property named <code>aPropertyName</code> with value <code>aMaxValue</code> or lower
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only
    */
-  getMaxIntPropertyFilter(aPropertyName: string, aMaxValue: number): Filter;
+  getMaxIntPropertyFilter(
+    aPropertyName: String | string,
+    aMaxValue: number
+  ): Filter;
 
   /**
    * Gets a filter that matches by the range of a specified int property.
    *
-   * <p>
-   *    <em>This is a convenience method that combines the min int filter ({@link #getMinIntPropertyFilter(String, int)})
-   *    and the max int filter ({@link #getMinIntPropertyFilter(String, int)}) to check a range for an integer.</em>
-   * </p>
+   *  <p>
+   *     <em>This is a convenience method that combines the min int filter ({@link #getMinIntPropertyFilter(String, int)})
+   *     and the max int filter ({@link #getMinIntPropertyFilter(String, int)}) to check a range for an integer.</em>
+   *  </p>
    * @param aPropertyName the name of the property
    * @param aMinValue the min value of the property
    * @param aMaxValue the max value of the property
@@ -488,7 +513,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aMinValue</code> is greater than <code>aMaxValue</code>
    */
   getRangeIntPropertyFilter(
-    aPropertyName: string,
+    aPropertyName: String | string,
     aMinValue: number,
     aMaxValue: number
   ): Filter;
@@ -503,8 +528,8 @@ export interface NodeFilterUtil {
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedInt(javax.jcr.Node, String, String)
    */
   getNestedIntPropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
     aMatchValue: number
   ): Filter;
 
@@ -518,8 +543,8 @@ export interface NodeFilterUtil {
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedInt(javax.jcr.Node, String, String)
    */
   getMinNestedIntPropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
     aMinValue: number
   ): Filter;
 
@@ -533,18 +558,18 @@ export interface NodeFilterUtil {
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedInt(javax.jcr.Node, String, String)
    */
   getMaxNestedIntPropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
     aMaxValue: number
   ): Filter;
 
   /**
    * Gets a filter that matches by a nested node's range of a specified int property.
    *
-   * <p>
-   *    <em>This is a convenience method that combines the nested min int filter ({@link #getMinNestedIntPropertyFilter(String, String, int)})
-   *    and the nested max int filter ({@link #getMaxNestedIntPropertyFilter(String, String, int)}) to check a range for an integer.</em>
-   * </p>
+   *  <p>
+   *     <em>This is a convenience method that combines the nested min int filter ({@link #getMinNestedIntPropertyFilter(String, String, int)})
+   *     and the nested max int filter ({@link #getMaxNestedIntPropertyFilter(String, String, int)}) to check a range for an integer.</em>
+   *  </p>
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property for the "inner/nested" Node specified by <code>aNodePropertyName</code>
    * @param aMinValue the min value of the property
@@ -553,8 +578,8 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aMinValue</code> is greater than <code>aMaxValue</code>
    */
   getRangeNestedIntPropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
     aMinValue: number,
     aMaxValue: number
   ): Filter;
@@ -567,7 +592,10 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see senselogic.sitevision.api.property.PropertyUtil#getDouble(javax.jcr.Node, String)
    */
-  getDoublePropertyFilter(aPropertyName: string, aMatchValue: number): Filter;
+  getDoublePropertyFilter(
+    aPropertyName: String | string,
+    aMatchValue: number
+  ): Filter;
 
   /**
    * Gets a filter that matches by a nested node's specified double property.
@@ -579,8 +607,8 @@ export interface NodeFilterUtil {
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedDouble(javax.jcr.Node, String, String)
    */
   getNestedDoublePropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
     aMatchValue: number
   ): Filter;
 
@@ -591,7 +619,10 @@ export interface NodeFilterUtil {
    * @return a filter that matches all nodes that has a double property named <code>aPropertyName</code> with value <code>aMinValue</code> or higher
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only
    */
-  getMinDoublePropertyFilter(aPropertyName: string, aMinValue: number): Filter;
+  getMinDoublePropertyFilter(
+    aPropertyName: String | string,
+    aMinValue: number
+  ): Filter;
 
   /**
    * Gets a filter that matches by the max value of a specified double property.
@@ -600,15 +631,18 @@ export interface NodeFilterUtil {
    * @return a filter that matches all nodes that has a double property named <code>aPropertyName</code> with value <code>aMaxValue</code> or lower
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only
    */
-  getMaxDoublePropertyFilter(aPropertyName: string, aMaxValue: number): Filter;
+  getMaxDoublePropertyFilter(
+    aPropertyName: String | string,
+    aMaxValue: number
+  ): Filter;
 
   /**
    * Gets a filter that matches by the range of a specified double property.
    *
-   * <p>
-   *    <em>This is a convenience method that combines the min double filter ({@link #getMinDoublePropertyFilter(String, double)})
-   *    and the max double filter ({@link #getMaxDoublePropertyFilter(String, double)}) to check a range for a double.</em>
-   * </p>
+   *  <p>
+   *     <em>This is a convenience method that combines the min double filter ({@link #getMinDoublePropertyFilter(String, double)})
+   *     and the max double filter ({@link #getMaxDoublePropertyFilter(String, double)}) to check a range for a double.</em>
+   *  </p>
    * @param aPropertyName the name of the property
    * @param aMinValue the min value of the property
    * @param aMaxValue the max value of the property
@@ -616,7 +650,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aMinValue</code> is greater than <code>aMaxValue</code>
    */
   getRangeDoublePropertyFilter(
-    aPropertyName: string,
+    aPropertyName: String | string,
     aMinValue: number,
     aMaxValue: number
   ): Filter;
@@ -630,8 +664,8 @@ export interface NodeFilterUtil {
    * @see senselogic.sitevision.api.property.PropertyUtil#getCalendar(javax.jcr.Node, String)
    */
   getCalendarPropertyFilter(
-    aPropertyName: string,
-    aMatchValue: unknown
+    aPropertyName: String | string,
+    aMatchValue: Calendar
   ): Filter;
 
   /**
@@ -644,9 +678,9 @@ export interface NodeFilterUtil {
    * @see senselogic.sitevision.api.property.PropertyUtil#getNestedCalendar(javax.jcr.Node, String, String)
    */
   getNestedCalendarPropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
-    aMatchValue: unknown
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
+    aMatchValue: Calendar
   ): Filter;
 
   /**
@@ -657,8 +691,8 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or <code>aBeforeThresholdValue</code>&#xA; is <code>null</code>
    */
   getBeforeCalendarPropertyFilter(
-    aPropertyName: string,
-    aBeforeThresholdValue: unknown
+    aPropertyName: String | string,
+    aBeforeThresholdValue: Calendar
   ): Filter;
 
   /**
@@ -670,9 +704,9 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aBeforeThresholdValue</code> is <code>null</code>
    */
   getBeforeNestedCalendarPropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
-    aBeforeThresholdValue: unknown
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
+    aBeforeThresholdValue: Calendar
   ): Filter;
 
   /**
@@ -683,8 +717,8 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only, or <code>aAfterThresholdValue</code>&#xA; is <code>null</code>
    */
   getAfterCalendarPropertyFilter(
-    aPropertyName: string,
-    aAfterThresholdValue: unknown
+    aPropertyName: String | string,
+    aAfterThresholdValue: Calendar
   ): Filter;
 
   /**
@@ -696,19 +730,19 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aAfterThresholdValue</code> is <code>null</code>
    */
   getAfterNestedCalendarPropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
-    aAfterThresholdValue: unknown
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
+    aAfterThresholdValue: Calendar
   ): Filter;
 
   /**
    * Gets a filter that matches by the between range of a specified Calendar property.
    *
-   * <p>
-   *    <em>This is a convenience method that combines the after calendar filter
-   *    ({@link #getAfterCalendarPropertyFilter(String, java.util.Calendar)})
-   *    and the before calendar filter ({@link #getBeforeCalendarPropertyFilter(String, java.util.Calendar)}) to check a range for a Calendar.</em>
-   * </p>
+   *  <p>
+   *     <em>This is a convenience method that combines the after calendar filter
+   *     ({@link #getAfterCalendarPropertyFilter(String, java.util.Calendar)})
+   *     and the before calendar filter ({@link #getBeforeCalendarPropertyFilter(String, java.util.Calendar)}) to check a range for a Calendar.</em>
+   *  </p>
    * @param aPropertyName the name of the property
    * @param aAfterThresholdValue the after threshold value of the property
    * @param aBeforeThresholdValue the before threshold value of the property
@@ -716,19 +750,19 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only,&#xA; or if <code>aAfterThresholdValue</code> or <code>aBeforeThresholdValue</code> is <code>null</code>,&#xA; or if <code>aAfterThresholdValue</code> is after <code>aBeforeThresholdValue</code>
    */
   getRangeCalendarPropertyFilter(
-    aPropertyName: string,
-    aAfterThresholdValue: unknown,
-    aBeforeThresholdValue: unknown
+    aPropertyName: String | string,
+    aAfterThresholdValue: Calendar,
+    aBeforeThresholdValue: Calendar
   ): Filter;
 
   /**
    * Gets a filter that matches by the between range of a nested node's specified Calendar property.
    *
-   * <p>
-   *    <em>This is a convenience method that combines the nested after calendar filter
-   *    ({@link #getAfterNestedCalendarPropertyFilter(String, String, java.util.Calendar)}) and the nested before calendar filter
-   *    ({@link #getBeforeNestedCalendarPropertyFilter(String, String, java.util.Calendar)}) to check a range for a Calendar.</em>
-   * </p>
+   *  <p>
+   *     <em>This is a convenience method that combines the nested after calendar filter
+   *     ({@link #getAfterNestedCalendarPropertyFilter(String, String, java.util.Calendar)}) and the nested before calendar filter
+   *     ({@link #getBeforeNestedCalendarPropertyFilter(String, String, java.util.Calendar)}) to check a range for a Calendar.</em>
+   *  </p>
    * @param aNodePropertyName the name of the property for the Node
    * @param aPropertyName the name of the property
    * @param aAfterThresholdValue the after threshold value of the property
@@ -737,10 +771,10 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException IllegalArgumentException if <code>aNodePropertyName</code> or <code>aPropertyName</code> is <code>null</code>&#xA; or whitespace only,&#xA; or if <code>aAfterThresholdValue</code> or <code>aBeforeThresholdValue</code> is <code>null</code>,&#xA; or if <code>aAfterThresholdValue</code> is after <code>aBeforeThresholdValue</code>
    */
   getRangeNestedCalendarPropertyFilter(
-    aNodePropertyName: string,
-    aPropertyName: string,
-    aAfterThresholdValue: unknown,
-    aBeforeThresholdValue: unknown
+    aNodePropertyName: String | string,
+    aPropertyName: String | string,
+    aAfterThresholdValue: Calendar,
+    aBeforeThresholdValue: Calendar
   ): Filter;
 }
 

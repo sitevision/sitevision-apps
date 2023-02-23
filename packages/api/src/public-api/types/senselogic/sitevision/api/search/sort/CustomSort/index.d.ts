@@ -1,6 +1,8 @@
+import type { String } from "../../../../../../java/lang/String";
+
 /**
  * A custom sort that enables users to re-sort the search result
- * on a certain index field with a certain sort order.
+ *  on a certain index field with a certain sort order.
  * @author Magnus Lövgren
  * @see senselogic.sitevision.api.search.SearchResult#getCustomSorts()
  * @since Sitevision 3.1
@@ -45,20 +47,20 @@ export type CustomSort = {
   /**
    * Returns the query parameters for this custom sort.
    *
-   * <p>
-   *    The sort query params is a sub-set of the sort URL.
-   * </p>
+   *  <p>
+   *     The sort query params is a sub-set of the sort URL.
+   *  </p>
    *
-   * <p>
-   *    An example: If the sortURL is:<br>
-   *    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>/a/b/c.html?query=d&amp;e=f&amp;g=h</code><br>
-   *    the sortQueryParams will be:<br>
-   *    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>d&amp;e=f&amp;g=h</code><br>
-   *    <em>
-   *       (Note that the value starts with the "query" parameter, but <strong>without</strong> the actual query parameter
-   *       name: '<span style="text-decoration:line-through">query=</span>')
-   *    </em>
-   * </p>
+   *  <p>
+   *     An example: If the sortURL is:<br>
+   *     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>/a/b/c.html?query=d&amp;e=f&amp;g=h</code><br>
+   *     the sortQueryParams will be:<br>
+   *     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>d&amp;e=f&amp;g=h</code><br>
+   *     <em>
+   *        (Note that the value starts with the "query" parameter, but <strong>without</strong> the actual query parameter
+   *        name: '<span style="text-decoration:line-through">query=</span>')
+   *     </em>
+   *  </p>
    * @return the query parameters, with the actual query parameter first with no name
    */
   getSortQueryParams(): string;

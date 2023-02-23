@@ -1,11 +1,11 @@
 import type { Source } from "../Source";
-
+import type { String } from "../../../../../java/lang/String";
 import type { JoinCondition } from "../JoinCondition";
 
 /**
  * Performs a join between two node-tuple sources.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type Join = Source & {

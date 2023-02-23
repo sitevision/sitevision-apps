@@ -1,13 +1,14 @@
 import type { Node } from "../../types/javax/jcr/Node";
+import type { String } from "../../types/java/lang/String";
 
 /**
  * Collaboration group folder utility interface that handles nodes with primary node type <code>sv:collaborationGroupFolder</code>.
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via
- *    {@link CollaborationFactory#getCollaborationGroupFolderUtil()}.
- *    See {@link CollaborationFactory} for how to obtain an instance of the <code>CollaborationFactory</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link CollaborationFactory#getCollaborationGroupFolderUtil()}.
+ *     See {@link CollaborationFactory} for how to obtain an instance of the <code>CollaborationFactory</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6.4
  */
@@ -15,10 +16,10 @@ export interface CollaborationGroupFolderUtil {
   /**
    * Gets the default collaboration group folder.
    *
-   * <p>
-   *    The <em>default collaboration group folder</em> is the folder where new collaboration groups
-   *    (i.e. collaboration group pages) are created by default.
-   * </p>
+   *  <p>
+   *     The <em>default collaboration group folder</em> is the folder where new collaboration groups
+   *     (i.e. collaboration group pages) are created by default.
+   *  </p>
    * @return the default collaboration group folder, or <code>null</code> if indeterminable
    */
   getDefaultCollaborationGroupFolder(): Node;
@@ -33,7 +34,7 @@ export interface CollaborationGroupFolderUtil {
    */
   containsCollaborationGroup(
     aCollaborationGroupFolder: Node,
-    aGroupName: string
+    aGroupName: String | string
   ): boolean;
 }
 

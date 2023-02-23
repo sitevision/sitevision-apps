@@ -1,17 +1,18 @@
+import type { String } from "../../../../../java/lang/String";
 import type { JoinCondition } from "../JoinCondition";
 
 /**
  * Tests whether the value of a property in a first selector is equal to the
- * value of a property in a second selector.
- * <p>
- * A node-tuple satisfies the constraint only if: <ul> <li>{@link
- * #getSelector1Name selector1} has a property named {@link #getProperty1Name
- * property1}, and</li> <li>{@link #getSelector2Name selector2} has a property
- * named {@link #getProperty2Name property2}, and</li> <li>the value of {@link
- * #getProperty1Name property1} equals the value of {@link #getProperty2Name
- * property2}</li> </ul>
+ *  value of a property in a second selector.
+ *  <p>
+ *  A node-tuple satisfies the constraint only if: <ul> <li>{@link
+ *  #getSelector1Name selector1} has a property named {@link #getProperty1Name
+ *  property1}, and</li> <li>{@link #getSelector2Name selector2} has a property
+ *  named {@link #getProperty2Name property2}, and</li> <li>the value of {@link
+ *  #getProperty1Name property1} equals the value of {@link #getProperty2Name
+ *  property2}</li> </ul>
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type EquiJoinCondition = JoinCondition & {

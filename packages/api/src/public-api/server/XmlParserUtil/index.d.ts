@@ -1,3 +1,4 @@
+import type { String } from "../../types/java/lang/String";
 import type { XmlElementHandler } from "../../types/senselogic/sitevision/api/xml/XmlElementHandler";
 
 import type { Node } from "../../types/javax/jcr/Node";
@@ -5,67 +6,67 @@ import type { Node } from "../../types/javax/jcr/Node";
 /**
  * Utility interface for parsing XML.
  *
- * <p>
- *    <em>Example 1: parse a RSS XML string.</em>
- * </p>
- * <pre>
- *    var xml = '&lt;rss&gt;&lt;channel&gt;&lt;item&gt;&lt;title&gt;Hello World!&lt;/title&gt;&lt;/item&gt;&lt;/channel&gt;&lt;/rss&gt;',
- *        parser = require('XmlParserUtil');
+ *  <p>
+ *     <em>Example 1: parse a RSS XML string.</em>
+ *  </p>
+ *  <pre>
+ *     var xml = '&lt;rss&gt;&lt;channel&gt;&lt;item&gt;&lt;title&gt;Hello World!&lt;/title&gt;&lt;/item&gt;&lt;/channel&gt;&lt;/rss&gt;',
+ *         parser = require('XmlParserUtil');
  *
- *    parser.parse('/rss/channel/item', xml, function(aElement) {
- *       // Handle item direct instead of adding to a list in order to preserve memory!
- *       out.println(aElement.getElement('title').getText() + '&lt;br&gt;');
- *    });
- * </pre>
+ *     parser.parse('/rss/channel/item', xml, function(aElement) {
+ *        // Handle item direct instead of adding to a list in order to preserve memory!
+ *        out.println(aElement.getElement('title').getText() + '&lt;br&gt;');
+ *     });
+ *  </pre>
  *
- * <p>
- *    <em>Example 2: parse a ISO-8859-1 encoded RSS XML file stored in the file repository.</em>
- * </p>
- * <pre>
- *    var xmlFile = require('ResourceLocatorUtil').getFileRepository().getNode('rss.xml'),
- *        parser = require('XmlParserUtil');
+ *  <p>
+ *     <em>Example 2: parse a ISO-8859-1 encoded RSS XML file stored in the file repository.</em>
+ *  </p>
+ *  <pre>
+ *     var xmlFile = require('ResourceLocatorUtil').getFileRepository().getNode('rss.xml'),
+ *         parser = require('XmlParserUtil');
  *
- *    parser.parse('/rss/channel/item', xmlFile, 'ISO-8859-1', function(aElement) {
- *       // Handle item direct instead of adding to a list in order to preserve memory!
- *       out.println(aElement.getElement('title').getText() + '&lt;br&gt;');
- *    });
- * </pre>
+ *     parser.parse('/rss/channel/item', xmlFile, 'ISO-8859-1', function(aElement) {
+ *        // Handle item direct instead of adding to a list in order to preserve memory!
+ *        out.println(aElement.getElement('title').getText() + '&lt;br&gt;');
+ *     });
+ *  </pre>
  *
- * <p>
- *    <em>Example 3: download and parse a remote RSS XML.</em>
- * </p>
- * <pre>
- *    var requester = require('Requester'),
- *        parser = require('XmlParserUtil'),
- *        url = 'https://www.site.com/rss-feed.xml',
- *        options = {
- *           dataType: 'file'
- *        };
+ *  <p>
+ *     <em>Example 3: download and parse a remote RSS XML.</em>
+ *  </p>
+ *  <pre>
+ *     var requester = require('Requester'),
+ *         parser = require('XmlParserUtil'),
+ *         url = 'https://www.site.com/rss-feed.xml',
+ *         options = {
+ *            dataType: 'file'
+ *         };
  *
- *    requester.get(url, options)
- *       .done(function(result, statusCode, headers) {
- *          if (statusCode === 200 &amp;&amp; result) {
- *             parser.parse('/rss/channel/item', result, function(aElement) {
- *                // Handle item direct instead of adding to a list in order to preserve memory!
- *                out.println(aElement.getElement('title').getText() + '&lt;br&gt;');
- *             });
- *          }
- *       }).fail(function(message, status) {
- *          // GET failed, handle appropriately
- *       });
- * </pre>
+ *     requester.get(url, options)
+ *        .done(function(result, statusCode, headers) {
+ *           if (statusCode === 200 &amp;&amp; result) {
+ *              parser.parse('/rss/channel/item', result, function(aElement) {
+ *                 // Handle item direct instead of adding to a list in order to preserve memory!
+ *                 out.println(aElement.getElement('title').getText() + '&lt;br&gt;');
+ *              });
+ *           }
+ *        }).fail(function(message, status) {
+ *           // GET failed, handle appropriately
+ *        });
+ *  </pre>
  *
- * <p>
- *    <strong>Important note!</strong><br>
- *    In order to protected the system against processes that consumes to much memory and to avoid
- *    OutOfMemoryExceptions the parsing process will be aborted and a RuntimeException thrown
- *    if more than 5MB of text content is found inside a single element.
- * </p>
+ *  <p>
+ *     <strong>Important note!</strong><br>
+ *     In order to protected the system against processes that consumes to much memory and to avoid
+ *     OutOfMemoryExceptions the parsing process will be aborted and a RuntimeException thrown
+ *     if more than 5MB of text content is found inside a single element.
+ *  </p>
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getXmlParserUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getXmlParserUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Niclas Hedlund
  * @since Sitevision 5.1
  */
@@ -78,8 +79,8 @@ export interface XmlParserUtil {
    * @throws XmlParserException if an error occurs while parsing the XML
    */
   parse(
-    aElementSelection: string,
-    aXml: string,
+    aElementSelection: String | string,
+    aXml: String | string,
     aXmlElementHandler: XmlElementHandler
   ): void;
 
@@ -92,7 +93,7 @@ export interface XmlParserUtil {
    * @throws XmlParserException if an error occurs while parsing the XML
    */
   parse(
-    aElementSelection: string,
+    aElementSelection: String | string,
     aXmlFile: Node,
     aXmlElementHandler: XmlElementHandler
   ): void;
@@ -107,9 +108,9 @@ export interface XmlParserUtil {
    * @throws XmlParserException if an error occurs while parsing the XML
    */
   parse(
-    aElementSelection: string,
+    aElementSelection: String | string,
     aXmlFile: Node,
-    aCharset: string,
+    aCharset: String | string,
     aXmlElementHandler: XmlElementHandler
   ): void;
 }

@@ -3,10 +3,10 @@ import type { Node } from "../../../../../javax/jcr/Node";
 /**
  * Role matcher representation that can be matched on a node to check "is user in role".
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via {@link RoleMatcherBuilder#build()}.
- *    See {@link RoleMatcherBuilder} for how to obtain an instance of the <code>RoleMatcherBuilder</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via {@link RoleMatcherBuilder#build()}.
+ *     See {@link RoleMatcherBuilder} for how to obtain an instance of the <code>RoleMatcherBuilder</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 6.1
  */

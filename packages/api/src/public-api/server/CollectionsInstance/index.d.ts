@@ -1,15 +1,38 @@
+import type { List } from "../../types/java/util/List";
+
+import type { Comparator } from "../../types/java/util/Comparator";
+
+import type { Random } from "../../types/java/util/Random";
+import type { Collection } from "../../types/java/util/Collection";
+
+import type { Set } from "../../types/java/util/Set";
+import type { SortedSet } from "../../types/java/util/SortedSet";
+import type { Map } from "../../types/java/util/Map";
+import type { SortedMap } from "../../types/java/util/SortedMap";
+import type { Class } from "../../types/java/lang/Class";
+
+import type { Enumeration } from "../../types/java/util/Enumeration";
+import type { ArrayList } from "../../types/java/util/ArrayList";
+import type { Object } from "../../types/java/lang/Object";
+import type { Deque } from "../../types/java/util/Deque";
+import type { Queue } from "../../types/java/util/Queue";
+import type { Iterator } from "../../types/java/util/Iterator";
+import type { ListIterator } from "../../types/java/util/ListIterator";
+import type { NavigableSet } from "../../types/java/util/NavigableSet";
+import type { NavigableMap } from "../../types/java/util/NavigableMap";
+
 /**
  * Instance wrapper for the <code>java.util.Collections</code> class that delegates all method calls to
- * the corresponding <code>Collections</code> method.
+ *  the corresponding <code>Collections</code> method.
  *
- * <p>
- *    <em>Note! Method documentations in this interface are only excerpts. For full documentation, see official java.util.Collections Javadoc</em>
- * </p>
+ *  <p>
+ *     <em>Note! Method documentations in this interface are only excerpts. For full documentation, see official java.util.Collections Javadoc</em>
+ *  </p>
  *
- * <p>
- * An instance of the Sitevision class implementing this interface can be obtained via {@link InstanceCreatorUtil#getCollectionsInstance()}.
- * See {@link InstanceCreatorUtil} for how to obtain an instance of the <code>InstanceCreatorUtil</code> interface.
- * </p>
+ *  <p>
+ *  An instance of the Sitevision class implementing this interface can be obtained via {@link InstanceCreatorUtil#getCollectionsInstance()}.
+ *  See {@link InstanceCreatorUtil} for how to obtain an instance of the <code>InstanceCreatorUtil</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.1
  */
@@ -18,19 +41,19 @@ export interface CollectionsInstance {
  * The empty set (immutable).
   
     */
-  EMPTY_SET: unknown;
+  EMPTY_SET: Set;
 
   /**
  * The empty list (immutable).
   
     */
-  EMPTY_LIST: unknown;
+  EMPTY_LIST: List;
 
   /**
  * The empty map (immutable).
   
     */
-  EMPTY_MAP: unknown;
+  EMPTY_MAP: Map;
 
   /**
    * Sorts the specified list into ascending order, according to the <i>natural ordering</i> of its elements.
@@ -39,7 +62,7 @@ export interface CollectionsInstance {
    * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> (for example, strings and integers).
    * @throws UnsupportedOperationException if the specified list's list-iterator does not support the <tt>set</tt> operation.
    */
-  sort(aList: unknown): void;
+  sort(aList: List | unknown[]): void;
 
   /**
    * Sorts the specified list according to the order induced by the specified comparator.
@@ -49,7 +72,7 @@ export interface CollectionsInstance {
    * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> using the specified comparator.
    * @throws UnsupportedOperationException if the specified list's list-iterator does not support the <tt>set</tt> operation.
    */
-  sort(aList: unknown, aComparator: unknown): void;
+  sort(aList: List | unknown[], aComparator: Comparator): void;
 
   /**
    * Searches the specified list for the specified object using the binary search algorithm.
@@ -59,7 +82,7 @@ export interface CollectionsInstance {
    * @return the index of the search key, if it is contained in the list; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>.&#xA; The <i>insertion point</i> is defined as the point at which the key would be inserted into the list: the index of&#xA; the first element greater than the key, or <tt>aList.size()</tt> if all elements in the list are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> (for example, strings and integers), or the&#xA; search key is not mutually comparable with the elements of the list.
    */
-  binarySearch(aList: unknown, aKey: unknown): number;
+  binarySearch(aList: List | unknown[], aKey: unknown): number;
 
   /**
    * Searches the specified list for the specified object using the binary search algorithm.
@@ -70,21 +93,25 @@ export interface CollectionsInstance {
    * @return the index of the search key, if it is contained in the list; otherwise, <tt>(-(<i>insertion point</i>) - 1)</tt>. The&#xA; <i>insertion point</i> is defined as the point at which the key would be inserted into the list: the index of the first&#xA; element greater than the key, or <tt>aList.size()</tt> if all elements in the list are less than the specified key. Note&#xA; that this guarantees that the return value will be &gt;= 0 if and only if the key is found.
    * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> using the specified comparator,&#xA; or the search key is not mutually comparable with the elements of the list using this comparator.
    */
-  binarySearch(aList: unknown, aKey: unknown, aComparator: unknown): number;
+  binarySearch(
+    aList: List | unknown[],
+    aKey: unknown,
+    aComparator: Comparator
+  ): number;
 
   /**
    * Reverses the order of the elements in the specified list.
    * @param aList the list whose elements are to be reversed.
    * @throws UnsupportedOperationException if the specified list or its list-iterator does not support the <tt>set</tt> operation.
    */
-  reverse(aList: unknown): void;
+  reverse(aList: List | unknown[]): void;
 
   /**
    * Randomly permutes the specified list using a default source of randomness.
    * @param aList the list to be shuffled.
    * @throws UnsupportedOperationException if the specified list or its list-iterator does not support the <tt>set</tt> operation.
    */
-  shuffle(aList: unknown): void;
+  shuffle(aList: List | unknown[]): void;
 
   /**
    * Randomly permute the specified list using the specified source of randomness.
@@ -92,7 +119,7 @@ export interface CollectionsInstance {
    * @param aRandom the source of randomness to use to shuffle the list.
    * @throws UnsupportedOperationException if the specified list or its list-iterator does not support the <tt>set</tt> operation.
    */
-  shuffle(aList: unknown, aRandom: unknown): void;
+  shuffle(aList: List | unknown[], aRandom: Random): void;
 
   /**
    * Swaps the elements at the specified positions in the specified list.
@@ -101,7 +128,7 @@ export interface CollectionsInstance {
    * @param anAnotherIndex the index of the other element to be swapped.
    * @throws IndexOutOfBoundsException if either <tt>anIndex</tt> or <tt>j</tt> is out of range (anIndex &lt; 0 || anIndex &gt;= aList.size()&#xA; || anAnotherIndex &lt; 0 || anAnotherIndex &gt;= aList.size()).
    */
-  swap(aList: unknown, anIndex: number, anAnotherIndex: number): void;
+  swap(aList: List | unknown[], anIndex: number, anAnotherIndex: number): void;
 
   /**
    * Replaces all of the elements of the specified list with the specified element.
@@ -110,7 +137,7 @@ export interface CollectionsInstance {
    * @param aValue The element with which to fill the specified list.
    * @throws UnsupportedOperationException if the specified list or its list-iterator does not support the <tt>set</tt> operation.
    */
-  fill(aList: unknown, aValue: unknown): void;
+  fill(aList: List | unknown[], aValue: unknown): void;
 
   /**
    * Copies all of the elements from one list into another.
@@ -120,7 +147,7 @@ export interface CollectionsInstance {
    * @throws IndexOutOfBoundsException if the destination list is too small to contain the entire source List.
    * @throws UnsupportedOperationException if the destination list's list-iterator does not support the <tt>set</tt> operation.
    */
-  copy(aDestination: unknown, aSource: unknown): void;
+  copy(aDestination: List | unknown[], aSource: List | unknown[]): void;
 
   /**
    * Returns the minimum element of the given collection, according to the <i>natural ordering</i> of its elements.
@@ -130,7 +157,7 @@ export interface CollectionsInstance {
    * @throws ClassCastException if the collection contains elements that are not <i>mutually comparable</i> (for example, strings and integers).
    * @throws NoSuchElementException if the collection is empty.
    */
-  min(aCollection: unknown): unknown;
+  min(aCollection: Collection | unknown[]): unknown;
 
   /**
    * Returns the minimum element of the given collection, according to the order induced by the specified comparator.
@@ -141,22 +168,22 @@ export interface CollectionsInstance {
    * @throws ClassCastException if the collection contains elements that are not <i>mutually comparable</i> using the specified comparator.
    * @throws NoSuchElementException if the collection is empty.
    */
-  min(aCollection: unknown, aComparator: unknown): unknown;
+  min(aCollection: Collection | unknown[], aComparator: Comparator): unknown;
 
   /**
    * Returns the maximum element of the given collection, according to the
-   * <i>natural ordering</i> of its elements.
+   *  <i>natural ordering</i> of its elements.
    * @param <T> the class of the objects in the collection
    * @param aCollection the collection whose maximum element is to be determined.
    * @return the maximum element of the given collection, according to the <i>natural ordering</i> of its elements.
    * @throws ClassCastException if the collection contains elements that are not <i>mutually comparable</i> (for example, strings and integers).
    * @throws NoSuchElementException if the collection is empty.
    */
-  max(aCollection: unknown): unknown;
+  max(aCollection: Collection | unknown[]): unknown;
 
   /**
    * Returns the maximum element of the given collection, according to the
-   * order induced by the specified comparator.
+   *  order induced by the specified comparator.
    * @param <T> the class of the objects in the collection
    * @param aCollection the collection whose maximum element is to be determined.
    * @param aComparator the comparator with which to determine the maximum element. A <tt>null</tt> value indicates that the elements'&#xA; <i>natural ordering</i> should be used.
@@ -164,7 +191,7 @@ export interface CollectionsInstance {
    * @throws ClassCastException if the collection contains elements that are not <i>mutually comparable</i> using the specified comparator.
    * @throws NoSuchElementException if the collection is empty.
    */
-  max(aCollection: unknown, aComparator: unknown): unknown;
+  max(aCollection: Collection | unknown[], aComparator: Comparator): unknown;
 
   /**
    * Rotates the elements in the specified list by the specified distance.
@@ -172,7 +199,7 @@ export interface CollectionsInstance {
    * @param aDistance the distance to rotate the list. There are no constraints on this value; it may be zero, negative, or greater than&#xA; <tt>aList.size()</tt>.
    * @throws UnsupportedOperationException if the specified list or its list-iterator does not support the <tt>set</tt> operation.
    */
-  rotate(aList: unknown, aDistance: number): void;
+  rotate(aList: List | unknown[], aDistance: number): void;
 
   /**
    * Replaces all occurrences of one specified value in a list with another.
@@ -183,25 +210,32 @@ export interface CollectionsInstance {
    * @return <tt>true</tt> if <tt>aList</tt> contained one or more elements <tt>e</tt> such that&#xA; <tt>(anOldValue==null ? e==null : anOldValue.equals(e))</tt>.
    * @throws UnsupportedOperationException if the specified list or its list-iterator does not support the <tt>set</tt> operation.
    */
-  replaceAll(aList: unknown, anOldValue: unknown, aNewValue: unknown): boolean;
+  replaceAll(
+    aList: List | unknown[],
+    anOldValue: unknown,
+    aNewValue: unknown
+  ): boolean;
 
   /**
    * Returns the starting position of the first occurrence of the specified
-   * target list within the specified source list, or -1 if there is no such occurrence.
+   *  target list within the specified source list, or -1 if there is no such occurrence.
    * @param aSource the list in which to search for the first occurrence of <tt>target</tt>.
    * @param aTarget the list to search for as a subList of <tt>aSource</tt>.
    * @return the starting position of the first occurrence of the specified target list within the specified source list,&#xA; or -1 if there is no such occurrence.
    */
-  indexOfSubList(aSource: unknown, aTarget: unknown): number;
+  indexOfSubList(aSource: List | unknown[], aTarget: List | unknown[]): number;
 
   /**
    * Returns the starting position of the last occurrence of the specified
-   * target list within the specified source list, or -1 if there is no such occurrence.
+   *  target list within the specified source list, or -1 if there is no such occurrence.
    * @param aSource the list in which to search for the last occurrence of <tt>target</tt>.
    * @param aTarget the list to search for as a subList of <tt>aSource</tt>.
    * @return the starting position of the last occurrence of the specified target list within the specified source list,&#xA; or -1 if there is no such occurrence.
    */
-  lastIndexOfSubList(aSource: unknown, aTarget: unknown): number;
+  lastIndexOfSubList(
+    aSource: List | unknown[],
+    aTarget: List | unknown[]
+  ): number;
 
   /**
    * Returns an unmodifiable view of the specified collection.
@@ -209,7 +243,7 @@ export interface CollectionsInstance {
    * @param aCollection the collection for which an unmodifiable view is to be returned.
    * @return an unmodifiable view of the specified collection.
    */
-  unmodifiableCollection(aCollection: unknown): unknown;
+  unmodifiableCollection(aCollection: Collection | unknown[]): Collection;
 
   /**
    * Returns an unmodifiable view of the specified set.
@@ -217,7 +251,7 @@ export interface CollectionsInstance {
    * @param aSet the set for which an unmodifiable view is to be returned.
    * @return an unmodifiable view of the specified set.
    */
-  unmodifiableSet(aSet: unknown): unknown;
+  unmodifiableSet(aSet: Set | unknown[]): Set;
 
   /**
    * Returns an unmodifiable view of the specified sorted set.
@@ -225,7 +259,7 @@ export interface CollectionsInstance {
    * @param aSet the sorted set for which an unmodifiable view is to be returned.
    * @return an unmodifiable view of the specified sorted set.
    */
-  unmodifiableSortedSet(aSet: unknown): unknown;
+  unmodifiableSortedSet(aSet: SortedSet): SortedSet;
 
   /**
    * Returns an unmodifiable view of the specified list.
@@ -233,7 +267,7 @@ export interface CollectionsInstance {
    * @param aList the list for which an unmodifiable view is to be returned.
    * @return an unmodifiable view of the specified list.
    */
-  unmodifiableList(aList: unknown): unknown;
+  unmodifiableList(aList: List | unknown[]): List;
 
   /**
    * Returns an unmodifiable view of the specified map.
@@ -242,7 +276,7 @@ export interface CollectionsInstance {
    * @param aMap the map for which an unmodifiable view is to be returned.
    * @return an unmodifiable view of the specified map.
    */
-  unmodifiableMap(aMap: unknown): unknown;
+  unmodifiableMap(aMap: Map | {}): Map;
 
   /**
    * Returns an unmodifiable view of the specified sorted map.
@@ -251,7 +285,7 @@ export interface CollectionsInstance {
    * @param aMap the sorted map for which an unmodifiable view is to be returned.
    * @return an unmodifiable view of the specified sorted map.
    */
-  unmodifiableSortedMap(aMap: unknown): unknown;
+  unmodifiableSortedMap(aMap: SortedMap): SortedMap;
 
   /**
    * Returns a synchronized (thread-safe) collection backed by the specified collection.
@@ -259,7 +293,7 @@ export interface CollectionsInstance {
    * @param aCollection the collection to be "wrapped" in a synchronized collection.
    * @return a synchronized view of the specified collection.
    */
-  synchronizedCollection(aCollection: unknown): unknown;
+  synchronizedCollection(aCollection: Collection | unknown[]): Collection;
 
   /**
    * Returns a synchronized (thread-safe) set backed by the specified set.
@@ -267,7 +301,7 @@ export interface CollectionsInstance {
    * @param aSet the set to be "wrapped" in a synchronized set.
    * @return a synchronized view of the specified set.
    */
-  synchronizedSet(aSet: unknown): unknown;
+  synchronizedSet(aSet: Set | unknown[]): Set;
 
   /**
    * Returns a synchronized (thread-safe) sorted set backed by the specified sorted set.
@@ -275,7 +309,7 @@ export interface CollectionsInstance {
    * @param aSet the sorted set to be "wrapped" in a synchronized sorted set.
    * @return a synchronized view of the specified sorted set.
    */
-  synchronizedSortedSet(aSet: unknown): unknown;
+  synchronizedSortedSet(aSet: SortedSet): SortedSet;
 
   /**
    * Returns a synchronized (thread-safe) list backed by the specified list.
@@ -283,7 +317,7 @@ export interface CollectionsInstance {
    * @param aList the list to be "wrapped" in a synchronized list.
    * @return a synchronized view of the specified list.
    */
-  synchronizedList(aList: unknown): unknown;
+  synchronizedList(aList: List | unknown[]): List;
 
   /**
    * Returns a synchronized (thread-safe) map backed by the specified map.
@@ -292,7 +326,7 @@ export interface CollectionsInstance {
    * @param aMap the map to be "wrapped" in a synchronized map.
    * @return a synchronized view of the specified map.
    */
-  synchronizedMap(aMap: unknown): unknown;
+  synchronizedMap(aMap: Map | {}): Map;
 
   /**
    * Returns a synchronized (thread-safe) sorted map backed by the specified sorted map.
@@ -301,7 +335,7 @@ export interface CollectionsInstance {
    * @param aMap the sorted map to be "wrapped" in a synchronized sorted map.
    * @return a synchronized view of the specified sorted map.
    */
-  synchronizedSortedMap(aMap: unknown): unknown;
+  synchronizedSortedMap(aMap: SortedMap): SortedMap;
 
   /**
    * Returns a dynamically typesafe view of the specified collection.
@@ -310,7 +344,10 @@ export interface CollectionsInstance {
    * @param aType the type of element that <tt>aCollection</tt> is permitted to hold
    * @return a dynamically typesafe view of the specified collection
    */
-  checkedCollection(aCollection: unknown, aType: unknown): unknown;
+  checkedCollection(
+    aCollection: Collection | unknown[],
+    aType: Class
+  ): Collection;
 
   /**
    * Returns a dynamically typesafe view of the specified set.
@@ -319,7 +356,7 @@ export interface CollectionsInstance {
    * @param aType the type of element that <tt>aSet</tt> is permitted to hold
    * @return a dynamically typesafe view of the specified set
    */
-  checkedSet(aSet: unknown, aType: unknown): unknown;
+  checkedSet(aSet: Set | unknown[], aType: Class): Set;
 
   /**
    * Returns a dynamically typesafe view of the specified sorted set.
@@ -328,7 +365,7 @@ export interface CollectionsInstance {
    * @param aType the type of element that <tt>aSet</tt> is permitted to hold
    * @return a dynamically typesafe view of the specified sorted set
    */
-  checkedSortedSet(aSet: unknown, aType: unknown): unknown;
+  checkedSortedSet(aSet: SortedSet, aType: Class): SortedSet;
 
   /**
    * Returns a dynamically typesafe view of the specified list.
@@ -337,7 +374,7 @@ export interface CollectionsInstance {
    * @param aType the type of element that <tt>aList</tt> is permitted to hold
    * @return a dynamically typesafe view of the specified list
    */
-  checkedList(aList: unknown, aType: unknown): unknown;
+  checkedList(aList: List | unknown[], aType: Class): List;
 
   /**
    * Returns a dynamically typesafe view of the specified map.
@@ -348,7 +385,7 @@ export interface CollectionsInstance {
    * @param aValueType the type of value that <tt>aMap</tt> is permitted to hold
    * @return a dynamically typesafe view of the specified map
    */
-  checkedMap(aMap: unknown, aKeyType: unknown, aValueType: unknown): unknown;
+  checkedMap(aMap: Map | {}, aKeyType: Class, aValueType: Class): Map;
 
   /**
    * Returns a dynamically typesafe view of the specified sorted map.
@@ -360,24 +397,24 @@ export interface CollectionsInstance {
    * @return a dynamically typesafe view of the specified map
    */
   checkedSortedMap(
-    aMap: unknown,
-    aKeyType: unknown,
-    aValueType: unknown
-  ): unknown;
+    aMap: SortedMap,
+    aKeyType: Class,
+    aValueType: Class
+  ): SortedMap;
 
   /**
    * Returns the empty set (immutable).
    * @param <T> the class of the objects in the set
    * @return the empty set
    */
-  emptySet(): unknown;
+  emptySet(): Set;
 
   /**
    * Returns the empty list (immutable).
    * @param <T> the class of the objects in the list
    * @return the empty list
    */
-  emptyList(): unknown;
+  emptyList(): List;
 
   /**
    * Returns the empty map (immutable).
@@ -385,7 +422,7 @@ export interface CollectionsInstance {
    * @param <V> the class of the map values
    * @return the empty map
    */
-  emptyMap(): unknown;
+  emptyMap(): Map;
 
   /**
    * Returns an immutable set containing only the specified object.
@@ -393,7 +430,7 @@ export interface CollectionsInstance {
    * @param aValue the sole object to be stored in the returned set.
    * @return an immutable set containing only the specified object.
    */
-  singleton(aValue: unknown): unknown;
+  singleton(aValue: unknown): Set;
 
   /**
    * Returns an immutable list containing only the specified object.
@@ -401,7 +438,7 @@ export interface CollectionsInstance {
    * @param aValue the sole object to be stored in the returned list.
    * @return an immutable list containing only the specified object.
    */
-  singletonList(aValue: unknown): unknown;
+  singletonList(aValue: unknown): List;
 
   /**
    * Returns an immutable map, mapping only the specified key to the specified value.
@@ -411,7 +448,7 @@ export interface CollectionsInstance {
    * @param aValue the value to which the returned map maps <tt>key</tt>.
    * @return an immutable map containing only the specified key-value mapping.
    */
-  singletonMap(key: unknown, aValue: unknown): unknown;
+  singletonMap(key: unknown, aValue: unknown): Map;
 
   /**
    * Returns an immutable list consisting of <tt>n</tt> copies of the specified object.
@@ -421,15 +458,15 @@ export interface CollectionsInstance {
    * @return an immutable list consisting of <tt>aCount</tt> copies of the specified object.
    * @throws IllegalArgumentException if <tt>aCount &lt; 0</tt>.
    */
-  nCopies(aCount: number, aValue: unknown): unknown;
+  nCopies(aCount: number, aValue: unknown): List;
 
   /**
    * Returns a comparator that imposes the reverse of the <i>natural ordering</i> on a collection of objects that implement
-   * the <tt>Comparable</tt> interface.
+   *  the <tt>Comparable</tt> interface.
    * @param <T> the class of the objects compared by the comparator
    * @return a comparator that imposes the reverse of the <i>natural ordering</i> on a collection of objects that implement&#xA; the <tt>Comparable</tt> interface.
    */
-  reverseOrder(): unknown;
+  reverseOrder(): Comparator;
 
   /**
    * Returns a comparator that imposes the reverse ordering of the specified comparator.
@@ -437,7 +474,7 @@ export interface CollectionsInstance {
    * @param aComparator the Comparator
    * @return a comparator that imposes the reverse ordering of the specified comparator.
    */
-  reverseOrder(aComparator: unknown): unknown;
+  reverseOrder(aComparator: Comparator): Comparator;
 
   /**
    * Returns an enumeration over the specified collection.
@@ -445,7 +482,7 @@ export interface CollectionsInstance {
    * @param aCollection the collection for which an enumeration is to be returned.
    * @return an enumeration over the specified collection.
    */
-  enumeration(aCollection: unknown): unknown;
+  enumeration(aCollection: Collection | unknown[]): Enumeration;
 
   /**
    * Returns an array list containing the elements returned by the specified enumeration in the order they are returned by the enumeration.
@@ -453,7 +490,7 @@ export interface CollectionsInstance {
    * @param anEnumeration enumeration providing elements for the returned array list
    * @return an array list containing the elements returned by the specified enumeration.
    */
-  list(anEnumeration: unknown): unknown;
+  list(anEnumeration: Enumeration): ArrayList;
 
   /**
    * Returns the number of elements in the specified collection equal to the specified object.
@@ -462,7 +499,7 @@ export interface CollectionsInstance {
    * @return the number of elements in {@code aCollection} equal to {@code aValue}
    * @throws NullPointerException if <tt>aCollection</tt> is null
    */
-  frequency(aCollection: unknown, aValue: unknown): number;
+  frequency(aCollection: Collection | unknown[], aValue: unknown): number;
 
   /**
    * Returns <tt>true</tt> if the two specified collections have no elements in common.
@@ -471,7 +508,10 @@ export interface CollectionsInstance {
    * @return {@code true} if the two specified collections have no elements in common.
    * @throws NullPointerException if either collection is null
    */
-  disjoint(aCollection: unknown, anAnotherCollection: unknown): boolean;
+  disjoint(
+    aCollection: Collection | unknown[],
+    anAnotherCollection: Collection | unknown[]
+  ): boolean;
 
   /**
    * Adds all of the specified elements to the specified collection.
@@ -483,7 +523,7 @@ export interface CollectionsInstance {
    * @throws NullPointerException if <tt>aValues</tt> contains one or more null values and <tt>aCollection</tt> does not permit null&#xA; elements, or if <tt>aCollection</tt> or <tt>aValues</tt> are <tt>null</tt>
    * @throws IllegalArgumentException if some property of a value in <tt>aValues</tt> prevents it from being added to <tt>aCollection</tt>
    */
-  addAll(aCollection: unknown, aValues: unknown): boolean;
+  addAll(aCollection: Collection | unknown[], aValues: unknown[]): boolean;
 
   /**
    * Returns a set backed by the specified map.
@@ -492,7 +532,7 @@ export interface CollectionsInstance {
    * @return the set backed by the map
    * @throws IllegalArgumentException if <tt>aMap</tt> is not empty
    */
-  newSetFromMap(aMap: unknown): unknown;
+  newSetFromMap(aMap: Map | {}): Set;
 
   /**
    * Returns a view of a <code>Deque</code> as a Last-in-first-out (Lifo) <code>Queue</code>.
@@ -500,7 +540,7 @@ export interface CollectionsInstance {
    * @param aDeque the deque
    * @return the queue
    */
-  asLifoQueue(aDeque: unknown): unknown;
+  asLifoQueue(aDeque: Deque): Queue;
 
   /**
    * Returns an iterator that has no elements.
@@ -509,7 +549,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.7
    */
-  emptyIterator(): unknown;
+  emptyIterator(): Iterator;
 
   /**
    * Returns a list iterator that has no elements.
@@ -518,7 +558,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.7
    */
-  emptyListIterator(): unknown;
+  emptyListIterator(): ListIterator;
 
   /**
    * Returns an enumeration that has no elements.
@@ -527,7 +567,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.7
    */
-  emptyEnumeration(): unknown;
+  emptyEnumeration(): Enumeration;
 
   /**
    * Returns an unmodifiable view of the specified navigable set.
@@ -537,7 +577,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  unmodifiableNavigableSet(s: unknown): unknown;
+  unmodifiableNavigableSet(s: NavigableSet): NavigableSet;
 
   /**
    * Returns an unmodifiable view of the specified navigable map.
@@ -548,22 +588,22 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  unmodifiableNavigableMap(m: unknown): unknown;
+  unmodifiableNavigableMap(m: NavigableMap): NavigableMap;
 
   /**
    * Returns a synchronized (thread-safe) navigable set backed by the
-   * specified navigable set.
+   *  specified navigable set.
    * @param <T> the class of the objects in the set
    * @param s the navigable set to be "wrapped" in a synchronized navigableset
    * @return a synchronized view of the specified navigable set
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  synchronizedNavigableSet(s: unknown): unknown;
+  synchronizedNavigableSet(s: NavigableSet): NavigableSet;
 
   /**
    * Returns a synchronized (thread-safe) navigable map backed by the
-   * specified navigable map.
+   *  specified navigable map.
    * @param <K> the class of the map keys
    * @param <V> the class of the map values
    * @param m the navigable map to be "wrapped" in a synchronized navigable map
@@ -571,7 +611,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  synchronizedNavigableMap(m: unknown): unknown;
+  synchronizedNavigableMap(m: NavigableMap): NavigableMap;
 
   /**
    * Returns a dynamically typesafe view of the specified queue.
@@ -582,7 +622,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  checkedQueue(queue: unknown, type: unknown): unknown;
+  checkedQueue(queue: Queue, type: Class): Queue;
 
   /**
    * Returns a dynamically typesafe view of the specified navigable set.
@@ -593,7 +633,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  checkedNavigableSet(s: unknown, type: unknown): unknown;
+  checkedNavigableSet(s: NavigableSet, type: Class): NavigableSet;
 
   /**
    * Returns a dynamically typesafe view of the specified navigable map.
@@ -607,10 +647,10 @@ export interface CollectionsInstance {
    * @since Java 1.8
    */
   checkedNavigableMap(
-    m: unknown,
-    keyType: unknown,
-    valueType: unknown
-  ): unknown;
+    m: NavigableMap,
+    keyType: Class,
+    valueType: Class
+  ): NavigableMap;
 
   /**
    * Returns an empty sorted set (immutable).
@@ -619,7 +659,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  emptySortedSet(): unknown;
+  emptySortedSet(): SortedSet;
 
   /**
    * Returns an empty navigable set (immutable).
@@ -628,7 +668,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  emptyNavigableSet(): unknown;
+  emptyNavigableSet(): NavigableSet;
 
   /**
    * Returns an empty sorted map (immutable).
@@ -638,7 +678,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  emptySortedMap(): unknown;
+  emptySortedMap(): SortedMap;
 
   /**
    * Returns an empty navigable map (immutable).
@@ -648,7 +688,7 @@ export interface CollectionsInstance {
    * @since Sitevision 4.0
    * @since Java 1.8
    */
-  emptyNavigableMap(): unknown;
+  emptyNavigableMap(): NavigableMap;
 }
 
 declare namespace CollectionsInstance {}

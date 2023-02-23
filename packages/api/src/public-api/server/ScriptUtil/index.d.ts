@@ -1,10 +1,19 @@
+import type { Object } from "../../types/java/lang/Object";
+import type { String } from "../../types/java/lang/String";
+import type { List } from "../../types/java/util/List";
+import type { Locale } from "../../types/java/util/Locale";
+import type { Date } from "../../types/java/util/Date";
+import type { Calendar } from "../../types/java/util/Calendar";
+
+import type { Collection } from "../../types/java/util/Collection";
+
 /**
  * Scripting utility interface that might be needed when using a limited scripting or template language (such as Velocity).
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getScriptUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getScriptUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  */
 export interface ScriptUtil {
@@ -29,36 +38,36 @@ export interface ScriptUtil {
   /**
    * Gets an object that is ensured not to be null.
    *
-   * <p>
-   *    This is a convenience method that can be used to avoid unnecessary subsequent method invocations in Velocity.
-   * </p>
+   *  <p>
+   *     This is a convenience method that can be used to avoid unnecessary subsequent method invocations in Velocity.
+   *  </p>
    *
-   * <p>
-   *    Velocity ignores <code>null</code> assignments and trying to assign a null reference will be logged as a WARNING message.
-   *    A common strategy to work around this is to use the the Velocity <code>#if</code> clause. It allows for easy non-null
-   *    checks - a <code>null</code> object is considered to be <code>false</code>. The downside with this strategy is that it
-   *    requires two subsequent method invocations. That can of course be a really bad thing if the method does costly things. This method
-   *    can be used to avoid such problems.
-   * </p>
+   *  <p>
+   *     Velocity ignores <code>null</code> assignments and trying to assign a null reference will be logged as a WARNING message.
+   *     A common strategy to work around this is to use the the Velocity <code>#if</code> clause. It allows for easy non-null
+   *     checks - a <code>null</code> object is considered to be <code>false</code>. The downside with this strategy is that it
+   *     requires two subsequent method invocations. That can of course be a really bad thing if the method does costly things. This method
+   *     can be used to avoid such problems.
+   *  </p>
    *
-   * <p>
-   *    <strong>An example</strong><br>
-   *    This Velocity code:
-   * </p>
-   * <pre><code>    #if ($anObject.getPersonOrNull())
-   *       #set ($person = $anObject.getPersonOrNull())
-   *       $person.getName()
-   *       ...
-   *    #end</code></pre>
-   * Can be better utilized as:
-   * <pre><code>    #set ($scriptUtil = ...)
+   *  <p>
+   *     <strong>An example</strong><br>
+   *     This Velocity code:
+   *  </p>
+   *  <pre><code>    #if ($anObject.getPersonOrNull())
+   *        #set ($person = $anObject.getPersonOrNull())
+   *        $person.getName()
+   *        ...
+   *     #end</code></pre>
+   *  Can be better utilized as:
+   *  <pre><code>    #set ($scriptUtil = ...)
    *
-   *    #set ($person = $scriptUtil.getNonNull(${anObject.getPersonOrNull()}))
-   *    #if ($person)
-   *       $person.getName()
-   *       ...
-   *    #end
-   * </code></pre>
+   *     #set ($person = $scriptUtil.getNonNull(${anObject.getPersonOrNull()}))
+   *     #if ($person)
+   *        $person.getName()
+   *        ...
+   *     #end
+   *  </code></pre>
    * @param anObject the object that might be <code>null</code>
    * @return anObject if non-null, <code>Boolean.FALSE</code> otherwise
    * @see #getNonNull(Object, Object)
@@ -70,69 +79,69 @@ export interface ScriptUtil {
   /**
    * Gets an object that is ensured not to be null or a whitespace only string.
    *
-   * <p>
-   *    This is a convenience method that can be used to avoid unnecessary subsequent method invocations in Velocity.
-   * </p>
+   *  <p>
+   *     This is a convenience method that can be used to avoid unnecessary subsequent method invocations in Velocity.
+   *  </p>
    *
-   * <p>
-   *    Velocity ignores <code>null</code> assignments and trying to assign a null reference will be logged as a WARNING message.
-   *    A common strategy to work around this is to use the the Velocity <code>#if</code> clause. It allows for easy non-null
-   *    checks - a <code>null</code> object is considered to be <code>false</code>. The downside with this strategy is that it
-   *    requires two subsequent method invocations. That can of course be a really bad thing if the method does costly things. This method
-   *    can be used to avoid such problems.
-   * </p>
+   *  <p>
+   *     Velocity ignores <code>null</code> assignments and trying to assign a null reference will be logged as a WARNING message.
+   *     A common strategy to work around this is to use the the Velocity <code>#if</code> clause. It allows for easy non-null
+   *     checks - a <code>null</code> object is considered to be <code>false</code>. The downside with this strategy is that it
+   *     requires two subsequent method invocations. That can of course be a really bad thing if the method does costly things. This method
+   *     can be used to avoid such problems.
+   *  </p>
    *
-   * <p>
-   *    <strong>An example</strong><br>
-   *    This Velocity code:
-   * </p>
-   * <pre><code>    #if ($anObject.getPersonNameThatCanBeNullOrEmptyOrWhitespaceOnly())
-   *       #set ($name = $anObject.getPersonNameThatCanBeNullOrEmptyOrWhitespaceOnly())
-   *       #if ($name.trim().length() &gt; 0)
-   *          &lt;p&gt;
-   *             $name
-   *          &lt;/p&gt;
-   *       #end
-   *    #end</code></pre>
-   * Can be better utilized as:
-   * <pre><code>    #set ($scriptUtil = ...)
+   *  <p>
+   *     <strong>An example</strong><br>
+   *     This Velocity code:
+   *  </p>
+   *  <pre><code>    #if ($anObject.getPersonNameThatCanBeNullOrEmptyOrWhitespaceOnly())
+   *        #set ($name = $anObject.getPersonNameThatCanBeNullOrEmptyOrWhitespaceOnly())
+   *        #if ($name.trim().length() &gt; 0)
+   *           &lt;p&gt;
+   *              $name
+   *           &lt;/p&gt;
+   *        #end
+   *     #end</code></pre>
+   *  Can be better utilized as:
+   *  <pre><code>    #set ($scriptUtil = ...)
    *
-   *    #set ($name = $scriptUtil.getNonBlank(${anObject.getPersonNameThatCanBeNullOrEmptyOrWhitespaceOnly()}))
-   *    #if ($name)
-   *       &lt;p&gt;
-   *          $name
-   *       &lt;/p&gt;
-   *    #end
-   * </code></pre>
+   *     #set ($name = $scriptUtil.getNonBlank(${anObject.getPersonNameThatCanBeNullOrEmptyOrWhitespaceOnly()}))
+   *     #if ($name)
+   *        &lt;p&gt;
+   *           $name
+   *        &lt;/p&gt;
+   *     #end
+   *  </code></pre>
    *
-   * <p>
-   *    <strong>A typical example when using {@link senselogic.sitevision.api.property.PropertyUtil} and whitespace is an issue</strong><br>
-   *    This Velocity code:
-   * </p>
-   * <pre><code>    #if ($propertyUtil.getString($theNode, 'thePropertyName'))
-   *       #set ($propertyValue = $propertyUtil.getString($theNode, 'thePropertyName'))
-   *       #if ($propertyValue.trim().length() &gt; 0)
-   *          &lt;p&gt;
-   *             $propertyValue
-   *          &lt;/p&gt;
-   *       #end
-   *    #end</code></pre>
-   * Can be better utilized as:
-   * <pre><code>    #set ($scriptUtil = ...)
+   *  <p>
+   *     <strong>A typical example when using {@link senselogic.sitevision.api.property.PropertyUtil} and whitespace is an issue</strong><br>
+   *     This Velocity code:
+   *  </p>
+   *  <pre><code>    #if ($propertyUtil.getString($theNode, 'thePropertyName'))
+   *        #set ($propertyValue = $propertyUtil.getString($theNode, 'thePropertyName'))
+   *        #if ($propertyValue.trim().length() &gt; 0)
+   *           &lt;p&gt;
+   *              $propertyValue
+   *           &lt;/p&gt;
+   *        #end
+   *     #end</code></pre>
+   *  Can be better utilized as:
+   *  <pre><code>    #set ($scriptUtil = ...)
    *
-   *    #set ($propertyValue = $scriptUtil.getNonBlank(${propertyUtil.getString($theNode, 'thePropertyName')}))
-   *    #if ($propertyValue)
-   *       &lt;p&gt;
-   *          $propertyValue
-   *       &lt;/p&gt;
-   *    #end
-   * </code></pre>
+   *     #set ($propertyValue = $scriptUtil.getNonBlank(${propertyUtil.getString($theNode, 'thePropertyName')}))
+   *     #if ($propertyValue)
+   *        &lt;p&gt;
+   *           $propertyValue
+   *        &lt;/p&gt;
+   *     #end
+   *  </code></pre>
    * @param aString the string that might be <code>null</code> or whitespace only
    * @return aString if <code>aString</code> is non-null and not whitespace only, <code>Boolean.FALSE</code> otherwise
    * @see #getNonBlank(String, Object)
    * @since Sitevision 3.6
    */
-  getNonBlank(aString: string): unknown;
+  getNonBlank(aString: String | string): unknown;
 
   /**
    * Gets a default value if an object is null.
@@ -152,7 +161,7 @@ export interface ScriptUtil {
    * @see #getNonBlank(String)
    * @since Sitevision 3.6
    */
-  getNonBlank(aString: string, aDefaultValue: unknown): unknown;
+  getNonBlank(aString: String | string, aDefaultValue: unknown): unknown;
 
   /**
    * Checks if a string is not null and not empty.
@@ -161,7 +170,7 @@ export interface ScriptUtil {
    * @see #isNotBlank(String)
    * @since Sitevision 2.6
    */
-  isNotEmpty(aString: string): boolean;
+  isNotEmpty(aString: String | string): boolean;
 
   /**
    * Checks if a string is null or empty.
@@ -170,7 +179,7 @@ export interface ScriptUtil {
    * @see #isBlank(String)
    * @since Sitevision 3.6.2
    */
-  isEmpty(aString: string): boolean;
+  isEmpty(aString: String | string): boolean;
 
   /**
    * Checks if a string is not null, not empty and not whitespace only.
@@ -179,7 +188,7 @@ export interface ScriptUtil {
    * @see #isNotEmpty(String)
    * @since Sitevision 2.6
    */
-  isNotBlank(aString: string): boolean;
+  isNotBlank(aString: String | string): boolean;
 
   /**
    * Checks if a string is null, empty or whitespace only.
@@ -188,38 +197,38 @@ export interface ScriptUtil {
    * @see #isEmpty(String)
    * @since Sitevision 3.6.2
    */
-  isBlank(aString: string): boolean;
+  isBlank(aString: String | string): boolean;
 
   /**
    * Gets a system property. This method invokes the getProperty method of the java.lang.System class, i.e <code>System.getProperty(String)</code>.
    *
-   * <p>
-   *    <strong>Important note!</strong><br>
-   *    This method can be used to reveal potential sensitive information about the server.
-   * </p>
-   * <p>
-   *    Allowed properties:
-   * </p>
-   * <ul>
-   *    <li>"sitevision.version" (5.1)</li>
-   *    <li>"sitevision.build" (5.1)</li>
-   *    <li>"sitevision.environment.type" (5.2.1)</li>
-   * </ul>
-   * <p>
-   *    A legacy mode that enables the API to return all properties can be enabled using the following system property:<br>
-   *    <em>sitevision.api.scriptutil.legacy_system_properties=true</em>
-   * </p>
+   *  <p>
+   *     <strong>Important note!</strong><br>
+   *     This method can be used to reveal potential sensitive information about the server.
+   *  </p>
+   *  <p>
+   *     Allowed properties:
+   *  </p>
+   *  <ul>
+   *     <li>"sitevision.version" (5.1)</li>
+   *     <li>"sitevision.build" (5.1)</li>
+   *     <li>"sitevision.environment.type" (5.2.1)</li>
+   *  </ul>
+   *  <p>
+   *     A legacy mode that enables the API to return all properties can be enabled using the following system property:<br>
+   *     <em>sitevision.api.scriptutil.legacy_system_properties=true</em>
+   *  </p>
    *
-   * <p>
-   * A tip if you need to do backward compatibility workarounds: The Sitevision version is accessible as a system property
-   * named <em>sitevision.version</em>.
-   * </p>
+   *  <p>
+   *  A tip if you need to do backward compatibility workarounds: The Sitevision version is accessible as a system property
+   *  named <em>sitevision.version</em>.
+   *  </p>
    * @param aName the name of the system property
    * @return the value of the system property, or <code>null</code> if indeterminable (e.g. no accessible property named <code>aName</code> exist)
    * @since Sitevision 2.6_02
    * @deprecated Exposes server information and will therefore be removed in future releases of Sitevision
    */
-  getSystemProperty(aName: string): string;
+  getSystemProperty(aName: String | string): string;
 
   /**
    * Creates and returns an instance of a Java class.
@@ -227,7 +236,7 @@ export interface ScriptUtil {
    * @return an instance of the class, or <code>null</code> if an instance can not be created
    * @deprecated Use {@link senselogic.sitevision.api.script.factory.InstanceCreatorUtil#getDefaultInstance(String)} instead
    */
-  getInstance(aQualifiedClassName: string): unknown;
+  getInstance(aQualifiedClassName: String | string): unknown;
 
   /**
    * Methods that wraps an array in a <code>List</code>. Arrays are sub optimal in Velocity and JavaScript.
@@ -235,7 +244,7 @@ export interface ScriptUtil {
    * @return a list containing the array elements. If the array is <code>null</code>, <code>null</code> is returned
    * @since Sitevision 2.6_06
    */
-  getList(anArray: unknown): unknown;
+  getList(anArray: unknown[]): List;
 
   /**
    * Gets the date format pattern used in the Sitevision editor for a specific Locale.
@@ -244,7 +253,7 @@ export interface ScriptUtil {
    * @since Sitevision 2.6.1_02
    * @deprecated use {@link senselogic.sitevision.api.date.DateUtil#getEditorFormatPattern(java.util.Locale)} instead
    */
-  getFormatPattern(aLocale: unknown): string;
+  getFormatPattern(aLocale: Locale): string;
 
   /**
    * Methods that formats a date according to a <code>SimpleDateFormat</code> pattern
@@ -254,7 +263,7 @@ export interface ScriptUtil {
    * @since Sitevision 2.6_06
    * @deprecated use {@link senselogic.sitevision.api.date.DateUtil#getDateAsString(String, java.util.Date)} instead
    */
-  getDateAsString(aFormatPattern: string, aDate: unknown): string;
+  getDateAsString(aFormatPattern: String | string, aDate: Date): string;
 
   /**
    * Methods that formats the date of a calendar according to a <code>SimpleDateFormat</code> pattern
@@ -264,16 +273,19 @@ export interface ScriptUtil {
    * @since Sitevision 2.6.1_02
    * @deprecated use {@link senselogic.sitevision.api.date.DateUtil#getCalendarAsString(String, java.util.Calendar)} instead
    */
-  getCalendarAsString(aFormatPattern: string, aCalendar: unknown): string;
+  getCalendarAsString(
+    aFormatPattern: String | string,
+    aCalendar: Calendar
+  ): string;
 
   /**
    * Methods that returns a human presentable size with an appropriate byte-suffix (bytes/kB/MB/GB/TB).
-   * <p>
-   * Note! This method uses two significant digits and 1024 as base. Some examples:<br>
-   * &nbsp;&nbsp; <code>126</code> -&gt; "<code>130 bytes</code>"<br>
-   * &nbsp;&nbsp; <code>126975</code> -&gt; "<code>120 kB</code>"<br>
-   * &nbsp;&nbsp; <code>456456456</code> -&gt; "<code>440 MB</code>"
-   * </p>
+   *  <p>
+   *  Note! This method uses two significant digits and 1024 as base. Some examples:<br>
+   *  &nbsp;&nbsp; <code>126</code> -&gt; "<code>130 bytes</code>"<br>
+   *  &nbsp;&nbsp; <code>126975</code> -&gt; "<code>120 kB</code>"<br>
+   *  &nbsp;&nbsp; <code>456456456</code> -&gt; "<code>440 MB</code>"
+   *  </p>
    * @param aSize a size that should be presented for humans
    * @return a human presentable byte-suffixed size with two significant digits. If <code>aSize</code> is less than 0 or larger than&#xA; 1125899906842624 (1024 TB), an empty String will be returned.
    * @since Sitevision 2.6.1_04
@@ -286,7 +298,7 @@ export interface ScriptUtil {
    * @return <code>aString</code> as <code>int</code>. If <code>aString</code> is <code>null</code> or can't be converted, -1 is returned
    * @since Sitevision 2.6.1_04
    */
-  stringToInt(aString: string): number;
+  stringToInt(aString: String | string): number;
 
   /**
    * Method that converts a string to a long.
@@ -294,7 +306,7 @@ export interface ScriptUtil {
    * @return <code>aString</code> as <code>long</code>. If <code>aString</code> is <code>null</code> or can't be converted, -1 is returned
    * @since Sitevision 2.6.1_04
    */
-  stringToLong(aString: string): number;
+  stringToLong(aString: String | string): number;
 
   /**
    * Method that converts a string to a double.
@@ -302,7 +314,7 @@ export interface ScriptUtil {
    * @return <code>aString</code> as <code>double</code>. If <code>aString</code> is <code>null</code> or can't be converted, -1.0 is returned
    * @since Sitevision 2.6.1_04
    */
-  stringToDouble(aString: string): number;
+  stringToDouble(aString: String | string): number;
 
   /**
    * Method that converts a string to a float.
@@ -310,7 +322,7 @@ export interface ScriptUtil {
    * @return <code>aString</code> as <code>float</code>. If <code>aString</code> is <code>null</code> or can't be converted, -1.0 is returned
    * @since Sitevision 2.6.1_04
    */
-  stringToFloat(aString: string): number;
+  stringToFloat(aString: String | string): number;
 
   /**
    * Method that returns true for values that can be interpreted as the true value.
@@ -331,93 +343,99 @@ export interface ScriptUtil {
   /**
    * Joins the elements of an array to a single String.
    *
-   * <p>Some examples:</p>
-   * <pre><code>
-   *    joinArray(["one", "two", "three"], ";")   -&gt; "one;two;three"
-   *    joinArray(["a", myTwoInteger], "-")       -&gt; "a-2"
-   *    joinArray(["", null, "three"], "-")       -&gt; "--three"
-   *    joinArray([], "-")                        -&gt; ""
-   *    joinArray(null, "-")                      -&gt; null
-   * </code></pre>
+   *  <p>Some examples:</p>
+   *  <pre><code>
+   *     joinArray(["one", "two", "three"], ";")   -&gt; "one;two;three"
+   *     joinArray(["a", myTwoInteger], "-")       -&gt; "a-2"
+   *     joinArray(["", null, "three"], "-")       -&gt; "--three"
+   *     joinArray([], "-")                        -&gt; ""
+   *     joinArray(null, "-")                      -&gt; null
+   *  </code></pre>
    * @param anArray the array that should be joined to a single string. <code>null</code> elements will be treated as empty&#xA; (<code>""</code>) and for non-String elements <code>toString()</code>&#xA; will be invoked on the element to get a string representation.
    * @param aSeparator the separator that should delimit the elements of <code>anArray</code> in the resulting joined string.&#xA; <code>null</code> will be treated as empty (<code>""</code>)
    * @return the joined <code>String</code>. If <code>anArray</code> is <code>null</code>, <code>null</code> will be returned
    * @see #joinCollection(java.util.Collection, String)
    * @since Sitevision 2.6.1_04
    */
-  joinArray(anArray: unknown, aSeparator: string): string;
+  joinArray(anArray: unknown[], aSeparator: String | string): string;
 
   /**
    * Joins the items of a Collection to a single String.
    *
-   * <p>
-   * For examples, see {@link #joinArray(Object[], String)}
-   * </p>
+   *  <p>
+   *  For examples, see {@link #joinArray(Object[], String)}
+   *  </p>
    * @param aCollection the collection that should be joined to a single string. <code>null</code> items will be treated as empty&#xA; (<code>""</code>) and for non-String items <code>toString()</code>&#xA; will be invoked on the item to get a string representation.
    * @param aSeparator the separator that should delimit the items of <code>aCollection</code> in the resulting joined string.&#xA; <code>null</code> will be treated as empty (<code>""</code>)
    * @return the joined <code>String</code>. If <code>aCollection</code> is <code>null</code>, <code>null</code> will be returned
    * @see #joinArray(Object[], String)
    * @since Sitevision 2.6.1_04
    */
-  joinCollection(aCollection: unknown, aSeparator: string): string;
+  joinCollection(
+    aCollection: Collection | unknown[],
+    aSeparator: String | string
+  ): string;
 
   /**
    * A utility method to get a formatted string based on a pattern and some pattern arguments.
    *
-   * <p>
-   *    <strong>A Velocity example:</strong>
-   * </p>
-   * <pre><code>
-   *    #set ($instanceCreatorUtil = ...)
-   *    #set ($scriptUtil = ...)
-   *    #set ($searchPhrase = ...)
+   *  <p>
+   *     <strong>A Velocity example:</strong>
+   *  </p>
+   *  <pre><code>
+   *     #set ($instanceCreatorUtil = ...)
+   *     #set ($scriptUtil = ...)
+   *     #set ($searchPhrase = ...)
    *
-   *    <em>## Determine pattern</em>
-   *    #if ($language == 'sv')
-   *       #set ($pattern = 'Din sökning {0} gav inga träffar')
-   *    #else
-   *       #set ($pattern = 'No hits for your search {0}')
-   *    #end
+   *     <em>## Determine pattern</em>
+   *     #if ($language == 'sv')
+   *        #set ($pattern = 'Din sökning {0} gav inga träffar')
+   *     #else
+   *        #set ($pattern = 'No hits for your search {0}')
+   *     #end
    *
-   *    <em>## Set up pattern argument(s)</em>
-   *    #set ($argsList = $instanceCreatorUtil.list)
-   *    $scriptUtil.swallow(${argsList.add($searchPhrase)})
+   *     <em>## Set up pattern argument(s)</em>
+   *     #set ($argsList = $instanceCreatorUtil.list)
+   *     $scriptUtil.swallow(${argsList.add($searchPhrase)})
    *
-   *    <em>## Format and print result</em>
-   *    &lt;p&gt;$scriptUtil.messageFormat($pattern, $argsList)&lt;/p&gt;
-   * </code></pre>
+   *     <em>## Format and print result</em>
+   *     &lt;p&gt;$scriptUtil.messageFormat($pattern, $argsList)&lt;/p&gt;
+   *  </code></pre>
    * @param aMessageFormatPattern a pattern accepted by the Java&#xA; <a href="http://docs.oracle.com/javase/8/docs/api/java/text/MessageFormat.html">MessageFormat</a> class
    * @param anArguments arguments needed by the pattern
    * @return the result of the pattern evaluation or <code>null</code> if evaluation fails. Returns <code>null</code> if&#xA; <code>aMessageFormatPattern</code> is <code>null</code> or if <code>anArguments</code> doesn't contain any arguments.
    * @since Sitevision 3.0
    */
-  messageFormat(aMessageFormatPattern: string, anArguments: unknown): string;
+  messageFormat(
+    aMessageFormatPattern: String | string,
+    anArguments: List | unknown[]
+  ): string;
 
   /**
    * A utility method that can be used to prevent method invocation return values to be added to the Velocity output.
    *
-   * <p>
-   *    <strong>An example:</strong><br>This Velocity code:
-   * </p>
-   * <pre><code>
-   *    #set ($myList = $instanceCreatorUtil.list)
-   *    $myList.add("Magnus Lövgren")
-   *    $myList.add("Mikael Wikblom")
-   * </code></pre>
-   * will result in the following Velocity output (the <code>add</code> method of <code>ArrayList</code> returns a <code>boolean</code>):
-   * <pre><code>true true</code></pre>
-   * <p>
-   *    If a non-void method is invoked and the return value isn't handled, it will be part of the Velocity output.
-   *    The <code>swallow</code> method can be used to prevent that (i.e. use it to "swallow" the result):
-   * </p>
-   * <pre><code>
-   *    #set ($myList = $instanceCreatorUtil.list)
-   *    $scriptUtil.swallow(${myList.add("Magnus Lövgren")})
-   *    $scriptUtil.swallow(${myList.add("Mikael Wikblom")})</code></pre>
-   * <p>
-   *    <em>Note! The code above is just an example that illustrates a common problem. When creating and working with a
-   *    List from Velocity, you should probably use a {@link senselogic.sitevision.api.script.factory.ListWrapper} instead</em>
-   * </p>
+   *  <p>
+   *     <strong>An example:</strong><br>This Velocity code:
+   *  </p>
+   *  <pre><code>
+   *     #set ($myList = $instanceCreatorUtil.list)
+   *     $myList.add("Magnus Lövgren")
+   *     $myList.add("Mikael Wikblom")
+   *  </code></pre>
+   *  will result in the following Velocity output (the <code>add</code> method of <code>ArrayList</code> returns a <code>boolean</code>):
+   *  <pre><code>true true</code></pre>
+   *  <p>
+   *     If a non-void method is invoked and the return value isn't handled, it will be part of the Velocity output.
+   *     The <code>swallow</code> method can be used to prevent that (i.e. use it to "swallow" the result):
+   *  </p>
+   *  <pre><code>
+   *     #set ($myList = $instanceCreatorUtil.list)
+   *     $scriptUtil.swallow(${myList.add("Magnus Lövgren")})
+   *     $scriptUtil.swallow(${myList.add("Mikael Wikblom")})</code></pre>
+   *  <p>
+   *     <em>Note! The code above is just an example that illustrates a common problem. When creating and working with a
+   *     List from Velocity, you should probably use a {@link senselogic.sitevision.api.script.factory.ListWrapper} instead</em>
+   *  </p>
    * @param anObject the object that should be "swallowed"
    * @since Sitevision 3.0
    */
@@ -425,41 +443,41 @@ export interface ScriptUtil {
 
   /**
    * Removes leading and ending control characters (char &lt;= 32) from a String and returns the result (<code>null</code>
-   * if the string is empty or <code>null</code>).
+   *  if the string is empty or <code>null</code>).
    *
-   * <p>
-   *    The String is trimmed using <code>String.trim()</code>
-   * </p>
+   *  <p>
+   *     The String is trimmed using <code>String.trim()</code>
+   *  </p>
    * @param aString the string that should be trimmed
    * @return the trimmed String. Returns <code>null</code> if <code>aString</code> is <code>null</code> or the trimmed String is empty.
    * @since Sitevision 2.6.1_04
    */
-  trimToNull(aString: string): string;
+  trimToNull(aString: String | string): string;
 
   /**
    * Removes leading and ending control characters (char &lt;= 32) from a String and returns the result (empty String (<code>""</code>)
-   * if the string is empty or <code>null</code>).
+   *  if the string is empty or <code>null</code>).
    *
-   * <p>
-   *    The String is trimmed using <code>String.trim()</code>
-   * </p>
+   *  <p>
+   *     The String is trimmed using <code>String.trim()</code>
+   *  </p>
    * @param aString the string that should be trimmed
    * @return the trimmed String. Returns empty (<code>""</code>) if <code>aString</code> is <code>null</code> or the trimmed String is empty.
    * @since Sitevision 2.6.1_04
    */
-  trimToEmpty(aString: string): string;
+  trimToEmpty(aString: String | string): string;
 
   /**
    * Flattens a multi-lined string to a trimmed single-line string.
    *
-   * <p>
-   *    This method replaces all whitespace (space, line break and such) with a space, but will never add multiple spaces.
-   * </p>
+   *  <p>
+   *     This method replaces all whitespace (space, line break and such) with a space, but will never add multiple spaces.
+   *  </p>
    * @param aString the multi-lined string
    * @return a single-line trimmed string with sequential whitespace removed, or <code>null</code> if <code>aString</code> is <code>null</code>.
    * @since Sitevision 3.6
    */
-  flatten(aString: string): string;
+  flatten(aString: String | string): string;
 }
 
 declare namespace ScriptUtil {}

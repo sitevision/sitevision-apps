@@ -1,12 +1,13 @@
+import type { String } from "../../types/java/lang/String";
 import type { Node } from "../../types/javax/jcr/Node";
 
 /**
  * Utility interface for Fonts.
  *
- * <p>
- * An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getFontUtil()}.
- * See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *  An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getFontUtil()}.
+ *  See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  */
 export interface FontUtil {
@@ -15,7 +16,7 @@ export interface FontUtil {
    * @param aFontName the name of the font
    * @return the first font with name aFontName, or <code>null</code> if no font matches
    */
-  getFontByName(aFontName: string): Node;
+  getFontByName(aFontName: String | string): Node;
 
   /**
    * Gets the font with a given font name with a fallback value if no font matches
@@ -23,14 +24,14 @@ export interface FontUtil {
    * @param aDefaultValue fallback value
    * @return the first font with name aFontName, or aDefaultValue if no font matches
    */
-  getFontByName(aFontName: string, aDefaultValue: Node): Node;
+  getFontByName(aFontName: String | string, aDefaultValue: Node): Node;
 
   /**
    * Gets the font with a given class name
    * @param aClassName the class name of the font
    * @return the first font with class name aClassName, or <code>null</code> if no font matches
    */
-  getFontByClassName(aClassName: string): Node;
+  getFontByClassName(aClassName: String | string): Node;
 
   /**
    * Gets the font with a given class name with a fallback value if no font matches
@@ -38,7 +39,7 @@ export interface FontUtil {
    * @param aDefaultValue fallback value
    * @return the first font with class name aClassName, or aDefaultValue if no font matches
    */
-  getFontByClassName(aClassName: string, aDefaultValue: Node): Node;
+  getFontByClassName(aClassName: String | string, aDefaultValue: Node): Node;
 }
 
 declare namespace FontUtil {}

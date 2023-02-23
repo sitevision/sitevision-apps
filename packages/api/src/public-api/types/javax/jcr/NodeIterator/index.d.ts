@@ -3,8 +3,8 @@ import type { RangeIterator } from "../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>Node</code>s with
- * <code>nextNode</code> as well as a <code>skip</code> method inherited from
- * <code>RangeIterator</code>.
+ *  <code>nextNode</code> as well as a <code>skip</code> method inherited from
+ *  <code>RangeIterator</code>.
   
     */
 export type NodeIterator = RangeIterator & {

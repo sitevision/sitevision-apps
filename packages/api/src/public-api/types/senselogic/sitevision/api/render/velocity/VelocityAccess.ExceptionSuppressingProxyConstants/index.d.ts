@@ -1,10 +1,10 @@
 /**
  * Get methods for accessing field constants defined in {@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingProxy}.
  *
- * <p>
- *    The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingProxy}
- *    constants in Velocity, e.g: <code>$exceptionSuppressingProxy.EXCEPTION_THROWN_STATUS</code>
- * </p>
+ *  <p>
+ *     The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingProxy}
+ *     constants in Velocity, e.g: <code>$exceptionSuppressingProxy.EXCEPTION_THROWN_STATUS</code>
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */

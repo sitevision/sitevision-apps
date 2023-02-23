@@ -1,29 +1,31 @@
+import type { String } from "../../../../java/lang/String";
+
 import type { Value } from "../../Value";
 import type { PropertyDefinition } from "../PropertyDefinition";
 
 /**
  * The <code>PropertyDefinitionTemplate</code> interface extends
- * <code>PropertyDefinition</code> with the addition of write methods, enabling
- * the characteristics of a child property definition to be set, after which the
- * <code>PropertyDefinitionTemplate</code> is added to a
- * <code>NodeTypeTemplate</code>.
- * <p>
- * See the corresponding <code>get</code> methods for each attribute in
- * <code>PropertyDefinition</code> for the default values assumed when a new
- * empty <code>PropertyDefinitionTemplate</code> is created (as opposed to one
- * extracted from an existing <code>NodeType</code>).
+ *  <code>PropertyDefinition</code> with the addition of write methods, enabling
+ *  the characteristics of a child property definition to be set, after which the
+ *  <code>PropertyDefinitionTemplate</code> is added to a
+ *  <code>NodeTypeTemplate</code>.
+ *  <p>
+ *  See the corresponding <code>get</code> methods for each attribute in
+ *  <code>PropertyDefinition</code> for the default values assumed when a new
+ *  empty <code>PropertyDefinitionTemplate</code> is created (as opposed to one
+ *  extracted from an existing <code>NodeType</code>).
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type PropertyDefinitionTemplate = PropertyDefinition & {
   /**
    * Sets the name of the property. This must be a JCR name in either
-   * qualified or expanded form.
+   *  qualified or expanded form.
    * @param name a JCR name.
    * @throws ConstraintViolationException if <code>name</code> is not a&#xA; syntactically valid JCR name in either qualified or expanded form.
    */
-  setName(name: string): void;
+  setName(name: String | string): void;
 
   /**
    * Sets the auto-create status of the property.
@@ -59,14 +61,14 @@ export type PropertyDefinitionTemplate = PropertyDefinition & {
    * Sets the value constraints of the property.
    * @param constraints a <code>String</code> array.
    */
-  setValueConstraints(constraints: string): void;
+  setValueConstraints(constraints: String | string[]): void;
 
   /**
    * Sets the default value (or values, in the case of a multi-value property)
-   * of the property.
+   *  of the property.
    * @param defaultValues a <code>Value</code> array.
    */
-  setDefaultValues(defaultValues: Value): void;
+  setDefaultValues(defaultValues: Value[]): void;
 
   /**
    * Sets the multi-value status of the property.
@@ -78,7 +80,7 @@ export type PropertyDefinitionTemplate = PropertyDefinition & {
    * Sets the queryable status of the property.
    * @param operators an array of String constants. See {@link&#xA; PropertyDefinition#getAvailableQueryOperators()} .
    */
-  setAvailableQueryOperators(operators: string): void;
+  setAvailableQueryOperators(operators: String | string[]): void;
 
   /**
    * Sets the full-text-searchable status of the property.

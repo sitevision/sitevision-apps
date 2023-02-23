@@ -3,10 +3,10 @@ import type { Node } from "../../types/javax/jcr/Node";
 /**
  * Utility interface for getting landing pages.
  *
- * <p>
- * An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getLandingPageUtil()}.
- * See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *  An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getLandingPageUtil()}.
+ *  See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.5.1
  */

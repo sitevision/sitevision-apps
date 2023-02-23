@@ -1,24 +1,25 @@
 import type { Node } from "../../types/javax/jcr/Node";
 
+import type { String } from "../../types/java/lang/String";
 import type { NodeTypeUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.NodeTypeUtilConstants";
 
 /**
  * Node type utility interface.
  *
- * <p>
- * This interface contains the primary node type names for Sitevision nodes and convenience methods for checking
- * if a node is of a specific type.
- * </p>
+ *  <p>
+ *  This interface contains the primary node type names for Sitevision nodes and convenience methods for checking
+ *  if a node is of a specific type.
+ *  </p>
  *
- * <p>
- * <em>Tip! If you write your code in Velocity, you might want to ensure that the object actually are a <code>Node</code>
- * before you execute methods in this interface. Use {@link senselogic.sitevision.api.script.InstanceTypeUtil#isNode(Object)} to do that.</em>
- * </p>
+ *  <p>
+ *  <em>Tip! If you write your code in Velocity, you might want to ensure that the object actually are a <code>Node</code>
+ *  before you execute methods in this interface. Use {@link senselogic.sitevision.api.script.InstanceTypeUtil#isNode(Object)} to do that.</em>
+ *  </p>
  *
- * <p>
- * An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getNodeTypeUtil()}.
- * See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *  An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getNodeTypeUtil()}.
+ *  See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 2.6.2
  */
@@ -720,17 +721,17 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   /**
    * The primary node type name for the system user type.
    *
-   * <p>
-   *    Note that there are several sv:systemUser's in Sitevision:
-   * </p>
-   * <ul>
-   *    <li>The <em>System</em> user</li>
-   *    <li>The <em>Anonymous</em> user (i.e. a non-authenticated user)</li>
-   *    <li>The <em>Anonymized</em> user (i.e. an anonymized user)</li>
-   *    <li>The <em>Indexer</em> user (i.e. the user that indexes Sitevision data)</li>
-   *    <li>The <em>Validator</em> user (i.e. the user that validates page-like nodes in Sitevision)</li>
-   *    <li>The <em>Extractor</em> user (i.e. the default "Web archive" user)</li>
-   * </ul>
+   *  <p>
+   *     Note that there are several sv:systemUser's in Sitevision:
+   *  </p>
+   *  <ul>
+   *     <li>The <em>System</em> user</li>
+   *     <li>The <em>Anonymous</em> user (i.e. a non-authenticated user)</li>
+   *     <li>The <em>Anonymized</em> user (i.e. an anonymized user)</li>
+   *     <li>The <em>Indexer</em> user (i.e. the user that indexes Sitevision data)</li>
+   *     <li>The <em>Validator</em> user (i.e. the user that validates page-like nodes in Sitevision)</li>
+   *     <li>The <em>Extractor</em> user (i.e. the default "Web archive" user)</li>
+   *  </ul>
    * @see #isSystemUser(Node)
    * @see #isAnyUserType(Node)
    * @since Sitevision 3.6.3
@@ -1213,17 +1214,17 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   /**
    * Checks if a node is a sv:systemUser.
    *
-   * <p>
-   *    Note that there are several build-in "system users" in Sitevision:
-   * </p>
-   * <ul>
-   *    <li>The <em>System</em> user</li>
-   *    <li>The <em>Anonymous</em> user (i.e. non-authenticated user)</li>
-   *    <li>The <em>Indexer</em> user (i.e. the user that index data in Sitevision)</li>
-   *    <li>The <em>Validator</em> user (i.e. the user that validates page-nodes in Sitevision)</li>
-   *    <li>The <em>Extractor</em> user (i.e. default "Web archive" user)</li>
-   *    <li>The <em>Anonymized</em> user (i.e. an anonymized user)</li>
-   * </ul>
+   *  <p>
+   *     Note that there are several build-in "system users" in Sitevision:
+   *  </p>
+   *  <ul>
+   *     <li>The <em>System</em> user</li>
+   *     <li>The <em>Anonymous</em> user (i.e. non-authenticated user)</li>
+   *     <li>The <em>Indexer</em> user (i.e. the user that index data in Sitevision)</li>
+   *     <li>The <em>Validator</em> user (i.e. the user that validates page-nodes in Sitevision)</li>
+   *     <li>The <em>Extractor</em> user (i.e. default "Web archive" user)</li>
+   *     <li>The <em>Anonymized</em> user (i.e. an anonymized user)</li>
+   *  </ul>
    * @param aNode the node to be checked
    * @return whether aNode is a {@link #SYSTEM_USER_TYPE sv:systemUser} or not.
    * @see #isAnyUserType(Node)
@@ -1391,21 +1392,21 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   /**
    * Convenience method that checks if a node is of "Renderable node" type.
    *
-   * <p>
-   *    A <em>"Renderable node"</em> is a Node that can have a {@link #isAnyContentType(Node) "Content node"} as render part:
-   * </p>
-   * <ul>
-   *    <li>{@link #PAGE_TYPE sv:page}</li>
-   *    <li>{@link #ARTICLE_TYPE sv:article}</li>
-   *    <li>{@link #SITE_PAGE_TYPE sv:sitePage}</li>
-   *    <li>{@link #STRUCTURE_PAGE_TYPE sv:structurePage}</li>
-   *    <li>{@link #COLLABORATION_GROUP_PAGE_TYPE sv:collaborationGroupPage}</li>
-   *    <li>{@link #TEMPLATE_TYPE sv:template}</li>
-   *    <li>{@link #COLLABORATION_GROUP_TEMPLATE_TYPE sv:collaborationGroupTemplate}</li>
-   *    <li>{@link #DECORATION_TEMPLATE_TYPE sv:decorationTemplate}</li>
-   *    <li>{@link #MODULE_ELEMENT_TYPE sv:moduleElement}</li>
-   *    <li>{@link #MODULE_ELEMENT_DRAFT_TYPE sv:moduleElementDraft}</li>
-   * </ul>
+   *  <p>
+   *     A <em>"Renderable node"</em> is a Node that can have a {@link #isAnyContentType(Node) "Content node"} as render part:
+   *  </p>
+   *  <ul>
+   *     <li>{@link #PAGE_TYPE sv:page}</li>
+   *     <li>{@link #ARTICLE_TYPE sv:article}</li>
+   *     <li>{@link #SITE_PAGE_TYPE sv:sitePage}</li>
+   *     <li>{@link #STRUCTURE_PAGE_TYPE sv:structurePage}</li>
+   *     <li>{@link #COLLABORATION_GROUP_PAGE_TYPE sv:collaborationGroupPage}</li>
+   *     <li>{@link #TEMPLATE_TYPE sv:template}</li>
+   *     <li>{@link #COLLABORATION_GROUP_TEMPLATE_TYPE sv:collaborationGroupTemplate}</li>
+   *     <li>{@link #DECORATION_TEMPLATE_TYPE sv:decorationTemplate}</li>
+   *     <li>{@link #MODULE_ELEMENT_TYPE sv:moduleElement}</li>
+   *     <li>{@link #MODULE_ELEMENT_DRAFT_TYPE sv:moduleElementDraft}</li>
+   *  </ul>
    * @param aNode the node to be checked
    * @return whether aNode is a "renderable node" or not.
    * @see senselogic.sitevision.api.node.ContentNodeUtil
@@ -1416,17 +1417,17 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   /**
    * Convenience method that checks if a node is of "Content node" type.
    *
-   * <p>
-   *    A <em>"Content node"</em> is a Node that can be rendered as content part of a {@link #isAnyRenderableType(Node) "Renderable node"}:
-   * </p>
-   * <ul>
-   *    <li>{@link #PORTLET_TYPE sv:portlet}</li>
-   *    <li>{@link #LAYOUT_TYPE sv:layout}</li>
-   *    <li>{@link #LINKED_LAYOUT_TYPE sv:linkedLayout}</li>
-   *    <li>{@link #REFERENCE_LAYOUT_TYPE sv:referenceLayout}</li>
-   *    <li>{@link #VIEW_TYPE sv:view}</li>
-   *    <li>{@link #PROFILE_VIEW_TYPE sv:profileView}</li>
-   * </ul>
+   *  <p>
+   *     A <em>"Content node"</em> is a Node that can be rendered as content part of a {@link #isAnyRenderableType(Node) "Renderable node"}:
+   *  </p>
+   *  <ul>
+   *     <li>{@link #PORTLET_TYPE sv:portlet}</li>
+   *     <li>{@link #LAYOUT_TYPE sv:layout}</li>
+   *     <li>{@link #LINKED_LAYOUT_TYPE sv:linkedLayout}</li>
+   *     <li>{@link #REFERENCE_LAYOUT_TYPE sv:referenceLayout}</li>
+   *     <li>{@link #VIEW_TYPE sv:view}</li>
+   *     <li>{@link #PROFILE_VIEW_TYPE sv:profileView}</li>
+   *  </ul>
    * @param aNode the node to be checked
    * @return whether aNode is a "content node" or not.
    * @see senselogic.sitevision.api.node.ContentNodeUtil
@@ -1437,14 +1438,14 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   /**
    * Convenience method that checks if a node is of "User node" type.
    *
-   * <p>
-   *    "User" node types are:
-   * </p>
-   * <ul>
-   *    <li>{@link #USER_TYPE sv:user}</li>
-   *    <li>{@link #SIMPLE_USER_TYPE sv:simpleUser}</li>
-   *    <li>{@link #SYSTEM_USER_TYPE sv:systemUser}</li>
-   * </ul>
+   *  <p>
+   *     "User" node types are:
+   *  </p>
+   *  <ul>
+   *     <li>{@link #USER_TYPE sv:user}</li>
+   *     <li>{@link #SIMPLE_USER_TYPE sv:simpleUser}</li>
+   *     <li>{@link #SYSTEM_USER_TYPE sv:systemUser}</li>
+   *  </ul>
    * @param aNode the node to be checked
    * @return whether aNode is a "user node" or not.
    * @since Sitevision 10.2
@@ -1458,7 +1459,7 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    * @return whether primary node type of <code>aNode</code> matches the <code>aPrimaryNodeType</code> type
    * @see #isTypeOf(javax.jcr.Node, String[])
    */
-  isType(aNode: Node, aPrimaryNodeType: string): boolean;
+  isType(aNode: Node, aPrimaryNodeType: String | string): boolean;
 
   /**
    * Checks a node against multiple node type names to see if any of them match.
@@ -1466,7 +1467,7 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    * @param aPrimaryNodeTypes the primary node type names <code>aNode</code> should be checked against
    * @return whether primary node type of <code>aNode</code> matches any of the types in <code>aPrimaryNodeTypes</code>
    */
-  isTypeOf(aNode: Node, aPrimaryNodeTypes: string): boolean;
+  isTypeOf(aNode: Node, aPrimaryNodeTypes: String | string[]): boolean;
 }
 
 declare namespace NodeTypeUtil {}

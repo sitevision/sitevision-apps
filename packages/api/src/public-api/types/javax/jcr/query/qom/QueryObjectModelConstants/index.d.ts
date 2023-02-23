@@ -1,12 +1,12 @@
+import type { String } from "../../../../../java/lang/String";
+
 /**
  * Defines constants used in the query object model.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type QueryObjectModelConstants = {
-  undefined;
-
   /**
  * An inner join.
   

@@ -1,0 +1,17 @@
+export default {
+  empty: () => {},
+  of: () => {},
+  ofNullable: () => {},
+  get: () => {},
+  isPresent: () => {},
+  ifPresent: () => {},
+  filter: () => {},
+  map: () => {},
+  flatMap: () => {},
+  orElse: () => {},
+  orElseGet: () => {},
+  orElseThrow: () => {},
+  equals: () => {},
+  hashCode: () => {},
+  toString: () => {},
+};

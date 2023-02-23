@@ -1,3 +1,4 @@
+import type { String } from "../../../../java/lang/String";
 import type { NodeType } from "../NodeType";
 
 import type { NodeTypeIterator } from "../NodeTypeIterator";
@@ -8,7 +9,7 @@ import type { PropertyDefinitionTemplate } from "../PropertyDefinitionTemplate";
 
 /**
  * Allows for the retrieval and (in implementations that support it) the
- * registration of node types. Accessed via {@link Workspace#getNodeTypeManager}.
+ *  registration of node types. Accessed via {@link Workspace#getNodeTypeManager}.
   
     */
 export type NodeTypeManager = {
@@ -19,17 +20,17 @@ export type NodeTypeManager = {
    * @throws NoSuchNodeTypeException if no node type by the given name&#xA; exists.
    * @throws RepositoryException if another error occurs.
    */
-  getNodeType(nodeTypeName: string): NodeType;
+  getNodeType(nodeTypeName: String | string): NodeType;
 
   /**
    * Returns <code>true</code> if a node type with the specified name is
-   * registered. Returns <code>false</code> otherwise.
+   *  registered. Returns <code>false</code> otherwise.
    * @param name a <code>String</code>.
    * @return a <code>boolean</code>
    * @throws RepositoryException if an error occurs.
    * @since JCR 2.0
    */
-  hasNodeType(name: string): boolean;
+  hasNodeType(name: String | string): boolean;
 
   /**
    * Returns an iterator over all available node types (primary and mixin).
@@ -47,7 +48,7 @@ export type NodeTypeManager = {
 
   /**
    * Returns an iterator over all available mixin node types. If none are
-   * available, an empty iterator is returned.
+   *  available, an empty iterator is returned.
    * @return An <code>NodeTypeIterator</code>.
    * @throws RepositoryException if an error occurs.
    */

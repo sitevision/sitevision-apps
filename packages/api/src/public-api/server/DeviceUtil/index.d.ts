@@ -3,14 +3,14 @@ import type { Node } from "../../types/javax/jcr/Node";
 /**
  * Device utility interface.
  *
- * <p>
- * Contains methods for retrieving device-related information.
- * </p>
+ *  <p>
+ *  Contains methods for retrieving device-related information.
+ *  </p>
  *
- * <p>
- * An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getDeviceUtil()}.
- * See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *  An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getDeviceUtil()}.
+ *  See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.0
  */

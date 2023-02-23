@@ -1,17 +1,19 @@
+import type { String } from "../../../../../java/lang/String";
+
 /**
  * Defines a column to include in the tabular view of query results.
- * <p>
- * If {@link #getPropertyName property} is not specified, a column is included
- * for each single-valued non-residual property of the node type specified by
- * the <code>nodeType</code> attribute of {@link #getSelectorName selector}.
- * <p>
- * If {@link #getPropertyName property} is specified, {@link #getColumnName
- * columnName} is required and used to name the column in the tabular results.
- * If {@link #getPropertyName property} is not specified, {@link #getColumnName
- * columnName} must not be specified, and the included columns will be named
- * "{@link #getSelectorName selector}.<i>propertyName</i>".
+ *  <p>
+ *  If {@link #getPropertyName property} is not specified, a column is included
+ *  for each single-valued non-residual property of the node type specified by
+ *  the <code>nodeType</code> attribute of {@link #getSelectorName selector}.
+ *  <p>
+ *  If {@link #getPropertyName property} is specified, {@link #getColumnName
+ *  columnName} is required and used to name the column in the tabular results.
+ *  If {@link #getPropertyName property} is not specified, {@link #getColumnName
+ *  columnName} must not be specified, and the included columns will be named
+ *  "{@link #getSelectorName selector}.<i>propertyName</i>".
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type Column = {
@@ -29,7 +31,7 @@ export type Column = {
 
   /**
    * Gets the column name.
-   * <p>
+   *  <p>
    * @return the column name; must be null if <code>getPropertyName</code> is&#xA; null and non-null otherwise
    */
   getColumnName(): string;

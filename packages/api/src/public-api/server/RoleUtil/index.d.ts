@@ -1,16 +1,16 @@
 import type { RoleAssignmentBuilder } from "../RoleAssignmentBuilder";
 import type { RoleMatcherBuilder } from "../RoleMatcherBuilder";
-
+import type { String } from "../../types/java/lang/String";
 import type { Node } from "../../types/javax/jcr/Node";
 import type Permission from "../PermissionUtil.Permission";
 
 /**
  * Role utility interface.
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getRoleUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getRoleUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 5.1
  * @see PermissionUtil
@@ -34,7 +34,7 @@ export interface RoleUtil {
    * @param aRoleName the name of the role
    * @return the role (sv:role) with name aRoleName, or null if no such role could be found
    */
-  getRoleByName(aRoleName: string): Node;
+  getRoleByName(aRoleName: String | string): Node;
 
   /**
    * Checks if a role contains a specific permission.

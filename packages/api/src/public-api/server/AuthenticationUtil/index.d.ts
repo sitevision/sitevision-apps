@@ -1,13 +1,16 @@
+import type { Map } from "../../types/java/util/Map";
+import type { String } from "../../types/java/lang/String";
+
 /**
  * <p>
- *    Authentication utility interface.
- * </p>
+ *     Authentication utility interface.
+ *  </p>
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via
- *    {@link senselogic.sitevision.api.Utils#getAuthenticationUtil()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link senselogic.sitevision.api.Utils#getAuthenticationUtil()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Mikael Wikblom
  * @since Sitevision 2.6.1_03, Sitevision 2.7_01
  */
@@ -33,7 +36,7 @@ export interface AuthenticationUtil {
    * @throws LoginException if login fails
    * @since Sitevision 2.6.2_06
    */
-  login(aServletRequest: unknown, sharedState: unknown): void;
+  login(aServletRequest: unknown, sharedState: Map | {}): void;
 
   /**
    * Authenticates a user based on username and password.
@@ -43,7 +46,11 @@ export interface AuthenticationUtil {
    * @throws LoginException if login fails
    * @since Sitevision 2.6.2_06
    */
-  login(aServletRequest: unknown, name: string, password: string): void;
+  login(
+    aServletRequest: unknown,
+    name: String | string,
+    password: String | string
+  ): void;
 
   /**
    * Re-authenticates a user based on a Subject already in the session.
@@ -60,7 +67,7 @@ export interface AuthenticationUtil {
    * @throws LoginException if login fails
    * @since Sitevision 2.6.2_06
    */
-  login(aPortletRequest: unknown, sharedState: unknown): void;
+  login(aPortletRequest: unknown, sharedState: Map | {}): void;
 
   /**
    * Authenticates a user based on username and password.
@@ -70,7 +77,11 @@ export interface AuthenticationUtil {
    * @throws LoginException if login fails
    * @since Sitevision 2.6.2_06
    */
-  login(aPortletRequest: unknown, name: string, password: string): void;
+  login(
+    aPortletRequest: unknown,
+    name: String | string,
+    password: String | string
+  ): void;
 
   /**
    * Re-authenticates a user based on a Subject already in the session.

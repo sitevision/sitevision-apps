@@ -1,3 +1,7 @@
+import type { String } from "../../../../../java/lang/String";
+
+import type { Collection } from "../../../../../java/util/Collection";
+
 /**
  * XML element.
  * @author Niclas Hedlund
@@ -22,32 +26,32 @@ export type XmlElement = {
    * @param aName the attribute name
    * @return the attribute value or null if no value is associated with attribute
    */
-  getAttribute(aName: string): string;
+  getAttribute(aName: String | string): string;
 
   /**
    * Check if a sub element with a specific name is available in the element.
    * @param aName name of the sub element of this element, must be non-null.
    * @return true if one or more sub elements with the specific name is available
    */
-  hasElement(aName: string): boolean;
+  hasElement(aName: String | string): boolean;
 
   /**
    * Gets the first sub element with a specific name of the element.
    * @param aName name of the sub element of this element, must be non-null.
    * @return the sub element or null if no sub element is found.
    */
-  getElement(aName: string): XmlElement;
+  getElement(aName: String | string): XmlElement;
 
   /**
    * Gets all sub element with a specific name of the element.
    * @param aName name of the sub element of this element, must be non-null.
    * @return the sub elements or an empty collection if no sub elements are available
    */
-  getElements(aName: string): unknown;
+  getElements(aName: String | string): Collection;
 
   /**
    * Gets all sub elements of the element.
    * @return a list of all sub elements
    */
-  getElements(): unknown;
+  getElements(): Collection;
 };

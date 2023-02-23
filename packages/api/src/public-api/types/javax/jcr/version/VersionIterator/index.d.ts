@@ -3,10 +3,10 @@ import type { RangeIterator } from "../../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>Version</code>s objects with
- * <code>nextVersion</code> as well as a <code>skip</code> method inherited from
- * <code>RangeIterator</code>.
- *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <code>nextVersion</code> as well as a <code>skip</code> method inherited from
+ *  <code>RangeIterator</code>.
+ * 
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
   
     */
 export type VersionIterator = RangeIterator & {

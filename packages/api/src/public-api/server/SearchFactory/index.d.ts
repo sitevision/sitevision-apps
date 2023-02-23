@@ -5,7 +5,9 @@ import type { IndexUtil } from "../IndexUtil";
 import type { IndexingUtil } from "../IndexingUtil";
 import type { SearcherBuilder } from "../SearcherBuilder";
 import type { SortBuilder } from "../SortBuilder";
+import type { String } from "../../types/java/lang/String";
 
+import type { SearchSortField } from "../../types/senselogic/sitevision/api/search/SearchSortField";
 import type { SearchUtil } from "../SearchUtil";
 import type { SpellCheckBuilder } from "../SpellCheckBuilder";
 import type { StandardParserBuilder } from "../StandardParserBuilder";
@@ -15,10 +17,10 @@ import type { MonitorBuilder } from "../MonitorBuilder";
 /**
  * Factory for creating search-related instances.
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getSearchFactory()}.
- *    See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getSearchFactory()}.
+ *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */
@@ -73,12 +75,15 @@ export interface SearchFactory {
    * @return a SearchSortField instance
    * @throws IllegalArgumentException if aField is null or whitespace-only
    */
-  getSearchSortField(aField: string, aIsAscending: boolean): unknown;
+  getSearchSortField(
+    aField: String | string,
+    aIsAscending: boolean
+  ): SearchSortField;
 
   /**
    * Convenience method to get a SearchUtil instance.
    *
-   * <em>A SearchUtil instance can also be retrieved via the {@link senselogic.sitevision.api.Utils#getSearchUtil()}</em>
+   *  <em>A SearchUtil instance can also be retrieved via the {@link senselogic.sitevision.api.Utils#getSearchUtil()}</em>
    * @return a SearchUtil instance
    */
   getSearchUtil(): SearchUtil;

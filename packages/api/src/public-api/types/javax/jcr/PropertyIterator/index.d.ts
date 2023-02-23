@@ -3,7 +3,7 @@ import type { RangeIterator } from "../RangeIterator";
 
 /**
  * Allows easy iteration through a list of <code>Property</code>s with
- * <code>nextProperty</code> as well as a <code>skip</code> method.
+ *  <code>nextProperty</code> as well as a <code>skip</code> method.
   
     */
 export type PropertyIterator = RangeIterator & {
