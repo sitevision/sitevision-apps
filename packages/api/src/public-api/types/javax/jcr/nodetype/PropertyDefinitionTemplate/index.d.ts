@@ -61,7 +61,7 @@ export type PropertyDefinitionTemplate = PropertyDefinition & {
    * Sets the value constraints of the property.
    * @param constraints a <code>String</code> array.
    */
-  setValueConstraints(constraints: String | string[]): void;
+  setValueConstraints(constraints: String[] | string[]): void;
 
   /**
    * Sets the default value (or values, in the case of a multi-value property)
@@ -80,7 +80,7 @@ export type PropertyDefinitionTemplate = PropertyDefinition & {
    * Sets the queryable status of the property.
    * @param operators an array of String constants. See {@link&#xA; PropertyDefinition#getAvailableQueryOperators()} .
    */
-  setAvailableQueryOperators(operators: String | string[]): void;
+  setAvailableQueryOperators(operators: String[] | string[]): void;
 
   /**
    * Sets the full-text-searchable status of the property.

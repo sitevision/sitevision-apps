@@ -76,8 +76,8 @@ export type ObservationManager = {
     eventTypes: number,
     absPath: String | string,
     isDeep: boolean,
-    uuid: String | string[],
-    nodeTypeName: String | string[],
+    uuid: String[] | string[],
+    nodeTypeName: String[] | string[],
     noLocal: boolean
   ): void;
 
@@ -150,7 +150,7 @@ export type ObservationManager = {
     eventTypes: number,
     absPath: String | string,
     isDeep: boolean,
-    uuid: String | string[],
-    nodeTypeName: String | string[]
+    uuid: String[] | string[],
+    nodeTypeName: String[] | string[]
   ): EventJournal;
 };

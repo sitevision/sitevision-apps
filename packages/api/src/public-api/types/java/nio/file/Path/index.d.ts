@@ -451,7 +451,7 @@ export type Path = Comparable &
      * @throws IOException&#xA; if the file does not exist or an I/O error occurs
      * @throws SecurityException&#xA; In the case of the default provider, and a security manager&#xA; is installed, its {@link SecurityManager#checkRead(String) checkRead}&#xA; method is invoked to check read access to the file, and where&#xA; this path is not absolute, its {@link SecurityManager#checkPropertyAccess(String)&#xA; checkPropertyAccess} method is invoked to check access to the&#xA; system property {@code user.dir}
      */
-    toRealPath(options: LinkOption[]): Path;
+    toRealPath(...options: LinkOption[]): Path;
 
     /**
      * Returns a {@link File} object representing this path. Where this {@code
@@ -513,7 +513,7 @@ export type Path = Comparable &
     register(
       watcher: WatchService,
       events: Kind[],
-      modifiers: Modifier[]
+      ...modifiers: Modifier[]
     ): WatchKey;
 
     /**
@@ -544,7 +544,7 @@ export type Path = Comparable &
      * @throws IOException&#xA; If an I/O error occurs
      * @throws SecurityException&#xA; In the case of the default provider, and a security manager is&#xA; installed, the {@link SecurityManager#checkRead(String) checkRead}&#xA; method is invoked to check read access to the file.
      */
-    register(watcher: WatchService, events: Kind[]): WatchKey;
+    register(watcher: WatchService, ...events: Kind[]): WatchKey;
 
     /**
      * Returns an iterator over the name elements of this path.

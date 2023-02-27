@@ -37,7 +37,7 @@ export type NodeTypeTemplate = NodeTypeDefinition & {
    * @param names an array of JCR names.
    * @throws ConstraintViolationException if <code>names</code> includes a&#xA; name that is not a syntactically valid JCR name in either qualified or expanded form.
    */
-  setDeclaredSuperTypeNames(names: String | string[]): void;
+  setDeclaredSuperTypeNames(names: String[] | string[]): void;
 
   /**
    * Sets the abstract flag of the node type.

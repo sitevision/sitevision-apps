@@ -188,7 +188,7 @@ export type Constructor = Executable & {
    * @throws InvocationTargetException if the underlying constructor&#xA; throws an exception.
    * @throws ExceptionInInitializerError if the initialization provoked&#xA; by this method fails.
    */
-  newInstance(initargs: unknown[]): unknown;
+  newInstance(...initargs: unknown[]): unknown;
 
   /**
    * {@inheritDoc}

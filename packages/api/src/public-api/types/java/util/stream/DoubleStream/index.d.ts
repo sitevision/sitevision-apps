@@ -560,7 +560,7 @@ export type DoubleStream = BaseStream & {
    * @param values the elements of the new stream
    * @return the new stream
    */
-  of(values: number[]): DoubleStream;
+  of(...values: number[]): DoubleStream;
 
   /**
    * Returns an infinite sequential ordered {@code DoubleStream} produced by iterative

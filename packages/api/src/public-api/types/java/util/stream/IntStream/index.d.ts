@@ -532,7 +532,7 @@ export type IntStream = BaseStream & {
    * @param values the elements of the new stream
    * @return the new stream
    */
-  of(values: number[]): IntStream;
+  of(...values: number[]): IntStream;
 
   /**
    * Returns an infinite sequential ordered {@code IntStream} produced by iterative

@@ -89,7 +89,7 @@ export interface TagUtil {
    * @throws IllegalArgumentException if aTaggableNode is null or an unsupported type,&#xA; or if or aTagNodes is null, empty or contains an unsupported type
    * @throws RepositoryException if mutation is not allowed or fails
    */
-  addTags(aTaggableNode: Node, aTagNodes: Node[]): void;
+  addTags(aTaggableNode: Node, ...aTagNodes: Node[]): void;
 
   /**
    * Removes a sv:tag from a Node.

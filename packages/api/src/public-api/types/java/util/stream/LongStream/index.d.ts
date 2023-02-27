@@ -522,7 +522,7 @@ export type LongStream = BaseStream & {
    * @param values the elements of the new stream
    * @return the new stream
    */
-  of(values: number[]): LongStream;
+  of(...values: number[]): LongStream;
 
   /**
    * Returns an infinite sequential ordered {@code LongStream} produced by iterative
