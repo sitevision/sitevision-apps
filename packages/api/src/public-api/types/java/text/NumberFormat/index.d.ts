@@ -6,8 +6,6 @@ import type { ParsePosition } from "../ParsePosition";
 
 import type { Number } from "../../lang/Number";
 
-import type { Locale } from "../../util/Locale";
-
 import type { Currency } from "../../util/Currency";
 import type { RoundingMode } from "../../math/RoundingMode";
 import type { Format } from "../Format";
@@ -281,127 +279,6 @@ export type NumberFormat = Format & {
    * @see #isParseIntegerOnly
    */
   setParseIntegerOnly(value: boolean): void;
-
-  /**
-   * Returns a general-purpose number format for the current default
-   *  {@link java.util.Locale.Category#FORMAT FORMAT} locale.
-   *  This is the same as calling
-   *  {@link #getNumberInstance() getNumberInstance()}.
-   * @return the {@code NumberFormat} instance for general-purpose number&#xA; formatting
-   */
-  getInstance(): NumberFormat;
-
-  /**
-   * Returns a general-purpose number format for the specified locale.
-   *  This is the same as calling
-   *  {@link #getNumberInstance(java.util.Locale) getNumberInstance(inLocale)}.
-   * @param inLocale the desired locale
-   * @return the {@code NumberFormat} instance for general-purpose number&#xA; formatting
-   */
-  getInstance(inLocale: Locale): NumberFormat;
-
-  /**
-   * Returns a general-purpose number format for the current default
-   *  {@link java.util.Locale.Category#FORMAT FORMAT} locale.
-   *  <p>This is equivalent to calling
-   *  {@link #getNumberInstance(Locale)
-   *      getNumberInstance(Locale.getDefault(Locale.Category.FORMAT))}.
-   * @return the {@code NumberFormat} instance for general-purpose number&#xA; formatting
-   * @see java.util.Locale#getDefault(java.util.Locale.Category)
-   * @see java.util.Locale.Category#FORMAT
-   */
-  getNumberInstance(): NumberFormat;
-
-  /**
-   * Returns a general-purpose number format for the specified locale.
-   * @param inLocale the desired locale
-   * @return the {@code NumberFormat} instance for general-purpose number&#xA; formatting
-   */
-  getNumberInstance(inLocale: Locale): NumberFormat;
-
-  /**
-   * Returns an integer number format for the current default
-   *  {@link java.util.Locale.Category#FORMAT FORMAT} locale. The
-   *  returned number format is configured to round floating point numbers
-   *  to the nearest integer using half-even rounding (see {@link
-   *  java.math.RoundingMode#HALF_EVEN RoundingMode.HALF_EVEN}) for formatting,
-   *  and to parse only the integer part of an input string (see {@link
-   *  #isParseIntegerOnly isParseIntegerOnly}).
-   *  <p>This is equivalent to calling
-   *  {@link #getIntegerInstance(Locale)
-   *      getIntegerInstance(Locale.getDefault(Locale.Category.FORMAT))}.
-   * @see #getRoundingMode()
-   * @see java.util.Locale#getDefault(java.util.Locale.Category)
-   * @see java.util.Locale.Category#FORMAT
-   * @return a number format for integer values
-   * @since 1.4
-   */
-  getIntegerInstance(): NumberFormat;
-
-  /**
-   * Returns an integer number format for the specified locale. The
-   *  returned number format is configured to round floating point numbers
-   *  to the nearest integer using half-even rounding (see {@link
-   *  java.math.RoundingMode#HALF_EVEN RoundingMode.HALF_EVEN}) for formatting,
-   *  and to parse only the integer part of an input string (see {@link
-   *  #isParseIntegerOnly isParseIntegerOnly}).
-   * @param inLocale the desired locale
-   * @see #getRoundingMode()
-   * @return a number format for integer values
-   * @since 1.4
-   */
-  getIntegerInstance(inLocale: Locale): NumberFormat;
-
-  /**
-   * Returns a currency format for the current default
-   *  {@link java.util.Locale.Category#FORMAT FORMAT} locale.
-   *  <p>This is equivalent to calling
-   *  {@link #getCurrencyInstance(Locale)
-   *      getCurrencyInstance(Locale.getDefault(Locale.Category.FORMAT))}.
-   * @return the {@code NumberFormat} instance for currency formatting
-   * @see java.util.Locale#getDefault(java.util.Locale.Category)
-   * @see java.util.Locale.Category#FORMAT
-   */
-  getCurrencyInstance(): NumberFormat;
-
-  /**
-   * Returns a currency format for the specified locale.
-   * @param inLocale the desired locale
-   * @return the {@code NumberFormat} instance for currency formatting
-   */
-  getCurrencyInstance(inLocale: Locale): NumberFormat;
-
-  /**
-   * Returns a percentage format for the current default
-   *  {@link java.util.Locale.Category#FORMAT FORMAT} locale.
-   *  <p>This is equivalent to calling
-   *  {@link #getPercentInstance(Locale)
-   *      getPercentInstance(Locale.getDefault(Locale.Category.FORMAT))}.
-   * @return the {@code NumberFormat} instance for percentage formatting
-   * @see java.util.Locale#getDefault(java.util.Locale.Category)
-   * @see java.util.Locale.Category#FORMAT
-   */
-  getPercentInstance(): NumberFormat;
-
-  /**
-   * Returns a percentage format for the specified locale.
-   * @param inLocale the desired locale
-   * @return the {@code NumberFormat} instance for percentage formatting
-   */
-  getPercentInstance(inLocale: Locale): NumberFormat;
-
-  /**
-   * Returns an array of all locales for which the
-   *  <code>get*Instance</code> methods of this class can return
-   *  localized instances.
-   *  The returned array represents the union of locales supported by the Java
-   *  runtime and by installed
-   *  {@link java.text.spi.NumberFormatProvider NumberFormatProvider} implementations.
-   *  It must contain at least a <code>Locale</code> instance equal to
-   *  {@link java.util.Locale#US Locale.US}.
-   * @return An array of locales for which localized&#xA; <code>NumberFormat</code> instances are available.
-   */
-  getAvailableLocales(): Locale;
 
   /**
  * Overrides hashCode.

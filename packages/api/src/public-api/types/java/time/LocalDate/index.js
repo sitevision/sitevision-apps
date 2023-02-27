@@ -1,10 +1,4 @@
 export default {
-  now: () => {},
-  of: () => {},
-  ofYearDay: () => {},
-  ofEpochDay: () => {},
-  from: () => {},
-  parse: () => {},
   isSupported: () => {},
   range: () => {},
   get: () => {},

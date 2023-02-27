@@ -1,5 +1,4 @@
 export default {
-  of: () => {},
   getInstant: () => {},
   toEpochSecond: () => {},
   getDateTimeBefore: () => {},

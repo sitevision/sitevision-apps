@@ -1,5 +1,4 @@
 export default {
-  open: () => {},
   read: () => {},
   write: () => {},
   position: () => {},

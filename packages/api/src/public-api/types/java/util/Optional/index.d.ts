@@ -26,33 +26,6 @@ import type { String } from "../../lang/String";
  */
 export type Optional = Object & {
   /**
-   * Returns an empty {@code Optional} instance.  No value is present for this
-   *  Optional.
-   * @apiNote Though it may be tempting to do so, avoid testing if an object&#xA; is empty by comparing with {@code ==} against instances returned by&#xA; {@code Option.empty()}. There is no guarantee that it is a singleton.&#xA; Instead, use {@link #isPresent()}.
-   * @param <T> Type of the non-existent value
-   * @return an empty {@code Optional}
-   */
-  empty(): Optional;
-
-  /**
-   * Returns an {@code Optional} with the specified present non-null value.
-   * @param <T> the class of the value
-   * @param value the value to be present, which must be non-null
-   * @return an {@code Optional} with the value present
-   * @throws NullPointerException if value is null
-   */
-  of(value: unknown): Optional;
-
-  /**
-   * Returns an {@code Optional} describing the specified value, if non-null,
-   *  otherwise returns an empty {@code Optional}.
-   * @param <T> the class of the value
-   * @param value the possibly-null value to describe
-   * @return an {@code Optional} with a present value if the specified value&#xA; is non-null, otherwise an empty {@code Optional}
-   */
-  ofNullable(value: unknown): Optional;
-
-  /**
    * If a value is present in this {@code Optional}, returns the value,
    *  otherwise throws {@code NoSuchElementException}.
    * @return the non-null value held by this {@code Optional}

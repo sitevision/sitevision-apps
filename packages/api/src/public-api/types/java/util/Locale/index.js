@@ -1,9 +1,4 @@
 export default {
-  getDefault: () => {},
-  setDefault: () => {},
-  getAvailableLocales: () => {},
-  getISOCountries: () => {},
-  getISOLanguages: () => {},
   getLanguage: () => {},
   getScript: () => {},
   getCountry: () => {},
@@ -17,7 +12,6 @@ export default {
   getUnicodeLocaleKeys: () => {},
   toString: () => {},
   toLanguageTag: () => {},
-  forLanguageTag: () => {},
   getISO3Language: () => {},
   getISO3Country: () => {},
   getDisplayLanguage: () => {},
@@ -28,8 +22,4 @@ export default {
   clone: () => {},
   hashCode: () => {},
   equals: () => {},
-  filter: () => {},
-  filterTags: () => {},
-  lookup: () => {},
-  lookupTag: () => {},
 };

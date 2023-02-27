@@ -7,8 +7,6 @@ import type { URLConnection } from "../URLConnection";
 import type { Proxy } from "../Proxy";
 import type { InputStream } from "../../io/InputStream";
 import type { Class } from "../../lang/Class";
-import type { URLStreamHandlerFactory } from "../URLStreamHandlerFactory";
-
 import type { Serializable } from "../../io/Serializable";
 
 /**
@@ -354,25 +352,4 @@ export type URL = Object &
      * @since 1.3
      */
     getContent(classes: Class[]): unknown;
-
-    /**
-     * Sets an application's {@code URLStreamHandlerFactory}.
-     *  This method can be called at most once in a given Java Virtual
-     *  Machine.
-     *
-     * <p> The {@code URLStreamHandlerFactory} instance is used to
-     * construct a stream protocol handler from a protocol name.
-     *
-     *  <p> If there is a security manager, this method first calls
-     *  the security manager's {@code checkSetFactory} method
-     *  to ensure the operation is allowed.
-     *  This could result in a SecurityException.
-     * @param fac the desired factory.
-     * @throws Error if the application has already set a factory.
-     * @throws SecurityException if a security manager exists and its&#xA; {@code checkSetFactory} method doesn't allow&#xA; the operation.
-     * @see java.net.URL#URL(java.lang.String, java.lang.String,&#xA; int, java.lang.String)
-     * @see java.net.URLStreamHandlerFactory
-     * @see SecurityManager#checkSetFactory
-     */
-    setURLStreamHandlerFactory(fac: URLStreamHandlerFactory): void;
   };

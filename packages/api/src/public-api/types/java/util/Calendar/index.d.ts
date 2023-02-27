@@ -1,12 +1,10 @@
-import type { TimeZone } from "../TimeZone";
-import type { Locale } from "../Locale";
-
 import type { Date } from "../Date";
 
+import type { Locale } from "../Locale";
 import type { String } from "../../lang/String";
 import type { Map } from "../Map";
-import type { Set } from "../Set";
 import type { Object } from "../../lang/Object";
+import type { TimeZone } from "../TimeZone";
 import type { Instant } from "../../time/Instant";
 import type { Serializable } from "../../io/Serializable";
 import type { Cloneable } from "../../lang/Cloneable";
@@ -265,53 +263,6 @@ export type Calendar = Object &
   Serializable &
   Cloneable &
   Comparable & {
-    /**
-     * Gets a calendar using the default time zone and locale. The
-     *  <code>Calendar</code> returned is based on the current time
-     *  in the default time zone with the default
-     *  {@link Locale.Category#FORMAT FORMAT} locale.
-     * @return a Calendar.
-     */
-    getInstance(): Calendar;
-
-    /**
-     * Gets a calendar using the specified time zone and default locale.
-     *  The <code>Calendar</code> returned is based on the current time
-     *  in the given time zone with the default
-     *  {@link Locale.Category#FORMAT FORMAT} locale.
-     * @param zone the time zone to use
-     * @return a Calendar.
-     */
-    getInstance(zone: TimeZone): Calendar;
-
-    /**
-     * Gets a calendar using the default time zone and specified locale.
-     *  The <code>Calendar</code> returned is based on the current time
-     *  in the default time zone with the given locale.
-     * @param aLocale the locale for the week data
-     * @return a Calendar.
-     */
-    getInstance(aLocale: Locale): Calendar;
-
-    /**
-     * Gets a calendar with the specified time zone and locale.
-     *  The <code>Calendar</code> returned is based on the current time
-     *  in the given time zone with the given locale.
-     * @param zone the time zone to use
-     * @param aLocale the locale for the week data
-     * @return a Calendar.
-     */
-    getInstance(zone: TimeZone, aLocale: Locale): Calendar;
-
-    /**
-     * Returns an array of all locales for which the <code>getInstance</code>
-     *  methods of this class can return localized instances.
-     *  The array returned must contain at least a <code>Locale</code>
-     *  instance equal to {@link java.util.Locale#US Locale.US}.
-     * @return An array of locales for which localized&#xA; <code>Calendar</code> instances are available.
-     */
-    getAvailableLocales(): Locale;
-
     /**
      * Converts the current calendar field values in {@link #fields fields[]}
      *  to the millisecond time value
@@ -592,22 +543,6 @@ export type Calendar = Object &
   
     */
     complete(): void;
-
-    /**
-     * Returns an unmodifiable {@code Set} containing all calendar types
-     *  supported by {@code Calendar} in the runtime environment. The available
-     *  calendar types can be used for the <a
-     *  href="Locale.html#def_locale_extension">Unicode locale extensions</a>.
-     *  The {@code Set} returned contains at least {@code "gregory"}. The
-     *  calendar types don't include aliases, such as {@code "gregorian"} for
-     *  {@code "gregory"}.
-     * @return an unmodifiable {@code Set} containing all available calendar types
-     * @since 1.8
-     * @see #getCalendarType()
-     * @see Calendar.Builder#setCalendarType(String)
-     * @see Locale#getUnicodeLocaleType(String)
-     */
-    getAvailableCalendarTypes(): Set;
 
     /**
      * Returns the calendar type of this {@code Calendar}. Calendar types are

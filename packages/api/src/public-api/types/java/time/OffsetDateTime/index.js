@@ -1,10 +1,4 @@
 export default {
-  timeLineOrder: () => {},
-  now: () => {},
-  of: () => {},
-  ofInstant: () => {},
-  from: () => {},
-  parse: () => {},
   isSupported: () => {},
   range: () => {},
   get: () => {},

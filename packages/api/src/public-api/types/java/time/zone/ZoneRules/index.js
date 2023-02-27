@@ -1,5 +1,4 @@
 export default {
-  of: () => {},
   isFixedOffset: () => {},
   getOffset: () => {},
   getValidOffsets: () => {},

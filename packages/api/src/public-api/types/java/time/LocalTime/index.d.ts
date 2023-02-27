@@ -1,18 +1,14 @@
-import type { ZoneId } from "../ZoneId";
-import type { Clock } from "../Clock";
-
-import type { TemporalAccessor } from "../temporal/TemporalAccessor";
-import type { CharSequence } from "../../lang/CharSequence";
-import type { DateTimeFormatter } from "../format/DateTimeFormatter";
 import type { TemporalField } from "../temporal/TemporalField";
 
 import type { TemporalUnit } from "../temporal/TemporalUnit";
 import type { ValueRange } from "../temporal/ValueRange";
+
 import type { TemporalAdjuster } from "../temporal/TemporalAdjuster";
 import type { TemporalAmount } from "../temporal/TemporalAmount";
 import type { TemporalQuery } from "../temporal/TemporalQuery";
 
 import type { Temporal } from "../temporal/Temporal";
+import type { DateTimeFormatter } from "../format/DateTimeFormatter";
 import type { String } from "../../lang/String";
 import type { LocalDate } from "../LocalDate";
 import type { LocalDateTime } from "../LocalDateTime";
@@ -54,146 +50,6 @@ export type LocalTime = Object &
   TemporalAdjuster &
   Comparable &
   Serializable & {
-    /**
-     * Obtains the current time from the system clock in the default time-zone.
-     *  <p>
-     *  This will query the {@link Clock#systemDefaultZone() system clock} in the default
-     *  time-zone to obtain the current time.
-     *  <p>
-     *  Using this method will prevent the ability to use an alternate clock for testing
-     *  because the clock is hard-coded.
-     * @return the current time using the system clock and default time-zone, not null
-     */
-    now(): LocalTime;
-
-    /**
-     * Obtains the current time from the system clock in the specified time-zone.
-     *  <p>
-     *  This will query the {@link Clock#system(ZoneId) system clock} to obtain the current time.
-     *  Specifying the time-zone avoids dependence on the default time-zone.
-     *  <p>
-     *  Using this method will prevent the ability to use an alternate clock for testing
-     *  because the clock is hard-coded.
-     * @param zone the zone ID to use, not null
-     * @return the current time using the system clock, not null
-     */
-    now(zone: ZoneId): LocalTime;
-
-    /**
-     * Obtains the current time from the specified clock.
-     *  <p>
-     *  This will query the specified clock to obtain the current time.
-     *  Using this method allows the use of an alternate clock for testing.
-     *  The alternate clock may be introduced using {@link Clock dependency injection}.
-     * @param clock the clock to use, not null
-     * @return the current time, not null
-     */
-    now(clock: Clock): LocalTime;
-
-    /**
-     * Obtains an instance of {@code LocalTime} from an hour and minute.
-     *  <p>
-     *  This returns a {@code LocalTime} with the specified hour and minute.
-     *  The second and nanosecond fields will be set to zero.
-     * @param hour the hour-of-day to represent, from 0 to 23
-     * @param minute the minute-of-hour to represent, from 0 to 59
-     * @return the local time, not null
-     * @throws DateTimeException if the value of any field is out of range
-     */
-    of(hour: number, minute: number): LocalTime;
-
-    /**
-     * Obtains an instance of {@code LocalTime} from an hour, minute and second.
-     *  <p>
-     *  This returns a {@code LocalTime} with the specified hour, minute and second.
-     *  The nanosecond field will be set to zero.
-     * @param hour the hour-of-day to represent, from 0 to 23
-     * @param minute the minute-of-hour to represent, from 0 to 59
-     * @param second the second-of-minute to represent, from 0 to 59
-     * @return the local time, not null
-     * @throws DateTimeException if the value of any field is out of range
-     */
-    of(hour: number, minute: number, second: number): LocalTime;
-
-    /**
-     * Obtains an instance of {@code LocalTime} from an hour, minute, second and nanosecond.
-     *  <p>
-     *  This returns a {@code LocalTime} with the specified hour, minute, second and nanosecond.
-     * @param hour the hour-of-day to represent, from 0 to 23
-     * @param minute the minute-of-hour to represent, from 0 to 59
-     * @param second the second-of-minute to represent, from 0 to 59
-     * @param nanoOfSecond the nano-of-second to represent, from 0 to 999,999,999
-     * @return the local time, not null
-     * @throws DateTimeException if the value of any field is out of range
-     */
-    of(
-      hour: number,
-      minute: number,
-      second: number,
-      nanoOfSecond: number
-    ): LocalTime;
-
-    /**
-     * Obtains an instance of {@code LocalTime} from a second-of-day value.
-     *  <p>
-     *  This returns a {@code LocalTime} with the specified second-of-day.
-     *  The nanosecond field will be set to zero.
-     * @param secondOfDay the second-of-day, from {@code 0} to {@code 24 * 60 * 60 - 1}
-     * @return the local time, not null
-     * @throws DateTimeException if the second-of-day value is invalid
-     */
-    ofSecondOfDay(secondOfDay: number): LocalTime;
-
-    /**
-     * Obtains an instance of {@code LocalTime} from a nanos-of-day value.
-     *  <p>
-     *  This returns a {@code LocalTime} with the specified nanosecond-of-day.
-     * @param nanoOfDay the nano of day, from {@code 0} to {@code 24 * 60 * 60 * 1,000,000,000 - 1}
-     * @return the local time, not null
-     * @throws DateTimeException if the nanos of day value is invalid
-     */
-    ofNanoOfDay(nanoOfDay: number): LocalTime;
-
-    /**
-     * Obtains an instance of {@code LocalTime} from a temporal object.
-     *  <p>
-     *  This obtains a local time based on the specified temporal.
-     *  A {@code TemporalAccessor} represents an arbitrary set of date and time information,
-     *  which this factory converts to an instance of {@code LocalTime}.
-     *  <p>
-     *  The conversion uses the {@link TemporalQueries#localTime()} query, which relies
-     *  on extracting the {@link ChronoField#NANO_OF_DAY NANO_OF_DAY} field.
-     *  <p>
-     *  This method matches the signature of the functional interface {@link TemporalQuery}
-     *  allowing it to be used as a query via method reference, {@code LocalTime::from}.
-     * @param temporal the temporal object to convert, not null
-     * @return the local time, not null
-     * @throws DateTimeException if unable to convert to a {@code LocalTime}
-     */
-    from(temporal: TemporalAccessor): LocalTime;
-
-    /**
-     * Obtains an instance of {@code LocalTime} from a text string such as {@code 10:15}.
-     *  <p>
-     *  The string must represent a valid time and is parsed using
-     *  {@link java.time.format.DateTimeFormatter#ISO_LOCAL_TIME}.
-     * @param text the text to parse such as "10:15:30", not null
-     * @return the parsed local time, not null
-     * @throws DateTimeParseException if the text cannot be parsed
-     */
-    parse(text: CharSequence): LocalTime;
-
-    /**
-     * Obtains an instance of {@code LocalTime} from a text string using a specific formatter.
-     *  <p>
-     *  The text is parsed using the formatter, returning a time.
-     * @param text the text to parse, not null
-     * @param formatter the formatter to use, not null
-     * @return the parsed local time, not null
-     * @throws DateTimeParseException if the text cannot be parsed
-     */
-    parse(text: CharSequence, formatter: DateTimeFormatter): LocalTime;
-
     /**
      * Checks if the specified field is supported.
      *  <p>

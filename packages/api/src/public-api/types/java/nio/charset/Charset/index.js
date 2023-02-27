@@ -1,8 +1,4 @@
 export default {
-  isSupported: () => {},
-  forName: () => {},
-  availableCharsets: () => {},
-  defaultCharset: () => {},
   name: () => {},
   aliases: () => {},
   displayName: () => {},

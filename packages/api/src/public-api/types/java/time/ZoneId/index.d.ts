@@ -1,14 +1,11 @@
-import type { Set } from "../../util/Set";
 import type { String } from "../../lang/String";
-import type { Map } from "../../util/Map";
-import type { ZoneOffset } from "../ZoneOffset";
-import type { TemporalAccessor } from "../temporal/TemporalAccessor";
 import type { TextStyle } from "../format/TextStyle";
 import type { Locale } from "../../util/Locale";
 import type { ZoneRules } from "../zone/ZoneRules";
 import type { Object } from "../../lang/Object";
 
 import type { Serializable } from "../../io/Serializable";
+import type { Map } from "../../util/Map";
 
 /**
  * A time-zone ID, such as {@code Europe/Paris}.
@@ -97,123 +94,6 @@ import type { Serializable } from "../../io/Serializable";
  */
 export type ZoneId = Object &
   Serializable & {
-    /**
-     * Gets the system default time-zone.
-     *  <p>
-     *  This queries {@link TimeZone#getDefault()} to find the default time-zone
-     *  and converts it to a {@code ZoneId}. If the system default time-zone is changed,
-     *  then the result of this method will also change.
-     * @return the zone ID, not null
-     * @throws DateTimeException if the converted zone ID has an invalid format
-     * @throws ZoneRulesException if the converted zone region ID cannot be found
-     */
-    systemDefault(): ZoneId;
-
-    /**
-     * Gets the set of available zone IDs.
-     *  <p>
-     *  This set includes the string form of all available region-based IDs.
-     *  Offset-based zone IDs are not included in the returned set.
-     *  The ID can be passed to {@link #of(String)} to create a {@code ZoneId}.
-     *  <p>
-     *  The set of zone IDs can increase over time, although in a typical application
-     *  the set of IDs is fixed. Each call to this method is thread-safe.
-     * @return a modifiable copy of the set of zone IDs, not null
-     */
-    getAvailableZoneIds(): Set;
-
-    /**
-     * Obtains an instance of {@code ZoneId} using its ID using a map
-     *  of aliases to supplement the standard zone IDs.
-     *  <p>
-     *  Many users of time-zones use short abbreviations, such as PST for
-     *  'Pacific Standard Time' and PDT for 'Pacific Daylight Time'.
-     *  These abbreviations are not unique, and so cannot be used as IDs.
-     *  This method allows a map of string to time-zone to be setup and reused
-     *  within an application.
-     * @param zoneId the time-zone ID, not null
-     * @param aliasMap a map of alias zone IDs (typically abbreviations) to real zone IDs, not null
-     * @return the zone ID, not null
-     * @throws DateTimeException if the zone ID has an invalid format
-     * @throws ZoneRulesException if the zone ID is a region ID that cannot be found
-     */
-    of(zoneId: String | string, aliasMap: Map | {}): ZoneId;
-
-    /**
-     * Obtains an instance of {@code ZoneId} from an ID ensuring that the
-     *  ID is valid and available for use.
-     *  <p>
-     *  This method parses the ID producing a {@code ZoneId} or {@code ZoneOffset}.
-     *  A {@code ZoneOffset} is returned if the ID is 'Z', or starts with '+' or '-'.
-     *  The result will always be a valid ID for which {@link ZoneRules} can be obtained.
-     *  <p>
-     *  Parsing matches the zone ID step by step as follows.
-     *  <ul>
-     *  <li>If the zone ID equals 'Z', the result is {@code ZoneOffset.UTC}.
-     *  <li>If the zone ID consists of a single letter, the zone ID is invalid
-     *   and {@code DateTimeException} is thrown.
-     *  <li>If the zone ID starts with '+' or '-', the ID is parsed as a
-     *   {@code ZoneOffset} using {@link ZoneOffset#of(String)}.
-     *  <li>If the zone ID equals 'GMT', 'UTC' or 'UT' then the result is a {@code ZoneId}
-     *   with the same ID and rules equivalent to {@code ZoneOffset.UTC}.
-     *  <li>If the zone ID starts with 'UTC+', 'UTC-', 'GMT+', 'GMT-', 'UT+' or 'UT-'
-     *   then the ID is a prefixed offset-based ID. The ID is split in two, with
-     *   a two or three letter prefix and a suffix starting with the sign.
-     *   The suffix is parsed as a {@link ZoneOffset#of(String) ZoneOffset}.
-     *   The result will be a {@code ZoneId} with the specified UTC/GMT/UT prefix
-     *   and the normalized offset ID as per {@link ZoneOffset#getId()}.
-     *   The rules of the returned {@code ZoneId} will be equivalent to the
-     *   parsed {@code ZoneOffset}.
-     *  <li>All other IDs are parsed as region-based zone IDs. Region IDs must
-     *   match the regular expression <code>[A-Za-z][A-Za-z0-9~/._+-]+</code>
-     *   otherwise a {@code DateTimeException} is thrown. If the zone ID is not
-     *   in the configured set of IDs, {@code ZoneRulesException} is thrown.
-     *   The detailed format of the region ID depends on the group supplying the data.
-     *   The default set of data is supplied by the IANA Time Zone Database (TZDB).
-     *   This has region IDs of the form '{area}/{city}', such as 'Europe/Paris' or 'America/New_York'.
-     *   This is compatible with most IDs from {@link java.util.TimeZone}.
-     *  </ul>
-     * @param zoneId the time-zone ID, not null
-     * @return the zone ID, not null
-     * @throws DateTimeException if the zone ID has an invalid format
-     * @throws ZoneRulesException if the zone ID is a region ID that cannot be found
-     */
-    of(zoneId: String | string): ZoneId;
-
-    /**
-     * Obtains an instance of {@code ZoneId} wrapping an offset.
-     *  <p>
-     *  If the prefix is "GMT", "UTC", or "UT" a {@code ZoneId}
-     *  with the prefix and the non-zero offset is returned.
-     *  If the prefix is empty {@code ""} the {@code ZoneOffset} is returned.
-     * @param prefix the time-zone ID, not null
-     * @param offset the offset, not null
-     * @return the zone ID, not null
-     * @throws IllegalArgumentException if the prefix is not one of&#xA; "GMT", "UTC", or "UT", or ""
-     */
-    ofOffset(prefix: String | string, offset: ZoneOffset): ZoneId;
-
-    /**
-     * Obtains an instance of {@code ZoneId} from a temporal object.
-     *  <p>
-     *  This obtains a zone based on the specified temporal.
-     *  A {@code TemporalAccessor} represents an arbitrary set of date and time information,
-     *  which this factory converts to an instance of {@code ZoneId}.
-     *  <p>
-     *  A {@code TemporalAccessor} represents some form of date and time information.
-     *  This factory converts the arbitrary temporal object to an instance of {@code ZoneId}.
-     *  <p>
-     *  The conversion will try to obtain the zone in a way that favours region-based
-     *  zones over offset-based zones using {@link TemporalQueries#zone()}.
-     *  <p>
-     *  This method matches the signature of the functional interface {@link TemporalQuery}
-     *  allowing it to be used as a query via method reference, {@code ZoneId::from}.
-     * @param temporal the temporal object to convert, not null
-     * @return the zone ID, not null
-     * @throws DateTimeException if unable to convert to a {@code ZoneId}
-     */
-    from(temporal: TemporalAccessor): ZoneId;
-
     /**
      * Gets the unique time-zone ID.
      *  <p>

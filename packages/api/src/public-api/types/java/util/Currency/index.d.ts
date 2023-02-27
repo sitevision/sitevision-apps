@@ -1,6 +1,5 @@
 import type { String } from "../../lang/String";
 import type { Locale } from "../Locale";
-import type { Set } from "../Set";
 
 import type { Object } from "../../lang/Object";
 import type { Serializable } from "../../io/Serializable";
@@ -55,43 +54,6 @@ import type { Serializable } from "../../io/Serializable";
  */
 export type Currency = Object &
   Serializable & {
-    /**
-     * Returns the <code>Currency</code> instance for the given currency code.
-     * @param currencyCode the ISO 4217 code of the currency
-     * @return the <code>Currency</code> instance for the given currency code
-     * @throws NullPointerException if <code>currencyCode</code> is null
-     * @throws IllegalArgumentException if <code>currencyCode</code> is not&#xA; a supported ISO 4217 code.
-     */
-    getInstance(currencyCode: String | string): Currency;
-
-    /**
-     * Returns the <code>Currency</code> instance for the country of the
-     *  given locale. The language and variant components of the locale
-     *  are ignored. The result may vary over time, as countries change their
-     *  currencies. For example, for the original member countries of the
-     *  European Monetary Union, the method returns the old national currencies
-     *  until December 31, 2001, and the Euro from January 1, 2002, local time
-     *  of the respective countries.
-     *  <p>
-     *  The method returns <code>null</code> for territories that don't
-     *  have a currency, such as Antarctica.
-     * @param locale the locale for whose country a <code>Currency</code>&#xA; instance is needed
-     * @return the <code>Currency</code> instance for the country of the given&#xA; locale, or {@code null}
-     * @throws NullPointerException if <code>locale</code> or its country&#xA; code is {@code null}
-     * @throws IllegalArgumentException if the country of the given {@code locale}&#xA; is not a supported ISO 3166 country code.
-     */
-    getInstance(locale: Locale): Currency;
-
-    /**
-     * Gets the set of available currencies.  The returned set of currencies
-     *  contains all of the available currencies, which may include currencies
-     *  that represent obsolete ISO 4217 codes.  The set can be modified
-     *  without affecting the available currencies in the runtime.
-     * @return the set of available currencies. If there is no currency&#xA; available in the runtime, the returned set is empty.
-     * @since 1.7
-     */
-    getAvailableCurrencies(): Set;
-
     /**
      * Gets the ISO 4217 currency code of this currency.
      * @return the ISO 4217 currency code of this currency.

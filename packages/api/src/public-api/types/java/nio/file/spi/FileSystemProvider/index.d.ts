@@ -1,4 +1,3 @@
-import type { List } from "../../../../util/List";
 import type { String } from "../../../../lang/String";
 import type { URI } from "../../../../net/URI";
 import type { Map } from "../../../../util/Map";
@@ -60,17 +59,6 @@ import type { Object } from "../../../../lang/Object";
  * @since 1.7
  */
 export type FileSystemProvider = Object & {
-  /**
-   * Returns a list of the installed file system providers.
-   *
-   *  <p> The first invocation of this method causes the default provider to be
-   *  initialized (if not already initialized) and loads any other installed
-   *  providers as described by the {@link FileSystems} class.
-   * @return An unmodifiable list of the installed file system providers. The&#xA; list contains at least one element, that is the default file&#xA; system provider
-   * @throws ServiceConfigurationError&#xA; When an error occurs while loading a service provider
-   */
-  installedProviders(): List;
-
   /**
    * Returns the URI scheme that identifies this provider.
    * @return The URI scheme

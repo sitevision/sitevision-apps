@@ -414,28 +414,6 @@ export type URI = Object &
   Comparable &
   Serializable & {
     /**
-     * Creates a URI by parsing the given string.
-     *
-     *  <p> This convenience factory method works as if by invoking the {@link
-     *  #URI(String)} constructor; any {@link URISyntaxException} thrown by the
-     *  constructor is caught and wrapped in a new {@link
-     *  IllegalArgumentException} object, which is then thrown.
-     *
-     *  <p> This method is provided for use in situations where it is known that
-     *  the given string is a legal URI, for example for URI constants declared
-     *  within in a program, and so it would be considered a programming error
-     *  for the string not to parse as such.  The constructors, which throw
-     *  {@link URISyntaxException} directly, should be used situations where a
-     *  URI is being constructed from user input or from some other source that
-     *  may be prone to errors.  </p>
-     * @param str The string to be parsed into a URI
-     * @return The new URI
-     * @throws NullPointerException&#xA; If {@code str} is {@code null}
-     * @throws IllegalArgumentException&#xA; If the given string violates RFC&nbsp;2396
-     */
-    create(str: String | string): URI;
-
-    /**
      * Attempts to parse this URI's authority component, if defined, into
      *  user-information, host, and port components.
      *

@@ -1,5 +1,3 @@
-import type { FileNameMap } from "../FileNameMap";
-
 import type { URL } from "../URL";
 
 import type { String } from "../../lang/String";
@@ -9,8 +7,6 @@ import type { Class } from "../../lang/Class";
 import type { Permission } from "../../security/Permission";
 import type { InputStream } from "../../io/InputStream";
 import type { OutputStream } from "../../io/OutputStream";
-
-import type { ContentHandlerFactory } from "../ContentHandlerFactory";
 
 /**
  * The abstract class {@code URLConnection} is the superclass
@@ -130,32 +126,6 @@ import type { ContentHandlerFactory } from "../ContentHandlerFactory";
  * @since JDK1.0
  */
 export type URLConnection = Object & {
-  /**
-   * Loads filename map (a mimetable) from a data file. It will
-   *  first try to load the user-specific table, defined
-   *  by &quot;content.types.user.table&quot; property. If that fails,
-   *  it tries to load the default built-in table.
-   * @return the FileNameMap
-   * @since 1.2
-   * @see #setFileNameMap(java.net.FileNameMap)
-   */
-  getFileNameMap(): FileNameMap;
-
-  /**
-   * Sets the FileNameMap.
-   *  <p>
-   *  If there is a security manager, this method first calls
-   *  the security manager's {@code checkSetFactory} method
-   *  to ensure the operation is allowed.
-   *  This could result in a SecurityException.
-   * @param map the FileNameMap to be set
-   * @throws SecurityException if a security manager exists and its&#xA; {@code checkSetFactory} method doesn't allow the operation.
-   * @see SecurityManager#checkSetFactory
-   * @see #getFileNameMap()
-   * @since 1.2
-   */
-  setFileNameMap(map: FileNameMap): void;
-
   /**
    * Opens a communications link to the resource referenced by this
    *  URL, if such a connection has not already been established.
@@ -564,27 +534,6 @@ export type URLConnection = Object & {
   getAllowUserInteraction(): boolean;
 
   /**
-   * Sets the default value of the
-   *  {@code allowUserInteraction} field for all future
-   *  {@code URLConnection} objects to the specified value.
-   * @param defaultallowuserinteraction the new value.
-   * @see #getDefaultAllowUserInteraction()
-   */
-  setDefaultAllowUserInteraction(defaultallowuserinteraction: boolean): void;
-
-  /**
-   * Returns the default value of the {@code allowUserInteraction}
-   *  field.
-   *  <p>
-   *  Ths default is "sticky", being a part of the static state of all
-   *  URLConnections.  This flag applies to the next, and all following
-   *  URLConnections that are created.
-   * @return the default value of the {@code allowUserInteraction}&#xA; field.
-   * @see #setDefaultAllowUserInteraction(boolean)
-   */
-  getDefaultAllowUserInteraction(): boolean;
-
-  /**
    * Sets the value of the {@code useCaches} field of this
    *  {@code URLConnection} to the specified value.
    *  <p>
@@ -696,78 +645,4 @@ export type URLConnection = Object & {
    * @since 1.4
    */
   getRequestProperties(): Map;
-
-  /**
-   * Sets the default value of a general request property. When a
-   *  {@code URLConnection} is created, it is initialized with
-   *  these properties.
-   * @param key the keyword by which the request is known&#xA; (e.g., "{@code Accept}").
-   * @param value the value associated with the key.
-   * @see java.net.URLConnection#setRequestProperty(java.lang.String,java.lang.String)
-   * @deprecated The instance specific setRequestProperty method&#xA; should be used after an appropriate instance of URLConnection&#xA; is obtained. Invoking this method will have no effect.
-   * @see #getDefaultRequestProperty(java.lang.String)
-   */
-  setDefaultRequestProperty(key: String | string, value: String | string): void;
-
-  /**
-   * Returns the value of the default request property. Default request
-   *  properties are set for every connection.
-   * @param key the keyword by which the request is known (e.g., "Accept").
-   * @return the value of the default request property&#xA; for the specified key.
-   * @see java.net.URLConnection#getRequestProperty(java.lang.String)
-   * @deprecated The instance specific getRequestProperty method&#xA; should be used after an appropriate instance of URLConnection&#xA; is obtained.
-   * @see #setDefaultRequestProperty(java.lang.String, java.lang.String)
-   */
-  getDefaultRequestProperty(key: String | string): string;
-
-  /**
-   * Sets the {@code ContentHandlerFactory} of an
-   *  application. It can be called at most once by an application.
-   *  <p>
-   *  The {@code ContentHandlerFactory} instance is used to
-   *  construct a content handler from a content type
-   *  <p>
-   *  If there is a security manager, this method first calls
-   *  the security manager's {@code checkSetFactory} method
-   *  to ensure the operation is allowed.
-   *  This could result in a SecurityException.
-   * @param fac the desired factory.
-   * @throws Error if the factory has already been defined.
-   * @throws SecurityException if a security manager exists and its&#xA; {@code checkSetFactory} method doesn't allow the operation.
-   * @see java.net.ContentHandlerFactory
-   * @see java.net.URLConnection#getContent()
-   * @see SecurityManager#checkSetFactory
-   */
-  setContentHandlerFactory(fac: ContentHandlerFactory): void;
-
-  /**
-   * Tries to determine the content type of an object, based
-   *  on the specified "file" component of a URL.
-   *  This is a convenience method that can be used by
-   *  subclasses that override the {@code getContentType} method.
-   * @param fname a filename.
-   * @return a guess as to what the content type of the object is,&#xA; based upon its file name.
-   * @see java.net.URLConnection#getContentType()
-   */
-  guessContentTypeFromName(fname: String | string): string;
-
-  /**
-   * Tries to determine the type of an input stream based on the
-   *  characters at the beginning of the input stream. This method can
-   *  be used by subclasses that override the
-   *  {@code getContentType} method.
-   *  <p>
-   *  Ideally, this routine would not be needed. But many
-   *  {@code http} servers return the incorrect content type; in
-   *  addition, there are many nonstandard extensions. Direct inspection
-   *  of the bytes to determine the content type is often more accurate
-   *  than believing the content type claimed by the {@code http} server.
-   * @param is an input stream that supports marks.
-   * @return a guess at the content type, or {@code null} if none&#xA; can be determined.
-   * @throws IOException if an I/O error occurs while reading the&#xA; input stream.
-   * @see java.io.InputStream#mark(int)
-   * @see java.io.InputStream#markSupported()
-   * @see java.net.URLConnection#getContentType()
-   */
-  guessContentTypeFromStream(is: InputStream): string;
 };

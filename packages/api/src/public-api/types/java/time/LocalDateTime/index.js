@@ -1,10 +1,4 @@
 export default {
-  now: () => {},
-  of: () => {},
-  ofInstant: () => {},
-  ofEpochSecond: () => {},
-  from: () => {},
-  parse: () => {},
   isSupported: () => {},
   range: () => {},
   get: () => {},

@@ -1,7 +1,7 @@
-import type { LocalDateTime } from "../../LocalDateTime";
-import type { ZoneOffset } from "../../ZoneOffset";
 import type { Instant } from "../../Instant";
 
+import type { LocalDateTime } from "../../LocalDateTime";
+import type { ZoneOffset } from "../../ZoneOffset";
 import type { Duration } from "../../Duration";
 
 import type { Object } from "../../../lang/Object";
@@ -29,23 +29,6 @@ import type { Serializable } from "../../../io/Serializable";
 export type ZoneOffsetTransition = Object &
   Comparable &
   Serializable & {
-    /**
-     * Obtains an instance defining a transition between two offsets.
-     *  <p>
-     *  Applications should normally obtain an instance from {@link ZoneRules}.
-     *  This factory is only intended for use when creating {@link ZoneRules}.
-     * @param transition the transition date-time at the transition, which never&#xA; actually occurs, expressed local to the before offset, not null
-     * @param offsetBefore the offset before the transition, not null
-     * @param offsetAfter the offset at and after the transition, not null
-     * @return the transition, not null
-     * @throws IllegalArgumentException if {@code offsetBefore} and {@code offsetAfter}&#xA; are equal, or {@code transition.getNano()} returns non-zero value
-     */
-    of(
-      transition: LocalDateTime,
-      offsetBefore: ZoneOffset,
-      offsetAfter: ZoneOffset
-    ): ZoneOffsetTransition;
-
     /**
      * Gets the transition instant.
      *  <p>

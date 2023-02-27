@@ -1,7 +1,5 @@
 export default {
   clone: () => {},
-  UTC: () => {},
-  parse: () => {},
   getYear: () => {},
   setYear: () => {},
   getMonth: () => {},
@@ -26,6 +24,5 @@ export default {
   toLocaleString: () => {},
   toGMTString: () => {},
   getTimezoneOffset: () => {},
-  from: () => {},
   toInstant: () => {},
 };

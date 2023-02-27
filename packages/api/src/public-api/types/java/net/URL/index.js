@@ -18,5 +18,4 @@ export default {
   openConnection: () => {},
   openStream: () => {},
   getContent: () => {},
-  setURLStreamHandlerFactory: () => {},
 };

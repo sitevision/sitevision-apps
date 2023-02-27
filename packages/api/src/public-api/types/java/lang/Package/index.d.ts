@@ -153,34 +153,6 @@ export type Package = Object &
     isCompatibleWith(desired: String | string): boolean;
 
     /**
-     * Find a package by name in the callers {@code ClassLoader} instance.
-     *  The callers {@code ClassLoader} instance is used to find the package
-     *  instance corresponding to the named class. If the callers
-     *  {@code ClassLoader} instance is null then the set of packages loaded
-     *  by the system {@code ClassLoader} instance is searched to find the
-     *  named package. <p>
-     *
-     *  Packages have attributes for versions and specifications only if the class
-     *  loader created the package instance with the appropriate attributes. Typically,
-     *  those attributes are defined in the manifests that accompany the classes.
-     * @param name a package name, for example, java.lang.
-     * @return the package of the requested name. It may be null if no package&#xA; information is available from the archive or codebase.
-     */
-    getPackage(name: String | string): Package;
-
-    /**
-     * Get all the packages currently known for the caller's {@code ClassLoader}
-     *  instance.  Those packages correspond to classes loaded via or accessible by
-     *  name to that {@code ClassLoader} instance.  If the caller's
-     *  {@code ClassLoader} instance is the bootstrap {@code ClassLoader}
-     *  instance, which may be represented by {@code null} in some implementations,
-     *  only packages corresponding to classes loaded by the bootstrap
-     *  {@code ClassLoader} instance will be returned.
-     * @return a new array of packages known to the callers {@code ClassLoader}&#xA; instance. An zero length array is returned if none are known.
-     */
-    getPackages(): Package;
-
-    /**
      * Return the hash code computed from the package name.
      * @return the hash code computed from the package name.
      */

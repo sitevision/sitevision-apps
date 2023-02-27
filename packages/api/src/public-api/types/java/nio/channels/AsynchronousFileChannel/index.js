@@ -1,5 +1,4 @@
 export default {
-  open: () => {},
   size: () => {},
   truncate: () => {},
   force: () => {},

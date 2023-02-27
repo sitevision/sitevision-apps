@@ -1,10 +1,4 @@
 export default {
-  now: () => {},
-  of: () => {},
-  ofSecondOfDay: () => {},
-  ofNanoOfDay: () => {},
-  from: () => {},
-  parse: () => {},
   isSupported: () => {},
   range: () => {},
   get: () => {},

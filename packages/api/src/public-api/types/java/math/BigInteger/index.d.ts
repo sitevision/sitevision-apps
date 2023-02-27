@@ -1,5 +1,3 @@
-import type { Random } from "../../util/Random";
-
 import type { Object } from "../../lang/Object";
 import type { String } from "../../lang/String";
 
@@ -83,19 +81,6 @@ import type { Comparable } from "../../lang/Comparable";
 export type BigInteger = Number &
   Comparable & {
     /**
-     * Returns a positive BigInteger that is probably prime, with the
-     *  specified bitLength. The probability that a BigInteger returned
-     *  by this method is composite does not exceed 2<sup>-100</sup>.
-     * @param bitLength bitLength of the returned BigInteger.
-     * @param rnd source of random bits used to select candidates to be&#xA; tested for primality.
-     * @return a BigInteger of {@code bitLength} bits that is probably prime
-     * @throws ArithmeticException {@code bitLength < 2} or {@code bitLength} is too large.
-     * @see #bitLength()
-     * @since 1.4
-     */
-    probablePrime(bitLength: number, rnd: Random): BigInteger;
-
-    /**
      * Returns the first integer greater than this {@code BigInteger} that
      *  is probably prime.  The probability that the number returned by this
      *  method is composite does not exceed 2<sup>-100</sup>. This method will
@@ -106,16 +91,6 @@ export type BigInteger = Number &
      * @since 1.5
      */
     nextProbablePrime(): BigInteger;
-
-    /**
-     * Returns a BigInteger whose value is equal to that of the
-     *  specified {@code long}.  This "static factory method" is
-     *  provided in preference to a ({@code long}) constructor
-     *  because it allows for reuse of frequently used BigIntegers.
-     * @param val value of the BigInteger to return.
-     * @return a BigInteger with the specified value.
-     */
-    valueOf(val: number): BigInteger;
 
     /**
      * Returns a BigInteger whose value is {@code (this + val)}.

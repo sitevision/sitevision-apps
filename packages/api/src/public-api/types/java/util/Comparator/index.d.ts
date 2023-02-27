@@ -141,7 +141,7 @@ export type Comparator = {
    * @return a comparator that imposes the reverse ordering of this&#xA; comparator.
    * @since 1.8
    */
-  reversed(): Comparator;
+  reversed?(): Comparator;
 
   /**
    * Returns a lexicographic-order comparator with another comparator.
@@ -156,7 +156,7 @@ export type Comparator = {
    * @throws NullPointerException if the argument is null.
    * @since 1.8
    */
-  thenComparing(other: Comparator): Comparator;
+  thenComparing?(other: Comparator): Comparator;
 
   /**
    * Returns a lexicographic-order comparator with a function that
@@ -171,7 +171,7 @@ export type Comparator = {
    * @see #thenComparing(Comparator)
    * @since 1.8
    */
-  thenComparing(keyExtractor: Function, keyComparator: Comparator): Comparator;
+  thenComparing?(keyExtractor: Function, keyComparator: Comparator): Comparator;
 
   /**
    * Returns a lexicographic-order comparator with a function that
@@ -185,7 +185,7 @@ export type Comparator = {
    * @see #thenComparing(Comparator)
    * @since 1.8
    */
-  thenComparing(keyExtractor: Function): Comparator;
+  thenComparing?(keyExtractor: Function): Comparator;
 
   /**
    * Returns a lexicographic-order comparator with a function that
@@ -198,7 +198,7 @@ export type Comparator = {
    * @see #thenComparing(Comparator)
    * @since 1.8
    */
-  thenComparingInt(keyExtractor: ToIntFunction): Comparator;
+  thenComparingInt?(keyExtractor: ToIntFunction): Comparator;
 
   /**
    * Returns a lexicographic-order comparator with a function that
@@ -211,7 +211,7 @@ export type Comparator = {
    * @see #thenComparing(Comparator)
    * @since 1.8
    */
-  thenComparingLong(keyExtractor: ToLongFunction): Comparator;
+  thenComparingLong?(keyExtractor: ToLongFunction): Comparator;
 
   /**
    * Returns a lexicographic-order comparator with a function that
@@ -224,7 +224,7 @@ export type Comparator = {
    * @see #thenComparing(Comparator)
    * @since 1.8
    */
-  thenComparingDouble(keyExtractor: ToDoubleFunction): Comparator;
+  thenComparingDouble?(keyExtractor: ToDoubleFunction): Comparator;
 
   /**
    * Returns a comparator that imposes the reverse of the <em>natural
@@ -237,7 +237,7 @@ export type Comparator = {
    * @see Comparable
    * @since 1.8
    */
-  reverseOrder(): Comparator;
+  reverseOrder?(): Comparator;
 
   /**
    * Returns a comparator that compares {@link Comparable} objects in natural
@@ -250,7 +250,7 @@ export type Comparator = {
    * @see Comparable
    * @since 1.8
    */
-  naturalOrder(): Comparator;
+  naturalOrder?(): Comparator;
 
   /**
    * Returns a null-friendly comparator that considers {@code null} to be
@@ -266,7 +266,7 @@ export type Comparator = {
    * @return a comparator that considers {@code null} to be less than&#xA; non-null, and compares non-null objects with the supplied&#xA; {@code Comparator}.
    * @since 1.8
    */
-  nullsFirst(comparator: Comparator): Comparator;
+  nullsFirst?(comparator: Comparator): Comparator;
 
   /**
    * Returns a null-friendly comparator that considers {@code null} to be
@@ -282,7 +282,7 @@ export type Comparator = {
    * @return a comparator that considers {@code null} to be greater than&#xA; non-null, and compares non-null objects with the supplied&#xA; {@code Comparator}.
    * @since 1.8
    */
-  nullsLast(comparator: Comparator): Comparator;
+  nullsLast?(comparator: Comparator): Comparator;
 
   /**
    * Accepts a function that extracts a sort key from a type {@code T}, and
@@ -300,7 +300,7 @@ export type Comparator = {
    * @throws NullPointerException if either argument is null
    * @since 1.8
    */
-  comparing(keyExtractor: Function, keyComparator: Comparator): Comparator;
+  comparing?(keyExtractor: Function, keyComparator: Comparator): Comparator;
 
   /**
    * Accepts a function that extracts a {@link java.lang.Comparable
@@ -317,7 +317,7 @@ export type Comparator = {
    * @throws NullPointerException if the argument is null
    * @since 1.8
    */
-  comparing(keyExtractor: Function): Comparator;
+  comparing?(keyExtractor: Function): Comparator;
 
   /**
    * Accepts a function that extracts an {@code int} sort key from a type
@@ -333,7 +333,7 @@ export type Comparator = {
    * @throws NullPointerException if the argument is null
    * @since 1.8
    */
-  comparingInt(keyExtractor: ToIntFunction): Comparator;
+  comparingInt?(keyExtractor: ToIntFunction): Comparator;
 
   /**
    * Accepts a function that extracts a {@code long} sort key from a type
@@ -349,7 +349,7 @@ export type Comparator = {
    * @throws NullPointerException if the argument is null
    * @since 1.8
    */
-  comparingLong(keyExtractor: ToLongFunction): Comparator;
+  comparingLong?(keyExtractor: ToLongFunction): Comparator;
 
   /**
    * Accepts a function that extracts a {@code double} sort key from a type
@@ -365,5 +365,5 @@ export type Comparator = {
    * @throws NullPointerException if the argument is null
    * @since 1.8
    */
-  comparingDouble(keyExtractor: ToDoubleFunction): Comparator;
+  comparingDouble?(keyExtractor: ToDoubleFunction): Comparator;
 };

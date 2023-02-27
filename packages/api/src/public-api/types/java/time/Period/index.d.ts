@@ -1,11 +1,9 @@
-import type { TemporalAmount } from "../temporal/TemporalAmount";
-import type { CharSequence } from "../../lang/CharSequence";
-import type { LocalDate } from "../LocalDate";
 import type { TemporalUnit } from "../temporal/TemporalUnit";
 
 import type { List } from "../../util/List";
 import type { IsoChronology } from "../chrono/IsoChronology";
 
+import type { TemporalAmount } from "../temporal/TemporalAmount";
 import type { Temporal } from "../temporal/Temporal";
 import type { Object } from "../../lang/Object";
 import type { String } from "../../lang/String";
@@ -54,138 +52,6 @@ import type { Serializable } from "../../io/Serializable";
 export type Period = Object &
   ChronoPeriod &
   Serializable & {
-    /**
-     * Obtains a {@code Period} representing a number of years.
-     *  <p>
-     *  The resulting period will have the specified years.
-     *  The months and days units will be zero.
-     * @param years the number of years, positive or negative
-     * @return the period of years, not null
-     */
-    ofYears(years: number): Period;
-
-    /**
-     * Obtains a {@code Period} representing a number of months.
-     *  <p>
-     *  The resulting period will have the specified months.
-     *  The years and days units will be zero.
-     * @param months the number of months, positive or negative
-     * @return the period of months, not null
-     */
-    ofMonths(months: number): Period;
-
-    /**
-     * Obtains a {@code Period} representing a number of weeks.
-     *  <p>
-     *  The resulting period will be day-based, with the amount of days
-     *  equal to the number of weeks multiplied by 7.
-     *  The years and months units will be zero.
-     * @param weeks the number of weeks, positive or negative
-     * @return the period, with the input weeks converted to days, not null
-     */
-    ofWeeks(weeks: number): Period;
-
-    /**
-     * Obtains a {@code Period} representing a number of days.
-     *  <p>
-     *  The resulting period will have the specified days.
-     *  The years and months units will be zero.
-     * @param days the number of days, positive or negative
-     * @return the period of days, not null
-     */
-    ofDays(days: number): Period;
-
-    /**
-     * Obtains a {@code Period} representing a number of years, months and days.
-     *  <p>
-     *  This creates an instance based on years, months and days.
-     * @param years the amount of years, may be negative
-     * @param months the amount of months, may be negative
-     * @param days the amount of days, may be negative
-     * @return the period of years, months and days, not null
-     */
-    of(years: number, months: number, days: number): Period;
-
-    /**
-     * Obtains an instance of {@code Period} from a temporal amount.
-     *  <p>
-     *  This obtains a period based on the specified amount.
-     *  A {@code TemporalAmount} represents an  amount of time, which may be
-     *  date-based or time-based, which this factory extracts to a {@code Period}.
-     *  <p>
-     *  The conversion loops around the set of units from the amount and uses
-     *  the {@link ChronoUnit#YEARS YEARS}, {@link ChronoUnit#MONTHS MONTHS}
-     *  and {@link ChronoUnit#DAYS DAYS} units to create a period.
-     *  If any other units are found then an exception is thrown.
-     *  <p>
-     *  If the amount is a {@code ChronoPeriod} then it must use the ISO chronology.
-     * @param amount the temporal amount to convert, not null
-     * @return the equivalent period, not null
-     * @throws DateTimeException if unable to convert to a {@code Period}
-     * @throws ArithmeticException if the amount of years, months or days exceeds an int
-     */
-    from(amount: TemporalAmount): Period;
-
-    /**
-     * Obtains a {@code Period} from a text string such as {@code PnYnMnD}.
-     *  <p>
-     *  This will parse the string produced by {@code toString()} which is
-     *  based on the ISO-8601 period formats {@code PnYnMnD} and {@code PnW}.
-     *  <p>
-     *  The string starts with an optional sign, denoted by the ASCII negative
-     *  or positive symbol. If negative, the whole period is negated.
-     *  The ASCII letter "P" is next in upper or lower case.
-     *  There are then four sections, each consisting of a number and a suffix.
-     *  At least one of the four sections must be present.
-     *  The sections have suffixes in ASCII of "Y", "M", "W" and "D" for
-     *  years, months, weeks and days, accepted in upper or lower case.
-     *  The suffixes must occur in order.
-     *  The number part of each section must consist of ASCII digits.
-     *  The number may be prefixed by the ASCII negative or positive symbol.
-     *  The number must parse to an {@code int}.
-     *  <p>
-     *  The leading plus/minus sign, and negative values for other units are
-     *  not part of the ISO-8601 standard. In addition, ISO-8601 does not
-     *  permit mixing between the {@code PnYnMnD} and {@code PnW} formats.
-     *  Any week-based input is multiplied by 7 and treated as a number of days.
-     *  <p>
-     *  For example, the following are valid inputs:
-     *  <pre>
-     *    "P2Y"             -- Period.ofYears(2)
-     *    "P3M"             -- Period.ofMonths(3)
-     *    "P4W"             -- Period.ofWeeks(4)
-     *    "P5D"             -- Period.ofDays(5)
-     *    "P1Y2M3D"         -- Period.of(1, 2, 3)
-     *    "P1Y2M3W4D"       -- Period.of(1, 2, 25)
-     *    "P-1Y2M"          -- Period.of(-1, 2, 0)
-     *    "-P1Y2M"          -- Period.of(-1, -2, 0)
-     *  </pre>
-     * @param text the text to parse, not null
-     * @return the parsed period, not null
-     * @throws DateTimeParseException if the text cannot be parsed to a period
-     */
-    parse(text: CharSequence): Period;
-
-    /**
-     * Obtains a {@code Period} consisting of the number of years, months,
-     *  and days between two dates.
-     *  <p>
-     *  The start date is included, but the end date is not.
-     *  The period is calculated by removing complete months, then calculating
-     *  the remaining number of days, adjusting to ensure that both have the same sign.
-     *  The number of months is then split into years and months based on a 12 month year.
-     *  A month is considered if the end day-of-month is greater than or equal to the start day-of-month.
-     *  For example, from {@code 2010-01-15} to {@code 2011-03-18} is one year, two months and three days.
-     *  <p>
-     *  The result of this method can be a negative period if the end is before the start.
-     *  The negative sign will be the same in each of year, month and day.
-     * @param startDateInclusive the start date, inclusive, not null
-     * @param endDateExclusive the end date, exclusive, not null
-     * @return the period between this date and the end date, not null
-     * @see ChronoLocalDate#until(ChronoLocalDate)
-     */
-    between(startDateInclusive: LocalDate, endDateExclusive: LocalDate): Period;
-
     /**
      * Gets the value of the requested unit.
      *  <p>

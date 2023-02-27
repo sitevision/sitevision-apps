@@ -1,5 +1,4 @@
 export default {
-  installedProviders: () => {},
   getScheme: () => {},
   newFileSystem: () => {},
   getFileSystem: () => {},

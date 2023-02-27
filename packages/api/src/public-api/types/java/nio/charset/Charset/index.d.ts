@@ -1,7 +1,6 @@
 import type { String } from "../../../lang/String";
-
-import type { SortedMap } from "../../../util/SortedMap";
 import type { Set } from "../../../util/Set";
+
 import type { Locale } from "../../../util/Locale";
 
 import type { Object } from "../../../lang/Object";
@@ -226,62 +225,6 @@ import type { Comparable } from "../../../lang/Comparable";
  */
 export type Charset = Object &
   Comparable & {
-    /**
-     * Tells whether the named charset is supported.
-     * @param charsetName&#xA; The name of the requested charset; may be either&#xA; a canonical name or an alias
-     * @return <tt>true</tt> if, and only if, support for the named charset&#xA; is available in the current Java virtual machine
-     * @throws IllegalCharsetNameException&#xA; If the given charset name is illegal
-     * @throws IllegalArgumentException&#xA; If the given <tt>charsetName</tt> is null
-     */
-    isSupported(charsetName: String | string): boolean;
-
-    /**
-     * Returns a charset object for the named charset.
-     * @param charsetName&#xA; The name of the requested charset; may be either&#xA; a canonical name or an alias
-     * @return A charset object for the named charset
-     * @throws IllegalCharsetNameException&#xA; If the given charset name is illegal
-     * @throws IllegalArgumentException&#xA; If the given <tt>charsetName</tt> is null
-     * @throws UnsupportedCharsetException&#xA; If no support for the named charset is available&#xA; in this instance of the Java virtual machine
-     */
-    forName(charsetName: String | string): Charset;
-
-    /**
-     * Constructs a sorted map from canonical charset names to charset objects.
-     *
-     *  <p> The map returned by this method will have one entry for each charset
-     *  for which support is available in the current Java virtual machine.  If
-     *  two or more supported charsets have the same canonical name then the
-     *  resulting map will contain just one of them; which one it will contain
-     *  is not specified. </p>
-     *
-     *  <p> The invocation of this method, and the subsequent use of the
-     *  resulting map, may cause time-consuming disk or network I/O operations
-     *  to occur.  This method is provided for applications that need to
-     *  enumerate all of the available charsets, for example to allow user
-     *  charset selection.  This method is not used by the {@link #forName
-     *  forName} method, which instead employs an efficient incremental lookup
-     *  algorithm.
-     *
-     *  <p> This method may return different results at different times if new
-     *  charset providers are dynamically made available to the current Java
-     *  virtual machine.  In the absence of such changes, the charsets returned
-     *  by this method are exactly those that can be retrieved via the {@link
-     *  #forName forName} method.  </p>
-     * @return An immutable, case-insensitive map from canonical charset names&#xA; to charset objects
-     */
-    availableCharsets(): SortedMap;
-
-    /**
-     * Returns the default charset of this Java virtual machine.
-     *
-     *  <p> The default charset is determined during virtual-machine startup and
-     *  typically depends upon the locale and charset of the underlying
-     *  operating system.
-     * @return A charset object for the default charset
-     * @since 1.5
-     */
-    defaultCharset(): Charset;
-
     /**
      * Returns this charset's canonical name.
      * @return The canonical name of this charset

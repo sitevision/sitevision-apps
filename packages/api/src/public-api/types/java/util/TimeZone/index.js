@@ -9,11 +9,7 @@ export default {
   useDaylightTime: () => {},
   observesDaylightTime: () => {},
   inDaylightTime: () => {},
-  getTimeZone: () => {},
   toZoneId: () => {},
-  getAvailableIDs: () => {},
-  getDefault: () => {},
-  setDefault: () => {},
   hasSameRules: () => {},
   clone: () => {},
 };

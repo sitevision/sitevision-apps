@@ -1,6 +1,4 @@
 export default {
-  empty: () => {},
-  of: () => {},
   getAsDouble: () => {},
   isPresent: () => {},
   ifPresent: () => {},

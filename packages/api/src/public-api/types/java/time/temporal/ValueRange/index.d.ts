@@ -24,49 +24,6 @@ import type { Serializable } from "../../../io/Serializable";
 export type ValueRange = Object &
   Serializable & {
     /**
-     * Obtains a fixed value range.
-     *  <p>
-     *  This factory obtains a range where the minimum and maximum values are fixed.
-     *  For example, the ISO month-of-year always runs from 1 to 12.
-     * @param min the minimum value
-     * @param max the maximum value
-     * @return the ValueRange for min, max, not null
-     * @throws IllegalArgumentException if the minimum is greater than the maximum
-     */
-    of(min: number, max: number): ValueRange;
-
-    /**
-     * Obtains a variable value range.
-     *  <p>
-     *  This factory obtains a range where the minimum value is fixed and the maximum value may vary.
-     *  For example, the ISO day-of-month always starts at 1, but ends between 28 and 31.
-     * @param min the minimum value
-     * @param maxSmallest the smallest maximum value
-     * @param maxLargest the largest maximum value
-     * @return the ValueRange for min, smallest max, largest max, not null
-     * @throws IllegalArgumentException if&#xA; the minimum is greater than the smallest maximum,&#xA; or the smallest maximum is greater than the largest maximum
-     */
-    of(min: number, maxSmallest: number, maxLargest: number): ValueRange;
-
-    /**
-     * Obtains a fully variable value range.
-     *  <p>
-     *  This factory obtains a range where both the minimum and maximum value may vary.
-     * @param minSmallest the smallest minimum value
-     * @param minLargest the largest minimum value
-     * @param maxSmallest the smallest maximum value
-     * @param maxLargest the largest maximum value
-     * @return the ValueRange for smallest min, largest min, smallest max, largest max, not null
-     * @throws IllegalArgumentException if&#xA; the smallest minimum is greater than the smallest maximum,&#xA; or the smallest maximum is greater than the largest maximum&#xA; or the largest minimum is greater than the largest maximum
-     */
-    of(
-      minSmallest: number,
-      minLargest: number,
-      maxSmallest: number,
-      maxLargest: number
-    ): ValueRange;
-
-    /**
      * Is the value range fixed and fully known.
      *  <p>
      *  For example, the ISO day-of-month runs from 1 to between 28 and 31.

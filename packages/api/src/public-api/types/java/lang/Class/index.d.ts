@@ -1,8 +1,8 @@
 import type { String } from "../String";
 
-import type { ClassLoader } from "../ClassLoader";
-
 import type { Object } from "../Object";
+
+import type { ClassLoader } from "../ClassLoader";
 import type { TypeVariable } from "../reflect/TypeVariable";
 import type { Type } from "../reflect/Type";
 import type { Package } from "../Package";
@@ -101,97 +101,6 @@ export type Class = Object &
      * @since 1.8
      */
     toGenericString(): string;
-
-    /**
-     * Returns the {@code Class} object associated with the class or
-     *  interface with the given string name.  Invoking this method is
-     *  equivalent to:
-     *
-     *  <blockquote>
-     *   {@code Class.forName(className, true, currentLoader)}
-     *  </blockquote>
-     *
-     *  where {@code currentLoader} denotes the defining class loader of
-     *  the current class.
-     *
-     *  <p> For example, the following code fragment returns the
-     *  runtime {@code Class} descriptor for the class named
-     *  {@code java.lang.Thread}:
-     *
-     *  <blockquote>
-     *    {@code Class t = Class.forName("java.lang.Thread")}
-     *  </blockquote>
-     *  <p>
-     *  A call to {@code forName("X")} causes the class named
-     *  {@code X} to be initialized.
-     * @param className the fully qualified name of the desired class.
-     * @return the {@code Class} object for the class with the&#xA; specified name.
-     * @throws LinkageError if the linkage fails
-     * @throws ExceptionInInitializerError if the initialization provoked&#xA; by this method fails
-     * @throws ClassNotFoundException if the class cannot be located
-     */
-    forName(className: String | string): Class;
-
-    /**
-     * Returns the {@code Class} object associated with the class or
-     *  interface with the given string name, using the given class loader.
-     *  Given the fully qualified name for a class or interface (in the same
-     *  format returned by {@code getName}) this method attempts to
-     *  locate, load, and link the class or interface.  The specified class
-     *  loader is used to load the class or interface.  If the parameter
-     *  {@code loader} is null, the class is loaded through the bootstrap
-     *  class loader.  The class is initialized only if the
-     *  {@code initialize} parameter is {@code true} and if it has
-     *  not been initialized earlier.
-     *
-     *  <p> If {@code name} denotes a primitive type or void, an attempt
-     *  will be made to locate a user-defined class in the unnamed package whose
-     *  name is {@code name}. Therefore, this method cannot be used to
-     *  obtain any of the {@code Class} objects representing primitive
-     *  types or void.
-     *
-     *  <p> If {@code name} denotes an array class, the component type of
-     *  the array class is loaded but not initialized.
-     *
-     *  <p> For example, in an instance method the expression:
-     *
-     *  <blockquote>
-     *   {@code Class.forName("Foo")}
-     *  </blockquote>
-     *
-     *  is equivalent to:
-     *
-     *  <blockquote>
-     *   {@code Class.forName("Foo", true, this.getClass().getClassLoader())}
-     *  </blockquote>
-     *
-     *  Note that this method throws errors related to loading, linking or
-     *  initializing as specified in Sections 12.2, 12.3 and 12.4 of <em>The
-     *  Java Language Specification</em>.
-     *  Note that this method does not check whether the requested class
-     *  is accessible to its caller.
-     *
-     *  <p> If the {@code loader} is {@code null}, and a security
-     *  manager is present, and the caller's class loader is not null, then this
-     *  method calls the security manager's {@code checkPermission} method
-     *  with a {@code RuntimePermission("getClassLoader")} permission to
-     *  ensure it's ok to access the bootstrap class loader.
-     * @param name fully qualified name of the desired class
-     * @param initialize if {@code true} the class will be initialized.&#xA; See Section 12.4 of <em>The Java Language Specification</em>.
-     * @param loader class loader from which the class must be loaded
-     * @return class object representing the desired class
-     * @throws LinkageError if the linkage fails
-     * @throws ExceptionInInitializerError if the initialization provoked&#xA; by this method fails
-     * @throws ClassNotFoundException if the class cannot be located by&#xA; the specified class loader
-     * @see java.lang.Class#forName(String)
-     * @see java.lang.ClassLoader
-     * @since 1.2
-     */
-    forName(
-      name: String | string,
-      initialize: boolean,
-      loader: ClassLoader
-    ): Class;
 
     /**
      * Creates a new instance of the class represented by this {@code Class}

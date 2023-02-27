@@ -1,10 +1,4 @@
 export default {
-  ofPattern: () => {},
-  ofLocalizedDate: () => {},
-  ofLocalizedTime: () => {},
-  ofLocalizedDateTime: () => {},
-  parsedExcessDays: () => {},
-  parsedLeapSecond: () => {},
   getLocale: () => {},
   withLocale: () => {},
   getDecimalStyle: () => {},

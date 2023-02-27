@@ -1,30 +1,25 @@
-import type { Comparator } from "../../util/Comparator";
-import type { ZoneId } from "../ZoneId";
-import type { Clock } from "../Clock";
-import type { LocalDate } from "../LocalDate";
-import type { LocalTime } from "../LocalTime";
-import type { ZoneOffset } from "../ZoneOffset";
-import type { LocalDateTime } from "../LocalDateTime";
-
-import type { Instant } from "../Instant";
-import type { TemporalAccessor } from "../temporal/TemporalAccessor";
-import type { CharSequence } from "../../lang/CharSequence";
-import type { DateTimeFormatter } from "../format/DateTimeFormatter";
 import type { TemporalField } from "../temporal/TemporalField";
 
 import type { TemporalUnit } from "../temporal/TemporalUnit";
 import type { ValueRange } from "../temporal/ValueRange";
 
+import type { ZoneOffset } from "../ZoneOffset";
+import type { LocalDateTime } from "../LocalDateTime";
+import type { LocalDate } from "../LocalDate";
 import type { Month } from "../Month";
 import type { DayOfWeek } from "../DayOfWeek";
+import type { LocalTime } from "../LocalTime";
 import type { TemporalAdjuster } from "../temporal/TemporalAdjuster";
 import type { TemporalAmount } from "../temporal/TemporalAmount";
 import type { TemporalQuery } from "../temporal/TemporalQuery";
 
 import type { Temporal } from "../temporal/Temporal";
+import type { DateTimeFormatter } from "../format/DateTimeFormatter";
 import type { String } from "../../lang/String";
+import type { ZoneId } from "../ZoneId";
 import type { ZonedDateTime } from "../ZonedDateTime";
 import type { OffsetTime } from "../OffsetTime";
+import type { Instant } from "../Instant";
 import type { Object } from "../../lang/Object";
 import type { Comparable } from "../../lang/Comparable";
 import type { Serializable } from "../../io/Serializable";
@@ -63,171 +58,6 @@ export type OffsetDateTime = Object &
   TemporalAdjuster &
   Comparable &
   Serializable & {
-    /**
-     * Gets a comparator that compares two {@code OffsetDateTime} instances
-     *  based solely on the instant.
-     *  <p>
-     *  This method differs from the comparison in {@link #compareTo} in that it
-     *  only compares the underlying instant.
-     * @return a comparator that compares in time-line order
-     * @see #isAfter
-     * @see #isBefore
-     * @see #isEqual
-     */
-    timeLineOrder(): Comparator;
-
-    /**
-     * Obtains the current date-time from the system clock in the default time-zone.
-     *  <p>
-     *  This will query the {@link Clock#systemDefaultZone() system clock} in the default
-     *  time-zone to obtain the current date-time.
-     *  The offset will be calculated from the time-zone in the clock.
-     *  <p>
-     *  Using this method will prevent the ability to use an alternate clock for testing
-     *  because the clock is hard-coded.
-     * @return the current date-time using the system clock, not null
-     */
-    now(): OffsetDateTime;
-
-    /**
-     * Obtains the current date-time from the system clock in the specified time-zone.
-     *  <p>
-     *  This will query the {@link Clock#system(ZoneId) system clock} to obtain the current date-time.
-     *  Specifying the time-zone avoids dependence on the default time-zone.
-     *  The offset will be calculated from the specified time-zone.
-     *  <p>
-     *  Using this method will prevent the ability to use an alternate clock for testing
-     *  because the clock is hard-coded.
-     * @param zone the zone ID to use, not null
-     * @return the current date-time using the system clock, not null
-     */
-    now(zone: ZoneId): OffsetDateTime;
-
-    /**
-     * Obtains the current date-time from the specified clock.
-     *  <p>
-     *  This will query the specified clock to obtain the current date-time.
-     *  The offset will be calculated from the time-zone in the clock.
-     *  <p>
-     *  Using this method allows the use of an alternate clock for testing.
-     *  The alternate clock may be introduced using {@link Clock dependency injection}.
-     * @param clock the clock to use, not null
-     * @return the current date-time, not null
-     */
-    now(clock: Clock): OffsetDateTime;
-
-    /**
-     * Obtains an instance of {@code OffsetDateTime} from a date, time and offset.
-     *  <p>
-     *  This creates an offset date-time with the specified local date, time and offset.
-     * @param date the local date, not null
-     * @param time the local time, not null
-     * @param offset the zone offset, not null
-     * @return the offset date-time, not null
-     */
-    of(date: LocalDate, time: LocalTime, offset: ZoneOffset): OffsetDateTime;
-
-    /**
-     * Obtains an instance of {@code OffsetDateTime} from a date-time and offset.
-     *  <p>
-     *  This creates an offset date-time with the specified local date-time and offset.
-     * @param dateTime the local date-time, not null
-     * @param offset the zone offset, not null
-     * @return the offset date-time, not null
-     */
-    of(dateTime: LocalDateTime, offset: ZoneOffset): OffsetDateTime;
-
-    /**
-     * Obtains an instance of {@code OffsetDateTime} from a year, month, day,
-     *  hour, minute, second, nanosecond and offset.
-     *  <p>
-     *  This creates an offset date-time with the seven specified fields.
-     *  <p>
-     *  This method exists primarily for writing test cases.
-     *  Non test-code will typically use other methods to create an offset time.
-     *  {@code LocalDateTime} has five additional convenience variants of the
-     *  equivalent factory method taking fewer arguments.
-     *  They are not provided here to reduce the footprint of the API.
-     * @param year the year to represent, from MIN_YEAR to MAX_YEAR
-     * @param month the month-of-year to represent, from 1 (January) to 12 (December)
-     * @param dayOfMonth the day-of-month to represent, from 1 to 31
-     * @param hour the hour-of-day to represent, from 0 to 23
-     * @param minute the minute-of-hour to represent, from 0 to 59
-     * @param second the second-of-minute to represent, from 0 to 59
-     * @param nanoOfSecond the nano-of-second to represent, from 0 to 999,999,999
-     * @param offset the zone offset, not null
-     * @return the offset date-time, not null
-     * @throws DateTimeException if the value of any field is out of range, or&#xA; if the day-of-month is invalid for the month-year
-     */
-    of(
-      year: number,
-      month: number,
-      dayOfMonth: number,
-      hour: number,
-      minute: number,
-      second: number,
-      nanoOfSecond: number,
-      offset: ZoneOffset
-    ): OffsetDateTime;
-
-    /**
-     * Obtains an instance of {@code OffsetDateTime} from an {@code Instant} and zone ID.
-     *  <p>
-     *  This creates an offset date-time with the same instant as that specified.
-     *  Finding the offset from UTC/Greenwich is simple as there is only one valid
-     *  offset for each instant.
-     * @param instant the instant to create the date-time from, not null
-     * @param zone the time-zone, which may be an offset, not null
-     * @return the offset date-time, not null
-     * @throws DateTimeException if the result exceeds the supported range
-     */
-    ofInstant(instant: Instant, zone: ZoneId): OffsetDateTime;
-
-    /**
-     * Obtains an instance of {@code OffsetDateTime} from a temporal object.
-     *  <p>
-     *  This obtains an offset date-time based on the specified temporal.
-     *  A {@code TemporalAccessor} represents an arbitrary set of date and time information,
-     *  which this factory converts to an instance of {@code OffsetDateTime}.
-     *  <p>
-     *  The conversion will first obtain a {@code ZoneOffset} from the temporal object.
-     *  It will then try to obtain a {@code LocalDateTime}, falling back to an {@code Instant} if necessary.
-     *  The result will be the combination of {@code ZoneOffset} with either
-     *  with {@code LocalDateTime} or {@code Instant}.
-     *  Implementations are permitted to perform optimizations such as accessing
-     *  those fields that are equivalent to the relevant objects.
-     *  <p>
-     *  This method matches the signature of the functional interface {@link TemporalQuery}
-     *  allowing it to be used as a query via method reference, {@code OffsetDateTime::from}.
-     * @param temporal the temporal object to convert, not null
-     * @return the offset date-time, not null
-     * @throws DateTimeException if unable to convert to an {@code OffsetDateTime}
-     */
-    from(temporal: TemporalAccessor): OffsetDateTime;
-
-    /**
-     * Obtains an instance of {@code OffsetDateTime} from a text string
-     *  such as {@code 2007-12-03T10:15:30+01:00}.
-     *  <p>
-     *  The string must represent a valid date-time and is parsed using
-     *  {@link java.time.format.DateTimeFormatter#ISO_OFFSET_DATE_TIME}.
-     * @param text the text to parse such as "2007-12-03T10:15:30+01:00", not null
-     * @return the parsed offset date-time, not null
-     * @throws DateTimeParseException if the text cannot be parsed
-     */
-    parse(text: CharSequence): OffsetDateTime;
-
-    /**
-     * Obtains an instance of {@code OffsetDateTime} from a text string using a specific formatter.
-     *  <p>
-     *  The text is parsed using the formatter, returning a date-time.
-     * @param text the text to parse, not null
-     * @param formatter the formatter to use, not null
-     * @return the parsed offset date-time, not null
-     * @throws DateTimeParseException if the text cannot be parsed
-     */
-    parse(text: CharSequence, formatter: DateTimeFormatter): OffsetDateTime;
-
     /**
      * Checks if the specified field is supported.
      *  <p>

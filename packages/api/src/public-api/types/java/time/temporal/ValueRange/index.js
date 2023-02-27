@@ -1,5 +1,4 @@
 export default {
-  of: () => {},
   isFixed: () => {},
   getMinimum: () => {},
   getLargestMinimum: () => {},

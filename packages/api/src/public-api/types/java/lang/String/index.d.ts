@@ -2,9 +2,7 @@ import type { Charset } from "../../nio/charset/Charset";
 import type { Object } from "../Object";
 import type { StringBuffer } from "../StringBuffer";
 import type { CharSequence } from "../CharSequence";
-import type { Iterable } from "../Iterable";
 import type { Locale } from "../../util/Locale";
-
 import type { Serializable } from "../../io/Serializable";
 import type { Comparable } from "../Comparable";
 import type { Comparator } from "../../util/Comparator";
@@ -1012,58 +1010,6 @@ export type String = Object &
     split(regex: String | string): string;
 
     /**
-     * Returns a new String composed of copies of the
-     *  {@code CharSequence elements} joined together with a copy of
-     *  the specified {@code delimiter}.
-     *
-     *  <blockquote>For example,
-     *  <pre>{@code
-     *      String message = String.join("-", "Java", "is", "cool");
-     *      // message returned is: "Java-is-cool"
-     *  }</pre></blockquote>
-     *
-     *  Note that if an element is null, then {@code "null"} is added.
-     * @param delimiter the delimiter that separates each element
-     * @param elements the elements to join together.
-     * @return a new {@code String} that is composed of the {@code elements}&#xA; separated by the {@code delimiter}
-     * @throws NullPointerException If {@code delimiter} or {@code elements}&#xA; is {@code null}
-     * @see java.util.StringJoiner
-     * @since 1.8
-     */
-    join(delimiter: CharSequence, elements: CharSequence[]): string;
-
-    /**
-     * Returns a new {@code String} composed of copies of the
-     *  {@code CharSequence elements} joined together with a copy of the
-     *  specified {@code delimiter}.
-     *
-     *  <blockquote>For example,
-     *  <pre>{@code
-     *      List<String> strings = new LinkedList<>();
-     *      strings.add("Java");strings.add("is");
-     *      strings.add("cool");
-     *      String message = String.join(" ", strings);
-     *      //message returned is: "Java is cool"
-     *
-     *      Set<String> strings = new LinkedHashSet<>();
-     *      strings.add("Java"); strings.add("is");
-     *      strings.add("very"); strings.add("cool");
-     *      String message = String.join("-", strings);
-     *      //message returned is: "Java-is-very-cool"
-     *  }</pre></blockquote>
-     *
-     *  Note that if an individual element is {@code null}, then {@code "null"} is added.
-     * @param delimiter a sequence of characters that is used to separate each&#xA; of the {@code elements} in the resulting {@code String}
-     * @param elements an {@code Iterable} that will have its {@code elements}&#xA; joined together.
-     * @return a new {@code String} that is composed from the {@code elements}&#xA; argument
-     * @throws NullPointerException If {@code delimiter} or {@code elements}&#xA; is {@code null}
-     * @see #join(CharSequence,CharSequence...)
-     * @see java.util.StringJoiner
-     * @since 1.8
-     */
-    join(delimiter: CharSequence, elements: Iterable): string;
-
-    /**
      * Converts all of the characters in this {@code String} to lower
      *  case using the rules of the given {@code Locale}.  Case mapping is based
      *  on the Unicode Standard version specified by the {@link java.lang.Character Character}
@@ -1249,145 +1195,6 @@ export type String = Object &
      * @return a newly allocated character array whose length is the length&#xA; of this string and whose contents are initialized to contain&#xA; the character sequence represented by this string.
      */
     toCharArray(): string;
-
-    /**
-     * Returns a formatted string using the specified format string and
-     *  arguments.
-     *
-     *  <p> The locale always used is the one returned by {@link
-     *  java.util.Locale#getDefault() Locale.getDefault()}.
-     * @param format&#xA; A <a href="../util/Formatter.html#syntax">format string</a>
-     * @param args&#xA; Arguments referenced by the format specifiers in the format&#xA; string. If there are more arguments than format specifiers, the&#xA; extra arguments are ignored. The number of arguments is&#xA; variable and may be zero. The maximum number of arguments is&#xA; limited by the maximum dimension of a Java array as defined by&#xA; <cite>The Java&trade; Virtual Machine Specification</cite>.&#xA; The behaviour on a&#xA; {@code null} argument depends on the <a&#xA; href="../util/Formatter.html#syntax">conversion</a>.
-     * @throws java.util.IllegalFormatException&#xA; If a format string contains an illegal syntax, a format&#xA; specifier that is incompatible with the given arguments,&#xA; insufficient arguments given the format string, or other&#xA; illegal conditions. For specification of all possible&#xA; formatting errors, see the <a&#xA; href="../util/Formatter.html#detail">Details</a> section of the&#xA; formatter class specification.
-     * @return A formatted string
-     * @see java.util.Formatter
-     * @since 1.5
-     */
-    format(format: String | string, args: unknown[]): string;
-
-    /**
-     * Returns a formatted string using the specified locale, format string,
-     *  and arguments.
-     * @param l&#xA; The {@linkplain java.util.Locale locale} to apply during&#xA; formatting. If {@code l} is {@code null} then no localization&#xA; is applied.
-     * @param format&#xA; A <a href="../util/Formatter.html#syntax">format string</a>
-     * @param args&#xA; Arguments referenced by the format specifiers in the format&#xA; string. If there are more arguments than format specifiers, the&#xA; extra arguments are ignored. The number of arguments is&#xA; variable and may be zero. The maximum number of arguments is&#xA; limited by the maximum dimension of a Java array as defined by&#xA; <cite>The Java&trade; Virtual Machine Specification</cite>.&#xA; The behaviour on a&#xA; {@code null} argument depends on the&#xA; <a href="../util/Formatter.html#syntax">conversion</a>.
-     * @throws java.util.IllegalFormatException&#xA; If a format string contains an illegal syntax, a format&#xA; specifier that is incompatible with the given arguments,&#xA; insufficient arguments given the format string, or other&#xA; illegal conditions. For specification of all possible&#xA; formatting errors, see the <a&#xA; href="../util/Formatter.html#detail">Details</a> section of the&#xA; formatter class specification
-     * @return A formatted string
-     * @see java.util.Formatter
-     * @since 1.5
-     */
-    format(l: Locale, format: String | string, args: unknown[]): string;
-
-    /**
-     * Returns the string representation of the {@code Object} argument.
-     * @param obj an {@code Object}.
-     * @return if the argument is {@code null}, then a string equal to&#xA; {@code "null"}; otherwise, the value of&#xA; {@code obj.toString()} is returned.
-     * @see java.lang.Object#toString()
-     */
-    valueOf(obj: unknown): string;
-
-    /**
-     * Returns the string representation of the {@code char} array
-     *  argument. The contents of the character array are copied; subsequent
-     *  modification of the character array does not affect the returned
-     *  string.
-     * @param data the character array.
-     * @return a {@code String} that contains the characters of the&#xA; character array.
-     */
-    valueOf(data: string[]): string;
-
-    /**
-     * Returns the string representation of a specific subarray of the
-     *  {@code char} array argument.
-     *  <p>
-     *  The {@code offset} argument is the index of the first
-     *  character of the subarray. The {@code count} argument
-     *  specifies the length of the subarray. The contents of the subarray
-     *  are copied; subsequent modification of the character array does not
-     *  affect the returned string.
-     * @param data the character array.
-     * @param offset initial offset of the subarray.
-     * @param count length of the subarray.
-     * @return a {@code String} that contains the characters of the&#xA; specified subarray of the character array.
-     * @throws IndexOutOfBoundsException if {@code offset} is&#xA; negative, or {@code count} is negative, or&#xA; {@code offset+count} is larger than&#xA; {@code data.length}.
-     */
-    valueOf(data: string[], offset: number, count: number): string;
-
-    /**
-     * Equivalent to {@link #valueOf(char[], int, int)}.
-     * @param data the character array.
-     * @param offset initial offset of the subarray.
-     * @param count length of the subarray.
-     * @return a {@code String} that contains the characters of the&#xA; specified subarray of the character array.
-     * @throws IndexOutOfBoundsException if {@code offset} is&#xA; negative, or {@code count} is negative, or&#xA; {@code offset+count} is larger than&#xA; {@code data.length}.
-     */
-    copyValueOf(data: string[], offset: number, count: number): string;
-
-    /**
-     * Equivalent to {@link #valueOf(char[])}.
-     * @param data the character array.
-     * @return a {@code String} that contains the characters of the&#xA; character array.
-     */
-    copyValueOf(data: string[]): string;
-
-    /**
-     * Returns the string representation of the {@code boolean} argument.
-     * @param b a {@code boolean}.
-     * @return if the argument is {@code true}, a string equal to&#xA; {@code "true"} is returned; otherwise, a string equal to&#xA; {@code "false"} is returned.
-     */
-    valueOf(b: boolean): string;
-
-    /**
-     * Returns the string representation of the {@code char}
-     *  argument.
-     * @param c a {@code char}.
-     * @return a string of length {@code 1} containing&#xA; as its single character the argument {@code c}.
-     */
-    valueOf(c: string): string;
-
-    /**
-     * Returns the string representation of the {@code int} argument.
-     *  <p>
-     *  The representation is exactly the one returned by the
-     *  {@code Integer.toString} method of one argument.
-     * @param i an {@code int}.
-     * @return a string representation of the {@code int} argument.
-     * @see java.lang.Integer#toString(int, int)
-     */
-    valueOf(i: number): string;
-
-    /**
-     * Returns the string representation of the {@code long} argument.
-     *  <p>
-     *  The representation is exactly the one returned by the
-     *  {@code Long.toString} method of one argument.
-     * @param l a {@code long}.
-     * @return a string representation of the {@code long} argument.
-     * @see java.lang.Long#toString(long)
-     */
-    valueOf(l: number): string;
-
-    /**
-     * Returns the string representation of the {@code float} argument.
-     *  <p>
-     *  The representation is exactly the one returned by the
-     *  {@code Float.toString} method of one argument.
-     * @param f a {@code float}.
-     * @return a string representation of the {@code float} argument.
-     * @see java.lang.Float#toString(float)
-     */
-    valueOf(f: number): string;
-
-    /**
-     * Returns the string representation of the {@code double} argument.
-     *  <p>
-     *  The representation is exactly the one returned by the
-     *  {@code Double.toString} method of one argument.
-     * @param d a {@code double}.
-     * @return a string representation of the {@code double} argument.
-     * @see java.lang.Double#toString(double)
-     */
-    valueOf(d: number): string;
 
     /**
      * Returns a canonical representation for the string object.

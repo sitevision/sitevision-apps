@@ -111,29 +111,6 @@ export type Enum = Object &
     getDeclaringClass(): Class;
 
     /**
-     * Returns the enum constant of the specified enum type with the
-     *  specified name.  The name must match exactly an identifier used
-     *  to declare an enum constant in this type.  (Extraneous whitespace
-     *  characters are not permitted.)
-     *
-     *  <p>Note that for a particular enum type {@code T}, the
-     *  implicitly declared {@code public static T valueOf(String)}
-     *  method on that enum may be used instead of this method to map
-     *  from a name to the corresponding enum constant.  All the
-     *  constants of an enum type can be obtained by calling the
-     *  implicit {@code public static T[] values()} method of that
-     *  type.
-     * @param <T> The enum type whose constant is to be returned
-     * @param enumType the {@code Class} object of the enum type from which&#xA; to return a constant
-     * @param name the name of the constant to return
-     * @return the enum constant of the specified enum type with the&#xA; specified name
-     * @throws IllegalArgumentException if the specified enum type has&#xA; no constant with the specified name, or the specified&#xA; class object does not represent an enum type
-     * @throws NullPointerException if {@code enumType} or {@code name}&#xA; is null
-     * @since 1.5
-     */
-    valueOf(enumType: Class, name: String | string): unknown;
-
-    /**
  * enum classes cannot have finalize methods.
   
     */

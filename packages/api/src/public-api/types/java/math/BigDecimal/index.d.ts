@@ -1,4 +1,5 @@
 import type { MathContext } from "../MathContext";
+
 import type { RoundingMode } from "../RoundingMode";
 import type { BigInteger } from "../BigInteger";
 import type { Object } from "../../lang/Object";
@@ -194,46 +195,6 @@ import type { Comparable } from "../../lang/Comparable";
  */
 export type BigDecimal = Number &
   Comparable & {
-    /**
-     * Translates a {@code long} unscaled value and an
-     *  {@code int} scale into a {@code BigDecimal}.  This
-     *  {@literal "static factory method"} is provided in preference to
-     *  a ({@code long}, {@code int}) constructor because it
-     *  allows for reuse of frequently used {@code BigDecimal} values..
-     * @param unscaledVal unscaled value of the {@code BigDecimal}.
-     * @param scale scale of the {@code BigDecimal}.
-     * @return a {@code BigDecimal} whose value is&#xA; <tt>(unscaledVal &times; 10<sup>-scale</sup>)</tt>.
-     */
-    valueOf(unscaledVal: number, scale: number): BigDecimal;
-
-    /**
-     * Translates a {@code long} value into a {@code BigDecimal}
-     *  with a scale of zero.  This {@literal "static factory method"}
-     *  is provided in preference to a ({@code long}) constructor
-     *  because it allows for reuse of frequently used
-     *  {@code BigDecimal} values.
-     * @param val value of the {@code BigDecimal}.
-     * @return a {@code BigDecimal} whose value is {@code val}.
-     */
-    valueOf(val: number): BigDecimal;
-
-    /**
-     * Translates a {@code double} into a {@code BigDecimal}, using
-     *  the {@code double}'s canonical string representation provided
-     *  by the {@link Double#toString(double)} method.
-     *
-     *  <p><b>Note:</b> This is generally the preferred way to convert
-     *  a {@code double} (or {@code float}) into a
-     *  {@code BigDecimal}, as the value returned is equal to that
-     *  resulting from constructing a {@code BigDecimal} from the
-     *  result of using {@link Double#toString(double)}.
-     * @param val {@code double} to convert to a {@code BigDecimal}.
-     * @return a {@code BigDecimal} whose value is equal to or approximately&#xA; equal to the value of {@code val}.
-     * @throws NumberFormatException if {@code val} is infinite or NaN.
-     * @since 1.5
-     */
-    valueOf(val: number): BigDecimal;
-
     /**
      * Returns a {@code BigDecimal} whose value is {@code (this +
      *  augend)}, and whose scale is {@code max(this.scale(),

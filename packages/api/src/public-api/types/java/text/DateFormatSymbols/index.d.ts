@@ -1,4 +1,3 @@
-import type { Locale } from "../../util/Locale";
 import type { String } from "../../lang/String";
 
 import type { Object } from "../../lang/Object";
@@ -53,50 +52,6 @@ import type { Cloneable } from "../../lang/Cloneable";
 export type DateFormatSymbols = Object &
   Serializable &
   Cloneable & {
-    /**
-     * Returns an array of all locales for which the
-     *  <code>getInstance</code> methods of this class can return
-     *  localized instances.
-     *  The returned array represents the union of locales supported by the
-     *  Java runtime and by installed
-     *  {@link java.text.spi.DateFormatSymbolsProvider DateFormatSymbolsProvider}
-     *  implementations.  It must contain at least a <code>Locale</code>
-     *  instance equal to {@link java.util.Locale#US Locale.US}.
-     * @return An array of locales for which localized&#xA; <code>DateFormatSymbols</code> instances are available.
-     * @since 1.6
-     */
-    getAvailableLocales(): Locale;
-
-    /**
-     * Gets the <code>DateFormatSymbols</code> instance for the default
-     *  locale.  This method provides access to <code>DateFormatSymbols</code>
-     *  instances for locales supported by the Java runtime itself as well
-     *  as for those supported by installed
-     *  {@link java.text.spi.DateFormatSymbolsProvider DateFormatSymbolsProvider}
-     *  implementations.
-     *  <p>This is equivalent to calling {@link #getInstance(Locale)
-     *      getInstance(Locale.getDefault(Locale.Category.FORMAT))}.
-     * @see java.util.Locale#getDefault(java.util.Locale.Category)
-     * @see java.util.Locale.Category#FORMAT
-     * @return a <code>DateFormatSymbols</code> instance.
-     * @since 1.6
-     */
-    getInstance(): DateFormatSymbols;
-
-    /**
-     * Gets the <code>DateFormatSymbols</code> instance for the specified
-     *  locale.  This method provides access to <code>DateFormatSymbols</code>
-     *  instances for locales supported by the Java runtime itself as well
-     *  as for those supported by installed
-     *  {@link java.text.spi.DateFormatSymbolsProvider DateFormatSymbolsProvider}
-     *  implementations.
-     * @param locale the given locale.
-     * @return a <code>DateFormatSymbols</code> instance.
-     * @throws NullPointerException if <code>locale</code> is null
-     * @since 1.6
-     */
-    getInstance(locale: Locale): DateFormatSymbols;
-
     /**
      * Gets era strings. For example: "AD" and "BC".
      * @return the era strings.

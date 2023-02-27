@@ -1,8 +1,7 @@
-import type { ZoneOffset } from "../../ZoneOffset";
-import type { List } from "../../../util/List";
-
 import type { Instant } from "../../Instant";
+import type { ZoneOffset } from "../../ZoneOffset";
 import type { LocalDateTime } from "../../LocalDateTime";
+import type { List } from "../../../util/List";
 import type { ZoneOffsetTransition } from "../ZoneOffsetTransition";
 import type { Duration } from "../../Duration";
 import type { Object } from "../../../lang/Object";
@@ -34,31 +33,6 @@ import type { Serializable } from "../../../io/Serializable";
  */
 export type ZoneRules = Object &
   Serializable & {
-    /**
-     * Obtains an instance of a ZoneRules.
-     * @param baseStandardOffset the standard offset to use before legal rules were set, not null
-     * @param baseWallOffset the wall offset to use before legal rules were set, not null
-     * @param standardOffsetTransitionList the list of changes to the standard offset, not null
-     * @param transitionList the list of transitions, not null
-     * @param lastRules the recurring last rules, size 16 or less, not null
-     * @return the zone rules, not null
-     */
-    of(
-      baseStandardOffset: ZoneOffset,
-      baseWallOffset: ZoneOffset,
-      standardOffsetTransitionList: List | unknown[],
-      transitionList: List | unknown[],
-      lastRules: List | unknown[]
-    ): ZoneRules;
-
-    /**
-     * Obtains an instance of ZoneRules that has fixed zone rules.
-     * @param offset the offset this fixed zone rules is based on, not null
-     * @return the zone rules, not null
-     * @see #isFixedOffset()
-     */
-    of(offset: ZoneOffset): ZoneRules;
-
     /**
      * Checks of the zone rules are fixed, such that the offset never varies.
      * @return true if the time-zone is fixed and the offset never changes

@@ -1,7 +1,5 @@
 export default {
-  probablePrime: () => {},
   nextProbablePrime: () => {},
-  valueOf: () => {},
   add: () => {},
   subtract: () => {},
   multiply: () => {},

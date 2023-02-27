@@ -1,7 +1,6 @@
 export default {
   toString: () => {},
   toGenericString: () => {},
-  forName: () => {},
   newInstance: () => {},
   isInstance: () => {},
   isAssignableFrom: () => {},

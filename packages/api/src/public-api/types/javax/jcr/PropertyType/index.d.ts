@@ -1,5 +1,6 @@
-import type { String } from "../../../java/lang/String";
 import type { Object } from "../../../java/lang/Object";
+
+import type { String } from "../../../java/lang/String";
 
 /**
  * The property types supported by the JCR standard.
@@ -12,23 +13,6 @@ import type { Object } from "../../../java/lang/Object";
   
     */
 export type PropertyType = Object & {
-  /**
-   * Returns the name of the specified <code>type</code>, as used in
-   *  serialization.
-   * @param type the property type
-   * @return the name of the specified <code>type</code>
-   * @throws IllegalArgumentException if <code>type</code> is not a valid&#xA; property type.
-   */
-  nameFromValue(type: number): string;
-
-  /**
-   * Returns the numeric constant value of the type with the specified name.
-   * @param name the name of the property type.
-   * @return the numeric constant value.
-   * @throws IllegalArgumentException if <code>name</code> is not a valid&#xA; property type name.
-   */
-  valueFromName(name: String | string): number;
-
   /**
  * The <code>STRING</code> property type is used to store strings. It has
  *  the same characteristics as the Java <code>String</code> class.

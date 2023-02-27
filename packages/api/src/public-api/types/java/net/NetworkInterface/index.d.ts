@@ -2,8 +2,6 @@ import type { String } from "../../lang/String";
 import type { Enumeration } from "../../util/Enumeration";
 import type { List } from "../../util/List";
 
-import type { InetAddress } from "../InetAddress";
-
 import type { Object } from "../../lang/Object";
 
 /**
@@ -86,54 +84,6 @@ export type NetworkInterface = Object & {
    * @return a non-empty string representing the display name of this network&#xA; interface, or null if no display name is available.
    */
   getDisplayName(): string;
-
-  /**
-   * Searches for the network interface with the specified name.
-   * @param name&#xA; The name of the network interface.
-   * @return A {@code NetworkInterface} with the specified name,&#xA; or {@code null} if there is no network interface&#xA; with the specified name.
-   * @throws SocketException&#xA; If an I/O error occurs.
-   * @throws NullPointerException&#xA; If the specified name is {@code null}.
-   */
-  getByName(name: String | string): NetworkInterface;
-
-  /**
-   * Get a network interface given its index.
-   * @param index an integer, the index of the interface
-   * @return the NetworkInterface obtained from its index, or {@code null} if&#xA; there is no interface with such an index on the system
-   * @throws SocketException if an I/O error occurs.
-   * @throws IllegalArgumentException if index has a negative value
-   * @see #getIndex()
-   * @since 1.7
-   */
-  getByIndex(index: number): NetworkInterface;
-
-  /**
-   * Convenience method to search for a network interface that
-   *  has the specified Internet Protocol (IP) address bound to
-   *  it.
-   *  <p>
-   *  If the specified IP address is bound to multiple network
-   *  interfaces it is not defined which network interface is
-   *  returned.
-   * @param addr&#xA; The {@code InetAddress} to search with.
-   * @return A {@code NetworkInterface}&#xA; or {@code null} if there is no network interface&#xA; with the specified IP address.
-   * @throws SocketException&#xA; If an I/O error occurs.
-   * @throws NullPointerException&#xA; If the specified address is {@code null}.
-   */
-  getByInetAddress(addr: InetAddress): NetworkInterface;
-
-  /**
-   * Returns all the interfaces on this machine. The {@code Enumeration}
-   *  contains at least one element, possibly representing a loopback
-   *  interface that only supports communication between entities on
-   *  this machine.
-   *
-   *  NOTE: can use getNetworkInterfaces()+getInetAddresses()
-   *        to obtain all IP addresses for this node
-   * @return an Enumeration of NetworkInterfaces found on this machine
-   * @throws SocketException if an I/O error occurs.
-   */
-  getNetworkInterfaces(): Enumeration;
 
   /**
    * Returns whether a network interface is up and running.

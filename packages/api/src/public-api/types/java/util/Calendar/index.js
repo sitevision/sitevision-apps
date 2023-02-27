@@ -1,6 +1,4 @@
 export default {
-  getInstance: () => {},
-  getAvailableLocales: () => {},
   computeTime: () => {},
   computeFields: () => {},
   getTime: () => {},
@@ -15,7 +13,6 @@ export default {
   getDisplayName: () => {},
   getDisplayNames: () => {},
   complete: () => {},
-  getAvailableCalendarTypes: () => {},
   getCalendarType: () => {},
   equals: () => {},
   hashCode: () => {},

@@ -1,7 +1,4 @@
 export default {
-  empty: () => {},
-  of: () => {},
-  ofNullable: () => {},
   get: () => {},
   isPresent: () => {},
   ifPresent: () => {},

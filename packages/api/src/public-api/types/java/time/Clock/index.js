@@ -1,12 +1,4 @@
 export default {
-  systemUTC: () => {},
-  systemDefaultZone: () => {},
-  system: () => {},
-  tickSeconds: () => {},
-  tickMinutes: () => {},
-  tick: () => {},
-  fixed: () => {},
-  offset: () => {},
   getZone: () => {},
   withZone: () => {},
   millis: () => {},

@@ -25,21 +25,6 @@ import type { String } from "../../lang/String";
  */
 export type OptionalDouble = Object & {
   /**
-   * Returns an empty {@code OptionalDouble} instance.  No value is present for this
-   *  OptionalDouble.
-   * @apiNote Though it may be tempting to do so, avoid testing if an object&#xA; is empty by comparing with {@code ==} against instances returned by&#xA; {@code Option.empty()}. There is no guarantee that it is a singleton.&#xA; Instead, use {@link #isPresent()}.
-   * @return an empty {@code OptionalDouble}.
-   */
-  empty(): OptionalDouble;
-
-  /**
-   * Return an {@code OptionalDouble} with the specified value present.
-   * @param value the value to be present
-   * @return an {@code OptionalDouble} with the value present
-   */
-  of(value: number): OptionalDouble;
-
-  /**
    * If a value is present in this {@code OptionalDouble}, returns the value,
    *  otherwise throws {@code NoSuchElementException}.
    * @return the value held by this {@code OptionalDouble}

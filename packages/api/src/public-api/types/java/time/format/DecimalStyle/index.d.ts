@@ -1,6 +1,3 @@
-import type { Set } from "../../../util/Set";
-import type { Locale } from "../../../util/Locale";
-
 import type { Object } from "../../../lang/Object";
 
 import type { String } from "../../../lang/String";
@@ -14,37 +11,6 @@ import type { String } from "../../../lang/String";
  * @since 1.8
  */
 export type DecimalStyle = Object & {
-  /**
-   * Lists all the locales that are supported.
-   *  <p>
-   *  The locale 'en_US' will always be present.
-   * @return a Set of Locales for which localization is supported
-   */
-  getAvailableLocales(): Set;
-
-  /**
-   * Obtains the DecimalStyle for the default
-   *  {@link java.util.Locale.Category#FORMAT FORMAT} locale.
-   *  <p>
-   *  This method provides access to locale sensitive decimal style symbols.
-   *  <p>
-   *  This is equivalent to calling
-   *  {@link #of(Locale)
-   *      of(Locale.getDefault(Locale.Category.FORMAT))}.
-   * @see java.util.Locale.Category#FORMAT
-   * @return the decimal style, not null
-   */
-  ofDefaultLocale(): DecimalStyle;
-
-  /**
-   * Obtains the DecimalStyle for the specified locale.
-   *  <p>
-   *  This method provides access to locale sensitive decimal style symbols.
-   * @param locale the locale, not null
-   * @return the decimal style, not null
-   */
-  of(locale: Locale): DecimalStyle;
-
   /**
    * Gets the character that represents zero.
    *  <p>

@@ -1,5 +1,4 @@
 export default {
-  create: () => {},
   parseServerAuthority: () => {},
   normalize: () => {},
   resolve: () => {},

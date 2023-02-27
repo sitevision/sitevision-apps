@@ -1,17 +1,11 @@
-import type { ZoneId } from "../ZoneId";
-import type { Clock } from "../Clock";
-
-import type { Month } from "../Month";
-
-import type { TemporalAccessor } from "../temporal/TemporalAccessor";
-import type { CharSequence } from "../../lang/CharSequence";
-import type { DateTimeFormatter } from "../format/DateTimeFormatter";
 import type { TemporalField } from "../temporal/TemporalField";
 
 import type { TemporalUnit } from "../temporal/TemporalUnit";
 import type { ValueRange } from "../temporal/ValueRange";
+
 import type { IsoChronology } from "../chrono/IsoChronology";
 import type { Era } from "../chrono/Era";
+import type { Month } from "../Month";
 import type { DayOfWeek } from "../DayOfWeek";
 import type { TemporalAdjuster } from "../temporal/TemporalAdjuster";
 import type { TemporalAmount } from "../temporal/TemporalAmount";
@@ -20,11 +14,13 @@ import type { TemporalQuery } from "../temporal/TemporalQuery";
 import type { Temporal } from "../temporal/Temporal";
 import type { ChronoLocalDate } from "../chrono/ChronoLocalDate";
 import type { Period } from "../Period";
+import type { DateTimeFormatter } from "../format/DateTimeFormatter";
 import type { String } from "../../lang/String";
 import type { LocalTime } from "../LocalTime";
 import type { LocalDateTime } from "../LocalDateTime";
 import type { OffsetTime } from "../OffsetTime";
 import type { OffsetDateTime } from "../OffsetDateTime";
+import type { ZoneId } from "../ZoneId";
 import type { ZonedDateTime } from "../ZonedDateTime";
 import type { Object } from "../../lang/Object";
 import type { Serializable } from "../../io/Serializable";
@@ -64,132 +60,6 @@ export type LocalDate = Object &
   TemporalAdjuster &
   ChronoLocalDate &
   Serializable & {
-    /**
-     * Obtains the current date from the system clock in the default time-zone.
-     *  <p>
-     *  This will query the {@link Clock#systemDefaultZone() system clock} in the default
-     *  time-zone to obtain the current date.
-     *  <p>
-     *  Using this method will prevent the ability to use an alternate clock for testing
-     *  because the clock is hard-coded.
-     * @return the current date using the system clock and default time-zone, not null
-     */
-    now(): LocalDate;
-
-    /**
-     * Obtains the current date from the system clock in the specified time-zone.
-     *  <p>
-     *  This will query the {@link Clock#system(ZoneId) system clock} to obtain the current date.
-     *  Specifying the time-zone avoids dependence on the default time-zone.
-     *  <p>
-     *  Using this method will prevent the ability to use an alternate clock for testing
-     *  because the clock is hard-coded.
-     * @param zone the zone ID to use, not null
-     * @return the current date using the system clock, not null
-     */
-    now(zone: ZoneId): LocalDate;
-
-    /**
-     * Obtains the current date from the specified clock.
-     *  <p>
-     *  This will query the specified clock to obtain the current date - today.
-     *  Using this method allows the use of an alternate clock for testing.
-     *  The alternate clock may be introduced using {@link Clock dependency injection}.
-     * @param clock the clock to use, not null
-     * @return the current date, not null
-     */
-    now(clock: Clock): LocalDate;
-
-    /**
-     * Obtains an instance of {@code LocalDate} from a year, month and day.
-     *  <p>
-     *  This returns a {@code LocalDate} with the specified year, month and day-of-month.
-     *  The day must be valid for the year and month, otherwise an exception will be thrown.
-     * @param year the year to represent, from MIN_YEAR to MAX_YEAR
-     * @param month the month-of-year to represent, not null
-     * @param dayOfMonth the day-of-month to represent, from 1 to 31
-     * @return the local date, not null
-     * @throws DateTimeException if the value of any field is out of range,&#xA; or if the day-of-month is invalid for the month-year
-     */
-    of(year: number, month: Month, dayOfMonth: number): LocalDate;
-
-    /**
-     * Obtains an instance of {@code LocalDate} from a year, month and day.
-     *  <p>
-     *  This returns a {@code LocalDate} with the specified year, month and day-of-month.
-     *  The day must be valid for the year and month, otherwise an exception will be thrown.
-     * @param year the year to represent, from MIN_YEAR to MAX_YEAR
-     * @param month the month-of-year to represent, from 1 (January) to 12 (December)
-     * @param dayOfMonth the day-of-month to represent, from 1 to 31
-     * @return the local date, not null
-     * @throws DateTimeException if the value of any field is out of range,&#xA; or if the day-of-month is invalid for the month-year
-     */
-    of(year: number, month: number, dayOfMonth: number): LocalDate;
-
-    /**
-     * Obtains an instance of {@code LocalDate} from a year and day-of-year.
-     *  <p>
-     *  This returns a {@code LocalDate} with the specified year and day-of-year.
-     *  The day-of-year must be valid for the year, otherwise an exception will be thrown.
-     * @param year the year to represent, from MIN_YEAR to MAX_YEAR
-     * @param dayOfYear the day-of-year to represent, from 1 to 366
-     * @return the local date, not null
-     * @throws DateTimeException if the value of any field is out of range,&#xA; or if the day-of-year is invalid for the year
-     */
-    ofYearDay(year: number, dayOfYear: number): LocalDate;
-
-    /**
-     * Obtains an instance of {@code LocalDate} from the epoch day count.
-     *  <p>
-     *  This returns a {@code LocalDate} with the specified epoch-day.
-     *  The {@link ChronoField#EPOCH_DAY EPOCH_DAY} is a simple incrementing count
-     *  of days where day 0 is 1970-01-01. Negative numbers represent earlier days.
-     * @param epochDay the Epoch Day to convert, based on the epoch 1970-01-01
-     * @return the local date, not null
-     * @throws DateTimeException if the epoch day exceeds the supported date range
-     */
-    ofEpochDay(epochDay: number): LocalDate;
-
-    /**
-     * Obtains an instance of {@code LocalDate} from a temporal object.
-     *  <p>
-     *  This obtains a local date based on the specified temporal.
-     *  A {@code TemporalAccessor} represents an arbitrary set of date and time information,
-     *  which this factory converts to an instance of {@code LocalDate}.
-     *  <p>
-     *  The conversion uses the {@link TemporalQueries#localDate()} query, which relies
-     *  on extracting the {@link ChronoField#EPOCH_DAY EPOCH_DAY} field.
-     *  <p>
-     *  This method matches the signature of the functional interface {@link TemporalQuery}
-     *  allowing it to be used as a query via method reference, {@code LocalDate::from}.
-     * @param temporal the temporal object to convert, not null
-     * @return the local date, not null
-     * @throws DateTimeException if unable to convert to a {@code LocalDate}
-     */
-    from(temporal: TemporalAccessor): LocalDate;
-
-    /**
-     * Obtains an instance of {@code LocalDate} from a text string such as {@code 2007-12-03}.
-     *  <p>
-     *  The string must represent a valid date and is parsed using
-     *  {@link java.time.format.DateTimeFormatter#ISO_LOCAL_DATE}.
-     * @param text the text to parse such as "2007-12-03", not null
-     * @return the parsed local date, not null
-     * @throws DateTimeParseException if the text cannot be parsed
-     */
-    parse(text: CharSequence): LocalDate;
-
-    /**
-     * Obtains an instance of {@code LocalDate} from a text string using a specific formatter.
-     *  <p>
-     *  The text is parsed using the formatter, returning a date.
-     * @param text the text to parse, not null
-     * @param formatter the formatter to use, not null
-     * @return the parsed local date, not null
-     * @throws DateTimeParseException if the text cannot be parsed
-     */
-    parse(text: CharSequence, formatter: DateTimeFormatter): LocalDate;
-
     /**
      * Checks if the specified field is supported.
      *  <p>

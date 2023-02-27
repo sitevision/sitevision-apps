@@ -1,4 +1,1 @@
-export default {
-  nameFromValue: () => {},
-  valueFromName: () => {},
-};
+export default {};

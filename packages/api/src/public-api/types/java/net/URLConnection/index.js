@@ -1,6 +1,4 @@
 export default {
-  getFileNameMap: () => {},
-  setFileNameMap: () => {},
   connect: () => {},
   setConnectTimeout: () => {},
   getConnectTimeout: () => {},
@@ -31,8 +29,6 @@ export default {
   getDoOutput: () => {},
   setAllowUserInteraction: () => {},
   getAllowUserInteraction: () => {},
-  setDefaultAllowUserInteraction: () => {},
-  getDefaultAllowUserInteraction: () => {},
   setUseCaches: () => {},
   getUseCaches: () => {},
   setIfModifiedSince: () => {},
@@ -43,9 +39,4 @@ export default {
   addRequestProperty: () => {},
   getRequestProperty: () => {},
   getRequestProperties: () => {},
-  setDefaultRequestProperty: () => {},
-  getDefaultRequestProperty: () => {},
-  setContentHandlerFactory: () => {},
-  guessContentTypeFromName: () => {},
-  guessContentTypeFromStream: () => {},
 };

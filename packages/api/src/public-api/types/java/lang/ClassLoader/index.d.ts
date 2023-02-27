@@ -458,47 +458,6 @@ export type ClassLoader = Object & {
   findResources(name: String | string): Enumeration;
 
   /**
-   * Registers the caller as parallel capable.
-   *  The registration succeeds if and only if all of the following
-   *  conditions are met:
-   *  <ol>
-   *  <li> no instance of the caller has been created</li>
-   *  <li> all of the super classes (except class Object) of the caller are
-   *  registered as parallel capable</li>
-   *  </ol>
-   *  <p>Note that once a class loader is registered as parallel capable, there
-   *  is no way to change it back.</p>
-   * @return true if the caller is successfully registered as&#xA; parallel capable and false if otherwise.
-   * @since 1.7
-   */
-  registerAsParallelCapable(): boolean;
-
-  /**
-   * Find a resource of the specified name from the search path used to load
-   *  classes.  This method locates the resource through the system class
-   *  loader (see {@link #getSystemClassLoader()}).
-   * @param name&#xA; The resource name
-   * @return A {@link java.net.URL <tt>URL</tt>} object for reading the&#xA; resource, or <tt>null</tt> if the resource could not be found
-   * @since 1.1
-   */
-  getSystemResource(name: String | string): URL;
-
-  /**
-   * Finds all resources of the specified name from the search path used to
-   *  load classes.  The resources thus found are returned as an
-   *  {@link java.util.Enumeration <tt>Enumeration</tt>} of {@link
-   *  java.net.URL <tt>URL</tt>} objects.
-   *
-   *  <p> The search order is described in the documentation for {@link
-   *  #getSystemResource(String)}.  </p>
-   * @param name&#xA; The resource name
-   * @return An enumeration of resource {@link java.net.URL <tt>URL</tt>}&#xA; objects
-   * @throws IOException&#xA; If I/O errors occur
-   * @since 1.2
-   */
-  getSystemResources(name: String | string): Enumeration;
-
-  /**
    * Returns an input stream for reading the specified resource.
    *
    *  <p> The search order is described in the documentation for {@link
@@ -508,16 +467,6 @@ export type ClassLoader = Object & {
    * @since 1.1
    */
   getResourceAsStream(name: String | string): InputStream;
-
-  /**
-   * Open for reading, a resource of the specified name from the search path
-   *  used to load classes.  This method locates the resource through the
-   *  system class loader (see {@link #getSystemClassLoader()}).
-   * @param name&#xA; The resource name
-   * @return An input stream for reading the resource, or <tt>null</tt>&#xA; if the resource could not be found
-   * @since 1.1
-   */
-  getSystemResourceAsStream(name: String | string): InputStream;
 
   /**
    * Returns the parent class loader for delegation. Some implementations may
@@ -539,46 +488,6 @@ export type ClassLoader = Object & {
    * @since 1.2
    */
   getParent(): ClassLoader;
-
-  /**
-   * Returns the system class loader for delegation.  This is the default
-   *  delegation parent for new <tt>ClassLoader</tt> instances, and is
-   *  typically the class loader used to start the application.
-   *
-   *  <p> This method is first invoked early in the runtime's startup
-   *  sequence, at which point it creates the system class loader and sets it
-   *  as the context class loader of the invoking <tt>Thread</tt>.
-   *
-   *  <p> The default system class loader is an implementation-dependent
-   *  instance of this class.
-   *
-   *  <p> If the system property "<tt>java.system.class.loader</tt>" is defined
-   *  when this method is first invoked then the value of that property is
-   *  taken to be the name of a class that will be returned as the system
-   *  class loader.  The class is loaded using the default system class loader
-   *  and must define a public constructor that takes a single parameter of
-   *  type <tt>ClassLoader</tt> which is used as the delegation parent.  An
-   *  instance is then created using this constructor with the default system
-   *  class loader as the parameter.  The resulting class loader is defined
-   *  to be the system class loader.
-   *
-   *  <p> If a security manager is present, and the invoker's class loader is
-   *  not <tt>null</tt> and the invoker's class loader is not the same as or
-   *  an ancestor of the system class loader, then this method invokes the
-   *  security manager's {@link
-   *  SecurityManager#checkPermission(java.security.Permission)
-   *  <tt>checkPermission</tt>} method with a {@link
-   *  RuntimePermission#RuntimePermission(String)
-   *  <tt>RuntimePermission("getClassLoader")</tt>} permission to verify
-   *  access to the system class loader.  If not, a
-   *  <tt>SecurityException</tt> will be thrown.  </p>
-   * @return The system <tt>ClassLoader</tt> for delegation, or&#xA; <tt>null</tt> if none
-   * @throws SecurityException&#xA; If a security manager exists and its <tt>checkPermission</tt>&#xA; method doesn't allow access to the system class loader.
-   * @throws IllegalStateException&#xA; If invoked recursively during the construction of the class&#xA; loader specified by the "<tt>java.system.class.loader</tt>"&#xA; property.
-   * @throws Error&#xA; If the system property "<tt>java.system.class.loader</tt>"&#xA; is defined but the named class could not be loaded, the&#xA; provider class does not define the required constructor, or an&#xA; exception is thrown by that constructor when it is invoked. The&#xA; underlying cause of the error can be retrieved via the&#xA; {@link Throwable#getCause()} method.
-   * @revised 1.4
-   */
-  getSystemClassLoader(): ClassLoader;
 
   /**
    * Defines a package by name in this <tt>ClassLoader</tt>.  This allows

@@ -7,6 +7,5 @@ export default {
   clone: () => {},
   compareTo: () => {},
   getDeclaringClass: () => {},
-  valueOf: () => {},
   finalize: () => {},
 };

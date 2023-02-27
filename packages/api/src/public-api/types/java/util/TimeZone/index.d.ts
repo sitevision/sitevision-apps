@@ -330,76 +330,11 @@ export type TimeZone = Object &
     inDaylightTime(date: Date): boolean;
 
     /**
-     * Gets the <code>TimeZone</code> for the given ID.
-     * @param ID the ID for a <code>TimeZone</code>, either an abbreviation&#xA; such as "PST", a full name such as "America/Los_Angeles", or a custom&#xA; ID such as "GMT-8:00". Note that the support of abbreviations is&#xA; for JDK 1.1.x compatibility only and full names should be used.
-     * @return the specified <code>TimeZone</code>, or the GMT zone if the given ID&#xA; cannot be understood.
-     */
-    getTimeZone(ID: String | string): TimeZone;
-
-    /**
-     * Gets the {@code TimeZone} for the given {@code zoneId}.
-     * @param zoneId a {@link ZoneId} from which the time zone ID is obtained
-     * @return the specified {@code TimeZone}, or the GMT zone if the given ID&#xA; cannot be understood.
-     * @throws NullPointerException if {@code zoneId} is {@code null}
-     * @since 1.8
-     */
-    getTimeZone(zoneId: ZoneId): TimeZone;
-
-    /**
      * Converts this {@code TimeZone} object to a {@code ZoneId}.
      * @return a {@code ZoneId} representing the same time zone as this&#xA; {@code TimeZone}
      * @since 1.8
      */
     toZoneId(): ZoneId;
-
-    /**
-     * Gets the available IDs according to the given time zone offset in milliseconds.
-     * @param rawOffset the given time zone GMT offset in milliseconds.
-     * @return an array of IDs, where the time zone for that ID has&#xA; the specified GMT offset. For example, "America/Phoenix" and "America/Denver"&#xA; both have GMT-07:00, but differ in daylight saving behavior.
-     * @see #getRawOffset()
-     */
-    getAvailableIDs(rawOffset: number): string;
-
-    /**
-     * Gets all the available IDs supported.
-     * @return an array of IDs.
-     */
-    getAvailableIDs(): string;
-
-    /**
-     * Gets the default {@code TimeZone} of the Java virtual machine. If the
-     *  cached default {@code TimeZone} is available, its clone is returned.
-     *  Otherwise, the method takes the following steps to determine the default
-     *  time zone.
-     *
-     *  <ul>
-     *  <li>Use the {@code user.timezone} property value as the default
-     *  time zone ID if it's available.</li>
-     *  <li>Detect the platform time zone ID. The source of the
-     *  platform time zone and ID mapping may vary with implementation.</li>
-     *  <li>Use {@code GMT} as the last resort if the given or detected
-     *  time zone ID is unknown.</li>
-     *  </ul>
-     *
-     *  <p>The default {@code TimeZone} created from the ID is cached,
-     *  and its clone is returned. The {@code user.timezone} property
-     *  value is set to the ID upon return.
-     * @return the default {@code TimeZone}
-     * @see #setDefault(TimeZone)
-     */
-    getDefault(): TimeZone;
-
-    /**
-     * Sets the {@code TimeZone} that is returned by the {@code getDefault}
-     *  method. {@code zone} is cached. If {@code zone} is null, the cached
-     *  default {@code TimeZone} is cleared. This method doesn't change the value
-     *  of the {@code user.timezone} property.
-     * @param zone the new default {@code TimeZone}, or null
-     * @throws SecurityException if the security manager's {@code checkPermission}&#xA; denies {@code PropertyPermission("user.timezone",&#xA; "write")}
-     * @see #getDefault
-     * @see PropertyPermission
-     */
-    setDefault(zone: TimeZone): void;
 
     /**
      * Returns true if this zone has the same rule and offset as another zone.

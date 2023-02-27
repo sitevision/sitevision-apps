@@ -1,10 +1,4 @@
 export default {
-  of: () => {},
-  ofHours: () => {},
-  ofHoursMinutes: () => {},
-  ofHoursMinutesSeconds: () => {},
-  from: () => {},
-  ofTotalSeconds: () => {},
   getTotalSeconds: () => {},
   getId: () => {},
   getRules: () => {},

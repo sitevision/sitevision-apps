@@ -8,8 +8,6 @@ export default {
   getImplementationVendor: () => {},
   isSealed: () => {},
   isCompatibleWith: () => {},
-  getPackage: () => {},
-  getPackages: () => {},
   hashCode: () => {},
   toString: () => {},
   getAnnotation: () => {},

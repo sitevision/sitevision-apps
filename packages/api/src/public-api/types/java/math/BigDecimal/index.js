@@ -1,5 +1,4 @@
 export default {
-  valueOf: () => {},
   add: () => {},
   subtract: () => {},
   multiply: () => {},

@@ -1,5 +1,6 @@
-import type { String } from "../../../../java/lang/String";
 import type { Object } from "../../../../java/lang/Object";
+
+import type { String } from "../../../../java/lang/String";
 
 /**
  * The possible actions specified by the <code>onParentVersion</code> attribute
@@ -19,24 +20,6 @@ import type { Object } from "../../../../java/lang/Object";
   
     */
 export type OnParentVersionAction = Object & {
-  /**
-   * Returns the name of the specified <code>action</code>, as used in
-   *  serialization.
-   * @param action the on-version action
-   * @return the name of the specified <code>action</code>
-   * @throws IllegalArgumentException if <code>action</code> is not a valid&#xA; on-version action.
-   */
-  nameFromValue(action: number): string;
-
-  /**
-   * Returns the numeric constant value of the on-version action with the
-   *  specified name.
-   * @param name the name of the on-version action
-   * @return the numeric constant value
-   * @throws IllegalArgumentException if <code>name</code> is not a valid&#xA; on-version action name.
-   */
-  valueFromName(name: String | string): number;
-
   /**
  * The action constants.
   

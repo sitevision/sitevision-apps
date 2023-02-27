@@ -1,7 +1,6 @@
 import type { Object } from "../../lang/Object";
 
 import type { String } from "../../lang/String";
-
 import type { Instant } from "../../time/Instant";
 import type { Serializable } from "../../io/Serializable";
 import type { Cloneable } from "../../lang/Cloneable";
@@ -103,146 +102,6 @@ export type Date = Object &
   
     */
     clone(): unknown;
-
-    /**
-     * Determines the date and time based on the arguments. The
-     *  arguments are interpreted as a year, month, day of the month,
-     *  hour of the day, minute within the hour, and second within the
-     *  minute, exactly as for the <tt>Date</tt> constructor with six
-     *  arguments, except that the arguments are interpreted relative
-     *  to UTC rather than to the local time zone. The time indicated is
-     *  returned represented as the distance, measured in milliseconds,
-     *  of that time from the epoch (00:00:00 GMT on January 1, 1970).
-     * @param year the year minus 1900.
-     * @param month the month between 0-11.
-     * @param date the day of the month between 1-31.
-     * @param hrs the hours between 0-23.
-     * @param min the minutes between 0-59.
-     * @param sec the seconds between 0-59.
-     * @return the number of milliseconds since January 1, 1970, 00:00:00 GMT for&#xA; the date and time specified by the arguments.
-     * @see java.util.Calendar
-     * @deprecated As of JDK version 1.1,&#xA; replaced by <code>Calendar.set(year + 1900, month, date,&#xA; hrs, min, sec)</code> or <code>GregorianCalendar(year + 1900,&#xA; month, date, hrs, min, sec)</code>, using a UTC&#xA; <code>TimeZone</code>, followed by <code>Calendar.getTime().getTime()</code>.
-     */
-    UTC(
-      year: number,
-      month: number,
-      date: number,
-      hrs: number,
-      min: number,
-      sec: number
-    ): number;
-
-    /**
-     * Attempts to interpret the string <tt>s</tt> as a representation
-     *  of a date and time. If the attempt is successful, the time
-     *  indicated is returned represented as the distance, measured in
-     *  milliseconds, of that time from the epoch (00:00:00 GMT on
-     *  January 1, 1970). If the attempt fails, an
-     *  <tt>IllegalArgumentException</tt> is thrown.
-     *  <p>
-     *  It accepts many syntaxes; in particular, it recognizes the IETF
-     *  standard date syntax: "Sat, 12 Aug 1995 13:30:00 GMT". It also
-     *  understands the continental U.S. time-zone abbreviations, but for
-     *  general use, a time-zone offset should be used: "Sat, 12 Aug 1995
-     *  13:30:00 GMT+0430" (4 hours, 30 minutes west of the Greenwich
-     *  meridian). If no time zone is specified, the local time zone is
-     *  assumed. GMT and UTC are considered equivalent.
-     *  <p>
-     *  The string <tt>s</tt> is processed from left to right, looking for
-     *  data of interest. Any material in <tt>s</tt> that is within the
-     *  ASCII parenthesis characters <tt>(</tt> and <tt>)</tt> is ignored.
-     *  Parentheses may be nested. Otherwise, the only characters permitted
-     *  within <tt>s</tt> are these ASCII characters:
-     *  <blockquote><pre>
-     *  abcdefghijklmnopqrstuvwxyz
-     *  ABCDEFGHIJKLMNOPQRSTUVWXYZ
-     *  0123456789,+-:/</pre></blockquote>
-     *  and whitespace characters.<p>
-     *  A consecutive sequence of decimal digits is treated as a decimal
-     *  number:<ul>
-     *  <li>If a number is preceded by <tt>+</tt> or <tt>-</tt> and a year
-     *      has already been recognized, then the number is a time-zone
-     *      offset. If the number is less than 24, it is an offset measured
-     *      in hours. Otherwise, it is regarded as an offset in minutes,
-     *      expressed in 24-hour time format without punctuation. A
-     *      preceding <tt>-</tt> means a westward offset. Time zone offsets
-     *      are always relative to UTC (Greenwich). Thus, for example,
-     *      <tt>-5</tt> occurring in the string would mean "five hours west
-     *      of Greenwich" and <tt>+0430</tt> would mean "four hours and
-     *      thirty minutes east of Greenwich." It is permitted for the
-     *      string to specify <tt>GMT</tt>, <tt>UT</tt>, or <tt>UTC</tt>
-     *      redundantly-for example, <tt>GMT-5</tt> or <tt>utc+0430</tt>.
-     *  <li>The number is regarded as a year number if one of the
-     *      following conditions is true:
-     *  <ul>
-     *      <li>The number is equal to or greater than 70 and followed by a
-     *          space, comma, slash, or end of string
-     *      <li>The number is less than 70, and both a month and a day of
-     *          the month have already been recognized</li>
-     *  </ul>
-     *      If the recognized year number is less than 100, it is
-     *      interpreted as an abbreviated year relative to a century of
-     *      which dates are within 80 years before and 19 years after
-     *      the time when the Date class is initialized.
-     *      After adjusting the year number, 1900 is subtracted from
-     *      it. For example, if the current year is 1999 then years in
-     *      the range 19 to 99 are assumed to mean 1919 to 1999, while
-     *      years from 0 to 18 are assumed to mean 2000 to 2018.  Note
-     *      that this is slightly different from the interpretation of
-     *      years less than 100 that is used in {@link java.text.SimpleDateFormat}.
-     *  <li>If the number is followed by a colon, it is regarded as an hour,
-     *      unless an hour has already been recognized, in which case it is
-     *      regarded as a minute.
-     *  <li>If the number is followed by a slash, it is regarded as a month
-     *      (it is decreased by 1 to produce a number in the range <tt>0</tt>
-     *      to <tt>11</tt>), unless a month has already been recognized, in
-     *      which case it is regarded as a day of the month.
-     *  <li>If the number is followed by whitespace, a comma, a hyphen, or
-     *      end of string, then if an hour has been recognized but not a
-     *      minute, it is regarded as a minute; otherwise, if a minute has
-     *      been recognized but not a second, it is regarded as a second;
-     *      otherwise, it is regarded as a day of the month. </ul><p>
-     *  A consecutive sequence of letters is regarded as a word and treated
-     *  as follows:<ul>
-     *  <li>A word that matches <tt>AM</tt>, ignoring case, is ignored (but
-     *      the parse fails if an hour has not been recognized or is less
-     *      than <tt>1</tt> or greater than <tt>12</tt>).
-     *  <li>A word that matches <tt>PM</tt>, ignoring case, adds <tt>12</tt>
-     *      to the hour (but the parse fails if an hour has not been
-     *      recognized or is less than <tt>1</tt> or greater than <tt>12</tt>).
-     *  <li>Any word that matches any prefix of <tt>SUNDAY, MONDAY, TUESDAY,
-     *      WEDNESDAY, THURSDAY, FRIDAY</tt>, or <tt>SATURDAY</tt>, ignoring
-     *      case, is ignored. For example, <tt>sat, Friday, TUE</tt>, and
-     *      <tt>Thurs</tt> are ignored.
-     *  <li>Otherwise, any word that matches any prefix of <tt>JANUARY,
-     *      FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER,
-     *      OCTOBER, NOVEMBER</tt>, or <tt>DECEMBER</tt>, ignoring case, and
-     *      considering them in the order given here, is recognized as
-     *      specifying a month and is converted to a number (<tt>0</tt> to
-     *      <tt>11</tt>). For example, <tt>aug, Sept, april</tt>, and
-     *      <tt>NOV</tt> are recognized as months. So is <tt>Ma</tt>, which
-     *      is recognized as <tt>MARCH</tt>, not <tt>MAY</tt>.
-     *  <li>Any word that matches <tt>GMT, UT</tt>, or <tt>UTC</tt>, ignoring
-     *      case, is treated as referring to UTC.
-     *  <li>Any word that matches <tt>EST, CST, MST</tt>, or <tt>PST</tt>,
-     *      ignoring case, is recognized as referring to the time zone in
-     *      North America that is five, six, seven, or eight hours west of
-     *      Greenwich, respectively. Any word that matches <tt>EDT, CDT,
-     *      MDT</tt>, or <tt>PDT</tt>, ignoring case, is recognized as
-     *      referring to the same time zone, respectively, during daylight
-     *      saving time.</ul><p>
-     *  Once the entire string s has been scanned, it is converted to a time
-     *  result in one of two ways. If a time zone or time-zone offset has been
-     *  recognized, then the year, month, day of month, hour, minute, and
-     *  second are interpreted in UTC and then the time-zone offset is
-     *  applied. Otherwise, the year, month, day of month, hour, minute, and
-     *  second are interpreted in the local time zone.
-     * @param s a string to be parsed as a date.
-     * @return the number of milliseconds since January 1, 1970, 00:00:00 GMT&#xA; represented by the string argument.
-     * @see java.text.DateFormat
-     * @deprecated As of JDK version 1.1,&#xA; replaced by <code>DateFormat.parse(String s)</code>.
-     */
-    parse(s: String | string): number;
 
     /**
      * Returns a value that is the result of subtracting 1900 from the
@@ -577,25 +436,6 @@ export type Date = Object &
      * @deprecated As of JDK version 1.1,&#xA; replaced by <code>-(Calendar.get(Calendar.ZONE_OFFSET) +&#xA; Calendar.get(Calendar.DST_OFFSET)) / (60 * 1000)</code>.
      */
     getTimezoneOffset(): number;
-
-    /**
-     * Obtains an instance of {@code Date} from an {@code Instant} object.
-     *  <p>
-     *  {@code Instant} uses a precision of nanoseconds, whereas {@code Date}
-     *  uses a precision of milliseconds.  The conversion will trancate any
-     *  excess precision information as though the amount in nanoseconds was
-     *  subject to integer division by one million.
-     *  <p>
-     *  {@code Instant} can store points on the time-line further in the future
-     *  and further in the past than {@code Date}. In this scenario, this method
-     *  will throw an exception.
-     * @param instant the instant to convert
-     * @return a {@code Date} representing the same point on the time-line as&#xA; the provided instant
-     * @throws NullPointerException if {@code instant} is null.
-     * @throws IllegalArgumentException if the instant is too large to&#xA; represent as a {@code Date}
-     * @since 1.8
-     */
-    from(instant: Instant): Date;
 
     /**
      * Converts this {@code Date} object to an {@code Instant}.

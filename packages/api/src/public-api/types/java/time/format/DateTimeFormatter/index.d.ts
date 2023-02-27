@@ -1,7 +1,4 @@
-import type { String } from "../../../lang/String";
 import type { Locale } from "../../../util/Locale";
-import type { FormatStyle } from "../FormatStyle";
-import type { TemporalQuery } from "../../temporal/TemporalQuery";
 import type { DecimalStyle } from "../DecimalStyle";
 import type { Chronology } from "../../chrono/Chronology";
 import type { ZoneId } from "../../ZoneId";
@@ -9,10 +6,12 @@ import type { ResolverStyle } from "../ResolverStyle";
 import type { Set } from "../../../util/Set";
 import type { TemporalField } from "../../temporal/TemporalField";
 import type { TemporalAccessor } from "../../temporal/TemporalAccessor";
+import type { String } from "../../../lang/String";
 import type { Appendable } from "../../../lang/Appendable";
 
 import type { CharSequence } from "../../../lang/CharSequence";
 import type { ParsePosition } from "../../../text/ParsePosition";
+import type { TemporalQuery } from "../../temporal/TemporalQuery";
 
 import type { Format } from "../../../text/Format";
 import type { Object } from "../../../lang/Object";
@@ -398,218 +397,6 @@ import type { Object } from "../../../lang/Object";
  * @since 1.8
  */
 export type DateTimeFormatter = Object & {
-  /**
-   * Creates a formatter using the specified pattern.
-   *  <p>
-   *  This method will create a formatter based on a simple
-   *  <a href="#patterns">pattern of letters and symbols</a>
-   *  as described in the class documentation.
-   *  For example, {@code d MMM uuuu} will format 2011-12-03 as '3 Dec 2011'.
-   *  <p>
-   *  The formatter will use the {@link Locale#getDefault(Locale.Category) default FORMAT locale}.
-   *  This can be changed using {@link DateTimeFormatter#withLocale(Locale)} on the returned formatter
-   *  Alternatively use the {@link #ofPattern(String, Locale)} variant of this method.
-   *  <p>
-   *  The returned formatter has no override chronology or zone.
-   *  It uses {@link ResolverStyle#SMART SMART} resolver style.
-   * @param pattern the pattern to use, not null
-   * @return the formatter based on the pattern, not null
-   * @throws IllegalArgumentException if the pattern is invalid
-   * @see DateTimeFormatterBuilder#appendPattern(String)
-   */
-  ofPattern(pattern: String | string): DateTimeFormatter;
-
-  /**
-   * Creates a formatter using the specified pattern and locale.
-   *  <p>
-   *  This method will create a formatter based on a simple
-   *  <a href="#patterns">pattern of letters and symbols</a>
-   *  as described in the class documentation.
-   *  For example, {@code d MMM uuuu} will format 2011-12-03 as '3 Dec 2011'.
-   *  <p>
-   *  The formatter will use the specified locale.
-   *  This can be changed using {@link DateTimeFormatter#withLocale(Locale)} on the returned formatter
-   *  <p>
-   *  The returned formatter has no override chronology or zone.
-   *  It uses {@link ResolverStyle#SMART SMART} resolver style.
-   * @param pattern the pattern to use, not null
-   * @param locale the locale to use, not null
-   * @return the formatter based on the pattern, not null
-   * @throws IllegalArgumentException if the pattern is invalid
-   * @see DateTimeFormatterBuilder#appendPattern(String)
-   */
-  ofPattern(pattern: String | string, locale: Locale): DateTimeFormatter;
-
-  /**
-   * Returns a locale specific date format for the ISO chronology.
-   *  <p>
-   *  This returns a formatter that will format or parse a date.
-   *  The exact format pattern used varies by locale.
-   *  <p>
-   *  The locale is determined from the formatter. The formatter returned directly by
-   *  this method will use the {@link Locale#getDefault(Locale.Category) default FORMAT locale}.
-   *  The locale can be controlled using {@link DateTimeFormatter#withLocale(Locale) withLocale(Locale)}
-   *  on the result of this method.
-   *  <p>
-   *  Note that the localized pattern is looked up lazily.
-   *  This {@code DateTimeFormatter} holds the style required and the locale,
-   *  looking up the pattern required on demand.
-   *  <p>
-   *  The returned formatter has a chronology of ISO set to ensure dates in
-   *  other calendar systems are correctly converted.
-   *  It has no override zone and uses the {@link ResolverStyle#SMART SMART} resolver style.
-   * @param dateStyle the formatter style to obtain, not null
-   * @return the date formatter, not null
-   */
-  ofLocalizedDate(dateStyle: FormatStyle): DateTimeFormatter;
-
-  /**
-   * Returns a locale specific time format for the ISO chronology.
-   *  <p>
-   *  This returns a formatter that will format or parse a time.
-   *  The exact format pattern used varies by locale.
-   *  <p>
-   *  The locale is determined from the formatter. The formatter returned directly by
-   *  this method will use the {@link Locale#getDefault(Locale.Category) default FORMAT locale}.
-   *  The locale can be controlled using {@link DateTimeFormatter#withLocale(Locale) withLocale(Locale)}
-   *  on the result of this method.
-   *  <p>
-   *  Note that the localized pattern is looked up lazily.
-   *  This {@code DateTimeFormatter} holds the style required and the locale,
-   *  looking up the pattern required on demand.
-   *  <p>
-   *  The returned formatter has a chronology of ISO set to ensure dates in
-   *  other calendar systems are correctly converted.
-   *  It has no override zone and uses the {@link ResolverStyle#SMART SMART} resolver style.
-   * @param timeStyle the formatter style to obtain, not null
-   * @return the time formatter, not null
-   */
-  ofLocalizedTime(timeStyle: FormatStyle): DateTimeFormatter;
-
-  /**
-   * Returns a locale specific date-time formatter for the ISO chronology.
-   *  <p>
-   *  This returns a formatter that will format or parse a date-time.
-   *  The exact format pattern used varies by locale.
-   *  <p>
-   *  The locale is determined from the formatter. The formatter returned directly by
-   *  this method will use the {@link Locale#getDefault(Locale.Category) default FORMAT locale}.
-   *  The locale can be controlled using {@link DateTimeFormatter#withLocale(Locale) withLocale(Locale)}
-   *  on the result of this method.
-   *  <p>
-   *  Note that the localized pattern is looked up lazily.
-   *  This {@code DateTimeFormatter} holds the style required and the locale,
-   *  looking up the pattern required on demand.
-   *  <p>
-   *  The returned formatter has a chronology of ISO set to ensure dates in
-   *  other calendar systems are correctly converted.
-   *  It has no override zone and uses the {@link ResolverStyle#SMART SMART} resolver style.
-   * @param dateTimeStyle the formatter style to obtain, not null
-   * @return the date-time formatter, not null
-   */
-  ofLocalizedDateTime(dateTimeStyle: FormatStyle): DateTimeFormatter;
-
-  /**
-   * Returns a locale specific date and time format for the ISO chronology.
-   *  <p>
-   *  This returns a formatter that will format or parse a date-time.
-   *  The exact format pattern used varies by locale.
-   *  <p>
-   *  The locale is determined from the formatter. The formatter returned directly by
-   *  this method will use the {@link Locale#getDefault() default FORMAT locale}.
-   *  The locale can be controlled using {@link DateTimeFormatter#withLocale(Locale) withLocale(Locale)}
-   *  on the result of this method.
-   *  <p>
-   *  Note that the localized pattern is looked up lazily.
-   *  This {@code DateTimeFormatter} holds the style required and the locale,
-   *  looking up the pattern required on demand.
-   *  <p>
-   *  The returned formatter has a chronology of ISO set to ensure dates in
-   *  other calendar systems are correctly converted.
-   *  It has no override zone and uses the {@link ResolverStyle#SMART SMART} resolver style.
-   * @param dateStyle the date formatter style to obtain, not null
-   * @param timeStyle the time formatter style to obtain, not null
-   * @return the date, time or date-time formatter, not null
-   */
-  ofLocalizedDateTime(
-    dateStyle: FormatStyle,
-    timeStyle: FormatStyle
-  ): DateTimeFormatter;
-
-  /**
-   * A query that provides access to the excess days that were parsed.
-   *  <p>
-   *  This returns a singleton {@linkplain TemporalQuery query} that provides
-   *  access to additional information from the parse. The query always returns
-   *  a non-null period, with a zero period returned instead of null.
-   *  <p>
-   *  There are two situations where this query may return a non-zero period.
-   *  <ul>
-   *  <li>If the {@code ResolverStyle} is {@code LENIENT} and a time is parsed
-   *   without a date, then the complete result of the parse consists of a
-   *   {@code LocalTime} and an excess {@code Period} in days.
-   *
-   *  <li>If the {@code ResolverStyle} is {@code SMART} and a time is parsed
-   *   without a date where the time is 24:00:00, then the complete result of
-   *   the parse consists of a {@code LocalTime} of 00:00:00 and an excess
-   *   {@code Period} of one day.
-   *  </ul>
-   *  <p>
-   *  In both cases, if a complete {@code ChronoLocalDateTime} or {@code Instant}
-   *  is parsed, then the excess days are added to the date part.
-   *  As a result, this query will return a zero period.
-   *  <p>
-   *  The {@code SMART} behaviour handles the common "end of day" 24:00 value.
-   *  Processing in {@code LENIENT} mode also produces the same result:
-   *  <pre>
-   *   Text to parse        Parsed object                         Excess days
-   *   "2012-12-03T00:00"   LocalDateTime.of(2012, 12, 3, 0, 0)   ZERO
-   *   "2012-12-03T24:00"   LocalDateTime.of(2012, 12, 4, 0, 0)   ZERO
-   *   "00:00"              LocalTime.of(0, 0)                    ZERO
-   *   "24:00"              LocalTime.of(0, 0)                    Period.ofDays(1)
-   *  </pre>
-   *  The query can be used as follows:
-   *  <pre>
-   *   TemporalAccessor parsed = formatter.parse(str);
-   *   LocalTime time = parsed.query(LocalTime::from);
-   *   Period extraDays = parsed.query(DateTimeFormatter.parsedExcessDays());
-   *  </pre>
-   * @return a query that provides access to the excess days that were parsed
-   */
-  parsedExcessDays(): TemporalQuery;
-
-  /**
-   * A query that provides access to whether a leap-second was parsed.
-   *  <p>
-   *  This returns a singleton {@linkplain TemporalQuery query} that provides
-   *  access to additional information from the parse. The query always returns
-   *  a non-null boolean, true if parsing saw a leap-second, false if not.
-   *  <p>
-   *  Instant parsing handles the special "leap second" time of '23:59:60'.
-   *  Leap seconds occur at '23:59:60' in the UTC time-zone, but at other
-   *  local times in different time-zones. To avoid this potential ambiguity,
-   *  the handling of leap-seconds is limited to
-   *  {@link DateTimeFormatterBuilder#appendInstant()}, as that method
-   *  always parses the instant with the UTC zone offset.
-   *  <p>
-   *  If the time '23:59:60' is received, then a simple conversion is applied,
-   *  replacing the second-of-minute of 60 with 59. This query can be used
-   *  on the parse result to determine if the leap-second adjustment was made.
-   *  The query will return {@code true} if it did adjust to remove the
-   *  leap-second, and {@code false} if not. Note that applying a leap-second
-   *  smoothing mechanism, such as UTC-SLS, is the responsibility of the
-   *  application, as follows:
-   *  <pre>
-   *   TemporalAccessor parsed = formatter.parse(str);
-   *   Instant instant = parsed.query(Instant::from);
-   *   if (parsed.query(DateTimeFormatter.parsedLeapSecond())) {
-   *     // validate leap-second is correct and apply correct smoothing
-   *   }
-   *  </pre>
-   * @return a query that provides access to whether a leap-second was parsed
-   */
-  parsedLeapSecond(): TemporalQuery;
-
   /**
    * Gets the locale to be used during formatting.
    *  <p>

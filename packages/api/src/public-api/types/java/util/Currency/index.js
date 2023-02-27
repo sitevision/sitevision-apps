@@ -1,6 +1,4 @@
 export default {
-  getInstance: () => {},
-  getAvailableCurrencies: () => {},
   getCurrencyCode: () => {},
   getSymbol: () => {},
   getDefaultFractionDigits: () => {},

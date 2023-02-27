@@ -1,6 +1,4 @@
 export default {
-  getAvailableLocales: () => {},
-  getInstance: () => {},
   getEras: () => {},
   setEras: () => {},
   getMonths: () => {},

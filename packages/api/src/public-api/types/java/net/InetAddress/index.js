@@ -17,9 +17,4 @@ export default {
   hashCode: () => {},
   equals: () => {},
   toString: () => {},
-  getByAddress: () => {},
-  getByName: () => {},
-  getAllByName: () => {},
-  getLoopbackAddress: () => {},
-  getLocalHost: () => {},
 };

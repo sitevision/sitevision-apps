@@ -1,12 +1,4 @@
 export default {
-  ofYears: () => {},
-  ofMonths: () => {},
-  ofWeeks: () => {},
-  ofDays: () => {},
-  of: () => {},
-  from: () => {},
-  parse: () => {},
-  between: () => {},
   get: () => {},
   getUnits: () => {},
   getChronology: () => {},
