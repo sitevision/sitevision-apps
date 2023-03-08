@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2023.2.2](https://github.com/sitevision/sitevision-apps/compare/@sitevision/api@2023.2.1...@sitevision/api@2023.2.2) (2023-03-08)
+
+### Bug Fixes
+
+- **api:** Added java jdk types ([4261927](https://github.com/sitevision/sitevision-apps/commit/426192761a3551e6f37efc12b6dece92ad5fd60e))
+- **api:** Added types for upcoming release ([676ef19](https://github.com/sitevision/sitevision-apps/commit/676ef191c0fd1fe64e545054e1ddde6923bd3fba))
+- **api:** Remove statics from classes and make defaults optional on Comparator ([a910d47](https://github.com/sitevision/sitevision-apps/commit/a910d47eba63913a3d02479c3bb2e080fdf62683))
+- **api:** Validate types ([e6e7646](https://github.com/sitevision/sitevision-apps/commit/e6e7646cda83cfac68a1cc0e9f04db070cbd217e))
+
 ## [1.0.20](https://github.com/sitevision/sitevision-apps/compare/@sitevision/api@1.0.19...@sitevision/api@1.0.20) (2022-11-25)
 
 ### Bug Fixes
