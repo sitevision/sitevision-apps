@@ -1,21 +1,21 @@
 /**
  * The named permission demarcation, used by {@link PermissionUtil}.
  *
- * <p>
- *    Example of how to get the {@link #READ} type:
- * </p>
- * <ul>
- *    <li>
- *       Using <strong>Velocity:</strong><pre><code>
- *       #set ($instanceCreatorUtil = $sitevisionUtils.instanceCreatorUtil)
- *       #set ($enumClassName = 'senselogic.sitevision.api.security.PermissionUtil$Permission') <em>## Note the '$' separator...</em>
- *       #set ($readEnum = $instanceCreatorUtil.getEnumInstance($enumClassName, 'READ'))</code></pre>
- *    </li>
- *    <li>
- *       Using server-side <strong>JavaScript:</strong><pre><code>
- *       var readEnum = require('PermissionUtil.Permission.READ');</code></pre>
- *    </li>
- * </ul>
+ *  <p>
+ *     Example of how to get the {@link #READ} type:
+ *  </p>
+ *  <ul>
+ *     <li>
+ *        Using <strong>Velocity:</strong><pre><code>
+ *        #set ($instanceCreatorUtil = $sitevisionUtils.instanceCreatorUtil)
+ *        #set ($enumClassName = 'senselogic.sitevision.api.security.PermissionUtil$Permission') <em>## Note the '$' separator...</em>
+ *        #set ($readEnum = $instanceCreatorUtil.getEnumInstance($enumClassName, 'READ'))</code></pre>
+ *     </li>
+ *     <li>
+ *        Using server-side <strong>JavaScript:</strong><pre><code>
+ *        var readEnum = require('PermissionUtil.Permission.READ');</code></pre>
+ *     </li>
+ *  </ul>
  * @author Magnus Lövgren
  * @since Sitevision 3.6
  */

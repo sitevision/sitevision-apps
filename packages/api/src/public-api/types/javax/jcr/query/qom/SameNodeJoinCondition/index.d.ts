@@ -1,18 +1,19 @@
+import type { String } from "../../../../../java/lang/String";
 import type { JoinCondition } from "../JoinCondition";
 
 /**
  * Tests whether two nodes are "the same" according to the <code>isSame</code>
- * method of <code>javax.jcr.Item</code>.
- * <p>
- * Tests whether the {@link #getSelector1Name selector1} node is the same as a node identified by
- * relative path from the {@link #getSelector2Name selector2} node.
- * A node-tuple satisfies the constraint only if:
- * <pre>  selector1Node.isSame(selector2Node.getNode(selector2Path))</pre>
- * would return true, where <code>selector1Node</code> is the node for {@link
- * #getSelector1Name selector1} and <code>selector2Node</code> is the node for
- * {@link #getSelector2Name selector2}.
+ *  method of <code>javax.jcr.Item</code>.
+ *  <p>
+ *  Tests whether the {@link #getSelector1Name selector1} node is the same as a node identified by
+ *  relative path from the {@link #getSelector2Name selector2} node.
+ *  A node-tuple satisfies the constraint only if:
+ *  <pre>  selector1Node.isSame(selector2Node.getNode(selector2Path))</pre>
+ *  would return true, where <code>selector1Node</code> is the node for {@link
+ *  #getSelector1Name selector1} and <code>selector2Node</code> is the node for
+ *  {@link #getSelector2Name selector2}.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type SameNodeJoinCondition = JoinCondition & {

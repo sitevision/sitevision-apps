@@ -1,3 +1,5 @@
+import type { String } from "../../../../../java/lang/String";
+
 /**
  * A functional interface for loading resources.
  * @author Magnus Lövgren
@@ -9,5 +11,5 @@ export type Loadable = {
    * @param aName the name of the resource
    * @return the resource, or <code>null</code> if no resource match <code>aName</code>
    */
-  load(aName: string): unknown;
+  load(aName: String | string): unknown;
 };

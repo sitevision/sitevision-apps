@@ -1,5 +1,5 @@
 export default {
-  AUTO: 'AUTO',
-  ON: 'ON',
-  OFF: 'OFF',
+  AUTO: "AUTO",
+  ON: "ON",
+  OFF: "OFF",
 };

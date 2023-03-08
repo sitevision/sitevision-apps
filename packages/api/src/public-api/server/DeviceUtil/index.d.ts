@@ -3,14 +3,14 @@ import type { Node } from "../../types/javax/jcr/Node";
 /**
  * Device utility interface.
  *
- * <p>
- * Contains methods for retrieving device-related information.
- * </p>
+ *  <p>
+ *  Contains methods for retrieving device-related information.
+ *  </p>
  *
- * <p>
- * An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getDeviceUtil()}.
- * See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
- * </p>
+ *  <p>
+ *  An instance of the Sitevision class implementing this interface can be obtained via {@link senselogic.sitevision.api.Utils#getDeviceUtil()}.
+ *  See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.0
  */
@@ -24,7 +24,7 @@ export interface DeviceUtil {
 
   /**
    * Checks if currently executing client is a mobile device.
-   * @param aPageNode a page node, typically the currently executing page (see {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage()}). Null is allowed but device checking will be more extensive with a proper value since it will also match against all configured devices for the site of the <code>aPageNode</code>.
+   * @param aPageNode a page node, typically the currently executing page (see&#xA; {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage()}).&#xA; Null is allowed but device checking will be more extensive with a proper value since it will also match against&#xA; all configured devices for the site of the <code>aPageNode</code>.
    * @return <code>true</code> if currently executing client is a mobile device, <code>false</code> if not
    * @deprecated As of Sitevision 10 the parameter aPageNode is no longer used
    */

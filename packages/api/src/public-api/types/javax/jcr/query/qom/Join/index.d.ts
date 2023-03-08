@@ -1,11 +1,11 @@
 import type { Source } from "../Source";
-
+import type { String } from "../../../../../java/lang/String";
 import type { JoinCondition } from "../JoinCondition";
 
 /**
  * Performs a join between two node-tuple sources.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type Join = Source & {
@@ -23,7 +23,7 @@ export type Join = Source & {
 
   /**
    * Gets the join type.
-   * @return either <ul> <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_INNER},</li> <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_LEFT_OUTER},</li> <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_RIGHT_OUTER}</li> </ul>
+   * @return either <ul> <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_INNER},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_LEFT_OUTER},</li>&#xA; <li>{@link QueryObjectModelConstants#JCR_JOIN_TYPE_RIGHT_OUTER}</li>&#xA; </ul>
    */
   getJoinType(): string;
 

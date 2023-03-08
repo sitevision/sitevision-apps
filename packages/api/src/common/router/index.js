@@ -3,6 +3,7 @@ export default {
   put: () => {},
   post: () => {},
   delete: () => {},
+  patch: () => {},
 
   getUrl: (path) => path,
   getStandaloneUrl: (path) => path,

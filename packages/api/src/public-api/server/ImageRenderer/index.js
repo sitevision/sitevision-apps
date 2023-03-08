@@ -38,5 +38,11 @@ export default {
   setLazyLoad: () => {},
   forceUseLazyLoad: () => {},
   clearUseLazyLoad: () => {},
+  addDataAttribute: () => {},
+  clearDataAttributes: () => {},
+  addAriaAttribute: () => {},
+  clearAriaAttributes: () => {},
+  addCssClass: () => {},
+  clearCssClasses: () => {},
   render: () => {},
 };

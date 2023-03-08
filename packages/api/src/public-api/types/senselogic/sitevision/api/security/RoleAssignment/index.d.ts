@@ -3,16 +3,16 @@ import type { Node } from "../../../../../javax/jcr/Node";
 /**
  * Role assignment representation that can be applied on a node to update its roles setup.
  *
- * <p>
- *    A role assignment instance is a representation of a <em>sv:role</em> and a
- *    <em>principal (sv:user, sv:simpleUser, sv:userGroup or sv:virtualGroup)</em>
- *    that can be applied to various nodes using the {@link #apply(Node)} method.
- * </p>
+ *  <p>
+ *     A role assignment instance is a representation of a <em>sv:role</em> and a
+ *     <em>principal (sv:user, sv:simpleUser, sv:userGroup or sv:virtualGroup)</em>
+ *     that can be applied to various nodes using the {@link #apply(Node)} method.
+ *  </p>
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via {@link RoleAssignmentBuilder#build()}.
- *    See {@link RoleAssignmentBuilder} for how to obtain an instance of the <code>RoleAssignmentBuilder</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via {@link RoleAssignmentBuilder#build()}.
+ *     See {@link RoleAssignmentBuilder} for how to obtain an instance of the <code>RoleAssignmentBuilder</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 5.1
  */
@@ -29,10 +29,10 @@ export type RoleAssignment = {
   /**
    * Whether or not current user is allowed to {@link #apply(Node)} or {@link #revoke(Node)} this role assignment for a given node.
    *
-   * <p>
-   *    <em>Permission note!</em> Current user must have {@link PermissionUtil.Permission#MANAGE_RIGHTS} on aNode
-   *    and current user must also have the role (that this role assignment contains) on aNode.
-   * </p>
+   *  <p>
+   *     <em>Permission note!</em> Current user must have {@link PermissionUtil.Permission#MANAGE_RIGHTS} on aNode
+   *     and current user must also have the role (that this role assignment contains) on aNode.
+   *  </p>
    * @param aNode the node of the role assignment operation, typically a sv:page
    * @return true if current user is allowed to apply/revoke this role assignment on aNode, false otherwise
    */
@@ -41,9 +41,9 @@ export type RoleAssignment = {
   /**
    * Whether or not a given node already has this role assignment applied.
    *
-   * <p>
-   *    <em>Note! If this method returns true, there is no need to execute {@link #apply(Node)}.</em>
-   * </p>
+   *  <p>
+   *     <em>Note! If this method returns true, there is no need to execute {@link #apply(Node)}.</em>
+   *  </p>
    * @param aNode the node of the role assignment operation, typically a sv:page
    * @return true if aNode already has this role assignment, false otherwise
    */

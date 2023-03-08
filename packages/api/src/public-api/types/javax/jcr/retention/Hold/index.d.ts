@@ -1,14 +1,16 @@
+import type { String } from "../../../../java/lang/String";
+
 /**
  * <code>Hold</code> represents a hold that can be applied to an existing node
- * in order to prevent the node from being modified or removed. The format and
- * interpretation of the name are not specified. They are
- * application-dependent.
- * <p>
- * If {@link #isDeep()} is <code>true</code>, the hold applies to the node and
- * its entire subgraph. Otherwise the hold applies to the node and its
- * properties only.
+ *  in order to prevent the node from being modified or removed. The format and
+ *  interpretation of the name are not specified. They are
+ *  application-dependent.
+ *  <p>
+ *  If {@link #isDeep()} is <code>true</code>, the hold applies to the node and
+ *  its entire subgraph. Otherwise the hold applies to the node and its
+ *  properties only.
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @see RetentionManager#getHolds(String)
  * @see RetentionManager#addHold(String, String, boolean)
  * @see RetentionManager#removeHold(String, Hold)

@@ -1,3 +1,5 @@
+import type { String } from "../../../../../../java/lang/String";
+
 /**
  * A "Did you mean" suggestion for a search result.
  * @author Magnus Lövgren

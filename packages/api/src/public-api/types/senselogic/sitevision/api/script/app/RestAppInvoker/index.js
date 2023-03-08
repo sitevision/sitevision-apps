@@ -3,4 +3,5 @@ export default {
   post: () => {},
   put: () => {},
   delete: () => {},
+  patch: () => {},
 };

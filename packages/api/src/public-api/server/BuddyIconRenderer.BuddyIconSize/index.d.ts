@@ -1,21 +1,21 @@
 /**
  * The size of the icons rendered by the BuddyIconRenderer.
  *
- * <p>
- *    Example of how to get the {@link #LARGE} type:
- * </p>
- * <ul>
- *    <li>
- *       Using <strong>Velocity:</strong><pre><code>
- *       #set ($instanceCreatorUtil = $sitevisionUtils.instanceCreatorUtil)
- *       #set ($enumClassName = 'senselogic.sitevision.api.render.BuddyIconRenderer$BuddyIconSize') <em>## Note the '$' separator...</em>
- *       #set ($largeSize = $instanceCreatorUtil.getEnumInstance($enumClassName, 'LARGE'))</code></pre>
- *    </li>
- *    <li>
- *       Using server-side <strong>JavaScript:</strong><pre><code>
- *       var largeSize = require('BuddyIconRenderer.BuddyIconSize.LARGE');</code></pre>
- *    </li>
- * </ul>
+ *  <p>
+ *     Example of how to get the {@link #LARGE} type:
+ *  </p>
+ *  <ul>
+ *     <li>
+ *        Using <strong>Velocity:</strong><pre><code>
+ *        #set ($instanceCreatorUtil = $sitevisionUtils.instanceCreatorUtil)
+ *        #set ($enumClassName = 'senselogic.sitevision.api.render.BuddyIconRenderer$BuddyIconSize') <em>## Note the '$' separator...</em>
+ *        #set ($largeSize = $instanceCreatorUtil.getEnumInstance($enumClassName, 'LARGE'))</code></pre>
+ *     </li>
+ *     <li>
+ *        Using server-side <strong>JavaScript:</strong><pre><code>
+ *        var largeSize = require('BuddyIconRenderer.BuddyIconSize.LARGE');</code></pre>
+ *     </li>
+ *  </ul>
  * @author Magnus Lövgren
  * @since Sitevision 3.5.3
  */

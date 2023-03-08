@@ -5,16 +5,16 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
 /**
  * Builder of RoleMatcher instances.
  *
- * <p>
- *    <em>Tip!</em> The {@link senselogic.sitevision.api.base.Builder Builder interface documentation} contains
- *    more information about Builders and how to work with them!
- * </p>
+ *  <p>
+ *     <em>Tip!</em> The {@link senselogic.sitevision.api.base.Builder Builder interface documentation} contains
+ *     more information about Builders and how to work with them!
+ *  </p>
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via
- *    {@link RoleUtil#getRoleMatcherBuilder()}.
- *    See {@link RoleUtil} for how to obtain an instance of the <code>RoleUtil</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link RoleUtil#getRoleMatcherBuilder()}.
+ *     See {@link RoleUtil} for how to obtain an instance of the <code>RoleUtil</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 6.1
  */
@@ -36,9 +36,9 @@ export interface RoleMatcherBuilder extends Builder {
   /**
    * Clears the state of this builder.
    *
-   * <p>
-   *    Sets the <em>user</em> and the <em>roles</em> to null.
-   * </p>
+   *  <p>
+   *     Sets the <em>user</em> and the <em>roles</em> to null.
+   *  </p>
    * @return this builder
    */
   clear(): RoleMatcherBuilder;

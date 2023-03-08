@@ -1,3 +1,5 @@
+import type { String } from "../../../../../java/lang/String";
+
 /**
  * Message text rendering interface that detects and creates links in plain message texts.
  * @author Magnus Lövgren
@@ -9,5 +11,5 @@ export type MessageTextLinker = {
    * @param aText the text that might contain links
    * @return a linked text, or empty string if <code>aText</code> is <code>null</code>
    */
-  autoLink(aText: string): string;
+  autoLink(aText: String | string): string;
 };

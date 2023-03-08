@@ -3,6 +3,4 @@
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */
-export type VelocityAccess = {
-  undefined;
-};
+export type VelocityAccess = {};

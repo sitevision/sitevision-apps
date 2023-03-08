@@ -1,0 +1,15 @@
+export default {
+  getTotalSeconds: () => {},
+  getId: () => {},
+  getRules: () => {},
+  isSupported: () => {},
+  range: () => {},
+  get: () => {},
+  getLong: () => {},
+  query: () => {},
+  adjustInto: () => {},
+  compareTo: () => {},
+  equals: () => {},
+  hashCode: () => {},
+  toString: () => {},
+};

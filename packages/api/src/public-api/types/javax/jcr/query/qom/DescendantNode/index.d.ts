@@ -1,19 +1,20 @@
+import type { String } from "../../../../../java/lang/String";
 import type { Constraint } from "../Constraint";
 
 /**
  * Tests whether the {@link #getSelectorName selector} node is a descendant of a
- * node reachable by absolute path {@link #getAncestorPath path}.
- * <p>
- * A node-tuple satisfies the constraint only if:
- * </p>
- * <pre>  selectorNode.getAncestor(n).isSame(session.getNode(path)) &amp;&amp;
- *     selectorNode.getDepth() &gt; n</pre>
- * <p>
- * would return true for some non-negative integer <code>n</code>, where {@link
- * #getSelectorName selectorNode} is the node for the specified selector.
- * </p>
+ *  node reachable by absolute path {@link #getAncestorPath path}.
+ *  <p>
+ *  A node-tuple satisfies the constraint only if:
+ *  </p>
+ *  <pre>  selectorNode.getAncestor(n).isSame(session.getNode(path)) &amp;&amp;
+ *      selectorNode.getDepth() &gt; n</pre>
+ *  <p>
+ *  would return true for some non-negative integer <code>n</code>, where {@link
+ *  #getSelectorName selectorNode} is the node for the specified selector.
+ *  </p>
  *
- * <p><strong>Sitevision note:</strong> Unsupported operation</p>
+ *  <p><strong>Sitevision note:</strong> Unsupported operation</p>
  * @since JCR 2.0
  */
 export type DescendantNode = Constraint & {

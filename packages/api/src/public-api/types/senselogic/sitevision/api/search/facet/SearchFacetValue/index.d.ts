@@ -1,3 +1,5 @@
+import type { String } from "../../../../../../java/lang/String";
+
 /**
  * A facet value of a facet field.
  * @author Magnus Lövgren
@@ -25,17 +27,17 @@ export type SearchFacetValue = {
 
   /**
    * Returns the query parameters for this facet value.
-   * <p>
-   * The filter query params is a sub-set of the filter URL.
-   * </p>
+   *  <p>
+   *  The filter query params is a sub-set of the filter URL.
+   *  </p>
    *
-   * <p>An example: If the filterURL is:<br>
-   *    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>/a/b/c.html?query=d&amp;e=f&amp;g=h</code><br>
-   *    the filterQueryParams will be:<br>
-   *    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>d&amp;e=f&amp;g=h</code><br>
-   *    <em>(Note that the value starts with the "query" parameter, but <strong>without</strong> the actual query
-   *    parameter name: '<span style="text-decoration:line-through">query=</span>')</em>
-   * </p>
+   *  <p>An example: If the filterURL is:<br>
+   *     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>/a/b/c.html?query=d&amp;e=f&amp;g=h</code><br>
+   *     the filterQueryParams will be:<br>
+   *     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>d&amp;e=f&amp;g=h</code><br>
+   *     <em>(Note that the value starts with the "query" parameter, but <strong>without</strong> the actual query
+   *     parameter name: '<span style="text-decoration:line-through">query=</span>')</em>
+   *  </p>
    * @return the query parameters, with the actual query parameter first with no name
    */
   getFilterQueryParams(): string;

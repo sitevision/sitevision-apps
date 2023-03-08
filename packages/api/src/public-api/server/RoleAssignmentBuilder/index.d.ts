@@ -5,16 +5,16 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
 /**
  * Builder of RoleAssignment instances.
  *
- * <p>
- *    <em>Tip!</em> The {@link senselogic.sitevision.api.base.Builder Builder interface documentation} contains
- *    more information about Builders and how to work with them!
- * </p>
+ *  <p>
+ *     <em>Tip!</em> The {@link senselogic.sitevision.api.base.Builder Builder interface documentation} contains
+ *     more information about Builders and how to work with them!
+ *  </p>
  *
- * <p>
- *    An instance of the Sitevision class implementing this interface can be obtained via
- *    {@link RoleUtil#getRoleAssignmentBuilder()}.
- *    See {@link RoleUtil} for how to obtain an instance of the <code>RoleUtil</code> interface.
- * </p>
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link RoleUtil#getRoleAssignmentBuilder()}.
+ *     See {@link RoleUtil} for how to obtain an instance of the <code>RoleUtil</code> interface.
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 5.1
  * @see RoleAssignment
@@ -37,9 +37,9 @@ export interface RoleAssignmentBuilder extends Builder {
   /**
    * Clears the state of this builder.
    *
-   * <p>
-   *    Sets the <em>principal</em> and the <em>role</em> to null.
-   * </p>
+   *  <p>
+   *     Sets the <em>principal</em> and the <em>role</em> to null.
+   *  </p>
    * @return this builder
    */
   clear(): RoleAssignmentBuilder;

@@ -1,10 +1,12 @@
+import type { String } from "../../../../../../java/lang/String";
+
 /**
  * Get methods for accessing field constants defined in {@link senselogic.sitevision.api.webresource.PageUtil}.
  *
- * <p>
- *    The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.webresource.PageUtil}
- *    constants in Velocity, e.g: <code>$pageUtil.PROPERTY_LAST_MODIFIED_DATE</code>
- * </p>
+ *  <p>
+ *     The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.webresource.PageUtil}
+ *     constants in Velocity, e.g: <code>$pageUtil.PROPERTY_LAST_MODIFIED_DATE</code>
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */

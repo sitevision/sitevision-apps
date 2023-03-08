@@ -1,10 +1,10 @@
 /**
  * Get methods for accessing field constants defined in {@link senselogic.sitevision.api.render.OutputUtil}.
  *
- * <p>
- *    The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.render.OutputUtil}
- *    constants in Velocity, e.g: <code>$outputUtil.CONTENT_TYPE_TEXT_HTML</code>
- * </p>
+ *  <p>
+ *     The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.render.OutputUtil}
+ *     constants in Velocity, e.g: <code>$outputUtil.CONTENT_TYPE_TEXT_HTML</code>
+ *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
  */

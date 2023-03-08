@@ -1,4 +1,4 @@
-import type { Node } from '../../hidden/javax/jcr/Node';
+import type { Node } from '../../types/javax/jcr/Node';
 
 interface AppResource {
   /**

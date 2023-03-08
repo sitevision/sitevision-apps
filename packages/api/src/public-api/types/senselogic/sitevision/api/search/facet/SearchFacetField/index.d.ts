@@ -1,3 +1,6 @@
+import type { String } from "../../../../../../java/lang/String";
+import type { List } from "../../../../../../java/util/List";
+
 /**
  * A facet field of a search result.
  * @author Niclas Hedlund
@@ -15,7 +18,7 @@ export type SearchFacetField = {
    * Returns the facet values for this facet field.
    * @return the list of values for this facet field, or <code>null</code> if there are no values
    */
-  getFacetValues(): unknown;
+  getFacetValues(): List;
 
   /**
    * Convenience method for getting the number of values for this facet field.

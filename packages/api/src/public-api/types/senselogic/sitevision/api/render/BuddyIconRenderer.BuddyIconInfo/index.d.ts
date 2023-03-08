@@ -1,29 +1,31 @@
+import type { String } from "../../../../../java/lang/String";
+
 /**
  * Basic render information about current buddy icon of a BuddyIconRenderer.
  *
- * <p>
- *    This data is typically used for custom rendering of a buddy icon.
- * </p>
+ *  <p>
+ *     This data is typically used for custom rendering of a buddy icon.
+ *  </p>
  *
- * <p>
- *    <em>
- *       Server-side Javascript example
- *       (a function that provides custom rendering of a 48x48 buddy icon image for a given sv:userIdentity Node):
- *    </em>
- * </p><pre><code>  function getHtmlImage(userIdentity) {
- *     const buddyIconRenderer = require('BuddyIconRenderer');
- *     const LARGE_SIZE = require('BuddyIconRenderer.BuddyIconSize.LARGE');
+ *  <p>
+ *     <em>
+ *        Server-side Javascript example
+ *        (a function that provides custom rendering of a 48x48 buddy icon image for a given sv:userIdentity Node):
+ *     </em>
+ *  </p><pre><code>  function getHtmlImage(userIdentity) {
+ *      const buddyIconRenderer = require('BuddyIconRenderer');
+ *      const LARGE_SIZE = require('BuddyIconRenderer.BuddyIconSize.LARGE');
  *
- *     // Load renderer and set proper size
- *     buddyIconRenderer.update(userIdentity);
- *     buddyIconRenderer.setBuddyIconSize(LARGE_SIZE);
+ *      // Load renderer and set proper size
+ *      buddyIconRenderer.update(userIdentity);
+ *      buddyIconRenderer.setBuddyIconSize(LARGE_SIZE);
  *
- *     // Get BuddyIconInfo data
- *     const info = buddyIconRenderer.getBuddyIconInfo();
+ *      // Get BuddyIconInfo data
+ *      const info = buddyIconRenderer.getBuddyIconInfo();
  *
- *     // Do custom render...
- *     return '&lt;img src="' + info.getURI() + '"&gt;';
- *  }</code></pre>
+ *      // Do custom render...
+ *      return '&lt;img src="' + info.getURI() + '"&gt;';
+ *   }</code></pre>
  * @see BuddyIconRenderer#getBuddyIconInfo()
  * @author Magnus Lövgren
  * @since Sitevision 8.2
