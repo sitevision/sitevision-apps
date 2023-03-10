@@ -523,7 +523,7 @@ export interface CollectionsInstance {
    * @throws NullPointerException if <tt>aValues</tt> contains one or more null values and <tt>aCollection</tt> does not permit null&#xA; elements, or if <tt>aCollection</tt> or <tt>aValues</tt> are <tt>null</tt>
    * @throws IllegalArgumentException if some property of a value in <tt>aValues</tt> prevents it from being added to <tt>aCollection</tt>
    */
-  addAll(aCollection: Collection | unknown[], aValues: unknown[]): boolean;
+  addAll(aCollection: Collection | unknown[], ...aValues: unknown[]): boolean;
 
   /**
    * Returns a set backed by the specified map.

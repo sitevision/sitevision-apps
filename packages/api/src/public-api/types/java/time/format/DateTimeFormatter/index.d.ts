@@ -604,7 +604,7 @@ export type DateTimeFormatter = Object & {
    * @param resolverFields the new set of resolver fields, null if no fields
    * @return a formatter based on this formatter with the requested resolver style, not null
    */
-  withResolverFields(resolverFields: TemporalField[]): DateTimeFormatter;
+  withResolverFields(...resolverFields: TemporalField[]): DateTimeFormatter;
 
   /**
    * Returns a copy of this formatter with a new set of resolver fields.
@@ -767,7 +767,7 @@ export type DateTimeFormatter = Object & {
    * @throws IllegalArgumentException if less than 2 types are specified
    * @throws DateTimeParseException if unable to parse the requested result
    */
-  parseBest(text: CharSequence, queries: TemporalQuery[]): TemporalAccessor;
+  parseBest(text: CharSequence, ...queries: TemporalQuery[]): TemporalAccessor;
 
   /**
    * Parses the text using this formatter, without resolving the result, intended

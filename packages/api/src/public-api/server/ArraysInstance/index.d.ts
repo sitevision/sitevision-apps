@@ -979,7 +979,7 @@ export interface ArraysInstance {
    * @param anArray the array by which the list will be backed
    * @return a list view of the specified array
    */
-  asList(anArray: unknown[]): List;
+  asList(...anArray: unknown[]): List;
 
   /**
    * Returns a hash code based on the contents of the specified array.

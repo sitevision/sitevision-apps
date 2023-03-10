@@ -186,7 +186,7 @@ export type Collector = {
     supplier: Supplier,
     accumulator: BiConsumer,
     combiner: BinaryOperator,
-    characteristics: Characteristics[]
+    ...characteristics: Characteristics[]
   ): Collector;
 
   /**
@@ -208,6 +208,6 @@ export type Collector = {
     accumulator: BiConsumer,
     combiner: BinaryOperator,
     finisher: Function,
-    characteristics: Characteristics[]
+    ...characteristics: Characteristics[]
   ): Collector;
 };

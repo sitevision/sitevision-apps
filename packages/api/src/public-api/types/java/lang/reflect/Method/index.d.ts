@@ -234,7 +234,7 @@ export type Method = Executable & {
    * @throws NullPointerException if the specified object is null&#xA; and the method is an instance method.
    * @throws ExceptionInInitializerError if the initialization&#xA; provoked by this method fails.
    */
-  invoke(obj: unknown, args: unknown[]): unknown;
+  invoke(obj: unknown, ...args: unknown[]): unknown;
 
   /**
    * Returns {@code true} if this method is a bridge

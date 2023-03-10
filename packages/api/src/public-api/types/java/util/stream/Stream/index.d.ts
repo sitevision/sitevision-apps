@@ -707,7 +707,7 @@ export type Stream = BaseStream & {
    * @param values the elements of the new stream
    * @return the new stream
    */
-  of(values: unknown[]): Stream;
+  of(...values: unknown[]): Stream;
 
   /**
    * Returns an infinite sequential ordered {@code Stream} produced by iterative

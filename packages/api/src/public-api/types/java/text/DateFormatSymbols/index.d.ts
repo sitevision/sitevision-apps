@@ -62,7 +62,7 @@ export type DateFormatSymbols = Object &
      * Sets era strings. For example: "AD" and "BC".
      * @param newEras the new era strings.
      */
-    setEras(newEras: String | string[]): void;
+    setEras(newEras: String[] | string[]): void;
 
     /**
      * Gets month strings. For example: "January", "February", etc.
@@ -84,7 +84,7 @@ export type DateFormatSymbols = Object &
      * Sets month strings. For example: "January", "February", etc.
      * @param newMonths the new month strings.
      */
-    setMonths(newMonths: String | string[]): void;
+    setMonths(newMonths: String[] | string[]): void;
 
     /**
      * Gets short month strings. For example: "Jan", "Feb", etc.
@@ -106,7 +106,7 @@ export type DateFormatSymbols = Object &
      * Sets short month strings. For example: "Jan", "Feb", etc.
      * @param newShortMonths the new short month strings.
      */
-    setShortMonths(newShortMonths: String | string[]): void;
+    setShortMonths(newShortMonths: String[] | string[]): void;
 
     /**
      * Gets weekday strings. For example: "Sunday", "Monday", etc.
@@ -118,7 +118,7 @@ export type DateFormatSymbols = Object &
      * Sets weekday strings. For example: "Sunday", "Monday", etc.
      * @param newWeekdays the new weekday strings. The array should&#xA; be indexed by <code>Calendar.SUNDAY</code>,&#xA; <code>Calendar.MONDAY</code>, etc.
      */
-    setWeekdays(newWeekdays: String | string[]): void;
+    setWeekdays(newWeekdays: String[] | string[]): void;
 
     /**
      * Gets short weekday strings. For example: "Sun", "Mon", etc.
@@ -130,7 +130,7 @@ export type DateFormatSymbols = Object &
      * Sets short weekday strings. For example: "Sun", "Mon", etc.
      * @param newShortWeekdays the new short weekday strings. The array should&#xA; be indexed by <code>Calendar.SUNDAY</code>,&#xA; <code>Calendar.MONDAY</code>, etc.
      */
-    setShortWeekdays(newShortWeekdays: String | string[]): void;
+    setShortWeekdays(newShortWeekdays: String[] | string[]): void;
 
     /**
      * Gets ampm strings. For example: "AM" and "PM".
@@ -142,7 +142,7 @@ export type DateFormatSymbols = Object &
      * Sets ampm strings. For example: "AM" and "PM".
      * @param newAmpms the new ampm strings.
      */
-    setAmPmStrings(newAmpms: String | string[]): void;
+    setAmPmStrings(newAmpms: String[] | string[]): void;
 
     /**
      * Gets time zone strings.  Use of this method is discouraged; use
@@ -210,7 +210,7 @@ export type DateFormatSymbols = Object &
      * @throws NullPointerException if <code>newZoneStrings</code> is null
      * @see #getZoneStrings()
      */
-    setZoneStrings(newZoneStrings: String | string[][]): void;
+    setZoneStrings(newZoneStrings: String[][] | string[][]): void;
 
     /**
      * Gets localized date-time pattern characters. For example: 'u', 't', etc.

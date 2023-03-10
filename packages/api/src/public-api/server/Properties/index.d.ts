@@ -112,7 +112,10 @@ export interface Properties {
    * @throws Exception if the scripting engine fails to convert property values to a native Javascript object
    * @see #getEscaped(Object, String...)
    */
-  get(aJcrNodeResolvable: unknown, aPropertyNames: String | string[]): unknown;
+  get(
+    aJcrNodeResolvable: unknown,
+    ...aPropertyNames: String[] | string[]
+  ): unknown;
 
   /**
    * Gets escaped named properties from a given Node-resolvable object.
@@ -128,7 +131,7 @@ export interface Properties {
    */
   getEscaped(
     aJcrNodeResolvable: unknown,
-    aPropertyNames: String | string[]
+    ...aPropertyNames: String[] | string[]
   ): unknown;
 
   /**
@@ -151,7 +154,7 @@ export interface Properties {
    * @see #getArrayEscaped(Object, String...)
    * @since Sitevision 6.1
    */
-  getArray(aIterable: unknown, aPropertyNames: String | string[]): unknown;
+  getArray(aIterable: unknown, ...aPropertyNames: String[] | string[]): unknown;
 
   /**
    * Processes an iterable object and returns an array of escaped named properties for each Node-resolvable object that is iterated.
@@ -167,7 +170,7 @@ export interface Properties {
    */
   getArrayEscaped(
     aIterable: unknown,
-    aPropertyNames: String | string[]
+    ...aPropertyNames: String[] | string[]
   ): unknown;
 }
 

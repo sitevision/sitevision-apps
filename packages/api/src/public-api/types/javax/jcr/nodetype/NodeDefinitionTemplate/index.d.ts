@@ -55,7 +55,7 @@ export type NodeDefinitionTemplate = NodeDefinition & {
    * @param names an array of JCR names.
    * @throws ConstraintViolationException if <code>names</code> includes a&#xA; name that is not a syntactically valid JCR name in either qualified or expanded form.
    */
-  setRequiredPrimaryTypeNames(names: String | string[]): void;
+  setRequiredPrimaryTypeNames(names: String[] | string[]): void;
 
   /**
    * Sets the name of the default primary type of this node.

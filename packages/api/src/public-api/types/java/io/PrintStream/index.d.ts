@@ -303,7 +303,7 @@ export type PrintStream = FilterOutputStream &
      * @return This output stream
      * @since 1.5
      */
-    printf(format: String | string, args: unknown[]): PrintStream;
+    printf(format: String | string, ...args: unknown[]): PrintStream;
 
     /**
      * A convenience method to write a formatted string to this output stream
@@ -322,7 +322,7 @@ export type PrintStream = FilterOutputStream &
      * @return This output stream
      * @since 1.5
      */
-    printf(l: Locale, format: String | string, args: unknown[]): PrintStream;
+    printf(l: Locale, format: String | string, ...args: unknown[]): PrintStream;
 
     /**
      * Writes a formatted string to this output stream using the specified
@@ -338,7 +338,7 @@ export type PrintStream = FilterOutputStream &
      * @return This output stream
      * @since 1.5
      */
-    format(format: String | string, args: unknown[]): PrintStream;
+    format(format: String | string, ...args: unknown[]): PrintStream;
 
     /**
      * Writes a formatted string to this output stream using the specified
@@ -351,7 +351,7 @@ export type PrintStream = FilterOutputStream &
      * @return This output stream
      * @since 1.5
      */
-    format(l: Locale, format: String | string, args: unknown[]): PrintStream;
+    format(l: Locale, format: String | string, ...args: unknown[]): PrintStream;
 
     /**
      * Appends the specified character sequence to this output stream.

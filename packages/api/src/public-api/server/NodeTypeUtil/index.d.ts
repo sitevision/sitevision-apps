@@ -1467,7 +1467,7 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    * @param aPrimaryNodeTypes the primary node type names <code>aNode</code> should be checked against
    * @return whether primary node type of <code>aNode</code> matches any of the types in <code>aPrimaryNodeTypes</code>
    */
-  isTypeOf(aNode: Node, aPrimaryNodeTypes: String | string[]): boolean;
+  isTypeOf(aNode: Node, ...aPrimaryNodeTypes: String[] | string[]): boolean;
 }
 
 declare namespace NodeTypeUtil {}

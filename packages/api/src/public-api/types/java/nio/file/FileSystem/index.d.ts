@@ -243,7 +243,7 @@ export type FileSystem = Object &
      * @return the resulting {@code Path}
      * @throws InvalidPathException&#xA; If the path string cannot be converted
      */
-    getPath(first: String | string, more: String | string[]): Path;
+    getPath(first: String | string, ...more: String[] | string[]): Path;
 
     /**
      * Returns a {@code PathMatcher} that performs match operations on the

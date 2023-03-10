@@ -358,7 +358,7 @@ export interface PermissionUtil {
    * @see #hasPermissions(Node, Node, Permission...)
    * @since Sitevision 3.6
    */
-  hasPermissions(aPermissions: Permission[]): boolean;
+  hasPermissions(...aPermissions: Permission[]): boolean;
 
   /**
    * Checks if current user has certain permission on a certain tree node.
@@ -380,7 +380,7 @@ export interface PermissionUtil {
    * @see #hasPermissions(Node, Node, Permission...)
    * @since Sitevision 3.6
    */
-  hasPermissions(aTreeNode: Node, aPermissions: Permission[]): boolean;
+  hasPermissions(aTreeNode: Node, ...aPermissions: Permission[]): boolean;
 
   /**
    * Checks if a certain user has a certain permission on a certain tree node.
@@ -411,7 +411,7 @@ export interface PermissionUtil {
   hasPermissions(
     aTreeNode: Node,
     aUserNode: Node,
-    aPermissions: Permission[]
+    ...aPermissions: Permission[]
   ): boolean;
 }
 

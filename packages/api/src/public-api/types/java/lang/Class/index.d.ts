@@ -825,7 +825,7 @@ export type Class = Object &
      * @jls 8.4 Method Declarations
      * @since JDK1.1
      */
-    getMethod(name: String | string, parameterTypes: Class[]): Method;
+    getMethod(name: String | string, ...parameterTypes: Class[]): Method;
 
     /**
      * Returns a {@code Constructor} object that reflects the specified
@@ -847,7 +847,7 @@ export type Class = Object &
      * @throws SecurityException&#xA; If a security manager, <i>s</i>, is present and&#xA; the caller's class loader is not the same as or an&#xA; ancestor of the class loader for the current class and&#xA; invocation of {@link SecurityManager#checkPackageAccess&#xA; s.checkPackageAccess()} denies access to the package&#xA; of this class.
      * @since JDK1.1
      */
-    getConstructor(parameterTypes: Class[]): Constructor;
+    getConstructor(...parameterTypes: Class[]): Constructor;
 
     /**
      * Returns an array of {@code Class} objects reflecting all the
@@ -980,7 +980,10 @@ export type Class = Object &
      * @jls 8.4 Method Declarations
      * @since JDK1.1
      */
-    getDeclaredMethod(name: String | string, parameterTypes: Class[]): Method;
+    getDeclaredMethod(
+      name: String | string,
+      ...parameterTypes: Class[]
+    ): Method;
 
     /**
      * Returns a {@code Constructor} object that reflects the specified
@@ -998,7 +1001,7 @@ export type Class = Object &
      * @throws SecurityException&#xA; If a security manager, <i>s</i>, is present and any of the&#xA; following conditions is met:&#xA;&#xA; <ul>&#xA;&#xA; <li> the caller's class loader is not the same as the&#xA; class loader of this class and invocation of&#xA; {@link SecurityManager#checkPermission&#xA; s.checkPermission} method with&#xA; {@code RuntimePermission("accessDeclaredMembers")}&#xA; denies access to the declared constructor&#xA;&#xA; <li> the caller's class loader is not the same as or an&#xA; ancestor of the class loader for the current class and&#xA; invocation of {@link SecurityManager#checkPackageAccess&#xA; s.checkPackageAccess()} denies access to the package&#xA; of this class&#xA;&#xA; </ul>
      * @since JDK1.1
      */
-    getDeclaredConstructor(parameterTypes: Class[]): Constructor;
+    getDeclaredConstructor(...parameterTypes: Class[]): Constructor;
 
     /**
      * Finds a resource with a given name.  The rules for searching resources

@@ -47,7 +47,7 @@ export type Watchable = {
   register(
     watcher: WatchService,
     events: Kind[],
-    modifiers: Modifier[]
+    ...modifiers: Modifier[]
   ): WatchKey;
 
   /**
@@ -67,5 +67,5 @@ export type Watchable = {
    * @throws IOException&#xA; if an I/O error occurs
    * @throws SecurityException&#xA; if a security manager is installed and it denies an unspecified&#xA; permission required to monitor this object. Implementations of&#xA; this interface should specify the permission checks.
    */
-  register(watcher: WatchService, events: Kind[]): WatchKey;
+  register(watcher: WatchService, ...events: Kind[]): WatchKey;
 };

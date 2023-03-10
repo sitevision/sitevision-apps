@@ -294,7 +294,7 @@ export type PrintWriter = Writer & {
    * @return This writer
    * @since 1.5
    */
-  printf(format: String | string, args: unknown[]): PrintWriter;
+  printf(format: String | string, ...args: unknown[]): PrintWriter;
 
   /**
    * A convenience method to write a formatted string to this writer using
@@ -314,7 +314,7 @@ export type PrintWriter = Writer & {
    * @return This writer
    * @since 1.5
    */
-  printf(l: Locale, format: String | string, args: unknown[]): PrintWriter;
+  printf(l: Locale, format: String | string, ...args: unknown[]): PrintWriter;
 
   /**
    * Writes a formatted string to this writer using the specified format
@@ -331,7 +331,7 @@ export type PrintWriter = Writer & {
    * @return This writer
    * @since 1.5
    */
-  format(format: String | string, args: unknown[]): PrintWriter;
+  format(format: String | string, ...args: unknown[]): PrintWriter;
 
   /**
    * Writes a formatted string to this writer using the specified format
@@ -345,7 +345,7 @@ export type PrintWriter = Writer & {
    * @return This writer
    * @since 1.5
    */
-  format(l: Locale, format: String | string, args: unknown[]): PrintWriter;
+  format(l: Locale, format: String | string, ...args: unknown[]): PrintWriter;
 
   /**
    * Appends the specified character sequence to this writer.

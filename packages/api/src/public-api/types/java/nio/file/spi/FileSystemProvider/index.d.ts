@@ -188,7 +188,7 @@ export type FileSystemProvider = Object & {
    * @throws IOException&#xA; if an I/O error occurs
    * @throws SecurityException&#xA; In the case of the default provider, and a security manager is&#xA; installed, the {@link SecurityManager#checkRead(String) checkRead}&#xA; method is invoked to check read access to the file.
    */
-  newInputStream(path: Path, options: OpenOption[]): InputStream;
+  newInputStream(path: Path, ...options: OpenOption[]): InputStream;
 
   /**
    * Opens or creates a file, returning an output stream that may be used to
@@ -207,7 +207,7 @@ export type FileSystemProvider = Object & {
    * @throws IOException&#xA; if an I/O error occurs
    * @throws SecurityException&#xA; In the case of the default provider, and a security manager is&#xA; installed, the {@link SecurityManager#checkWrite(String) checkWrite}&#xA; method is invoked to check write access to the file. The {@link&#xA; SecurityManager#checkDelete(String) checkDelete} method is&#xA; invoked to check delete access if the file is opened with the&#xA; {@code DELETE_ON_CLOSE} option.
    */
-  newOutputStream(path: Path, options: OpenOption[]): OutputStream;
+  newOutputStream(path: Path, ...options: OpenOption[]): OutputStream;
 
   /**
    * Opens or creates a file for reading and/or writing, returning a file
@@ -230,7 +230,7 @@ export type FileSystemProvider = Object & {
   newFileChannel(
     path: Path,
     options: Set | unknown[],
-    attrs: FileAttribute[]
+    ...attrs: FileAttribute[]
   ): FileChannel;
 
   /**
@@ -258,7 +258,7 @@ export type FileSystemProvider = Object & {
     path: Path,
     options: Set | unknown[],
     executor: ExecutorService,
-    attrs: FileAttribute[]
+    ...attrs: FileAttribute[]
   ): AsynchronousFileChannel;
 
   /**
@@ -278,7 +278,7 @@ export type FileSystemProvider = Object & {
   newByteChannel(
     path: Path,
     options: Set | unknown[],
-    attrs: FileAttribute[]
+    ...attrs: FileAttribute[]
   ): SeekableByteChannel;
 
   /**
@@ -306,7 +306,7 @@ export type FileSystemProvider = Object & {
    * @throws IOException&#xA; if an I/O error occurs or the parent directory does not exist
    * @throws SecurityException&#xA; In the case of the default provider, and a security manager is&#xA; installed, the {@link SecurityManager#checkWrite(String) checkWrite}&#xA; method is invoked to check write access to the new directory.
    */
-  createDirectory(dir: Path, attrs: FileAttribute[]): void;
+  createDirectory(dir: Path, ...attrs: FileAttribute[]): void;
 
   /**
    * Creates a symbolic link to a target. This method works in exactly the
@@ -322,7 +322,7 @@ export type FileSystemProvider = Object & {
    * @throws IOException&#xA; if an I/O error occurs
    * @throws SecurityException&#xA; In the case of the default provider, and a security manager&#xA; is installed, it denies {@link LinkPermission}<tt>("symbolic")</tt>&#xA; or its {@link SecurityManager#checkWrite(String) checkWrite}&#xA; method denies write access to the path of the symbolic link.
    */
-  createSymbolicLink(link: Path, target: Path, attrs: FileAttribute[]): void;
+  createSymbolicLink(link: Path, target: Path, ...attrs: FileAttribute[]): void;
 
   /**
    * Creates a new link (directory entry) for an existing file. This method
@@ -395,7 +395,7 @@ export type FileSystemProvider = Object & {
    * @throws IOException&#xA; if an I/O error occurs
    * @throws SecurityException&#xA; In the case of the default provider, and a security manager is&#xA; installed, the {@link SecurityManager#checkRead(String) checkRead}&#xA; method is invoked to check read access to the source file, the&#xA; {@link SecurityManager#checkWrite(String) checkWrite} is invoked&#xA; to check write access to the target file. If a symbolic link is&#xA; copied the security manager is invoked to check {@link&#xA; LinkPermission}{@code ("symbolic")}.
    */
-  copy(source: Path, target: Path, options: CopyOption[]): void;
+  copy(source: Path, target: Path, ...options: CopyOption[]): void;
 
   /**
    * Move or rename a file to a target file. This method works in exactly the
@@ -411,7 +411,7 @@ export type FileSystemProvider = Object & {
    * @throws IOException&#xA; if an I/O error occurs
    * @throws SecurityException&#xA; In the case of the default provider, and a security manager is&#xA; installed, the {@link SecurityManager#checkWrite(String) checkWrite}&#xA; method is invoked to check write access to both the source and&#xA; target file.
    */
-  move(source: Path, target: Path, options: CopyOption[]): void;
+  move(source: Path, target: Path, ...options: CopyOption[]): void;
 
   /**
    * Tests if two paths locate the same file. This method works in exactly the
@@ -501,7 +501,7 @@ export type FileSystemProvider = Object & {
    * @throws IOException&#xA; if an I/O error occurs
    * @throws SecurityException&#xA; In the case of the default provider, and a security manager is&#xA; installed, the {@link SecurityManager#checkRead(String) checkRead}&#xA; is invoked when checking read access to the file or only the&#xA; existence of the file, the {@link SecurityManager#checkWrite(String)&#xA; checkWrite} is invoked when checking write access to the file,&#xA; and {@link SecurityManager#checkExec(String) checkExec} is invoked&#xA; when checking execute access.
    */
-  checkAccess(path: Path, modes: AccessMode[]): void;
+  checkAccess(path: Path, ...modes: AccessMode[]): void;
 
   /**
    * Returns a file attribute view of a given type. This method works in
@@ -513,7 +513,11 @@ export type FileSystemProvider = Object & {
    * @param options&#xA; options indicating how symbolic links are handled
    * @return a file attribute view of the specified type, or {@code null} if&#xA; the attribute view type is not available
    */
-  getFileAttributeView(path: Path, type: Class, options: LinkOption[]): unknown;
+  getFileAttributeView(
+    path: Path,
+    type: Class,
+    ...options: LinkOption[]
+  ): unknown;
 
   /**
    * Reads a file's attributes as a bulk operation. This method works in
@@ -528,7 +532,7 @@ export type FileSystemProvider = Object & {
    * @throws IOException&#xA; if an I/O error occurs
    * @throws SecurityException&#xA; In the case of the default provider, a security manager is&#xA; installed, its {@link SecurityManager#checkRead(String) checkRead}&#xA; method is invoked to check read access to the file
    */
-  readAttributes(path: Path, type: Class, options: LinkOption[]): unknown;
+  readAttributes(path: Path, type: Class, ...options: LinkOption[]): unknown;
 
   /**
    * Reads a set of file attributes as a bulk operation. This method works in
@@ -546,7 +550,7 @@ export type FileSystemProvider = Object & {
   readAttributes(
     path: Path,
     attributes: String | string,
-    options: LinkOption[]
+    ...options: LinkOption[]
   ): Map;
 
   /**
@@ -566,6 +570,6 @@ export type FileSystemProvider = Object & {
     path: Path,
     attribute: String | string,
     value: unknown,
-    options: LinkOption[]
+    ...options: LinkOption[]
   ): void;
 };
