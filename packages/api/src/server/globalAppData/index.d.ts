@@ -1,4 +1,4 @@
-import { AppData } from '../appData';
+import type { AppData } from '../appData';
 
 export interface GlobalAppData extends AppData {}
 
