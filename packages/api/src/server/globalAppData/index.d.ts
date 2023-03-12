@@ -1,10 +1,6 @@
-import type { Node } from '../../types/javax/jcr/Node';
+import { AppData } from '../appData';
 
-export interface GlobalAppData {
-  get(key: string): unknown;
-  getNode(key: string): Node;
-  getArray(key: string): Node[];
-}
+export interface GlobalAppData extends AppData {}
 
 declare namespace GlobalAppData {}
 
