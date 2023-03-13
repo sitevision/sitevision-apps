@@ -4,7 +4,12 @@ export interface HooksResponse {
   set(name: string, value: string): void;
   cookie(cookie: Cookie): void;
   clearCookie(name: string);
-  redirect(url: string);
+  /**
+   * Redirect the user to another URL
+   * @param url The URL to redirect to
+   * @param statusCode The HTTP status code to use for the redirect. Defaults to 302. Introduced in Sitevision 2023.03.1.
+   */
+  redirect(url: string, statusCode?: 301 | 302);
 }
 
 export interface Hooks {

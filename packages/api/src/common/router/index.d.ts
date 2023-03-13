@@ -11,6 +11,11 @@ export interface Cookie {
 
 export interface Request {
   invalidateSession(): void;
+  /**
+   * Synchronizes local session state with the shared app session state.
+   * @since Sitevision 2023.03.1
+   */
+  updateSession(): void;
   header(headerName: string): string | null;
   file(fileParameterName: string): Node;
   params: { [key: string]: string };
