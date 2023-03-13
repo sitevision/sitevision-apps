@@ -15,7 +15,7 @@ export interface Request {
    * Synchronizes local session state with the shared app session state.
    * @since Sitevision 2023.03.1
    */
-  updateSession(): void;
+  updateSession(): any;
   header(headerName: string): string | null;
   file(fileParameterName: string): Node;
   params: { [key: string]: string };
