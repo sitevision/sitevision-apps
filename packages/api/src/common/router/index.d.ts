@@ -9,19 +9,23 @@ export interface Cookie {
   sameSite?: 'Strict' | 'Lax' | 'None' | undefined;
 }
 
+export type Session = {
+  [key: string]: any;
+};
+
 export interface Request {
   invalidateSession(): void;
   /**
    * Synchronizes local session state with the shared app session state.
    * @since Sitevision 2023.03.1
    */
-  updateSession(): any;
+  updateSession(): Session;
   header(headerName: string): string | null;
   file(fileParameterName: string): Node;
   params: { [key: string]: string };
   cookies: { [key: string]: string };
   xhr: boolean;
-  session: any;
+  session: Session;
   hostname: string;
   protocol: string;
   secure: boolean;
