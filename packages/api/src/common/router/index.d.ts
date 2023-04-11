@@ -32,6 +32,14 @@ export interface Request {
   method: string;
   path: string;
   /**
+   * Returns client request uri.
+   *
+   * Note! uri does not necessarily equal the uri of the current page
+   *
+   * @since Sitevision 2023.04.1
+   */
+  uri: string;
+  /**
    * Can be populated in a hooks context and read from a render context
    */
   context: unknown | null;
