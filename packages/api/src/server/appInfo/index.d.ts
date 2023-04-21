@@ -10,16 +10,17 @@ export interface AppInfo {
   appName: string;
   appDescription: string;
   certificate: {
-    signee: string;
+    signee?: string;
     signed: boolean;
   };
   active: boolean;
   runtime: {
     sitevisionVersion: string;
-    scriptEngineLanguageVersion: number;
-    scriptEngineVersion: string;
-    serverName: string;
-    scriptEngineName: string;
+    environmentType?: string;
+    scriptEngineName?: string;
+    scriptEngineLanguageVersion?: string;
+    scriptEngineVersion?: string;
+    serverName?: string;
   };
   'jcr:uuid': string;
   requirePrivileged: boolean;
@@ -28,6 +29,15 @@ export interface AppInfo {
   appType: string;
   appImportDate: number;
   'jcr:primaryType': string;
+  storage?: {
+    keyValueDataStore?: string[] | string;
+    collectionDataStore?: string[] | string;
+  };
+  marketplace?: {
+    licensingType: string;
+    trialEnds?: number;
+    inTrialMode?: boolean;
+  };
 }
 
 declare namespace AppInfo {}
