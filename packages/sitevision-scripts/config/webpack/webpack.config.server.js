@@ -12,6 +12,7 @@ import {
   getCssLoader,
   getFontLoader,
   getTypeScriptLoader,
+  getJsonLoader
 } from './webpack.loaders.js';
 
 export const getServerConfig = ({
@@ -92,6 +93,7 @@ export const getServerConfig = ({
         getImageLoader(publicPath),
         getSvgLoader(),
         getFontLoader(publicPath),
+        getJsonLoader(),
       ],
     },
     externals: [getExternals('commonjs')],
