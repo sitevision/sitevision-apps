@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.1.6...@sitevision/sitevision-scripts@3.2.0) (2023-05-05)
+
+### Features
+
+- **sitevision-scripts:** Add json loader support for server entries ([#95](https://github.com/sitevision/sitevision-apps/issues/95)) ([f9e9da8](https://github.com/sitevision/sitevision-apps/commit/f9e9da8d4a8b508fde7720402b0446f8c14b3ae4))
+
 ## [3.1.6](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.1.5...@sitevision/sitevision-scripts@3.1.6) (2023-02-14)
 
 ### Bug Fixes
