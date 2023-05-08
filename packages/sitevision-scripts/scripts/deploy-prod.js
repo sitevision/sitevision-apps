@@ -41,7 +41,7 @@ import chalk from 'chalk';
     console.log();
     console.log(
       'Create a zip file by running command',
-      chalk.blue('npm run zip'),
+      chalk.blue('npm run build'),
       'and',
       chalk.blue('npm run sign')
     );
