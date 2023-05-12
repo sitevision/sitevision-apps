@@ -21,6 +21,13 @@ export const questions = [
     when: (answers) => /web-react|rest-bundled/.test(answers.type),
   },
   {
+    name: 'serverSideOnly',
+    message: 'Server-side rendering only?',
+    type: 'confirm',
+    default: false,
+    when: (answers) => 'web-react' === answers.type,
+  },
+  {
     name: 'transpile',
     message: 'Would you like to transpile using babel?',
     type: 'list',

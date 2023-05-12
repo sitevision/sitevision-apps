@@ -1,0 +1,23 @@
+import * as React from 'react';
+{{#if clientRendering}}
+  import { renderToString } from 'react-dom/server';
+{{else}}
+  import { renderToStaticMarkup } from 'react-dom/server';
+{{/if}}
+import router from '@sitevision/api/common/router';
+import appData from '@sitevision/api/server/appData';
+import App from './components/App';
+
+router.get('/', (req, res) => {
+  const message = 'Hello, world!';
+  const name = appData.get('name') as string;
+
+  {{#if clientRendering}}
+    res.agnosticRender(renderToString(<App message={message} name={name} />), {
+      message,
+      name,
+    });
+  {{else}}
+    res.send(renderToStaticMarkup(<App message={message} name={name} />));
+  {{/if}}
+});

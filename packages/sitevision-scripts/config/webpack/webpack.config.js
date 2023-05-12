@@ -21,15 +21,10 @@ const getEntry = (name, silent) => {
   return entry;
 };
 
-const getWebAppConfig = ({
-  cwd,
-  dev,
-  cssPrefix,
-  serverSideOnly,
-  outputPath,
-}) => {
-  const mainEntry = getEntry('main');
+const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
+  const mainEntry = getEntry('main', true);
   const indexEntry = getEntry('index');
+  const hasMainEntry = fs.existsSync(mainEntry);
 
   const config = [
     getServerConfig({
@@ -38,10 +33,23 @@ const getWebAppConfig = ({
       cwd,
       dev,
       cssPrefix,
-      serverSideOnly,
+      serverSideOnly: hasMainEntry,
     }),
-    getClientConfig({ mainEntry, outputPath, dev, cssPrefix, serverSideOnly }),
   ];
+
+  if (hasMainEntry) {
+    config.push(
+      getClientConfig({
+        mainEntry,
+        outputPath,
+        dev,
+        cssPrefix,
+        serverSideOnly: false,
+      })
+    );
+  } else {
+    fs.writeFileSync(outputPath + '/main.js', '');
+  }
 
   const hooksEntry = getEntry('hooks', true);
   if (fs.existsSync(hooksEntry)) {
