@@ -1,12 +1,12 @@
 import * as React from 'react';
 import styles from './App.scss';
 
-export interface IApp {
+export interface AppProperties {
   message: string;
   name: string;
 }
 
-const App: React.FunctionComponent<IApp> = ({ message, name }) => {
+const App: React.FunctionComponent<AppProperties> = ({ message, name }) => {
   return (
     <div className={styles.container}>
       <p className={styles.text}>
