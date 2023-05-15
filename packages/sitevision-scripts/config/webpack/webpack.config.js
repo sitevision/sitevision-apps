@@ -26,6 +26,8 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
   const indexEntry = getEntry('index');
   const hasMainEntry = fs.existsSync(mainEntry);
 
+  fs.ensureDirSync(outputPath);
+
   const config = [
     getServerConfig({
       indexEntry,
