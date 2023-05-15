@@ -11,7 +11,9 @@
   "helpUrl": "https://example.com/webapps",
   "type": "WebApp",
   "bundled": true,
-  "requiredLibs": {
-    "react": "{{reactVersion}}"
-  }
+  {{#if clientRendering}}
+    "requiredLibs": {
+      "react": "{{reactVersion}}"
+    }
+  {{/if}}
 }

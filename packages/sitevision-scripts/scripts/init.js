@@ -16,6 +16,11 @@ const copyTemplateFiles = (type, options) => {
     '.'
   );
 
+  if (!options.clientRendering) {
+    const mainName = options.typescript ? 'main.tsx' : 'main.js';
+    fs.removeSync(`src/${mainName}`);
+  }
+
   // Can be used to replace stuff in the templates,
   // one option would be to gather info for the manifest and populate it
   walkFiles('.', (filePath) => templatifyFile(filePath, options), [
@@ -137,6 +142,7 @@ export default async ({ appPath, appName }) => {
         username,
         password,
         typescript,
+        serverSideOnly,
       }) => {
         console.clear();
 
@@ -161,6 +167,8 @@ export default async ({ appPath, appName }) => {
           case 'web-react-typescript': {
             updatePackageJsonReact(typescript);
             installWebAppDependencies(appPath);
+            templateOptions.typescript = typescript;
+            templateOptions.clientRendering = !serverSideOnly;
             templateOptions.reactVersion = simplifyVersionNumber(
               properties.getPackageJson().dependencies.react
             );
