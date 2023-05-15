@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.2.1...@sitevision/sitevision-scripts@3.3.0) (2023-05-15)
+
+### Bug Fixes
+
+- **sitevision-scripts:** make sure build dir is available ([6efe7c2](https://github.com/sitevision/sitevision-apps/commit/6efe7c2aece7cc33ca3ef89c8146a80b8ae7d5cb))
+- **sitevision-scripts:** skip i-prefix for interfaces ([0f47169](https://github.com/sitevision/sitevision-apps/commit/0f47169b7072e8160055c0e6fccd898491b15774))
+
+### Features
+
+- **sitevision-scripts:** add option for ssr only apps ([008ce7d](https://github.com/sitevision/sitevision-apps/commit/008ce7da639e10f896e6f25e6d58c91f0db8b7c3))
+
 ## [3.2.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.2.0...@sitevision/sitevision-scripts@3.2.1) (2023-05-08)
 
 ### Bug Fixes
