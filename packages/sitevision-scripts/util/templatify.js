@@ -14,7 +14,7 @@ export const templatifyFile = (filePath, data, outputPath) => {
   outputPath = outputPath || filePath;
 
   let convertedContent = template(data);
-  if (outputPath.includes('.')) {
+  if (prettier.getFileInfo.sync(outputPath).inferredParser) {
     convertedContent = prettier.format(convertedContent, {
       filepath: outputPath,
     });
