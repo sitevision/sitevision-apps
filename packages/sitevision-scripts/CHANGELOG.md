@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.3.0...@sitevision/sitevision-scripts@3.3.1) (2023-05-31)
+
+### Bug Fixes
+
+- **sitevision-scripts:** Handle names with '.' ([079df1b](https://github.com/sitevision/sitevision-apps/commit/079df1b89da2c641bd5202518849f6f502fa6961)), closes [#99](https://github.com/sitevision/sitevision-apps/issues/99)
+- **sitevision-scripts:** use correct fileextension ([809e2c3](https://github.com/sitevision/sitevision-apps/commit/809e2c359a47a8392e3c3c47d7e255b6af3052b0))
+
 # [3.3.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.2.1...@sitevision/sitevision-scripts@3.3.0) (2023-05-15)
 
 ### Bug Fixes
