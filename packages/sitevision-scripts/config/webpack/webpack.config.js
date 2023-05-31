@@ -56,14 +56,22 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
   const hooksEntry = getEntry('hooks', true);
   if (fs.existsSync(hooksEntry)) {
     config.push(
-      getServerStandaloneEntryConfig({ entry: hooksEntry, outputPath })
+      getServerStandaloneEntryConfig({
+        entry: hooksEntry,
+        outputPath,
+        outputFilename: 'hooks.js',
+      })
     );
   }
 
   const headlessEntry = getEntry('headless', true);
   if (fs.existsSync(headlessEntry)) {
     config.push(
-      getServerStandaloneEntryConfig({ entry: headlessEntry, outputPath })
+      getServerStandaloneEntryConfig({
+        entry: headlessEntry,
+        outputPath,
+        outputFilename: 'headless.js',
+      })
     );
   }
 

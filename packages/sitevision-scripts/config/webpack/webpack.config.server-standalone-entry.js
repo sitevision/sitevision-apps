@@ -1,4 +1,3 @@
-import path from 'path';
 import {
   getJsModuleLoader,
   getBabelLoader,
@@ -7,13 +6,17 @@ import {
 } from './webpack.loaders.js';
 import { getExternals, getServerOptimization } from './utils.js';
 
-export const getServerStandaloneEntryConfig = ({ entry, outputPath }) => ({
+export const getServerStandaloneEntryConfig = ({
+  entry,
+  outputPath,
+  outputFilename,
+}) => ({
   mode: 'production',
   devtool: undefined,
   entry,
   output: {
     path: outputPath,
-    filename: path.basename(entry),
+    filename: outputFilename,
     iife: true,
   },
   resolve: {
