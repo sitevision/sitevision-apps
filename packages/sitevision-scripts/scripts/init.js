@@ -181,6 +181,7 @@ export default async ({ appPath, appName }) => {
             break;
           }
           default:
+            templateOptions.clientRendering = true;
             updatePackageJsonLegacy(transpile);
         }
 
