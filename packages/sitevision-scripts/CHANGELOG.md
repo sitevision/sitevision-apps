@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.3.1...@sitevision/sitevision-scripts@3.3.2) (2023-06-28)
+
+### Bug Fixes
+
+- **sitevision-scripts:** add missing main.js ([305be5a](https://github.com/sitevision/sitevision-apps/commit/305be5acf7f6c44122f795010bc3e13b9de422bd))
+
 ## [3.3.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.3.0...@sitevision/sitevision-scripts@3.3.1) (2023-05-31)
 
 ### Bug Fixes
