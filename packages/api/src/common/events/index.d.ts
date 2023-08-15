@@ -7,6 +7,13 @@ export interface Events {
    */
   on(eventName: string, callback: (options: unknown) => void): void;
   /**
+   * Stop listening to a given event
+   *
+   * @param eventName The name of the event
+   * @param callback The callback to remove for the given event
+   */
+  off(eventName: string, callback: (options: unknown) => void): void;
+  /**
    * Emit a server side event
    *
    * Note! Server side only
