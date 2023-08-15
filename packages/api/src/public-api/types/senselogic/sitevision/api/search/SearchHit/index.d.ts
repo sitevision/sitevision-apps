@@ -786,7 +786,7 @@ export type SearchHit = SearchHitConstants & {
   getType(): number;
 
   /**
-   * Returns a jQuery expression with a token that enables tracking of search hit clicks.
+   * Returns a jQuery expression for tracking of clicks on this search hit.
    *
    *  <p>
    *     Tracking search hits clicks is a helpful tool when analyzing if visitors seems to find interesting information in their search results.
@@ -799,10 +799,17 @@ export type SearchHit = SearchHitConstants & {
    *     When rendering links to search hits with the {@link senselogic.sitevision.api.render.LinkRenderer}, apply the click tracking callback via
    *     {@link senselogic.sitevision.api.render.LinkRenderer#setOnclick(String)}
    *  </p>
-   * @return a click tracking callback jQuery expression
+   * @return a click tracking callback jQuery expression, or null if query logging inactive or unavailable
    * @since Sitevision 3.0
    */
   getClickTrackingCallback(): string;
+
+  /**
+   * Returns the uri for tracking of clicks on this search hit.
+   * @return a click tracking uri, or null if query logging inactive or unavailable
+   * @since Sitevision 2023.07.1
+   */
+  getClickTrackingUri(): string;
 
   /**
  * <p>Indicates that the hit is an internal resource managed by the Sitevision server</p>

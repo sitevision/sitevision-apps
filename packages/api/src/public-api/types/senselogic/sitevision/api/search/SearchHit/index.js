@@ -25,4 +25,5 @@ export default {
   isElevated: () => {},
   getType: () => {},
   getClickTrackingCallback: () => {},
+  getClickTrackingUri: () => {},
 };

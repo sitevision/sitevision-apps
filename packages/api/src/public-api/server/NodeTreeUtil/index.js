@@ -2,8 +2,12 @@ export default {
   getNode: () => {},
   getParent: () => {},
   isDescendantOf: () => {},
+  getWebPathNodes: () => {},
   findPortletByName: () => {},
   findPortletsByName: () => {},
   findPortletsByType: () => {},
-  getWebPathNodes: () => {},
+  findPortlets: () => {},
+  findLayoutByName: () => {},
+  findLayoutsByName: () => {},
+  findLayouts: () => {},
 };

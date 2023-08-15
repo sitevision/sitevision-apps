@@ -55,6 +55,36 @@ export interface NodeTreeUtil {
   isDescendantOf(aDescendantNode: Node, aParentNode: Node): boolean;
 
   /**
+   * Returns a top-down list of all web nodes from the site page down to a specified page tree node.
+   *
+   *  <p>
+   *  This method traverses the site page tree and returns a list of all web nodes, from the site page to a descendant.
+   *  The tree traversal will use a maximum tree depth of 50. If the specified node is deeper down in the tree than that,
+   *  an incomplete list will be returned (top nodes will be missing).
+   *  </p>
+   *
+   *  <p>
+   *  <em>Note!</em> Mentioned "web nodes" are by this method considered to be all child nodes of the site page node you
+   *  can see in the Sitevision editor Navigator that are accessible from the location bar of a browser (e.g. pages and articles
+   *  but not folders and archives). File and image nodes are also recognized as web nodes - even if they are in the "site global"
+   *  archive (i.e. in the site tree, not actually in the site page tree).
+   *
+   *  In other words, though they are accessible from the location bar of a browser - a portlet node or layout node is <em>not</em>
+   *  considered to be a web node by this method.
+   *  </p>
+   *
+   *  <p>
+   *     <em>Tip! If you should render a linked "path to this page", consider using the <code>renderWebPathNodes</code>
+   *     utility of {@link senselogic.sitevision.api.render.OutputUtil}.</em>
+   *  </p>
+   * @param aDescendantNode a page tree node that is a descendant/child of the site page, typically a sv:page or sv:article
+   * @return a top-down list of the web nodes that are in the tree path from the site page node downto <code>aDescendantNode</code>&#xA; (the site page node and the descendant node are both included in the list).&#xA; An empty list will be returned if <code>aDescendantNode</code> is <code>null</code> or not a descendant of the site page.
+   * @since Sitevision 2.6.1_06
+   * @see senselogic.sitevision.api.render.OutputUtil#renderWebPathNodes(javax.jcr.Node, senselogic.sitevision.api.render.LinkRenderer, String)
+   */
+  getWebPathNodes(aDescendantNode: Node): List;
+
+  /**
    * Find a portlet with a specific name on a page node.
    *
    *  <p>
@@ -196,34 +226,129 @@ export interface NodeTreeUtil {
   ): List;
 
   /**
-   * Returns a top-down list of all web nodes from the site page down to a specified page tree node.
+   * Find all portlets on a page node and applies a node filter to the result.
    *
    *  <p>
-   *  This method traverses the site page tree and returns a list of all web nodes, from the site page to a descendant.
-   *  The tree traversal will use a maximum tree depth of 50. If the specified node is deeper down in the tree than that,
-   *  an incomplete list will be returned (top nodes will be missing).
+   *     <em>Tip!</em> {@link senselogic.sitevision.api.node.NodeFilterUtil} can be used to create a node filter.
    *  </p>
-   *
-   *  <p>
-   *  <em>Note!</em> Mentioned "web nodes" are by this method considered to be all child nodes of the site page node you
-   *  can see in the Sitevision editor Navigator that are accessible from the location bar of a browser (e.g. pages and articles
-   *  but not folders and archives). File and image nodes are also recognized as web nodes - even if they are in the "site global"
-   *  archive (i.e. in the site tree, not actually in the site page tree).
-   *
-   *  In other words, though they are accessible from the location bar of a browser - a portlet node or layout node is <em>not</em>
-   *  considered to be a web node by this method.
-   *  </p>
-   *
-   *  <p>
-   *     <em>Tip! If you should render a linked "path to this page", consider using the <code>renderWebPathNodes</code>
-   *     utility of {@link senselogic.sitevision.api.render.OutputUtil}.</em>
-   *  </p>
-   * @param aDescendantNode a page tree node that is a descendant/child of the site page, typically a sv:page or sv:article
-   * @return a top-down list of the web nodes that are in the tree path from the site page node downto <code>aDescendantNode</code>&#xA; (the site page node and the descendant node are both included in the list).&#xA; An empty list will be returned if <code>aDescendantNode</code> is <code>null</code> or not a descendant of the site page.
-   * @since Sitevision 2.6.1_06
-   * @see senselogic.sitevision.api.render.OutputUtil#renderWebPathNodes(javax.jcr.Node, senselogic.sitevision.api.render.LinkRenderer, String)
+   * @param aPageNode the page node that has content, typically a sv:page or sv:article
+   * @param aNodeFilter a node filter to refine the result of all portlets
+   * @return all occurrences of portlets that also applies to the aNodeFilter filter.&#xA; If no such portlets can be found or if aPageNode is not a page node, an empty List is returned
+   * @since Sitevision 2023.07.1
    */
-  getWebPathNodes(aDescendantNode: Node): List;
+  findPortlets(aPageNode: Node, aNodeFilter: Filter): List;
+
+  /**
+   * Find a layout with a specific name on a page node.
+   *
+   *  <p>
+   *     The <em>name</em> of the layout is determined by the <em>displayName</em> property.
+   *  </p>
+   *  <p>
+   *     This method handles layouts of container-type (layout nodes that can have children), such as:
+   *  </p>
+   *  <ul>
+   *     <li><code>sv:referenceLayout</code></li>
+   *     <li><code>sv:layout</code></li>
+   *     <li><code>sv:view</code></li>
+   *     <li><code>sv:profileView</code></li>
+   *  </ul>
+   *  <p>
+   *     <em>(i.e. this method does not handle the flat, non-container type <code>sv:linkedLayout</code>)</em>
+   *  </p>
+   * @param aPageNode the page node that has content, typically a sv:page or sv:article
+   * @param aLayoutName the name of the layout that should be found
+   * @return the first occurrence of a layout with name aLayoutName, or null if no such layout can be found&#xA; or if aPageNode is not a page node
+   * @see #findLayoutsByName(Node, String)
+   * @since Sitevision 2023.07.1
+   */
+  findLayoutByName(aPageNode: Node, aLayoutName: String | string): Node;
+
+  /**
+   * Find all layouts with a specific name on a page node.
+   *
+   *  <p>
+   *     The <em>name</em> of the layout is determined by the <em>displayName</em> property.
+   *  </p>
+   *  <p>
+   *     This method handles layouts of container-type (layout nodes that can have children), such as:
+   *  </p>
+   *  <ul>
+   *     <li><code>sv:referenceLayout</code></li>
+   *     <li><code>sv:layout</code></li>
+   *     <li><code>sv:view</code></li>
+   *     <li><code>sv:profileView</code></li>
+   *  </ul>
+   *  <p>
+   *     <em>(i.e. this method does not handle the flat, non-container type <code>sv:linkedLayout</code>)</em>
+   *  </p>
+   * @param aPageNode the page node that has content, typically a sv:page or sv:article
+   * @param aLayoutName the name of the layouts that should be found
+   * @return all occurrences of layouts with name aLayoutName. If no such layouts can be found or if aPageNode is not a page node,&#xA; an empty List is returned
+   * @see #findLayoutsByName(Node, String, Filter)
+   * @since Sitevision 2023.07.1
+   */
+  findLayoutsByName(aPageNode: Node, aLayoutName: String | string): List;
+
+  /**
+   * Find all layouts with a specific name on a page node and applies a node filter to the result.
+   *
+   *  <p>
+   *     The <em>name</em> of the layout is determined by the <em>displayName</em> property.
+   *  </p>
+   *  <p>
+   *     This method handles layouts of container-type (layout nodes that can have children), such as:
+   *  </p>
+   *  <ul>
+   *     <li><code>sv:referenceLayout</code></li>
+   *     <li><code>sv:layout</code></li>
+   *     <li><code>sv:view</code></li>
+   *     <li><code>sv:profileView</code></li>
+   *  </ul>
+   *  <p>
+   *     <em>(i.e. this method does not handle the flat, non-container type <code>sv:linkedLayout</code>)</em>
+   *  </p>
+   *
+   *  <p>
+   *     <em>Tip!</em> {@link senselogic.sitevision.api.node.NodeFilterUtil} can be used to create a node filter.
+   *  </p>
+   * @param aPageNode the page node that has content, typically a sv:page or sv:article
+   * @param aLayoutName the name of the layouts that should be found
+   * @param aNodeFilter a node filter to refine the result of all layouts with matching name
+   * @return all occurrences of layouts with name aLayoutName that also applies to the aNodeFilter filter.&#xA; If no such layouts can be found or if aPageNode is not a page node, an empty List is returned
+   * @since Sitevision 2023.07.1
+   */
+  findLayoutsByName(
+    aPageNode: Node,
+    aLayoutName: String | string,
+    aNodeFilter: Filter
+  ): List;
+
+  /**
+   * Find all layouts on a page node and applies a node filter to the result.
+   *
+   *  <p>
+   *     This method handles layouts of container-type (layout nodes that can have children), such as:
+   *  </p>
+   *  <ul>
+   *     <li><code>sv:referenceLayout</code></li>
+   *     <li><code>sv:layout</code></li>
+   *     <li><code>sv:view</code></li>
+   *     <li><code>sv:profileView</code></li>
+   *  </ul>
+   *  <p>
+   *     <em>(i.e. this method does not handle the flat, non-container type <code>sv:linkedLayout</code>)</em>
+   *  </p>
+   *
+   *  <p>
+   *     <em>Tip!</em> {@link senselogic.sitevision.api.node.NodeFilterUtil} can be used to create a node filter.
+   *  </p>
+   * @param aPageNode the page node that has content, typically a sv:page or sv:article
+   * @param aNodeFilter a node filter to refine the result of all layouts
+   * @return all occurrences of layouts that also applies to the aNodeFilter filter.&#xA; If no such layouts can be found or if aPageNode is not a page node, an empty List is returned
+   * @since Sitevision 2023.07.1
+   */
+  findLayouts(aPageNode: Node, aNodeFilter: Filter): List;
 }
 
 declare namespace NodeTreeUtil {}
