@@ -35,7 +35,7 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
       cwd,
       dev,
       cssPrefix,
-      serverSideOnly: hasMainEntry,
+      serverSideOnly: !hasMainEntry,
     }),
   ];
 
