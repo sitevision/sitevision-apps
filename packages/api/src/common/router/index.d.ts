@@ -25,6 +25,7 @@ export interface Request {
   params: { [key: string]: string };
   cookies: { [key: string]: string };
   xhr: boolean;
+  serverside: boolean;
   session: Session;
   hostname: string;
   protocol: string;

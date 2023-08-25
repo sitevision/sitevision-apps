@@ -9,7 +9,7 @@ export interface HooksResponse {
    * @param url The URL to redirect to
    * @param statusCode The HTTP status code to use for the redirect. Defaults to 302. Introduced in Sitevision 2023.03.1.
    */
-  redirect(url: string, statusCode?: 301 | 302);
+  redirect(url: string, statusCode?: 301 | 302 | 303 | 307 | 308): void;
 }
 
 export interface Hooks {
