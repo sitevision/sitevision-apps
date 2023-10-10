@@ -75,13 +75,12 @@ export interface FilterBuilder extends Builder {
    *
    *  <p>
    *     <strong>Query syntax note! </strong>Query strings should be expressed according to the <em>Solr query syntax</em>.
-   *     The syntax is basically the <em>
+   *     The syntax is basically the<em>
    *     <a href="http://lucene.apache.org/core/4_10_3/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description">
-   *     Lucene query syntax</a></em>
-   *     with <em><a href="http://wiki.apache.org/solr/SolrQuerySyntax#Differences_From_Lucene_Query_Parser">some minor differences</a></em>.
+   *     Lucene query syntax</a></em> with some minor differences (solr syntax allows open-ended range queries and pure negative queries).
    *     Also note that a general recommendation is to always use the <em>prefix operators</em> (<code>+</code>/<code>-</code>) instead of the
    *     <em>boolean keywords</em> (AND/OR/NOT) to avoid unexpected behaviour. For deeper understanding, see for example
-   *     <a href="http://searchhub.org/2011/12/28/why-not-and-or-and-not/">Why Not AND, OR, And NOT?</a>.
+   *     <a href="https://lucidworks.com/post/solr-boolean-operators/" target="_blank">Why Not AND, OR, And NOT?</a>.
    *  </p>
    * @param aFilterQuery the filter query, a <code>null</code> or whitespace-only value will be ignored
    * @return this builder

@@ -12,4 +12,5 @@ export default {
   getStandardParserBuilder: () => {},
   getQueryStringUtil: () => {},
   getMonitorBuilder: () => {},
+  getPermissionCheckBuilder: () => {},
 };

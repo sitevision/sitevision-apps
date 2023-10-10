@@ -40,4 +40,6 @@ export default {
   getPrincipalRepository: () => {},
   getAliasRepository: () => {},
   getSiteCookieRepository: () => {},
+  getImageFilterRepository: () => {},
+  getWorkStatusTemplateRepository: () => {},
 };

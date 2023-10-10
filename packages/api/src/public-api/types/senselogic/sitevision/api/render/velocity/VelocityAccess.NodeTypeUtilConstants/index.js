@@ -55,6 +55,7 @@ export default {
   getGRADE_FIELD_TYPE: () => {},
   getICON_REPOSITORY_TYPE: () => {},
   getIMAGE_FILTER_TYPE: () => {},
+  getIMAGE_FILTER_REPOSITORY_TYPE: () => {},
   getIMAGE_REPOSITORY_TYPE: () => {},
   getLAYOUT_REPOSITORY_TYPE: () => {},
   getLIST_STYLE_TYPE: () => {},
@@ -179,4 +180,7 @@ export default {
   getEXTERNAL_COMMENT_ENTRY_TYPE: () => {},
   getOAUTH2_CONFIGURATION_REPOSITORY_TYPE: () => {},
   getOAUTH2_CONFIGURATION_TYPE: () => {},
+  getWORK_STATUS_TYPE: () => {},
+  getWORK_STATUS_TEMPLATE_TYPE: () => {},
+  getWORK_STATUS_TEMPLATE_REPOSITORY_TYPE: () => {},
 };
