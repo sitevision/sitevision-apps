@@ -373,6 +373,13 @@ export type NodeTypeUtilConstants = {
   getIMAGE_FILTER_TYPE(): string;
 
   /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#IMAGE_FILTER_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#IMAGE_FILTER_REPOSITORY_TYPE}
+   * @since Sitevision 2023.09.1
+   */
+  getIMAGE_FILTER_REPOSITORY_TYPE(): string;
+
+  /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#IMAGE_REPOSITORY_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#IMAGE_REPOSITORY_TYPE}
    * @since Sitevision 3.6.3
@@ -1240,4 +1247,25 @@ export type NodeTypeUtilConstants = {
    * @since Sitevision 7
    */
   getOAUTH2_CONFIGURATION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#WORK_STATUS_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#WORK_STATUS_TYPE}
+   * @since Sitevision 2023.09.2
+   */
+  getWORK_STATUS_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#WORK_STATUS_TEMPLATE_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#WORK_STATUS_TEMPLATE_TYPE}
+   * @since Sitevision 2023.09.2
+   */
+  getWORK_STATUS_TEMPLATE_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#WORK_STATUS_TEMPLATE_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#WORK_STATUS_TEMPLATE_REPOSITORY_TYPE}
+   * @since Sitevision 2023.09.2
+   */
+  getWORK_STATUS_TEMPLATE_REPOSITORY_TYPE(): string;
 };

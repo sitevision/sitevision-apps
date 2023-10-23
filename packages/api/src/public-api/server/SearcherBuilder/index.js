@@ -6,5 +6,6 @@ export default {
   setSort: () => {},
   setSpellCheck: () => {},
   setMonitor: () => {},
+  setPermissionCheck: () => {},
   build: () => {},
 };

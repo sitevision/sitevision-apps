@@ -5,6 +5,7 @@ import type { Parser } from "../../types/senselogic/sitevision/api/search/search
 import type { Sort } from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
 import type { SpellCheck } from "../../types/senselogic/sitevision/api/search/searcher/component/SpellCheck";
 import type { Monitor } from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
+import type { PermissionCheck } from "../../types/senselogic/sitevision/api/search/searcher/component/PermissionCheck";
 import type { Searcher } from "../../types/senselogic/sitevision/api/search/searcher/Searcher";
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
@@ -52,6 +53,12 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
  *           - how should querying be monitored? (e.g. should search query logging mode be on or off?)
  *        </em>
  *        Default: <code>null</code> (i.e. no monitoring).
+ *     </li>
+ *     <li>
+ *        {@link senselogic.sitevision.api.search.searcher.component.PermissionCheck}<em>
+ *           - how should permission checks be performed? (Note! Only applicable when querying a sv:nodeIndex)
+ *        </em>
+ *        Default: <code>null</code> (legacy default permission checking strategy will be used).
  *     </li>
  *  </ul>
  *  <p>
@@ -200,6 +207,34 @@ export interface SearcherBuilder extends Builder {
    * @since Sitevision 4.1
    */
   setMonitor(aMonitor: Monitor): SearcherBuilder;
+
+  /**
+   * Sets the permission check component.
+   *
+   *  <p>
+   *     <strong>Note! This component is only applicable when querying a Node index (<code>sv:nodeIndex</code>)!</strong>
+   *  </p>
+   *  <p>
+   *     When querying a Custom Node index that is populated with <em>external data</em>, you should typically set a permission check component
+   *     that specifies the {@link senselogic.sitevision.api.search.searcher.component.PermissionStrategy#EARLY_CHECK} strategy.
+   *  </p>
+   *  <p>
+   *     <em>
+   *        Legacy: a <code>Searcher</code> without any <code>PermissionCheck</code> component will use a legacy default strategy when checking
+   *        permissions. This strategy is a mix of <code>EARLY_CHECK</code> and <code>LATE_CHECK</code> that is kept as-is for legacy reasons only.
+   *        New search solutions with <code>Searcher</code> should typically specify a <code>PermissionCheck</code> component when querying
+   *        a <code>sv:nodeIndex</code>.
+   *     </em>
+   *  </p>
+   *  <p>
+   *     A <code>PermissionCheck</code> instance is created via the {@link PermissionCheckBuilder#build()} method.
+   *  </p>
+   * @param aPermissionCheck the permission check component
+   * @return this builder
+   * @see PermissionCheck
+   * @since Sitevision 2023.09.1
+   */
+  setPermissionCheck(aPermissionCheck: PermissionCheck): SearcherBuilder;
 
   /**
    * Creates a Searcher instance using currently specified components.

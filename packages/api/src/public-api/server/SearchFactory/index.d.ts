@@ -13,6 +13,7 @@ import type { SpellCheckBuilder } from "../SpellCheckBuilder";
 import type { StandardParserBuilder } from "../StandardParserBuilder";
 import type { QueryStringUtil } from "../QueryStringUtil";
 import type { MonitorBuilder } from "../MonitorBuilder";
+import type { PermissionCheckBuilder } from "../PermissionCheckBuilder";
 
 /**
  * Factory for creating search-related instances.
@@ -112,6 +113,13 @@ export interface SearchFactory {
    * @since Sitevision 4.1
    */
   getMonitorBuilder(): MonitorBuilder;
+
+  /**
+   * Gets a PermissionCheckBuilder instance.
+   * @return a PermissionCheckBuilder instance
+   * @since Sitevision 2023.09.1
+   */
+  getPermissionCheckBuilder(): PermissionCheckBuilder;
 }
 
 declare namespace SearchFactory {}

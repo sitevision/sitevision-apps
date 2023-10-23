@@ -442,6 +442,20 @@ export interface ResourceLocatorUtil {
    * @see senselogic.sitevision.api.cookie.SiteCookieUtil
    */
   getSiteCookieRepository(): Node;
+
+  /**
+   * Gets the image filter repository (sv:imageFilterRepository) for the site of current node.
+   * @return the image filter repository, or null if indeterminable.
+   * @since Sitevision 2023.09.1
+   */
+  getImageFilterRepository(): Node;
+
+  /**
+   * Gets the work status template repository (sv:workStatusTemplateRepository) for the site of current node.
+   * @return the work status template repository, or null if indeterminable.
+   * @since Sitevision 2023.09.2
+   */
+  getWorkStatusTemplateRepository(): Node;
 }
 
 declare namespace ResourceLocatorUtil {}

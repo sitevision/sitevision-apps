@@ -47,6 +47,11 @@ import type { SearchResult } from "../../SearchResult";
  *           - how should querying be monitored? (e.g. should search query logging mode be on or off?)
  *        </em>
  *     </li>
+ *     <li>
+ *        {@link senselogic.sitevision.api.search.searcher.component.PermissionCheck}<em>
+ *           - how should permission checks be performed? (Note! Only applicable when querying a sv:nodeIndex)
+ *        </em>
+ *     </li>
  *  </ul>
  *  <p>
  *     All components are optional and are assembled using a {@link senselogic.sitevision.api.search.searcher.builder.SearcherBuilder}.
@@ -135,11 +140,10 @@ import type { SearchResult } from "../../SearchResult";
  *     <strong>Query syntax note! </strong>Query strings should be expressed according to the <em>Solr query syntax</em>.
  *     The syntax is basically the
  *     <em><a href="http://lucene.apache.org/core/4_10_3/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description">
- *        Lucene query syntax</a></em>
- *     with <em><a href="http://wiki.apache.org/solr/SolrQuerySyntax#Differences_From_Lucene_Query_Parser">some minor differences</a></em>.
+ *     Lucene query syntax</a></em> with some minor differences (solr syntax allows open-ended range queries and pure negative queries).
  *     Also note that a general recommendation is to always use the <em>prefix operators</em> (<code>+</code>/<code>-</code>) instead of the
  *     <em>boolean keywords</em> (AND/OR/NOT) to avoid unexpected behaviour. For deeper understanding, see for example
- *     <a href="https://lucidworks.com/blog/2011/12/28/why-not-and-or-and-not/">Why Not AND, OR, And NOT?</a>.
+ *     <a href="https://lucidworks.com/post/solr-boolean-operators/" target="_blank">Why Not AND, OR, And NOT?</a>.
  *  </p>
  *
  *  <p>

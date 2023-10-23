@@ -362,6 +362,12 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   IMAGE_FILTER_TYPE: "sv:imageFilter";
 
   /**
+   * The primary node type name for the image filter repository type.
+   * @since Sitevision 2023.09.1
+   */
+  IMAGE_FILTER_REPOSITORY_TYPE: "sv:imageFilterRepository";
+
+  /**
    * The primary node type name for the image repository type.
    * @since Sitevision 3.6.3
    */
@@ -1121,6 +1127,24 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    * @since Sitevision 7
    */
   OAUTH2_CONFIGURATION_TYPE: "sv:oAuth2Configuration";
+
+  /**
+   * The primary node type name for the work status type.
+   * @since Sitevision 2023.09.2
+   */
+  WORK_STATUS_TYPE: "sv:workStatus";
+
+  /**
+   * The primary node type name for the work status template type.
+   * @since Sitevision 2023.09.2
+   */
+  WORK_STATUS_TEMPLATE_TYPE: "sv:workStatusTemplate";
+
+  /**
+   * The primary node type name for the work status template repository type.
+   * @since Sitevision 2023.09.2
+   */
+  WORK_STATUS_TEMPLATE_REPOSITORY_TYPE: "sv:workStatusTemplateRepository";
 
   /**
    * Checks if a node is a layout.
