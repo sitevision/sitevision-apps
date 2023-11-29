@@ -9,7 +9,7 @@
     "en": "A WebApp boilerplate"
   },
   "helpUrl": "https://example.com/webapps",
-  "type": "WebApp",
+  "type": "{{manifestType}}",
   "bundled": true,
   {{#if clientRendering}}
     "requiredLibs": {

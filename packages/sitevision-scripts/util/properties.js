@@ -28,7 +28,21 @@ export const getManifest = () =>
 
 export const getAppType = () => {
   const { type } = getManifest();
-  return type.toLowerCase().startsWith('web') ? 'web' : 'rest';
+  const lowerCasedType = type.toLowerCase();
+
+  if (lowerCasedType.startsWith('web')) {
+    return 'web';
+  }
+
+  if (lowerCasedType.startsWith('rest')) {
+    return 'rest';
+  }
+
+  if (lowerCasedType.startsWith('widget')) {
+    return 'widget';
+  }
+
+  throw new Error(`Unknown app type: ${type}`);
 };
 
 export const getTranspile = () => {
