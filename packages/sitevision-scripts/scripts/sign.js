@@ -51,17 +51,20 @@ import chalk from 'chalk';
       filename: fileName,
       contentType: 'application/octet-stream',
     });
-
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData,
-        headers: formData.getHeaders({
+    var options = {
+         method: 'POST',
+         body: formData,
+         headers: formData.getHeaders({
           Authorization: `Basic ${Buffer.from(
             answers.username + ':' + answers.password
           ).toString('base64')}`,
-        }),
-      });
+    }
+    if (process.env.HTTPS_PROXY) {
+         console.log(`using ${process.env.HTTPS_PROXY} as HTTPS_PROXY`)
+         options.agent = proxyAgent
+    }    
+    try {
+      const response = await fetch(url, options);
 
       if (response.ok) {
         const signedFileNameAndPath = path.join(
