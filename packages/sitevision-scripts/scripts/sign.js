@@ -28,7 +28,7 @@ import chalk from 'chalk';
   const manifest = properties.getManifest();
   const fileName = manifest.id + '.zip';
   const zipPath = properties.DIST_DIR_PATH + '/' + fileName;
-
+  
   if (!fs.existsSync(zipPath)) {
     console.log('You have to run "npm run build" before running this script');
     return;
@@ -61,6 +61,8 @@ import chalk from 'chalk';
     }
     if (process.env.HTTPS_PROXY) {
          console.log(`using ${process.env.HTTPS_PROXY} as HTTPS_PROXY`)
+         const HttpsProxyAgent = require('https-proxy-agent');
+         const proxyAgent = new HttpsProxyAgent(process.env.HTTPS_PROXY); 
          options.agent = proxyAgent
     }    
     try {
