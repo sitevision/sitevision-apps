@@ -193,6 +193,7 @@ export default async ({ appPath, appName }) => {
               properties.getPackageJson().dependencies.react
             );
             templateOptions.manifestType = getManifestType(type);
+            templateOptions.widget = type.startsWith('widget');
             break;
           }
           case 'rest-bundled':

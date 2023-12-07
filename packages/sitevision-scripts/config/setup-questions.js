@@ -26,7 +26,7 @@ export const questions = [
     message: 'Server-side rendering only?',
     type: 'confirm',
     default: false,
-    when: (answers) => /web-react|widget-react/.test(answers.type),
+    when: (answers) => 'web-react' === answers.type,
   },
   {
     name: 'transpile',

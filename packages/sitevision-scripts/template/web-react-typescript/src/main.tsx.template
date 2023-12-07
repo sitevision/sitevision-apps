@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 
 export default (initialState: any, el: HTMLElement) => {
-  ReactDOM.hydrate(
+  {{#if widget}}
+    ReactDOM.render(
+  {{else}}
+    ReactDOM.hydrate(
+  {{/if}}
     <App message={initialState.message} name={initialState.name} />,
     el
   );
