@@ -4,6 +4,7 @@ import FormData from 'form-data';
 import fetch from 'node-fetch';
 import * as properties from '../util/properties.js';
 import chalk from 'chalk';
+import { getImportEndpoint, handleResponse } from './util/requests.js';
 
 (function () {
   const props = properties.getDevProperties();
@@ -48,8 +49,7 @@ import chalk from 'chalk';
     return;
   }
 
-  const restEndPoint =
-    properties.getAppType() === 'rest' ? 'restAppImport' : 'webAppImport';
+  const restEndPoint = getImportEndpoint(properties.getAppType());
   inquirer.prompt(questions).then(async (answers) => {
     const url = `https://${answers.domain}/rest-api/1/0/${encodeURIComponent(
       answers.siteName
@@ -69,21 +69,8 @@ import chalk from 'chalk';
           ).toString('base64')}`,
         }),
       });
-      const json = await response.json();
 
-      if (response.ok) {
-        return console.log(
-          `${chalk.green('Upload successful:')} \n${JSON.stringify(
-            json,
-            null,
-            2
-          )}`
-        );
-      }
-
-      console.log(
-        `${chalk.red('Upload failed:')} \n${JSON.stringify(json, null, 2)}`
-      );
+      handleResponse({ response, operation: 'Upload' });
     } catch (err) {
       console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
     }

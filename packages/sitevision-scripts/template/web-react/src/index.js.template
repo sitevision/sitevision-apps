@@ -1,22 +1,30 @@
-import * as React from 'react';
-{{#if clientRendering}}
-  import { renderToString } from 'react-dom/server';
-{{else}}
-  import { renderToStaticMarkup } from 'react-dom/server';
-{{/if}}
+{{#unless widget}}
+  import * as React from 'react';
+  {{#if clientRendering}}
+    import { renderToString } from 'react-dom/server';
+  {{else}}
+    import { renderToStaticMarkup } from 'react-dom/server';
+  {{/if}}
+{{/unless}}
 import router from '@sitevision/api/common/router';
 import appData from '@sitevision/api/server/appData';
-import App from './components/App';
+{{#unless widget}}
+  import App from './components/App';
+{{/unless}}
 
 router.get('/', (req, res) => {
   const message = 'Hello, world!';
   const name = appData.get('name');
 
   {{#if clientRendering}}
-    res.agnosticRender(renderToString(<App message={message} name={name} />), {
-      message,
-      name,
-    });
+    {{#if widget}}
+      res.agnosticRender('', {
+    {{else}}
+      res.agnosticRender(renderToString(<App message={message} name={name} />), {
+    {{/if}}
+        message,
+        name,
+      });
   {{else}}
     res.send(renderToStaticMarkup(<App message={message} name={name} />));
   {{/if}}

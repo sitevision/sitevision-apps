@@ -2,14 +2,14 @@
   "id": "{{appName}}",
   "version": "0.0.1",
   "name": {
-    "en": "WebApp boilerplate"
+    "en": "{{manifestType}} boilerplate"
   },
   "author": "My Company",
   "description": {
-    "en": "A WebApp boilerplate"
+    "en": "A {{manifestType}} boilerplate"
   },
   "helpUrl": "https://example.com/webapps",
-  "type": "WebApp",
+  "type": "{{manifestType}}",
   "bundled": true,
   {{#if clientRendering}}
     "requiredLibs": {

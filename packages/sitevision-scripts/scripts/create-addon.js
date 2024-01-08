@@ -1,13 +1,11 @@
 import fetch from 'node-fetch';
 import * as properties from '../util/properties.js';
 import chalk from 'chalk';
+import { getAddonEndpoint, handleResponse } from './util/requests.js';
 
 (async function () {
   const props = properties.getDevProperties();
-  const restEndpoint =
-    properties.getAppType() === 'rest'
-      ? 'headlesscustommodule'
-      : 'custommodule';
+  const restEndpoint = getAddonEndpoint(properties.getAppType());
   const url =
     (props.useHTTPForDevDeploy ? `http://` : `https://`) +
     `${props.domain}/rest-api/1/0/${encodeURIComponent(
@@ -24,25 +22,8 @@ import chalk from 'chalk';
         ).toString('base64')}`,
       },
     });
-    const json = await response.json();
 
-    if (response.ok) {
-      return console.log(
-        `${chalk.green('Addon creation successful:')} \n${JSON.stringify(
-          json,
-          null,
-          2
-        )}`
-      );
-    }
-
-    console.log(
-      `${chalk.red('Addon creation failed:')} \n${JSON.stringify(
-        json,
-        null,
-        2
-      )}`
-    );
+    handleResponse({ response, operation: 'Addon creation' });
   } catch (err) {
     console.error(`${chalk.red('Addon creation failed:')}, ${err}`);
   }

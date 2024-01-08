@@ -9,10 +9,28 @@ import { questions } from '../config/setup-questions.js';
 import spawn from 'cross-spawn';
 import { getDirname } from '../util/dirname.js';
 
+const getManifestType = (type) => {
+  if (type.startsWith('web')) {
+    return 'WebApp';
+  }
+
+  if (type.startsWith('widget')) {
+    return 'Widget';
+  }
+
+  if (type.startsWith('rest')) {
+    return 'RESTApp';
+  }
+
+  throw new Error(`Unknown app type: ${type}`);
+};
+
 const copyTemplateFiles = (type, options) => {
   console.log('Copying template files');
+  // Widgets and WebApps use the same template setup, no need to duplicate folder structure
+  const templateType = type.replace(/widget/, 'web');
   fs.copySync(
-    path.resolve(getDirname(import.meta.url), '..', 'template', type),
+    path.resolve(getDirname(import.meta.url), '..', 'template', templateType),
     '.'
   );
 
@@ -164,7 +182,9 @@ export default async ({ appPath, appName }) => {
 
         switch (type) {
           case 'web-react':
-          case 'web-react-typescript': {
+          case 'web-react-typescript':
+          case 'widget-react':
+          case 'widget-react-typescript': {
             updatePackageJsonReact(typescript);
             installWebAppDependencies(appPath);
             templateOptions.typescript = typescript;
@@ -172,6 +192,8 @@ export default async ({ appPath, appName }) => {
             templateOptions.reactVersion = simplifyVersionNumber(
               properties.getPackageJson().dependencies.react
             );
+            templateOptions.manifestType = getManifestType(type);
+            templateOptions.widget = type.startsWith('widget');
             break;
           }
           case 'rest-bundled':

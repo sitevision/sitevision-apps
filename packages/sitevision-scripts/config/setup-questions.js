@@ -8,6 +8,7 @@ export const questions = [
     choices: [
       { name: 'WebApp (React)', value: 'web-react' },
       { name: 'RESTApp', value: 'rest-bundled' },
+      { name: 'Widget (React)', value: 'widget-react' },
       new inquirer.Separator(),
       { name: 'WebApp (Legacy)', value: 'web-legacy' },
       { name: 'RESTApp (Legacy)', value: 'rest-legacy' },
@@ -18,7 +19,7 @@ export const questions = [
     message: 'Do you want to use TypeScript?',
     type: 'confirm',
     default: false,
-    when: (answers) => /web-react|rest-bundled/.test(answers.type),
+    when: (answers) => /web-react|rest-bundled|widget-react/.test(answers.type),
   },
   {
     name: 'serverSideOnly',
