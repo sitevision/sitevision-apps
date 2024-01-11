@@ -524,6 +524,36 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   METADATA_MULTIPLE_TAG_DEFINITION_TYPE: "sv:metadataMultipleTagDefinition";
 
   /**
+   * The primary node type name for the metadata date definition type.
+   * @since Sitevision 2024.01.1
+   */
+  METADATA_DATE_DEFINITION_TYPE: "sv:metadataDateDefinition";
+
+  /**
+   * The primary node type name for the metadata system image definition type.
+   * @since Sitevision 2024.01.1
+   */
+  METADATA_SYSTEM_IMAGE_DEFINITION_TYPE: "sv:metadataSystemImageDefinition";
+
+  /**
+   * The primary node type name for the metadata system integer definition type.
+   * @since Sitevision 2024.01.1
+   */
+  METADATA_SYSTEM_INTEGER_DEFINITION_TYPE: "sv:metadataSystemIntegerDefinition";
+
+  /**
+   * The primary node type name for the metadata system link definition type.
+   * @since Sitevision 2024.01.1
+   */
+  METADATA_SYSTEM_LINK_DEFINITION_TYPE: "sv:metadataSystemLinkDefinition";
+
+  /**
+   * The primary node type name for the metadata system text definition type.
+   * @since Sitevision 2024.01.1
+   */
+  METADATA_SYSTEM_TEXT_DEFINITION_TYPE: "sv:metadataSystemTextDefinition";
+
+  /**
    * The primary node type name for the mobile app type.
    * @since Sitevision 3.6.3
    * @deprecated As of Sitevision 10 this type no longer exist
@@ -1475,6 +1505,40 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    * @since Sitevision 10.2
    */
   isAnyUserType(aNode: Node): boolean;
+
+  /**
+   * Convenience method that checks if a node is of "Metadata definition node" type.
+   *
+   *  <p>
+   *     "Metadata definition node" types are:
+   *  </p>
+   *  <ul>
+   *     <li>{@link #METADATA_TEXT_DEFINITION_TYPE sv:metadataTextDefinition}</li>
+   *     <li>{@link #METADATA_SINGLE_DEFINITION_TYPE sv:metadataSingleDefinition}</li>
+   *     <li>{@link #METADATA_MULTIPLE_DEFINITION_TYPE sv:metadataMultipleDefinition}</li>
+   *     <li>{@link #METADATA_INTEGER_DEFINITION_TYPE sv:metadataIntegerDefinition}</li>
+   *     <li>{@link #METADATA_DATE_DEFINITION_TYPE sv:metadataDateDefinition}</li>
+   *     <li>{@link #METADATA_USER_DEFINITION_TYPE sv:metadataUserDefinition}</li>
+   *     <li>{@link #METADATA_DIRECTORY_DEFINITION_TYPE sv:metadataDirectoryDefinition}</li>
+   *     <li>{@link #METADATA_LINK_DEFINITION_TYPE sv:metadataLinkDefinition}</li>
+   *     <li>{@link #METADATA_TEXT_PORTLET_DEFINITION_TYPE sv:metadataTextPortletDefinition}</li>
+   *     <li>{@link #METADATA_IMAGE_PORTLET_DEFINITION_TYPE sv:metadataImagePortletDefinition}</li>
+   *     <li>{@link #METADATA_MEDIA_PORTLET_DEFINITION_TYPE sv:metadataMediaPortletDefinition}</li>
+   *     <li>{@link #METADATA_RELATED_INFORMATION_DEFINITION_TYPE sv:metadataRelatedInformationDefinition}</li>
+   *     <li>{@link #METADATA_SINGLE_TAG_DEFINITION_TYPE sv:metadataSingleTagDefinition}</li>
+   *     <li>{@link #METADATA_MULTIPLE_TAG_DEFINITION_TYPE sv:metadataMultipleTagDefinition}</li>
+   *     <li>{@link #METADATA_KEYWORD_DEFINITION_TYPE sv:metadataKeywordDefinition}</li>
+   *     <li>{@link #METADATA_SYSTEM_DEFINITION_TYPE sv:metadataSystemDefinition}</li>
+   *     <li>{@link #METADATA_SYSTEM_IMAGE_DEFINITION_TYPE sv:metadataSystemImageDefinition}</li>
+   *     <li>{@link #METADATA_SYSTEM_INTEGER_DEFINITION_TYPE sv:metadataSystemIntegerDefinition}</li>
+   *     <li>{@link #METADATA_SYSTEM_LINK_DEFINITION_TYPE sv:metadataSystemLinkDefinition}</li>
+   *     <li>{@link #METADATA_SYSTEM_TEXT_DEFINITION_TYPE sv:metadataSystemTextDefinition}</li>
+   *  </ul>
+   * @param aNode the node to be checked
+   * @return whether aNode is a "metadata definition node" or not.
+   * @since Sitevision 2024.01.1
+   */
+  isAnyMetadataDefinitionType(aNode: Node): boolean;
 
   /**
    * Checks a node against a given node type name to see if they match.

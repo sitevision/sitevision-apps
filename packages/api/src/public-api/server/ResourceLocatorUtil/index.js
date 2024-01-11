@@ -1,4 +1,5 @@
 export default {
+  getRootNode: () => {},
   getSite: () => {},
   getSitePage: () => {},
   getColorRepository: () => {},

@@ -14,6 +14,17 @@ import type { Object } from "../../types/java/lang/Object";
  */
 export interface ResourceLocatorUtil {
   /**
+   * Gets the JCR Root Node for current Site.
+   *
+   *  <p>
+   *     <em>This is a non-throwing convenience for the {@link javax.jcr.Session#getRootNode() Session.getRootNode()} method.</em>
+   *  </p>
+   * @return the JCR Root Node, or null if indeterminable
+   * @since Sitevision 2023.11.1
+   */
+  getRootNode(): Node;
+
+  /**
    * Gets current site (i.e. the site node of the page for the currently executing portlet).
    *
    *  <p>
