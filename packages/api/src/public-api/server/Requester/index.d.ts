@@ -31,7 +31,16 @@ import type { RequesterChainable } from "../../types/senselogic/sitevision/api/s
  *           - request data type <em>(default is "application/x-www-form-urlencoded").</em>
  *           <ul>
  *              <li><em>"text/plain" - data will be sent as a string entity</em></li>
- *              <li><em>"application/json" - data will be sent as JSON</em></li>
+ *              <li>
+ *                 <em>"application/json" - data will be sent as JSON</em>
+ *                 <ul>
+ *                    <li>
+ *                       <em>When the targeted API expects "application/vnd.api+json",
+ *                       you should set the "contentType" option to "application/json" while ensuring that the
+ *                       <strong>headers</strong> options include the expected "Content-Type"</em>
+ *                    </li>
+ *                 </ul>
+ *              </li>
  *              <li><em>"multipart/form-data" [@since Sitevision 4.5.4] - request will be sent as multipart form entity</em></li>
  *           </ul>
  *        </li>

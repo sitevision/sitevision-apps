@@ -36,6 +36,7 @@ export default {
   isAnyRenderableType: () => {},
   isAnyContentType: () => {},
   isAnyUserType: () => {},
+  isAnyMetadataDefinitionType: () => {},
   isType: () => {},
   isTypeOf: () => {},
 };

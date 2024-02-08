@@ -562,6 +562,41 @@ export type NodeTypeUtilConstants = {
   getMETADATA_MULTIPLE_TAG_DEFINITION_TYPE(): string;
 
   /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SYSTEM_IMAGE_DEFINITION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SYSTEM_IMAGE_DEFINITION_TYPE}
+   * @since Sitevision 2024.01.1
+   */
+  getMETADATA_SYSTEM_IMAGE_DEFINITION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SYSTEM_INTEGER_DEFINITION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SYSTEM_INTEGER_DEFINITION_TYPE}
+   * @since Sitevision 2024.01.1
+   */
+  getMETADATA_SYSTEM_INTEGER_DEFINITION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SYSTEM_LINK_DEFINITION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SYSTEM_LINK_DEFINITION_TYPE}
+   * @since Sitevision 2024.01.1
+   */
+  getMETADATA_SYSTEM_LINK_DEFINITION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SYSTEM_TEXT_DEFINITION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SYSTEM_TEXT_DEFINITION_TYPE}
+   * @since Sitevision 2024.01.1
+   */
+  getMETADATA_SYSTEM_TEXT_DEFINITION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_DATE_DEFINITION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_DATE_DEFINITION_TYPE}
+   * @since Sitevision 2024.01.1
+   */
+  getMETADATA_DATE_DEFINITION_TYPE(): string;
+
+  /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#MOBILE_APP_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#MOBILE_APP_TYPE}
    * @since Sitevision 3.6.3
