@@ -6,5 +6,6 @@
   "description": "A RESTApp boilerplate",
   "helpUrl": "https://example.com/restapps",
   "type": "RESTApp",
-  "bundled": true
+  "bundled": true,
+  "maxUploadSizeInMB": 0
 }

@@ -11,6 +11,7 @@
   "helpUrl": "https://example.com/webapps",
   "type": "{{manifestType}}",
   "bundled": true,
+  "maxUploadSizeInMB": 0,
   {{#if clientRendering}}
   "requiredLibs": {
     "react": "{{reactVersion}}"
