@@ -1,6 +1,6 @@
 # WebApp template folders excludes
 node_modules
-.dev_properties
+.dev_properties.json
 build
 dist
 
