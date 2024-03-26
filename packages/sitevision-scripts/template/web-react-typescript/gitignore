@@ -1,5 +1,6 @@
 # WebApp / RestApp template folders excludes
 node_modules
+.dev_properties
 build
 dist
 
