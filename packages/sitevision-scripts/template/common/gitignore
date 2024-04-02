@@ -1,4 +1,4 @@
-# RestApp template folders excludes
+# Template folders excludes
 node_modules
 .dev_properties.json
 build

@@ -29,10 +29,14 @@ const copyTemplateFiles = (type, options) => {
   console.log('Copying template files');
   // Widgets and WebApps use the same template setup, no need to duplicate folder structure
   const templateType = type.replace(/widget/, 'web');
-  fs.copySync(
-    path.resolve(getDirname(import.meta.url), '..', 'template', templateType),
-    '.'
+  const templatePath = path.resolve(
+    getDirname(import.meta.url),
+    '..',
+    'template'
   );
+
+  fs.copySync(path.resolve(templatePath, templateType), '.');
+  fs.copySync(path.resolve(templatePath, 'common'), '.');
 
   if (!options.clientRendering) {
     const mainName = options.typescript ? 'main.tsx' : 'main.js';
