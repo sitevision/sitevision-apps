@@ -173,6 +173,7 @@ export default {
   getUSER_FIELD_REPOSITORY_TYPE: () => {},
   getMARKETPLACE_CUSTOM_MODULE_TYPE: () => {},
   getMARKETPLACE_HEADLESS_CUSTOM_MODULE_TYPE: () => {},
+  getMARKETPLACE_WIDGET_CUSTOM_MODULE_TYPE: () => {},
   getRESPONSIVE_BREAKPOINT_REPOSITORY_TYPE: () => {},
   getTOPIC_REPOSITORY_TYPE: () => {},
   getTOPIC_TYPE: () => {},
@@ -188,4 +189,6 @@ export default {
   getWORK_STATUS_TYPE: () => {},
   getWORK_STATUS_TEMPLATE_TYPE: () => {},
   getWORK_STATUS_TEMPLATE_REPOSITORY_TYPE: () => {},
+  getDASHBOARD_TYPE: () => {},
+  getWIDGET_CUSTOM_MODULE_TYPE: () => {},
 };

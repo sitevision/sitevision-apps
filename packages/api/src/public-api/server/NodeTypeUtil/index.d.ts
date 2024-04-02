@@ -1087,6 +1087,12 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   MARKETPLACE_HEADLESS_CUSTOM_MODULE_TYPE: "sv:marketplaceHeadlessCustomModule";
 
   /**
+   * The primary node type name for the Marketplace widget custom module type.
+   * @since Sitevision 2024.02.1
+   */
+  MARKETPLACE_WIDGET_CUSTOM_MODULE_TYPE: "sv:marketplaceWidgetCustomModule";
+
+  /**
    * The primary node type name for the responsive breakpoint repository type.
    * @since Sitevision 6.2
    */
@@ -1175,6 +1181,18 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    * @since Sitevision 2023.09.2
    */
   WORK_STATUS_TEMPLATE_REPOSITORY_TYPE: "sv:workStatusTemplateRepository";
+
+  /**
+   * The primary node type name for the dashboard type.
+   * @since Sitevision 2024.02.1
+   */
+  DASHBOARD_TYPE: "sv:dashboard";
+
+  /**
+   * The primary node type name for the widget custom module type.
+   * @since Sitevision 2024.02.1
+   */
+  WIDGET_CUSTOM_MODULE_TYPE: "sv:widgetCustomModule";
 
   /**
    * Checks if a node is a layout.

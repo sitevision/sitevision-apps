@@ -53,6 +53,7 @@ declare enum Permission {
   MANAGE_TYPES_IDENTIFIERS,
   MANAGE_CUSTOM_SEARCH_INDEX,
   MANAGE_PUBLISHING_LOCK,
+  MANAGE_DASHBOARDS,
 }
 
 export default Permission;

@@ -1200,6 +1200,13 @@ export type NodeTypeUtilConstants = {
   getMARKETPLACE_HEADLESS_CUSTOM_MODULE_TYPE(): string;
 
   /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#MARKETPLACE_WIDGET_CUSTOM_MODULE_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#MARKETPLACE_WIDGET_CUSTOM_MODULE_TYPE}
+   * @since Sitevision 2024.02.1
+   */
+  getMARKETPLACE_WIDGET_CUSTOM_MODULE_TYPE(): string;
+
+  /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#RESPONSIVE_BREAKPOINT_REPOSITORY_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#RESPONSIVE_BREAKPOINT_REPOSITORY_TYPE}
    * @since Sitevision 6.2
@@ -1303,4 +1310,18 @@ export type NodeTypeUtilConstants = {
    * @since Sitevision 2023.09.2
    */
   getWORK_STATUS_TEMPLATE_REPOSITORY_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#DASHBOARD_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#DASHBOARD_TYPE}
+   * @since Sitevision 2024.02.1
+   */
+  getDASHBOARD_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#WIDGET_CUSTOM_MODULE_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#WIDGET_CUSTOM_MODULE_TYPE}
+   * @since Sitevision 2024.02.1
+   */
+  getWIDGET_CUSTOM_MODULE_TYPE(): string;
 };

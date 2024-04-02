@@ -2,6 +2,7 @@ export default {
   getCurrentPage: () => {},
   getCurrentPortlet: () => {},
   getCurrentModuleElement: () => {},
+  getCurrentDashboard: () => {},
   getCurrentLocale: () => {},
   getCurrentUser: () => {},
   getCurrentUserIdentity: () => {},

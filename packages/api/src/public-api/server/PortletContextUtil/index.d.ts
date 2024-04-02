@@ -51,6 +51,13 @@ export interface PortletContextUtil extends PortletContextUtilConstants {
   getCurrentModuleElement(): Node;
 
   /**
+   * Gets current dashboard node (applicable during render of a sv:widgetCustomModule).
+   * @return current dashboard as <code>Node</code>, or <code>null</code> if indeterminable&#xA; (i.e. this method is not called from within a sv:widgetCustomModule)
+   * @since Sitevision 2024.02.1
+   */
+  getCurrentDashboard(): Node;
+
+  /**
    * Gets current Locale.
    * @return current <code>Locale</code>, or default <code>Locale</code> if indeterminable
    * @see senselogic.sitevision.api.node.NodeResolverUtil#getLocaleResolver()
