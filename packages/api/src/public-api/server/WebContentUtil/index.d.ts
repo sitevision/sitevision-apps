@@ -457,6 +457,52 @@ export interface WebContentUtil {
    * @since Sitevision 3.6
    */
   resolveToResourceURL(aNode: Node, aUnresolvedURL: String | string): string;
+
+  /**
+   * Removes the page content of the first root layout for a sv:page, sv:article or a sv:template.
+   *
+   *  <p>
+   *     Content of the <strong>first</strong> root layout available on the node will be removed.
+   *     Use {@link #removeAllContent(Node, String)} instead to specify a specific root layout.
+   *  </p>
+   *
+   *  <p>
+   *     Current user must have effective WRITE permission to mutate the node or a  <code>ConstraintViolationException</code> is thrown.
+   *  </p>
+   *
+   *  <p>
+   *     <em>This method is typically called to clear all content before adding new content via {@link #updateContent(Node, String)}</em>
+   *  </p>
+   * @param aPageNode the node that will be altered, typically a node with primary node type sv:page or sv:article.&#xA; May not be null and may not be the site page
+   * @throws NullPointerException if aPageNode is null
+   * @throws IllegalArgumentException if aPageNode is of invalid type
+   * @throws ConstraintViolationException if current user is not allowed to alter aPageNode
+   * @throws RepositoryException if something else goes wrong
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   * @since Sitevision 2024.03.1
+   */
+  removeAllContent(aPageNode: Node): void;
+
+  /**
+   * Removes the page content of a root layout for a sv:page, sv:article or a sv:template.
+   *
+   *  <p>
+   *     Current user must have effective WRITE permission to mutate the node or a <code>ConstraintViolationException</code> is thrown.
+   *  </p>
+   *
+   *  <p>
+   *     <em>This method is typically called to clear all content before adding new content via {@link #updateContent(Node, Map)}</em>
+   *  </p>
+   * @param aPageNode the node that will be altered, typically a node with primary node type sv:page or sv:article.&#xA; May not be null and may not be the site page
+   * @param aRootLayoutName the name of the root layout of aPageNode to remove content from (e.g. "Mittenspalt")
+   * @throws NullPointerException if aPageNode or aRootLayoutName is null
+   * @throws IllegalArgumentException if aPageNode is of invalid type or if there are no root layout named aRootLayoutName
+   * @throws ConstraintViolationException if current user is not allowed to alter aPageNode
+   * @throws RepositoryException if something else goes wrong
+   * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectiveWritePermission(Node, Node)
+   * @since Sitevision 2024.03.1
+   */
+  removeAllContent(aPageNode: Node, aRootLayoutName: String | string): void;
 }
 
 declare namespace WebContentUtil {}

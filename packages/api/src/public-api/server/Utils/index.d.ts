@@ -85,6 +85,7 @@ import type { FormatterBuilderFactory } from "../FormatterBuilderFactory";
 import type { TextModuleRendererBuilder } from "../TextModuleRendererBuilder";
 import type { TagUtil } from "../TagUtil";
 import type { AliasUtil } from "../AliasUtil";
+import type { MessagesFactory } from "../MessagesFactory";
 
 /**
  * Main entry point to get instances of interfaces in the Sitevision Utility API.
@@ -747,6 +748,13 @@ export interface Utils {
    * @since Sitevision 2022.10.2
    */
   getAliasUtil(): AliasUtil;
+
+  /**
+   * Gets an instance of a messages factory class.
+   * @return a messages factory class
+   * @since Sitevision 2024.03.01
+   */
+  getMessagesFactory(): MessagesFactory;
 }
 
 declare namespace Utils {}

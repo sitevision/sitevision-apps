@@ -82,4 +82,5 @@ export default {
   getTextModuleRendererBuilder: () => {},
   getTagUtil: () => {},
   getAliasUtil: () => {},
+  getMessagesFactory: () => {},
 };

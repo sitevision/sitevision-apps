@@ -4,4 +4,5 @@ export default {
   appendContent: () => {},
   appendContentWithRawHtml: () => {},
   resolveToResourceURL: () => {},
+  removeAllContent: () => {},
 };
