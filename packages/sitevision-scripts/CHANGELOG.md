@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.2](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.4.1...@sitevision/sitevision-scripts@3.4.2) (2024-04-02)
+
+**Note:** Version bump only for package @sitevision/sitevision-scripts
+
 ## [3.3.3](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.3.2...@sitevision/sitevision-scripts@3.3.3) (2023-08-16)
 
 ### Bug Fixes
