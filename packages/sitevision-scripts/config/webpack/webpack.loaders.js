@@ -28,9 +28,26 @@ export const getBabelLoader = () => ({
   },
 });
 
+// Custom property to transpile specific packages within node_modules
+const transpilePackages = Array.isArray(packageJson.transpilePackages)
+  ? packageJson.transpilePackages
+  : [];
+
 export const getClientBabelLoader = () => ({
   test: /\.(js|jsx)?$/,
-  exclude: /node_modules/,
+  exclude: (file) => {
+    if (/\/node_modules\//.test(file)) {
+      if (transpilePackages.length === 0) {
+        return true;
+      }
+
+      return !transpilePackages.some((transpilePackage) =>
+        file.includes(`/node_modules/${transpilePackage}/`)
+      );
+    }
+
+    return false;
+  },
   use: {
     loader: 'babel-loader',
     options: packageJson.babel || {
