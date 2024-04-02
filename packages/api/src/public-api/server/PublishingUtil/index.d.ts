@@ -1,6 +1,7 @@
 import type { Node } from "../../types/javax/jcr/Node";
 
 import type { Date } from "../../types/java/util/Date";
+import type PublishStatus from "../PublishStatus";
 
 /**
  * Publishing/unpublishing utility interface.
@@ -256,6 +257,58 @@ export interface PublishingUtil {
    * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectivePublishPermission(Node, Node)
    */
   unpublishNode(aNode: Node, aDate: Date): void;
+
+  /**
+   * <p>
+   *     Gets the publish status of a node.
+   *  </p>
+   *
+   *  <p>
+   *     Valid nodes are <code>sv:sitePage</code>, <code>sv:page</code>, <code>sv:article</code>, <code>sv:collaborationGroupPage</code>,
+   *     <code>sv:template</code> and <code>sv:link</code> <em>(must be a "page link", a stand-alone link in the page tree)</em>.
+   *     If another node is specified an <code>IllegalArgumentException</code> is thrown.
+   *  </p>
+   *
+   *  <p>
+   *     If no node is specified a <code>NullPointerException</code> is thrown.
+   *  </p>
+   * @param aNode the node whose publish status is to be checked
+   * @return the publish status for aNode
+   * @throws NullPointerException if <code>aNode</code> is null
+   * @throws IllegalArgumentException if <code>aNode</code> is of invalid type
+   * @throws ConstraintViolationException if current user is not authorized to publish nodes
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 2024.01.2
+   */
+  getPublishStatus(aNode: Node): PublishStatus;
+
+  /**
+   * <p>
+   *     Clears the publish and unpublish schedule for a node.
+   *  </p>
+   *
+   *  <p>
+   *     Valid nodes are <code>sv:sitePage</code>, <code>sv:page</code>, <code>sv:article</code>, <code>sv:collaborationGroupPage</code>,
+   *     <code>sv:template</code> and <code>sv:link</code> <em>(must be a "page link", a stand-alone link in the page tree)</em>.
+   *     If another node is specified an <code>IllegalArgumentException</code> is thrown.
+   *  </p>
+   *
+   *  <p>
+   *     If no node is specified a <code>NullPointerException</code> is thrown.
+   *  </p>
+   *
+   *  <p>
+   *     The current user must be authorized to publish nodes and manage publishing locks or a <code>ConstraintViolationException</code>
+   *     will be thrown.
+   *  </p>
+   * @param aNode that is scheduled for either publishing, unpublishing or both
+   * @throws NullPointerException if <code>aNode</code> is null
+   * @throws IllegalArgumentException if <code>aNode</code> is of invalid type
+   * @throws ConstraintViolationException if current user is not authorized to clear the schedule for <code>aNode</code>
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 2024.01.2
+   */
+  clearPublishingSchedule(aNode: Node): void;
 }
 
 declare namespace PublishingUtil {}

@@ -52,6 +52,7 @@ declare enum Permission {
   MANAGE_PINNING,
   MANAGE_TYPES_IDENTIFIERS,
   MANAGE_CUSTOM_SEARCH_INDEX,
+  MANAGE_PUBLISHING_LOCK,
 }
 
 export default Permission;

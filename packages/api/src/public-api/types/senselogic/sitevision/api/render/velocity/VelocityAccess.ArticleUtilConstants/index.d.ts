@@ -82,4 +82,18 @@ export type ArticleUtilConstants = {
    * @return {@link senselogic.sitevision.api.webresource.ArticleUtil#PROPERTY_PUBLISH_DATE}
    */
   getPROPERTY_PUBLISH_DATE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.webresource.ArticleUtil#PROPERTY_LAST_UNPUBLISHED_BY}.
+   * @return {@link senselogic.sitevision.api.webresource.ArticleUtil#PROPERTY_LAST_UNPUBLISHED_BY}
+   * @since Sitevision 2024.01.2
+   */
+  getPROPERTY_LAST_UNPUBLISHED_BY(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.webresource.ArticleUtil#PROPERTY_LAST_UNPUBLISH_DATE}.
+   * @return {@link senselogic.sitevision.api.webresource.ArticleUtil#PROPERTY_LAST_UNPUBLISH_DATE}
+   * @since Sitevision 2024.01.2
+   */
+  getPROPERTY_LAST_UNPUBLISH_DATE(): string;
 };

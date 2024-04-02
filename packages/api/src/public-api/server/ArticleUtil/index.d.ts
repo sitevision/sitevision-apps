@@ -124,6 +124,33 @@ export interface ArticleUtil extends ArticleUtilConstants {
   PROPERTY_PUBLISHED_BY: "publishedBy";
 
   /**
+   * <p>
+   *     Name of the property specifying the last user to unpublish an article.
+   *     It corresponds to the sv:article property <code>lastUnpublishedBy</code>.
+   *  </p>
+   *
+   *  <p>
+   *     The property value must be a {@link javax.jcr.Node} with primary node type sv:user or sv:systemUser.
+   *  </p>
+   * @since Sitevision 2024.01.2
+   */
+  PROPERTY_LAST_UNPUBLISHED_BY: "lastUnpublishedBy";
+
+  /**
+   * <p>
+   *     Name of the property specifying the last unpublished date of an article.
+   *     It corresponds to the sv:article property <code>lastUnpublishDate</code>.
+   *  </p>
+   *
+   *  <p>
+   *     The property value must be of type <code>Date</code> or a <code>String</code> on format yyyy-MM-dd HH:mm:ss,
+   *     where HH:mm:ss is optional (defaults to 00:00:00).
+   *  </p>
+   * @since Sitevision 2024.01.2
+   */
+  PROPERTY_LAST_UNPUBLISH_DATE: "lastUnpublishDate";
+
+  /**
    * <p>Creates an article as sub node to a specified parent. The parent must be a node with primary
    *  node type sv:archive. If other parent is specified a <code>ConstraintViolationException</code> is thrown.</p>
    *
@@ -212,6 +239,8 @@ export interface ArticleUtil extends ArticleUtilConstants {
    *  <li>{@link #PROPERTY_LAST_PUBLISHED_BY} - null (will not have a value)</li>
    *  <li>{@link #PROPERTY_PUBLISH_DATE} - null (will not have a value)</li>
    *  <li>{@link #PROPERTY_PUBLISHED_BY} - null (will not have a value)</li>
+   *  <li>{@link #PROPERTY_LAST_UNPUBLISHED_BY} - null (will not have a value)</li>
+   *  <li>{@link #PROPERTY_LAST_UNPUBLISH_DATE} - null (will not have a value)</li>
    *  </ul>
    *
    *  <p>The article content is specified using the
@@ -288,6 +317,12 @@ export interface ArticleUtil extends ArticleUtilConstants {
    *  </li>
    *  <li>
    *     {@link #PROPERTY_PUBLISHED_BY}
+   *  </li>
+   *  <li>
+   *     {@link #PROPERTY_LAST_UNPUBLISHED_BY}
+   *  </li>
+   *  <li>
+   *     {@link #PROPERTY_LAST_UNPUBLISH_DATE}
    *  </li>
    *  </ul>
    *  <p>

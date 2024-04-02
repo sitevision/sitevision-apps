@@ -11,5 +11,7 @@ export default {
   getPROPERTY_LAST_PUBLISH_DATE: () => {},
   getPROPERTY_PUBLISHED_BY: () => {},
   getPROPERTY_PUBLISH_DATE: () => {},
+  getPROPERTY_LAST_UNPUBLISHED_BY: () => {},
+  getPROPERTY_LAST_UNPUBLISH_DATE: () => {},
   getPROPERTY_TITLE: () => {},
 };

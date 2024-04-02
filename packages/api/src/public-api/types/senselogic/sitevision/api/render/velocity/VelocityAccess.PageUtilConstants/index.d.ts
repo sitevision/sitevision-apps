@@ -84,8 +84,22 @@ export type PageUtilConstants = {
   getPROPERTY_PUBLISH_DATE(): string;
 
   /**
+   * Get accessor for {@link senselogic.sitevision.api.webresource.PageUtil#PROPERTY_LAST_UNPUBLISHED_BY}.
+   * @return {@link senselogic.sitevision.api.webresource.PageUtil#PROPERTY_LAST_UNPUBLISHED_BY}
+   */
+  getPROPERTY_LAST_UNPUBLISHED_BY(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.webresource.PageUtil#PROPERTY_LAST_UNPUBLISH_DATE}.
+   * @return {@link senselogic.sitevision.api.webresource.PageUtil#PROPERTY_LAST_UNPUBLISH_DATE}
+   * @since Sitevision 2024.01.2
+   */
+  getPROPERTY_LAST_UNPUBLISH_DATE(): string;
+
+  /**
    * Get accessor for {@link senselogic.sitevision.api.webresource.PageUtil#PROPERTY_TITLE}.
    * @return {@link senselogic.sitevision.api.webresource.PageUtil#PROPERTY_TITLE}
+   * @since Sitevision 2024.01.2
    */
   getPROPERTY_TITLE(): string;
 };

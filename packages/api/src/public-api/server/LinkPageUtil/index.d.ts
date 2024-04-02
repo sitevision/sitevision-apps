@@ -118,6 +118,33 @@ export interface LinkPageUtil extends LinkPageUtilConstants {
 
   /**
    * <p>
+   *     Name of the property specifying the last user to unpublish a link page.
+   *     It corresponds to the sv:link property <code>lastUnpublishedBy</code>.
+   *  </p>
+   *
+   *  <p>
+   *     The property value must be a {@link javax.jcr.Node} with primary node type sv:user or sv:systemUser.
+   *  </p>
+   * @since Sitevision 2024.01.2
+   */
+  PROPERTY_LAST_UNPUBLISHED_BY: "lastUnpublishedBy";
+
+  /**
+   * <p>
+   *     Name of the property specifying the last unpublished date of a link page.
+   *     It corresponds to the sv:link property <code>lastUnpublishDate</code>.
+   *  </p>
+   *
+   *  <p>
+   *     The property value must be of type <code>Date</code> or a <code>String</code> on format yyyy-MM-dd HH:mm:ss,
+   *     where HH:mm:ss is optional (defaults to 00:00:00).
+   *  </p>
+   * @since Sitevision 2024.01.2
+   */
+  PROPERTY_LAST_UNPUBLISH_DATE: "lastUnpublishDate";
+
+  /**
+   * <p>
    *     Creates a link page as sub node of a specified parent.
    *  </p>
    *  <p>
@@ -207,6 +234,8 @@ export interface LinkPageUtil extends LinkPageUtilConstants {
    *     <li>{@link #PROPERTY_LAST_PUBLISHED_BY}</li>
    *     <li>{@link #PROPERTY_PUBLISH_DATE}</li>
    *     <li>{@link #PROPERTY_PUBLISHED_BY}</li>
+   *     <li>{@link #PROPERTY_LAST_UNPUBLISHED_BY}</li>
+   *     <li>{@link #PROPERTY_LAST_UNPUBLISH_DATE}</li>
    *  </ul>
    *  <p>
    *     If an invalid value is provided for a property, an <code>IllegalArgumentException</code> is thrown
@@ -225,6 +254,8 @@ export interface LinkPageUtil extends LinkPageUtilConstants {
    *     <li>{@link #PROPERTY_LAST_PUBLISHED_BY} - null (will not have a value)</li>
    *     <li>{@link #PROPERTY_PUBLISH_DATE} - null (will not have a value)</li>
    *     <li>{@link #PROPERTY_PUBLISHED_BY} - null (will not have a value)</li>
+   *     <li>{@link #PROPERTY_LAST_UNPUBLISHED_BY} - null (will not have a value)</li>
+   *     <li>{@link #PROPERTY_LAST_UNPUBLISH_DATE} - null (will not have a value)</li>
    *  </ul>
    *
    *  <p>
