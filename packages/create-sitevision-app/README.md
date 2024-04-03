@@ -73,3 +73,31 @@ NODE_TLS_REJECT_UNAUTHORIZED=0 npm run deploy
 Other targets that might need prefixing: `create-addon`, `force-deploy`, `dev`.
 
 It is possible to use (unsafe) http for local deployments by adding property `"useHTTPForDevDeploy": true` to .dev_properties.
+
+### Custom properties in package.json
+
+These properties, under the `sitevision_scripts_properties` namespace in `package.json`, allow users to customize the build process.
+
+#### `transpilePackages`
+
+An array of scope/package names within `node_modules` to transpile. This allows specific scopes/packages to undergo transpilation during the build process.
+
+#### `babel`
+
+Override options for the `babel-loader`. Use this to customize Babel's behavior and configuration.
+
+Example usage in `package.json`:
+
+```json
+{
+  "name": "your-package",
+  "version": "1.0.0",
+  "description": "Your package description",
+  "sitevision_scripts_properties": {
+    "transpilePackages": ["@scope", "package"],
+    "babel": {
+      "presets": ["@babel/preset-env"]
+    }
+  }
+}
+```
