@@ -94,7 +94,7 @@ Example usage in `package.json`:
   "version": "1.0.0",
   "description": "Your package description",
   "sitevision_scripts_properties": {
-    "transpilePackages": ["@scope/package", "package"],
+    "transpilePackages": ["@scope", "package"],
     "babel": {
       "presets": ["@babel/preset-env"]
     }
