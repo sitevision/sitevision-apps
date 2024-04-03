@@ -80,7 +80,7 @@ These properties, under the `sitevision_scripts_properties` namespace in `packag
 
 #### `transpilePackages`
 
-An array of package names within `node_modules` to transpile. This allows specific packages to undergo transpilation during the build process.
+An array of scope/package names within `node_modules` to transpile. This allows specific scopes/packages to undergo transpilation during the build process.
 
 #### `babel`
 
@@ -93,9 +93,8 @@ Example usage in `package.json`:
   "name": "your-package",
   "version": "1.0.0",
   "description": "Your package description",
-  "main": "index.js",
   "sitevision_scripts_properties": {
-    "transpilePackages": ["package1", "package2"],
+    "transpilePackages": ["@scope/package", "package"],
     "babel": {
       "presets": ["@babel/preset-env"]
     }
