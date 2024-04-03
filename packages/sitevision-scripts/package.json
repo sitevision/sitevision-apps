@@ -1,7 +1,7 @@
 {
   "name": "@sitevision/sitevision-scripts",
   "type": "module",
-  "version": "3.4.3",
+  "version": "3.5.0",
   "description": "Scripts for create-sitevision-app",
   "repository": {
     "type": "git",
