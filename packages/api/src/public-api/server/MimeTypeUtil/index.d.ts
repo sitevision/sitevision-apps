@@ -223,6 +223,18 @@ export interface MimeTypeUtil extends MimeTypeUtilConstants {
    * @since Sitevision 2022.10.1
    */
   isFontType(aFileExtensionExpression: String | string): boolean;
+
+  /**
+   * Checks if a specified file extension is an audio type (according to its mapped MIME type).
+   *
+   *  <p>
+   *     <em>An audio type has a MIME that starts with "<code>audio/</code>"</em>.
+   *  </p>
+   * @param aFileExtensionExpression a file extension (e.g <em>wav</em>) or an expression that ends with a period and a file extension&#xA; (e.g <em>myresource.wav</em> or <em>http://www.xyz.com/files/myresource.wav</em>). Case insensitive.
+   * @return true if <code>aFileExtensionExpression</code> is mapped to a <code>audio/*</code> MIME type, false otherwise
+   * @since Sitevision 2024.04.1
+   */
+  isAudioType(aFileExtensionExpression: String | string): boolean;
 }
 
 declare namespace MimeTypeUtil {}

@@ -11,4 +11,5 @@ export default {
   isMSPowerpointType: () => {},
   isMSOfficeType: () => {},
   isFontType: () => {},
+  isAudioType: () => {},
 };
