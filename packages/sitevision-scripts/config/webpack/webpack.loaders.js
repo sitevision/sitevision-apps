@@ -2,8 +2,6 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 import * as properties from '../../util/properties.js';
 
-const packageJson = properties.getPackageJson();
-
 export const getTypeScriptLoader = (server) => ({
   test: /\.tsx?$/,
   use: {
@@ -22,15 +20,16 @@ export const getBabelLoader = () => ({
   test: /\.jsx?$/,
   use: {
     loader: 'babel-loader',
-    options: packageJson.babel || {
+    options: properties.getCustomProperty('babel') || {
       presets: ['@sitevision/babel-preset-react-server'],
     },
   },
 });
 
-// Custom property to transpile specific packages within node_modules
-const transpilePackages = Array.isArray(packageJson.transpilePackages)
-  ? packageJson.transpilePackages
+const transpilePackagesValue =
+  properties.getCustomProperty('transpilePackages');
+const transpilePackages = Array.isArray(transpilePackagesValue)
+  ? transpilePackagesValue
   : [];
 
 export const getClientBabelLoader = () => ({
@@ -50,7 +49,7 @@ export const getClientBabelLoader = () => ({
   },
   use: {
     loader: 'babel-loader',
-    options: packageJson.babel || {
+    options: properties.getCustomProperty('babel') || {
       presets: ['@sitevision/babel-preset-react-client'],
     },
   },

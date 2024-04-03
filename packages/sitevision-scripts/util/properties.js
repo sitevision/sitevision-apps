@@ -12,6 +12,12 @@ export const STATIC_DIR_PATH = path.resolve(CWD, 'static');
 export const BUILD_DIR_PATH = path.resolve(CWD, 'build');
 export const PACKAGE_JSON_PATH = path.resolve(CWD, 'package.json');
 
+const VALID_CUSTOM_PROPERTIES_NAMES = [
+  'transpilePackages', // array of package names within node_modules to transpile
+  'babel', // babel-loader options override
+  'transpile', // transpile with babel (applicable for legacy apps)
+];
+
 const requireIfExists = (...modules) => {
   for (let module of modules) {
     try {
@@ -56,6 +62,28 @@ export const getTranspile = () => {
 
   const { transpile } = getFileAsJson(DEV_PROPERTIES_PATH);
   return transpile;
+};
+
+export const getCustomProperty = (name) => {
+  if (!VALID_CUSTOM_PROPERTIES_NAMES.includes(name)) {
+    throw new Error(`Invalid custom property name: ${name}`);
+  }
+
+  if (name === 'transpile') {
+    return getTranspile();
+  }
+
+  const { sitevision_scripts_properties, babel } =
+    getFileAsJson(PACKAGE_JSON_PATH);
+
+  // Legacy handling of babel property
+  if (name === 'babel' && babel) {
+    return babel;
+  }
+
+  if (sitevision_scripts_properties && sitevision_scripts_properties[name]) {
+    return sitevision_scripts_properties[name];
+  }
 };
 
 const getFileAsJson = (file) => {
