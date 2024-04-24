@@ -1324,4 +1324,18 @@ export type NodeTypeUtilConstants = {
    * @since Sitevision 2024.02.1
    */
   getWIDGET_CUSTOM_MODULE_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#CSS_RULE_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#CSS_RULE_REPOSITORY_TYPE}
+   * @since Sitevision 2024.04.2
+   */
+  getCSS_RULE_REPOSITORY_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#CSS_RULE_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#CSS_RULE_TYPE}
+   * @since Sitevision 2024.04.2
+   */
+  getCSS_RULE_TYPE(): string;
 };

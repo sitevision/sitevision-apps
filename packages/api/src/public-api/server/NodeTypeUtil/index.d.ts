@@ -1195,6 +1195,18 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   WIDGET_CUSTOM_MODULE_TYPE: "sv:widgetCustomModule";
 
   /**
+   * The primary node type name for the css rule repository type.
+   * @since Sitevision 2024.04.2
+   */
+  CSS_RULE_REPOSITORY_TYPE: "sv:cssRuleRepository";
+
+  /**
+   * The primary node type name for the css rule type.
+   * @since Sitevision 2024.04.2
+   */
+  CSS_RULE_TYPE: "sv:cssRule";
+
+  /**
    * Checks if a node is a layout.
    * @param aNode the node to be checked
    * @return whether <code>aNode</code> is a layout or not.

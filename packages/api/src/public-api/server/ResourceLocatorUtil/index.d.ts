@@ -467,6 +467,13 @@ export interface ResourceLocatorUtil {
    * @since Sitevision 2023.09.2
    */
   getWorkStatusTemplateRepository(): Node;
+
+  /**
+   * Gets the css rule repository (sv:cssRuleRepository) for the site of current node.
+   * @return the css rule repository, or null if indeterminable.
+   * @since Sitevision 2024.04.2
+   */
+  getCssRuleRepository(): Node;
 }
 
 declare namespace ResourceLocatorUtil {}

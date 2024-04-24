@@ -43,4 +43,5 @@ export default {
   getSiteCookieRepository: () => {},
   getImageFilterRepository: () => {},
   getWorkStatusTemplateRepository: () => {},
+  getCssRuleRepository: () => {},
 };

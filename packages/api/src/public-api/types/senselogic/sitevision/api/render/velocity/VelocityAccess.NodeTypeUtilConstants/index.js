@@ -191,4 +191,6 @@ export default {
   getWORK_STATUS_TEMPLATE_REPOSITORY_TYPE: () => {},
   getDASHBOARD_TYPE: () => {},
   getWIDGET_CUSTOM_MODULE_TYPE: () => {},
+  getCSS_RULE_REPOSITORY_TYPE: () => {},
+  getCSS_RULE_TYPE: () => {},
 };

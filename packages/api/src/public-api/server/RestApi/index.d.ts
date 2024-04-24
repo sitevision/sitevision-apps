@@ -2,11 +2,11 @@ import type { Node } from "../../types/javax/jcr/Node";
 import type { String } from "../../types/java/lang/String";
 
 /**
- * Script utility for server-side invoke of the local Sitevision REST API.
+ * Script utility for server-side invoke of the local
+ *  <a href="https://developer.sitevision.se/docs/rest-api/model-rest-api" target="_blank">Sitevision REST API</a>.
  *
  *  <p>
- *     This is a local, server-side, inbound utility to invoke the
- *     <a href="https://developer.sitevision.se/docs/rest-api/model-rest-api" target="_blank">Sitevision REST API</a>
+ *     This is a local, server-side, inbound utility to invoke the Sitevision REST API
  *     of the local site without any outgoing http connections.
  *     This utility can be used regardless of the REST API of the local site is enabled or not!
  *  </p>
@@ -46,6 +46,10 @@ import type { String } from "../../types/java/lang/String";
  *  </p>
  *  <ul>
  *     <li>
+ *        To execute endpoints in the REST API with a <em>fixed version</em> (ONLINE / OFFLINE) should typically be handled via
+ *        {@link VersionedRestApi}.
+ *     </li>
+ *     <li>
  *        Server-side invoke of a <em>local RESTApp</em> should typically be handled via
  *        {@link senselogic.sitevision.api.script.app.RestAppInvoker}.
  *     </li>
@@ -57,6 +61,7 @@ import type { String } from "../../types/java/lang/String";
  * @param <O> script object
  * @author Magnus Lövgren
  * @since Sitevision 4.5
+ * @see VersionedRestApi
  * @see Requester
  * @see senselogic.sitevision.api.script.app.RestAppInvoker
  */
