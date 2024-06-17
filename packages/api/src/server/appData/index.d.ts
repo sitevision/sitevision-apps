@@ -4,6 +4,7 @@ export interface AppData {
   get(...key: string[]): unknown;
   getNode(key: string): Node;
   getArray(key: string): Node[];
+  getNumber(key: string): number;
 }
 
 declare namespace AppData {}
