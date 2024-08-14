@@ -35,8 +35,9 @@ export type ChannelWrapper = Wrapper & {
    *     <strong>Permission notes!</strong>
    *  </p>
    *  <p>
-   *     <em>Open channels</em> require the operating user to either have membership or the
-   *     {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_CHANNELS} permission.
+   *     <em>Open channels</em> require the operating user to have either membership or the
+   *      {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_CHANNELS} permission
+   *      when adding members other than self.
    *  </p>
    *  <p>
    *     <em>Private channels</em> require the operating user to have membership.

@@ -8,4 +8,6 @@ export default {
   updateBinaryContentFromTemporary: () => {},
   renameImage: () => {},
   toBase64: () => {},
+  setAltText: () => {},
+  setCaptionText: () => {},
 };
