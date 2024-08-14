@@ -1,3 +1,4 @@
+import type { ChannelUtil } from "../ChannelUtil";
 import type { Node } from "../../types/javax/jcr/Node";
 import type { ChannelWrapper } from "../../types/senselogic/sitevision/api/message/ChannelWrapper";
 
@@ -13,6 +14,13 @@ import type { ChannelWrapper } from "../../types/senselogic/sitevision/api/messa
  * @since Sitevision 2024.03.01
  */
 export interface MessagesFactory {
+  /**
+   * Gets an instance of a channel utility class.
+   * @return a channel utility class
+   * @since Sitevision 2024.05.01
+   */
+  getChannelUtil(): ChannelUtil;
+
   /**
    * Gets a wrapper for the specified channel.
    * @param aChannel the channel node (node of type sv:topic).

@@ -1,5 +1,6 @@
 import type { Node } from "../../../../../javax/jcr/Node";
 
+import type { String } from "../../../../../java/lang/String";
 import type { Wrapper } from "../../base/Wrapper";
 
 /**
@@ -88,4 +89,42 @@ export type ChannelWrapper = Wrapper & {
    * @return true if aUserIdentity was removed as member from the wrapped channel, false otherwise.&#xA; false is always returned if aUserIdentity is null or not a member of the wrapped channel.
    */
   removeMember(aUserIdentity: Node): boolean;
+
+  /**
+   * Checks if a user identity is a member of the wrapped channel.
+   * @param aUserIdentity a user identity (or user)
+   * @return true if aUserIdentity is a member of the wrapped channel, false otherwise.&#xA; false is always returned if aUserIdentity is null.
+   * @since Sitevision 2024.05.01
+   */
+  isMember(aUserIdentity: Node): boolean;
+
+  /**
+   * Alters the name of the wrapped channel.
+   *
+   *  <p>
+   *     <em>Permission note</em> Only the author or members with the
+   *     {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_CHANNELS} permission can alter the channel name.
+   *  </p>
+   *
+   *  <p>
+   *     The new channel name most not exceed 80 characters in length and must be unique otherwise false will be returned.
+   *  </p>
+   * @param aChannelName the new name of the channel
+   * @return true if channel could be renamed to aChannelName, false otherwise.
+   * @since Sitevision 2024.05.01
+   */
+  renameChannel(aChannelName: String | string): boolean;
+
+  /**
+   * Alters the description of the wrapped channel.
+   *
+   *  <p>
+   *     <em>Permission note</em> Only the author or members with the
+   *     {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_CHANNELS} permission can alter the channel description.
+   *  </p>
+   * @param aChannelDescription the new description of the channel
+   * @return true if channel description was set to aChannelDescription, false otherwise.
+   * @since Sitevision 2024.05.01
+   */
+  setChannelDescription(aChannelDescription: String | string): boolean;
 };
