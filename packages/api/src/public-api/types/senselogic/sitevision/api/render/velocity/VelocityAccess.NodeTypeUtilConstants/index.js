@@ -16,6 +16,8 @@ export default {
   getLAYOUT_TYPE: () => {},
   getLINKED_LAYOUT_TYPE: () => {},
   getLINK_TYPE: () => {},
+  getLLM_CONFIGURATION_TYPE: () => {},
+  getLLM_CONFIGURATION_REPOSITORY_TYPE: () => {},
   getNODE_INDEX_TYPE: () => {},
   getPAGE_TYPE: () => {},
   getPORTLET_TYPE: () => {},

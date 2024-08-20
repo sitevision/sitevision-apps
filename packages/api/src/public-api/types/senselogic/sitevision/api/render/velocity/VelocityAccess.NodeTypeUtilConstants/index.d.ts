@@ -115,6 +115,20 @@ export type NodeTypeUtilConstants = {
   getLINK_TYPE(): string;
 
   /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#LLM_CONFIGURATION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#LLM_CONFIGURATION_TYPE}
+   * @since Sitevision 2024.08.1
+   */
+  getLLM_CONFIGURATION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#LLM_CONFIGURATION_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#LLM_CONFIGURATION_REPOSITORY_TYPE}
+   * @since Sitevision 2024.08.1
+   */
+  getLLM_CONFIGURATION_REPOSITORY_TYPE(): string;
+
+  /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#NODE_INDEX_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#NODE_INDEX_TYPE}
    */

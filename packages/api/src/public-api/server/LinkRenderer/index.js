@@ -25,6 +25,8 @@ export default {
   clearUseParameterEncoding: () => {},
   addDataAttribute: () => {},
   clearDataAttributes: () => {},
+  addAriaAttribute: () => {},
+  clearAriaAttributes: () => {},
   setAccessKey: () => {},
   clearAccessKey: () => {},
   setRel: () => {},

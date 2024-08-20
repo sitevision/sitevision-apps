@@ -44,4 +44,5 @@ export default {
   getImageFilterRepository: () => {},
   getWorkStatusTemplateRepository: () => {},
   getCssRuleRepository: () => {},
+  getLlmConfigurationRepository: () => {},
 };

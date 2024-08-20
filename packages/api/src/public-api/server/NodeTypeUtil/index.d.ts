@@ -127,6 +127,18 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   LINK_TYPE: "sv:link";
 
   /**
+   * The primary node type name for a LLM configuration.
+   * @since Sitevision 2024.08.1
+   */
+  LLM_CONFIGURATION_TYPE: "sv:llmConfiguration";
+
+  /**
+   * The primary node type name for a LLM configuration repository.
+   * @since Sitevision 2024.08.1
+   */
+  LLM_CONFIGURATION_REPOSITORY_TYPE: "sv:llmConfigurationRepository";
+
+  /**
    * The primary node type name for a node index.
    * @since Sitevision 3.6
    */

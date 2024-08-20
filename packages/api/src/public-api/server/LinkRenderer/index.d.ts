@@ -83,6 +83,10 @@ import type { String } from "../../types/java/lang/String";
  *        Default is no data attributes
  *      </li>
  *      <li style="margin-top:5px">
+ *        <em>ariaAttributes</em> - Additional HTML5 aria-* attributes.<br>
+ *        Default is no aria attributes
+ *      </li>
+ *      <li style="margin-top:5px">
  *        <em>download</em> - Whether or not to add the HTML5-specific <em>download</em> attribute
  *        (indication to the browser to download the link target instead of navigating to it).<br>
  *        Default is <code>false</code>
@@ -347,6 +351,7 @@ export interface LinkRenderer {
    *    <li><code>clearAccessKey()</code></li>
    *    <li><code>clearOpenNewWindow()</code></li>
    *    <li><code>clearDataAttributes()</code></li>
+   *    <li><code>clearAriaAttributes()</code></li>
    *    <li><code>clearUseDownload()</code></li>
    *    <li><code>clearLang()</code></li>
    *    <li><code>clearHrefLang()</code></li>
@@ -359,6 +364,7 @@ export interface LinkRenderer {
    * @see #clearAccessKey()
    * @see #clearOpenNewWindow()
    * @see #clearDataAttributes()
+   * @see #clearAriaAttributes()
    * @see #clearUseDownload()
    * @see #clearLang()
    * @see #clearHrefLang()
@@ -636,7 +642,7 @@ export interface LinkRenderer {
   clearUseParameterEncoding(): void;
 
   /**
-   * Adds an HTML5 data-* attribute to the link element.
+   * Adds a data-* attribute to the link element.
    *  Data attributes is optional when the result is rendered. Default is no data attributes.
    *  <p>
    *     There can only be one data attribute per name (i.e. when a data attribute is added it will always replace the possibly existing
@@ -648,7 +654,7 @@ export interface LinkRenderer {
    *  </p>
    *  <ul>
    *     <li>
-   *        A <strong>name</strong> that is <code>null</code> or <em>whitespace-only</em> will be completely ignored,
+   *        A <strong>name</strong> that is <code>null</code>, <em>whitespace-only</em> or <em>prefix-only</em> will be completely ignored,
    *        i.e. no data attribute will be rendered.
    *     </li>
    *     <li>
@@ -668,10 +674,49 @@ export interface LinkRenderer {
   addDataAttribute(aName: String | string, aValue: String | string): void;
 
   /**
-   * Removes all existing data attributes
+   * Removes all existing data attributes.
    * @since Sitevision 3.0
    */
   clearDataAttributes(): void;
+
+  /**
+   * Adds an aria-* attribute to the link element.
+   *  Aria attributes are optional when the result is rendered. Default is no aria attributes.
+   *  <p>
+   *     There can only be one aria attribute per name (i.e. when an aria attribute is added it will always replace the possibly existing
+   *     aria attribute that already use that name).
+   *  </p>
+   *
+   *  <p>
+   *     Notes about names and values:
+   *  </p>
+   *  <ul>
+   *     <li>
+   *        A <strong>name</strong> that is <code>null</code>, <em>whitespace-only</em> or <em>prefix-only</em> will be completely ignored,
+   *        i.e. no aria attribute will be rendered.
+   *     </li>
+   *     <li>
+   *        A <strong>name</strong> that isn't properly prefixed with <em>"aria-"</em> will be prefixed when the aria attribute is rendered.
+   *     </li>
+   *     <li>
+   *        A <strong>value</strong> that is <code>null</code> or <em>whitespace-only</em> will be rendered as an aria attribute without value.
+   *     </li>
+   *     <li>
+   *        A <strong>value</strong> should not be escaped/encoded. The <em>useEncoding</em> attribute will determine what to do
+   *        when the aria attributes are rendered.
+   *     </li>
+   *  </ul>
+   * @param aName the name of the aria attribute
+   * @param aValue the value of the aria attribute
+   * @since Sitevision 2024.08.1
+   */
+  addAriaAttribute(aName: String | string, aValue: String | string): void;
+
+  /**
+   * Removes all existing aria attributes.
+   * @since Sitevision 2024.08.1
+   */
+  clearAriaAttributes(): void;
 
   /**
    * Sets what access key the link should have (accesskey attribute on the a element)

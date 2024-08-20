@@ -281,7 +281,7 @@ export interface ImageUtil {
    * @param aAltText the alt text to set
    * @throws ConstraintViolationException if aImage is not a sv:image or if current user is not authorized to alter the image node
    * @throws RepositoryException if something else goes wrong
-   * @since Sitevision 2024.06.1
+   * @since Sitevision 2024.07.1
    */
   setAltText(aImage: Node, aAltText: String | string): void;
 
@@ -299,7 +299,7 @@ export interface ImageUtil {
    * @param aCaptionText the caption text to set
    * @throws ConstraintViolationException if aImage is not a sv:image or if current user is not authorized to alter the image node
    * @throws RepositoryException if something else goes wrong
-   * @since Sitevision 2024.06.1
+   * @since Sitevision 2024.07.1
    */
   setCaptionText(aImage: Node, aCaptionText: String | string): void;
 }

@@ -474,6 +474,13 @@ export interface ResourceLocatorUtil {
    * @since Sitevision 2024.04.2
    */
   getCssRuleRepository(): Node;
+
+  /**
+   * Gets the LLM configuration repository (sv:llmConfigurationRepository) for the site of current node.
+   * @return the LLM configuration repository, or null if indeterminable.
+   * @since Sitevision 2024.08.1
+   */
+  getLlmConfigurationRepository(): Node;
 }
 
 declare namespace ResourceLocatorUtil {}
