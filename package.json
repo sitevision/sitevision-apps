@@ -19,7 +19,7 @@
     "eslint": "^8.57.0",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9",
-    "prettier": "^3.3.3"
+    "prettier": "^2.8.8"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",

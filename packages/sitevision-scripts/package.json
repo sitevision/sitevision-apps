@@ -1,7 +1,7 @@
 {
   "name": "@sitevision/sitevision-scripts",
   "type": "module",
-  "version": "3.5.0",
+  "version": "3.5.1-alpha.0",
   "description": "Scripts for create-sitevision-app",
   "repository": {
     "type": "git",
@@ -53,7 +53,7 @@
     "nodemon": "^3.1.4",
     "postcss": "^8.4.41",
     "postcss-loader": "^8.1.1",
-    "prettier": "^3.3.3",
+    "prettier": "^2.8.8",
     "resolve-bin": "^1.0.1",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.1",
