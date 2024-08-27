@@ -1,7 +1,7 @@
 {
   "name": "@sitevision/sitevision-scripts",
   "type": "module",
-  "version": "3.5.0",
+  "version": "4.0.0-alpha.0",
   "description": "Scripts for create-sitevision-app",
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "@sitevision/eslint-config-webapp-react": "^1.0.3",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^12.1.5",
+    "@types/jest": "^29.5.12",
     "autoprefixer": "^10.4.20",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.1.3",
