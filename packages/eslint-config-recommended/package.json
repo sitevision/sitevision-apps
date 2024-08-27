@@ -14,9 +14,9 @@
     "url": "https://github.com/sitevision/sitevision-apps/issues"
   },
   "devDependencies": {
-    "eslint": "^8.27.0"
+    "eslint": "^8.57.0"
   },
   "peerDependencies": {
-    "eslint": "^8.27.0"
+    "eslint": "^8.57.0"
   }
 }
