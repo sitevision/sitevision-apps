@@ -4,7 +4,13 @@ import path from 'path';
 import { execSync } from 'child_process';
 import { getDirname } from '../util/dirname.js';
 
-const setupTestFile = path.resolve(process.cwd(), 'src', 'setupTests.js');
+let setupTestFile = path.resolve(process.cwd(), 'src', 'setupTests.ts');
+
+if (!fs.existsSync(setupTestFile)) {
+  // Fallback to js file
+  setupTestFile = path.resolve(process.cwd(), 'src', 'setupTests.js');
+}
+
 const __dirname = getDirname(import.meta.url);
 
 const config = {
