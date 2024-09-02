@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/sitevision/sitevision-apps/compare/@sitevision/babel-preset-react-server@1.0.4...@sitevision/babel-preset-react-server@1.0.5) (2024-09-02)
+
+**Note:** Version bump only for package @sitevision/babel-preset-react-server
+
 ## [1.0.4](https://github.com/sitevision/sitevision-apps/compare/@sitevision/babel-preset-react-server@1.0.3...@sitevision/babel-preset-react-server@1.0.4) (2023-01-26)
 
 ### Bug Fixes

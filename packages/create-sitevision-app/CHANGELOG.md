@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/create-sitevision-app@3.0.1...@sitevision/create-sitevision-app@3.1.0) (2024-09-02)
+
+### Features
+
+- **sitevision-scripts:** Added option to transpile certain packages … ([#132](https://github.com/sitevision/sitevision-apps/issues/132)) ([345f9a0](https://github.com/sitevision/sitevision-apps/commit/345f9a03c53eef404a22d0a756d398e90e417cb4))
+
 ## [2.0.5](https://github.com/sitevision/sitevision-apps/compare/@sitevision/create-sitevision-app@2.0.4...@sitevision/create-sitevision-app@2.0.5) (2022-05-05)
 
 ### Bug Fixes

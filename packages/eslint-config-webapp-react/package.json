@@ -1,7 +1,7 @@
 {
   "name": "@sitevision/eslint-config-webapp-react",
   "author": "Sitevision AB",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "./index.js",
   "description": "Eslint config for Sitevision WebApps using React",
   "license": "MIT",

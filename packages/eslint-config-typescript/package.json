@@ -1,7 +1,7 @@
 {
   "name": "@sitevision/eslint-config-typescript",
   "author": "Sitevision AB",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./index.js",
   "description": "Eslint config for Sitevision Apps using TypeScript",
   "license": "MIT",

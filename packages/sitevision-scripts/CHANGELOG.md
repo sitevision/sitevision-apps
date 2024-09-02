@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.5.0...@sitevision/sitevision-scripts@4.0.0) (2024-09-02)
+
+### Bug Fixes
+
+- **sitevision-scripts:** reset version number ([363282e](https://github.com/sitevision/sitevision-apps/commit/363282e22a210ae00e4dd630274f769b10d26deb))
+
+- chore(sitevision-scripts)!: update dependencies ([c91f473](https://github.com/sitevision/sitevision-apps/commit/c91f473891beedb521bb8332fe61e84f8efccc5b))
+
+### BREAKING CHANGES
+
+- if using TypeScript the file `setupTests.js` has to be renamed to `setupTests.ts`
+
 # [3.5.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.4.3...@sitevision/sitevision-scripts@3.5.0) (2024-04-03)
 
 ### Features

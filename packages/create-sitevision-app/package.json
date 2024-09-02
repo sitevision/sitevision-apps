@@ -1,6 +1,6 @@
 {
   "name": "@sitevision/create-sitevision-app",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Create Sitevision Web/REST-apps",
   "type": "module",
   "repository": {
