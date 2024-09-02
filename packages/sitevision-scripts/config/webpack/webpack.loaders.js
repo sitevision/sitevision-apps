@@ -86,6 +86,7 @@ export const getCssLoader = (cssPrefix, emit) => ({
           options: {
             modules: {
               localIdentHashSalt: cssPrefix,
+              namedExport: false,
             },
           },
         },

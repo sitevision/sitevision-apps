@@ -7,17 +7,19 @@
     "packages/*"
   ],
   "scripts": {
-    "postinstall": "husky install",
+    "prepare": "husky",
     "precommit": "lint-staged",
     "release:create": "lerna version --conventional-commits",
     "release:publish": "lerna publish from-git"
   },
   "devDependencies": {
-    "@lerna-lite/cli": "^1.12.0",
-    "eslint": "^8.27.0",
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0"
+    "@lerna-lite/cli": "^3.8.0",
+    "@lerna-lite/publish": "^3.8.0",
+    "@lerna-lite/version": "^3.8.0",
+    "eslint": "^8.57.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
+    "prettier": "^2.8.8"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
