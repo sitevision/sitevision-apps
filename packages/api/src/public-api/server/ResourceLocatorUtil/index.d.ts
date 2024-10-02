@@ -481,6 +481,13 @@ export interface ResourceLocatorUtil {
    * @since Sitevision 2024.08.1
    */
   getLlmConfigurationRepository(): Node;
+
+  /**
+   * Gets the target audience repository (sv:targetAudienceRepository) for the site of current node.
+   * @return the target audience repository, or null if indeterminable.
+   * @since Sitevision 2024.09.2
+   */
+  getTargetAudienceRepository(): Node;
 }
 
 declare namespace ResourceLocatorUtil {}

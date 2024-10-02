@@ -1352,4 +1352,39 @@ export type NodeTypeUtilConstants = {
    * @since Sitevision 2024.04.2
    */
   getCSS_RULE_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_REPOSITORY_TYPE}
+   * @since Sitevision 2024.09.2
+   */
+  getTARGET_AUDIENCE_REPOSITORY_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_TYPE}
+   * @since Sitevision 2024.09.2
+   */
+  getTARGET_AUDIENCE_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_GROUP_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_GROUP_TYPE}
+   * @since Sitevision 2024.09.2
+   */
+  getTARGET_AUDIENCE_GROUP_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE}
+   * @since SiteVision 2024.09.2
+   */
+  getMETADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE}
+   * @since SiteVision 2024.09.2
+   */
+  getMETADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE(): string;
 };

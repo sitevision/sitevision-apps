@@ -452,7 +452,7 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   METADATA_IMAGE_PORTLET_DEFINITION_TYPE: "sv:metadataImagePortletDefinition";
 
   /**
-   * The primary node type name for the metadata integer definition definition type.
+   * The primary node type name for the metadata integer definition type.
    * @since Sitevision 3.6.3
    */
   METADATA_INTEGER_DEFINITION_TYPE: "sv:metadataIntegerDefinition";
@@ -1219,6 +1219,36 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   CSS_RULE_TYPE: "sv:cssRule";
 
   /**
+   * The primary node type name for the target audience repository type.
+   * @since SiteVision 2024.09.2
+   */
+  TARGET_AUDIENCE_REPOSITORY_TYPE: "sv:targetAudienceRepository";
+
+  /**
+   * The primary node type name for the target audience type.
+   * @since Sitevision 2024.09.2
+   */
+  TARGET_AUDIENCE_TYPE: "sv:targetAudience";
+
+  /**
+   * The primary node type name for the target audience group type.
+   * @since Sitevision 2024.09.2
+   */
+  TARGET_AUDIENCE_GROUP_TYPE: "sv:targetAudienceGroup";
+
+  /**
+   * The primary node type name for the metadata single target audience definition type
+   * @since SiteVision 2024.09.2
+   */
+  METADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE: "sv:metadataSingleTargetAudienceDefinition";
+
+  /**
+   * The primary node type name for the metadata multiple target audience definition type
+   * @since Sitevision 2024.09.2
+   */
+  METADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE: "sv:metadataMultipleTargetAudienceDefinition";
+
+  /**
    * Checks if a node is a layout.
    * @param aNode the node to be checked
    * @return whether <code>aNode</code> is a layout or not.
@@ -1575,6 +1605,8 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    *     <li>{@link #METADATA_SYSTEM_INTEGER_DEFINITION_TYPE sv:metadataSystemIntegerDefinition}</li>
    *     <li>{@link #METADATA_SYSTEM_LINK_DEFINITION_TYPE sv:metadataSystemLinkDefinition}</li>
    *     <li>{@link #METADATA_SYSTEM_TEXT_DEFINITION_TYPE sv:metadataSystemTextDefinition}</li>
+   *     <li>{@link #METADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE sv:metadataSingleTargetAudienceDefinition}</li>
+   *     <li>{@link #METADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE sv:metadataMultipleTargetAudienceDefinition}</li>
    *  </ul>
    * @param aNode the node to be checked
    * @return whether aNode is a "metadata definition node" or not.

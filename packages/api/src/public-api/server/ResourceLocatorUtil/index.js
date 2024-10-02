@@ -45,4 +45,5 @@ export default {
   getWorkStatusTemplateRepository: () => {},
   getCssRuleRepository: () => {},
   getLlmConfigurationRepository: () => {},
+  getTargetAudienceRepository: () => {},
 };

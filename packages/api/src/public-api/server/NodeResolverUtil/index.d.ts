@@ -402,6 +402,40 @@ export interface NodeResolverUtil {
    * @since Sitevision 5
    */
   getTagGroupsResolver(): Resolver;
+
+  /**
+   * Gets the sv:targetAudience resolver for nodes.
+   *
+   *  <p>
+   *      The list of target audiences can be resolved for different node types:
+   *  </p>
+   *  <ul>
+   *      <li>
+   *          <code>sv:targetAudienceGroup</code>
+   *          <br><em>- returns:</em>
+   *          <ul>
+   *              <li>
+   *                 The potential target audiences of the target audience group
+   *                 <em>(a sv:targetAudience can belong to multiple sv:targetAudienceGroup)</em>.
+   *              </li>
+   *          </ul>
+   *      </li>
+   *      <li>
+   *          <code>sv:targetAudienceRepository</code>
+   *          <br><em>- returns:</em>
+   *          <ul>
+   *              <li>The potential target audiences of the repository.</li>
+   *          </ul>
+   *      </li>
+   *  </ul>
+   *
+   *  <p>
+   *      Unsupported node types will resolve to an empty list (unmodifiable), i.e. the resolver will never return null.
+   *  </p>
+   * @return a resolver that can resolve a List of sv:targetAudience from a Node
+   * @since Sitevision 2024.09.2
+   */
+  getTargetAudiencesResolver(): Resolver;
 }
 
 declare namespace NodeResolverUtil {}

@@ -6,4 +6,5 @@ export default {
   getLocaleResolver: () => {},
   getTagsResolver: () => {},
   getTagGroupsResolver: () => {},
+  getTargetAudiencesResolver: () => {},
 };

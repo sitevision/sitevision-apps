@@ -86,6 +86,7 @@ import type { TextModuleRendererBuilder } from "../TextModuleRendererBuilder";
 import type { TagUtil } from "../TagUtil";
 import type { AliasUtil } from "../AliasUtil";
 import type { MessagesFactory } from "../MessagesFactory";
+import type { TargetAudienceUtil } from "../TargetAudienceUtil";
 
 /**
  * Main entry point to get instances of interfaces in the Sitevision Utility API.
@@ -752,9 +753,16 @@ export interface Utils {
   /**
    * Gets an instance of a messages factory class.
    * @return a messages factory class
-   * @since Sitevision 2024.03.01
+   * @since Sitevision 2024.03.1
    */
   getMessagesFactory(): MessagesFactory;
+
+  /**
+   * Gets an instance of a target audience utility class.
+   * @return a target audience utility class
+   * @since Sitevision 2024.09.2
+   */
+  getTargetAudienceUtil(): TargetAudienceUtil;
 }
 
 declare namespace Utils {}

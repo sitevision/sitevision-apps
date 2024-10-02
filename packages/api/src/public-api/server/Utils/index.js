@@ -83,4 +83,5 @@ export default {
   getTagUtil: () => {},
   getAliasUtil: () => {},
   getMessagesFactory: () => {},
+  getTargetAudienceUtil: () => {},
 };
