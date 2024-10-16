@@ -5,7 +5,7 @@ import type { Node } from "../../types/javax/jcr/Node";
  *
  *  <p>
  *     This interface handles nodes with primary node type <code>sv:systemUser</code>, i.e. the
- *     <em>Anonymous</em>, <em>System</em>, <em>Indexer</em> and <em>Extractor</em> user.
+ *     <em>Anonymous</em>, <em>System</em>, <em>Indexer</em>, <em>Validator</em> and <em>Extractor</em> user.
  *  </p>
  *
  *  <p>
@@ -17,6 +17,54 @@ import type { Node } from "../../types/javax/jcr/Node";
  * @since Sitevision 3.6
  */
 export interface SystemUserUtil {
+  /**
+   * Checks if current user is any system user (Anonymous, System, Indexer, Validator, Extractor).
+   *
+   *  <p>
+   *    This is a convenience method that is <strong>much more efficient</strong> than checking for each system user type instance separately.
+   *  </p>
+   *  <p>
+   *     Javascript code that uses <code>SystemUserUtil</code> like this:
+   *  </p><pre><code>const isLoggedInHuman = () =&gt; {
+   *    return (
+   *      !systemUserUtil.isAnonymous() &amp;&amp;
+   *      !systemUserUtil.isSystem() &amp;&amp;
+   *      !systemUserUtil.isIndexer() &amp;&amp;
+   *      !systemUserUtil.isValidator() &amp;&amp;
+   *      !systemUserUtil.isExtractor()
+   *    );
+   *  };</code></pre><p>
+   *     Should be replaced with code that uses this method instead:
+   *  </p><pre><code>const isLoggedInHuman = () =&gt; {
+   *    return !systemUserUtil.isAnySystemUser();
+   *  };</code></pre>
+   *
+   *  <p>
+   *     <em>Note! This method does NOT produce a reliable result if called during the authentication process
+   *     (i.e. from a JAAS filter or JAAS module) since it relies on a fully loaded current user (as of
+   *     {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentUser()}).</em>
+   *  </p>
+   * @return returns true if the current user is any system user (Anonymous, System, Indexer, Validator, Extractor), false otherwise
+   * @see #isAnySystemUser(Node)
+   * @since Sitevision 2024.10.1
+   */
+  isAnySystemUser(): boolean;
+
+  /**
+   * Checks if a user node is any system user (Anonymous, System, Validator, Indexer, Extractor).
+   *
+   *  <p>
+   *     This is a convenience method that checks if a given user node is any system user
+   *     (Anonymous, System, Validator, Indexer, Extractor). Note that method is equivalent to checking the node <em>type</em>
+   *     via {@link senselogic.sitevision.api.node.NodeTypeUtil#isSystemUser(Node) NodeTypeUtil.isSystemUser(aUserNode)}.
+   *  </p>
+   * @param aUserNode a user node
+   * @return returns true if aUserNode is any system user (Anonymous, System, Validator, Indexer, Extractor), false otherwise
+   * @see senselogic.sitevision.api.node.NodeTypeUtil#isSystemUser(Node)
+   * @since Sitevision 2024.10.1
+   */
+  isAnySystemUser(aUserNode: Node): boolean;
+
   /**
    * Checks if current user is anonymous (not authenticated).
    *

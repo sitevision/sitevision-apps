@@ -1387,4 +1387,18 @@ export type NodeTypeUtilConstants = {
    * @since SiteVision 2024.09.2
    */
   getMETADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#GEOLOCATION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#GEOLOCATION_TYPE}
+   * @since SiteVision 2024.10.1
+   */
+  getGEOLOCATION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_GEOLOCATION_DEFINITION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_GEOLOCATION_DEFINITION_TYPE}
+   * @since SiteVision 2024.10.1
+   */
+  getMETADATA_GEOLOCATION_DEFINITION_TYPE(): string;
 };

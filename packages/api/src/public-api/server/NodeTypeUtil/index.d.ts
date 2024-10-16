@@ -1249,6 +1249,18 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   METADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE: "sv:metadataMultipleTargetAudienceDefinition";
 
   /**
+   * The primary node type name for the geolocation type
+   * @since Sitevision 2024.10.1
+   */
+  GEOLOCATION_TYPE: "sv:geolocation";
+
+  /**
+   * The primary node type name for the metadata geolocation definition type
+   * @since Sitevision 2024.10.1
+   */
+  METADATA_GEOLOCATION_DEFINITION_TYPE: "sv:metadataGeolocationDefinition";
+
+  /**
    * Checks if a node is a layout.
    * @param aNode the node to be checked
    * @return whether <code>aNode</code> is a layout or not.
@@ -1351,6 +1363,11 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    *     <li>The <em>Extractor</em> user (i.e. default "Web archive" user)</li>
    *     <li>The <em>Anonymized</em> user (i.e. an anonymized user)</li>
    *  </ul>
+   *
+   *  <p>
+   *     <em>Tip!</em> Use the {@link senselogic.sitevision.api.user.SystemUserUtil SystemUserUtil} utility to check
+   *     if a user is a specific build-in system user.
+   *  </p>
    * @param aNode the node to be checked
    * @return whether aNode is a {@link #SYSTEM_USER_TYPE sv:systemUser} or not.
    * @see #isAnyUserType(Node)
@@ -1607,6 +1624,7 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    *     <li>{@link #METADATA_SYSTEM_TEXT_DEFINITION_TYPE sv:metadataSystemTextDefinition}</li>
    *     <li>{@link #METADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE sv:metadataSingleTargetAudienceDefinition}</li>
    *     <li>{@link #METADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE sv:metadataMultipleTargetAudienceDefinition}</li>
+   *     <li>{@link #METADATA_GEOLOCATION_DEFINITION_TYPE sv:metadataGeolocationDefinition}</li>
    *  </ul>
    * @param aNode the node to be checked
    * @return whether aNode is a "metadata definition node" or not.

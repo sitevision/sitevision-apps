@@ -1,4 +1,5 @@
 export default {
+  isAnySystemUser: () => {},
   isAnonymous: () => {},
   isSystem: () => {},
   isIndexer: () => {},
