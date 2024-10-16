@@ -25,5 +25,6 @@
     "*.js": "eslint --cache --fix",
     "*.{js,scss,css,md,json}": "prettier --write",
     ".{eslintrc,babelrc}": "prettier --write"
-  }
+  },
+  "packageManager": "yarn@4.5.0"
 }
