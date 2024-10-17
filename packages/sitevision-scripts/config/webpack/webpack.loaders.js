@@ -55,47 +55,51 @@ export const getClientBabelLoader = () => ({
   },
 });
 
-export const getCssLoader = (cssPrefix, emit) => ({
-  test: /\.((c|sa|sc)ss)$/i,
-  oneOf: [
-    {
-      resourceQuery: /raw/,
-      sideEffects: true,
-      use: [MiniCssExtractPlugin.loader, 'css-loader'],
+export const getCssLoader = (cssPrefix, emit) => {
+  const miniCssExtractLoader = {
+    loader: MiniCssExtractPlugin.loader,
+    options: {
+      emit,
     },
-    {
-      resourceQuery: /nomodules/,
-      sideEffects: true,
-      use: [
-        MiniCssExtractPlugin.loader,
-        'css-loader',
-        'postcss-loader',
-        'sass-loader',
-      ],
-    },
-    {
-      use: [
-        {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            emit,
-          },
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            modules: {
-              localIdentHashSalt: cssPrefix,
-              namedExport: false,
+  };
+
+  return {
+    test: /\.((c|sa|sc)ss)$/i,
+    oneOf: [
+      {
+        resourceQuery: /raw/,
+        sideEffects: true,
+        use: [miniCssExtractLoader, 'css-loader'],
+      },
+      {
+        resourceQuery: /nomodules/,
+        sideEffects: true,
+        use: [
+          miniCssExtractLoader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        use: [
+          miniCssExtractLoader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentHashSalt: cssPrefix,
+                namedExport: false,
+              },
             },
           },
-        },
-        'postcss-loader',
-        'sass-loader',
-      ],
-    },
-  ],
-});
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+    ],
+  };
+};
 
 export const getSvgLoader = () => ({
   test: /\.svg$/i,
