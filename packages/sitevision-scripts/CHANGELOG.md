@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@4.0.0...@sitevision/sitevision-scripts@4.0.1) (2024-10-30)
+
+### Bug Fixes
+
+- **sitevision-scripts:** ensured consistent emit handling for all CSS extraction scenarios ([2cef5ae](https://github.com/sitevision/sitevision-apps/commit/2cef5ae8b87ed70fe78c03aba2c726b516765898))
+
 # [4.0.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@3.5.0...@sitevision/sitevision-scripts@4.0.0) (2024-09-02)
 
 ### Bug Fixes
