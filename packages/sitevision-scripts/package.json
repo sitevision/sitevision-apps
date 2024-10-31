@@ -11,9 +11,7 @@
   "bugs": {
     "url": "https://github.com/sitevision/sitevision-apps/issues"
   },
-  "bin": {
-    "sitevision-scripts": "./bin/sitevision-scripts.js"
-  },
+  "bin": "./bin/sitevision-scripts.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -28,6 +26,7 @@
     "@sitevision/eslint-config-recommended": "^1.0.4",
     "@sitevision/eslint-config-typescript": "^1.0.2",
     "@sitevision/eslint-config-webapp-react": "^1.0.4",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.2",
     "@testing-library/react": "^16.0.1",
     "@types/jest": "^29.5.13",
@@ -62,5 +61,9 @@
     "typescript": "^4.9.5",
     "webpack": "^5.94.0",
     "zip-dir": "^2.0.0"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

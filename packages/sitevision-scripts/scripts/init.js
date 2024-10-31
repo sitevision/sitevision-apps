@@ -116,9 +116,17 @@ const updatePackageJsonBundledRest = (typescript) => {
 };
 
 const installWebAppDependencies = (appPath) => {
+  const reactMajor = 18;
   spawn.sync(
     'npm',
-    ['install', 'react@18', 'react-dom@18', '@sitevision/api'],
+    [
+      'install',
+      `react@${reactMajor}`,
+      `react-dom@${reactMajor}`,
+      `@types/react@${reactMajor}`,
+      `@types/react-dom@${reactMajor}`,
+      '@sitevision/api',
+    ],
     {
       stdio: 'inherit',
       cwd: appPath,
