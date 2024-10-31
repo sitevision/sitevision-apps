@@ -1,12 +1,12 @@
 import TerserPlugin from 'terser-webpack-plugin';
-import * as properties from '../../util/properties.js';
+import { getPackageJson } from '../../util/properties';
 
 const REACT_DEPS_17 = /^(react|react-dom)$/;
 const REACT_18_AND_UP_DEPS =
   /^(react|react-dom|react\/jsx-runtime|react-dom\/client)$/;
 
 export const getReactMajorVersion = () => {
-  const dependencies = properties.getPackageJson().dependencies;
+  const dependencies = getPackageJson().dependencies;
   const match = dependencies.react.match(/^(\d+)\./);
   return match ? Number(match[1]) : null;
 };
