@@ -1,5 +1,5 @@
 import TerserPlugin from 'terser-webpack-plugin';
-import { getPackageJson } from '../../util/properties';
+import { getPackageJson } from '../../util/properties.js';
 
 const REACT_DEPS_17 = /^(react|react-dom)$/;
 const REACT_18_AND_UP_DEPS =
