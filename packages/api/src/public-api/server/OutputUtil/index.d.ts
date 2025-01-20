@@ -295,7 +295,7 @@ export interface OutputUtil extends OutputUtilConstants {
    */
   getNodeOutput(
     aPageNode: Node,
-    aPagePartNode: Node,
+    aPagePartNode: Node | null,
     aContentType: number
   ): string;
 
