@@ -57,6 +57,7 @@ export interface Response {
   redirect(path: string, query?: string, status?: number): void;
   cookie(cookie: Cookie): void;
   clearCookie(name: string, path?: string): void;
+  flush(): void;
 
   /**
    * This method will render a component with data
