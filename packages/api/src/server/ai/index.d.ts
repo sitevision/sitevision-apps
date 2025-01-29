@@ -29,7 +29,9 @@ export interface GenerateTextOptions {
 
   /**
    * Maximum duration (in milliseconds) before timing out.
-   * Default: 15000ms (15 seconds).
+   * The default value and valid range are environment-dependent and can be 
+   * configured via a system property. If not explicitly set, the system 
+   * determines an appropriate timeout value.
    */
   timeout?: number;
 
@@ -97,7 +99,9 @@ export interface StreamTextOptions {
 
   /**
    * Maximum duration (in milliseconds) before timing out.
-   * Default: 15000ms (15 seconds).
+   * The default value and valid range are environment-dependent and can be 
+   * configured via a system property. If not explicitly set, the system 
+   * determines an appropriate timeout value.
    */
   timeout?: number;
 
