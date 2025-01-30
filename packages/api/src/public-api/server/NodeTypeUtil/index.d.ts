@@ -1261,6 +1261,12 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   METADATA_GEOLOCATION_DEFINITION_TYPE: "sv:metadataGeolocationDefinition";
 
   /**
+   * The primary node type name for the metadata module definition type
+   * @since Sitevision 2025.01.1
+   */
+  METADATA_MODULE_DEFINITION_TYPE: "sv:metadataModuleDefinition";
+
+  /**
    * Checks if a node is a layout.
    * @param aNode the node to be checked
    * @return whether <code>aNode</code> is a layout or not.
@@ -1625,6 +1631,7 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    *     <li>{@link #METADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE sv:metadataSingleTargetAudienceDefinition}</li>
    *     <li>{@link #METADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE sv:metadataMultipleTargetAudienceDefinition}</li>
    *     <li>{@link #METADATA_GEOLOCATION_DEFINITION_TYPE sv:metadataGeolocationDefinition}</li>
+   *     <li>{@link #METADATA_MODULE_DEFINITION_TYPE sv:metadataModuleDefinition}</li>
    *  </ul>
    * @param aNode the node to be checked
    * @return whether aNode is a "metadata definition node" or not.

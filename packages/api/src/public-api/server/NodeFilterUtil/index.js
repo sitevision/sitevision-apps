@@ -9,6 +9,7 @@ export default {
   getNeverAcceptFilter: () => {},
   getNullFilter: () => {},
   getNonNullFilter: () => {},
+  getSkipFilter: () => {},
   getInvertedFilter: () => {},
   getIdentifierFilter: () => {},
   getIdentifierPrefixFilter: () => {},
