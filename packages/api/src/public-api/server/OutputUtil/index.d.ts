@@ -277,6 +277,21 @@ export interface OutputUtil extends OutputUtilConstants {
   getNodeAsText(aNode: Node): string;
 
   /**
+   * Gets the output as a specific content-type from a page node.
+   *
+   *  <p>
+   *     <strong>Note! Due to security reasons (potential never-ending loops) it is prohibited to get the output of
+   *     the currently executing page (i.e. {@link senselogic.sitevision.api.context.PortletContextUtil#getCurrentPage()})!</strong>
+   *  </p>
+   * @param aPageNode a page node (sv:page, sv:article, sv:sitePage) where current user has READ permission, must not be null or "current page".
+   * @param aContentType a content-type marker, i.e. {@link #CONTENT_TYPE_TEXT_PLAIN}, {@link #CONTENT_TYPE_TEXT_HTML} or&#xA; {@link #CONTENT_TYPE_TEXT_XML}
+   * @return the output result for specified aContentType.&#xA; If aPageNode is null or "current page", an empty String is returned.&#xA; If current user doesn't have READ permission on aPageNode, an empty String is returned.
+   * @see #getNodeOutput(Node, Node, int)
+   * @since Sitevision 2025.01.2
+   */
+  getNodeOutput(aPageNode: Node, aContentType: number): string;
+
+  /**
    * Gets the output as a specific content-type from a page node or a page content node.
    *
    *  <p>
@@ -289,7 +304,7 @@ export interface OutputUtil extends OutputUtilConstants {
    *  </p>
    * @param aPageNode a page node (sv:page, sv:article, sv:sitePage) where current user has READ permission, must not be null or "current page".
    * @param aPagePartNode a page part node that exist as content on aPageNode (or null if you want the complete output from aPageNode).
-   * @param aContentType a content-type marker, i.e.&#xA; <a href="#CONTENT_TYPE_TEXT_PLAIN">CONTENT_TYPE_TEXT_PLAIN</a>,&#xA; <a href="#CONTENT_TYPE_TEXT_HTML">CONTENT_TYPE_TEXT_HTML</a> or&#xA; <a href="#CONTENT_TYPE_TEXT_XML">CONTENT_TYPE_TEXT_XML</a>.
+   * @param aContentType a content-type marker, i.e. {@link #CONTENT_TYPE_TEXT_PLAIN}, {@link #CONTENT_TYPE_TEXT_HTML} or&#xA; {@link #CONTENT_TYPE_TEXT_XML}
    * @return the output result for specified aContentType.&#xA; If aPageNode is null or "current page", an empty String is returned.&#xA; If current user doesn't have READ permission on aPageNode, an empty String is returned.&#xA; If aPagePartNode is null, the output result of aPageNode is returned.&#xA; If aPagePartNode doesn't exist as content on aPageNode, an empty String is returned.
    * @since Sitevision 2.6
    */

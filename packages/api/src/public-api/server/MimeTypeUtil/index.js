@@ -12,4 +12,6 @@ export default {
   isMSOfficeType: () => {},
   isFontType: () => {},
   isAudioType: () => {},
+  isJsonType: () => {},
+  isJsonMime: () => {},
 };
