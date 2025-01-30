@@ -5,6 +5,7 @@ import type { Collection } from "../../types/java/util/Collection";
 import type { FilterSplit } from "../../types/senselogic/sitevision/api/base/FilterSplit";
 import type { CompoundAndFilterBuilder } from "../CompoundAndFilterBuilder";
 import type { CompoundOrFilterBuilder } from "../CompoundOrFilterBuilder";
+
 import type { String } from "../../types/java/lang/String";
 
 import type { Calendar } from "../../types/java/util/Calendar";
@@ -201,6 +202,36 @@ export interface NodeFilterUtil {
    * @since Sitevision 4.3.1
    */
   getNonNullFilter(): Filter;
+
+  /**
+   * Gets a filter that skips a given number of nodes.
+   *
+   *  <p>
+   *     <em>Note!</em> The skip filter is typically used in combination with a <em>Compound AND Filter</em>.
+   *     Example:
+   *  </p>
+   *  <ul>
+   *     <li>
+   *        This filter skips 5 nodes, regardless of type:<br>
+   *        <pre><code>   filter = nodeFilterUtil.getSkipFilter(5);</code></pre>
+   *     </li>
+   *     <li>
+   *        This page filter skips 5 nodes <em>(i.e. rejects first 5 sv:page nodes that otherwise would have been accepted)</em>:<br>
+   *        <pre><code>   filter = nodeFilterUtil.getCompoundAndFilterBuilder()
+   *        .addFilter(nodeFilterUtil.getPrimaryNodeTypeFilter("sv:page"))
+   *        .addFilter(nodeFilterUtil.getSkipFilter(5))
+   *        .build();</code></pre>
+   *     </li>
+   *  </ul>
+   *  <p>
+   *     Also note that this filter is <em>stateful</em>, i.e. a created filter instance can't be used more than one time.
+   *  </p>
+   * @param aSkip the number of nodes to skip
+   * @return a filter that rejects aSkip number of nodes
+   * @throws IllegalArgumentException if aSkip is less than zero
+   * @since Sitevision 2025.01.1
+   */
+  getSkipFilter(aSkip: number): Filter;
 
   /**
    * Gets a filter that inverts the result of another filter.

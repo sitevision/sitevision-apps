@@ -7,6 +7,7 @@ export default {
   getMenuItemsIncludingFoldersByIdentifier: () => {},
   findFirst: () => {},
   findNodes: () => {},
+  findMoreNodes: () => {},
   findAll: () => {},
   toList: () => {},
   split: () => {},

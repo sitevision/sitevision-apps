@@ -3,6 +3,7 @@ export default {
   getParent: () => {},
   isDescendantOf: () => {},
   getWebPathNodes: () => {},
+  findPortletByContentIdentifier: () => {},
   findPortletByName: () => {},
   findPortletsByName: () => {},
   findPortletsByType: () => {},

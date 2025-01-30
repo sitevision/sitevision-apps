@@ -69,11 +69,11 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
 export interface LinkValueBuilder extends Builder {
   /**
    * Sets the target.
-   * @param anURL the link target URL
+   * @param aURL the link target URL
    * @return this builder
-   * @throws IllegalArgumentException if <code>anURL</code> is <code>null</code> or whitespace only
+   * @throws IllegalArgumentException if <code>aURL</code> is <code>null</code> or whitespace only
    */
-  setExternalTarget(anURL: String | string): LinkValueBuilder;
+  setExternalTarget(aURL: String | string): LinkValueBuilder;
 
   /**
    * Sets the target.

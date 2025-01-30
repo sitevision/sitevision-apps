@@ -85,6 +85,22 @@ export interface NodeTreeUtil {
   getWebPathNodes(aDescendantNode: Node): List;
 
   /**
+   * Find a portlet with a specific content identifier on a page node.
+   *
+   *  <p>
+   *     The <em>content identifier</em> of the portlet is determined by the <em>contentIdentifier</em> property.
+   *  </p>
+   * @param aPageNode the page node that has content, typically a sv:page or sv:article
+   * @param aContentIdentifier the content identifier of the sv:portlet that should be found
+   * @return the first occurrence of a sv:portlet with matching aContentIdentifier, or null if no such portlet can be found&#xA; or if aPageNode is not a page node
+   * @since Sitevision 2025.01.1
+   */
+  findPortletByContentIdentifier(
+    aPageNode: Node,
+    aContentIdentifier: String | string
+  ): Node;
+
+  /**
    * Find a portlet with a specific name on a page node.
    *
    *  <p>

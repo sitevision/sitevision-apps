@@ -175,6 +175,11 @@ export type CollaborationGroupWrapper = Wrapper & {
    *     current user must also have {@link senselogic.sitevision.api.security.PermissionUtil.Permission#CREATE_CLOSED_COLLABORATION_GROUP}
    *     on the wrapped collaboration group.
    *  </p>
+   *  <p>
+   *     <strong>Note!</strong> Setting a group to <em>CLOSED</em> will break any potential permission inheritance for the group page of the group.
+   *     Hence the user that sets the group to {@link CollaborationGroupType#CLOSED} can potentially lose its permissions to access the (now closed)
+   *     group!
+   *  </p>
    * @param aCollaborationGroupType the collaboration group type
    * @since Sitevision 4.1
    */
