@@ -235,6 +235,46 @@ export interface MimeTypeUtil extends MimeTypeUtilConstants {
    * @since Sitevision 2024.04.1
    */
   isAudioType(aFileExtensionExpression: String | string): boolean;
+
+  /**
+   * Checks if a specified file extension is a JSON type (according to its mapped MIME type).
+   * @param aFileExtensionExpression a file extension (e.g "json") or an expression that ends with a period and a file extension&#xA; (e.g "myfile.json" or "https://www.xyz.com/files/myfile.json"). Case insensitive.
+   * @return true if aFileExtensionExpression is mapped to a MIME type that depicts the JSON format, false otherwise
+   * @see #isJsonMime(String)
+   * @since Sitevision 2025.01.2
+   */
+  isJsonType(aFileExtensionExpression: String | string): boolean;
+
+  /**
+   * Checks if a specified MIME type depicts the JSON format.
+   *
+   *  <p>
+   *     The primary JSON format MIME is <code>"application/json"</code> and should always be handled as UTF-8 text. Other MIME:s that uses the JSON
+   *     format typically has a <code>"+json"</code> suffix (see <a href="https://www.rfc-editor.org/rfc/rfc6839#section-3.1">RFC 6839</a>)
+   *     or a <code>"+json-seq"</code> suffix (see <a href="https://www.rfc-editor.org/rfc/rfc8091#section-3">RFC 8091</a>). But there
+   *     are also some legacy/unofficial MIME:s that also depicts the JSON format (e.g. "text/json", "application/jsonrequest").
+   *     Example of typical MIME types that depicts the JSON format:
+   *  </p>
+   *  <ul>
+   *     <li>application/json</li>
+   *     <li>application/vnd.api+json</li>
+   *     <li>application/vnd.restful+json</li>
+   *     <li>application/ld+json</li>
+   *     <li>application/ld-frame+json</li>
+   *     <li>application/jsonml+json</li>
+   *     <li>application/geo+json</li>
+   *     <li>application/calendar+json</li>
+   *  </ul>
+   *
+   *  <p>
+   *     A <code>Content-Type</code> header value for a JSON response is typically <code>"application/json; charset=utf-8"</code>.
+   *     This method handles such values, only the leading MIME part will be checked (any semicolon suffix part will be completely ignored).
+   *  </p>
+   * @param aMimeType a MIME value or Content-Type header value
+   * @return true if aMimeType matches a MIME that depicts the JSON format, false otherwise
+   * @since Sitevision 2025.01.2
+   */
+  isJsonMime(aMimeType: String | string): boolean;
 }
 
 declare namespace MimeTypeUtil {}

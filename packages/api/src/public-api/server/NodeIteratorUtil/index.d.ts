@@ -42,15 +42,15 @@ export interface NodeIteratorUtil {
    *        ...
    *     }</code></pre>
    * @param aNodeIterator a NodeIterator, must not be null
-   * @param aNodeFilter a Node Filter, must not be null
+   * @param aFilter a Node Filter, must not be null
    * @return a filtered NodeIterator
-   * @throws NullPointerException if aNodeIterator or aNodeFilter is null
+   * @throws NullPointerException if aNodeIterator or aFilter is null
    * @see NodeFilterUtil
    * @since Sitevision 8.1
    */
   getFilteredNodeIterator(
     aNodeIterator: NodeIterator,
-    aNodeFilter: Filter
+    aFilter: Filter
   ): NodeIterator;
 
   /**
@@ -61,8 +61,8 @@ export interface NodeIteratorUtil {
    *  </p>
    *  <ul>
    *     <li>
-   *        <em>Convenience.</em> This method combines {@link javax.jcr.Session#getNodeByIdentifier(String)} and {@link Node#getNodes()},
-   *        i.e. a shortcut to get an iterator without having to actually lookup/resolve the parent node.
+   *        <em>Convenience.</em> This method combines {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getNodeByIdentifier(String)}
+   *        and {@link Node#getNodes()}, i.e. a shortcut to get an iterator without having to actually lookup/resolve the parent node.
    *     </li>
    *     <li>
    *        <em>Permission workaround.</em> This method does <em>not</em> do any permission checks on the resolved parent Node, i.e.
@@ -90,8 +90,8 @@ export interface NodeIteratorUtil {
    *  </p>
    *  <ul>
    *     <li>
-   *        <em>Convenience.</em> This method combines {@link javax.jcr.Session#getNodeByIdentifier(String)} and {@link #getMenuItems(Node)},
-   *        i.e. a shortcut to get a menu iterator without having to actually lookup/resolve the parent node.
+   *        <em>Convenience.</em> This method combines {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getNodeByIdentifier(String)}
+   *        and {@link #getMenuItems(Node)}, i.e. a shortcut to get a menu iterator without having to actually lookup/resolve the parent node.
    *     </li>
    *     <li>
    *        <em>Permission workaround.</em> This method does <em>not</em> do any permission checks on the resolved parent Node, i.e.
@@ -121,7 +121,7 @@ export interface NodeIteratorUtil {
    *  </p>
    *  <ul>
    *     <li>
-   *        <em>Convenience.</em> This method combines {@link javax.jcr.Session#getNodeByIdentifier(String)} and
+   *        <em>Convenience.</em> This method combines {@link senselogic.sitevision.api.resource.ResourceLocatorUtil#getNodeByIdentifier(String)} and
    *        {@link #getMenuItemsIncludingFolders(Node)}, i.e. a shortcut to get a menu iterator without having to actually
    *        lookup/resolve the parent node.
    *     </li>
@@ -164,18 +164,44 @@ export interface NodeIteratorUtil {
    *  </p>
    * @param aNodeIterator a node iterator
    * @param aFilter a node filter
-   * @param aMaxNodesToFind max number of nodes to include in the result
-   * @return a list of nodes that matches <code>aFilter</code>, never <code>null</code>.&#xA; The list will contain at most <code>aMaxNodesToFind</code> nodes.&#xA; If <code>aFilter</code> is <code>null</code>, the filter will be ignored (all nodes will be accepted).&#xA; If <code>aNodeIterator</code> is <code>null</code>, an empty list will be returned.&#xA; If <code>aMaxNodesToFind</code> is negative, an empty list will be returned.
+   * @param aLimit max number of nodes to include in the result
+   * @return a list of nodes that matches <code>aFilter</code>, never <code>null</code>.&#xA; The list will contain at most aLimit nodes.&#xA; If aNodeIterator is null, an empty list will be returned.&#xA; If aFilter is null, the filter will be ignored (all nodes will be accepted).&#xA; If aLimit is negative or zero, an empty list will be returned.
    * @since Sitevision 3.6.2
    */
-  findNodes(
+  findNodes(aNodeIterator: NodeIterator, aFilter: Filter, aLimit: number): List;
+
+  /**
+   * Gets a max-sized node list from a node iterator that matches a specified filter, skipping a specified number of matching nodes.
+   *
+   *  <p>
+   *     Executing <code>findMoreNodes(nodeIterator, filter, 0, 10)</code> is conceptually equivalent
+   *     to executing <code>findNodes(nodeIterator, filter, 10)</code>.
+   *  </p>
+   *
+   *  <p>
+   *     <em>Tip!</em> Use {@link senselogic.sitevision.api.node.NodeFilterUtil} to get an appropriate node filter.
+   *  </p>
+   * @param aNodeIterator a node iterator
+   * @param aFilter a node filter
+   * @param aSkip number of matching nodes to skip
+   * @param aLimit max number of nodes to include in the result
+   * @return a list of nodes that matches aFilter, never null.&#xA; The list will contain at most aLimit number of nodes and aSkip number of nodes will be ignored.&#xA; If aNodeIterator is null, an empty list will be returned.&#xA; If aFilter is null, the filter will be ignored (all nodes will be accepted).&#xA; If aSkip is negative or zero, no nodes will be skipped.&#xA; If aLimit is negative or zero, an empty list will be returned.
+   * @since Sitevision 2025.01.1
+   */
+  findMoreNodes(
     aNodeIterator: NodeIterator,
     aFilter: Filter,
-    aMaxNodesToFind: number
+    aSkip: number,
+    aLimit: number
   ): List;
 
   /**
    * Gets a list of all nodes from a node iterator that matches a specified filter.
+   *
+   *  <p>
+   *     Executing <code>findAll(nodeIterator, null)</code> is conceptually equivalent
+   *     to executing <code>toList(nodeIterator)</code>.
+   *  </p>
    *
    *  <p>
    *     <em>Tip!</em> Use {@link senselogic.sitevision.api.node.NodeFilterUtil} to get

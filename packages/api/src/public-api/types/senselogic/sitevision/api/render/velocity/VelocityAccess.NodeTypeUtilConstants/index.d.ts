@@ -1401,4 +1401,11 @@ export type NodeTypeUtilConstants = {
    * @since SiteVision 2024.10.1
    */
   getMETADATA_GEOLOCATION_DEFINITION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_MODULE_DEFINITION_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_MODULE_DEFINITION_TYPE}
+   * @since SiteVision 2025.01.1
+   */
+  getMETADATA_MODULE_DEFINITION_TYPE(): string;
 };
