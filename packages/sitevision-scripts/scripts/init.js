@@ -115,16 +115,15 @@ const updatePackageJsonBundledRest = (typescript) => {
   writePackageJson(appPackage);
 };
 
-const installWebAppDependencies = (appPath) => {
-  const reactMajor = 18;
+const installWebAppDependencies = (appPath, reactVersion) => {
   spawn.sync(
     'npm',
     [
       'install',
-      `react@${reactMajor}`,
-      `react-dom@${reactMajor}`,
-      `@types/react@${reactMajor}`,
-      `@types/react-dom@${reactMajor}`,
+      `react@${reactVersion}`,
+      `react-dom@${reactVersion}`,
+      `@types/react@${reactVersion}`,
+      `@types/react-dom@${reactVersion}`,
       '@sitevision/api',
     ],
     {
@@ -173,6 +172,7 @@ export default async ({ appPath, appName }) => {
         password,
         typescript,
         serverSideOnly,
+        reactVersion,
       }) => {
         console.clear();
 
@@ -198,7 +198,7 @@ export default async ({ appPath, appName }) => {
           case 'widget-react':
           case 'widget-react-typescript': {
             updatePackageJsonReact(typescript);
-            installWebAppDependencies(appPath);
+            installWebAppDependencies(appPath, reactVersion);
             templateOptions.typescript = typescript;
             templateOptions.clientRendering = !serverSideOnly;
             templateOptions.reactVersion = simplifyVersionNumber(
