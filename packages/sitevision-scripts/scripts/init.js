@@ -172,7 +172,7 @@ export default async ({ appPath, appName }) => {
         password,
         typescript,
         serverSideOnly,
-        reactVersion,
+        reactVersion = 18,
       }) => {
         console.clear();
 

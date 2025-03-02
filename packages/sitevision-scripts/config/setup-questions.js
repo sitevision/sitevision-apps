@@ -22,7 +22,7 @@ export const questions = [
       { name: '18.x', value: '18' },
       { name: '19.x', value: '19' },
     ],
-    when: (answers) => /web-react|widget-react/.test(answers.type),
+    when: (answers) => false && /web-react|widget-react/.test(answers.type),
   },
   {
     name: 'typescript',
