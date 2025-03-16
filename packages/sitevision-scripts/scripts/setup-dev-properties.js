@@ -75,14 +75,18 @@ const hasTranspileOptionInPackageJSON = () => {
 
         fs.writeFileSync(
           path.resolve(properties.DEV_PROPERTIES_PATH),
-          JSON.stringify({
-            domain,
-            siteName,
-            addonName,
-            username,
-            password,
-            useHTTPForDevDeploy,
-          })
+          JSON.stringify(
+            {
+              domain,
+              siteName,
+              addonName,
+              username,
+              password,
+              useHTTPForDevDeploy,
+            },
+            null,
+            2
+          )
         );
         if (!transpileOptionExistsInPackageJSON) {
           updatePackageJSON(transpile);
