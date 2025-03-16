@@ -61,15 +61,32 @@ const hasTranspileOptionInPackageJSON = () => {
 
   inquirer
     .prompt(setupQuestions)
-    .then(({ transpile, domain, siteName, addonName, username, password }) => {
-      console.clear();
+    .then(
+      ({
+        transpile,
+        domain,
+        siteName,
+        addonName,
+        username,
+        password,
+        useHTTPForDevDeploy,
+      }) => {
+        console.clear();
 
-      fs.writeFileSync(
-        path.resolve(properties.DEV_PROPERTIES_PATH),
-        JSON.stringify({ domain, siteName, addonName, username, password })
-      );
-      if (!transpileOptionExistsInPackageJSON) {
-        updatePackageJSON(transpile);
+        fs.writeFileSync(
+          path.resolve(properties.DEV_PROPERTIES_PATH),
+          JSON.stringify({
+            domain,
+            siteName,
+            addonName,
+            username,
+            password,
+            useHTTPForDevDeploy,
+          })
+        );
+        if (!transpileOptionExistsInPackageJSON) {
+          updatePackageJSON(transpile);
+        }
       }
-    });
+    );
 })();
