@@ -20,6 +20,14 @@ The project will depend on [@sitevision/sitevision-scripts](../sitevision-script
 
 You might run in to issues creating a new app if you have an old version of `@sitevision/create-sitevision-app` installed globally. To fix this, run: `npx @sitevision/create-sitevision-app@3 your-app` to update to the latest version.
 
+### React version
+
+From `@sitevision/sitevision-scripts@5.0.0` and onwards, the default React version is `18`. If you want to continue using React 17 you'll have to stay on `@sitevision/sitevision-scripts@4`, you can specify it when creating a new app:
+
+```sh
+npx @sitevision/create-sitevision-app my-new-app @sitevision/sitevision-scripts@4
+```
+
 ## Utility scripts
 
 ### `npm run create-addon`
