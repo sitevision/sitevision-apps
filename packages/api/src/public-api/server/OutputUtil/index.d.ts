@@ -321,7 +321,7 @@ export interface OutputUtil extends OutputUtilConstants {
    *     <em>
    *        <strong>Note!</strong> This method is intended for debugging purposes during development ONLY!
    *        Important: Only the types and properties that are officially specified on the
-   *        <a href="http://help.sitevision.se/nodetypes">Sitevision developer web</a>
+   *        <a href="https://developer.sitevision.se/nodetypes">Sitevision developer web</a>
    *        can be relied upon and used in production. All other types and properties should
    *        be considered volatile. Output produced by this method is not indexed by the Sitevision indexer.
    *     </em>
@@ -343,7 +343,7 @@ export interface OutputUtil extends OutputUtilConstants {
    *     <em>
    *        <strong>Note!</strong> This method is intended for debugging purposes during development ONLY!
    *        Important: Only the types and properties that are officially specified on the
-   *        <a href="http://help.sitevision.se/nodetypes">Sitevision developer web</a>
+   *        <a href="https://developer.sitevision.se/nodetypes">Sitevision developer web</a>
    *        can be relied upon and used in production. All other types and properties should
    *        be considered volatile. Output produced by this method is not indexed by the Sitevision indexer.
    *     </em>
