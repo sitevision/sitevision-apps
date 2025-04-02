@@ -203,4 +203,6 @@ export default {
   getGEOLOCATION_TYPE: () => {},
   getMETADATA_GEOLOCATION_DEFINITION_TYPE: () => {},
   getMETADATA_MODULE_DEFINITION_TYPE: () => {},
+  getSEMANTIC_INDEX_TYPE: () => {},
+  getSEMANTIC_INDEX_REPOSITORY_TYPE: () => {},
 };

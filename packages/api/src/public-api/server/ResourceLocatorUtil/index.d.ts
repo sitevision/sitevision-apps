@@ -488,6 +488,13 @@ export interface ResourceLocatorUtil {
    * @since Sitevision 2024.09.2
    */
   getTargetAudienceRepository(): Node;
+
+  /**
+   * Gets the semantic index repository (sv:semanticIndexRepository) for the site of current node.
+   * @return the semantic index repository, or null if indeterminable.
+   * @since Sitevision 2025.03.1
+   */
+  getSemanticIndexRepository(): Node;
 }
 
 declare namespace ResourceLocatorUtil {}

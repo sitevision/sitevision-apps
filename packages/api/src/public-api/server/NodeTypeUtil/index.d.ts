@@ -723,6 +723,18 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   SCRIPT_FIELD_TYPE: "sv:scriptField";
 
   /**
+   * The primary node type name for the semantic index type.
+   * @since Sitevision 2025.03.1
+   */
+  SEMANTIC_INDEX_TYPE: "sv:semanticIndex";
+
+  /**
+   * The primary node type name for the semantic index repository type.
+   * @since Sitevision 2025.03.1
+   */
+  SEMANTIC_INDEX_REPOSITORY_TYPE: "sv:semanticIndexRepository";
+
+  /**
    * The primary node type name for the simple user type.
    * @see #isSimpleUser(Node)
    * @see #isAnyUserType(Node)
