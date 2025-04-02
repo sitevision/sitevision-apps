@@ -74,10 +74,10 @@ export interface SearchUtil {
    *        out.print("&lt;a href=\"" + hit.getField('uri') + "\" title=\"\"&gt;");
    *        out.print(hit.getField('title'));
    *        out.print("&lt;/a&gt;");
-   *        out.println("&lt;br/&gt;");
+   *        out.println("&lt;br&gt;");
    *     }
    *  } else {
-   *     out.println("No hits for query = '" + result.getQuery() + "'&lt;br/&gt;");
+   *     out.println("No hits for query = '" + result.getQuery() + "'&lt;br&gt;");
    *  }
    *  </code></pre>
    *
