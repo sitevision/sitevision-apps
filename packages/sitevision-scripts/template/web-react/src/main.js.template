@@ -8,7 +8,5 @@ export default (initialState, el) => {
   {{else}}
     ReactDOM.hydrate(
   {{/if}}
-    <App message={initialState.message} name={initialState.name} />,
-    el
-  );
+    <App {...initialState} />, el);
 };
