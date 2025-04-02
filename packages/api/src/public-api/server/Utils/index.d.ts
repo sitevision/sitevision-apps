@@ -499,8 +499,8 @@ export interface Utils {
   getMimeTypeUtil(): MimeTypeUtil;
 
   /**
-   * Gets an instance of a DOCTYPE utility class
-   * @return a DOCTYPE utility class
+   * Gets an instance of a deprecated DOCTYPE utility class
+   * @return a deprecated DOCTYPE utility class
    * @since Sitevision 3.0
    */
   getDocTypeUtil(): DocTypeUtil;
