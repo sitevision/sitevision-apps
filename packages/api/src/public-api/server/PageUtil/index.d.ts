@@ -237,7 +237,7 @@ export interface PageUtil extends PageUtilConstants {
    *  </ul>
    *
    *  <p>The page content is specified using the
-   *  content map containing keys corresponding to layout names (e.g. "mittenspalt") on the page and values containing the
+   *  content map containing keys corresponding to layout names (e.g. "Huvudinnehåll") on the page and values containing the
    *  HTML used to generate a portlet structure in the layout. The provided content is converted to
    *  Sitevision text, table and image modules. It is also possible to specify that a horizontal or a vertical
    *  layout should be created. For more information about the HTML to portlet mapping can be found in the
