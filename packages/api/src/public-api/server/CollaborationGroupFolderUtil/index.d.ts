@@ -36,6 +36,28 @@ export interface CollaborationGroupFolderUtil {
     aCollaborationGroupFolder: Node,
     aGroupName: String | string
   ): boolean;
+
+  /**
+   * Creates a collaboration group folder.
+   *
+   *  <p>
+   *     <em>Permission note!</em> Current user must have
+   *     {@link senselogic.sitevision.api.security.PermissionUtil.Permission#CREATE_COLLABORATION_GROUP_FOLDER}
+   *     on the parent where the collaboration group folder is created.
+   *  </p>
+   * @param aParent the parent node of the sv:collaborationGroupFolder. May not be null
+   * @param aGroupFolderName the name of the collaboration group folder. May not be null or whitespace-only
+   * @return The created collaboration group folder (sv:collaborationGroupFolder)
+   * @throws java.lang.NullPointerException if aParent or aGroupFolderName is null
+   * @throws java.lang.IllegalArgumentException if aGroupFolderName is whitespace only
+   * @throws ConstraintViolationException if social collaboration is not enabled on the site of aParent,&#xA; if aParent is of invalid type, or if current user is not authorized to create the collaboration group folder
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 2025.04.1
+   */
+  createCollaborationGroupFolder(
+    aParent: Node,
+    aGroupFolderName: String | string
+  ): Node;
 }
 
 declare namespace CollaborationGroupFolderUtil {}

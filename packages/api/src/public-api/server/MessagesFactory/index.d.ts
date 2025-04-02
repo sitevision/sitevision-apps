@@ -1,6 +1,7 @@
 import type { ChannelUtil } from "../ChannelUtil";
 import type { Node } from "../../types/javax/jcr/Node";
 import type { ChannelWrapper } from "../../types/senselogic/sitevision/api/message/ChannelWrapper";
+import type { DirectMessageUtil } from "../DirectMessageUtil";
 
 /**
  * Factory for creating messages-related instances.
@@ -11,13 +12,13 @@ import type { ChannelWrapper } from "../../types/senselogic/sitevision/api/messa
  *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
  *  </p>
  * @author Elias Abrache
- * @since Sitevision 2024.03.01
+ * @since Sitevision 2024.03.1
  */
 export interface MessagesFactory {
   /**
    * Gets an instance of a channel utility class.
    * @return a channel utility class
-   * @since Sitevision 2024.05.01
+   * @since Sitevision 2024.05.1
    */
   getChannelUtil(): ChannelUtil;
 
@@ -27,6 +28,13 @@ export interface MessagesFactory {
    * @return a channel wrapper for <code>aChannel</code>, or <code>null</code> if <code>aChannel</code>&#xA; isn't a channel, is archived, Social Collaboration isn't activated or operating user doesn't have a social user identity.
    */
   getChannelWrapper(aChannel: Node): ChannelWrapper;
+
+  /**
+   * Gets an instance of a direct message utility class.
+   * @return a direct message utility class
+   * @since Sitevision 2025.04.1
+   */
+  getDirectMessageUtil(): DirectMessageUtil;
 }
 
 declare namespace MessagesFactory {}
