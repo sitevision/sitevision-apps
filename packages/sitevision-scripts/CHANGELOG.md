@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@4.0.1...@sitevision/sitevision-scripts@5.0.0) (2025-04-02)
+
+### Bug Fixes
+
+- **sitevision-scripts:** avoid star import in favour of specific ([1cbdef6](https://github.com/sitevision/sitevision-apps/commit/1cbdef6315f4cb2a0644ca37b3a8d2ca25347745))
+- **sitevision-scripts:** disable version select ([2a76315](https://github.com/sitevision/sitevision-apps/commit/2a76315451e6a3e925e52d02d7de4eb15daa82d5))
+- **sitevision-scripts:** fix failing import path, missing extension ([f041736](https://github.com/sitevision/sitevision-apps/commit/f04173680cd8eb40c900d90a98409a1677601f32))
+- **sitevision-scripts:** re-added paramter typings ([d201d1a](https://github.com/sitevision/sitevision-apps/commit/d201d1adcd6882146e52f0bc187d89142dc461d4))
+- **sitevision-scripts:** updated incorrect import ([d239fe9](https://github.com/sitevision/sitevision-apps/commit/d239fe9362da56c284829fd7ed9488a17f46018e))
+
+- feat(sitevision-scripts)!: default to react 18 ([65410bc](https://github.com/sitevision/sitevision-apps/commit/65410bc7b405a55818c84270b1b5fa47d5f5c3f4))
+
+### Features
+
+- **sitevision-scripts:** Add types based on react major version ([5f9a0b3](https://github.com/sitevision/sitevision-apps/commit/5f9a0b3079aaad89d02b8b4a038a9f9c418a3255))
+- **sitevision-scripts:** Make react version configurable, add support for react 19 ([1252fef](https://github.com/sitevision/sitevision-apps/commit/1252feff16df45b85a98ce5cc49cd4f572335395))
+
+### BREAKING CHANGES
+
+- react apps using v18 requires version 2024.09.1 of Sitevision to work, since they're dependent on
+  more shared resources made available in that version.
+
 ## [4.0.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@4.0.0...@sitevision/sitevision-scripts@4.0.1) (2024-10-30)
 
 ### Bug Fixes

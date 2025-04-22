@@ -225,7 +225,7 @@ export interface WebContentUtil {
    *
    *  <p>
    *     If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified using the
-   *     content map containing keys corresponding to layout names (e.g. "mittenspalt") on the page and values containing the
+   *     content map containing keys corresponding to layout names (e.g. "Huvudinnehåll") on the page and values containing the
    *     HTML used to generate a portlet structure in the layout. The provided content is converted to
    *     Sitevision text, table and image modules. It is also possible to specify that a horizontal or a vertical
    *     layout should be created.
@@ -349,7 +349,7 @@ export interface WebContentUtil {
    *
    *  <p>
    *     If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified using the
-   *     content map containing keys corresponding to layout names (e.g. "mittenspalt") on the page and values containing the
+   *     content map containing keys corresponding to layout names (e.g. "Huvudinnehåll") on the page and values containing the
    *     HTML used to generate a portlet structure in the layout. The provided content is converted to
    *     Sitevision text, table and image modules. It is also possible to specify that a horizontal or a vertical
    *     layout should be created.
@@ -494,7 +494,7 @@ export interface WebContentUtil {
    *     <em>This method is typically called to clear all content before adding new content via {@link #updateContent(Node, Map)}</em>
    *  </p>
    * @param aPageNode the node that will be altered, typically a node with primary node type sv:page or sv:article.&#xA; May not be null and may not be the site page
-   * @param aRootLayoutName the name of the root layout of aPageNode to remove content from (e.g. "Mittenspalt")
+   * @param aRootLayoutName the name of the root layout of aPageNode to remove content from (e.g. "Huvudinnehåll")
    * @throws NullPointerException if aPageNode or aRootLayoutName is null
    * @throws IllegalArgumentException if aPageNode is of invalid type or if there are no root layout named aRootLayoutName
    * @throws ConstraintViolationException if current user is not allowed to alter aPageNode

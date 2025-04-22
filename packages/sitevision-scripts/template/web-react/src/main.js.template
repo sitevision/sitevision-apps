@@ -1,12 +1,16 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+{{#if widget}}
+  import { createRoot } from 'react-dom/client';
+{{else}}
+  import { hydrateRoot } from 'react-dom/client';
+{{/if}}
+
 import App from './components/App';
 
 export default (initialState, el) => {
   {{#if widget}}
-    ReactDOM.render(
+    createRoot(el).render(<App {...initialState} />);
   {{else}}
-    ReactDOM.hydrate(
+    hydrateRoot(el, <App {...initialState} />);
   {{/if}}
-    <App {...initialState} />, el);
 };

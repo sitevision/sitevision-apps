@@ -46,4 +46,5 @@ export default {
   getCssRuleRepository: () => {},
   getLlmConfigurationRepository: () => {},
   getTargetAudienceRepository: () => {},
+  getSemanticIndexRepository: () => {},
 };

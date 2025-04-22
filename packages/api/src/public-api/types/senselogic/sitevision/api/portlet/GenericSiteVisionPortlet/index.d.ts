@@ -7,6 +7,7 @@ import type { PrintWriter } from "../../../../../java/io/PrintWriter";
  * This class that can be extended when creating GenericPortlet-based portlets that needs easy access to the Sitevision API.
  * @author Magnus Lövgren
  * @since Sitevision 3.0
+ * @deprecated portlet applications are the legacy way of extending Sitevision. WebApp/RESTApp technique should be used instead as of Sitevision 5.&#xA; This class will be removed in a future version of Sitevision.
  */
 export type GenericSiteVisionPortlet = {
   /**

@@ -11,7 +11,7 @@ import type { Node } from "../../types/javax/jcr/Node";
  *     See {@link MessagesFactory} for how to obtain an instance of the <code>MessagesFactory</code> interface.
  *  </p>
  * @author Elias Abrache
- * @since Sitevision 2024.05.01
+ * @since Sitevision 2024.05.1
  */
 export interface ChannelUtil {
   /**
