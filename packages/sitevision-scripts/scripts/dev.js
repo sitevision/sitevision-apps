@@ -35,8 +35,6 @@ const SPAWN_PROPERTIES = {
       })
     );
 
-    console.log('Building...', compiler);
-
     compiler.watch(
       {
         ignored: ['**/dist/**', '**/build/**', '**/node_modules/**'],
@@ -60,7 +58,6 @@ const SPAWN_PROPERTIES = {
     );
 
     process.on('SIGINT', () => {
-      console.log('cleaning up...');
       compiler.close((err) => {
         if (err) {
           console.error(err);
