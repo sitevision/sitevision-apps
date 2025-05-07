@@ -70,14 +70,6 @@ const SPAWN_PROPERTIES = {
           fs.removeSync(properties.BUILD_DIR_PATH);
       });
     });
-    // watchInstance.close((err) => {
-    //   if (err) {
-    //     console.error(err);
-    //   }
-
-    //   fs.existsSync(properties.BUILD_DIR_PATH) &&
-    //     fs.removeSync(properties.BUILD_DIR_PATH);
-    // });
   } else {
     spawn(
       resolveBin.sync('nodemon'),
