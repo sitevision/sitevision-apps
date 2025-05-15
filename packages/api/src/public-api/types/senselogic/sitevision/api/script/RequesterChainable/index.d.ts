@@ -10,7 +10,7 @@ import type { Requester } from "../../../../../../server/Requester";
  */
 export type RequesterChainable = Requester & {
   /**
-   * Invoked when a {@link Requester} was successfully executed.
+   * Invoked when a {@link Requester} was successfully executed (response with a status in the 2xx series).
    *
    *  <p>
    *     The callback is invoked with three optional arguments:
@@ -56,7 +56,7 @@ export type RequesterChainable = Requester & {
    *           </li>
    *           <li>
    *              <em>body</em> [@since Sitevision 4.2.3] - the potential JSON body of the response.
-   *              <em>(Note! Will only be available for responses that specifies application/json in the Content-Type header)</em>
+   *              <em>(Note! Will only be available for responses with a Content-Type header indicating the JSON format)</em>
    *           </li>
    *           <li>
    *              <em>headers</em> [@since Sitevision 4.5.1] - the potential response headers.

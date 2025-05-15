@@ -1377,35 +1377,49 @@ export type NodeTypeUtilConstants = {
   /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE}
-   * @since SiteVision 2024.09.2
+   * @since Sitevision 2024.09.2
    */
   getMETADATA_SINGLE_TARGET_AUDIENCE_DEFINITION_TYPE(): string;
 
   /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE}
-   * @since SiteVision 2024.09.2
+   * @since Sitevision 2024.09.2
    */
   getMETADATA_MULTIPLE_TARGET_AUDIENCE_DEFINITION_TYPE(): string;
 
   /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#GEOLOCATION_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#GEOLOCATION_TYPE}
-   * @since SiteVision 2024.10.1
+   * @since Sitevision 2024.10.1
    */
   getGEOLOCATION_TYPE(): string;
 
   /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_GEOLOCATION_DEFINITION_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_GEOLOCATION_DEFINITION_TYPE}
-   * @since SiteVision 2024.10.1
+   * @since Sitevision 2024.10.1
    */
   getMETADATA_GEOLOCATION_DEFINITION_TYPE(): string;
 
   /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_MODULE_DEFINITION_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#METADATA_MODULE_DEFINITION_TYPE}
-   * @since SiteVision 2025.01.1
+   * @since Sitevision 2025.01.1
    */
   getMETADATA_MODULE_DEFINITION_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#SEMANTIC_INDEX_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#SEMANTIC_INDEX_TYPE}
+   * @since Sitevision 2025.03.1
+   */
+  getSEMANTIC_INDEX_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#SEMANTIC_INDEX_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#SEMANTIC_INDEX_REPOSITORY_TYPE}
+   * @since Sitevision 2025.03.1
+   */
+  getSEMANTIC_INDEX_REPOSITORY_TYPE(): string;
 };

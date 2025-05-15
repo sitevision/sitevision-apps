@@ -15,6 +15,16 @@ export const questions = [
     ],
   },
   {
+    name: 'reactVersion',
+    message: 'Which version of React do you want to use?',
+    type: 'list',
+    choices: [
+      { name: '18.x', value: '18' },
+      { name: '19.x', value: '19' },
+    ],
+    when: (answers) => false && /web-react|widget-react/.test(answers.type),
+  },
+  {
     name: 'typescript',
     message: 'Do you want to use TypeScript?',
     type: 'confirm',

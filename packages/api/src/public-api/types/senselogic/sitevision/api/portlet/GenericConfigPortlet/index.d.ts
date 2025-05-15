@@ -86,6 +86,7 @@ import type { String } from "../../../../../java/lang/String";
  *  &lt;/portlet-app&gt;</code></pre></div>
  * @author Magnus Lövgren
  * @since Sitevision 3.0
+ * @deprecated portlet applications are the legacy way of extending Sitevision. WebApp/RESTApp technique should be used instead as of Sitevision 5.&#xA; This class will be removed in a future version of Sitevision.
  */
 export type GenericConfigPortlet = GenericSiteVisionPortlet & {
   /**

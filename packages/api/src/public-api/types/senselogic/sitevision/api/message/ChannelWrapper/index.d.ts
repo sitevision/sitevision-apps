@@ -16,7 +16,7 @@ import type { Wrapper } from "../../base/Wrapper";
  *     See {@link MessagesFactory} for how to obtain an instance of the MessagesFactory interface.
  *  </p>
  * @author Elias Abrache
- * @since Sitevision 2024.03.01
+ * @since Sitevision 2024.03.1
  */
 export type ChannelWrapper = Wrapper & {
   /**
@@ -95,7 +95,7 @@ export type ChannelWrapper = Wrapper & {
    * Checks if a user identity is a member of the wrapped channel.
    * @param aUserIdentity a user identity (or user)
    * @return true if aUserIdentity is a member of the wrapped channel, false otherwise.&#xA; false is always returned if aUserIdentity is null.
-   * @since Sitevision 2024.05.01
+   * @since Sitevision 2024.05.1
    */
   isMember(aUserIdentity: Node): boolean;
 
@@ -112,7 +112,7 @@ export type ChannelWrapper = Wrapper & {
    *  </p>
    * @param aChannelName the new name of the channel
    * @return true if channel could be renamed to aChannelName, false otherwise.
-   * @since Sitevision 2024.05.01
+   * @since Sitevision 2024.05.1
    */
   renameChannel(aChannelName: String | string): boolean;
 
@@ -125,7 +125,7 @@ export type ChannelWrapper = Wrapper & {
    *  </p>
    * @param aChannelDescription the new description of the channel
    * @return true if channel description was set to aChannelDescription, false otherwise.
-   * @since Sitevision 2024.05.01
+   * @since Sitevision 2024.05.1
    */
   setChannelDescription(aChannelDescription: String | string): boolean;
 };
