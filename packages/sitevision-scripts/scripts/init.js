@@ -172,6 +172,7 @@ export default async ({ appPath, appName }) => {
         password,
         typescript,
         serverSideOnly,
+        useHTTPForDevDeploy,
         reactVersion = 18,
       }) => {
         console.clear();
@@ -179,7 +180,14 @@ export default async ({ appPath, appName }) => {
         fs.writeFileSync(
           path.resolve(appPath, properties.DEV_PROPERTIES_PATH),
           JSON.stringify(
-            { domain, siteName, addonName, username, password },
+            {
+              domain,
+              siteName,
+              addonName,
+              username,
+              password,
+              useHTTPForDevDeploy,
+            },
             null,
             2
           )
