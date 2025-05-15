@@ -57,9 +57,9 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
     throw new Error('Missing main.js/.jsx/.ts/.tsx, required for widget apps');
   } else if (
     !requiredSitevisionVersion ||
-    semver.lt(requiredSitevisionVersion, '2025.05.1', { loose: true })
+    semver.lt(requiredSitevisionVersion, '2025.05.2', { loose: true })
   ) {
-    // Sitevision 2025.05.1 and earlier does not support empty main.js
+    // Sitevision 2025.05.2 and earlier does not support empty main.js
     fs.writeFileSync(outputPath + '/main.js', '');
   }
 
