@@ -51,22 +51,29 @@ import chalk from 'chalk';
       filename: fileName,
       contentType: 'application/octet-stream',
     });
+    var options = {
+      method: 'POST',
+      body: formData,
+      headers: formData.getHeaders({
+        Authorization: `Basic ${Buffer.from(
+          answers.username + ':' + answers.password,
+        ).toString('base64')}`,
+      }),
+    };
 
+    if (process.env.HTTPS_PROXY) {
+      console.log(`using ${process.env.HTTPS_PROXY} as HTTPS_PROXY`);
+      const HttpsProxyAgent = require('https-proxy-agent');
+      const proxyAgent = new HttpsProxyAgent(process.env.HTTPS_PROXY);
+      options.agent = proxyAgent;
+    }
     try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData,
-        headers: formData.getHeaders({
-          Authorization: `Basic ${Buffer.from(
-            answers.username + ':' + answers.password
-          ).toString('base64')}`,
-        }),
-      });
+      const response = await fetch(url, options);
 
       if (response.ok) {
         const signedFileNameAndPath = path.join(
           properties.DIST_DIR_PATH,
-          `${manifest.id}-signed.zip`
+          `${manifest.id}-signed.zip`,
         );
 
         const writer = fs.createWriteStream(signedFileNameAndPath, {
@@ -76,16 +83,16 @@ import chalk from 'chalk';
 
         return console.log(
           `${chalk.green(
-            'Signing successful, created:'
-          )} ${signedFileNameAndPath}`
+            'Signing successful, created:',
+          )} ${signedFileNameAndPath}`,
         );
       }
 
       if (response.status === 401) {
         console.log(
           `${chalk.red(
-            'Signing failed:'
-          )} Unauthorized, check username and password`
+            'Signing failed:',
+          )} Unauthorized, check username and password`,
         );
       }
     } catch (err) {
