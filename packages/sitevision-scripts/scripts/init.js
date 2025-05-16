@@ -38,10 +38,11 @@ const copyTemplateFiles = (type, options) => {
   fs.copySync(path.resolve(templatePath, templateType), '.');
   fs.copySync(path.resolve(templatePath, 'common'), '.');
 
-  if (!options.clientRendering) {
-    const mainName = options.typescript ? 'main.tsx' : 'main.js';
-    fs.removeSync(`src/${mainName}`);
-  }
+  console.log(
+    'Copying template files done',
+    process.cwd(),
+    options.clientRendering
+  );
 
   // Can be used to replace stuff in the templates,
   // one option would be to gather info for the manifest and populate it
@@ -51,6 +52,17 @@ const copyTemplateFiles = (type, options) => {
 
   // Can't name the file .gitignore https://github.com/npm/npm/issues/1862
   fs.moveSync('gitignore', '.gitignore');
+
+  if (!options.clientRendering) {
+    const mainName = options.typescript ? 'main.tsx' : 'main.js';
+    console.log(
+      'Removing main file',
+      path.join('src', mainName),
+      'exists',
+      fs.existsSync(path.join('src', mainName))
+    );
+    fs.removeSync(path.join('src', mainName));
+  }
 };
 
 const writePackageJson = (content) => {
