@@ -1,4 +1,3 @@
-import * as properties from '../../util/properties.js';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {
   getJsModuleLoader,
@@ -16,14 +15,10 @@ export const getClientConfig = ({
   dev,
   mainEntry,
   outputPath,
+  publicPath,
   serverSideOnly,
   cssPrefix,
 }) => {
-  const manifest = properties.getManifest();
-  const appId = manifest.id;
-  const appVersion = manifest.version;
-  const publicPath = `/webapp-files/${appId}/${appVersion}/`;
-
   return {
     mode: dev ? 'development' : 'production',
     devtool: dev ? 'eval-cheap-module-source-map' : undefined,

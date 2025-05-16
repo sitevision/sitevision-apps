@@ -3,7 +3,6 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import path from 'path';
 import { getExternals, getServerOptimization } from './utils.js';
 import babel from '@babel/core';
-import * as properties from '../../util/properties.js';
 import {
   getJsModuleLoader,
   getBabelLoader,
@@ -12,7 +11,7 @@ import {
   getCssLoader,
   getFontLoader,
   getTypeScriptLoader,
-  getJsonLoader
+  getJsonLoader,
 } from './webpack.loaders.js';
 
 export const getServerConfig = ({
@@ -21,12 +20,9 @@ export const getServerConfig = ({
   indexEntry,
   outputPath,
   cssPrefix,
+  publicPath,
+  appId,
 }) => {
-  const manifest = properties.getManifest();
-  const appId = manifest.id;
-  const appVersion = manifest.version;
-  const publicPath = `/webapp-files/${appId}/${appVersion}/`;
-
   return {
     mode: 'production',
     devtool: undefined,
@@ -65,6 +61,13 @@ export const getServerConfig = ({
           },
           {
             from: path.join(cwd, 'manifest.json'),
+            transform: (content) => {
+              const manifest = JSON.parse(content);
+
+              manifest.id = appId;
+
+              return JSON.stringify(manifest, null, 2);
+            },
           },
           {
             noErrorOnMissing: true,

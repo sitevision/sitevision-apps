@@ -1,6 +1,7 @@
 import * as properties from '../util/properties.js';
 import webpack from 'webpack';
 import { copyChunksToResources } from './util/copychunks.js';
+import { getTemporaryAppId } from '../config/environment-variables.js';
 
 (async function () {
   const manifest = properties.getManifest();
@@ -12,10 +13,12 @@ import { copyChunksToResources } from './util/copychunks.js';
     '../config/webpack/webpack.config.js'
   );
 
+  const appId = getTemporaryAppId() || manifest.id;
+
   webpack(
     webpackConfig({
       dev: false,
-      cssPrefix: manifest.id,
+      cssPrefix: appId,
       restApp: properties.getAppType() === 'rest',
     })
   ).run((err, stats) => {

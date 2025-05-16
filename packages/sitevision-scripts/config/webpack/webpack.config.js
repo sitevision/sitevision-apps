@@ -4,6 +4,8 @@ import fs from 'fs-extra';
 import { getServerConfig } from './webpack.config.server.js';
 import { getClientConfig } from './webpack.config.client.js';
 import { getServerStandaloneEntryConfig } from './webpack.config.server-standalone-entry.js';
+import { getManifest } from '../../util/properties.js';
+import { getTemporaryAppId } from '../environment-variables.js';
 
 const getEntry = (name, silent) => {
   let entry;
@@ -25,6 +27,10 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
   const mainEntry = getEntry('main', true);
   const indexEntry = getEntry('index');
   const hasMainEntry = fs.existsSync(mainEntry);
+  const manifest = getManifest();
+  const appId = getTemporaryAppId() || manifest.id;
+  const appVersion = manifest.version;
+  const publicPath = `/webapp-files/${appId}/${appVersion}/`;
 
   fs.ensureDirSync(outputPath);
 
@@ -36,6 +42,8 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
       dev,
       cssPrefix,
       serverSideOnly: !hasMainEntry,
+      publicPath,
+      appId,
     }),
   ];
 
@@ -47,6 +55,7 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
         dev,
         cssPrefix,
         serverSideOnly: false,
+        publicPath,
       })
     );
   } else {

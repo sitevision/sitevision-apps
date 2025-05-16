@@ -4,10 +4,12 @@ import fetch from 'node-fetch';
 import * as properties from '../util/properties.js';
 import chalk from 'chalk';
 import { getImportEndpoint, handleResponse } from './util/requests.js';
+import { getTemporaryAppId } from '../config/environment-variables.js';
 
 (async function () {
   const manifest = properties.getManifest();
-  const zipPath = properties.DIST_DIR_PATH + '/' + manifest.id + '.zip';
+  const appId = getTemporaryAppId() || manifest.id;
+  const zipPath = properties.DIST_DIR_PATH + '/' + appId + '.zip';
   if (!fs.existsSync(zipPath)) {
     console.error(`${chalk.red('No zip file available for upload')}`);
     console.log();

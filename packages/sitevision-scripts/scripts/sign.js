@@ -5,6 +5,7 @@ import fetch from 'node-fetch';
 import FormData from 'form-data';
 import * as properties from '../util/properties.js';
 import chalk from 'chalk';
+import { getTemporaryAppId } from '../config/environment-variables.js';
 
 (function () {
   var questions = [
@@ -26,7 +27,8 @@ import chalk from 'chalk';
   ];
 
   const manifest = properties.getManifest();
-  const fileName = manifest.id + '.zip';
+  const appId = getTemporaryAppId() || manifest.id;
+  const fileName = appId + '.zip';
   const zipPath = properties.DIST_DIR_PATH + '/' + fileName;
 
   if (!fs.existsSync(zipPath)) {
@@ -66,7 +68,7 @@ import chalk from 'chalk';
       if (response.ok) {
         const signedFileNameAndPath = path.join(
           properties.DIST_DIR_PATH,
-          `${manifest.id}-signed.zip`
+          `${appId}-signed.zip`
         );
 
         const writer = fs.createWriteStream(signedFileNameAndPath, {
