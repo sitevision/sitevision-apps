@@ -13,26 +13,33 @@ import { getFullAppId } from './util/id.js';
     {
       name: 'domain',
       message: 'Production site domain (www.example.com)',
+      default: process.env.DOMAIN,
+      when: !process.env.DOMAIN,
     },
     {
       name: 'siteName',
-      default: props.siteName,
+      default: process.env.SITE_NAME || props.siteName,
       message: 'Production site name',
+      when: !process.env.SITE_NAME,
     },
     {
       name: 'addonName',
-      default: props.addonName,
+      default: process.env.ADDON_NAME || props.addonName,
       message: 'Production site addon name',
+      when: !process.env.ADDON_NAME,
     },
     {
       name: 'username',
-      default: props.username,
+      default: process.env.USERNAME || props.username,
       message: 'Username for production site',
+      when: !process.env.USERNAME,
     },
     {
       name: 'password',
       type: 'password',
+      default: process.env.PASSWORD,
       message: 'Password for production site',
+      when: !process.env.PASSWORD,
     },
   ];
 
@@ -46,7 +53,7 @@ import { getFullAppId } from './util/id.js';
       'Create a zip file by running command',
       chalk.blue('npm run build'),
       'and',
-      chalk.blue('npm run sign')
+      chalk.blue('npm run sign'),
     );
     return;
   }
@@ -54,9 +61,9 @@ import { getFullAppId } from './util/id.js';
   const restEndPoint = getImportEndpoint(properties.getAppType());
   inquirer.prompt(questions).then(async (answers) => {
     const url = `https://${answers.domain}/rest-api/1/0/${encodeURIComponent(
-      answers.siteName
+      answers.siteName,
     )}/Addon%20Repository/${encodeURIComponent(
-      answers.addonName
+      answers.addonName,
     )}/${restEndPoint}`;
     const formData = new FormData();
     formData.append('file', fs.createReadStream(zipPath));
@@ -67,7 +74,7 @@ import { getFullAppId } from './util/id.js';
         body: formData,
         headers: formData.getHeaders({
           Authorization: `Basic ${Buffer.from(
-            answers.username + ':' + answers.password
+            answers.username + ':' + answers.password,
           ).toString('base64')}`,
         }),
       });
