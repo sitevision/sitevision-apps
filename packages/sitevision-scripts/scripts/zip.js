@@ -2,7 +2,7 @@ import zipdir from 'zip-dir';
 import fs from 'fs';
 import * as properties from '../util/properties.js';
 import chalk from 'chalk';
-import { getTemporaryAppId } from '../config/environment-variables.js';
+import { getFullAppId } from './util/id.js';
 
 (function () {
   if (!fs.existsSync(properties.DIST_DIR_PATH)) {
@@ -10,7 +10,7 @@ import { getTemporaryAppId } from '../config/environment-variables.js';
   }
 
   const { id } = properties.getManifest();
-  const appId = getTemporaryAppId() || id;
+  const appId = getFullAppId(id);
   zipdir(
     properties.BUILD_DIR_PATH,
     { saveTo: `${properties.DIST_DIR_PATH}/${appId}.zip` },

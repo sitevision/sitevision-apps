@@ -1,7 +1,7 @@
 import * as properties from '../util/properties.js';
 import webpack from 'webpack';
 import { copyChunksToResources } from './util/copychunks.js';
-import { getTemporaryAppId } from '../config/environment-variables.js';
+import { getFullAppId } from './util/id.js';
 
 (async function () {
   const manifest = properties.getManifest();
@@ -13,7 +13,7 @@ import { getTemporaryAppId } from '../config/environment-variables.js';
     '../config/webpack/webpack.config.js'
   );
 
-  const appId = getTemporaryAppId() || manifest.id;
+  const appId = getFullAppId(manifest.id);
 
   webpack(
     webpackConfig({

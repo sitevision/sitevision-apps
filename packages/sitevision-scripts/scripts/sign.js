@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 import FormData from 'form-data';
 import * as properties from '../util/properties.js';
 import chalk from 'chalk';
-import { getTemporaryAppId } from '../config/environment-variables.js';
+import { getFullAppId } from './util/id.js';
 
 (function () {
   var questions = [
@@ -27,7 +27,7 @@ import { getTemporaryAppId } from '../config/environment-variables.js';
   ];
 
   const manifest = properties.getManifest();
-  const appId = getTemporaryAppId() || manifest.id;
+  const appId = getFullAppId(manifest.id);
   const fileName = appId + '.zip';
   const zipPath = properties.DIST_DIR_PATH + '/' + fileName;
 

@@ -1,5 +1,9 @@
-export const getTemporaryAppId = () => {
-  return process.env.TEMP_APP_ID;
+export const getAppIdSuffix = () => {
+  return process.env.APP_ID_SUFFIX || '';
+};
+
+export const getAppIdPrefix = () => {
+  return process.env.APP_ID_PREFIX || '';
 };
 
 export const isCi = () => {

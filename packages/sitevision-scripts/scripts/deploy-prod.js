@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 import * as properties from '../util/properties.js';
 import chalk from 'chalk';
 import { getImportEndpoint, handleResponse } from './util/requests.js';
-import { getTemporaryAppId } from '../config/environment-variables.js';
+import { getFullAppId } from './util/id.js';
 
 (function () {
   const props = properties.getDevProperties();
@@ -37,7 +37,7 @@ import { getTemporaryAppId } from '../config/environment-variables.js';
   ];
 
   const manifest = properties.getManifest();
-  const appId = getTemporaryAppId() || manifest.id;
+  const appId = getFullAppId(manifest.id);
   const zipPath = properties.DIST_DIR_PATH + '/' + appId + '-signed.zip';
   if (!fs.existsSync(zipPath)) {
     console.error(`${chalk.red('No signed zip file available for upload')}`);
