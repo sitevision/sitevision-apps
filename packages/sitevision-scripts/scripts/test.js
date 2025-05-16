@@ -3,6 +3,7 @@ import jest from 'jest';
 import path from 'path';
 import { execSync } from 'child_process';
 import { getDirname } from '../util/dirname.js';
+import { isCi } from '../config/environment-variables.js';
 
 let setupTestFile = path.resolve(process.cwd(), 'src', 'setupTests.ts');
 
@@ -47,7 +48,7 @@ let argv = process.argv.slice(2);
 argv.push('--config', JSON.stringify(config));
 
 if (
-  !process.env.CI &&
+  !isCi() &&
   argv.indexOf('--watchAll') === -1 &&
   argv.indexOf('--watchAll=false') === -1
 ) {
