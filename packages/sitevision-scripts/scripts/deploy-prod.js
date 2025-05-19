@@ -8,37 +8,43 @@ import { getImportEndpoint, handleResponse } from './util/requests.js';
 
 (function () {
   const props = properties.getDevProperties();
+  const {
+    DEPLOY_DOMAIN,
+    DEPLOY_SITE_NAME,
+    DEPLOY_ADDON_NAME,
+    DEPLOY_USERNAME,
+    DEPLOY_PASSWORD,
+  } = process.env;
+
   const questions = [
     {
       name: 'domain',
       message: 'Production site domain (www.example.com)',
-      default: process.env.DOMAIN,
-      when: !process.env.DOMAIN,
+      when: !DEPLOY_DOMAIN,
     },
     {
       name: 'siteName',
-      default: process.env.SITE_NAME || props.siteName,
+      default: props.siteName,
       message: 'Production site name',
-      when: !process.env.SITE_NAME,
+      when: !DEPLOY_SITE_NAME,
     },
     {
       name: 'addonName',
-      default: process.env.ADDON_NAME || props.addonName,
+      default: props.addonName,
       message: 'Production site addon name',
-      when: !process.env.ADDON_NAME,
+      when: !DEPLOY_ADDON_NAME,
     },
     {
       name: 'username',
-      default: process.env.USERNAME || props.username,
+      default: props.username,
       message: 'Username for production site',
-      when: !process.env.USERNAME,
+      when: !DEPLOY_USERNAME,
     },
     {
       name: 'password',
       type: 'password',
-      default: process.env.PASSWORD,
       message: 'Password for production site',
-      when: !process.env.PASSWORD,
+      when: !DEPLOY_PASSWORD,
     },
   ];
 
@@ -57,29 +63,37 @@ import { getImportEndpoint, handleResponse } from './util/requests.js';
   }
 
   const restEndPoint = getImportEndpoint(properties.getAppType());
-  inquirer.prompt(questions).then(async (answers) => {
-    const url = `https://${answers.domain}/rest-api/1/0/${encodeURIComponent(
-      answers.siteName,
-    )}/Addon%20Repository/${encodeURIComponent(
-      answers.addonName,
-    )}/${restEndPoint}`;
-    const formData = new FormData();
-    formData.append('file', fs.createReadStream(zipPath));
+  inquirer
+    .prompt(questions)
+    .then(
+      async ({
+        siteName = DEPLOY_SITE_NAME,
+        domain = DEPLOY_DOMAIN,
+        addonName = DEPLOY_ADDON_NAME,
+        username = DEPLOY_USERNAME,
+        password = DEPLOY_PASSWORD,
+      }) => {
+        const url = `https://${domain}/rest-api/1/0/${encodeURIComponent(
+          siteName,
+        )}/Addon%20Repository/${encodeURIComponent(addonName)}/${restEndPoint}`;
+        const formData = new FormData();
+        formData.append('file', fs.createReadStream(zipPath));
 
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData,
-        headers: formData.getHeaders({
-          Authorization: `Basic ${Buffer.from(
-            answers.username + ':' + answers.password,
-          ).toString('base64')}`,
-        }),
-      });
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            body: formData,
+            headers: formData.getHeaders({
+              Authorization: `Basic ${Buffer.from(
+                username + ':' + password,
+              ).toString('base64')}`,
+            }),
+          });
 
-      handleResponse({ response, operation: 'Upload' });
-    } catch (err) {
-      console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
-    }
-  });
+          handleResponse({ response, operation: 'Upload' });
+        } catch (err) {
+          console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
+        }
+      },
+    );
 })();
