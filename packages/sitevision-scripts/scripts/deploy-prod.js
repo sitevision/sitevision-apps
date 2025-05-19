@@ -9,30 +9,43 @@ import { getFullAppId } from './util/id.js';
 
 (function () {
   const props = properties.getDevProperties();
+  const {
+    DEPLOY_DOMAIN,
+    DEPLOY_SITE_NAME,
+    DEPLOY_ADDON_NAME,
+    DEPLOY_USERNAME,
+    DEPLOY_PASSWORD,
+  } = process.env;
+
   const questions = [
     {
       name: 'domain',
       message: 'Production site domain (www.example.com)',
+      when: !DEPLOY_DOMAIN,
     },
     {
       name: 'siteName',
       default: props.siteName,
       message: 'Production site name',
+      when: !DEPLOY_SITE_NAME,
     },
     {
       name: 'addonName',
       default: props.addonName,
       message: 'Production site addon name',
+      when: !DEPLOY_ADDON_NAME,
     },
     {
       name: 'username',
       default: props.username,
       message: 'Username for production site',
+      when: !DEPLOY_USERNAME,
     },
     {
       name: 'password',
       type: 'password',
       message: 'Password for production site',
+      when: !DEPLOY_PASSWORD,
     },
   ];
 
@@ -46,35 +59,43 @@ import { getFullAppId } from './util/id.js';
       'Create a zip file by running command',
       chalk.blue('npm run build'),
       'and',
-      chalk.blue('npm run sign')
+      chalk.blue('npm run sign'),
     );
     return;
   }
 
   const restEndPoint = getImportEndpoint(properties.getAppType());
-  inquirer.prompt(questions).then(async (answers) => {
-    const url = `https://${answers.domain}/rest-api/1/0/${encodeURIComponent(
-      answers.siteName
-    )}/Addon%20Repository/${encodeURIComponent(
-      answers.addonName
-    )}/${restEndPoint}`;
-    const formData = new FormData();
-    formData.append('file', fs.createReadStream(zipPath));
+  inquirer
+    .prompt(questions)
+    .then(
+      async ({
+        siteName = DEPLOY_SITE_NAME,
+        domain = DEPLOY_DOMAIN,
+        addonName = DEPLOY_ADDON_NAME,
+        username = DEPLOY_USERNAME,
+        password = DEPLOY_PASSWORD,
+      }) => {
+        const url = `https://${domain}/rest-api/1/0/${encodeURIComponent(
+          siteName,
+        )}/Addon%20Repository/${encodeURIComponent(addonName)}/${restEndPoint}`;
+        const formData = new FormData();
+        formData.append('file', fs.createReadStream(zipPath));
 
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData,
-        headers: formData.getHeaders({
-          Authorization: `Basic ${Buffer.from(
-            answers.username + ':' + answers.password
-          ).toString('base64')}`,
-        }),
-      });
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            body: formData,
+            headers: formData.getHeaders({
+              Authorization: `Basic ${Buffer.from(
+                username + ':' + password,
+              ).toString('base64')}`,
+            }),
+          });
 
-      handleResponse({ response, operation: 'Upload' });
-    } catch (err) {
-      console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
-    }
-  });
+          handleResponse({ response, operation: 'Upload' });
+        } catch (err) {
+          console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
+        }
+      },
+    );
 })();
