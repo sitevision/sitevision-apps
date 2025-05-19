@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.1.0...@sitevision/sitevision-scripts@5.2.0) (2025-05-19)
+
+### Bug Fixes
+
+- **sitevision-scripts:** add option to prefix and suffix existing app id ([1284648](https://github.com/sitevision/sitevision-apps/commit/1284648e1ec7a00a19cbb7bdbaad736913b98620))
+- **sitevision-scripts:** Don't add a main.[js|tsx] when running ssr only ([c202480](https://github.com/sitevision/sitevision-apps/commit/c2024801244b45ca50eec121ed831d4447dc951e))
+- **sitevision-scripts:** remove debug-logging ([d813900](https://github.com/sitevision/sitevision-apps/commit/d813900ce141b39e35dc46c2ec95866a0d5ee551))
+
+### Features
+
+- **sitevision-scripts:** deploy to prod using env vars enable deployment from CI ([3ec70b7](https://github.com/sitevision/sitevision-apps/commit/3ec70b70ffb4aa296eb66cc119e5b8de50183ced))
+- **sitevision-scripts:** option to temporarily modify App id via env var ([a1c0a69](https://github.com/sitevision/sitevision-apps/commit/a1c0a693382b7144ce154afb41625d54cde486c3))
+
 # [5.0.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@4.0.1...@sitevision/sitevision-scripts@5.0.0) (2025-04-02)
 
 ### Bug Fixes
