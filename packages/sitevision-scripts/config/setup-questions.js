@@ -69,4 +69,10 @@ export const questions = [
     type: 'password',
     message: 'Password for development site',
   },
+  {
+    name: 'useHTTPForDevDeploy',
+    message: 'Use (unsafe) HTTP for local deployment?',
+    type: 'confirm',
+    default: false,
+  },
 ];

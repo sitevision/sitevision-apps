@@ -38,11 +38,6 @@ const copyTemplateFiles = (type, options) => {
   fs.copySync(path.resolve(templatePath, templateType), '.');
   fs.copySync(path.resolve(templatePath, 'common'), '.');
 
-  if (!options.clientRendering) {
-    const mainName = options.typescript ? 'main.tsx' : 'main.js';
-    fs.removeSync(`src/${mainName}`);
-  }
-
   // Can be used to replace stuff in the templates,
   // one option would be to gather info for the manifest and populate it
   walkFiles('.', (filePath) => templatifyFile(filePath, options), [
@@ -51,6 +46,11 @@ const copyTemplateFiles = (type, options) => {
 
   // Can't name the file .gitignore https://github.com/npm/npm/issues/1862
   fs.moveSync('gitignore', '.gitignore');
+
+  if (!options.clientRendering) {
+    const mainName = options.typescript ? 'main.tsx' : 'main.js';
+    fs.removeSync(path.join('src', mainName));
+  }
 };
 
 const writePackageJson = (content) => {
@@ -172,6 +172,7 @@ export default async ({ appPath, appName }) => {
         password,
         typescript,
         serverSideOnly,
+        useHTTPForDevDeploy,
         reactVersion = 18,
       }) => {
         console.clear();
@@ -179,7 +180,14 @@ export default async ({ appPath, appName }) => {
         fs.writeFileSync(
           path.resolve(appPath, properties.DEV_PROPERTIES_PATH),
           JSON.stringify(
-            { domain, siteName, addonName, username, password },
+            {
+              domain,
+              siteName,
+              addonName,
+              username,
+              password,
+              useHTTPForDevDeploy,
+            },
             null,
             2
           )

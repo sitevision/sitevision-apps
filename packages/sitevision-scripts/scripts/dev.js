@@ -6,6 +6,7 @@ import resolveBin from 'resolve-bin';
 import webpack from 'webpack';
 import { copyChunksToResources } from './util/copychunks.js';
 import { getDirname } from '../util/dirname.js';
+import { getFullAppId } from './util/id.js';
 
 const __dirname = getDirname(import.meta.url);
 
@@ -27,10 +28,11 @@ const SPAWN_PROPERTIES = {
       '../config/webpack/webpack.config.js'
     );
 
+    const appId = getFullAppId(manifest.id);
     const compiler = webpack(
       webpackConfig({
         dev: true,
-        cssPrefix: manifest.id,
+        cssPrefix: appId,
         restApp: properties.getAppType() === 'rest',
       })
     );

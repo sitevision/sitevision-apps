@@ -6,6 +6,7 @@ import { getClientConfig } from './webpack.config.client.js';
 import { getServerStandaloneEntryConfig } from './webpack.config.server-standalone-entry.js';
 import { getAppType, getManifest } from '../../util/properties.js';
 import semver from 'semver';
+import { getFullAppId } from '../../scripts/util/id.js';
 
 const getEntry = (name, silent) => {
   let entry;
@@ -27,8 +28,15 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
   const mainEntry = getEntry('main', true);
   const indexEntry = getEntry('index');
   const hasMainEntry = fs.existsSync(mainEntry);
-  const { requiredSitevisionVersion } = getManifest();
   const appType = getAppType();
+  const manifest = getManifest();
+  const {
+    requiredSitevisionVersion,
+    id: manifestId,
+    version: manifestVersion,
+  } = manifest;
+  const appId = getFullAppId(manifestId);
+  const publicPath = `/webapp-files/${appId}/${manifestVersion}/`;
 
   fs.ensureDirSync(outputPath);
 
@@ -40,6 +48,8 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
       dev,
       cssPrefix,
       serverSideOnly: !hasMainEntry,
+      publicPath,
+      appId,
     }),
   ];
 
@@ -51,6 +61,7 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
         dev,
         cssPrefix,
         serverSideOnly: false,
+        publicPath,
       })
     );
   } else if (appType === 'widget') {
