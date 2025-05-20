@@ -8,7 +8,16 @@ import { getImportEndpoint, handleResponse } from './util/requests.js';
 import { getFullAppId } from './util/id.js';
 
 (function () {
-  const props = properties.getDevProperties();
+  let props;
+  try {
+    props = properties.getDevProperties();
+  } catch (error) {
+    // If properties are not found, we can still run the script
+    // In a CI environment, the properties are not needed
+    // and the script will use the environment variables instead
+    props = {};
+  }
+
   const {
     DEPLOY_DOMAIN,
     DEPLOY_SITE_NAME,
@@ -59,7 +68,7 @@ import { getFullAppId } from './util/id.js';
       'Create a zip file by running command',
       chalk.blue('npm run build'),
       'and',
-      chalk.blue('npm run sign'),
+      chalk.blue('npm run sign')
     );
     return;
   }
@@ -76,7 +85,7 @@ import { getFullAppId } from './util/id.js';
         password = DEPLOY_PASSWORD,
       }) => {
         const url = `https://${domain}/rest-api/1/0/${encodeURIComponent(
-          siteName,
+          siteName
         )}/Addon%20Repository/${encodeURIComponent(addonName)}/${restEndPoint}`;
         const formData = new FormData();
         formData.append('file', fs.createReadStream(zipPath));
@@ -87,7 +96,7 @@ import { getFullAppId } from './util/id.js';
             body: formData,
             headers: formData.getHeaders({
               Authorization: `Basic ${Buffer.from(
-                username + ':' + password,
+                username + ':' + password
               ).toString('base64')}`,
             }),
           });
@@ -96,6 +105,6 @@ import { getFullAppId } from './util/id.js';
         } catch (err) {
           console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
         }
-      },
+      }
     );
 })();
