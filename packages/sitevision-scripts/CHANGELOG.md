@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.2.0...@sitevision/sitevision-scripts@5.2.1) (2025-05-20)
+
+### Bug Fixes
+
+- **sitevision-scripts:** dev_properties not needed when deploying to a prod environment ([#160](https://github.com/sitevision/sitevision-apps/issues/160)) ([9e7f781](https://github.com/sitevision/sitevision-apps/commit/9e7f781d75d8d3a99207413ab6d26e8a28999f01))
+
 # [5.2.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.1.0...@sitevision/sitevision-scripts@5.2.0) (2025-05-19)
 
 ### Bug Fixes
