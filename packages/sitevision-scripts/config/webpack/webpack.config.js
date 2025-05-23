@@ -89,12 +89,18 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
 
 const getRestAppConfig = ({ cwd, outputPath }) => {
   const indexEntry = getEntry('index');
+  const manifest = getManifest();
+  const appId = getFullAppId(manifest.id);
+  const appVersion = manifest.version;
+  const publicPath = `/webapp-files/${appId}/${appVersion}/`;
 
   return [
     getServerConfig({
       indexEntry,
       outputPath,
       cwd,
+      publicPath,
+      appId,
     }),
   ];
 };
