@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.2](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.2.1...@sitevision/sitevision-scripts@5.2.2) (2025-05-23)
+
+### Bug Fixes
+
+- **sitevision-scripts:** add missing parameters for restapp build ([226c71c](https://github.com/sitevision/sitevision-apps/commit/226c71c224785d332263d64f29c762179567d621))
+
 ## [5.2.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.2.0...@sitevision/sitevision-scripts@5.2.1) (2025-05-20)
 
 ### Bug Fixes
