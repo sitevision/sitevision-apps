@@ -8,6 +8,35 @@ import { getImportEndpoint, handleResponse } from './util/requests.js';
 import { getFullAppId } from './util/id.js';
 import minimist from 'minimist';
 
+const activateCustomModuleExecutable = async (
+  id,
+  baseUrl,
+  username,
+  password
+) => {
+  const activateUrl = `${baseUrl}/activateCustomModuleExecutable`;
+  try {
+    const activateResponse = await fetch(activateUrl, {
+      method: 'PUT',
+      body: JSON.stringify({
+        customModuleExecutableId: id,
+      }),
+      headers: {
+        Authorization: `Basic ${Buffer.from(username + ':' + password).toString(
+          'base64'
+        )}`,
+      },
+    });
+
+    handleResponse({
+      response: activateResponse,
+      operation: 'Activate Executable',
+    });
+  } catch (err) {
+    console.error(`${chalk.red('Activation failed, status code:')}, ${err}`);
+  }
+};
+
 (function () {
   const args = minimist(process.argv, {
     alias: { a: 'activate' },
@@ -101,7 +130,6 @@ import minimist from 'minimist';
         const formData = new FormData();
         formData.append('file', fs.createReadStream(zipPath));
 
-        let deployResponse;
         try {
           const response = await fetch(deployUrl, {
             method: 'POST',
@@ -113,40 +141,19 @@ import minimist from 'minimist';
             }),
           });
 
+          handleResponse({ response: response.clone(), operation: 'Upload' });
           if (args.activate && response.ok) {
-            deployResponse = response.clone();
-          }
+            const { id } = await response.json();
 
-          handleResponse({ response, operation: 'Upload' });
-        } catch (err) {
-          console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
-        }
-
-        if (args.activate && deployResponse && deployResponse.ok) {
-          const activateUrl = `${baseUrl}/activateCustomModuleExecutable`;
-          try {
-            const { id } = await deployResponse.json();
-            const activateResponse = await fetch(activateUrl, {
-              method: 'PUT',
-              body: JSON.stringify({
-                customModuleExecutableId: id,
-              }),
-              headers: {
-                Authorization: `Basic ${Buffer.from(
-                  username + ':' + password
-                ).toString('base64')}`,
-              },
-            });
-
-            handleResponse({
-              response: activateResponse,
-              operation: 'Activate Executable',
-            });
-          } catch (err) {
-            console.error(
-              `${chalk.red('Activation failed, status code:')}, ${err}`
+            await activateCustomModuleExecutable(
+              id,
+              baseUrl,
+              username,
+              password
             );
           }
+        } catch (err) {
+          console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
         }
       }
     );
