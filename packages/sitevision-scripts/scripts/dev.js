@@ -1,5 +1,6 @@
 import path from 'path';
 import spawn from 'cross-spawn';
+import fs from 'fs-extra';
 import * as properties from '../util/properties.js';
 import resolveBin from 'resolve-bin';
 import webpack from 'webpack';
@@ -28,14 +29,15 @@ const SPAWN_PROPERTIES = {
     );
 
     const appId = getFullAppId(manifest.id);
-
-    webpack(
+    const compiler = webpack(
       webpackConfig({
         dev: true,
         cssPrefix: appId,
         restApp: properties.getAppType() === 'rest',
       })
-    ).watch(
+    );
+
+    compiler.watch(
       {
         ignored: ['**/dist/**', '**/build/**', '**/node_modules/**'],
       },
@@ -56,6 +58,17 @@ const SPAWN_PROPERTIES = {
         );
       }
     );
+
+    process.on('SIGINT', () => {
+      compiler.close((err) => {
+        if (err) {
+          console.error(err);
+        }
+
+        fs.existsSync(properties.BUILD_DIR_PATH) &&
+          fs.removeSync(properties.BUILD_DIR_PATH);
+      });
+    });
   } else {
     spawn(
       resolveBin.sync('nodemon'),

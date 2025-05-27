@@ -4,7 +4,8 @@ import fs from 'fs-extra';
 import { getServerConfig } from './webpack.config.server.js';
 import { getClientConfig } from './webpack.config.client.js';
 import { getServerStandaloneEntryConfig } from './webpack.config.server-standalone-entry.js';
-import { getManifest } from '../../util/properties.js';
+import { getAppType, getManifest } from '../../util/properties.js';
+import semver from 'semver';
 import { getFullAppId } from '../../scripts/util/id.js';
 
 const getEntry = (name, silent) => {
@@ -27,10 +28,15 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
   const mainEntry = getEntry('main', true);
   const indexEntry = getEntry('index');
   const hasMainEntry = fs.existsSync(mainEntry);
+  const appType = getAppType();
   const manifest = getManifest();
-  const appId = getFullAppId(manifest.id);
-  const appVersion = manifest.version;
-  const publicPath = `/webapp-files/${appId}/${appVersion}/`;
+  const {
+    requiredSitevisionVersion,
+    id: manifestId,
+    version: manifestVersion,
+  } = manifest;
+  const appId = getFullAppId(manifestId);
+  const publicPath = `/webapp-files/${appId}/${manifestVersion}/`;
 
   fs.ensureDirSync(outputPath);
 
@@ -58,7 +64,13 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
         publicPath,
       })
     );
-  } else {
+  } else if (appType === 'widget') {
+    throw new Error('Missing main.js/.jsx/.ts/.tsx, required for widget apps');
+  } else if (
+    !requiredSitevisionVersion ||
+    semver.lt(requiredSitevisionVersion, '2025.07.1', { loose: true })
+  ) {
+    // Sitevision 2025.05.2 and earlier does not support empty main.js
     fs.writeFileSync(outputPath + '/main.js', '');
   }
 
