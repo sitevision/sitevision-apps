@@ -6,16 +6,12 @@ import * as React from 'react';
 {{/if}}
 
 import App from './components/App';
+import type { AppProperties } from './components/App/App';
 
-export default (initialState: any, el: HTMLElement) => {
+export default (initialState: AppProperties, el: HTMLElement) => {
   {{#if widget}}
-    createRoot(el).render(
-      <App message={initialState.message} name={initialState.name} />
-    );
+    createRoot(el).render(<App {...initialState} />);
   {{else}}
-    hydrateRoot(
-      el, 
-      <App message={initialState.message} name={initialState.name} />
-    );
+    hydrateRoot(el, <App {...initialState} />);
   {{/if}}
 };

@@ -9,13 +9,8 @@ import App from './components/App';
 
 export default (initialState, el) => {
   {{#if widget}}
-    createRoot(el).render(
-      <App message={initialState.message} name={initialState.name} />
-    );
+    createRoot(el).render(<App {...initialState} />);
   {{else}}
-    hydrateRoot(
-      el, 
-      <App message={initialState.message} name={initialState.name} />
-    );
+    hydrateRoot(el, <App {...initialState} />);
   {{/if}}
 };
