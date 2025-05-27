@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.2.2...@sitevision/sitevision-scripts@5.3.0) (2025-05-27)
+
+### Features
+
+- **sitevision-scripts:** Add option to activate executables deployed to prod ([5531729](https://github.com/sitevision/sitevision-apps/commit/55317291f185fb20bce5a89f8de08d1677481cf6)), closes [#166](https://github.com/sitevision/sitevision-apps/issues/166)
+- **sitevison-scripts:** add option to create-addon based on env-properties ([a5feffc](https://github.com/sitevision/sitevision-apps/commit/a5feffc7662173cadd5918a97cacb3302edfe984)), closes [#164](https://github.com/sitevision/sitevision-apps/issues/164)
+
 ## [5.2.2](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.2.1...@sitevision/sitevision-scripts@5.2.2) (2025-05-23)
 
 ### Bug Fixes
