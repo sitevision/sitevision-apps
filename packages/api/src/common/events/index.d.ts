@@ -246,14 +246,18 @@ export interface Events {
    * @param callback The callback to trigger for the given event
    */
   on(eventName: string, callback: (options: unknown) => void): void;
+  on(eventName: 'sv:publishing', callback: (options: PublishingOptions) => void): void;
   on(eventName: 'sv:publishing:publish', callback: (options: PublishingPublishOptions) => void): void;
   on(eventName: 'sv:publishing:unpublish', callback: (options: PublishingUnpublishOptions) => void): void;
+  on(eventName: 'sv:simpleuser', callback: (options: SimpleUserOptions) => void): void;
   on(eventName: 'sv:simpleuser:create', callback: (options: SimpleUserCreateOptions) => void): void;
   on(eventName: 'sv:simpleuser:update', callback: (options: SimpleUserUpdateOptions) => void): void;
   on(eventName: 'sv:simpleuser:session:destroy', callback: (options: SimpleUserSessionDestroyOptions) => void): void;
   on(eventName: 'sv:structure:move', callback: (options: StructureMoveOptions) => void): void;
+  on(eventName: 'sv:trashcan', callback: (options: TrashcanOptions) => void): void;
   on(eventName: 'sv:trashcan:add', callback: (options: TrashcanAddOptions) => void): void;
   on(eventName: 'sv:trashcan:restore', callback: (options: TrashcanRestoreOptions) => void): void;
+  on(eventName: 'sv:binary', callback: (options: BinaryOptions) => void): void;
   on(eventName: 'sv:binary:create', callback: (options: BinaryCreateOptions) => void): void;
   on(eventName: 'sv:binary:update:content', callback: (options: BinaryUpdateContentOptions) => void): void;
   on(eventName: 'sv:binary:update:metadata', callback: (options: BinaryUpdateMetadataOptions) => void): void;
@@ -264,17 +268,13 @@ export interface Events {
   on(eventName: 'sv:binary:update:version:select', callback: (options: BinaryUpdateVersionSelectOptions) => void): void;
   on(eventName: 'sv:folder:update:metadata', callback: (options: FolderUpdateMetadataOptions) => void): void;
   on(eventName: 'sv:form:post', callback: (options: FormPostOptions) => void): void;
+  on(eventName: 'sv:timer', callback: (options: TimerOptions) => void): void;
   on(eventName: 'sv:every-5-minutes', callback: (options: Every5MinutesOptions) => void): void;
   on(eventName: 'sv:every-15-minutes', callback: (options: Every15MinutesOptions) => void): void;
   on(eventName: 'sv:every-30-minutes', callback: (options: Every30MinutesOptions) => void): void;
   on(eventName: 'sv:every-hour', callback: (options: EveryHourOptions) => void): void;
   on(eventName: 'sv:every-day', callback: (options: EveryDayOptions) => void): void;
-  // Union type overloads for grouped events
-  on(eventName: 'sv:publishing', callback: (options: PublishingOptions) => void): void;
-  on(eventName: 'sv:simpleuser', callback: (options: SimpleUserOptions) => void): void;
-  on(eventName: 'sv:binary', callback: (options: BinaryOptions) => void): void;
-  on(eventName: 'sv:timer', callback: (options: TimerOptions) => void): void;
-  on(eventName: 'sv:trashcan', callback: (options: TrashcanOptions) => void): void;
+
   /**
    * Stop listening to a given event
    *
