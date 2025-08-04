@@ -4,7 +4,7 @@ import type { Node } from '../../public-api/types/javax/jcr/Node';
 export type PublishingPublishOptions = {
   /** The full name of the event */
   event: 'sv:publishing:publish';
-  /** The JCR identifier of the emitting user [@since 4.5.5] */
+  /** The JCR identifier of the emitting user */
   emitter: string;
   /** The timestamp when the event was emitted */
   timestamp: number;
@@ -18,7 +18,7 @@ export type PublishingPublishOptions = {
 export type PublishingUnpublishOptions = {
   /** The full name of the event */
   event: 'sv:publishing:unpublish';
-  /** The JCR identifier of the emitting user [@since 4.5.5] */
+  /** The JCR identifier of the emitting user */
   emitter: string;
   /** The timestamp when the event was emitted */
   timestamp: number;
@@ -30,7 +30,7 @@ export type PublishingUnpublishOptions = {
 export type SimpleUserCreateOptions = {
   /** The full name of the event */
   event: 'sv:simpleuser:create';
-  /** The JCR identifier of the emitting user [@since 4.5.5] */
+  /** The JCR identifier of the emitting user */
   emitter: string;
   /** The timestamp when the event was emitted */
   timestamp: number;
@@ -42,7 +42,7 @@ export type SimpleUserCreateOptions = {
 export type SimpleUserUpdateOptions = {
   /** The full name of the event */
   event: 'sv:simpleuser:update';
-  /** The JCR identifier of the emitting user [@since 4.5.5] */
+  /** The JCR identifier of the emitting user */
   emitter: string;
   /** The timestamp when the event was emitted */
   timestamp: number;
