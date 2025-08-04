@@ -10,7 +10,7 @@ export type PublishingPublishOptions = {
   timestamp: number;
   /** The JCR identifier of the node that was published */
   node: string;
-  /** If the publishing comment feature is enabled and a comment has been provided [@since 2025.04.2] */
+  /** If the publishing comment feature is enabled and a comment has been provided */
   publishingComment?: string;
 };
 
