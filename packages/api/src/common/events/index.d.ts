@@ -357,7 +357,6 @@ export interface Events {
   on(eventName: 'sv:binary:update:version:select', callback: (options: BinaryUpdateVersionSelectOptions) => void): void;
   on(eventName: 'sv:folder:update:metadata', callback: (options: FolderUpdateMetadataOptions) => void): void;
   on(eventName: 'sv:form:post', callback: (options: FormPostOptions) => void): void;
-  on(eventName: 'sv:timer', callback: (options: TimerOptions) => void): void;
   on(eventName: 'sv:every-5-minutes', callback: (options: Every5MinutesOptions) => void): void;
   on(eventName: 'sv:every-15-minutes', callback: (options: Every15MinutesOptions) => void): void;
   on(eventName: 'sv:every-30-minutes', callback: (options: Every30MinutesOptions) => void): void;
