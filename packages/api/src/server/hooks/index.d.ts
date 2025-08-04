@@ -14,9 +14,8 @@ export interface HooksResponse {
 
 export interface Hooks {
   beforeRender(callback: (req: Request, res: HooksResponse) => void): void;
-
-  getPageTitle(callback: (req: Request) => string);
-  addHeadElement(callback: (req: Request) => string);
+  getPageTitle(callback: (req: Request) => string): void;
+  addHeadElement(callback: (req: Request) => string): void;
 }
 
 declare namespace Hooks {}
@@ -24,3 +23,7 @@ declare namespace Hooks {}
 declare var hooks: Hooks;
 
 export default hooks;
+
+export declare function beforeRender(callback: (req: Request, res: HooksResponse) => void): void;
+export declare function getPageTitle(callback: (req: Request) => string): void;
+export declare function addHeadElement(callback: (req: Request) => string): void;

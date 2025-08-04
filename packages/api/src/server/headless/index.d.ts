@@ -97,3 +97,15 @@ declare namespace Headless {}
 declare var headless: Headless;
 
 export default headless;
+
+export declare function getHeadlessContent(
+  callback: (
+    params: HeadlessContentParams
+  ) => (
+    | HeadlessImageContent
+    | HeadlessImagesContent
+    | HeadlessVideoContent
+    | HeadlessTextContent
+    | HeadlessFilesContent
+  )[]
+): void;
