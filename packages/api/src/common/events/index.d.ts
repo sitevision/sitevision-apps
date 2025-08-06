@@ -1,4 +1,4 @@
-import type { Node } from '../../public-api/types/javax/jcr/Node';
+import type { Node } from '../../types/javax/jcr/Node';
 
 /** Emitted when something (typically a page) is published. */
 export type PublishingPublishOptions = {
