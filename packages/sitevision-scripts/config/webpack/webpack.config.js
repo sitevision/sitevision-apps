@@ -70,7 +70,7 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
     !requiredSitevisionVersion ||
     semver.lt(requiredSitevisionVersion, '2025.07.1', { loose: true })
   ) {
-    // Sitevision 2025.05.2 and earlier does not support empty main.js
+    // Sitevision 2025.07.1 and earlier does not support empty main.js
     fs.writeFileSync(outputPath + '/main.js', '');
   }
 
