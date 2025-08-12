@@ -31,7 +31,7 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
   const appType = getAppType();
   const manifest = getManifest();
   const {
-    requiredSitevisionVersion,
+    requiredSiteVisionVersion,
     id: manifestId,
     version: manifestVersion,
   } = manifest;
