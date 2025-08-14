@@ -20,6 +20,10 @@ import type { String } from "../../../../../java/lang/String";
  *        This renderer provides the ability to render <em>"plain" HTML</em> output for a Text module
  *        <em>(typically what you want when the HTML of the Text module should be used outside of Sitevision, i.e. headless)</em>.
  *     </li>
+ *     <li>
+ *        This renderer also supports rendering output as <em>Markdown</em>,
+ *        which is particularly useful for large language model (LLM) applications and other modern content workflows.
+ *    </li>
  *  </ul>
  *
  *  <p>
@@ -43,14 +47,15 @@ import type { String } from "../../../../../java/lang/String";
  *
  *  <p>
  *     <strong>Example of how this renderer could be used:</strong><br>
- *     E.g. You want to get all output types (html, plain html, text) from two Text modules on a specific page.
+ *     E.g. You want to get all output types (html, plain html, text, markdown) from two Text modules on a specific page.
  *  </p>
  *  <pre><code>   var textRendererBuilder = require('TextModuleRendererBuilder'),
  *        textRenderer,
  *        page,
  *        htmlData = { "type": "HTML" },
  *        plainHtmlData = { "type": "Plain HTML" },
- *        textData = { "type": "Text" };
+ *        textData = { "type": "Text" },
+ *        markdownData = { "type": "Markdown" };
  *
  *    <em>// Get the page where the Text modules are located...</em>
  *    page = ...
@@ -64,6 +69,7 @@ import type { String } from "../../../../../java/lang/String";
  *       htmlData.heading = textRenderer.renderHtml();
  *       plainHtmlData.heading = textRenderer.renderPlainHtml();
  *       textData.heading = textRenderer.renderText();
+ *       markdownData.heading = textRenderer.renderMarkdown();
  *    }
  *
  *    <em>// Update the TextModuleRenderer with another Text module and render (if possible)</em>
@@ -72,6 +78,7 @@ import type { String } from "../../../../../java/lang/String";
  *       htmlData.content = textRenderer.renderHtml();
  *       plainHtmlData.content = textRenderer.renderPlainHtml();
  *       textData.content = textRenderer.renderText();
+ *       markdownData.content = textRenderer.renderMarkdown();
  *    }</code></pre>
  *  <p>
  *     The JSON result of the Javascript objects in the example script above could be something like this:
@@ -94,6 +101,13 @@ import type { String } from "../../../../../java/lang/String";
  *    {
  *       "type": "Text",
  *       "heading": "Heading",
+ *       "content": "Some content"
+ *    }
+ *
+ *    <strong>// markdownData</strong>
+ *    {
+ *       "type": "Markdown",
+ *       "heading": "# Heading",
  *       "content": "Some content"
  *    }</code></pre>
  *
@@ -231,4 +245,16 @@ export type TextModuleRenderer = {
    * @see #renderHtml()
    */
   renderPlainHtml(): string;
+
+  /**
+   * Renders Markdown for the loaded Text module.
+   *
+   *  <p>
+   *  <strong>Note!</strong> The returned value will always be empty string if the {@link #isLoaded()} state is <code>false</code>
+   *  when invoking this render method <em>(i.e. you would typically always check the loaded state before calling this method).</em>
+   *  </p>
+   * @return the Markdown representation of the loaded Text module, or empty String if rendering fails or no Text module is loaded
+   * @since Sitevision 2025.07.1
+   */
+  renderMarkdown(): string;
 };
