@@ -1,4 +1,8 @@
 export default {
-  generateText() {},
-  streamText() {},
+  createConversation() {},
+  getConversationMemory() {},
+  getConversationKnowledge() {},
+  querySemanticIndex() {},
+  askAssistant() {},
+  askLLM() {},
 };
