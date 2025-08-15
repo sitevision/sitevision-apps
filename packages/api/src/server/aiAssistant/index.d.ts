@@ -9,7 +9,7 @@ export type SemanticQueryOptions = {
   query: string;
 
   /**
-   * Max number of chunks
+   * Max number of chunks. Valid numbers are between 1 and 20 and the default is 5.
    */
   maxHits?: number;
 };
@@ -23,7 +23,7 @@ export type AskAssistantOptions = {
   /**
    * The key that identifies the conversation for current user
    */
-  conversationId: string;
+  conversationIdentifier: string;
 
   /**
    * The potential knowledge needed to answer the user question/message (optional).
@@ -139,19 +139,25 @@ export interface AIAssistant {
    * Retrieves the memory (context) of a specific conversation. Will not include any system messages.
    *
    * @param aiAssistant The AI Assistant instance.
-   * @param conversationId The unique identifier of the conversation.
+   * @param conversationIdentifier The unique identifier of the conversation.
    * @returns An array of messages representing the conversation memory.
    */
-  getConversationMemory(aiAssistant: Node, conversationId: string): Message[];
+  getConversationMemory(
+    aiAssistant: Node,
+    conversationIdentifier: string
+  ): Message[];
 
   /**
    * Retrieves the knowledge string used in the conversation.
    *
    * @param aiAssistant The AI Assistant instance.
-   * @param conversationId The unique identifier of the conversation.
+   * @param conversationIdentifier The unique identifier of the conversation.
    * @returns A string representing the conversation knowledge.
    */
-  getConversationKnowledge(aiAssistant: Node, conversationId: string): string;
+  getConversationKnowledge(
+    aiAssistant: Node,
+    conversationIdentifier: string
+  ): string;
 
   /**
    * Queries a semantic index for knowledge entries based on the provided options.

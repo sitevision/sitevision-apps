@@ -173,9 +173,9 @@ export interface StreamFinishResult {
   finishReason: string;
 
   /**
-   * (Optional) Token usage statistics for this request.
+   * Token usage statistics for this request.
    */
-  usage?: UsageInfo;
+  usage: UsageInfo;
 }
 
 /**
