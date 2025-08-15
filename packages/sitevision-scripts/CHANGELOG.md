@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.2.2...@sitevision/sitevision-scripts@5.3.0) (2025-05-27)
+
+### Features
+
+- **sitevision-scripts:** Add option to activate executables deployed to prod ([5531729](https://github.com/sitevision/sitevision-apps/commit/55317291f185fb20bce5a89f8de08d1677481cf6)), closes [#166](https://github.com/sitevision/sitevision-apps/issues/166)
+- **sitevison-scripts:** add option to create-addon based on env-properties ([a5feffc](https://github.com/sitevision/sitevision-apps/commit/a5feffc7662173cadd5918a97cacb3302edfe984)), closes [#164](https://github.com/sitevision/sitevision-apps/issues/164)
+
+## [5.2.2](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.2.1...@sitevision/sitevision-scripts@5.2.2) (2025-05-23)
+
+### Bug Fixes
+
+- **sitevision-scripts:** add missing parameters for restapp build ([226c71c](https://github.com/sitevision/sitevision-apps/commit/226c71c224785d332263d64f29c762179567d621))
+
+## [5.2.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.2.0...@sitevision/sitevision-scripts@5.2.1) (2025-05-20)
+
+### Bug Fixes
+
+- **sitevision-scripts:** dev_properties not needed when deploying to a prod environment ([#160](https://github.com/sitevision/sitevision-apps/issues/160)) ([9e7f781](https://github.com/sitevision/sitevision-apps/commit/9e7f781d75d8d3a99207413ab6d26e8a28999f01))
+
+# [5.2.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.1.0...@sitevision/sitevision-scripts@5.2.0) (2025-05-19)
+
+### Bug Fixes
+
+- **sitevision-scripts:** add option to prefix and suffix existing app id ([1284648](https://github.com/sitevision/sitevision-apps/commit/1284648e1ec7a00a19cbb7bdbaad736913b98620))
+- **sitevision-scripts:** Don't add a main.[js|tsx] when running ssr only ([c202480](https://github.com/sitevision/sitevision-apps/commit/c2024801244b45ca50eec121ed831d4447dc951e))
+- **sitevision-scripts:** remove debug-logging ([d813900](https://github.com/sitevision/sitevision-apps/commit/d813900ce141b39e35dc46c2ec95866a0d5ee551))
+
+### Features
+
+- **sitevision-scripts:** deploy to prod using env vars enable deployment from CI ([3ec70b7](https://github.com/sitevision/sitevision-apps/commit/3ec70b70ffb4aa296eb66cc119e5b8de50183ced))
+- **sitevision-scripts:** option to temporarily modify App id via env var ([a1c0a69](https://github.com/sitevision/sitevision-apps/commit/a1c0a693382b7144ce154afb41625d54cde486c3))
+
 # [5.0.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@4.0.1...@sitevision/sitevision-scripts@5.0.0) (2025-04-02)
 
 ### Bug Fixes

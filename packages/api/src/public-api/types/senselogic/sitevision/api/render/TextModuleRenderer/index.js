@@ -6,4 +6,5 @@ export default {
   renderHtml: () => {},
   renderText: () => {},
   renderPlainHtml: () => {},
+  renderMarkdown: () => {},
 };

@@ -1,5 +1,5 @@
 /**
- * Get methods for accessing field constants defined in {@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingProxy}.
+ * Get methods for accessing field constants defined in deprecated {@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingProxy}.
  *
  *  <p>
  *     The sole purpose of this interface is to provide access to {@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingProxy}
@@ -7,6 +7,7 @@
  *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6.2
+ * @deprecated this interface is deprecated and will be removed in a future version of Sitevision
  */
 export type ExceptionSuppressingProxyConstants = {
   /**

@@ -4,7 +4,18 @@ import chalk from 'chalk';
 import { getAddonEndpoint, handleResponse } from './util/requests.js';
 
 (async function () {
-  const props = properties.getDevProperties();
+  let props = {
+    domain: process.env.PROPS_DOMAIN,
+    siteName: process.env.PROPS_SITE_NAME,
+    addonName: process.env.PROPS_ADDON_NAME,
+    username: process.env.PROPS_USERNAME,
+    password: process.env.PROPS_PASSWORD,
+  };
+
+  if (Object.values(props).some((value) => !value)) {
+    props = properties.getDevProperties();
+  }
+
   const restEndpoint = getAddonEndpoint(properties.getAppType());
   const url =
     (props.useHTTPForDevDeploy ? `http://` : `https://`) +

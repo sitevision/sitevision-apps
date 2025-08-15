@@ -405,46 +405,34 @@ export interface Utils {
   getImageScaler(aMaxWidth: number, aMaxHeight: number): ImageScaler;
 
   /**
-   * Creates and returns an instance of an exception-suppressing proxy.
-   *
-   *  <p>
-   *  <strong>Note! </strong>Be aware of <code>null</code>'s. They are never proxied. If you try to proxy <code>null</code>, this method
-   *  will just return <code>null</code>, not a proxy instance. In other words: even though you're trying to use a
-   *  <code>ExceptionSuppressingProxy</code> to suppress exceptions,
-   *  method invocations will of course still throw <code>NullPointerException</code>.
-   *  </p>
-   * @param anObject an object to be proxied by an ExceptionSuppressingProxy
-   * @return anObject proxied by an ExceptionSuppressingProxy, or <code>null</code> if <code>anObject</code> is <code>null</code>.&#xA; If <code>anObject</code> is a <code>ExceptionSuppressingProxy</code>),&#xA; <code>anObject</code> will be returned "as-is" (no new instance will be created).
+   * Deprecated get method for deprecated ExceptionSuppressingProxy.
+   * @param aObject an object to be proxied by an ExceptionSuppressingProxy
+   * @return a deprecated ExceptionSuppressingProxy, or null if aObject is null.
    * @since Sitevision 2.6.1_09
+   * @deprecated ExceptionSuppressingProxy is not supported, this method deprecated and will be removed in a future version of Sitevision
    */
-  getExceptionSuppressingProxy(anObject: unknown): ExceptionSuppressingProxy;
+  getExceptionSuppressingProxy(aObject: unknown): ExceptionSuppressingProxy;
 
   /**
-   * Creates and returns an instance of a collection decorator that exposes an exception-suppressing iterator.
-   *
-   *  <p>
-   *  <strong>Note!</strong> The sole purpose of the <code>ExceptionSuppressingCollection</code> is to provide easy access to a decorated iterator
-   *  ({@link senselogic.sitevision.api.script.proxy.ExceptionSuppressingIterator}).
-   *  You should <em>not</em> create a collection of object proxys (i.e. <code>Collection&lt;ExceptionSuppressingProxy&gt;</code>) yourself.
-   *  You should use <code>ExceptionSuppressingCollection</code>
-   *  with your "regular" collection since the actual proxying is done by the iterator itself.
-   *  </p>
-   * @param aCollection a collection to be decorated by a ExceptionSuppressingCollection. Note that this should be your "regular" collection,&#xA; not a already proxied one (i.e. <code>Collection&lt;ExceptionSuppressingProxy&gt;</code>).
-   * @return the collection decorated by a ExceptionSuppressingCollection, or <code>null</code> if <code>aCollection</code> is <code>null</code>.&#xA; If <code>aCollection</code> is a <code>ExceptionSuppressingCollection</code>),&#xA; <code>aCollection</code> will be returned "as-is" (no new instance will be created).
+   * Deprecated get method for deprecated ExceptionSuppressingCollection.
+   * @param aCollection a collection to be decorated by a ExceptionSuppressingCollection
+   * @return a deprecated ExceptionSuppressingCollection, or null if aCollection is null.
    * @since Sitevision 2.6.1_09
+   * @deprecated ExceptionSuppressingCollection is not supported, this method deprecated and will be removed in a future version of Sitevision
    */
   getExceptionSuppressingCollection(
     aCollection: Collection | unknown[]
   ): ExceptionSuppressingCollection;
 
   /**
-   * Creates and returns an instance of an exception-suppressing iterator that returns exception-suppressing dynamic proxys.
-   * @param anIterator an iterator to be decorated by a ExceptionSuppressingIterator
-   * @return the iterator decorated by a ExceptionSuppressingIterator, or <code>null</code> if <code>anIterator</code> is <code>null</code>.&#xA; If <code>anIterator</code> is a <code>ExceptionSuppressingIterator</code>),&#xA; <code>anIterator</code> will be returned "as-is" (no new instance will be created).
+   * Deprecated get method for deprecated ExceptionSuppressingIterator.
+   * @param aIterator an iterator to be decorated by a ExceptionSuppressingIterator
+   * @return a deprecated ExceptionSuppressingIterator, or null if aIterator is null.
    * @since Sitevision 2.6.1_09
+   * @deprecated ExceptionSuppressingIterator is not supported, this method deprecated and will be removed in a future version of Sitevision
    */
   getExceptionSuppressingIterator(
-    anIterator: Iterator
+    aIterator: Iterator
   ): ExceptionSuppressingIterator;
 
   /**

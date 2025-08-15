@@ -47,4 +47,6 @@ export default {
   getLlmConfigurationRepository: () => {},
   getTargetAudienceRepository: () => {},
   getSemanticIndexRepository: () => {},
+  getTargetAudienceGroupRepository: () => {},
+  getAiAssistantRepository: () => {},
 };

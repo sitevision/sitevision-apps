@@ -152,6 +152,7 @@ import type { String } from "../../types/java/lang/String";
  *  </ul>
  * @author Magnus Lövgren
  * @since Sitevision 2.6.1_08
+ * @deprecated
  */
 export interface FileIconRenderer {
   /**

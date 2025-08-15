@@ -29,8 +29,8 @@ export interface GenerateTextOptions {
 
   /**
    * Maximum duration (in milliseconds) before timing out.
-   * The default value and valid range are environment-dependent and can be 
-   * configured via a system property. If not explicitly set, the system 
+   * The default value and valid range are environment-dependent and can be
+   * configured via a system property. If not explicitly set, the system
    * determines an appropriate timeout value.
    */
   timeout?: number;
@@ -99,8 +99,8 @@ export interface StreamTextOptions {
 
   /**
    * Maximum duration (in milliseconds) before timing out.
-   * The default value and valid range are environment-dependent and can be 
-   * configured via a system property. If not explicitly set, the system 
+   * The default value and valid range are environment-dependent and can be
+   * configured via a system property. If not explicitly set, the system
    * determines an appropriate timeout value.
    */
   timeout?: number;
@@ -140,6 +140,15 @@ export interface StreamTextOptions {
 }
 
 /**
+ * Contains token usage information for the request. Note that usage may vary and may not be supported by some models.
+ */
+export type UsageInfo = {
+  promptTokens: number;
+  completionTokens: number;
+  totalTokens: number;
+};
+
+/**
  * Final result object for a streaming text operation.
  */
 export interface StreamFinishResult {
@@ -164,13 +173,9 @@ export interface StreamFinishResult {
   finishReason: string;
 
   /**
-   * (Optional) Token usage statistics for this request.
+   * Token usage statistics for this request.
    */
-  usage?: {
-    promptTokens: number;
-    completionTokens: number;
-    totalTokens: number;
-  };
+  usage: UsageInfo;
 }
 
 /**

@@ -6,33 +6,93 @@ import * as properties from '../util/properties.js';
 import chalk from 'chalk';
 import { getImportEndpoint, handleResponse } from './util/requests.js';
 import { getFullAppId } from './util/id.js';
+import minimist from 'minimist';
+
+const activateCustomModuleExecutable = async (
+  id,
+  baseUrl,
+  username,
+  password
+) => {
+  const activateUrl = `${baseUrl}/activateCustomModuleExecutable`;
+  try {
+    const activateResponse = await fetch(activateUrl, {
+      method: 'PUT',
+      body: JSON.stringify({
+        customModuleExecutableId: id,
+      }),
+      headers: {
+        Authorization: `Basic ${Buffer.from(username + ':' + password).toString(
+          'base64'
+        )}`,
+      },
+    });
+
+    handleResponse({
+      response: activateResponse,
+      operation: 'Activate Executable',
+    });
+  } catch (err) {
+    console.error(`${chalk.red('Activation failed, status code:')}, ${err}`);
+  }
+};
 
 (function () {
-  const props = properties.getDevProperties();
+  const args = minimist(process.argv, {
+    alias: { a: 'activate' },
+    default: {
+      activate: false,
+    },
+    boolean: ['activate'],
+  });
+
+  let props;
+  try {
+    props = properties.getDevProperties();
+  } catch (error) {
+    // If properties are not found, we can still run the script
+    // In a CI environment, the properties are not needed
+    // and the script will use the environment variables instead
+    props = {};
+  }
+
+  const {
+    DEPLOY_DOMAIN,
+    DEPLOY_SITE_NAME,
+    DEPLOY_ADDON_NAME,
+    DEPLOY_USERNAME,
+    DEPLOY_PASSWORD,
+  } = process.env;
+
   const questions = [
     {
       name: 'domain',
       message: 'Production site domain (www.example.com)',
+      when: !DEPLOY_DOMAIN,
     },
     {
       name: 'siteName',
       default: props.siteName,
       message: 'Production site name',
+      when: !DEPLOY_SITE_NAME,
     },
     {
       name: 'addonName',
       default: props.addonName,
       message: 'Production site addon name',
+      when: !DEPLOY_ADDON_NAME,
     },
     {
       name: 'username',
       default: props.username,
       message: 'Username for production site',
+      when: !DEPLOY_USERNAME,
     },
     {
       name: 'password',
       type: 'password',
       message: 'Password for production site',
+      when: !DEPLOY_PASSWORD,
     },
   ];
 
@@ -52,29 +112,49 @@ import { getFullAppId } from './util/id.js';
   }
 
   const restEndPoint = getImportEndpoint(properties.getAppType());
-  inquirer.prompt(questions).then(async (answers) => {
-    const url = `https://${answers.domain}/rest-api/1/0/${encodeURIComponent(
-      answers.siteName
-    )}/Addon%20Repository/${encodeURIComponent(
-      answers.addonName
-    )}/${restEndPoint}`;
-    const formData = new FormData();
-    formData.append('file', fs.createReadStream(zipPath));
+  inquirer
+    .prompt(questions)
+    .then(
+      async ({
+        siteName = DEPLOY_SITE_NAME,
+        domain = DEPLOY_DOMAIN,
+        addonName = DEPLOY_ADDON_NAME,
+        username = DEPLOY_USERNAME,
+        password = DEPLOY_PASSWORD,
+      }) => {
+        const baseUrl = `https://${domain}/rest-api/1/0/${encodeURIComponent(
+          siteName
+        )}/Addon%20Repository/${encodeURIComponent(addonName)}`;
 
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData,
-        headers: formData.getHeaders({
-          Authorization: `Basic ${Buffer.from(
-            answers.username + ':' + answers.password
-          ).toString('base64')}`,
-        }),
-      });
+        const deployUrl = `${baseUrl}/${restEndPoint}`;
+        const formData = new FormData();
+        formData.append('file', fs.createReadStream(zipPath));
 
-      handleResponse({ response, operation: 'Upload' });
-    } catch (err) {
-      console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
-    }
-  });
+        try {
+          const response = await fetch(deployUrl, {
+            method: 'POST',
+            body: formData,
+            headers: formData.getHeaders({
+              Authorization: `Basic ${Buffer.from(
+                username + ':' + password
+              ).toString('base64')}`,
+            }),
+          });
+
+          handleResponse({ response: response.clone(), operation: 'Upload' });
+          if (args.activate && response.ok) {
+            const { id } = await response.json();
+
+            await activateCustomModuleExecutable(
+              id,
+              baseUrl,
+              username,
+              password
+            );
+          }
+        } catch (err) {
+          console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
+        }
+      }
+    );
 })();

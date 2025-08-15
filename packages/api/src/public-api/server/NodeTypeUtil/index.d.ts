@@ -735,6 +735,18 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   SEMANTIC_INDEX_REPOSITORY_TYPE: "sv:semanticIndexRepository";
 
   /**
+   * The primary node type name for the ai assistant type.
+   * @since Sitevision 2025.07.1
+   */
+  AI_ASSISTANT_TYPE: "sv:aiAssistant";
+
+  /**
+   * The primary node type name for the ai assistant repository type.
+   * @since Sitevision 2025.07.1
+   */
+  AI_ASSISTANT_REPOSITORY_TYPE: "sv:aiAssistantRepository";
+
+  /**
    * The primary node type name for the simple user type.
    * @see #isSimpleUser(Node)
    * @see #isAnyUserType(Node)
@@ -1241,6 +1253,12 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    * @since Sitevision 2024.09.2
    */
   TARGET_AUDIENCE_TYPE: "sv:targetAudience";
+
+  /**
+   * The primary node type name for the target audience group repository type.
+   * @since SiteVision 2025.07.1
+   */
+  TARGET_AUDIENCE_GROUP_REPOSITORY_TYPE: "sv:targetAudienceGroupRepository";
 
   /**
    * The primary node type name for the target audience group type.
