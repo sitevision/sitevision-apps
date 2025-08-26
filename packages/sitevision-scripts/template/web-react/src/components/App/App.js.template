@@ -1,14 +1,22 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import styles from './App.scss';
+{{#unless widget}}
+  import styles from './App.scss';
+{{/unless}}
 
 const App = ({ message, name }) => {
   return (
+  {{#if widget}}
+    <section className="env-dashboard-widget">
+      <h2 className="env-ui-text-sectionheading">{message} {name}</h2>
+    </section>
+  {{else}}
     <div className={styles.container}>
       <p className={styles.text}>
         {message} {name}
       </p>
     </div>
+  {{/if}}
   );
 };
 
