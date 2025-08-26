@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.3.0...@sitevision/sitevision-scripts@6.0.0) (2025-08-26)
+
+- feat(sitevision-scripts)!: don't add main.js in build step (#156) ([69dbfd8](https://github.com/sitevision/sitevision-apps/commit/69dbfd845634721658697c5264bbdfc247a3f640)), closes [#156](https://github.com/sitevision/sitevision-apps/issues/156)
+
+### Features
+
+- **sitevision-scripts:** Update widget templates to better align with envision documentation ([#171](https://github.com/sitevision/sitevision-apps/issues/171)) ([17a81d4](https://github.com/sitevision/sitevision-apps/commit/17a81d4f2131a6bc32440b684c3567188cb3f903))
+
+### BREAKING CHANGES
+
+- If you're building for < Sitevision 2025.07.1.
+  You need to add an main.js to be able to deploy your app to Sitevision.
+
 # [5.3.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.2.2...@sitevision/sitevision-scripts@5.3.0) (2025-05-27)
 
 ### Features
