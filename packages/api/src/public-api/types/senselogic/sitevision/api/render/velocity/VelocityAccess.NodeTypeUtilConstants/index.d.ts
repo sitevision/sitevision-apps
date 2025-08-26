@@ -1368,6 +1368,13 @@ export type NodeTypeUtilConstants = {
   getTARGET_AUDIENCE_TYPE(): string;
 
   /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_GROUP_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_GROUP_REPOSITORY_TYPE}
+   * @since Sitevision 2025.07.1
+   */
+  getTARGET_AUDIENCE_GROUP_REPOSITORY_TYPE(): string;
+
+  /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_GROUP_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#TARGET_AUDIENCE_GROUP_TYPE}
    * @since Sitevision 2024.09.2
@@ -1422,4 +1429,18 @@ export type NodeTypeUtilConstants = {
    * @since Sitevision 2025.03.1
    */
   getSEMANTIC_INDEX_REPOSITORY_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#AI_ASSISTANT_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#AI_ASSISTANT_TYPE}
+   * @since Sitevision 2025.07.1
+   */
+  getAI_ASSISTANT_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#AI_ASSISTANT_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#AI_ASSISTANT_REPOSITORY_TYPE}
+   * @since Sitevision 2025.07.1
+   */
+  getAI_ASSISTANT_REPOSITORY_TYPE(): string;
 };

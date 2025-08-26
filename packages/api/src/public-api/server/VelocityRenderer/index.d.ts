@@ -18,7 +18,7 @@ import type { String } from "../../types/java/lang/String";
  *     <p style="margin-top:0; margin-bottom:10px">
  *        <em>The upside of this is that you get caching and such "for free" and you don't have to include or use any Velocity jar
  *        when creating your portlet application (war file). You will also avoid possible Velocity.init() caveats and such.
- *        The possible downside is that the Velocity engine (currently version 1.7) potentially can be replaced at
+ *        The possible downside is that the Velocity engine and its features potentially can be replaced at
  *        any time (i.e. whenever Sitevision is updated).</em>
  *     </p>
  *     <p style="margin-top:0; margin-bottom:10px">
@@ -50,13 +50,13 @@ import type { String } from "../../types/java/lang/String";
  *        super.init(portletConfig);
  *
  *        template =
- *           " Current request is: $request &lt;br /&gt;                " +
- *           " Utils is: $sitevisionUtils &lt;br /&gt;                  " +
- *           " Session is: $jcrSession &lt;br /&gt;                     " +
- *           " VelocityEvaluator is: $velocityEvaluator &lt;br /&gt;    " +
- *           " &lt;br /&gt;                                             " +
+ *           " Current request is: $request &lt;br&gt;                  " +
+ *           " Utils is: $sitevisionUtils &lt;br&gt;                    " +
+ *           " Session is: $jcrSession &lt;br&gt;                       " +
+ *           " VelocityEvaluator is: $velocityEvaluator &lt;br&gt;      " +
+ *           " &lt;br&gt;                                               " +
  *           " #set($count = 1)                                   " +
- *           " This is written with the VelocityEvaluator: &lt;br /&gt; " +
+ *           " This is written with the VelocityEvaluator: &lt;br&gt;   " +
  *           " &lt;div style=\"margin:0 20px\"&gt;                      " +
  *           "    $velocityEvaluator.evaluate($evaluateThis)      " +
  *           " &lt;/div&gt;                                             ";
@@ -105,6 +105,7 @@ import type { String } from "../../types/java/lang/String";
  *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.0
+ * @deprecated portlet applications are the legacy way of extending Sitevision.&#xA; WebApp/RESTApp technique should be used instead as of Sitevision 5. This class will be removed in a future version of Sitevision.
  */
 export interface VelocityRenderer {
   /**
@@ -190,7 +191,7 @@ export interface VelocityRenderer {
   /**
    * Renders a Velocity template string.
    * @param aContext a context with mappings needed by aTemplate (Note! this must be an instance created via any of the methods above,&#xA; a custom VelocityContext implementation is not allowed).
-   * @param aTemplate the template string (i.e. if the actual template is in a file,&#xA; you must read it and put it in a string that can be passed to this method)
+   * @param aTemplate a String containing the Velocity code to be evaluated
    * @throws IllegalArgumentException if aTemplate is <code>null</code>, if aContext is <code>null</code> or not created via VelocityRenderer
    * @throws VelocityException if parsing/evaluation of aTemplate fails
    * @throws IOException if an I/O exception occurs during the rendering process

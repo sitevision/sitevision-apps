@@ -1,5 +1,7 @@
 import * as React from 'react';
-import styles from './App.scss';
+{{#unless widget}}
+  import styles from './App.scss';
+{{/unless}}
 
 export interface AppProperties {
   message: string;
@@ -8,11 +10,17 @@ export interface AppProperties {
 
 const App: React.FunctionComponent<AppProperties> = ({ message, name }) => {
   return (
+  {{#if widget}}
+    <section className="env-dashboard-widget">
+      <h2 className="env-ui-text-sectionheading">{message} {name}</h2>
+    </section>
+  {{else}}
     <div className={styles.container}>
       <p className={styles.text}>
         {message} {name}
       </p>
     </div>
+  {{/if}}
   );
 };
 

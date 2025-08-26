@@ -495,6 +495,20 @@ export interface ResourceLocatorUtil {
    * @since Sitevision 2025.03.1
    */
   getSemanticIndexRepository(): Node;
+
+  /**
+   * Gets the target audience group repository (sv:targetAudienceGroupRepository) for the site of current node.
+   * @return the target audience group repository, or null if indeterminable.
+   * @since Sitevision 2025.07.1
+   */
+  getTargetAudienceGroupRepository(): Node;
+
+  /**
+   * Gets the ai assistant repository (sv:aiAssistantRepository) for the site of current node.
+   * @return the ai assistant repository, or null if indeterminable.
+   * @since Sitevision 2025.07.1
+   */
+  getAiAssistantRepository(): Node;
 }
 
 declare namespace ResourceLocatorUtil {}

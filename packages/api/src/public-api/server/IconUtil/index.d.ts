@@ -9,6 +9,7 @@ import type { Node } from "../../types/javax/jcr/Node";
  *  See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
  *  </p>
  * @author Magnus Lövgren
+ * @deprecated
  */
 export interface IconUtil {
   /**
