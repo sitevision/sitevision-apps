@@ -22,7 +22,7 @@ export interface Request {
   updateSession(): Session;
   header(headerName: string): string | null;
   file(fileParameterName: string): Node;
-  params: { [key: string]: string };
+  params: { [key: string]: string | string[] };
   cookies: { [key: string]: string };
   xhr: boolean;
   serverside: boolean;
