@@ -250,8 +250,8 @@ export type TextModuleRenderer = {
    * Renders Markdown for the loaded Text module.
    *
    *  <p>
-   *  <strong>Note!</strong> The returned value will always be empty string if the {@link #isLoaded()} state is <code>false</code>
-   *  when invoking this render method <em>(i.e. you would typically always check the loaded state before calling this method).</em>
+   *     <strong>Note!</strong> The returned value will always be empty string if the {@link #isLoaded()} state is <code>false</code>
+   *     when invoking this render method <em>(i.e. you would typically always check the loaded state before calling this method).</em>
    *  </p>
    * @return the Markdown representation of the loaded Text module, or empty String if rendering fails or no Text module is loaded
    * @since Sitevision 2025.07.1

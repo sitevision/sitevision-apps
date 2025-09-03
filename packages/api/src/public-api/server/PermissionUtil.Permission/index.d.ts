@@ -55,6 +55,7 @@ declare enum Permission {
   MANAGE_CUSTOM_SEARCH_INDEX,
   MANAGE_PUBLISHING_LOCK,
   MANAGE_DASHBOARDS,
+  MANAGE_AI,
 }
 
 export default Permission;
