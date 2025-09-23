@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@6.0.0...@sitevision/sitevision-scripts@6.0.1) (2025-09-23)
+
+**Note:** Version bump only for package @sitevision/sitevision-scripts
+
 # [6.0.0](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@5.3.0...@sitevision/sitevision-scripts@6.0.0) (2025-08-26)
 
 - feat(sitevision-scripts)!: don't add main.js in build step (#156) ([69dbfd8](https://github.com/sitevision/sitevision-apps/commit/69dbfd845634721658697c5264bbdfc247a3f640)), closes [#156](https://github.com/sitevision/sitevision-apps/issues/156)
