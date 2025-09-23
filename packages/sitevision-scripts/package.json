@@ -1,7 +1,7 @@
 {
   "name": "@sitevision/sitevision-scripts",
   "type": "module",
-  "version": "6.0.0",
+  "version": "6.0.1-beta.0",
   "description": "Scripts for create-sitevision-app",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
     "fs-extra": "^11.2.0",
     "handlebars": "^4.7.8",
     "identity-obj-proxy": "^3.0.0",
-    "inquirer": "^9.1.4",
+    "inquirer": "^12.9.6",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
