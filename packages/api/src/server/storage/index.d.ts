@@ -14,7 +14,7 @@ export interface CollectionDataStore {
   addAll(data: any[]): void;
   get(dsid: string): unknown;
   set(dsid: string, data: any): void;
-  remove(dsid: string): void;
+  remove(dsid: string): unknown;
   removeAll(): void;
 
   find(query: string, options?: FindOptions): SearchResult;
