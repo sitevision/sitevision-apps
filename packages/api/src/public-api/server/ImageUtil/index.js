@@ -10,4 +10,5 @@ export default {
   toBase64: () => {},
   setAltText: () => {},
   setCaptionText: () => {},
+  setSourceText: () => {},
 };

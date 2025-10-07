@@ -302,6 +302,24 @@ export interface ImageUtil {
    * @since Sitevision 2024.07.1
    */
   setCaptionText(aImage: Node, aCaptionText: String | string): void;
+
+  /**
+   * Sets the source property for an image Node.
+   *
+   *  <p>
+   *     <strong>Permission note!</strong> Current user (the invoker of this method) must have
+   *     {@link senselogic.sitevision.api.security.PermissionUtil.Permission#WRITE WRITE} permission
+   *     on the image node that should be updated. <em>Updating an image for a <code>sv:userIdentity</code> requires
+   *     {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_USER_IDENTITIES MANAGE_USER_IDENTITIES} permission
+   *     on current page.</em>
+   *  </p>
+   * @param aImage the sv:image Node, may not be null
+   * @param aSourceText the source text to set
+   * @throws ConstraintViolationException if aImage is not a sv:image or if current user is not authorized to alter the image node
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 2025.07.1
+   */
+  setSourceText(aImage: Node, aSourceText: String | string): void;
 }
 
 declare namespace ImageUtil {}

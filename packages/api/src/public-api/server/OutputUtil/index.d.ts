@@ -361,10 +361,8 @@ export interface OutputUtil extends OutputUtilConstants {
    * Convenience method for rendering a linked web path to a specified node.
    *
    *  <p>
-   *  --------------------------------------------------------- <br>
-   *  <strong>Example:</strong> You use Velocity and want to do a simple "path to this page" menu
-   *  with a pretty "double arrow" between the links<br>
-   *  ---------------------------------------------------------
+   *  <strong>Example:</strong> You use Velocity and want to do a simple "path to this page" trail using the
+   *  <a href="https://envisionui.io/components/breadcrumb/" target="_blank">Envision Breadcrumb Component</a> markup.
    *  </p>
    *
    *  <p><strong>A) The explicit way:</strong></p>
@@ -382,15 +380,20 @@ export interface OutputUtil extends OutputUtilConstants {
    *        #set ($linkRenderer = $sitevisionUtils.getLinkRenderer())
    *
    *        <em>## Render links to all nodes</em>
-   *        &lt;p class="normal"&gt;
-   *        #foreach ($node in $pathList)
-   *           $linkRenderer.update($node)
-   *           #if ($velocityCount &gt; 0)
-   *              &amp;raquo;
-   *           #end
-   *           $linkRenderer.render()
-   *        #end
-   *        &lt;/p&gt;
+   *        &lt;nav class="normal"&gt;
+   *             <em>## Use a list for accessibility (https://envisionui.io/components/breadcrumb/)</em>
+   *             &lt;ol class="env-breadcrumb"&gt;
+   *              #foreach ($node in $pathList)
+   *                 $linkRenderer.update($node)
+   *                 &lt;li class="env-breadcrumb__item"&gt;
+   *                    $linkRenderer.render()
+   *                    #if (!$foreach.last)
+   *                       &lt;span aria-hidden=true class="env-breadcrumb__separator"&gt;&amp;raquo;&lt;/span&gt;
+   *                    #end
+   *                 &lt;/li&gt;
+   *              #end
+   *           &lt;/ol&gt;
+   *        &lt;/nav&gt;
    *     #end</code></pre>
    *
    *  <p><strong>B) The convenient way:</strong></p>
@@ -403,7 +406,7 @@ export interface OutputUtil extends OutputUtilConstants {
    *     <em>## Render</em>
    *     #set ($result = $outputUtil.renderWebPathNodes($currentPage, $linkRenderer, ' &amp;raquo; '))
    *     #if ($result != '')
-   *        &lt;p class="normal"&gt;$result&lt;/p&gt;
+   *        &lt;nav aria-label="Breadcrumb" class="normal"&gt;$result&lt;/nav&gt;
    *     #end</code></pre>
    *
    *  <p>
@@ -412,7 +415,7 @@ export interface OutputUtil extends OutputUtilConstants {
    * @param aDescendantNode the node the web path should be rendered for
    * @param aLinkRenderer the link renderer that determines how links are rendered
    * @param aSeparator the separator that should be put between the links. <em>Note! This is not encoded by this method.</em>
-   * @return a linked web path, or empty string if aDescendantNode is <code>null</code>, <code>aLinkRenderer</code> is <code>null</code>,&#xA; <code>aSeparator</code> is <code>null</code> or no web path could be created.
+   * @return a HTML list of linked web paths, or empty string if aDescendantNode is <code>null</code>,&#xA; <code>aLinkRenderer</code> is <code>null</code> or no web path could be created.
    * @see senselogic.sitevision.api.node.NodeTreeUtil#getWebPathNodes(javax.jcr.Node)
    * @since Sitevision 3.0.2
    */
