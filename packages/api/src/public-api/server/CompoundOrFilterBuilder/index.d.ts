@@ -35,7 +35,7 @@ export interface CompoundOrFilterBuilder extends Builder {
    * @param aFilter the node filter to add, <code>null</code> will be ignored
    * @return this builder
    */
-  addFilter(aFilter: Filter): CompoundOrFilterBuilder;
+  addFilter(aFilter: Filter<Node>): CompoundOrFilterBuilder;
 
   /**
    * Removes all previously added filters.
@@ -48,7 +48,7 @@ export interface CompoundOrFilterBuilder extends Builder {
    * @return a node filter
    * @throws IllegalStateException if this builder contains no filters.
    */
-  build(): Filter;
+  build(): Filter<Node>;
 }
 
 declare namespace CompoundOrFilterBuilder {}
