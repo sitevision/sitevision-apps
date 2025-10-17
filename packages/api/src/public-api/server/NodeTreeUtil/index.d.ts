@@ -147,7 +147,7 @@ export interface NodeTreeUtil {
   findPortletsByName(
     aPageNode: Node,
     aPortletName: String | string,
-    aNodeFilter: Filter
+    aNodeFilter: Filter<Node>
   ): List;
 
   /**
@@ -238,7 +238,7 @@ export interface NodeTreeUtil {
   findPortletsByType(
     aPageNode: Node,
     aPortletType: String | string,
-    aNodeFilter: Filter
+    aNodeFilter: Filter<Node>
   ): List;
 
   /**
@@ -252,7 +252,7 @@ export interface NodeTreeUtil {
    * @return all occurrences of portlets that also applies to the aNodeFilter filter.&#xA; If no such portlets can be found or if aPageNode is not a page node, an empty List is returned
    * @since Sitevision 2023.07.1
    */
-  findPortlets(aPageNode: Node, aNodeFilter: Filter): List;
+  findPortlets(aPageNode: Node, aNodeFilter: Filter<Node>): List;
 
   /**
    * Find a layout with a specific name on a page node.
@@ -337,7 +337,7 @@ export interface NodeTreeUtil {
   findLayoutsByName(
     aPageNode: Node,
     aLayoutName: String | string,
-    aNodeFilter: Filter
+    aNodeFilter: Filter<Node>
   ): List;
 
   /**
@@ -364,7 +364,7 @@ export interface NodeTreeUtil {
    * @return all occurrences of layouts that also applies to the aNodeFilter filter.&#xA; If no such layouts can be found or if aPageNode is not a page node, an empty List is returned
    * @since Sitevision 2023.07.1
    */
-  findLayouts(aPageNode: Node, aNodeFilter: Filter): List;
+  findLayouts(aPageNode: Node, aNodeFilter: Filter<Node>): List;
 }
 
 declare namespace NodeTreeUtil {}

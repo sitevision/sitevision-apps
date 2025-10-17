@@ -110,7 +110,7 @@ export interface NodeFilterUtil {
    * @param aNodeFilter a node filter
    * @return a list of all nodes of <code>aNodeList</code> that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeList</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    */
-  getFilteredList(aNodeList: List | unknown[], aNodeFilter: Filter): List;
+  getFilteredList(aNodeList: List | unknown[], aNodeFilter: Filter<Node>): List;
 
   /**
    * Applies a node filter to a Map with Node values and gets the result.
@@ -119,7 +119,7 @@ export interface NodeFilterUtil {
    * @return a Map with all <code>aNodeValueMap</code> entries with a value that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeValueMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    * @since Sitevision 4.3.1
    */
-  getFilteredValueMap(aNodeValueMap: Map | {}, aNodeFilter: Filter): Map;
+  getFilteredValueMap(aNodeValueMap: Map | {}, aNodeFilter: Filter<Node>): Map;
 
   /**
    * Applies a node filter to a Map with Node keys and gets the result.
@@ -128,7 +128,7 @@ export interface NodeFilterUtil {
    * @return a Map with all <code>aNodeKeyMap</code> entries with a key that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeKeyMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    * @since Sitevision 4.3.1
    */
-  getFilteredKeyMap(aNodeKeyMap: Map | {}, aNodeFilter: Filter): Map;
+  getFilteredKeyMap(aNodeKeyMap: Map | {}, aNodeFilter: Filter<Node>): Map;
 
   /**
    * Gets the filtering result of a split operation for a collection of nodes with a node filter as divider.
@@ -151,7 +151,7 @@ export interface NodeFilterUtil {
    */
   split(
     aNodeCollection: Collection | unknown[],
-    aNodeFilter: Filter
+    aNodeFilter: Filter<Node>
   ): FilterSplit;
 
   /**
@@ -181,27 +181,27 @@ export interface NodeFilterUtil {
    * Gets a filter that always matches.
    * @return a filter that matches all nodes.
    */
-  getAlwaysAcceptFilter(): Filter;
+  getAlwaysAcceptFilter(): Filter<Node>;
 
   /**
    * Gets a filter that never matches.
    * @return a filter that never matches any nodes.
    */
-  getNeverAcceptFilter(): Filter;
+  getNeverAcceptFilter(): Filter<Node>;
 
   /**
    * Gets a filter that matches null nodes.
    * @return a filter that matches null nodes.
    * @since Sitevision 4.3.1
    */
-  getNullFilter(): Filter;
+  getNullFilter(): Filter<Node>;
 
   /**
    * Gets a filter that matches non-null nodes.
    * @return a filter that matches non-null nodes.
    * @since Sitevision 4.3.1
    */
-  getNonNullFilter(): Filter;
+  getNonNullFilter(): Filter<Node>;
 
   /**
    * Gets a filter that skips a given number of nodes.
@@ -231,7 +231,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if aSkip is less than zero
    * @since Sitevision 2025.01.1
    */
-  getSkipFilter(aSkip: number): Filter;
+  getSkipFilter(aSkip: number): Filter<Node>;
 
   /**
    * Gets a filter that inverts the result of another filter.
@@ -239,7 +239,7 @@ export interface NodeFilterUtil {
    * @return a filter that inverts the result
    * @throws IllegalArgumentException if <code>aFilter</code> is <code>null</code>
    */
-  getInvertedFilter(aFilter: Filter): Filter;
+  getInvertedFilter(aFilter: Filter<Node>): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified node identifier.
@@ -248,7 +248,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aIdentifier</code> is <code>null</code> or whitespace only
    * @since Sitevision 4.1
    */
-  getIdentifierFilter(aIdentifier: String | string): Filter;
+  getIdentifierFilter(aIdentifier: String | string): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified node identifier prefix.
@@ -257,7 +257,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aIdentifierPrefix</code> is <code>null</code> or whitespace only
    * @since Sitevision 4.1
    */
-  getIdentifierPrefixFilter(aIdentifierPrefix: String | string): Filter;
+  getIdentifierPrefixFilter(aIdentifierPrefix: String | string): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified node identifier suffix.
@@ -266,7 +266,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aIdentifierSuffix</code> is <code>null</code> or whitespace only
    * @since Sitevision 4.1
    */
-  getIdentifierSuffixFilter(aIdentifierSuffix: String | string): Filter;
+  getIdentifierSuffixFilter(aIdentifierSuffix: String | string): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified primary node type.
@@ -277,7 +277,7 @@ export interface NodeFilterUtil {
    * @see #getNoneOfPrimaryNodeTypesFilter(Collection)
    * @see senselogic.sitevision.api.node.NodeTypeUtil
    */
-  getPrimaryNodeTypeFilter(aPrimaryNodeTypeName: String | string): Filter;
+  getPrimaryNodeTypeFilter(aPrimaryNodeTypeName: String | string): Filter<Node>;
 
   /**
    * Gets a filter that matches all nodes that has a primary node type that is present in given collection.
@@ -295,7 +295,7 @@ export interface NodeFilterUtil {
    */
   getAnyOfPrimaryNodeTypesFilter(
     aPrimaryNodeTypeNames: Collection | unknown[]
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches all nodes that does not have a primary node type present in given collection.
@@ -314,7 +314,7 @@ export interface NodeFilterUtil {
    */
   getNoneOfPrimaryNodeTypesFilter(
     aExcludedPrimaryNodeTypeNames: Collection | unknown[]
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the existence of a specified property.
@@ -323,7 +323,7 @@ export interface NodeFilterUtil {
    * @throws IllegalArgumentException if <code>aPropertyName</code> is <code>null</code> or whitespace only
    * @see javax.jcr.Node#hasProperty(String)
    */
-  getHasPropertyFilter(aPropertyName: String | string): Filter;
+  getHasPropertyFilter(aPropertyName: String | string): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified string property.
@@ -336,7 +336,7 @@ export interface NodeFilterUtil {
   getStringPropertyFilter(
     aPropertyName: String | string,
     aMatchValue: String | string
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified multi-valued string property.
@@ -349,7 +349,7 @@ export interface NodeFilterUtil {
   getStringMultiPropertyFilter(
     aPropertyName: String | string,
     aMatchValue: String | string
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches case-insensitive by a specified string property.
@@ -361,7 +361,7 @@ export interface NodeFilterUtil {
   getIgnoreCaseStringPropertyFilter(
     aPropertyName: String | string,
     aCaseInsensitiveValue: String | string
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the value-starts-with of a specified string property.
@@ -377,7 +377,7 @@ export interface NodeFilterUtil {
   getStartsWithStringPropertyFilter(
     aPropertyName: String | string,
     aStartsWithValue: String | string
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the value-ends-with of a specified string property.
@@ -393,7 +393,7 @@ export interface NodeFilterUtil {
   getEndsWithStringPropertyFilter(
     aPropertyName: String | string,
     aEndsWithValue: String | string
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the value-contains of a specified string property.
@@ -409,7 +409,7 @@ export interface NodeFilterUtil {
   getContainsStringPropertyFilter(
     aPropertyName: String | string,
     aContainsValue: String | string
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the value-contains of a specified multi-valued string property.
@@ -425,7 +425,7 @@ export interface NodeFilterUtil {
   getContainsStringMultiPropertyFilter(
     aPropertyName: String | string,
     aContainsValue: String | string
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a regular expression of a specified string property.
@@ -444,7 +444,7 @@ export interface NodeFilterUtil {
   getPatternStringPropertyFilter(
     aPropertyName: String | string,
     aRegularExpression: String | string
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a regular expression of a specified multi-valued string property.
@@ -463,7 +463,7 @@ export interface NodeFilterUtil {
   getPatternStringMultiPropertyFilter(
     aPropertyName: String | string,
     aRegularExpression: String | string
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified boolean property.
@@ -476,7 +476,7 @@ export interface NodeFilterUtil {
   getBooleanPropertyFilter(
     aPropertyName: String | string,
     aMatchValue: boolean
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a nested node's specified boolean property.
@@ -491,7 +491,7 @@ export interface NodeFilterUtil {
     aNodePropertyName: String | string,
     aPropertyName: String | string,
     aMatchValue: boolean
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified int property.
@@ -504,7 +504,7 @@ export interface NodeFilterUtil {
   getIntPropertyFilter(
     aPropertyName: String | string,
     aMatchValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the min value of a specified int property.
@@ -516,7 +516,7 @@ export interface NodeFilterUtil {
   getMinIntPropertyFilter(
     aPropertyName: String | string,
     aMinValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the max value of a specified int property.
@@ -528,7 +528,7 @@ export interface NodeFilterUtil {
   getMaxIntPropertyFilter(
     aPropertyName: String | string,
     aMaxValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the range of a specified int property.
@@ -547,7 +547,7 @@ export interface NodeFilterUtil {
     aPropertyName: String | string,
     aMinValue: number,
     aMaxValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a nested node's specified int property.
@@ -562,7 +562,7 @@ export interface NodeFilterUtil {
     aNodePropertyName: String | string,
     aPropertyName: String | string,
     aMatchValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a nested node's min value of a specified int property.
@@ -577,7 +577,7 @@ export interface NodeFilterUtil {
     aNodePropertyName: String | string,
     aPropertyName: String | string,
     aMinValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a nested node's max value of a specified int property.
@@ -592,7 +592,7 @@ export interface NodeFilterUtil {
     aNodePropertyName: String | string,
     aPropertyName: String | string,
     aMaxValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a nested node's range of a specified int property.
@@ -613,7 +613,7 @@ export interface NodeFilterUtil {
     aPropertyName: String | string,
     aMinValue: number,
     aMaxValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified double property.
@@ -626,7 +626,7 @@ export interface NodeFilterUtil {
   getDoublePropertyFilter(
     aPropertyName: String | string,
     aMatchValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a nested node's specified double property.
@@ -641,7 +641,7 @@ export interface NodeFilterUtil {
     aNodePropertyName: String | string,
     aPropertyName: String | string,
     aMatchValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the min value of a specified double property.
@@ -653,7 +653,7 @@ export interface NodeFilterUtil {
   getMinDoublePropertyFilter(
     aPropertyName: String | string,
     aMinValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the max value of a specified double property.
@@ -665,7 +665,7 @@ export interface NodeFilterUtil {
   getMaxDoublePropertyFilter(
     aPropertyName: String | string,
     aMaxValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the range of a specified double property.
@@ -684,7 +684,7 @@ export interface NodeFilterUtil {
     aPropertyName: String | string,
     aMinValue: number,
     aMaxValue: number
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a specified Calendar property.
@@ -697,7 +697,7 @@ export interface NodeFilterUtil {
   getCalendarPropertyFilter(
     aPropertyName: String | string,
     aMatchValue: Calendar
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a nested node's specified Calendar property.
@@ -712,7 +712,7 @@ export interface NodeFilterUtil {
     aNodePropertyName: String | string,
     aPropertyName: String | string,
     aMatchValue: Calendar
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a before value for a specified Calendar property.
@@ -724,7 +724,7 @@ export interface NodeFilterUtil {
   getBeforeCalendarPropertyFilter(
     aPropertyName: String | string,
     aBeforeThresholdValue: Calendar
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by a before value of a nested node's specified Calendar property.
@@ -738,7 +738,7 @@ export interface NodeFilterUtil {
     aNodePropertyName: String | string,
     aPropertyName: String | string,
     aBeforeThresholdValue: Calendar
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by an after value for a specified Calendar property.
@@ -750,7 +750,7 @@ export interface NodeFilterUtil {
   getAfterCalendarPropertyFilter(
     aPropertyName: String | string,
     aAfterThresholdValue: Calendar
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by an after value of a nested node's specified Calendar property.
@@ -764,7 +764,7 @@ export interface NodeFilterUtil {
     aNodePropertyName: String | string,
     aPropertyName: String | string,
     aAfterThresholdValue: Calendar
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the between range of a specified Calendar property.
@@ -784,7 +784,7 @@ export interface NodeFilterUtil {
     aPropertyName: String | string,
     aAfterThresholdValue: Calendar,
     aBeforeThresholdValue: Calendar
-  ): Filter;
+  ): Filter<Node>;
 
   /**
    * Gets a filter that matches by the between range of a nested node's specified Calendar property.
@@ -806,7 +806,7 @@ export interface NodeFilterUtil {
     aPropertyName: String | string,
     aAfterThresholdValue: Calendar,
     aBeforeThresholdValue: Calendar
-  ): Filter;
+  ): Filter<Node>;
 }
 
 declare namespace NodeFilterUtil {}

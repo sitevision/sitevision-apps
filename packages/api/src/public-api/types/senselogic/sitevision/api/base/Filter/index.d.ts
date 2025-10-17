@@ -13,11 +13,13 @@
  * @since Sitevision 3.6.2
  * @see senselogic.sitevision.api.node.NodeFilterUtil
  */
-export type Filter = {
-  /**
-   * Whether a given object matches the filter requirements or not.
-   * @param anObject the object to check
-   * @return <code>true</code> if <code>anObject</code> is accepted by this filter, <code>false</code> otherwise
-   */
-  accept(anObject: unknown): boolean;
-};
+export type Filter<T = unknown> =
+  | {
+      /**
+       * Whether a given object matches the filter requirements or not.
+       * @param anObject the object to check
+       * @return <code>true</code> if <code>anObject</code> is accepted by this filter, <code>false</code> otherwise
+       */
+      accept(anObject: T): boolean;
+    }
+  | ((anObject: T) => boolean);
