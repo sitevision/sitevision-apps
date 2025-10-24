@@ -36,6 +36,7 @@ import { getAddonEndpoint, handleResponse } from './util/requests.js';
 
     handleResponse({ response, operation: 'Addon creation' });
   } catch (err) {
-    console.error(`${chalk.red('Addon creation failed:')}, ${err}`);
+    console.error(chalk.red('Addon creation failed:'), err);
+    process.exit(1);
   }
 })();
