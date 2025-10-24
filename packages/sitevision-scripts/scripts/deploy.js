@@ -49,6 +49,7 @@ import { getFullAppId } from './util/id.js';
 
     handleResponse({ response, operation: 'Upload' });
   } catch (err) {
-    console.log(`${chalk.red('Upload failed, status code:')} ${err}`);
+    console.error(chalk.red('Could not deploy app:'), err);
+    process.exit(1);
   }
 })();
