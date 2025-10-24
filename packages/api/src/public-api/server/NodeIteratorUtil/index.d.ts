@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { NodeIterator } from "../../types/javax/jcr/NodeIterator";
 import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
 import type { String } from "../../types/java/lang/String";

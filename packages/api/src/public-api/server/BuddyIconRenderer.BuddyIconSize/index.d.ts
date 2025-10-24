@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * The size of the icons rendered by the BuddyIconRenderer.
  *
  *  <p>

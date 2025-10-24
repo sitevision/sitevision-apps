@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * This interface imposes a total ordering on the objects of each class that
  *  implements it.  This ordering is referred to as the class's <i>natural
  *  ordering</i>, and the class's <tt>compareTo</tt> method is referred to as

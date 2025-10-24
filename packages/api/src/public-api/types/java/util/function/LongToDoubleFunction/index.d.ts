@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents a function that accepts a long-valued argument and produces a
  *  double-valued result.  This is the {@code long}-to-{@code double} primitive
  *  specialization for {@link Function}.

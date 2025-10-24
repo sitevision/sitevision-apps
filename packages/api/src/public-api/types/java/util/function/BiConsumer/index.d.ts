@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents an operation that accepts two input arguments and returns no
  *  result.  This is the two-arity specialization of {@link Consumer}.
  *  Unlike most other functional interfaces, {@code BiConsumer} is expected

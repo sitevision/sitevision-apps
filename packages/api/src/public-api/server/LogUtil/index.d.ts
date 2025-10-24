@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { String } from "../../types/java/lang/String";
 
 import type { Throwable } from "../../types/java/lang/Throwable";

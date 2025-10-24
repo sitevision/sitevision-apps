@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Dimension rendering mode, determines rendering of the <code>width/max-width</code> and <code>height/max-height</code> css properties.
  *
  *  <p>

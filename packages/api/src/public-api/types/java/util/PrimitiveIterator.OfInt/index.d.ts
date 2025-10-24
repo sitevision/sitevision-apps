@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { IntConsumer } from "../function/IntConsumer";
 
 import type { Integer } from "../../lang/Integer";

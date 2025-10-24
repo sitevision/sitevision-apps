@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * A task that returns a result and may throw an exception.
  *  Implementors define a single method with no arguments called
  *  {@code call}.

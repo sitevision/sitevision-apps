@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { CodeSource } from "../CodeSource";
 import type { ClassLoader } from "../../lang/ClassLoader";
 import type { Principal } from "../Principal";

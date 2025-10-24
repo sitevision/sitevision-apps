@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { LinkValue } from "../../types/senselogic/sitevision/api/metadata/value/LinkValue";
 import type { Node } from "../../types/javax/jcr/Node";
 import type { String } from "../../types/java/lang/String";

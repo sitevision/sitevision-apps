@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { FileSystemProvider } from "../spi/FileSystemProvider";
 
 import type { String } from "../../../lang/String";

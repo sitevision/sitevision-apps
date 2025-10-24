@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Map } from "../../../util/Map";
 import type { ResolverStyle } from "../../format/ResolverStyle";
 import type { ChronoLocalDate } from "../ChronoLocalDate";

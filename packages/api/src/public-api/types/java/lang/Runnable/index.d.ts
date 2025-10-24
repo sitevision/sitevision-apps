@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * The <code>Runnable</code> interface should be implemented by any
  *  class whose instances are intended to be executed by a thread. The
  *  class must define a method of no arguments called <code>run</code>.

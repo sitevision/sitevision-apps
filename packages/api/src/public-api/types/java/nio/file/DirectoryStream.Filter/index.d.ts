@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * An interface that is implemented by objects that decide if a directory
  *  entry should be accepted or filtered. A {@code Filter} is passed as the
  *  parameter to the {@link Files#newDirectoryStream(Path,DirectoryStream.Filter)}

@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Filters the set of node-tuples formed by evaluating the query's selectors and
  *  the joins between them.
  *  <p>

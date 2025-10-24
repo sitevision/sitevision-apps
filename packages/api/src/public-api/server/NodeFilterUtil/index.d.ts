@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { List } from "../../types/java/util/List";
 import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
 import type { Map } from "../../types/java/util/Map";

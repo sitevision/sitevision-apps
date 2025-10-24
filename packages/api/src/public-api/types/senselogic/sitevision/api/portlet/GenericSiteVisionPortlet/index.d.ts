@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { Utils } from "../../../../../../server/Utils";
 import type { Session } from "../../../../../../server/Session";
 

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { RoleAssignmentBuilder } from "../RoleAssignmentBuilder";
 import type { RoleMatcherBuilder } from "../RoleMatcherBuilder";
 import type { String } from "../../types/java/lang/String";

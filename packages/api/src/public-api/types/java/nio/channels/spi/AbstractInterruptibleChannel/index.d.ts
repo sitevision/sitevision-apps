@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { Object } from "../../../../lang/Object";
 import type { Channel } from "../../Channel";
 import type { InterruptibleChannel } from "../../InterruptibleChannel";

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { NodeType } from "../NodeType";
 import type { RangeIterator } from "../../RangeIterator";
 

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated. Do not modify it manually.
+ */
 export default {
   FULL: "FULL",
   FULL_STANDALONE: "FULL_STANDALONE",

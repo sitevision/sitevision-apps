@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Node } from "../../types/javax/jcr/Node";
 import type { Property } from "../../types/javax/jcr/Property";
 import type { Object } from "../../types/java/lang/Object";

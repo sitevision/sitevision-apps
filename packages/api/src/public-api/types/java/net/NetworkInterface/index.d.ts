@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { String } from "../../lang/String";
 import type { Enumeration } from "../../util/Enumeration";
 import type { List } from "../../util/List";

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Writer } from "../../types/java/io/Writer";
 import type { VelocityContext } from "../../types/senselogic/sitevision/api/render/velocity/VelocityContext";
 

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated. Do not modify it manually.
+ */
 export default {
   NOT_PUBLISHED: "NOT_PUBLISHED",
   PUBLISHED: "PUBLISHED",

@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { Exception } from "../../../../../../java/lang/Exception";
 import type { Object } from "../../../../../../java/lang/Object";
 import type { ExceptionSuppressingProxyConstants } from "../../../render/velocity/VelocityAccess.ExceptionSuppressingProxyConstants";

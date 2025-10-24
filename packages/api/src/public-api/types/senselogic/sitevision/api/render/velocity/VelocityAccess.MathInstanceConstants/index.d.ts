@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Get methods for accessing field constants defined in {@link senselogic.sitevision.api.script.factory.MathInstance}.
  *
  *  <p>

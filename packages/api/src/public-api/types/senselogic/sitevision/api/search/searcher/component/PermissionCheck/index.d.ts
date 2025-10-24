@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * <p>
  *     A permission check component that defines permission checking behaviour for a {@link senselogic.sitevision.api.search.searcher.Searcher}.
  *  </p>

@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * An object that configures how to copy or move a file.
  *
  *  <p> Objects of this type may be used with the {@link

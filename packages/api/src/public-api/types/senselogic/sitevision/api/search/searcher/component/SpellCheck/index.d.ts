@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * <p>
  *     A spell check component that defines the "did you mean" behaviour for a {@link senselogic.sitevision.api.search.searcher.Searcher}.
  *  </p>

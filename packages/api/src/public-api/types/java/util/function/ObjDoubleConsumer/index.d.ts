@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents an operation that accepts an object-valued and a
  *  {@code double}-valued argument, and returns no result.  This is the
  *  {@code (reference, double)} specialization of {@link BiConsumer}.

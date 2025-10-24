@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Supplier } from "../../function/Supplier";
 import type { BiConsumer } from "../../function/BiConsumer";
 import type { BinaryOperator } from "../../function/BinaryOperator";

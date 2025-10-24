@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { WatchService } from "../WatchService";
 import type { Kind } from "../WatchEvent.Kind";
 import type { Modifier } from "../WatchEvent.Modifier";

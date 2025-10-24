@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Comparator } from "../../../util/Comparator";
 import type { TemporalAccessor } from "../../temporal/TemporalAccessor";
 import type { TemporalField } from "../../temporal/TemporalField";

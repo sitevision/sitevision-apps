@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { String } from "../../../../java/lang/String";
 import type { Query } from "../Query";
 import type { QueryObjectModelFactory } from "../qom/QueryObjectModelFactory";

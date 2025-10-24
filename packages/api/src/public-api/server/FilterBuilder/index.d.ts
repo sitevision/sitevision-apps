@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { String } from "../../types/java/lang/String";
 import type { Filter } from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";

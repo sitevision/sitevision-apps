@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { TemporalUnit } from "../temporal/TemporalUnit";
 
 import type { List } from "../../util/List";

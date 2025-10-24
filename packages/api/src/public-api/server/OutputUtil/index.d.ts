@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { String } from "../../types/java/lang/String";
 import type { Node } from "../../types/javax/jcr/Node";
 
@@ -380,7 +383,7 @@ export interface OutputUtil extends OutputUtilConstants {
    *        #set ($linkRenderer = $sitevisionUtils.getLinkRenderer())
    *
    *        <em>## Render links to all nodes</em>
-   *        &lt;nav class="normal"&gt;
+   *        &lt;nav aria-label="Breadcrumb" class="normal"&gt;
    *             <em>## Use a list for accessibility (https://envisionui.io/components/breadcrumb/)</em>
    *             &lt;ol class="env-breadcrumb"&gt;
    *              #foreach ($node in $pathList)
@@ -388,7 +391,7 @@ export interface OutputUtil extends OutputUtilConstants {
    *                 &lt;li class="env-breadcrumb__item"&gt;
    *                    $linkRenderer.render()
    *                    #if (!$foreach.last)
-   *                       &lt;span aria-hidden=true class="env-breadcrumb__separator"&gt;&amp;raquo;&lt;/span&gt;
+   *                       &lt;span aria-hidden="true" class="env-breadcrumb__separator"&gt;&amp;raquo;&lt;/span&gt;
    *                    #end
    *                 &lt;/li&gt;
    *              #end

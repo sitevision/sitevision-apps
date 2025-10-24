@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { NodeTypeIterator } from "../NodeTypeIterator";
 import type { String } from "../../../../java/lang/String";
 

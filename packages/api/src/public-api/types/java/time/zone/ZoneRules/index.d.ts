@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { Instant } from "../../Instant";
 import type { ZoneOffset } from "../../ZoneOffset";
 import type { LocalDateTime } from "../../LocalDateTime";

@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents a predicate (boolean-valued function) of one {@code long}-valued
  *  argument. This is the {@code long}-consuming primitive type specialization of
  *  {@link Predicate}.

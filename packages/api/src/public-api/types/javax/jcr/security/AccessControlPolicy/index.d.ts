@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * The <code>AccessControlPolicy</code> is a marker interface for all kind of
  *  access control policies. This API defines two subinterfaces: <ul> <li>{@link
  *  NamedAccessControlPolicy},</li> <li>{@link AccessControlList}.</li> </ul>

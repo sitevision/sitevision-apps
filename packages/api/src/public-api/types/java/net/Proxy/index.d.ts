@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Type } from "../Proxy.Type";
 import type { SocketAddress } from "../SocketAddress";
 import type { String } from "../../lang/String";

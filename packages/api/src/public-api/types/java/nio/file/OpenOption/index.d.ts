@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * An object that configures how to open or create a file.
  *
  *  <p> Objects of this type are used by methods such as {@link

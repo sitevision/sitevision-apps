@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Source } from "../Source";
 import type { Constraint } from "../Constraint";
 import type { Ordering } from "../Ordering";

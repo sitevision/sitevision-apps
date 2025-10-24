@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { List } from "../../List";
 
 import type { TimeUnit } from "../TimeUnit";

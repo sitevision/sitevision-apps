@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Filter } from "../../types/senselogic/sitevision/api/search/searcher/component/Filter";
 import type { Highlight } from "../../types/senselogic/sitevision/api/search/searcher/component/Highlight";
 import type { Node } from "../../types/javax/jcr/Node";

@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * A <tt>Flushable</tt> is a destination of data that can be flushed.  The
  *  flush method is invoked to write any buffered output to the underlying
  *  stream.

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { TemporalAccessor } from "../../temporal/TemporalAccessor";
 import type { Locale } from "../../../util/Locale";
 import type { String } from "../../../lang/String";

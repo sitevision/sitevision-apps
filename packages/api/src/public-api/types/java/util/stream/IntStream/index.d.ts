@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { IntPredicate } from "../../function/IntPredicate";
 import type { IntUnaryOperator } from "../../function/IntUnaryOperator";
 import type { IntFunction } from "../../function/IntFunction";

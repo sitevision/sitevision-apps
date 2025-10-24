@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { ArticleUtil } from "../ArticleUtil";
 import type { FileUtil } from "../FileUtil";
 import type { ImageUtil } from "../ImageUtil";

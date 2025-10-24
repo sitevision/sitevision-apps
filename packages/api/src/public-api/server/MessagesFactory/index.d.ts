@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { ChannelUtil } from "../ChannelUtil";
 import type { Node } from "../../types/javax/jcr/Node";
 import type { ChannelWrapper } from "../../types/senselogic/sitevision/api/message/ChannelWrapper";

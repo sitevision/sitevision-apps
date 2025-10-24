@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { Stream } from "../Stream";
 import type { Consumer } from "../../function/Consumer";
 

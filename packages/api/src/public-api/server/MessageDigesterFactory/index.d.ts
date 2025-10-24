@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { MessageDigester } from "../../types/senselogic/sitevision/api/security/MessageDigester";
 
 /**

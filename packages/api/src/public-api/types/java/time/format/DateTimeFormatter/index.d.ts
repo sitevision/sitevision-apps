@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Locale } from "../../../util/Locale";
 import type { DecimalStyle } from "../DecimalStyle";
 import type { Chronology } from "../../chrono/Chronology";

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Object } from "../../types/java/lang/Object";
 import type { String } from "../../types/java/lang/String";
 

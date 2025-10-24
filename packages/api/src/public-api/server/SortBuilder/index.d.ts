@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { SearchSortField } from "../../types/senselogic/sitevision/api/search/SearchSortField";
 import type { Sort } from "../../types/senselogic/sitevision/api/search/searcher/component/Sort";
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";

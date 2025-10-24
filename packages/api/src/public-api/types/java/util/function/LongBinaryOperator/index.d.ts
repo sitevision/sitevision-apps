@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents an operation upon two {@code long}-valued operands and producing a
  *  {@code long}-valued result.   This is the primitive type specialization of
  *  {@link BinaryOperator} for {@code long}.

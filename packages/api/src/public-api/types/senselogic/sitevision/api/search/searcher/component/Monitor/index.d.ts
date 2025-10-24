@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * <p>
  *     A monitor component that defines monitoring behaviour for a {@link senselogic.sitevision.api.search.searcher.Searcher}.
  *  </p>

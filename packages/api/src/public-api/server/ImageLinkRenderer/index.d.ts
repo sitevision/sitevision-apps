@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { LinkRenderer } from "../LinkRenderer";
 import type { ImageRenderer } from "../ImageRenderer";
 import type { String } from "../../types/java/lang/String";

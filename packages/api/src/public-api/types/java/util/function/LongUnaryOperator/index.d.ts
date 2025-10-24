@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents an operation on a single {@code long}-valued operand that produces
  *  a {@code long}-valued result.  This is the primitive type specialization of
  *  {@link UnaryOperator} for {@code long}.

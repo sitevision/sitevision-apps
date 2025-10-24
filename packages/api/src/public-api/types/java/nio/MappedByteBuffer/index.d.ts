@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * A direct byte buffer whose content is a memory-mapped region of a file.
  *
  *  <p> Mapped byte buffers are created via the {@link

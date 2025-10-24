@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { CompletionHandler } from "../CompletionHandler";
 import type { Future } from "../../../util/concurrent/Future";
 import type { FileLock } from "../FileLock";

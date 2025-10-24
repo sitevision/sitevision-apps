@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated. Do not modify it manually.
+ */
 export default {
   NANO_OF_SECOND: "NANO_OF_SECOND",
   NANO_OF_DAY: "NANO_OF_DAY",

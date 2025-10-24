@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { ExtendedDismaxParserBuilder } from "../ExtendedDismaxParserBuilder";
 import type { FilterBuilder } from "../FilterBuilder";
 import type { HighlightBuilder } from "../HighlightBuilder";

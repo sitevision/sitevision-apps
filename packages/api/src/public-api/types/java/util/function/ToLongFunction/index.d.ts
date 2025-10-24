@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents a function that produces a long-valued result.  This is the
  *  {@code long}-producing primitive specialization for {@link Function}.
  *

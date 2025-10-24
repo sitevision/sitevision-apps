@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { DoubleStream } from "../DoubleStream";
 import type { DoubleConsumer } from "../../function/DoubleConsumer";
 

@@ -1,4 +1,3 @@
-import aiAssistant from '.';
 import type { Node } from '../../types/javax/jcr/Node';
 import type { Message, StreamFinishResult, UsageInfo } from '../ai';
 
