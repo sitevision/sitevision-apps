@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { String } from "../../lang/String";
 import type { CharSequence } from "../../lang/CharSequence";
 import type { Object } from "../../lang/Object";

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { DynamicOperand } from "../DynamicOperand";
 import type { String } from "../../../../../java/lang/String";
 import type { StaticOperand } from "../StaticOperand";

@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * The possible actions specified by the <code>uuidBehavior</code> parameter in
  *  {@link Workspace#importXML}, {@link Session#importXML}, {@link
  *  Workspace#getImportContentHandler} and {@link Session#getImportContentHandler}.

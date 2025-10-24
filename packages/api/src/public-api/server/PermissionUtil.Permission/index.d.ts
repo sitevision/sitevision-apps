@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * The named permission demarcation, used by {@link PermissionUtil}.
  *
  *  <p>

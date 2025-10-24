@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { MailBuilder } from "../MailBuilder";
 import type { String } from "../../types/java/lang/String";
 

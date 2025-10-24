@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Class } from "../../../../../../java/lang/Class";
 import type { Object } from "../../../../../../java/lang/Object";
 

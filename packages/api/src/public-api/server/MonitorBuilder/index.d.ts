@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { Monitor } from "../../types/senselogic/sitevision/api/search/searcher/component/Monitor";
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 

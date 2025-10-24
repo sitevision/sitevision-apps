@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Locale } from "../../types/java/util/Locale";
 import type { NumericFormatterBuilder } from "../../types/senselogic/sitevision/api/format/NumericFormatterBuilder";
 import type { Currency } from "../../types/senselogic/sitevision/api/i18n/Currency";

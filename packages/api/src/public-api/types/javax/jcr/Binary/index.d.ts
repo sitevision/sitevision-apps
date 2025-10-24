@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { InputStream } from "../../../java/io/InputStream";
 
 /**

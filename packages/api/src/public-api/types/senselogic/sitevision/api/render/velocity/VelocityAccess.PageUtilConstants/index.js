@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated. Do not modify it manually.
+ */
 export default {
   getPROPERTY_VISIBLE_IN_MENUS: () => {},
   getPROPERTY_SHORTID: () => {},

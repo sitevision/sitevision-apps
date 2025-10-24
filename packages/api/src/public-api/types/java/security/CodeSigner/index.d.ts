@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { CertPath } from "../cert/CertPath";
 import type { Timestamp } from "../Timestamp";
 

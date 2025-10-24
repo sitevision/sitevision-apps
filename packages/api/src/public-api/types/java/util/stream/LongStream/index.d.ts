@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { LongPredicate } from "../../function/LongPredicate";
 import type { LongUnaryOperator } from "../../function/LongUnaryOperator";
 import type { LongFunction } from "../../function/LongFunction";

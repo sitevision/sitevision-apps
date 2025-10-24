@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Date } from "../../types/java/util/Date";
 import type { String } from "../../types/java/lang/String";
 import type { Calendar } from "../../types/java/util/Calendar";

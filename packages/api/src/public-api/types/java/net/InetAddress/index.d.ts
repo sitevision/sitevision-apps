@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { NetworkInterface } from "../NetworkInterface";
 import type { String } from "../../lang/String";
 

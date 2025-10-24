@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { AccessControlEntry } from "../AccessControlEntry";
 import type { Principal } from "../../../../java/security/Principal";
 import type { Privilege } from "../Privilege";

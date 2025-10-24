@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { VersionUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.VersionUtilConstants";
 
 /**

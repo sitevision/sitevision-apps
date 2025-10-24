@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type IndexType from "../IndexUtil.IndexType";
 import type { Node } from "../../types/javax/jcr/Node";
 import type { String } from "../../types/java/lang/String";

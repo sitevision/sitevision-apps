@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { IntStream } from "../stream/IntStream";
 import type { LongStream } from "../stream/LongStream";
 import type { DoubleStream } from "../stream/DoubleStream";

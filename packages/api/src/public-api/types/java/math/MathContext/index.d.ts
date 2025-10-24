@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { RoundingMode } from "../RoundingMode";
 import type { Object } from "../../lang/Object";
 

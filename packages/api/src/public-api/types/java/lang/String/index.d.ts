@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { Charset } from "../../nio/charset/Charset";
 import type { Object } from "../Object";
 import type { StringBuffer } from "../StringBuffer";

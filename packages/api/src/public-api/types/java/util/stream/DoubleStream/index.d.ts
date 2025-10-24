@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { DoublePredicate } from "../../function/DoublePredicate";
 import type { DoubleUnaryOperator } from "../../function/DoubleUnaryOperator";
 import type { DoubleFunction } from "../../function/DoubleFunction";

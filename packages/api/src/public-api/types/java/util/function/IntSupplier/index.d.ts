@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents a supplier of {@code int}-valued results.  This is the
  *  {@code int}-producing primitive specialization of {@link Supplier}.
  *

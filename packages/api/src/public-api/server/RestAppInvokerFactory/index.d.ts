@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { String } from "../../types/java/lang/String";
 import type { RestAppInvoker } from "../../types/senselogic/sitevision/api/script/app/RestAppInvoker";
 import type { Node } from "../../types/javax/jcr/Node";

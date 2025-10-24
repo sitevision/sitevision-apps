@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Permission } from "../Permission";
 
 import type { Enumeration } from "../../util/Enumeration";

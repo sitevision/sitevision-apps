@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { UserIdentityUtil } from "../UserIdentityUtil";
 import type { Node } from "../../types/javax/jcr/Node";
 import type { UserIdentityWrapper } from "../../types/senselogic/sitevision/api/user/UserIdentityWrapper";

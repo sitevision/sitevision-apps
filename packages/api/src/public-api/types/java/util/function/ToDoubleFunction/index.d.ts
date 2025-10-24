@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents a function that produces a double-valued result.  This is the
  *  {@code double}-producing primitive specialization for {@link Function}.
  *

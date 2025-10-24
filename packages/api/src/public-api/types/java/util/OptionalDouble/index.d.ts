@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { DoubleConsumer } from "../function/DoubleConsumer";
 
 import type { DoubleSupplier } from "../function/DoubleSupplier";

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { VersionedPropertyUtil } from "../../types/senselogic/sitevision/api/property/VersionedPropertyUtil";
 
 /**

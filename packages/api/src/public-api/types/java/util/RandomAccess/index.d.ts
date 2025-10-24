@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Marker interface used by <tt>List</tt> implementations to indicate that
  *  they support fast (generally constant time) random access.  The primary
  *  purpose of this interface is to allow generic algorithms to alter their

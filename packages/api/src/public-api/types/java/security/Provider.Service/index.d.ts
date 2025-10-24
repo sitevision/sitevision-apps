@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { String } from "../../lang/String";
 import type { Provider } from "../Provider";
 import type { Object } from "../../lang/Object";

@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * This is the base interface for all resolvers in the Sitevision Utility API.
  *
  *  <p>

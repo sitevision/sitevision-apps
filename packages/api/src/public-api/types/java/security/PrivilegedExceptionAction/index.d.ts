@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * A computation to be performed with privileges enabled, that throws one or
  *  more checked exceptions.  The computation is performed by invoking
  *  {@code AccessController.doPrivileged} on the

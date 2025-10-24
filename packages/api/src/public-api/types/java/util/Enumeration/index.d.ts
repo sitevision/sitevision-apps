@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * An object that implements the Enumeration interface generates a
  *  series of elements, one at a time. Successive calls to the
  *  <code>nextElement</code> method return successive elements of the

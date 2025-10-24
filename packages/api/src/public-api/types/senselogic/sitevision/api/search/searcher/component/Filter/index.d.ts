@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * <p>
  *     A filter component that defines the filtering behaviour for a {@link senselogic.sitevision.api.search.searcher.Searcher}.
  *  </p>

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Set } from "../../../../../java/util/Set";
 import type { Node } from "../../../../../javax/jcr/Node";
 

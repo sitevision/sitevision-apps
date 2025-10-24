@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Iterator } from "../../../util/Iterator";
 import type { Closeable } from "../../../io/Closeable";
 import type { Iterable } from "../../../lang/Iterable";

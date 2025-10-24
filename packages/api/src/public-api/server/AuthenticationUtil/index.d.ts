@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { Map } from "../../types/java/util/Map";
 import type { String } from "../../types/java/lang/String";
 

@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * A <tt>Readable</tt> is a source of characters. Characters from
  *  a <tt>Readable</tt> are made available to callers of the read
  *  method via a {@link java.nio.CharBuffer CharBuffer}.

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Object } from "../../../java/lang/Object";
 import type { Credentials } from "../Credentials";
 

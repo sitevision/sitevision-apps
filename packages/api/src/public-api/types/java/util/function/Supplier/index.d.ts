@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents a supplier of results.
  *
  *  <p>There is no requirement that a new or distinct result be returned each

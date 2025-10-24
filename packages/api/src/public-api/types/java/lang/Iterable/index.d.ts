@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Iterator } from "../../util/Iterator";
 import type { Consumer } from "../../util/function/Consumer";
 

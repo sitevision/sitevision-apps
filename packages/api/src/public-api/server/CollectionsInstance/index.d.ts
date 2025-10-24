@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { List } from "../../types/java/util/List";
 
 import type { Comparator } from "../../types/java/util/Comparator";

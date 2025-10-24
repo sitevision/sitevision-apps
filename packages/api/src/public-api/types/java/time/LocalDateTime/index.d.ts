@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { TemporalField } from "../temporal/TemporalField";
 
 import type { TemporalUnit } from "../temporal/TemporalUnit";

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Iterator } from "../../../../../java/util/Iterator";
 
 import type { String } from "../../../../../java/lang/String";

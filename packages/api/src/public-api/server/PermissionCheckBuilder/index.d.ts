@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { PermissionStrategy } from "../../types/senselogic/sitevision/api/search/searcher/component/PermissionStrategy";
 import type { PermissionCheck } from "../../types/senselogic/sitevision/api/search/searcher/component/PermissionCheck";
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";

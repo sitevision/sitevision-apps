@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Locale } from "../../types/java/util/Locale";
 import type { Currency } from "../../types/senselogic/sitevision/api/i18n/Currency";
 import type { String } from "../../types/java/lang/String";

@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Type of default index, used by {@link senselogic.sitevision.api.search.index.IndexUtil}.
  *
  *  <p>

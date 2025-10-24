@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Repository } from "../../types/javax/jcr/Repository";
 import type { String } from "../../types/java/lang/String";
 import type { Object } from "../../types/java/lang/Object";

@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { String } from "../../lang/String";
 import type { ZoneRules } from "../zone/ZoneRules";
 import type { TemporalField } from "../temporal/TemporalField";

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { String } from "../../types/java/lang/String";
 import type { XmlElementHandler } from "../../types/senselogic/sitevision/api/xml/XmlElementHandler";
 

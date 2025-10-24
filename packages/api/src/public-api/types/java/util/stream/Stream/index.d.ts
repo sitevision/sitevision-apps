@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Predicate } from "../../function/Predicate";
 import type { Function } from "../../function/Function";
 import type { ToIntFunction } from "../../function/ToIntFunction";

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { LongConsumer } from "../function/LongConsumer";
 
 import type { Consumer } from "../function/Consumer";

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Node } from "../../types/javax/jcr/Node";
 
 import type { PortletUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.PortletUtilConstants";

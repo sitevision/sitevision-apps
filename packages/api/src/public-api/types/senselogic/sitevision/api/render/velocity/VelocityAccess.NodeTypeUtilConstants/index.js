@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated. Do not modify it manually.
+ */
 export default {
   getAPPLICATION_INDEX_TYPE: () => {},
   getARCHIVE_TYPE: () => {},

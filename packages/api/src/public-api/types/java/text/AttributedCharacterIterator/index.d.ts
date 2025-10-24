@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { Attribute } from "../AttributedCharacterIterator.Attribute";
 import type { Set } from "../../util/Set";
 import type { Map } from "../../util/Map";

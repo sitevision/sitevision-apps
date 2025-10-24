@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Collection } from "../../types/java/util/Collection";
 import type { Node } from "../../types/javax/jcr/Node";
 

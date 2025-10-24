@@ -1,4 +1,8 @@
 /**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
+/**
  * Represents an operation that accepts a single {@code int}-valued argument and
  *  returns no result.  This is the primitive type specialization of
  *  {@link Consumer} for {@code int}.  Unlike most other functional interfaces,

@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { VersionHistory } from "../VersionHistory";
 import type { Calendar } from "../../../../java/util/Calendar";
 import type { Node } from "../../Node";

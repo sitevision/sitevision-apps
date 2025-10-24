@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Node } from "../../types/javax/jcr/Node";
 import type { RoleAssignment } from "../../types/senselogic/sitevision/api/security/RoleAssignment";
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";

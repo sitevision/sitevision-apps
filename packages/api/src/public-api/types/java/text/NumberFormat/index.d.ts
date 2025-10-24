@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Object } from "../../lang/Object";
 import type { StringBuffer } from "../../lang/StringBuffer";
 import type { FieldPosition } from "../FieldPosition";

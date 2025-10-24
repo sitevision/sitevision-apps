@@ -1,3 +1,7 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
+
 import type { WatchKey } from "../WatchKey";
 
 import type { TimeUnit } from "../../../util/concurrent/TimeUnit";

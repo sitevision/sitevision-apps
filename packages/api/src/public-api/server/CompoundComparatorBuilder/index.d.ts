@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { Comparator } from "../../types/java/util/Comparator";
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 

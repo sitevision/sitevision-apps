@@ -1,3 +1,6 @@
+/**
+ * This file is auto generated from JavaDoc. Do not modify it manually.
+ */
 import type { ImageScaler } from "../../types/senselogic/sitevision/api/render/ImageScaler";
 
 import type { Node } from "../../types/javax/jcr/Node";
