@@ -65,11 +65,11 @@ export const handleResponse = async ({ response, operation }) => {
   }
 
   if (json) {
-    console.log(
+    throw new Error(
       `${chalk.red(`${operation} failed:`)} \n${JSON.stringify(json, null, 2)}`
     );
   } else {
-    console.log(
+    throw new Error(
       `${chalk.red(`${operation} failed with status:`)} ${
         response.status
       } ${getHintByErrorCode(response.status)}`
