@@ -43,7 +43,7 @@ export interface Request {
   /**
    * Can be populated in a hooks context and read from a render context
    */
-  context: unknown | null;
+  context: { [key: string]: unknown };
 }
 
 export interface Response {
