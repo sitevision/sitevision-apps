@@ -132,6 +132,29 @@ export interface FileUtil {
   createFileFromTemporary(aParent: Node, aTemporaryFile: Node): Node;
 
   /**
+  * Copies a file to a given parent.
+  *
+  * <p>
+  *    Note that the <code>aParent</code> of the file must be a <code>sv:localFileRepository</code>, <code>sv:fileRepository</code>,
+  *    <code>sv:personalFileRepository</code> or a <code>sv:folder</code> residing as sub node to a file repository.
+  *    The <code>aParent</code> must not be trashed.
+  * </p>
+  * <p>
+  *    <strong>Permission note!</strong> Current user must be authorized to alter the parent node
+  *    (e.g. {@link senselogic.sitevision.api.security.PermissionUtil.Permission#WRITE}).
+  * </p>
+  *
+  * @param aFile the file node to copy
+  * @param aParent the parent node where the file should be copied to
+  * @return a file node corresponding to the newly created file
+  * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid
+  *                                      parent node is specified, if an invalid file node is specified
+  * @throws RepositoryException          if something else goes wrong
+  * @since Sitevision 2026.01.1
+  */
+  copyFile(aFile: Node, aParent: Node): Node;
+
+  /**
    * Updates the binary content of an existing file using a uri string.
    *
    *  <p>
