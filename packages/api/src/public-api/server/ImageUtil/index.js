@@ -6,6 +6,7 @@ export default {
   createImage: () => {},
   createImageFromBase64: () => {},
   createImageFromTemporary: () => {},
+  copyImage: () => {},
   updateBinaryContent: () => {},
   updateBinaryContentFromBase64: () => {},
   updateBinaryContentFromTemporary: () => {},
