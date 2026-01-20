@@ -16,16 +16,18 @@ router.get('/', (req, res) => {
   const message = 'Hello, world!';
   const name = appData.get('name');
 
+  const initialState = {
+    message,
+    name,
+  };
+
   {{#if clientRendering}}
     {{#if widget}}
-      res.agnosticRender('', {
+      res.agnosticRender('', initialState);
     {{else}}
-      res.agnosticRender(renderToString(<App message={message} name={name} />), {
+      res.agnosticRender(renderToString(<App {...initialState} />), initialState);
     {{/if}}
-        message,
-        name,
-      });
   {{else}}
-    res.send(renderToStaticMarkup(<App message={message} name={name} />));
+    res.send(renderToStaticMarkup(<App {...initialState} />));
   {{/if}}
 });
