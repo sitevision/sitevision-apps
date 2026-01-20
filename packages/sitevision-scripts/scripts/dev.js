@@ -7,6 +7,7 @@ import webpack from 'webpack';
 import { copyChunksToResources } from './util/copychunks.js';
 import { getDirname } from '../util/dirname.js';
 import { getFullAppId } from './util/id.js';
+import chalk from 'chalk';
 
 const __dirname = getDirname(import.meta.url);
 
@@ -51,11 +52,16 @@ const SPAWN_PROPERTIES = {
         copyChunksToResources(properties.BUILD_DIR_PATH);
 
         spawn.sync('node', [SITEVISION_SCRIPTS_PATH, 'zip'], SPAWN_PROPERTIES);
-        spawn.sync(
+        const result = spawn.sync(
           'node',
           [SITEVISION_SCRIPTS_PATH, 'deploy', 'force'],
           SPAWN_PROPERTIES
         );
+
+        if (result.status !== 0) {
+          console.error(`${chalk.red('Could not deploy app, stopping watch')}`);
+          process.exit(1);
+        }
       }
     );
 

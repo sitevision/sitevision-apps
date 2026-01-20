@@ -92,6 +92,7 @@ import { getFullAppId } from './util/id.js';
       }
     } catch (err) {
       console.log(`${chalk.red('Signing failed with error:')} ${err}`);
+      process.exit(1);
     }
   });
 })();
