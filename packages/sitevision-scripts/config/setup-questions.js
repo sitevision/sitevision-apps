@@ -70,6 +70,19 @@ export const questions = [
     message: 'Password for development site',
   },
   {
+    name: 'signUsername',
+    message: 'Username for developer.sitevision.se',
+  },
+  {
+    name: 'signPassword',
+    type: 'password',
+    message: 'Password for developer.sitevision.se',
+  },
+  {
+    name: 'certificateName',
+    message: 'Certificate for developer.sitevision.se',
+  },
+  {
     name: 'useHTTPForDevDeploy',
     message: 'Use (unsafe) HTTP for local deployment?',
     type: 'confirm',
