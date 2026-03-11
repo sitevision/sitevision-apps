@@ -7,4 +7,5 @@ export default {
   updateByContentIdentifier: () => {},
   isLoaded: () => {},
   renderHtml: () => {},
+  renderMarkdown: () => {},
 };

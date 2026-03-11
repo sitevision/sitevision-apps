@@ -19,10 +19,11 @@ import type ContentFormat from "../../../../../../../server/ContentFormat";
  *  <p>
  *  <strong>Usage example:</strong>
  *  </p>
- *  <pre><code>
- *     const factory = utils.getCreateContentFactory();
+ *  <pre><code>    import createContentFactory from '@sitevision/api/server/CreateContentFactory';
+ *     // Script module and legacy apps would typically use the require function:
+ *     // const createContentFactory = require('CreateContentFactory');
  *
- *     const updater = factory.getTextModuleUpdater();
+ *     const updater = createContentFactory.getTextModuleUpdater();
  *     updater
  *        .setTextModule(existingTextModuleNode)
  *        .setMarkdownContent('# Updated Title\n\nThis content has been **updated**.');

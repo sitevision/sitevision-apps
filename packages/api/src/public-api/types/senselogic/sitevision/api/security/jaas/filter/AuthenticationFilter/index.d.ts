@@ -9,7 +9,7 @@ import type { String } from "../../../../../../../java/lang/String";
 
 /**
  * <p>
- *     Interface for request filters that want to handle web interactions in order to get login data.
+ *     JAAS interface for request filters that want to handle web interactions in order to get login data.
  *  </p>
  *
  *  <em>
@@ -25,7 +25,7 @@ export type AuthenticationFilter = {
    * @param aRequest the request
    * @param aResponse the response
    * @param aSharedState a shared state map
-   * @param anOptions an options map
+   * @param aOptions an options map
    * @param aChain a filter chain
    * @throws IOException if an I/O problem occurred
    * @throws ServletException if the web container
@@ -35,7 +35,7 @@ export type AuthenticationFilter = {
     aRequest: unknown,
     aResponse: unknown,
     aSharedState: Map | {},
-    anOptions: Map | {},
+    aOptions: Map | {},
     aChain: AuthenticationFilterChain
   ): void;
 

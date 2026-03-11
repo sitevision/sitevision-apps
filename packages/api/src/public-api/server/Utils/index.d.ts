@@ -766,7 +766,7 @@ export interface Utils {
 
   /**
    * Gets an instance of a content builder factory.
-   * @return a content builder factory.
+   * @return a create content factory class
    * @since Sitevision 2026.01.1
    */
   getCreateContentFactory(): CreateContentFactory;

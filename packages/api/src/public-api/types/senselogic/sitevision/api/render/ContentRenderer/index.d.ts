@@ -51,6 +51,31 @@ import type { String } from "../../../../../java/lang/String";
  *  </ol>
  *
  *  <p>
+ *  <strong>Usage example:</strong>
+ *  </p>
+ *  <pre><code>    import rendererBuilderFactory from '@sitevision/api/server/RendererBuilderFactory';
+ *     // Script module and legacy apps would typically use the require function:
+ *     // const rendererBuilderFactory = require('RendererBuilderFactory');
+ *
+ *     const contentRendererBuilder = rendererBuilderFactory.getContentRendererBuilder();
+ *
+ *     // Example Use Case: render a search module on a given page using a specific request parameter used by the search module
+ *     const page = ...
+ *     const pageParams = { query:"*:*" };
+ *     const searchModule = ...
+ *
+ *     // 1. Create renderer with page context
+ *     const contentRenderer = contentRendererBuilder
+ *                                .setPage(page)
+ *                                .setParameters(pageParams)
+ *                                .build();
+ *
+ *     // 2. Load the renderer with the page content part and render
+ *     contentRenderer.update(searchModule);
+ *     const output = contentRenderer.renderHtml();
+ *  </code></pre>
+ *
+ *  <p>
  *     An instance of the Sitevision class implementing this interface can be obtained via
  *     {@link ContentRendererBuilder#build()} .
  *     See {@link ContentRendererBuilder} for how to obtain an instance of the <code>ContentRendererBuilder</code> interface.
@@ -69,6 +94,9 @@ export type ContentRenderer = {
    *        this renderer was created for) there will be nothing to render. The state can always be checked via the
    *        {@link #isLoaded()} method.
    *     </em>
+   *  </p>
+   *  <p>
+   *     <em>Tip!</em> {@link senselogic.sitevision.api.node.NodeTreeUtil} provides convenient methods for finding content nodes on a page.
    *  </p>
    * @param aContentNode the content node, typically a sv:portlet, sv:layout or sv:referenceLayout
    */
@@ -124,4 +152,16 @@ export type ContentRenderer = {
    * @return the html of the loaded content node, or empty String if rendering fails or no content node is loaded
    */
   renderHtml(): string;
+
+  /**
+   * Renders markdown for the loaded content node.
+   *
+   *  <p>
+   *     <strong>Note!</strong> The returned value will always be empty string if the {@link #isLoaded()} state is <code>false</code>
+   *     when invoking this render method <em>(i.e. you would typically always check the loaded state before calling this method).</em>
+   *  </p>
+   * @return the markdown of the loaded content node, or empty String if rendering fails or no content node is loaded
+   * @since Sitevision 2026.01.2
+   */
+  renderMarkdown(): string;
 };

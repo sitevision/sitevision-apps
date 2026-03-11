@@ -368,6 +368,14 @@ export interface NodeTreeUtil {
    * @since Sitevision 2023.07.1
    */
   findLayouts(aPageNode: Node, aNodeFilter: Filter): List;
+
+  /**
+   * Find all reference layouts ("content areas") on a page node.
+   * @param aPageNode the page node that has content, typically a sv:page or sv:article
+   * @return all reference layouts for aPageNode. If no such layouts can be found or if aPageNode is not a page node, an empty List is returned
+   * @since Sitevision 2026.01.2
+   */
+  findReferenceLayouts(aPageNode: Node): List;
 }
 
 declare namespace NodeTreeUtil {}

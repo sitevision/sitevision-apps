@@ -26,10 +26,11 @@ import type ContentFormat from "../../../../../../../server/ContentFormat";
  *  <p>
  *  <strong>Usage example:</strong>
  *  </p>
- *  <pre><code>
- *     const factory = utils.getCreateContentFactory();
+ *  <pre><code>    import createContentFactory from '@sitevision/api/server/CreateContentFactory';
+ *     // Script module and legacy apps would typically use the require function:
+ *     // const createContentFactory = require('CreateContentFactory');
  *
- *     const creator = factory.getTextModuleCreator();
+ *     const creator = createContentFactory.getTextModuleCreator();
  *     creator
  *        .setName('Welcome Message')
  *        .setParent(pageNode)
