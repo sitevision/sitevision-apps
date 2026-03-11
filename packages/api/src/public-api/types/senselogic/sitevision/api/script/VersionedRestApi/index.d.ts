@@ -146,7 +146,7 @@ export type VersionedRestApi = {
   ): unknown;
 
   /**
-   * Executes a PUT endpoint of the REST API
+   * Executes a PUT endpoint of the REST API, targeting an instance of the context.
    *
    *  <p>
    *  Delegates execution to {@link RestApi#put(javax.jcr.Node, String, javax.jcr.Node, Object) RestApi.put(Node,String,Node,Options)}

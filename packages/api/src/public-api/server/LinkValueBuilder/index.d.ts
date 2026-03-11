@@ -8,7 +8,7 @@ import type { LinkValue } from "../../types/senselogic/sitevision/api/metadata/v
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
- * Builder to create LinkValue instances that can be used to set link metadata.
+ * Builder to create {@link LinkValue} instances that can be used to set link metadata.
  *
  *  <p>
  *     LinkValueBuilder has one <strong>mandatory attribute</strong>:
