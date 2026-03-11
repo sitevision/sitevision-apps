@@ -6,6 +6,7 @@ export default {
   createFile: () => {},
   createFileFromBase64: () => {},
   createFileFromTemporary: () => {},
+  copyFile: () => {},
   updateBinaryContent: () => {},
   updateBinaryContentFromBase64: () => {},
   updateBinaryContentFromTemporary: () => {},
