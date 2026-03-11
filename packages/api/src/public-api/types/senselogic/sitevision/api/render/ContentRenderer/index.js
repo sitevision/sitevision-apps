@@ -3,12 +3,8 @@
  */
 export default {
   update: () => {},
-  updateByName: () => {},
   updateByIdentifier: () => {},
   updateByContentIdentifier: () => {},
   isLoaded: () => {},
   renderHtml: () => {},
-  renderText: () => {},
-  renderPlainHtml: () => {},
-  renderMarkdown: () => {},
 };

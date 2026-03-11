@@ -45,8 +45,8 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
  *
  *  <p>
  *     An instance of the Sitevision class implementing this interface can be obtained via
- *     {@link senselogic.sitevision.api.Utils#getTextModuleRendererBuilder()}.
- *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>TextModuleRendererBuilder</code> interface.
+ *     {@link RendererBuilderFactory#getTextModuleRendererBuilder()}.
+ *     See {@link RendererBuilderFactory} for how to obtain an instance of the <code>RendererBuilderFactory</code> interface.
  *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 7

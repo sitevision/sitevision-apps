@@ -298,8 +298,12 @@ export interface OutputUtil extends OutputUtilConstants {
    * Gets the output as a specific content-type from a page node or a page content node.
    *
    *  <p>
-   *     <em>Tip! Consider using {@link TextModuleRenderer} instead if you want the output of a single Text module.</em>
+   *     <em>Tip!</em> This method has two versatile siblings that might be more suitable depending on your use case:
    *  </p>
+   *  <ul>
+   *     <li>Consider using {@link TextModuleRenderer} instead if you want the output of one or more Text modules.</li>
+   *     <li>Consider using {@link ContentRenderer} instead if you want the output of arbitrary page content (layouts, modules).</li>
+   *  </ul>
    *
    *  <p>
    *     <strong>Note! Due to security reasons (potential never-ending loops) it is prohibited to get the output of anything from
