@@ -2,7 +2,6 @@
  * This file is auto generated. Do not modify it manually.
  */
 export default {
-  setPage: () => {},
-  setRendererContext: () => {},
-  build: () => {},
+  ORIGIN_PAGE: "ORIGIN_PAGE",
+  CURRENT_PAGE: "CURRENT_PAGE",
 };

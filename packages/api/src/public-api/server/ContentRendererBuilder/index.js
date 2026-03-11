@@ -4,5 +4,6 @@
 export default {
   setPage: () => {},
   setParameters: () => {},
+  setRendererContext: () => {},
   build: () => {},
 };

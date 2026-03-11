@@ -3,6 +3,6 @@
  */
 export default {
   setPage: () => {},
-  setRendererContext: () => {},
+  setIndexableUser: () => {},
   build: () => {},
 };

@@ -2,6 +2,7 @@
  * This file is auto generated from JavaDoc. Do not modify it manually.
  */
 import type { Node } from "../../types/javax/jcr/Node";
+import type RendererContext from "../RendererContext";
 import type { TextModuleRenderer } from "../../types/senselogic/sitevision/api/render/TextModuleRenderer";
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
@@ -11,11 +12,15 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
  *  </p>
  *
  *  <p>
- *     TextModuleRendererBuilder has one <strong>mandatory attribute</strong>:
+ *     TextModuleRendererBuilder has one <strong>mandatory attribute</strong> and one <em>optional</em> attribute:
  *  </p>
  *  <ul>
  *     <li>
- *        <em>page</em> - The page (sv:page, sv:article, sv:sitePage) where the Text modules to render resides. Must be non-null.
+ *        <em>page</em> (mandatory) - The page (sv:page, sv:article, sv:sitePage) where the Text modules to render resides. Must be non-null.
+ *     </li>
+ *     <li>
+ *        <em>rendererContext</em> (optional) - Determines what context to use when Text modules of the page is rendered.
+ *        Default is {@link RendererContext#ORIGIN_PAGE}.
  *     </li>
  *  </ul>
  *
@@ -58,6 +63,20 @@ export interface TextModuleRendererBuilder extends Builder {
    * @return this builder
    */
   setPage(aPageNode: Node): TextModuleRendererBuilder;
+
+  /**
+   * Sets the renderer context to use when rendering content.
+   *
+   *  <p>
+   *     If not set or set to null, the default renderer context ({@link RendererContext#ORIGIN_PAGE}) will be used.
+   *  </p>
+   * @param aRendererContext the render context
+   * @return this builder
+   * @since Sitevision 2026.03.1
+   */
+  setRendererContext(
+    aRendererContext: RendererContext
+  ): TextModuleRendererBuilder;
 
   /**
    * Creates a TextModuleRenderer instance for the page of this builder.

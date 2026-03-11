@@ -3,6 +3,7 @@
  */
 import type { Node } from "../../types/javax/jcr/Node";
 
+import type { IndexableContentExtractorBuilder } from "../IndexableContentExtractorBuilder";
 import type { IndexingUtilConstants } from "../../types/senselogic/sitevision/api/render/velocity/VelocityAccess.IndexingUtilConstants";
 
 /**
@@ -78,6 +79,13 @@ export interface IndexingUtil extends IndexingUtilConstants {
    * @return <code>true</code> if the operation succeeded, <code>false</code> otherwise
    */
   setResourcePriority(aNode: Node, aPriority: number): boolean;
+
+  /**
+   * Creates a IndexableContentExtractorBuilder instance.
+   * @return a IndexableContentExtractorBuilder instance
+   * @since Sitevision 2026.03.1
+   */
+  getIndexableContentExtractorBuilder(): IndexableContentExtractorBuilder;
 }
 
 declare namespace IndexingUtil {}

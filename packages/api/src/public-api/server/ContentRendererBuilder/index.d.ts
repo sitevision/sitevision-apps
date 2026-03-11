@@ -3,6 +3,7 @@
  */
 import type { Node } from "../../types/javax/jcr/Node";
 import type { Map } from "../../types/java/util/Map";
+import type RendererContext from "../RendererContext";
 import type { ContentRenderer } from "../../types/senselogic/sitevision/api/render/ContentRenderer";
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
@@ -12,7 +13,7 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
  *  </p>
  *
  *  <p>
- *     ContentRendererBuilder has one <strong>mandatory attribute</strong> and one <em>optional</em> attribute:
+ *     ContentRendererBuilder has one <strong>mandatory attribute</strong> and two <em>optional</em> attributes:
  *  </p>
  *  <ul>
  *     <li>
@@ -21,6 +22,10 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
  *     </li>
  *     <li>
  *        <em>parameters</em> (optional) - A key/value map of page parameters to use when rendering the content nodes. May be null or empty.
+ *     </li>
+ *     <li>
+ *        <em>rendererContext</em> (optional) - Determines what context to use when content parts of the page are rendered.
+ *        Default is {@link RendererContext#ORIGIN_PAGE}.
  *     </li>
  *  </ul>
  *
@@ -77,6 +82,18 @@ export interface ContentRendererBuilder extends Builder {
    * @return this builder
    */
   setParameters(aParameters: Map | {}): ContentRendererBuilder;
+
+  /**
+   * Sets the renderer context to use when rendering content.
+   *
+   *  <p>
+   *     If not set or set to null, the default renderer context ({@link RendererContext#ORIGIN_PAGE}) will be used.
+   *  </p>
+   * @param aRendererContext the render context
+   * @return this builder
+   * @since Sitevision 2026.03.1
+   */
+  setRendererContext(aRendererContext: RendererContext): ContentRendererBuilder;
 
   /**
    * Creates a ContentRenderer instance for the page of this builder.
