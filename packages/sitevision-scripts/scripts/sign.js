@@ -90,6 +90,14 @@ import { getFullAppId } from './util/id.js';
           )} Unauthorized, check username and password`
         );
       }
+
+      if (response.status === 500) {
+        console.log(
+          `${chalk.red(
+            'Signing failed:'
+          )} Something went wrong, certificate "${answers.certificateName}" could not be used.`
+        );
+      }
     } catch (err) {
       console.log(`${chalk.red('Signing failed with error:')} ${err}`);
     }
