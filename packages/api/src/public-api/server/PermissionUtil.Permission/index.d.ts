@@ -60,6 +60,8 @@ declare enum Permission {
   MANAGE_PUBLISHING_LOCK,
   MANAGE_DASHBOARDS,
   MANAGE_AI,
+  GENERATE_ALT_TEXT_AI,
+  USE_ANALYTICS_ASSISTANT,
 }
 
 export default Permission;

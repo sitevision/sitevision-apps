@@ -6,7 +6,7 @@ import type { Map } from "../../../../../../../java/util/Map";
 
 /**
  * <p>
- *     Interface for request filter chains that want to handle web interactions in order to get login data.
+ *     JAAS interface for request filter chains that want to handle web interactions in order to get login data.
  *  </p>
  *
  *  <em>

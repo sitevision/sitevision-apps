@@ -47,7 +47,8 @@ export interface TagUtil {
    *
    *  <p>
    *     <strong>Permission note:</strong> Current user must have {@link senselogic.sitevision.api.security.PermissionUtil.Permission#WRITE WRITE}
-   *     permission on the taggable Node that is mutated.
+   *     permission on the taggable Node that is mutated. <em>Note that members of a sv:collaborationGroup is also allowed to add tags
+   *     for the group files.</em>
    *  </p>
    *  <p>
    *     <strong>Versioning note:</strong> Mutation of the taggable Node is always executed in the
@@ -68,7 +69,8 @@ export interface TagUtil {
    *
    *  <p>
    *     <strong>Permission note:</strong> Current user must have {@link senselogic.sitevision.api.security.PermissionUtil.Permission#WRITE WRITE}
-   *     permission on the taggable Node that is mutated.
+   *     permission on the taggable Node that is mutated. <em>Note that members of a sv:collaborationGroup is also allowed to add tags
+   *     for the group files.</em>
    *  </p>
    *  <p>
    *     <strong>Versioning note:</strong> Mutation of the taggable Node is always executed in the
@@ -99,7 +101,8 @@ export interface TagUtil {
    *
    *  <p>
    *     <strong>Permission note:</strong> Current user must have {@link senselogic.sitevision.api.security.PermissionUtil.Permission#WRITE WRITE}
-   *     permission on the taggable Node that is mutated.
+   *     permission on the taggable Node that is mutated. <em>Note that members of a sv:collaborationGroup is also allowed to remove tags
+   *     for the group files.</em>
    *  </p>
    *  <p>
    *     <strong>Versioning note:</strong> Mutation of the taggable Node is always executed in the

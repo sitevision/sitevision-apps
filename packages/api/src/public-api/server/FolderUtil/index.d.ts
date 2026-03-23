@@ -22,9 +22,8 @@ import type { String } from "../../types/java/lang/String";
  */
 export interface FolderUtil {
   /**
-   * <p>
-   *     Creates a folder as sub node of the specified parent.
-   *  </p>
+   * Creates a folder as sub node of the specified parent.
+   *
    *  <p>
    *     The parent may be either a {@code sv:sitePage}, {@code sv:page}, {@code sv:folder}, {@code sv:article}, {@code sv:collaborationGroupPage},
    *     {@code sv:imageRepository}, {@code sv:localImageRepository}, {@code sv:personalImageRepository},
@@ -33,10 +32,15 @@ export interface FolderUtil {
    *     If an other parent is specified an <code>ConstraintViolationException</code> is thrown.
    *  </p>
    *
-   *  <p>Any name can be given the folder. If null is provided a <code>NullPointerException</code> is thrown.</p>
+   *  <p>
+   *     Any name can be given the folder. If null is provided a <code>NullPointerException</code> is thrown.
+   *  </p>
    *
-   *  <p>The current user must be authorized to create folders and to do write operations on the parent node or
-   *  a <code>ConstraintViolationException</code> will be thrown.</p>
+   *  <p>
+   *     The current user must be authorized to create folders and to do write operations on the parent node or a
+   *     <code>ConstraintViolationException</code> will be thrown. <em>Note that creation of a folder in the sv:personalFileRepository or
+   *     sv:localImageRepository of a sv:collaborationGroup is also allowed for members of the group.</em>
+   *  </p>
    *
    *  <p>Note that a new folder inherits metadata and permissions from its parent.</p>
    * @param aParent the parent node of the sv:folder. May not be <code>null</code>
@@ -48,13 +52,22 @@ export interface FolderUtil {
   createFolder(aParent: Node, aName: String | string): Node;
 
   /**
-   * <p>Alters the name of a folder. If no folder is specified a <code>NullPointerException</code>
-   *  is thrown. If the node is not a sv:folder an <code>IllegalArgumentException</code> is thrown.</p>
+   * Alters the name of a folder.
    *
-   *  <p>Any name can be given a folder. If null is provided a <code>NullPointerException</code> is thrown.</p>
+   *  <p>
+   *     If no folder is specified a <code>NullPointerException</code> is thrown.
+   *     If the node is not a sv:folder an <code>IllegalArgumentException</code> is thrown.
+   *  </p>
    *
-   *  <p>The current user must be authorized to do write operations on the folder or
-   *  a <code>ConstraintViolationException</code> will be thrown.</p>
+   *  <p>
+   *     Any name can be given a folder. If null is provided a <code>NullPointerException</code> is thrown.
+   *  </p>
+   *
+   *  <p>
+   *     The current user must be authorized to do write operations on the folder or a <code>ConstraintViolationException</code> will be thrown.
+   *     <em>Note that rename of a folder in the sv:personalFileRepository or sv:localImageRepository of a sv:collaborationGroup is also allowed
+   *     for members of the group.</em>
+   *  </p>
    * @param aFolder the sv:folder that should be renamed. May not be <code>null</code>
    * @param aName the new name of the folder. May not be <code>null</code>
    * @throws ConstraintViolationException if the current user is not authorized to alter the name of the folder

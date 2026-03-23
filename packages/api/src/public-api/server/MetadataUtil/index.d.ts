@@ -10,6 +10,7 @@ import type { String } from "../../types/java/lang/String";
 import type { List } from "../../types/java/util/List";
 import type { LinkValueBuilder } from "../LinkValueBuilder";
 import type { RelatedValueBuilder } from "../RelatedValueBuilder";
+import type { GeolocationValueBuilder } from "../GeolocationValueBuilder";
 
 /**
  * <p>
@@ -139,6 +140,11 @@ export interface MetadataUtil {
    *      are provided an <code>UnsupportedOperationException</code> is thrown. The value is
    *      a comma separated string of the tag names. Note that tag names provided as a comma separated string must be prefixed with #.
    *      It is also possible to provide a collection or an array of <code>sv:tag</code> or strings of tag names.
+   *   </li>
+   *   <li>
+   *      <strong>geolocation</strong> <em>(since Sitevision 2025.11.1)</em><br>
+   *      The value must be a {@link senselogic.sitevision.api.metadata.value.GeolocationValue}.
+   *      If no valid value is provided an <code>UnsupportedOperationException</code> is thrown.
    *   </li>
    *  </ul>
    *
@@ -332,7 +338,7 @@ export interface MetadataUtil {
 
   /**
    * <p>
-   *     Returns a link value builder that can be used to build <code>LinkValue</code> instances.
+   *     Returns a link value builder that creates {@link senselogic.sitevision.api.metadata.value.LinkValue} instances.
    *  </p>
    *
    *  <p>
@@ -347,7 +353,7 @@ export interface MetadataUtil {
 
   /**
    * <p>
-   *     Returns a related value builder that can be used to build <code>RelatedValue</code> instances.
+   *     Returns a related value builder that creates {@link senselogic.sitevision.api.metadata.value.RelatedValue} instances.
    *  </p>
    *
    *  <p>
@@ -359,6 +365,21 @@ export interface MetadataUtil {
    * @since Sitevision 3.6
    */
   getRelatedValueBuilder(): RelatedValueBuilder;
+
+  /**
+   * <p>
+   *     Returns a geolocation value builder that creates {@link senselogic.sitevision.api.metadata.value.GeolocationValue} instances.
+   *  </p>
+   *
+   *  <p>
+   *     <strong>Tip!</strong> A <code>GeolocationValue</code> can be used to set a <em>geolocation metadata</em>
+   *     via {@link #setMetadataPropertyValue(javax.jcr.Node, String, Object)}
+   *     or {@link #setMetadataPropertyValue(javax.jcr.Node, javax.jcr.Property, Object)}.
+   *  </p>
+   * @return a geolocation value builder
+   * @since Sitevision 2025.11.1
+   */
+  getGeolocationValueBuilder(): GeolocationValueBuilder;
 }
 
 declare namespace MetadataUtil {}

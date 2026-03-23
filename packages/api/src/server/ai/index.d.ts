@@ -1,6 +1,23 @@
 import type { Node } from '../../types/javax/jcr/Node';
 
 /**
+ * Represents a text part of a message.
+ */
+export interface TextPart {
+  type: 'text';
+  text: string;
+}
+
+/**
+ * Represents an image part of a message.
+ */
+export interface ImagePart {
+  type: 'image';
+  image: string;
+  mimeType: string;
+}
+
+/**
  * Represents a message in an AI conversation.
  */
 export interface Message {
@@ -14,8 +31,9 @@ export interface Message {
 
   /**
    * The actual content of the message.
+   * Can be either a string or an array of text and image parts.
    */
-  content: string;
+  content: string | Array<TextPart | ImagePart>;
 }
 
 /**

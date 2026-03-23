@@ -14,4 +14,5 @@ export default {
   findLayoutByName: () => {},
   findLayoutsByName: () => {},
   findLayouts: () => {},
+  findReferenceLayouts: () => {},
 };

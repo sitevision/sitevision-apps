@@ -59,10 +59,10 @@ export interface ImageUtil {
   createImages(aParent: Node, aImages: Map | {}): void;
 
   /**
-   * Creates an image using a uri string.
+   * Creates an image using an uri string.
    *
    *  <p>
-   *     Note that the <code>aParent</code> of the file must be a <code>sv:localImageRepository</code>, <code>sv:imageRepository</code>,
+   *     Note that the <code>aParent</code> for the image must be a <code>sv:localImageRepository</code>, <code>sv:imageRepository</code>,
    *     <code>sv:personalImageRepository</code> or a <code>sv:folder</code> residing as sub node to an image repository.
    *  </p>
    *  <p>
@@ -103,7 +103,7 @@ export interface ImageUtil {
    *     The decoder rejects data that contains characters outside the base64 alphabet.
    *  </p>
    *  <p>
-   *     Note that the <code>aParent</code> of the file must be a <code>sv:localImageRepository</code>, <code>sv:imageRepository</code>,
+   *     Note that the <code>aParent</code> for the image must be a <code>sv:localImageRepository</code>, <code>sv:imageRepository</code>,
    *     <code>sv:personalImageRepository</code> or a <code>sv:folder</code> residing as sub node to an image repository.
    *  </p>
    *  <p>
@@ -135,7 +135,7 @@ export interface ImageUtil {
    * Creates an image using a sv:temporaryFile.
    *
    *  <p>
-   *     Note that the <code>aParent</code> of the file must be a <code>sv:localImageRepository</code>, <code>sv:imageRepository</code>,
+   *     Note that the <code>aParent</code> for the image must be a <code>sv:localImageRepository</code>, <code>sv:imageRepository</code>,
    *     <code>sv:personalImageRepository</code> or a <code>sv:folder</code> residing as sub node to an image repository.
    *  </p>
    *  <p>
@@ -159,26 +159,24 @@ export interface ImageUtil {
   createImageFromTemporary(aParent: Node, aTemporaryFile: Node): Node;
 
   /**
-  * Copies an image to a given parent.
-  *
-  * <p>
-  *    Note that the <code>aParent</code> for the image must be a <code>sv:localImageRepository</code>, <code>sv:imageRepository</code>,
-  *    <code>sv:personalImageRepository</code> or a <code>sv:folder</code> residing as sub node to an image repository.
-  *    The <code>aParent</code> must not be trashed.
-  * </p>
-  * <p>
-  *    <strong>Permission note!</strong> Current user must be authorized to alter the parent node
-  *    (e.g. {@link senselogic.sitevision.api.security.PermissionUtil.Permission#WRITE}).
-  * </p>
-  *
-  * @param aImage the image node to copy
-  * @param aParent the parent node where the image should be copied to
-  * @return an image node corresponding to the newly created image
-  * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid
-  *                                      parent node is specified, if an invalid image node is specified
-  * @throws RepositoryException          if something else goes wrong
-  * @since Sitevision 2026.01.1
-  */
+   * Copies an image to a given parent.
+   *
+   *  <p>
+   *     Note that the <code>aParent</code> for the image must be a <code>sv:localImageRepository</code>, <code>sv:imageRepository</code>,
+   *     <code>sv:personalImageRepository</code> or a <code>sv:folder</code> residing as sub node to an image repository.
+   *     The <code>aParent</code> must not be trashed.
+   *  </p>
+   *  <p>
+   *     <strong>Permission note!</strong> Current user must be authorized to alter the parent node
+   *     (e.g. {@link senselogic.sitevision.api.security.PermissionUtil.Permission#WRITE}).
+   *  </p>
+   * @param aImage the image node to copy
+   * @param aParent the parent node where the image should be copied to
+   * @return an image node corresponding to the newly created image
+   * @throws ConstraintViolationException if the user is not authorized to alter the parent node, if an invalid&#xA; parent node is specified, if an invalid image node is specified
+   * @throws RepositoryException if something else goes wrong
+   * @since Sitevision 2026.01.1
+   */
   copyImage(aImage: Node, aParent: Node): Node;
 
   /**
