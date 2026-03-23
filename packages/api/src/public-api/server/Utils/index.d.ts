@@ -90,6 +90,8 @@ import type { TagUtil } from "../TagUtil";
 import type { AliasUtil } from "../AliasUtil";
 import type { MessagesFactory } from "../MessagesFactory";
 import type { TargetAudienceUtil } from "../TargetAudienceUtil";
+import type { RendererBuilderFactory } from "../RendererBuilderFactory";
+import type { CreateContentFactory } from "../CreateContentFactory";
 
 /**
  * Main entry point to get instances of interfaces in the Sitevision Utility API.
@@ -754,6 +756,20 @@ export interface Utils {
    * @since Sitevision 2024.09.2
    */
   getTargetAudienceUtil(): TargetAudienceUtil;
+
+  /**
+   * Gets an instance of a renderer builder factory class.
+   * @return a renderer builder factory class
+   * @since Sitevision 2026.01.1
+   */
+  getRendererBuilderFactory(): RendererBuilderFactory;
+
+  /**
+   * Gets an instance of a content builder factory.
+   * @return a create content factory class
+   * @since Sitevision 2026.01.1
+   */
+  getCreateContentFactory(): CreateContentFactory;
 }
 
 declare namespace Utils {}

@@ -87,4 +87,6 @@ export default {
   getAliasUtil: () => {},
   getMessagesFactory: () => {},
   getTargetAudienceUtil: () => {},
+  getRendererBuilderFactory: () => {},
+  getCreateContentFactory: () => {},
 };

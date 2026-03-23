@@ -10,7 +10,7 @@ import type { Map } from "../../types/java/util/Map";
  * Utility interface for content manipulation of a sv:page, sv:article or a sv:template.
  *
  *  <p>
- *     The provided HTML content is converted to Sitevision text, table and image portlets. It is also possible to specify
+ *     The provided HTML content is converted to Sitevision text, html and image portlets. It is also possible to specify
  *     that a horizontal or a vertical layout should be created. Class and styles can be specified. A class must correspond
  *     to a Sitevision site font or exists in an external CSS to have any effect. It is possible to specify a name of the
  *     subsequent portlet by using a named anchor (<code>&lt;a name="the_name_of_the_portlet"&gt;&lt;/a&gt;</code>).
@@ -23,8 +23,9 @@ import type { Map } from "../../types/java/util/Map";
  *  </p>
  *  <ul>
  *     <li>a layout is specified (a layout will be created)</li>
+ *     <li>a grid, row or column is specified (a grid, row or column will be created)</li>
  *     <li>a named anchor is specified (a new portlet with that name will be created)</li>
- *     <li>content of another type is encountered (i.e. html for an image or a table)</li>
+ *     <li>content of another type is encountered (i.e. html for an image or an iframe)</li>
  *  </ul>
  *
  *  <p>
@@ -44,35 +45,14 @@ import type { Map } from "../../types/java/util/Map";
  *  </code></pre>
  *
  *  <p>
- *     <em>Example 2: an image portlet is created with alt text and class. Sitevision will decide the name of the portlet.</em>
+ *     <em>Example 2: an image portlet is created with an alt text, a caption and a class. Sitevision will decide the name of the portlet.</em>
  *  </p>
  *  <pre><code>
- *     &lt;img alt="Sitevision AB logo" class="aClass" src="templates/sitevision_logo.png" /&gt;
+ *     &lt;img alt="Sitevision AB logo" caption="A Caption" class="aClass" src="templates/sitevision_logo.png" /&gt;
  *  </code></pre>
  *
  *  <p>
- *     <strong>Table portlet:</strong> Table summary and table caption are optional. Table headings (th) will be recognized.
- *  A style attribute containing the css property <em>text-align</em> (left, right or center)
- *  and <em>background-color</em> will be recognized for table cells (td/th). Note that the background-color property value
- *  must start with a hash and match a color that exists on the site (for example #FFFFFF).
- *  </p>
- *  <em>Example: a table portlet with two columns and one row is created.</em>
- *  <pre><code>
- *       &lt;table summary="This is an example table"&gt;
- *       &lt;caption&gt;A caption&lt;/caption&gt;
- *          &lt;tr&gt;
- *             &lt;th&gt;A header&lt;/th&gt;
- *             &lt;th&gt;Another header&lt;/th&gt;
- *          &lt;/tr&gt;
- *          &lt;tr&gt;
- *             &lt;td&gt;A cell&lt;/td&gt;
- *             &lt;td style="text-align:right"&gt;Another cell&lt;/td&gt;
- *          &lt;/tr&gt;
- *       &lt;/table&gt;
- *  </code></pre>
- *
- *  <p>
- *     <strong>Text portlet:</strong> All subsequent text content (i.e. not images or tables) will be placed in a text portlet.
+ *     <strong>Text portlet:</strong> All subsequent text content (i.e. not images) will be placed in a text portlet.
  *     It is possible to create links and to provide style and class information to text sections. Links will be resolved
  *     to real / internal Sitevision pages if possible. Links to files and images will be resolved from the local image / file
  *     repositories and fall-back to the site image / file repository.
@@ -99,6 +79,57 @@ import type { Map } from "../../types/java/util/Map";
  *           &lt;a name="aText" /&gt;
  *           &lt;p&gt;Welcome to the Sitevision days!&lt;/p&gt;
  *        &lt;/div&gt;
+ *  </code></pre>
+ *
+ *  <p>
+ *     <em>Example 3: a text portlet consisting of a table with two columns and one row.</em>
+ *  </p>
+ *
+ *  <p>
+ *     Table summary and table caption are optional. Table headings (th) will be recognized.
+ *     A style attribute containing the css property <em>text-align</em> (left, right or center)
+ *     and <em>background-color</em> will be recognized for table cells (td/th). Note that the background-color property value
+ *     must start with a hash and match a color that exists on the site (for example #FFFFFF).
+ *     By default the table created will be given the class of the table selected as standard for the site.
+ *  </p>
+ *  <pre><code>
+ *       &lt;table summary="This is an example table"&gt;
+ *       &lt;caption&gt;A caption&lt;/caption&gt;
+ *          &lt;tr&gt;
+ *             &lt;th&gt;A header&lt;/th&gt;
+ *             &lt;th&gt;Another header&lt;/th&gt;
+ *          &lt;/tr&gt;
+ *          &lt;tr&gt;
+ *             &lt;td&gt;A cell&lt;/td&gt;
+ *             &lt;td style="text-align:right"&gt;Another cell&lt;/td&gt;
+ *          &lt;/tr&gt;
+ *       &lt;/table&gt;
+ *  </code></pre>
+ *
+ *  <p>
+ *     <em>
+ *        Example 4: a text portlet with a table containing a table type specifier. The class of the specified table type will be assigned.
+ *        If the provided name does not exist, the standard table class will be assigned.
+ *     </em>
+ *  </p>
+ *  <pre><code>
+ *       &lt;table data-table-type-name="Test table"&gt;
+ *          &lt;tr&gt;
+ *             &lt;th&gt;A header&lt;/th&gt;
+ *          &lt;/tr&gt;
+ *          &lt;tr&gt;
+ *             &lt;td&gt;A cell&lt;/td&gt;
+ *          &lt;/tr&gt;
+ *       &lt;/table&gt;
+ *  </code></pre>
+ *  <p>
+ *     <em>Example 5: A numbered list with a start number specifier (optional)</em>
+ *  </p>
+ *  <pre><code>
+ *     &lt;ol start="5"&gt;
+ *        &lt;li&gt;Item 5&lt;/li&gt;
+ *        &lt;li&gt;Item 6&lt;/li&gt;
+ *     &lt;/ol&gt;
  *  </code></pre>
  *
  *  <p>
@@ -176,7 +207,65 @@ import type { Map } from "../../types/java/util/Map";
  *        |--aText (text portlet)
  *        |--aVerticalLayout (layout)
  *           |--aText (text portlet)
- *           |--aTable (table portlet)
+ *  </code></pre>
+ *
+ *  <p>
+ *     <strong>Grids:</strong> by specifying a div with the attribute layout <code>GRID</code> a grid can be created.
+ *  </p>
+ *  <ul>
+ *     <li><code>GRID</code></li>
+ *     <li><code>FLUID_GRID</code></li>
+ *     <li><code>FIXED_FLUID_GRID</code></li>
+ *  </ul>
+ *  <p>
+ *     <em>Example 1: create a fixed grid with decoration "aDecoration" and name "aName".</em>
+ *  </p>
+ *  <pre><code>
+ *        &lt;div layout="GRID" decoration="aDecoration" name="aName"&gt;
+ *           &lt;!-- grid content --&gt;
+ *           ...
+ *        &lt;/div&gt;
+ *  </code></pre>
+ *
+ *  <p>
+ *     <em>Example 2: create a fluid grid with decoration "aDecoration" and name "aName".</em>
+ *  </p>
+ *  <pre><code>
+ *       &lt;div layout="FLUID_GRID" decoration="aDecoration" name="aName"&gt;
+ *          &lt;!-- grid content --&gt;
+ *          ...
+ *       &lt;/div&gt;
+ *  </code></pre>
+ *
+ *  <p>
+ *     <em>Example 3: create a fixed flexible grid with rows and columns</em>
+ *  </p>
+ *  <pre><code>
+ *     &lt;div layout="FIXED_FLUID_GRID" decoration="aDecoration" name="aName"&gt;
+ *        &lt;div layout="GRID_ROW"&gt;
+ *           &lt;!-- grid row content --&gt;
+ *           &lt;div layout="GRID_COLUMN_6"&gt;
+ *              &lt;p&gt;Grid column content ...&lt;/p&gt;
+ *           &lt;/div&gt;
+ *           &lt;div layout="GRID_COLUMN_6"&gt;
+ *              &lt;p&gt;Grid column content ...&lt;/p&gt;
+ *           &lt;/div&gt;
+ *        &lt;/div&gt;
+ *     &lt;/div&gt;
+ *  </code></pre>
+ *
+ *  <p>
+ *     <strong>Iframes:</strong> sending an iframe tag will create a HTML module with the URL attribute set to the iframe src.
+ *  </p>
+ *
+ *  <p><em>Example: iframe with content from OpenStreetMap. Title is optional.</em></p>
+ *
+ *  <pre><code>
+ *     &lt;iframe
+ *     title="Sitevision HQ"
+ *     src="https://www.openstreetmap.org/export/embed.html
+ *     ?bbox=15.20972639322281%2C59.27124397410192%2C15.21217256784439%2C59.272217043706846&amp;layer=mapnik"
+ *     &gt;&lt;/iframe&gt;
  *  </code></pre>
  *
  *  <hr>
@@ -198,7 +287,7 @@ export interface WebContentUtil {
    *  <p>
    *     If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified as a
    *     HTML string used to generate a portlet structure in the <strong>first</strong> layout available. The provided
-   *     content is converted to Sitevision text, table and image modules. It is also possible to specify that a horizontal
+   *     content is converted to Sitevision text, html and image modules. It is also possible to specify that a horizontal
    *     or a vertical layout should be created.
    *  </p>
    *
@@ -230,7 +319,7 @@ export interface WebContentUtil {
    *     If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified using the
    *     content map containing keys corresponding to layout names (e.g. "Huvudinnehåll") on the page and values containing the
    *     HTML used to generate a portlet structure in the layout. The provided content is converted to
-   *     Sitevision text, table and image modules. It is also possible to specify that a horizontal or a vertical
+   *     Sitevision text, html and image modules. It is also possible to specify that a horizontal or a vertical
    *     layout should be created.
    *  </p>
    *
@@ -319,7 +408,7 @@ export interface WebContentUtil {
    *  <p>
    *     If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified as a
    *     HTML string used to generate a portlet structure in the <strong>first</strong> layout available. The provided
-   *     content is converted to Sitevision text, table and image modules. It is also possible to specify that a horizontal
+   *     content is converted to Sitevision text, html and image modules. It is also possible to specify that a horizontal
    *     or a vertical layout should be created.
    *  </p>
    *
@@ -354,7 +443,7 @@ export interface WebContentUtil {
    *     If an invalid node type is specified a <code>IllegalArgumentException</code> is thrown. The page content is specified using the
    *     content map containing keys corresponding to layout names (e.g. "Huvudinnehåll") on the page and values containing the
    *     HTML used to generate a portlet structure in the layout. The provided content is converted to
-   *     Sitevision text, table and image modules. It is also possible to specify that a horizontal or a vertical
+   *     Sitevision text, html and image modules. It is also possible to specify that a horizontal or a vertical
    *     layout should be created.
    *  </p>
    *

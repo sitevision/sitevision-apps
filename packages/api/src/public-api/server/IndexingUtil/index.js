@@ -3,4 +3,5 @@
  */
 export default {
   setResourcePriority: () => {},
+  getIndexableContentExtractorBuilder: () => {},
 };

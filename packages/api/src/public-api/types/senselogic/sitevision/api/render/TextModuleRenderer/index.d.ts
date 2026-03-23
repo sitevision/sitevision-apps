@@ -170,19 +170,40 @@ export type TextModuleRenderer = {
    * Updates the state of this renderer (potentially "loads" a Text module for rendering) using the identifier of a Text module Node.
    *
    *  <p>
+   *     The "identifier" is the JCR Node identifier (also the <code>jcr:uuid</code> property) of the Text module.
+   *  </p>
+   *  <p>
    *     <em>
    *        Note! If this state update fails (i.e. argument was null or not specifying a supported Text module that exists on the page
    *        this renderer was created for) there will be nothing to render. The state can always be checked via the
    *        {@link #isLoaded()} method.
    *     </em>
    *  </p>
-   * @param aTextModuleIdentifier the identifier of the Text module
+   * @param aTextModuleIdentifier the node identifier of the Text module
    */
   updateByIdentifier(aTextModuleIdentifier: String | string): void;
 
   /**
-   * Whether or not this renderer has been updated with a renderable text module.
-   * @return true if this renderer has a valid text module to render, false otherwise
+   * Updates the state of this renderer (potentially "loads" a Text module for rendering) using the content identifier that specifies a Text module.
+   *
+   *  <p>
+   *     The "content identifier" is the <code>contentIdentifier</code> property of the sv:portlet (i.e. a Text module).
+   *  </p>
+   *  <p>
+   *     <em>
+   *        Note! If this state update fails (i.e. argument was null or not specifying a supported Text module that exists on the page
+   *        this renderer was created for) there will be nothing to render. The state can always be checked via the
+   *        {@link #isLoaded()} method.
+   *     </em>
+   *  </p>
+   * @param aContentIdentifier the content identifier that specifies the Text module
+   * @since Sitevision 2026.01.1
+   */
+  updateByContentIdentifier(aContentIdentifier: String | string): void;
+
+  /**
+   * Whether this renderer has been updated with a renderable Text module.
+   * @return true if this renderer has a valid Text module to render, false otherwise
    */
   isLoaded(): boolean;
 

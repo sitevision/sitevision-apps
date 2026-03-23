@@ -9,4 +9,5 @@ export default {
   getLinkMetadataPropertyValue: () => {},
   getLinkValueBuilder: () => {},
   getRelatedValueBuilder: () => {},
+  getGeolocationValueBuilder: () => {},
 };

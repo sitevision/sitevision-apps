@@ -8,7 +8,7 @@ import type { RelatedValue } from "../../types/senselogic/sitevision/api/metadat
 import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder";
 
 /**
- * Builder to create RelatedValue instances that can be used to set related metadata.
+ * Builder to create {@link RelatedValue} instances that can be used to set related metadata.
  *
  *  <p>
  *     RelatedValueBuilder has one <strong>mandatory attribute</strong>:
