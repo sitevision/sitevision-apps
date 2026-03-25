@@ -29,7 +29,7 @@ const getHintByErrorCode = (errorCode) => {
   switch (errorCode) {
     case 400:
       return 'Bad Request. Please verify the siteName and addonName in the ' +
-        '.dev_properties.json file and ensure that the add-on exists in the site\'s addon repository.';
+        '.dev_properties.json file and ensure that the add-on exists in the site\'s add-on repository.';
     case 401:
       return 'Unauthorized. Please verify username and password.';
     case 403:
