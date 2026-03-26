@@ -27,6 +27,9 @@ export const getImportEndpoint = (type) => {
 
 const getHintByErrorCode = (errorCode) => {
   switch (errorCode) {
+    case 400:
+      return 'Bad Request. Please verify the siteName and addonName in the ' +
+        '.dev_properties.json file and ensure that the add-on exists in the site\'s add-on repository.';
     case 401:
       return 'Unauthorized. Please verify username and password.';
     case 403:
@@ -65,9 +68,23 @@ export const handleResponse = async ({ response, operation }) => {
   }
 
   if (json) {
-    console.log(
-      `${chalk.red(`${operation} failed:`)} \n${JSON.stringify(json, null, 2)}`
-    );
+    const message = String(json?.message || '');
+
+    const isContextNodeError =
+      response.status === 400 &&
+      message.toLowerCase().includes('could not resolve context node');
+
+    if (isContextNodeError) {
+      console.log(
+        `${chalk.red(`${operation} failed with status:`)} ${
+          response.status
+        } ${getHintByErrorCode(response.status)}`
+      );
+    } else {
+      console.log(
+        `${chalk.red(`${operation} failed:`)} \n${JSON.stringify(json, null, 2)}`
+      );
+    }
   } else {
     console.log(
       `${chalk.red(`${operation} failed with status:`)} ${
