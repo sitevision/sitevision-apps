@@ -37,6 +37,102 @@ export interface Message {
 }
 
 /**
+ * A JSON-serializable primitive value.
+ */
+export type JSONPrimitive = string | number | boolean | null;
+
+/**
+ * A JSON-serializable value.
+ */
+export type JSONValue = JSONPrimitive | JSONObject | JSONArray;
+
+/**
+ * A JSON-serializable object.
+ */
+export interface JSONObject {
+  [key: string]: JSONValue;
+}
+
+/**
+ * A JSON-serializable array.
+ */
+export interface JSONArray extends Array<JSONValue> {}
+
+/**
+ * A JSON schema definition.
+ */
+export interface JSONSchema {
+  type:
+    | 'string'
+    | 'number'
+    | 'integer'
+    | 'boolean'
+    | 'null'
+    | 'array'
+    | 'object';
+  description?: string;
+  enum?: readonly JSONPrimitive[];
+  minimum?: number;
+  maximum?: number;
+  minLength?: number;
+  maxLength?: number;
+  items?: JSONSchema;
+  minItems?: number;
+  maxItems?: number;
+  properties?: Record<string, JSONSchema>;
+  required?: readonly string[];
+  additionalProperties?: boolean;
+  nullable?: boolean;
+  format?: string;
+  default?: JSONValue;
+}
+
+/**
+ * The JSON schema used to define tool parameters.
+ */
+export interface ToolParametersSchema extends JSONSchema {
+  type: 'object';
+  properties: Record<string, JSONSchema>;
+  required?: readonly string[];
+  additionalProperties?: boolean;
+}
+
+/**
+ * A tool that can be invoked by the model.
+ */
+export interface ToolDefinition {
+  name: string;
+  description: string;
+  parameters: ToolParametersSchema;
+  execute: (parameters: any) => unknown;
+}
+
+/**
+ * A tool call made by the model.
+ */
+export interface ToolCall {
+  type: 'tool-call';
+  toolCallId: string;
+  toolName: string;
+  input: JSONObject;
+}
+
+/**
+ * A tool result returned to the model.
+ */
+export interface ToolResult {
+  type: 'tool-result';
+  toolCallId: string;
+  toolName: string;
+  result: JSONValue;
+}
+
+/**
+ * Valid values for the maximum number of tool execution rounds.
+ */
+export type MaxToolExecutionRounds = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+
+/**
  * Options for generating text using an AI model.
  */
 export interface GenerateTextOptions {
@@ -70,6 +166,17 @@ export interface GenerateTextOptions {
    * Higher values promote more diverse output.
    */
   frequencyPenalty?: number;
+
+  /**
+   * Tools that the model may invoke during generation.
+   */
+  tools?: ReadonlyArray<ToolDefinition>;
+
+  /**
+   * The maximum number of tool execution rounds allowed during generation.
+   * Valid values are integers between 1 and 10. Default is 5.
+   */
+  maxToolExecutionRounds?: MaxToolExecutionRounds;
 }
 
 /**
@@ -104,6 +211,16 @@ export interface GenerateTextResult {
     completionTokens: number;
     totalTokens: number;
   };
+
+  /**
+   * Tool calls made by the model during the request, if any.
+   */
+  toolCalls?: ToolCall[];
+
+  /**
+   * Tool results returned during the request, if any.
+   */
+  toolResults?: ToolResult[];
 }
 
 /**
@@ -140,6 +257,17 @@ export interface StreamTextOptions {
    * Higher values promote more diverse output.
    */
   frequencyPenalty?: number;
+
+  /**
+   * Tools that the model may invoke during generation.
+   */
+  tools?: ReadonlyArray<ToolDefinition>;
+
+  /**
+   * The maximum number of tool execution rounds allowed during generation.
+   * Valid values are integers between 1 and 10. Default is 5.
+   */
+  maxToolExecutionRounds?: MaxToolExecutionRounds;
 
   /**
    * Callback function that is triggered for each received token.
@@ -194,6 +322,16 @@ export interface StreamFinishResult {
    * Token usage statistics for this request.
    */
   usage: UsageInfo;
+
+  /**
+   * Tool calls made by the model during the request, if any.
+   */
+  toolCalls?: ToolCall[];
+
+  /**
+   * Tool results returned during the request, if any.
+   */
+  toolResults?: ToolResult[];
 }
 
 /**

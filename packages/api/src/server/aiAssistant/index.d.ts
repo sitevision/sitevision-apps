@@ -1,5 +1,13 @@
 import type { Node } from '../../types/javax/jcr/Node';
-import type { Message, StreamFinishResult, UsageInfo } from '../ai';
+import type {
+  MaxToolExecutionRounds,
+  Message,
+  StreamFinishResult,
+  ToolCall,
+  ToolDefinition,
+  ToolResult,
+  UsageInfo,
+} from '../ai';
 
 export type SemanticQueryOptions = {
   /**
@@ -71,6 +79,17 @@ export type AskAssistantOptions = {
    * Higher values promote more diverse output.
    */
   frequencyPenalty?: number;
+
+  /**
+   * Tools that the model may invoke during generation.
+   */
+  tools?: ReadonlyArray<ToolDefinition>;
+
+  /**
+   * The maximum number of tool execution rounds allowed during generation.
+   * Valid values are integers between 1 and 10. Default is 5.
+   */
+  maxToolExecutionRounds?: MaxToolExecutionRounds;
 };
 
 export type AskLLMOptions = {
@@ -99,6 +118,17 @@ export type AskLLMOptions = {
    * Penalizes the model for using the same tokens repeatedly. A higher value reduces the likelihood of repeating the same phrases, promoting more diverse language usage.
    */
   frequencyPenalty?: number;
+
+  /**
+   * Tools that the model may invoke during generation.
+   */
+  tools?: ReadonlyArray<ToolDefinition>;
+
+  /**
+   * The maximum number of tool execution rounds allowed during generation.
+   * Valid values are integers between 1 and 10. Default is 5.
+   */
+  maxToolExecutionRounds?: MaxToolExecutionRounds;
 };
 
 export type KnowledgeEntry = {
@@ -121,6 +151,10 @@ export type LLMResponse = {
   finishReason: string;
 
   usage: UsageInfo;
+
+  toolCalls?: ToolCall[];
+
+  toolResults?: ToolResult[];
 };
 
 /**
@@ -176,7 +210,7 @@ export interface AIAssistant {
    * @param aiAssistant The AI Assistant instance.
    * @param options Options for the assistant query.
    */
-  askAssistant(aiAssistant: Node, options: AskAssistantOptions);
+  askAssistant(aiAssistant: Node, options: AskAssistantOptions): void;
 
   /**
    * Method to generate text using the LLM of an AI Assistant configuration. Useful for non-interactive use cases such as summarization,
