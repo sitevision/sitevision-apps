@@ -2,6 +2,7 @@ import fs from 'fs';
 import jest from 'jest';
 import path from 'path';
 import { execSync } from 'child_process';
+import { createRequire } from 'module';
 import { getDirname } from '../util/dirname.js';
 import { isCi } from '../config/environment-variables.js';
 
@@ -13,6 +14,7 @@ if (!fs.existsSync(setupTestFile)) {
 }
 
 const __dirname = getDirname(import.meta.url);
+const require = createRequire(import.meta.url);
 
 const config = {
   roots: ['<rootDir>/src'],
@@ -20,8 +22,8 @@ const config = {
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       path.resolve(__dirname, '..', 'config', 'jest', 'fileMock.js'),
-    '\\.(css|sass|scss)$': 'identity-obj-proxy',
-    '\\?raw$': 'identity-obj-proxy',
+    '\\.(css|sass|scss)$': require.resolve('identity-obj-proxy'),
+    '\\?raw$': require.resolve('identity-obj-proxy'),
   },
   transform: {
     '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': path.resolve(

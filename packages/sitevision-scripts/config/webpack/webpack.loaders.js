@@ -12,9 +12,6 @@ export const getTypeScriptLoader = (server) => ({
   use: {
     loader: resolvePackage('ts-loader'),
     options: {
-      // Keep webpack builds focused on bundled app code so Jest-only files
-      // do not introduce build-time dependencies or globals.
-      onlyCompileBundledFiles: true,
       ...(server
         ? {
             compilerOptions: {
