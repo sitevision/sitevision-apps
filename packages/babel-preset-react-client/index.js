@@ -2,7 +2,7 @@ module.exports = function () {
   return {
     presets: [
       [
-        '@babel/preset-env',
+        require.resolve('@babel/preset-env'),
         {
           corejs: { version: '3' },
           useBuiltIns: 'usage',
@@ -11,7 +11,7 @@ module.exports = function () {
           },
         },
       ],
-      '@babel/preset-react',
+      require.resolve('@babel/preset-react'),
     ],
   };
 };
