@@ -1,6 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import path from 'path';
+import { createRequire } from 'module';
 import { getExternals, getServerOptimization } from './utils.js';
 import babel from '@babel/core';
 import {
@@ -13,6 +14,8 @@ import {
   getTypeScriptLoader,
   getJsonLoader,
 } from './webpack.loaders.js';
+
+const require = createRequire(import.meta.url);
 
 export const getServerConfig = ({
   serverSideOnly,
@@ -51,7 +54,9 @@ export const getServerConfig = ({
                 const result = babel.transformSync(content, {
                   filename,
                   compact: false,
-                  presets: ['@sitevision/babel-preset-react-server'],
+                  presets: [
+                    require.resolve('@sitevision/babel-preset-react-server'),
+                  ],
                 });
                 return result.code;
               }

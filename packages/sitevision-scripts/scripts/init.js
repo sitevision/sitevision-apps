@@ -115,22 +115,41 @@ const updatePackageJsonBundledRest = (typescript) => {
   writePackageJson(appPackage);
 };
 
-const installWebAppDependencies = (appPath, reactVersion) => {
-  spawn.sync(
-    'npm',
-    [
-      'install',
-      `react@${reactVersion}`,
-      `react-dom@${reactVersion}`,
+const installWebAppDependencies = (appPath, reactVersion, typescript) => {
+  const dependencies = [
+    `react@${reactVersion}`,
+    `react-dom@${reactVersion}`,
+    '@sitevision/api',
+  ];
+
+  if (typescript) {
+    dependencies.push(
       `@types/react@${reactVersion}`,
-      `@types/react-dom@${reactVersion}`,
-      '@sitevision/api',
-    ],
-    {
-      stdio: 'inherit',
-      cwd: appPath,
-    }
-  );
+      `@types/react-dom@${reactVersion}`
+    );
+  } else {
+    dependencies.push('prop-types');
+  }
+
+  spawn.sync('npm', ['install', ...dependencies], {
+    stdio: 'inherit',
+    cwd: appPath,
+  });
+
+  const devDependencies = [
+    '@testing-library/react',
+    '@testing-library/dom',
+    '@testing-library/jest-dom',
+  ];
+
+  if (typescript) {
+    devDependencies.push('@types/jest');
+  }
+
+  spawn.sync('npm', ['install', '--save-dev', ...devDependencies], {
+    stdio: 'inherit',
+    cwd: appPath,
+  });
 };
 
 const installRestAppDependencies = (appPath) => {
@@ -206,7 +225,7 @@ export default async ({ appPath, appName }) => {
           case 'widget-react':
           case 'widget-react-typescript': {
             updatePackageJsonReact(typescript);
-            installWebAppDependencies(appPath, reactVersion);
+            installWebAppDependencies(appPath, reactVersion, typescript);
             templateOptions.typescript = typescript;
             templateOptions.clientRendering = !serverSideOnly;
             templateOptions.reactVersion = simplifyVersionNumber(

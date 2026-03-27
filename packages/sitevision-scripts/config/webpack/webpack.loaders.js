@@ -1,27 +1,34 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import svgToMiniDataURI from 'mini-svg-data-uri';
+import { createRequire } from 'module';
 import * as properties from '../../util/properties.js';
+
+const require = createRequire(import.meta.url);
+
+const resolvePackage = (packageName) => require.resolve(packageName);
 
 export const getTypeScriptLoader = (server) => ({
   test: /\.tsx?$/,
   use: {
-    loader: 'ts-loader',
-    options: server
-      ? {
-          compilerOptions: {
-            target: 'es5',
-          },
-        }
-      : undefined,
+    loader: resolvePackage('ts-loader'),
+    options: {
+      ...(server
+        ? {
+            compilerOptions: {
+              target: 'es5',
+            },
+          }
+        : {}),
+    },
   },
 });
 
 export const getBabelLoader = () => ({
   test: /\.jsx?$/,
   use: {
-    loader: 'babel-loader',
+    loader: resolvePackage('babel-loader'),
     options: properties.getCustomProperty('babel') || {
-      presets: ['@sitevision/babel-preset-react-server'],
+      presets: [resolvePackage('@sitevision/babel-preset-react-server')],
     },
   },
 });
@@ -48,9 +55,9 @@ export const getClientBabelLoader = () => ({
     return false;
   },
   use: {
-    loader: 'babel-loader',
+    loader: resolvePackage('babel-loader'),
     options: properties.getCustomProperty('babel') || {
-      presets: ['@sitevision/babel-preset-react-client'],
+      presets: [resolvePackage('@sitevision/babel-preset-react-client')],
     },
   },
 });
@@ -69,23 +76,23 @@ export const getCssLoader = (cssPrefix, emit) => {
       {
         resourceQuery: /raw/,
         sideEffects: true,
-        use: [miniCssExtractLoader, 'css-loader'],
+        use: [miniCssExtractLoader, resolvePackage('css-loader')],
       },
       {
         resourceQuery: /nomodules/,
         sideEffects: true,
         use: [
           miniCssExtractLoader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
+          resolvePackage('css-loader'),
+          resolvePackage('postcss-loader'),
+          resolvePackage('sass-loader'),
         ],
       },
       {
         use: [
           miniCssExtractLoader,
           {
-            loader: 'css-loader',
+            loader: resolvePackage('css-loader'),
             options: {
               modules: {
                 localIdentHashSalt: cssPrefix,
@@ -93,8 +100,8 @@ export const getCssLoader = (cssPrefix, emit) => {
               },
             },
           },
-          'postcss-loader',
-          'sass-loader',
+          resolvePackage('postcss-loader'),
+          resolvePackage('sass-loader'),
         ],
       },
     ],
@@ -147,5 +154,5 @@ export const getJsModuleLoader = () => ({
 export const getJsonLoader = () => ({
   type: 'javascript/auto',
   test: /\.json$/,
-  loader: 'json-loader',
+  loader: resolvePackage('json-loader'),
 });
