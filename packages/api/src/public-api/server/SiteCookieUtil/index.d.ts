@@ -26,7 +26,7 @@ export interface SiteCookieUtil {
    * Necessary Site cookies (sv:siteCookie) of current site.
    * @return the necessary site cookies of current site, or empty list if current site has no site cookies
    */
-  getNecessarySiteCookies(): List;
+  getNecessarySiteCookies(): List<Node>;
 
   /**
    * Gets the necessary site cookies category title.
@@ -44,7 +44,7 @@ export interface SiteCookieUtil {
    * Analytics Site cookies (sv:siteCookie) of current site.
    * @return the analytics site cookies of current site, or empty list if current site has no site cookies
    */
-  getAnalyticsSiteCookies(): List;
+  getAnalyticsSiteCookies(): List<Node>;
 
   /**
    * Gets the analytics site cookies category title.
@@ -62,7 +62,7 @@ export interface SiteCookieUtil {
    * Marketing Site cookies (sv:siteCookie) of current site.
    * @return the marketing site cookies of current site, or empty list if current site has no site cookies
    */
-  getMarketingSiteCookies(): List;
+  getMarketingSiteCookies(): List<Node>;
 
   /**
    * Gets the marketing site cookies category title.
@@ -81,7 +81,7 @@ export interface SiteCookieUtil {
    * @return the functional site cookies of current site, or empty list if current site has no site cookies
    * @since Sitevision 9.1.1
    */
-  getFunctionalSiteCookies(): List;
+  getFunctionalSiteCookies(): List<Node>;
 
   /**
    * Gets the functional site cookies category title.
@@ -101,7 +101,7 @@ export interface SiteCookieUtil {
    * Custom Site cookies (sv:siteCookie) of current site.
    * @return the custom site cookies of current site, or empty list if current site has no site cookies
    */
-  getCustomSiteCookies(): List;
+  getCustomSiteCookies(): List<Node>;
 
   /**
    * Gets the custom site cookies category title.
@@ -166,7 +166,7 @@ export interface SiteCookieUtil {
    * Gets all sv:siteCookie nodes that current user has accepted.
    * @return the list of sv:siteCookie Nodes current user has accepted. Returns empty list if site has no site cookies or if current user hasn't&#xA; accepted any sv:siteCookie
    */
-  getUserConsents(): List;
+  getUserConsents(): List<Node>;
 }
 
 declare namespace SiteCookieUtil {}

@@ -131,7 +131,7 @@ export interface TagUtil {
    * @return a list of sv:tag nodes for aTaggableNode
    * @throws IllegalArgumentException if aTaggableNode is null or an unsupported type
    */
-  getTags(aTaggableNode: Node): List;
+  getTags(aTaggableNode: Node): List<Node>;
 }
 
 declare namespace TagUtil {}

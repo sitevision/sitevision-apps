@@ -3,7 +3,7 @@
  */
 import type { List } from "../../types/java/util/List";
 import type { Node } from "../../types/javax/jcr/Node";
-
+import type { Locale } from "../../types/java/util/Locale";
 import type { Map } from "../../types/java/util/Map";
 
 /**
@@ -27,7 +27,7 @@ export interface TranslationUtil {
    *  </p>
    * @return a list of all Locales that are set up for translations on the current site
    */
-  getSiteTranslationLocales(): List;
+  getSiteTranslationLocales(): List<Locale>;
 
   /**
    * Gets the translation mappings for a given page node.
@@ -81,7 +81,7 @@ export interface TranslationUtil {
    * @return a Map of translation mappings
    * @since Sitevision 4.3.1
    */
-  getTranslations(aPageNode: Node, aIncludePageNode: boolean): Map;
+  getTranslations(aPageNode: Node, aIncludePageNode: boolean): Map<Locale, Node>;
 
   /**
    * Gets the page node a given node is potentially translated from (the translation source).

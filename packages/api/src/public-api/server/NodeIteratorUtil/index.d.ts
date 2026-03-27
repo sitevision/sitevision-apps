@@ -171,7 +171,7 @@ export interface NodeIteratorUtil {
    * @return a list of nodes that matches <code>aFilter</code>, never <code>null</code>.&#xA; The list will contain at most aLimit nodes.&#xA; If aNodeIterator is null, an empty list will be returned.&#xA; If aFilter is null, the filter will be ignored (all nodes will be accepted).&#xA; If aLimit is negative or zero, an empty list will be returned.
    * @since Sitevision 3.6.2
    */
-  findNodes(aNodeIterator: NodeIterator, aFilter: Filter, aLimit: number): List;
+  findNodes(aNodeIterator: NodeIterator, aFilter: Filter, aLimit: number): List<Node>;
 
   /**
    * Gets a max-sized node list from a node iterator that matches a specified filter, skipping a specified number of matching nodes.
@@ -196,7 +196,7 @@ export interface NodeIteratorUtil {
     aFilter: Filter,
     aSkip: number,
     aLimit: number
-  ): List;
+  ): List<Node>;
 
   /**
    * Gets a list of all nodes from a node iterator that matches a specified filter.
@@ -217,7 +217,7 @@ export interface NodeIteratorUtil {
    * @return a list of nodes that matches <code>aFilter</code>, never <code>null</code>.&#xA; If <code>aFilter</code> is <code>null</code>, the filter will be ignored (all nodes will be accepted).&#xA; If <code>aNodeIterator</code> is <code>null</code>, an empty list will be returned.
    * @since Sitevision 3.6.2
    */
-  findAll(aNodeIterator: NodeIterator, aFilter: Filter): List;
+  findAll(aNodeIterator: NodeIterator, aFilter: Filter): List<Node>;
 
   /**
    * Gets a list of all nodes of a node iterator.
@@ -237,7 +237,7 @@ export interface NodeIteratorUtil {
    * @return a list of all nodes provided by <code>aNodeIterator</code>, never <code>null</code>.
    * @since Sitevision 3.6.2
    */
-  toList(aNodeIterator: NodeIterator): List;
+  toList(aNodeIterator: NodeIterator): List<Node>;
 
   /**
    * Gets the filtering result of a split operation for a node iterator with a node filter as divider.

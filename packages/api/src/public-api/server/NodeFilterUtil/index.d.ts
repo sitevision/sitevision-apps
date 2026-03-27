@@ -2,6 +2,7 @@
  * This file is auto generated from JavaDoc. Do not modify it manually.
  */
 import type { List } from "../../types/java/util/List";
+import type { Node } from "../../types/javax/jcr/Node";
 import type { Filter } from "../../types/senselogic/sitevision/api/base/Filter";
 import type { Map } from "../../types/java/util/Map";
 import type { Collection } from "../../types/java/util/Collection";
@@ -113,7 +114,7 @@ export interface NodeFilterUtil {
    * @param aNodeFilter a node filter
    * @return a list of all nodes of <code>aNodeList</code> that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeList</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    */
-  getFilteredList(aNodeList: List | unknown[], aNodeFilter: Filter): List;
+  getFilteredList(aNodeList: List<Node> | unknown[], aNodeFilter: Filter): List<Node>;
 
   /**
    * Applies a node filter to a Map with Node values and gets the result.
@@ -122,7 +123,7 @@ export interface NodeFilterUtil {
    * @return a Map with all <code>aNodeValueMap</code> entries with a value that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeValueMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    * @since Sitevision 4.3.1
    */
-  getFilteredValueMap(aNodeValueMap: Map | {}, aNodeFilter: Filter): Map;
+  getFilteredValueMap<K = unknown>(aNodeValueMap: Map<K, Node> | {}, aNodeFilter: Filter): Map<K, Node>;
 
   /**
    * Applies a node filter to a Map with Node keys and gets the result.
@@ -131,7 +132,7 @@ export interface NodeFilterUtil {
    * @return a Map with all <code>aNodeKeyMap</code> entries with a key that is accepted by <code>aNodeFilter</code>, never <code>null</code>.&#xA; <code>aNodeKeyMap</code> itself is returned if it's empty or if <code>aNodeFilter</code> is <code>null</code>
    * @since Sitevision 4.3.1
    */
-  getFilteredKeyMap(aNodeKeyMap: Map | {}, aNodeFilter: Filter): Map;
+  getFilteredKeyMap<V = unknown>(aNodeKeyMap: Map<Node, V> | {}, aNodeFilter: Filter): Map<Node, V>;
 
   /**
    * Gets the filtering result of a split operation for a collection of nodes with a node filter as divider.

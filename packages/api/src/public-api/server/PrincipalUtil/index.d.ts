@@ -45,7 +45,7 @@ export interface PrincipalUtil {
    * @return a list of virtual groups wrapped in JCR nodes, or an empty list of none exists
    * @since Sitevision 3.0
    */
-  getVirtualGroupsByName(aNames: List | unknown[]): List;
+  getVirtualGroupsByName(aNames: List<string> | unknown[]): List<Node>;
 }
 
 declare namespace PrincipalUtil {}

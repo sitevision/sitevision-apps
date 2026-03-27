@@ -90,7 +90,7 @@ import type { Spliterator } from "../Spliterator";
  * @see AbstractSequentialList
  * @since 1.2
  */
-export type List = Collection & {
+export type List<E = unknown> = Collection & {
   /**
    * Returns the number of elements in this list.  If this list contains
    *  more than <tt>Integer.MAX_VALUE</tt> elements, returns
@@ -370,7 +370,7 @@ export type List = Collection & {
    * @return the element at the specified position in this list
    * @throws IndexOutOfBoundsException if the index is out of range&#xA; (<tt>index &lt; 0 || index &gt;= size()</tt>)
    */
-  get(index: number): unknown;
+  get(index: number): E;
 
   /**
    * Replaces the element at the specified position in this list with the
@@ -490,7 +490,7 @@ export type List = Collection & {
    * @return a view of the specified range within this list
    * @throws IndexOutOfBoundsException for an illegal endpoint index value&#xA; (<tt>fromIndex &lt; 0 || toIndex &gt; size ||&#xA; fromIndex &gt; toIndex</tt>)
    */
-  subList(fromIndex: number, toIndex: number): List;
+  subList(fromIndex: number, toIndex: number): List<E>;
 
   /**
    * Creates a {@link Spliterator} over the elements in this list.

@@ -25,7 +25,7 @@ export interface BookmarkUtil {
    *  (existing, published objects)
    * @return a list of bookmark nodes. Is never <code>null</code>
    */
-  getBookmarks(): List;
+  getBookmarks(): List<Node>;
 
   /**
    * Returns a list of <code>Node</code> objects corresponding to the bookmarks for
@@ -34,7 +34,7 @@ export interface BookmarkUtil {
    * @param category a comma separated list of categories or <code>null</code> for no category
    * @return a list of bookmark nodes. Is never <code>null</code>
    */
-  getBookmarks(category: String | string): List;
+  getBookmarks(category: String | string): List<Node>;
 
   /**
    * Adds a bookmark for the current user. This operation is synchronized

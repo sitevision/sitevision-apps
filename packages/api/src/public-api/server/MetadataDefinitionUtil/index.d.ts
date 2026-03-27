@@ -65,7 +65,7 @@ export interface MetadataDefinitionUtil {
    * @return a list of definitions on {@code aNode}, or empty list
    * @since Sitevision 4.2.3
    */
-  getDefinitions(aNode: Node): List;
+  getDefinitions(aNode: Node): List<Node>;
 
   /**
    * Add an alternative to a definition

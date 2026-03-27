@@ -78,7 +78,7 @@ export interface LocaleUtil {
    * @return a immutable/unmodifiable list of all available Locales (i.e. all Locales installed by Java and all custom Locales added by Sitevision)
    * @since Sitevision 4.1
    */
-  getAvailableLocales(): List;
+  getAvailableLocales(): List<Locale>;
 
   /**
    * Gets the native language name for a specified Locale.

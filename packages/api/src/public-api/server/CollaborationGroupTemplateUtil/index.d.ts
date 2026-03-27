@@ -58,7 +58,7 @@ export interface CollaborationGroupTemplateUtil {
    * @return all collaboration group templates, or empty list if there are no accessible collaboration group templates.
    * @since Sitevision 4.1
    */
-  getCollaborationGroupTemplates(): List;
+  getCollaborationGroupTemplates(): List<Node>;
 }
 
 declare namespace CollaborationGroupTemplateUtil {}

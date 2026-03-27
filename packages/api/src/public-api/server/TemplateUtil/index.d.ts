@@ -91,7 +91,7 @@ export interface TemplateUtil {
    * @return all accessible templates, or empty list if there are no accessible page templates.
    * @since Sitevision 4.1
    */
-  getTemplates(): List;
+  getTemplates(): List<Node>;
 
   /**
    * Gets first found page template with a given name.
@@ -124,7 +124,7 @@ export interface TemplateUtil {
    * @return all accessible templates that can be used to create pages/articles, or empty list if there are no accessible page templates.
    * @since Sitevision 4.1
    */
-  getPageTemplates(): List;
+  getPageTemplates(): List<Node>;
 
   /**
    * Whether or not a node is a page template.

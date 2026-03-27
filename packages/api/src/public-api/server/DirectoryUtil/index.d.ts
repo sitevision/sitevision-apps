@@ -33,7 +33,7 @@ export interface DirectoryUtil {
    * @return the search result as a <code>List</code>. If there are no hits, an empty <code>List</code> is returned.
    * @see #search(String,Node)
    */
-  search(aSearchFilter: String | string): List;
+  search(aSearchFilter: String | string): List<Node>;
 
   /**
    * Searches for objects in a specified LDAP directory.
@@ -47,7 +47,7 @@ export interface DirectoryUtil {
    * @return the search result as a <code>List</code>. If there are no hits, an empty <code>List</code> is returned.
    * @see #search(String)
    */
-  search(aSearchFilter: String | string, aDirectoryNode: Node): List;
+  search(aSearchFilter: String | string, aDirectoryNode: Node): List<Node>;
 
   /**
    * Searches for objects in a specified search base in a specified LDAP directory.
@@ -61,7 +61,7 @@ export interface DirectoryUtil {
     aSearchFilter: String | string,
     aDirectoryNode: Node,
     aSearchBase: String | string
-  ): List;
+  ): List<Node>;
 
   /**
    * Gets a directory node object with a specific distinguished name, dn.
@@ -98,8 +98,8 @@ export interface DirectoryUtil {
   simpleSearch(
     aSearchFilter: String | string,
     searchBase: String | string,
-    attributes: List | unknown[]
-  ): Map;
+    attributes: List<string> | unknown[]
+  ): Map<string, Map<string, string>>;
 }
 
 declare namespace DirectoryUtil {}

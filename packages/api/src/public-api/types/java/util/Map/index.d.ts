@@ -104,7 +104,7 @@ import type { Function } from "../function/Function";
  * @see Set
  * @since 1.2
  */
-export type Map = {
+export type Map<K = unknown, V = unknown> = {
   /**
    * Returns the number of key-value mappings in this map.  If the
    *  map contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
@@ -165,7 +165,7 @@ export type Map = {
    * @throws ClassCastException if the key is of an inappropriate type for&#xA; this map&#xA; (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
    * @throws NullPointerException if the specified key is null and this map&#xA; does not permit null keys&#xA; (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
    */
-  get(key: unknown): unknown;
+  get(key: K): V | null;
 
   /**
    * Associates the specified value with the specified key in this map
@@ -318,7 +318,7 @@ export type Map = {
    * @throws NullPointerException if the specified key is null and this map&#xA; does not permit null keys&#xA; (<a href="{@docRoot}/java/util/Collection.html#optional-restrictions">optional</a>)
    * @since 1.8
    */
-  getOrDefault(key: unknown, defaultValue: unknown): unknown;
+  getOrDefault(key: K, defaultValue: V): V;
 
   /**
    * Performs the given action for each entry in this map until all entries

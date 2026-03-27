@@ -1233,7 +1233,7 @@ export interface PropertyUtil {
    * @see #getStringsEscaped(javax.jcr.Node, String)
    * @since Sitevision 2.6_06
    */
-  getStrings(aNode: Node, aPropertyName: String | string): List;
+  getStrings(aNode: Node, aPropertyName: String | string): List<string>;
 
   /**
    * Gets a <code>List</code> of XML escaped property values from a Node.
@@ -1287,7 +1287,7 @@ export interface PropertyUtil {
    * @see senselogic.sitevision.api.text.EndecUtil#escapeXML(String)
    * @since Sitevision 3.5
    */
-  getStringsEscaped(aNode: Node, aPropertyName: String | string): List;
+  getStringsEscaped(aNode: Node, aPropertyName: String | string): List<string>;
 
   /**
    * Gets a <code>List</code> of property values from a Node with a fallback value if the property doesn't exist.
@@ -1310,8 +1310,8 @@ export interface PropertyUtil {
   getStrings(
     aNode: Node,
     aPropertyName: String | string,
-    aDefaultValue: List | unknown[]
-  ): List;
+    aDefaultValue: List<string> | unknown[]
+  ): List<string>;
 
   /**
    * Gets a <code>List</code> of XML escaped property values from a Node with a fallback value if the property doesn't exist.
@@ -1371,8 +1371,8 @@ export interface PropertyUtil {
   getStringsEscaped(
     aNode: Node,
     aPropertyName: String | string,
-    aDefaultValue: List | unknown[]
-  ): List;
+    aDefaultValue: List<string> | unknown[]
+  ): List<string>;
 
   /**
    * Gets a <code>List</code> of property values from a "nested" Node's property.
@@ -1397,7 +1397,7 @@ export interface PropertyUtil {
     aNode: Node,
     aNodePropertyName: String | string,
     aPropertyName: String | string
-  ): List;
+  ): List<string>;
 
   /**
    * Gets a <code>List</code> of XML escaped property values from a "nested" Node's property.
@@ -1458,7 +1458,7 @@ export interface PropertyUtil {
     aNode: Node,
     aNodePropertyName: String | string,
     aPropertyName: String | string
-  ): List;
+  ): List<string>;
 
   /**
    * Gets a <code>List</code> of property values from a "nested" Node's property with a fallback value if the property doesn't exist.
@@ -1484,8 +1484,8 @@ export interface PropertyUtil {
     aNode: Node,
     aNodePropertyName: String | string,
     aPropertyName: String | string,
-    aDefaultValue: List | unknown[]
-  ): List;
+    aDefaultValue: List<string> | unknown[]
+  ): List<string>;
 
   /**
    * Gets a <code>List</code> of property values from a "nested" Node's property with a fallback value if the property doesn't exist,
@@ -1550,8 +1550,8 @@ export interface PropertyUtil {
     aNode: Node,
     aNodePropertyName: String | string,
     aPropertyName: String | string,
-    aDefaultValue: List | unknown[]
-  ): List;
+    aDefaultValue: List<string> | unknown[]
+  ): List<string>;
 }
 
 declare namespace PropertyUtil {}

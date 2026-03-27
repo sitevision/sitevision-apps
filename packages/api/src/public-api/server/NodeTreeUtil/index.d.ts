@@ -85,7 +85,7 @@ export interface NodeTreeUtil {
    * @since Sitevision 2.6.1_06
    * @see senselogic.sitevision.api.render.OutputUtil#renderWebPathNodes(javax.jcr.Node, senselogic.sitevision.api.render.LinkRenderer, String)
    */
-  getWebPathNodes(aDescendantNode: Node): List;
+  getWebPathNodes(aDescendantNode: Node): List<Node>;
 
   /**
    * Find a portlet with a specific content identifier on a page node.
@@ -129,7 +129,7 @@ export interface NodeTreeUtil {
    * @since Sitevision 2.6
    * @see #findPortletByName(Node,String)
    */
-  findPortletsByName(aPageNode: Node, aPortletName: String | string): List;
+  findPortletsByName(aPageNode: Node, aPortletName: String | string): List<Node>;
 
   /**
    * Find all portlets with a specific name on a page node and applies a node filter to the result.
@@ -151,7 +151,7 @@ export interface NodeTreeUtil {
     aPageNode: Node,
     aPortletName: String | string,
     aNodeFilter: Filter
-  ): List;
+  ): List<Node>;
 
   /**
    * Find all portlets of a specific type on a page node.
@@ -176,7 +176,7 @@ export interface NodeTreeUtil {
    * @return all occurrences of portlets of type <code>aPortletType</code>.&#xA; If no such portlets can be found or if <code>aPageNode</code> is not a page node, an empty <code>List</code> is returned
    * @since Sitevision 3.6.2
    */
-  findPortletsByType(aPageNode: Node, aPortletType: String | string): List;
+  findPortletsByType(aPageNode: Node, aPortletType: String | string): List<Node>;
 
   /**
    * Find all portlets with a specific type on a page node and applies a node filter to the result.
@@ -242,7 +242,7 @@ export interface NodeTreeUtil {
     aPageNode: Node,
     aPortletType: String | string,
     aNodeFilter: Filter
-  ): List;
+  ): List<Node>;
 
   /**
    * Find all portlets on a page node and applies a node filter to the result.
@@ -255,7 +255,7 @@ export interface NodeTreeUtil {
    * @return all occurrences of portlets that also applies to the aNodeFilter filter.&#xA; If no such portlets can be found or if aPageNode is not a page node, an empty List is returned
    * @since Sitevision 2023.07.1
    */
-  findPortlets(aPageNode: Node, aNodeFilter: Filter): List;
+  findPortlets(aPageNode: Node, aNodeFilter: Filter): List<Node>;
 
   /**
    * Find a layout with a specific name on a page node.
@@ -307,7 +307,7 @@ export interface NodeTreeUtil {
    * @see #findLayoutsByName(Node, String, Filter)
    * @since Sitevision 2023.07.1
    */
-  findLayoutsByName(aPageNode: Node, aLayoutName: String | string): List;
+  findLayoutsByName(aPageNode: Node, aLayoutName: String | string): List<Node>;
 
   /**
    * Find all layouts with a specific name on a page node and applies a node filter to the result.
@@ -341,7 +341,7 @@ export interface NodeTreeUtil {
     aPageNode: Node,
     aLayoutName: String | string,
     aNodeFilter: Filter
-  ): List;
+  ): List<Node>;
 
   /**
    * Find all layouts on a page node and applies a node filter to the result.
@@ -367,7 +367,7 @@ export interface NodeTreeUtil {
    * @return all occurrences of layouts that also applies to the aNodeFilter filter.&#xA; If no such layouts can be found or if aPageNode is not a page node, an empty List is returned
    * @since Sitevision 2023.07.1
    */
-  findLayouts(aPageNode: Node, aNodeFilter: Filter): List;
+  findLayouts(aPageNode: Node, aNodeFilter: Filter): List<Node>;
 
   /**
    * Find all reference layouts ("content areas") on a page node.
@@ -375,7 +375,7 @@ export interface NodeTreeUtil {
    * @return all reference layouts for aPageNode. If no such layouts can be found or if aPageNode is not a page node, an empty List is returned
    * @since Sitevision 2026.01.2
    */
-  findReferenceLayouts(aPageNode: Node): List;
+  findReferenceLayouts(aPageNode: Node): List<Node>;
 }
 
 declare namespace NodeTreeUtil {}

@@ -21,7 +21,7 @@ export interface TargetAudienceUtil {
    *  This method determines which target audiences the current user belongs to by evaluating all available target audiences of the site.
    * @return the list of target audiences that the current user belongs to
    */
-  resolve(): List;
+  resolve(): List<Node>;
 
   /**
    * Resolves target audiences (sv:targetAudience) for the provided user.
@@ -29,7 +29,7 @@ export interface TargetAudienceUtil {
    * @param aUser the user to evaluate target audiences for
    * @return the list of target audiences that the provided user belongs to
    */
-  resolveForUser(aUser: Node): List;
+  resolveForUser(aUser: Node): List<Node>;
 
   /**
    * Resolves specific target audiences (sv:targetAudience) for the current user.
@@ -38,7 +38,7 @@ export interface TargetAudienceUtil {
    * @return the list of target audiences from the provided list that the current user belongs to
    * @throws IllegalArgumentException if aTargetAudiences is null or contains other than sv:targetAudience Nodes
    */
-  resolveFrom(aTargetAudiences: List | unknown[]): List;
+  resolveFrom(aTargetAudiences: List<Node> | unknown[]): List<Node>;
 
   /**
    * Resolves specific target audiences (sv:targetAudience) for the provided user.
@@ -48,7 +48,7 @@ export interface TargetAudienceUtil {
    * @return the list of target audiences from the provided list that the provided user belongs to
    * @throws IllegalArgumentException if aTargetAudiences is null or contains other than sv:targetAudience Nodes
    */
-  resolveForUserFrom(aUser: Node, aTargetAudiences: List | unknown[]): List;
+  resolveForUserFrom(aUser: Node, aTargetAudiences: List<Node> | unknown[]): List<Node>;
 }
 
 declare namespace TargetAudienceUtil {}

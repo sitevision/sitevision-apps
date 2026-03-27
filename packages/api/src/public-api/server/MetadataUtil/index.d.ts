@@ -315,7 +315,7 @@ export interface MetadataUtil {
   getRelatedMetadataPropertyValues(
     aNode: Node,
     aPropertyName: String | string
-  ): List;
+  ): List<Node | string>;
 
   /**
    * <p>Returns a <code>Node</code> for a link metadata on a specified <code>Node</code>.</p>
