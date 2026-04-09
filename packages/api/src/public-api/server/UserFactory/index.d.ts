@@ -30,7 +30,7 @@ export interface UserFactory {
   /**
    * Gets an instance of a user identity wrapper.
    * @param aUserIdentity a user identity (or user)
-   * @return an instance of a user identity wrapper, or <code>null</code> if indeterminable (e.g. <code>aUserIdentity</code> is <code>null</code>)
+   * @return an instance of a user identity wrapper, or null if indeterminable (e.g. aUserIdentity is null or aUserIdentity is not available)
    */
   getUserIdentityWrapper(aUserIdentity: Node): UserIdentityWrapper;
 
