@@ -7,7 +7,7 @@ const REACT_18_AND_UP_DEPS =
 
 export const getReactMajorVersion = () => {
   const dependencies = getPackageJson().dependencies;
-  const match = dependencies.react.match(/^(\d+)\./);
+  const match = dependencies.react.match(/^\D*(\d+)/);
   return match ? Number(match[1]) : null;
 };
 
