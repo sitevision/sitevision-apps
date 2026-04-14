@@ -35,7 +35,7 @@ export interface CollectionDataStore<T = Record<string, unknown>> {
    * @since 5.2
    * @param data An array of objects to store
    */
-  addAll(data: T[]): CollectionDataStoreItem<T>[];
+  addAll(data: T[]): void;
 
   /**
    * Gets a specific item in a collection.
