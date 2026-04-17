@@ -3518,7 +3518,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitevision/babel-preset-react-client@npm:^1.0.4, @sitevision/babel-preset-react-client@workspace:packages/babel-preset-react-client":
+"@sitevision/babel-preset-react-client@npm:^1.0.5, @sitevision/babel-preset-react-client@workspace:packages/babel-preset-react-client":
   version: 0.0.0-use.local
   resolution: "@sitevision/babel-preset-react-client@workspace:packages/babel-preset-react-client"
   dependencies:
@@ -3532,7 +3532,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitevision/babel-preset-react-server@npm:^1.0.5, @sitevision/babel-preset-react-server@workspace:packages/babel-preset-react-server":
+"@sitevision/babel-preset-react-server@npm:^1.0.6, @sitevision/babel-preset-react-server@workspace:packages/babel-preset-react-server":
   version: 0.0.0-use.local
   resolution: "@sitevision/babel-preset-react-server@workspace:packages/babel-preset-react-server"
   dependencies:
@@ -3599,8 +3599,8 @@ __metadata:
     "@babel/preset-env": "npm:^7.25.4"
     "@babel/preset-typescript": "npm:^7.24.7"
     "@jest/globals": "npm:^29.7.0"
-    "@sitevision/babel-preset-react-client": "npm:^1.0.4"
-    "@sitevision/babel-preset-react-server": "npm:^1.0.5"
+    "@sitevision/babel-preset-react-client": "npm:^1.0.5"
+    "@sitevision/babel-preset-react-server": "npm:^1.0.6"
     "@sitevision/eslint-config-recommended": "npm:^1.0.4"
     "@sitevision/eslint-config-typescript": "npm:^1.0.2"
     "@sitevision/eslint-config-webapp-react": "npm:^1.0.4"
@@ -8895,9 +8895,9 @@ __metadata:
   linkType: hard
 
 "lodash@npm:^4.17.21":
-  version: 4.17.23
-  resolution: "lodash@npm:4.17.23"
-  checksum: 10c0/1264a90469f5bb95d4739c43eb6277d15b6d9e186df4ac68c3620443160fc669e2f14c11e7d8b2ccf078b81d06147c01a8ccced9aab9f9f63d50dcf8cace6bf6
+  version: 4.18.1
+  resolution: "lodash@npm:4.18.1"
+  checksum: 10c0/757228fc68805c59789e82185135cf85f05d0b2d3d54631d680ca79ec21944ec8314d4533639a14b8bcfbd97a517e78960933041a5af17ecb693ec6eecb99a27
   languageName: node
   linkType: hard
 
