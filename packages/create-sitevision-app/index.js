@@ -2,15 +2,15 @@
 import { create } from './src/createSitevisionApp.js';
 
 const currentNodeVersion = process.versions.node;
-const semver = currentNodeVersion.split('.');
-const major = semver[0];
+// Node versions are strings like "20.11.1", so compare numeric parts instead of the raw string.
+const [major, minor] = currentNodeVersion.split('.').map(Number);
 
-if (major < 16) {
+if (major < 20 || (major === 20 && minor < 9)) {
   console.error(
     'You are running Node ' +
       currentNodeVersion +
       '.\n' +
-      'Create Sitevision App requires Node 16 or higher. \n' +
+      'Create Sitevision App requires Node 20.9 or higher. \n' +
       'Please update your version of Node.'
   );
   process.exit(1);

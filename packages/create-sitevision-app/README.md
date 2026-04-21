@@ -4,6 +4,8 @@ Create Sitevision WebApps and RESTApps
 
 ## Getting started
 
+Requires Node `20.9` or higher.
+
 To create a new app:
 
 ```sh

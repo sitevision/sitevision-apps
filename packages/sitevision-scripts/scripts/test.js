@@ -1,5 +1,5 @@
 import fs from 'fs';
-import jest from 'jest';
+import { run } from 'jest';
 import path from 'path';
 import { execSync } from 'child_process';
 import { createRequire } from 'module';
@@ -57,4 +57,4 @@ if (
   argv.push(isInGitRepository() ? '--watch' : '--watchAll');
 }
 
-jest.run(argv);
+run(argv);
