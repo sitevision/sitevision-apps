@@ -19,7 +19,7 @@ import { getFullAppId } from './util/id.js';
     webpackConfig({
       dev: false,
       cssPrefix: appId,
-      restApp: properties.getAppType() === 'rest',
+      serverApp: ['rest', 'mcpServer'].includes(properties.getAppType()),
     })
   ).run((err, stats) => {
     if (err) {

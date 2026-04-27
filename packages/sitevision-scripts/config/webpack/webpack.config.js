@@ -88,7 +88,7 @@ const getWebAppConfig = ({ cwd, dev, cssPrefix, outputPath }) => {
   return config;
 };
 
-const getRestAppConfig = ({ cwd, outputPath }) => {
+const getServerAppConfig = ({ cwd, outputPath }) => {
   const indexEntry = getEntry('index');
   const manifest = getManifest();
   const appId = getFullAppId(manifest.id);
@@ -106,12 +106,12 @@ const getRestAppConfig = ({ cwd, outputPath }) => {
   ];
 };
 
-export default ({ restApp, dev, cssPrefix, serverSideOnly }) => {
+export default ({ serverApp, dev, cssPrefix, serverSideOnly }) => {
   const cwd = process.cwd();
 
   const outputPath = path.resolve(cwd, 'build');
 
-  return restApp
-    ? getRestAppConfig({ cwd, outputPath })
+  return serverApp
+    ? getServerAppConfig({ cwd, outputPath })
     : getWebAppConfig({ cwd, cssPrefix, serverSideOnly, dev, outputPath });
 };

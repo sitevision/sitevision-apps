@@ -6,6 +6,8 @@ export const getAddonEndpoint = (type) => {
       return 'custommodule';
     case 'rest':
       return 'headlesscustommodule';
+    case 'mcpServer':
+      return 'mcpServerCustomModule';
     case 'widget':
       return 'widgetcustommodule';
     default:
@@ -20,6 +22,8 @@ export const getImportEndpoint = (type) => {
       return 'webAppImport';
     case 'rest':
       return 'restAppImport';
+    case 'mcpServer':
+      return 'mcpServerImport';
     default:
       throw new Error(`Unknown app type: ${type}`);
   }
@@ -28,8 +32,10 @@ export const getImportEndpoint = (type) => {
 const getHintByErrorCode = (errorCode) => {
   switch (errorCode) {
     case 400:
-      return 'Bad Request. Please verify the siteName and addonName in the ' +
-        '.dev_properties.json file and ensure that the add-on exists in the site\'s add-on repository.';
+      return (
+        'Bad Request. Please verify the siteName and addonName in the ' +
+        ".dev_properties.json file and ensure that the add-on exists in the site's add-on repository."
+      );
     case 401:
       return 'Unauthorized. Please verify username and password.';
     case 403:
@@ -82,7 +88,11 @@ export const handleResponse = async ({ response, operation }) => {
       );
     } else {
       console.log(
-        `${chalk.red(`${operation} failed:`)} \n${JSON.stringify(json, null, 2)}`
+        `${chalk.red(`${operation} failed:`)} \n${JSON.stringify(
+          json,
+          null,
+          2
+        )}`
       );
     }
   } else {
