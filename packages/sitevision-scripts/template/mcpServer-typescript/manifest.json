@@ -1,0 +1,10 @@
+{
+  "id": "{{appName}}",
+  "version": "0.0.1",
+  "name": "MCPServer boilerplate",
+  "author": "My Company",
+  "description": "An MCPServer boilerplate",
+  "helpUrl": "https://example.com/mcpserver",
+  "type": "MCPServer",
+  "bundled": true
+}
