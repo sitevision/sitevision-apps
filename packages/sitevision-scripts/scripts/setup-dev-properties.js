@@ -69,6 +69,9 @@ const hasTranspileOptionInPackageJSON = () => {
         addonName,
         username,
         password,
+        signUsername,
+        signPassword,
+        certificateName,
         useHTTPForDevDeploy,
       }) => {
         console.clear();
@@ -82,6 +85,9 @@ const hasTranspileOptionInPackageJSON = () => {
               addonName,
               username,
               password,
+              signUsername,
+              signPassword,
+              certificateName,
               useHTTPForDevDeploy,
             },
             null,
