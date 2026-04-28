@@ -33,7 +33,7 @@ const SPAWN_PROPERTIES = {
       webpackConfig({
         dev: true,
         cssPrefix: appId,
-        restApp: properties.getAppType() === 'rest',
+        serverApp: ['rest', 'mcpServer'].includes(properties.getAppType()),
       })
     );
 

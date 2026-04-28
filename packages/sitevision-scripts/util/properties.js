@@ -44,6 +44,10 @@ export const getAppType = () => {
     return 'rest';
   }
 
+  if (lowerCasedType.startsWith('mcpserver')) {
+    return 'mcpServer';
+  }
+
   if (lowerCasedType.startsWith('widget')) {
     return 'widget';
   }

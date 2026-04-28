@@ -22,6 +22,10 @@ const getManifestType = (type) => {
     return 'RESTApp';
   }
 
+  if (type.startsWith('mcpServer')) {
+    return 'MCPServer';
+  }
+
   throw new Error(`Unknown app type: ${type}`);
 };
 
@@ -152,7 +156,7 @@ const installWebAppDependencies = (appPath, reactVersion, typescript) => {
   });
 };
 
-const installRestAppDependencies = (appPath) => {
+const installServerAppDependencies = (appPath) => {
   spawn.sync('npm', ['install', '@sitevision/api'], {
     stdio: 'inherit',
     cwd: appPath,
@@ -238,7 +242,14 @@ export default async ({ appPath, appName }) => {
           case 'rest-bundled':
           case 'rest-bundled-typescript': {
             updatePackageJsonBundledRest(typescript);
-            installRestAppDependencies(appPath);
+            installServerAppDependencies(appPath);
+            break;
+          }
+          case 'mcpServer':
+          case 'mcpServer-typescript': {
+            updatePackageJsonBundledRest(typescript);
+            installServerAppDependencies(appPath);
+            templateOptions.manifestType = getManifestType(type);
             break;
           }
           default:
