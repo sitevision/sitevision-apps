@@ -163,16 +163,6 @@ const installServerAppDependencies = (appPath) => {
   });
 };
 
-const updatePackageJsonLegacy = (transpile) => {
-  const appPackage = getCommonPackageProperties();
-
-  appPackage.sitevision_scripts_properties = {
-    transpile,
-  };
-
-  writePackageJson(appPackage);
-};
-
 const simplifyVersionNumber = (rawVersion) =>
   rawVersion
     .match(/(\d+)\.(\d+)\.(\d+)-?([a-zA-Z-\d.]*)\+?([a-zA-Z-\d.]*)/)
@@ -187,7 +177,6 @@ export default async ({ appPath, appName }) => {
     .then(
       ({
         type,
-        transpile,
         domain,
         siteName,
         addonName,
@@ -252,9 +241,9 @@ export default async ({ appPath, appName }) => {
             templateOptions.manifestType = getManifestType(type);
             break;
           }
-          default:
-            templateOptions.clientRendering = true;
-            updatePackageJsonLegacy(transpile);
+          default: {
+            throw new Error(`Unsupported app type: ${type}`);
+          }
         }
 
         copyTemplateFiles(type, templateOptions);
