@@ -6,9 +6,14 @@ import FormData from 'form-data';
 import * as properties from '../util/properties.js';
 import chalk from 'chalk';
 import { getFullAppId } from './util/id.js';
+import {
+  getSigningErrorCodeFromResponse,
+  printSigningFailure,
+  writeSignedZipFromResponse,
+} from './util/signHelper.js';
 
 (function () {
-  var questions = [
+  let questions = [
     {
       name: 'username',
       message: 'Username for developer.sitevision.se',
@@ -65,31 +70,57 @@ import { getFullAppId } from './util/id.js';
         }),
       });
 
-      if (response.ok) {
-        const signedFileNameAndPath = path.join(
-          properties.DIST_DIR_PATH,
-          `${appId}-signed.zip`
-        );
-
-        const writer = fs.createWriteStream(signedFileNameAndPath, {
-          autoClose: true,
+      if (!response.ok) {
+        const code = await getSigningErrorCodeFromResponse(response);
+        printSigningFailure({
+          status: response.status,
+          statusText: response.statusText,
+          code,
+          certificateName: answers.certificateName,
         });
-        response.body.pipe(writer);
-
-        return console.log(
-          `${chalk.green(
-            'Signing successful, created:'
-          )} ${signedFileNameAndPath}`
-        );
+        return;
       }
 
-      if (response.status === 401) {
-        console.log(
-          `${chalk.red(
-            'Signing failed:'
-          )} Unauthorized, check username and password`
-        );
+      const contentType = response.headers.get('content-type') || '';
+      if (contentType.includes('application/json')) {
+        const code =
+          (await getSigningErrorCodeFromResponse(response)) ||
+          'UNEXPECTED_JSON_RESPONSE';
+        printSigningFailure({
+          status: response.status,
+          statusText: response.statusText,
+          code,
+          certificateName: answers.certificateName,
+        });
+        return;
       }
+
+      if (!response.body) {
+        printSigningFailure({
+          status: response.status,
+          statusText: response.statusText,
+          code: 'EMPTY_RESPONSE',
+          certificateName: answers.certificateName,
+        });
+        return;
+      }
+
+      const signedFileNameAndPath = path.join(
+        properties.DIST_DIR_PATH,
+        `${appId}-signed.zip`
+      );
+
+      await writeSignedZipFromResponse({
+        response,
+        signedFileNameAndPath,
+      });
+
+      console.log(
+        `${chalk.green(
+          'Signing successful, created:'
+        )} ${signedFileNameAndPath}`
+      );
+      return;
     } catch (err) {
       console.log(`${chalk.red('Signing failed with error:')} ${err}`);
     }
