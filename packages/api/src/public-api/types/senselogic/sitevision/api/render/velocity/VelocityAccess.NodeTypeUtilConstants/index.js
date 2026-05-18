@@ -211,4 +211,7 @@ export default {
   getSEMANTIC_INDEX_REPOSITORY_TYPE: () => {},
   getAI_ASSISTANT_TYPE: () => {},
   getAI_ASSISTANT_REPOSITORY_TYPE: () => {},
+  getMCP_SERVER_TYPE: () => {},
+  getMCP_SERVER_CUSTOM_MODULE_TYPE: () => {},
+  getMARKETPLACE_MCP_SERVER_CUSTOM_MODULE_TYPE: () => {},
 };

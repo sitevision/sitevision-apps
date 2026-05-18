@@ -40,6 +40,8 @@ export default {
   isAnyContentType: () => {},
   isAnyUserType: () => {},
   isAnyMetadataDefinitionType: () => {},
+  isAnyMarketplaceType: () => {},
+  isAnyCustomModuleExecutableType: () => {},
   isType: () => {},
   isTypeOf: () => {},
 };

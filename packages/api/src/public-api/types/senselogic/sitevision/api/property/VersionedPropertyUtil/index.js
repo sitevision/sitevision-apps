@@ -11,4 +11,5 @@ export default {
   getCalendar: () => {},
   getDouble: () => {},
   getBinary: () => {},
+  hasProperty: () => {},
 };

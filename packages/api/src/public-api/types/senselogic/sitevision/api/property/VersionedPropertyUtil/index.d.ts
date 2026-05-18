@@ -469,7 +469,7 @@ export type VersionedPropertyUtil = {
    * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential <code>Node</code> that has a property
    * @param aPropertyName the name of the property
    * @param aDefaultValue fallback value if no value exists
-   * @return the value for <code>aPropertyName</code> as <code>Binary</code>.&#xA; f no node or property exists or it isn't compatible with a <code>Binary</code>, <code>aDefaultValue</code> is returned.
+   * @return the value for <code>aPropertyName</code> as <code>Binary</code>.&#xA; if no node or property exists or it isn't compatible with a <code>Binary</code>, <code>aDefaultValue</code> is returned.
    * @since Sitevision 3.5
    */
   getBinary(
@@ -477,4 +477,25 @@ export type VersionedPropertyUtil = {
     aPropertyName: String | string,
     aDefaultValue: Binary
   ): Binary;
+
+  /**
+   * Whether a potential Node in a specific version has a property or not.
+   *
+   *  <p>
+   *     <strong>Note!</strong> This method does <em>not</em> escape names (i.e. <code>aPropertyName</code>).
+   *     Illegal characters in node names and property names must always be escaped,
+   *     typically via {@link senselogic.sitevision.api.text.EndecUtil#escapeJcrName(String)}.
+   *     For best performance - never escape a name if you are certain that it doesn't contain any illegal characters.
+   *     Sitevision model properties never contain illegal characters. Though, depending on configuration "dynamic" ones
+   *     (e.g. metadata properties) might contain illegal characters.
+   *  </p>
+   * @param aNodeIdentifier the identifier (see {@link javax.jcr.Node#getIdentifier()}) of a potential Node to check for the property
+   * @param aPropertyName name of the property to check for
+   * @return true if aNodeIdentifier corresponds to a Node that has a property with the name aPropertyName, false otherwise.&#xA; Returns false if aNodeIdentifier is null or whitespace-only. Returns false if aPropertyName is null or whitespace-only.
+   * @since Sitevision 2026.05.1
+   */
+  hasProperty(
+    aNodeIdentifier: String | string,
+    aPropertyName: String | string
+  ): boolean;
 };
