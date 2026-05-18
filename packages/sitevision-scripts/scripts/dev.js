@@ -6,6 +6,7 @@ import webpack from 'webpack';
 import { copyChunksToResources } from './util/copychunks.js';
 import { getDirname } from '../util/dirname.js';
 import { getFullAppId } from './util/id.js';
+import { legacyAppUnsupportedMessage } from './util/legacy.js';
 
 const __dirname = getDirname(import.meta.url);
 
@@ -23,7 +24,7 @@ const SPAWN_PROPERTIES = {
 (async function () {
   const manifest = properties.getManifest();
   if (!manifest.bundled) {
-    throw Error('Legacy apps are no longer supported by this script');
+    throw Error(legacyAppUnsupportedMessage);
   }
 
   const { default: webpackConfig } = await import(
