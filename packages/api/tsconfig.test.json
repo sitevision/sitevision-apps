@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "types": []
+  },
+  "files": ["dist/index.d.ts"]
+}
