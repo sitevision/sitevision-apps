@@ -25,4 +25,5 @@ export default {
   getStringsEscaped: () => {},
   getNestedStrings: () => {},
   getNestedStringsEscaped: () => {},
+  hasProperty: () => {},
 };

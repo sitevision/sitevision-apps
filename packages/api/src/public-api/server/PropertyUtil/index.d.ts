@@ -1552,6 +1552,29 @@ export interface PropertyUtil {
     aPropertyName: String | string,
     aDefaultValue: List | unknown[]
   ): List;
+
+  /**
+   * Whether a Node has a property or not.
+   *
+   *  <p>
+   *     This is a lenient method for checking if a property exists on a Node without having to catch a potential exception from JCR.
+   *     This method is typically more efficient than its JCR counterpart {@link javax.jcr.Node#hasProperty(String)} method.
+   *  </p>
+   *
+   *  <p>
+   *     <strong>Note!</strong> This method does <em>not</em> escape the property name (i.e. <code>aPropertyName</code>).
+   *     Illegal characters in node names and property names must always be escaped, typically via
+   *     {@link senselogic.sitevision.api.text.EndecUtil#escapeJcrName(String)}.
+   *     For best performance - never escape a name if you are certain that it doesn't contain any illegal characters.
+   *     Sitevision model properties never contain illegal characters. Though, depending on configuration "dynamic" ones
+   *     (e.g. metadata properties) might contain illegal characters.
+   *  </p>
+   * @param aNode the Node to check for the property
+   * @param aPropertyName name of the property to check for
+   * @return true if aNode has a property with the name aPropertyName, false otherwise.&#xA; Returns false if aNode is null or if aPropertyName is null or whitespace-only.
+   * @since Sitevision 2026.05.1
+   */
+  hasProperty(aNode: Node, aPropertyName: String | string): boolean;
 }
 
 declare namespace PropertyUtil {}

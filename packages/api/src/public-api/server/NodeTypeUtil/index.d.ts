@@ -1300,6 +1300,24 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   METADATA_MODULE_DEFINITION_TYPE: "sv:metadataModuleDefinition";
 
   /**
+   * The primary node type name for the MCP server type.
+   * @since Sitevision 2026.05.1
+   */
+  MCP_SERVER_TYPE: "sv:mcpServer";
+
+  /**
+   * The primary node type name for the MCP server custom module type.
+   * @since Sitevision 2026.05.1
+   */
+  MCP_SERVER_CUSTOM_MODULE_TYPE: "sv:mcpServerCustomModule";
+
+  /**
+   * The primary node type name for the Marketplace MCP server custom module type.
+   * @since Sitevision 2026.05.1
+   */
+  MARKETPLACE_MCP_SERVER_CUSTOM_MODULE_TYPE: "sv:marketplaceMcpServerCustomModule";
+
+  /**
    * Checks if a node is a layout.
    * @param aNode the node to be checked
    * @return whether <code>aNode</code> is a layout or not.
@@ -1671,6 +1689,42 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
    * @since Sitevision 2024.01.1
    */
   isAnyMetadataDefinitionType(aNode: Node): boolean;
+
+  /**
+   * Convenience method that checks if a node is of "Marketplace node" type.
+   *
+   *  <p>
+   *     "Marketplace node" types are:
+   *  </p>
+   *  <ul>
+   *     <li>{@link #MARKETPLACE_CUSTOM_MODULE_TYPE sv:marketplaceCustomModule}</li>
+   *     <li>{@link #MARKETPLACE_HEADLESS_CUSTOM_MODULE_TYPE sv:marketplaceHeadlessCustomModule}</li>
+   *     <li>{@link #MARKETPLACE_WIDGET_CUSTOM_MODULE_TYPE sv:marketplaceWidgetCustomModule}</li>
+   *     <li>{@link #MARKETPLACE_MCP_SERVER_CUSTOM_MODULE_TYPE sv:marketplaceMcpServerCustomModule}</li>
+   *  </ul>
+   * @param aNode the node to be checked
+   * @return whether aNode is a "Marketplace node" or not.
+   * @since Sitevision 2026.05.1
+   */
+  isAnyMarketplaceType(aNode: Node): boolean;
+
+  /**
+   * Convenience method that checks if a node is of "custom module executable node" type.
+   *
+   *  <p>
+   *     "Custom module executable node" types are:
+   *  </p>
+   *  <ul>
+   *     <li>{@link #WEB_APP_TYPE sv:webApp}</li>
+   *     <li>{@link #REST_APP_TYPE sv:restApp}</li>
+   *     <li>{@link #MCP_SERVER_TYPE sv:mcpServer}</li>
+   *     <li>{@link #MODULE_ELEMENT_TYPE sv:moduleElement} <em> (included for legacy support)</em></li>
+   *  </ul>
+   * @param aNode the node to be checked
+   * @return whether aNode is a "custom module executable node" or not.
+   * @since Sitevision 2026.05.1
+   */
+  isAnyCustomModuleExecutableType(aNode: Node): boolean;
 
   /**
    * Checks a node against a given node type name to see if they match.
