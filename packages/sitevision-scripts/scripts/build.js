@@ -2,11 +2,12 @@ import * as properties from '../util/properties.js';
 import webpack from 'webpack';
 import { copyChunksToResources } from './util/copychunks.js';
 import { getFullAppId } from './util/id.js';
+import { legacyAppUnsupportedMessage } from './util/legacy.js';
 
 (async function () {
   const manifest = properties.getManifest();
   if (!manifest.bundled) {
-    throw Error('This app cannot be built with this script');
+    throw Error(legacyAppUnsupportedMessage);
   }
 
   const { default: webpackConfig } = await import(

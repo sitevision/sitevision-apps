@@ -30,6 +30,16 @@ From `@sitevision/sitevision-scripts@5.0.0` and onwards, the default React versi
 npx @sitevision/create-sitevision-app my-new-app @sitevision/sitevision-scripts@4
 ```
 
+### Legacy apps
+
+Legacy WebApp and RESTApp scaffolding is no longer supported in the latest version.
+
+To create a legacy app, use v4 of `create-sitevision-app` together with v7 of `sitevision-scripts`:
+
+```sh
+npx @sitevision/create-sitevision-app@4 my-legacy-app @sitevision/sitevision-scripts@7
+```
+
 ## Utility scripts
 
 ### `npm run create-addon`
@@ -38,7 +48,7 @@ Creates an addon with the name configured in the setup task.
 
 ### `npm run build`
 
-Compresses `/src` into `/dist`. The generated zip file is your app that will be used when deploying or signing. If you use babel to transpile your code (opt-in in the setup task), this target will compress a transpiled version of your `/src`
+Builds the app and creates a deployable zip in `/dist`.
 
 ### `npm run build deploy`
 

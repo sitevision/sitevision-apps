@@ -21,7 +21,7 @@ Some packages are intended to run both on the client and the server. And they ar
 ## Building
 
 - `npm run create-addon` creates an addon with the name configured in the setup task
-- `npm run build` compresses `/src` into `/dist`. If you use babel to transpile your code, this target will compress a transpiled version of your `/src`
+- `npm run build` builds the app and creates a deployable zip in `/dist`
 - `npm run build deploy` runs the build step and deploys to the addon configured in the setup task
 - `npm run build force-deploy` runs the build step and deploys with the possibility to overwrite an existing WebApp
 - `npm run dev` watches files for changes and runs `build force-deploy` on save

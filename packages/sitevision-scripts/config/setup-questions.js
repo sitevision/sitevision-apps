@@ -1,5 +1,3 @@
-import inquirer from 'inquirer';
-
 export const questions = [
   {
     name: 'type',
@@ -10,9 +8,6 @@ export const questions = [
       { name: 'RESTApp', value: 'rest-bundled' },
       { name: 'MCPServer', value: 'mcpServer' },
       { name: 'Widget (React)', value: 'widget-react' },
-      new inquirer.Separator(),
-      { name: 'WebApp (Legacy)', value: 'web-legacy' },
-      { name: 'RESTApp (Legacy)', value: 'rest-legacy' },
     ],
   },
   {
@@ -39,16 +34,6 @@ export const questions = [
     type: 'confirm',
     default: false,
     when: (answers) => 'web-react' === answers.type,
-  },
-  {
-    name: 'transpile',
-    message: 'Would you like to transpile using babel?',
-    type: 'list',
-    when: (answers) => answers.type === 'web-legacy',
-    choices: [
-      { name: 'Yes', value: true },
-      { name: 'No', value: false },
-    ],
   },
   {
     name: 'domain',

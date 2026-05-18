@@ -4,7 +4,6 @@ process.on('unhandledRejection', (err) => {
 });
 
 import spawn from 'cross-spawn';
-import * as properties from '../util/properties.js';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
@@ -65,17 +64,7 @@ switch (script) {
     break;
   }
   case 'build': {
-    const steps = [];
-    if (properties.getManifest().bundled) {
-      steps.push('build');
-    } else {
-      if (properties.getTranspile()) {
-        steps.push('transpile');
-      }
-      steps.push('copy-to-build');
-    }
-
-    steps.push('zip');
+    const steps = ['build', 'zip'];
 
     if (scriptArgs[0] === 'deploy' || scriptArgs[0] === 'force-deploy') {
       steps.push('deploy');

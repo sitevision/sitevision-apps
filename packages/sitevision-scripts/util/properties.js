@@ -4,8 +4,6 @@ import fs from 'fs-extra';
 const CWD = process.cwd();
 export const DEV_PROPERTIES_PATH = path.resolve(CWD, '.dev_properties.json');
 const MANIFEST_PATH = path.resolve(CWD, 'manifest.json');
-const MANIFEST_LEGACY_PATH = path.resolve(CWD, 'static', 'manifest.json');
-const MANIFEST_LEGACY_2_PATH = path.resolve(CWD, 'src', 'manifest.json');
 export const DIST_DIR_PATH = path.resolve(CWD, 'dist');
 export const SRC_DIR_PATH = path.resolve(CWD, 'src');
 export const STATIC_DIR_PATH = path.resolve(CWD, 'static');
@@ -15,7 +13,6 @@ export const PACKAGE_JSON_PATH = path.resolve(CWD, 'package.json');
 const VALID_CUSTOM_PROPERTIES_NAMES = [
   'transpilePackages', // array of package names within node_modules to transpile
   'babel', // babel-loader options override
-  'transpile', // transpile with babel (applicable for legacy apps)
 ];
 
 const requireIfExists = (...modules) => {
@@ -29,8 +26,7 @@ const requireIfExists = (...modules) => {
   throw 'None of the provided modules exist';
 };
 
-export const getManifest = () =>
-  requireIfExists(MANIFEST_PATH, MANIFEST_LEGACY_PATH, MANIFEST_LEGACY_2_PATH);
+export const getManifest = () => requireIfExists(MANIFEST_PATH);
 
 export const getAppType = () => {
   const { type } = getManifest();
@@ -55,26 +51,9 @@ export const getAppType = () => {
   throw new Error(`Unknown app type: ${type}`);
 };
 
-export const getTranspile = () => {
-  const { sitevision_scripts_properties } = getFileAsJson(PACKAGE_JSON_PATH);
-  if (
-    sitevision_scripts_properties &&
-    typeof sitevision_scripts_properties.transpile === 'boolean'
-  ) {
-    return sitevision_scripts_properties.transpile;
-  }
-
-  const { transpile } = getFileAsJson(DEV_PROPERTIES_PATH);
-  return transpile;
-};
-
 export const getCustomProperty = (name) => {
   if (!VALID_CUSTOM_PROPERTIES_NAMES.includes(name)) {
     throw new Error(`Invalid custom property name: ${name}`);
-  }
-
-  if (name === 'transpile') {
-    return getTranspile();
   }
 
   const { sitevision_scripts_properties, babel } =
