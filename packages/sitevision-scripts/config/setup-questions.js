@@ -48,6 +48,14 @@ export const questions = [
     message: 'Development addon name',
   },
   {
+    name: 'description',
+    message: 'Development addon description',
+  },
+  {
+    name: 'author',
+    message: 'Author',
+  },
+  {
     name: 'username',
     message: 'Username for development site',
   },
