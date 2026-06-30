@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@8.0.0...@sitevision/sitevision-scripts@8.0.1) (2026-06-30)
+
+### Bug Fixes
+
+- add missing terser-webpack-plugin dependency ([0046e8b](https://github.com/sitevision/sitevision-apps/commit/0046e8b2bc1369adc33c356469e1fa2645641099))
+
 ## [6.0.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@6.0.0...@sitevision/sitevision-scripts@6.0.1) (2025-09-23)
 
 **Note:** Version bump only for package @sitevision/sitevision-scripts
