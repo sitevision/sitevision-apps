@@ -8,23 +8,38 @@ import chalk from 'chalk';
 import { getFullAppId } from './util/id.js';
 
 (function () {
-  var questions = [
-    {
-      name: 'username',
+  const props = properties.getDevProperties();
+
+  const signUsernameFromProps = (props.signUsername || '');
+  const signPasswordFromProps = (props.signPassword || '');
+  const certificateFromProps = (props.certificateName || '');
+
+  const questions = [];
+
+  // Add the questions if the fields dont exist in dev_properties
+  if (!signUsernameFromProps) {
+    questions.push({
+      name: 'signUsername',
       message: 'Username for developer.sitevision.se',
       validate: (input) => (input.length ? true : 'Please enter your username'),
-    },
-    {
-      name: 'password',
+    });
+  }
+
+  if (!signPasswordFromProps) {
+    questions.push({
+      name: 'signPassword',
       type: 'password',
       message: 'Password for developer.sitevision.se',
       validate: (input) => (input.length ? true : 'Please enter your password'),
-    },
-    {
+    });
+  }
+
+  if (!certificateFromProps) {
+    questions.push({
       name: 'certificateName',
       message: 'Certificate name for signing (blank for default)',
-    },
-  ];
+    });
+  }
 
   const manifest = properties.getManifest();
   const appId = getFullAppId(manifest.id);
@@ -37,15 +52,20 @@ import { getFullAppId } from './util/id.js';
   }
 
   inquirer.prompt(questions).then(async (answers) => {
-    if (!answers.username || !answers.password) {
+    const username = (answers.signUsername || signUsernameFromProps);
+    const password = (answers.signPassword || signPasswordFromProps);
+
+    const certificateName = (answers.certificateName || certificateFromProps);
+
+    if (!username || !password) {
       console.log(chalk.red('Invalid user name or password'));
       return null;
     }
 
     let url = `https://developer.sitevision.se/rest-api/appsigner/signapp`;
 
-    if (answers.certificateName) {
-      url += '?certificateName=' + answers.certificateName;
+    if (certificateName) {
+      url += '?certificateName=' + certificateName;
     }
 
     const formData = new FormData();
@@ -60,7 +80,7 @@ import { getFullAppId } from './util/id.js';
         body: formData,
         headers: formData.getHeaders({
           Authorization: `Basic ${Buffer.from(
-            answers.username + ':' + answers.password
+            username + ':' + password
           ).toString('base64')}`,
         }),
       });
