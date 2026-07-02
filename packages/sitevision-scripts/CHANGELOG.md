@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.2](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@8.0.1...@sitevision/sitevision-scripts@8.0.2) (2026-07-02)
+
+### Bug Fixes
+
+- **sitevision-scripts:** prevent ambient type leakage in TypeScript templates ([e8e01c6](https://github.com/sitevision/sitevision-apps/commit/e8e01c629c49aed542e4cf9b3b09de4e06b58135))
+
 ## [8.0.1](https://github.com/sitevision/sitevision-apps/compare/@sitevision/sitevision-scripts@8.0.0...@sitevision/sitevision-scripts@8.0.1) (2026-06-30)
 
 ### Bug Fixes
