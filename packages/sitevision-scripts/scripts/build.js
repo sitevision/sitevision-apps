@@ -30,6 +30,10 @@ import { legacyAppUnsupportedMessage } from './util/legacy.js';
 
     console.log(stats.toString({ colors: true }));
 
+    if (stats.hasErrors()) {
+      process.exit(1);
+    }
+
     copyChunksToResources(properties.BUILD_DIR_PATH);
   });
 })();
