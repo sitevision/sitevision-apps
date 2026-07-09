@@ -5,10 +5,10 @@ export interface RequesterOptions extends Record<string, any> {
 }
 
 export interface Requester {
-  doGet(options: RequesterOptions): Promise<unknown>;
-  doPut(options: RequesterOptions): Promise<unknown>;
-  doPost(options: RequesterOptions): Promise<unknown>;
-  doDelete(options: RequesterOptions): Promise<unknown>;
+  doGet<T = unknown>(options: RequesterOptions): Promise<T>;
+  doPut<T = unknown>(options: RequesterOptions): Promise<T>;
+  doPost<T = unknown>(options: RequesterOptions): Promise<T>;
+  doDelete<T = unknown>(options: RequesterOptions): Promise<T>;
 }
 
 declare namespace Requester {}
