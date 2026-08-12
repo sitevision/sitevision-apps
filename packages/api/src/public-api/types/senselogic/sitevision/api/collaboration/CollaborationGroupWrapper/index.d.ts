@@ -257,9 +257,15 @@ export type CollaborationGroupWrapper = Wrapper & {
    *  </p>
    *
    *  <p>
+   *     Passing <code>null</code> will clear the current profile image and reset the crop configuration,
+   *     causing the wrapped collaboration group to fall back to default profile image behaviour (null supported since Sitevision 2026.08.1).
+   *  </p>
+   *
+   *  <p>
    *     <strong>Model note!</strong> A profile image must be a Node of type <code>sv:image</code>
    *     and a child of the <em>profile images folder</em> of the wrapped collaboration group.
    *     The profile images folder is available via {@link #getProfileImagesFolder()}.
+   *     This model requirement does not apply when passing <code>null</code>.
    *  </p>
    *
    *  <p>
@@ -272,6 +278,31 @@ export type CollaborationGroupWrapper = Wrapper & {
    * @since Sitevision 4.5.3
    */
   setProfileImage(aProfileImage: Node): boolean;
+
+  /**
+   * Removes a profile image of the wrapped collaboration group.
+   *
+   *  <p>
+   *     If the supplied profile image is currently active, the active profile image reference
+   *     and crop configuration will be cleared before the image is removed.
+   *  </p>
+   *
+   *  <p>
+   *     <strong>Model note!</strong> The supplied profile image must be a Node of type <code>sv:image</code>
+   *     and a child of the <em>profile images folder</em> of the wrapped collaboration group.
+   *     The profile images folder is available via {@link #getProfileImagesFolder()}.
+   *  </p>
+   *
+   *  <p>
+   *     <strong>Permission note!</strong> Current user must have
+   *     {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_COLLABORATION_GROUP}
+   *     on the wrapped collaboration group in order to remove the profile image.
+   *  </p>
+   * @param aProfileImage the profile image to remove
+   * @return true if the remove operation succeeded, false otherwise
+   * @since Sitevision 2026.08.1
+   */
+  removeProfileImage(aProfileImage: Node): boolean;
 
   /**
    * Alters the render Locale used by the wrapped collaboration group.

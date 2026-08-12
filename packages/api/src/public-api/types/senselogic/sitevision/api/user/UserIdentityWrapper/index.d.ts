@@ -339,9 +339,15 @@ export type UserIdentityWrapper = Wrapper & {
    *  </p>
    *
    *  <p>
+   *     Passing <code>null</code> will clear the current profile image and reset the crop configuration,
+   *     causing the wrapped user identity to fall back to default profile image behaviour (null supported since Sitevision 2026.08.1).
+   *  </p>
+   *
+   *  <p>
    *     <strong>Model note!</strong> A profile image must be a node of type <code>sv:image</code>
    *     and a child of the <em>profile images folder</em> of the wrapped user identity.
    *     The profile images folder is available via {@link #getProfileImagesFolder()}.
+   *     This model requirement does not apply when passing <code>null</code>.
    *  </p>
    *
    *  <p>
@@ -356,6 +362,33 @@ export type UserIdentityWrapper = Wrapper & {
    * @since Sitevision 4.2
    */
   setProfileImage(aProfileImage: Node): boolean;
+
+  /**
+   * Removes a profile image of the wrapped user identity.
+   *
+   *  <p>
+   *     If the supplied profile image is currently active, the active profile image reference
+   *     and crop configuration will be cleared before the image is removed.
+   *  </p>
+   *
+   *  <p>
+   *     <strong>Model note!</strong> The supplied profile image must be a node of type <code>sv:image</code>
+   *     and a child of the <em>profile images folder</em> of the wrapped user identity.
+   *     The profile images folder is available via {@link #getProfileImagesFolder()}.
+   *  </p>
+   *
+   *  <p>
+   *     <strong>Permission note!</strong> This mutating operation is not allowed for a wrapped user identity that is {@link #isDisabled() disabled}.
+   *     To remove the profile image for the wrapped user identity, current user must match the wrapped user identity
+   *     (i.e. <em>"is yourself"</em>) - or have
+   *     {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_USER_IDENTITIES}
+   *     on current page.
+   *  </p>
+   * @param aProfileImage the profile image to remove
+   * @return true if the remove operation succeeded, false otherwise
+   * @since Sitevision 2026.08.1
+   */
+  removeProfileImage(aProfileImage: Node): boolean;
 
   /**
    * Sets the visibility of the wrapped user identity in search results.

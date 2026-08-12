@@ -1306,6 +1306,12 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   MCP_SERVER_TYPE: "sv:mcpServer";
 
   /**
+   * The primary node type name for the MCP server repository type.
+   * @since Sitevision 2026.05.1
+   */
+  MCP_SERVER_REPOSITORY_TYPE: "sv:mcpServerRepository";
+
+  /**
    * The primary node type name for the MCP server custom module type.
    * @since Sitevision 2026.05.1
    */

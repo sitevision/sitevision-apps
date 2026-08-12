@@ -9,12 +9,6 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
  * Builder to create a Mail instances that can be sent.
  *
  *  <p>
- *     An instance of the Sitevision class implementing this interface can be obtained via
- *     {@link senselogic.sitevision.api.mail.MailUtil#getMailBuilder()}.
- *     See {@link senselogic.sitevision.api.mail.MailUtil} for how to obtain an instance of the <code>MailUtil</code> interface.
- *  </p>
- *
- *  <p>
  *     MailBuilder has some <strong>mandatory attributes</strong>:
  *  </p>
  *  <ul>
@@ -33,14 +27,14 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
  *  </p>
  *  <ul>
  *     <li>
+ *        <em>fromAddress</em> - The from address. Default is <code>null</code>
+ *        (will use the from address for the site, with fallback to the from address of the server).
+ *     </li>
+ *     <li>
  *        <em>copyRecipients</em> - The carbon copy recipients (CC). Default is <code>null</code>.
  *     </li>
  *     <li>
  *        <em>blindCopyRecipients</em> - The blind carbon copy recipients (BCC). Default is <code>null</code>.
- *     </li>
- *     <li>
- *        <em>fromAddress</em> - The from address. Default is the address of the site responsible and the
- *        address of the server responsible as fallback.
  *     </li>
  *     <li>
  *        <em>replyTos</em> - The reply-to addresses. Default is <code>null</code>.
@@ -79,8 +73,49 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
  *  </ol>
  *
  *  <p>
- *     <strong>Example of how this strategy could be implemented in Velocity:</strong><br>
- *     (send one "personalized" mail to Magnus and one to Mikael)
+ *     <strong>Example of how this strategy could be implemented in server-side JavaScript:</strong><br>
+ *     (send one "personalized" mail to Magnus and another one to Klas)
+ *  </p>
+ *  <pre><code>   <em>// Import MailUtil in apps (WebApp, RESTApp, Widget, MCPServer etc)</em>
+ *    <em>// NOTE! Use the require function instead in other server-side Javascripts (e.g. Script module), i.e:</em>
+ *    <em>// const mailUtil = require("MailUtil");</em>
+ *    import mailUtil from "@sitevision/api/server/MailUtil";
+ *
+ *    <em>// Create a mail builder instance</em>
+ *    const mailBuilder = mailUtil.getMailBuilder();
+ *
+ *    <em>// Create a mail</em>
+ *    let mail = mailBuilder
+ *                  .setSubject("Hello buddy")
+ *                  .setTextMessage("How are you Magnus?")
+ *                  .addRecipient("magnus.lovgren@sitevision.se")
+ *                  .build();
+ *
+ *    <em>// Send mail</em>
+ *    if (mail.send()) {
+ *        console.log("Mail to Magnus successfully sent!");
+ *    } else {
+ *        console.log("Mail to Magnus could NOT be sent!");
+ *    }
+ *
+ *    <em>// Create another mail, with other message and recipient</em>
+ *    mail = mailBuilder
+ *              .setTextMessage("How are you Klas?")
+ *              .clearRecipients()
+ *              .addRecipient("Klash &lt;klas.hedstrom@sitevision.se&gt;")
+ *              .build();
+ *
+ *    <em>// Send mail</em>
+ *    if (mail.send()) {
+ *        console.log("Mail to Klas successfully sent!");
+ *    } else {
+ *        console.log("Mail to Klas could NOT be sent!");
+ *    }
+ *  </code></pre>
+ *  <p>
+ *     <strong>Note that <em>Velocity</em> has some caveats when working fluently with a Builder!</strong><br>
+ *     It is not allowed to add whitespace <em>between</em> chained method calls.
+ *     This is an example of how to use line breaks and indentation in Velocity when working with a Builder:
  *  </p>
  *  <pre><code>
  *    <em>## Get the mail util and the mail builder</em>
@@ -92,27 +127,16 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
  *                             ).setTextMessage('How are you Magnus?'
  *                             ).addRecipient('magnus.lovgren@sitevision.se'
  *                             ).build())
- *    <em>## Send mail</em>
- *    #if ($mail.send())
- *       &lt;p&gt;Mail to Magnus successfully sent!&lt;/p&gt;
- *    #else
- *       &lt;p&gt;Mail to Magnus could &lt;strong&gt;not&lt;/strong&gt; be sent!&lt;/p&gt;
- *    #end
- *
- *    <em>## Create another mail</em>
- *    #set ($mail = $mailBuilder.setTextMessage('How are you Mikael?'
- *                             ).clearRecipients().addRecipient('mikael.wikblom@sitevision.se'
- *                             ).build())
- *    <em>## Send mail</em>
- *    #if ($mail.send())
- *       &lt;p&gt;Mail to Mikael successfully sent!&lt;/p&gt;
- *    #else
- *       &lt;p&gt;Mail to Mikael could &lt;strong&gt;not&lt;/strong&gt; be sent!&lt;/p&gt;
- *    #end
  *  </code></pre>
  *  <p>
  *     <strong>Tip!</strong> The {@link senselogic.sitevision.api.base.Builder Builder interface documentation} contains
  *     more information about Builders and how to work with them!
+ *  </p>
+ *
+ *  <p>
+ *     An instance of the Sitevision class implementing this interface can be obtained via
+ *     {@link senselogic.sitevision.api.mail.MailUtil#getMailBuilder()}.
+ *     See {@link senselogic.sitevision.api.mail.MailUtil} for how to obtain an instance of the <code>MailUtil</code> interface.
  *  </p>
  * @author Magnus Lövgren
  * @since Sitevision 3.6
@@ -120,6 +144,19 @@ import type { Builder } from "../../types/senselogic/sitevision/api/base/Builder
 export interface MailBuilder extends Builder {
   /**
    * Sets the from address.
+   *
+   *  <p>
+   *     The from address can be in basic format ("example@domain.com")
+   *     or in "mailbox" format ("Some Name &lt;example@domain.com&gt;")
+   *  </p>
+   *  <p>
+   *     <strong>Note!</strong> Even if you explicitly set a from address, it might not be used when the mail is sent.
+   *     It will only be used if it is valid and the domain part of the address is also matching the DKIM signing domain (if DKIM is setup).
+   *  </p>
+   *  <p>
+   *     If no from address is set or the from address is invalid or the domain part of the address is not matching the DKIM signing domain,
+   *     the most appropriate address from the site (or server) will be used instead.
+   *  </p>
    * @param aFromAddress the from address. A whitespace-only address will be ignored, default (null) will be set instead.
    * @return this builder
    */
@@ -127,6 +164,11 @@ export interface MailBuilder extends Builder {
 
   /**
    * Adds a reply-to address.
+   *
+   *  <p>
+   *     The reply-to address can be in basic format ("example@domain.com")
+   *     or in "mailbox" format ("Some Name &lt;example@domain.com&gt;")
+   *  </p>
    * @param aReplyToAddress a reply-to address. A null or whitespace-only address will be ignored.
    * @return this builder
    */
@@ -162,6 +204,11 @@ export interface MailBuilder extends Builder {
 
   /**
    * Adds a recipient address (TO).
+   *
+   *  <p>
+   *     The recipient address can be in basic format ("example@domain.com")
+   *     or in "mailbox" format ("Some Name &lt;example@domain.com&gt;")
+   *  </p>
    * @param aRecipientAddress a recipient address. A null or whitespace-only address will be ignored.
    * @return this builder
    */
@@ -185,6 +232,11 @@ export interface MailBuilder extends Builder {
 
   /**
    * Adds a carbon copy recipient address (CC).
+   *
+   *  <p>
+   *     The carbon copy address can be in basic format ("example@domain.com")
+   *     or in "mailbox" format ("Some Name &lt;example@domain.com&gt;")
+   *  </p>
    * @param aCopyRecipientAddress a carbon copy recipient address. A null or whitespace-only address will be ignored.
    * @return this builder
    * @since Sitevision 3.6.3
@@ -200,6 +252,11 @@ export interface MailBuilder extends Builder {
 
   /**
    * Adds a blind carbon copy recipient address (BCC).
+   *
+   *  <p>
+   *     The blind carbon copy address can be in basic format ("example@domain.com")
+   *     or in "mailbox" format ("Some Name &lt;example@domain.com&gt;")
+   *  </p>
    * @param aBlindCopyRecipientAddress a blind carbon copy recipient address. A null or whitespace-only address will be ignored.
    * @return this builder
    * @since Sitevision 3.6.3

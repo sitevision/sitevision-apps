@@ -4,6 +4,7 @@
 export default {
   publishNode: () => {},
   publishNodeWithNotification: () => {},
+  getPublisherBuilder: () => {},
   unpublishNode: () => {},
   getPublishStatus: () => {},
   clearPublishingSchedule: () => {},

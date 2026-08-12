@@ -4,6 +4,7 @@
 import type { Node } from "../../types/javax/jcr/Node";
 
 import type { Date } from "../../types/java/util/Date";
+import type { PublisherBuilder } from "../PublisherBuilder";
 import type PublishStatus from "../PublishStatus";
 
 /**
@@ -15,12 +16,17 @@ import type PublishStatus from "../PublishStatus";
  *  </p>
  *
  *  <p>
+ *     When <em>publishing</em> a page - consider use of {@link Publisher} instead, which is a more powerful and flexible publishing interface.
+ *  </p>
+ *
+ *  <p>
  *     An instance of the Sitevision class implementing this interface can be obtained via
  *     {@link senselogic.sitevision.api.Utils#getPublishingUtil()}.
  *     See {@link senselogic.sitevision.api.Utils} for how to obtain an instance of the <code>Utils</code> interface.
  *  </p>
  * @author Mikael Wikblom
  * @since Sitevision 2.6.1_04
+ * @see Publisher
  */
 export interface PublishingUtil {
   /**
@@ -44,6 +50,7 @@ export interface PublishingUtil {
    * @throws ConstraintViolationException if current user is not authorized to publish nodes
    * @throws RepositoryException if something else goes wrong
    * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectivePublishPermission(Node, Node)
+   * @see Publisher
    */
   publishNode(aNode: Node): void;
 
@@ -65,12 +72,13 @@ export interface PublishingUtil {
    *     The current user must be authorized to publish nodes or a <code>ConstraintViolationException</code> will be thrown.
    *  </p>
    * @param aNode the node that should be published
-   * @param aDate the publish date
+   * @param aPublishDate the publish date
    * @throws ConstraintViolationException if current user is not authorized to publish nodes
    * @throws RepositoryException if something else goes wrong
    * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectivePublishPermission(Node, Node)
+   * @see Publisher
    */
-  publishNode(aNode: Node, aDate: Date): void;
+  publishNode(aNode: Node, aPublishDate: Date): void;
 
   /**
    * <p>
@@ -91,12 +99,13 @@ export interface PublishingUtil {
    *  </p>
    * @param aNode the node that should be published
    * @param aPublishDate the publish date
-   * @param anUnpublishDate the unpublish date
+   * @param aUnpublishDate the unpublish date
    * @throws ConstraintViolationException if current user is not authorized to publish nodes
    * @throws RepositoryException if something else goes wrong
    * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectivePublishPermission(Node, Node)
+   * @see Publisher
    */
-  publishNode(aNode: Node, aPublishDate: Date, anUnpublishDate: Date): void;
+  publishNode(aNode: Node, aPublishDate: Date, aUnpublishDate: Date): void;
 
   /**
    * <p>
@@ -123,6 +132,7 @@ export interface PublishingUtil {
    * @throws ConstraintViolationException if current user is not authorized to publish nodes.
    * @throws RepositoryException on unexpected failures.
    * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectivePublishPermission(Node, Node)
+   * @see Publisher
    * @since Sitevision 2.6.2_05
    */
   publishNodeWithNotification(aNode: Node, aNotificationDate: Date): void;
@@ -157,6 +167,7 @@ export interface PublishingUtil {
    * @throws ConstraintViolationException if current user is not authorized to publish nodes.
    * @throws RepositoryException on unexpected failures.
    * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectivePublishPermission(Node, Node)
+   * @see Publisher
    * @since Sitevision 2.6.2_05
    */
   publishNodeWithNotification(
@@ -203,6 +214,7 @@ export interface PublishingUtil {
    * @throws ConstraintViolationException if current user is not authorized to publish nodes.
    * @throws RepositoryException on unexpected failures.
    * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectivePublishPermission(Node, Node)
+   * @see Publisher
    * @since Sitevision 2.6.2_05
    */
   publishNodeWithNotification(
@@ -211,6 +223,13 @@ export interface PublishingUtil {
     aUnpublishDate: Date,
     aNotificationDate: Date
   ): void;
+
+  /**
+   * Gets a PublisherBuilder instance that offers more flexible publishing options than the publish methods in this interface.
+   * @return a PublisherBuilder instance
+   * @since Sitevision 2026.08.1
+   */
+  getPublisherBuilder(): PublisherBuilder;
 
   /**
    * <p>
@@ -254,12 +273,12 @@ export interface PublishingUtil {
    *     The current user must be authorized to publish nodes or a <code>ConstraintViolationException</code> will be thrown.
    *  </p>
    * @param aNode the node that should be unpublished
-   * @param aDate the unpublish date
+   * @param aUnpublishDate the unpublish date
    * @throws ConstraintViolationException if current user is not authorized to unpublish nodes
    * @throws RepositoryException if something else goes wrong
    * @see senselogic.sitevision.api.security.PermissionUtil#hasEffectivePublishPermission(Node, Node)
    */
-  unpublishNode(aNode: Node, aDate: Date): void;
+  unpublishNode(aNode: Node, aUnpublishDate: Date): void;
 
   /**
    * <p>

@@ -24,7 +24,8 @@ import type DimensionMode from "../DimensionMode";
  *        <em>image</em> - The image that should be rendered. Default is <code>null</code>.
  *     </li>
  *     <li>
- *        <em>hoverImage</em> - The image that is displayed when the mouse cursor "hovers" (is over) the rendered image. Default is <code>null</code>.
+ *        <em>hoverImage</em> - The image that is displayed when the mouse cursor "hovers" (is over) the rendered image. Hover images cannot be
+ *        combined with source sets. Default is <code>null</code>.
  *     </li>
  *     <li>
  *        <em>style</em> - The css style for the rendered element. Default is <code>null</code>. <em>(though, the element class is always
@@ -59,7 +60,7 @@ import type DimensionMode from "../DimensionMode";
  *        <em>useImageScaler</em> - Whether to use an imageScaler (if present) or not. Default is <code>true</code>.
  *     </li>
  *     <li>
- *        <em>lazyLoad</em> - If the image should be lazy loaded. Default is <code>false</code>.
+ *        <em>lazyLoad</em> - If the image should be lazy loaded. Default is <code>true</code>.
  *     </li>
  *     <li>
  *        <em>dimensionMode</em> - The <code>width/height</code> css style properties rendering strategy. Default is {@link DimensionMode#AUTO}.
@@ -221,7 +222,12 @@ export interface ImageRenderer {
   clearUseImageScaler(): void;
 
   /**
-   * Sets a hover image that will be activated on the onmouseover javascript event.
+   * Sets a hover image that will be activated on the onmouseover JavaScript event.
+   *  <p>
+   *  If the rendered image width exceeds 160 pixels, source sets must be disabled via
+   *  {@link #setSourceSetMode(SourceSetMode)} with {@link SourceSetMode#OFF}
+   *  for the hover image to work.
+   *  </p>
    * @param anImageNode the hover image (a node with primary node type sv:image)
    */
   setHoverImage(anImageNode: Node): void;
