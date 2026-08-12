@@ -21,6 +21,7 @@ export default {
   getProfileImagesFolder: () => {},
   getProfileImage: () => {},
   setProfileImage: () => {},
+  removeProfileImage: () => {},
   setLocale: () => {},
   getCollaborationGroup: () => {},
 };

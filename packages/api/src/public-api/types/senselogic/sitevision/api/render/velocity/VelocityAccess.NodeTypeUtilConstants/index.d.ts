@@ -1455,6 +1455,13 @@ export type NodeTypeUtilConstants = {
   getMCP_SERVER_TYPE(): string;
 
   /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#MCP_SERVER_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#MCP_SERVER_REPOSITORY_TYPE}
+   * @since Sitevision 2026.05.1
+   */
+  getMCP_SERVER_REPOSITORY_TYPE(): string;
+
+  /**
    * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#MCP_SERVER_CUSTOM_MODULE_TYPE}.
    * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#MCP_SERVER_CUSTOM_MODULE_TYPE}
    * @since Sitevision 2026.05.1

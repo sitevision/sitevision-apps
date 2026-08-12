@@ -512,6 +512,13 @@ export interface ResourceLocatorUtil {
    * @since Sitevision 2025.07.1
    */
   getAiAssistantRepository(): Node;
+
+  /**
+   * Gets the MCP Server Repository for the site of current node.
+   * @return the MCP Server Repository, or null if indeterminable.
+   * @since Sitevision 2026.05.1
+   */
+  getMcpServerRepository(): Node;
 }
 
 declare namespace ResourceLocatorUtil {}

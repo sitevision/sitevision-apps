@@ -62,6 +62,7 @@ declare enum Permission {
   MANAGE_AI,
   GENERATE_ALT_TEXT_AI,
   USE_ANALYTICS_ASSISTANT,
+  SEND_PUSH_NOTIFICATIONS,
 }
 
 export default Permission;

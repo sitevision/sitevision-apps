@@ -24,6 +24,7 @@ export default {
   getProfileImage: () => {},
   getProfileImagesFolder: () => {},
   setProfileImage: () => {},
+  removeProfileImage: () => {},
   setHidden: () => {},
   setDisabled: () => {},
   isDisabled: () => {},

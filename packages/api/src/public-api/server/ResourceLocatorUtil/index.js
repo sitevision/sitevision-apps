@@ -52,4 +52,5 @@ export default {
   getSemanticIndexRepository: () => {},
   getTargetAudienceGroupRepository: () => {},
   getAiAssistantRepository: () => {},
+  getMcpServerRepository: () => {},
 };
