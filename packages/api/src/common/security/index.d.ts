@@ -1,26 +1,47 @@
 export interface Csrf {
   /**
-   * Used to acquire the current csrf-token. If the user is anonymous or if csrf-protection is disabled on the server this will return null.
+   * Acquires the current CSRF token.
    *
-   * @returns {string} the current token as string or null for anonymous users.
+   * @returns The current token, or null for anonymous users or when
+   * CSRF protection is disabled.
    */
-  getToken(): string;
+  getToken(): string | null;
+
   /**
-   * Used to acquire the parameter name that should be used when passing the token as a form field.
-   *
-   * @returns {string} the name that should be used when passing the token as form data.
+   * Acquires the parameter name used when passing the token as form data.
    */
   getParameterName(): string;
+
   /**
-   * Used to acquire the header name that should be used when passing the token as a request header.
-   *
-   * @returns {string} the name that should be used when passing the token as a header.
+   * Acquires the header name used when passing the token as a request header.
    */
   getHeaderName(): string;
 }
 
+export interface Captcha {
+  /**
+   * Whether CAPTCHA is enabled and correctly configured for the site.
+   */
+  isEnabled(): boolean;
+
+  /**
+   * Renders the configured CAPTCHA markup.
+   *
+   * @returns The CAPTCHA markup, or an empty string when CAPTCHA is disabled.
+   */
+  render(): string;
+
+  /**
+   * Verifies the CAPTCHA response from the current request.
+   *
+   * @returns Whether the CAPTCHA response is valid.
+   */
+  verify(): boolean;
+}
+
 export interface Security {
   csrf: Csrf;
+  captcha: Captcha;
 }
 
 declare namespace Security {}

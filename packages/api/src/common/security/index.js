@@ -4,4 +4,9 @@ export default {
     getParameterName: () => {},
     getHeaderName: () => {},
   },
+  captcha: {
+    isEnabled: () => {},
+    render: () => {},
+    verify: () => {},
+  },
 };
