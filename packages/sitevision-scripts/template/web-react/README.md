@@ -1,6 +1,6 @@
-# webapp-boilerplate
+# {{addonName}}
 
-Boilerplate code for a simple WebApp
+{{description}}
 
 ## Developing
 
