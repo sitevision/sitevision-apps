@@ -36,6 +36,9 @@ import { questions } from '../config/setup-questions.js';
         addonName,
         username,
         password,
+        signUsername,
+        signPassword,
+        certificateName,
         useHTTPForDevDeploy,
       }) => {
         console.clear();
@@ -49,6 +52,9 @@ import { questions } from '../config/setup-questions.js';
               addonName,
               username,
               password,
+              signUsername,
+              signPassword,
+              certificateName,
               useHTTPForDevDeploy,
             },
             null,
