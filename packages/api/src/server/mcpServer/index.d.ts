@@ -122,6 +122,14 @@ export type MCPPromptHandler = (arguments_: any) => MCPPromptResult;
  */
 export interface MCPServer {
   /**
+   * Sets instructions that describe how clients should use the MCP server.
+   *
+   * @param instructions Instructions for interacting with the server and its capabilities.
+   * @since Sitevision 2026.09.1
+   */
+  setInstructions(instructions: string): void;
+
+  /**
    * Registers a model-invokable tool with JSON Schema input.
    *
    * @param name Unique tool name.
