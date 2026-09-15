@@ -55,6 +55,14 @@ const copyTemplateFiles = (type, options) => {
     const mainName = options.typescript ? 'main.tsx' : 'main.js';
     fs.removeSync(path.join('src', mainName));
   }
+
+  if (!options.createTestFiles) {
+    const setupTestsName = options.typescript ? 'setupTests.ts' : 'setupTests.js';
+    const appTestName = options.typescript ? 'App.test.tsx' : 'App.test.js';
+
+    fs.removeSync(path.join('src', setupTestsName));
+    fs.removeSync(path.join('src', 'components', 'App', appTestName));
+  }
 };
 
 const writePackageJson = (content) => {
@@ -64,7 +72,7 @@ const writePackageJson = (content) => {
   );
 };
 
-const getCommonPackageProperties = () => {
+const getCommonPackageProperties = ({ createTestFiles = true } = {}) => {
   const appPackage = properties.getPackageJson();
   appPackage.scripts = {
     build: 'sitevision-scripts build',
@@ -73,14 +81,17 @@ const getCommonPackageProperties = () => {
     sign: 'sitevision-scripts sign',
     dev: 'sitevision-scripts dev',
     'setup-dev-properties': 'sitevision-scripts setup-dev-properties',
-    test: 'sitevision-scripts test',
   };
+
+  if (createTestFiles) {
+    appPackage.scripts.test = 'sitevision-scripts test';
+  }
 
   return appPackage;
 };
 
-const updatePackageJsonReact = (typescript) => {
-  const appPackage = getCommonPackageProperties();
+const updatePackageJsonReact = (typescript, createTestFiles) => {
+  const appPackage = getCommonPackageProperties({ createTestFiles });
   const extendsArr = [
     '@sitevision/eslint-config-recommended',
     '@sitevision/eslint-config-webapp-react',
@@ -103,7 +114,7 @@ const updatePackageJsonReact = (typescript) => {
 };
 
 const updatePackageJsonBundledRest = (typescript) => {
-  const appPackage = getCommonPackageProperties();
+  const appPackage = getCommonPackageProperties({ createTestFiles: false });
   const extendsArr = ['@sitevision/eslint-config-recommended'];
 
   if (typescript) {
@@ -119,7 +130,7 @@ const updatePackageJsonBundledRest = (typescript) => {
   writePackageJson(appPackage);
 };
 
-const installWebAppDependencies = (appPath, reactVersion, typescript) => {
+const installWebAppDependencies = (appPath, reactVersion, typescript, createTestFiles) => {
   const dependencies = [
     `react@${reactVersion}`,
     `react-dom@${reactVersion}`,
@@ -140,20 +151,22 @@ const installWebAppDependencies = (appPath, reactVersion, typescript) => {
     cwd: appPath,
   });
 
-  const devDependencies = [
-    '@testing-library/react',
-    '@testing-library/dom',
-    '@testing-library/jest-dom',
-  ];
+  if (createTestFiles) {
+    const devDependencies = [
+      '@testing-library/react',
+      '@testing-library/dom',
+      '@testing-library/jest-dom',
+    ];
 
-  if (typescript) {
-    devDependencies.push('@types/jest');
+    if (typescript) {
+      devDependencies.push('@types/jest');
+    }
+
+    spawn.sync('npm', ['install', '--save-dev', ...devDependencies], {
+      stdio: 'inherit',
+      cwd: appPath,
+    });
   }
-
-  spawn.sync('npm', ['install', '--save-dev', ...devDependencies], {
-    stdio: 'inherit',
-    cwd: appPath,
-  });
 };
 
 const installServerAppDependencies = (appPath) => {
@@ -184,6 +197,7 @@ export default async ({ appPath, appName }) => {
         password,
         typescript,
         serverSideOnly,
+        createTestFiles = true,
         useHTTPForDevDeploy,
         reactVersion = 18,
       }) => {
@@ -217,10 +231,11 @@ export default async ({ appPath, appName }) => {
           case 'web-react-typescript':
           case 'widget-react':
           case 'widget-react-typescript': {
-            updatePackageJsonReact(typescript);
-            installWebAppDependencies(appPath, reactVersion, typescript);
+            updatePackageJsonReact(typescript, createTestFiles);
+            installWebAppDependencies(appPath, reactVersion, typescript, createTestFiles);
             templateOptions.typescript = typescript;
             templateOptions.clientRendering = !serverSideOnly;
+            templateOptions.createTestFiles = createTestFiles;
             templateOptions.reactVersion = simplifyVersionNumber(
               properties.getPackageJson().dependencies.react
             );
