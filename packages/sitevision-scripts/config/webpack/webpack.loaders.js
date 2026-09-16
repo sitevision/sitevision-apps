@@ -7,29 +7,35 @@ const require = createRequire(import.meta.url);
 
 const resolvePackage = (packageName) => require.resolve(packageName);
 
+const getBabelOptions = (preset) =>
+  properties.getCustomProperty('babel') || {
+    presets: [resolvePackage(preset)],
+  };
+
 export const getTypeScriptLoader = (server) => ({
   test: /\.tsx?$/,
-  use: {
-    loader: resolvePackage('ts-loader'),
-    options: {
-      ...(server
-        ? {
-            compilerOptions: {
-              target: 'es5',
-            },
-          }
-        : {}),
-    },
-  },
+  use: server
+    ? [
+        // Webpack applies loaders right-to-left: TypeScript is compiled first,
+        // then the server Babel preset keeps the bundle ES5-compatible.
+        {
+          loader: resolvePackage('babel-loader'),
+          options: getBabelOptions('@sitevision/babel-preset-react-server'),
+        },
+        {
+          loader: resolvePackage('ts-loader'),
+        },
+      ]
+    : {
+        loader: resolvePackage('ts-loader'),
+      },
 });
 
 export const getBabelLoader = () => ({
   test: /\.jsx?$/,
   use: {
     loader: resolvePackage('babel-loader'),
-    options: properties.getCustomProperty('babel') || {
-      presets: [resolvePackage('@sitevision/babel-preset-react-server')],
-    },
+    options: getBabelOptions('@sitevision/babel-preset-react-server'),
   },
 });
 
@@ -56,9 +62,7 @@ export const getClientBabelLoader = () => ({
   },
   use: {
     loader: resolvePackage('babel-loader'),
-    options: properties.getCustomProperty('babel') || {
-      presets: [resolvePackage('@sitevision/babel-preset-react-client')],
-    },
+    options: getBabelOptions('@sitevision/babel-preset-react-client'),
   },
 });
 
