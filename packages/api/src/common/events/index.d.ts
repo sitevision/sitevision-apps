@@ -50,6 +50,18 @@ export type SimpleUserUpdateOptions = {
   user: string;
 };
 
+/** Emitted when a simple user logs in. */
+export type SimpleUserLoginOptions = {
+  /** The full name of the event */
+  event: 'sv:simpleuser:login';
+  /** The JCR identifier of the emitting user, typically anonymous */
+  emitter: string;
+  /** The timestamp when the event was emitted */
+  timestamp: number;
+  /** The JCR identifier of the simple user that logged in */
+  user: string;
+};
+
 /** Emitted when the http session for a simple user is destroyed (e.g. session timed out). */
 export type SimpleUserSessionDestroyOptions = {
   /** The full name of the event */
@@ -292,6 +304,7 @@ export type PublishingOptions = PublishingPublishOptions | PublishingUnpublishOp
 export type SimpleUserOptions =
   | SimpleUserCreateOptions
   | SimpleUserUpdateOptions
+  | SimpleUserLoginOptions
   | SimpleUserSessionDestroyOptions;
 
 /** All binary-related event options */
@@ -341,6 +354,7 @@ export interface Events {
   on(eventName: 'sv:simpleuser', callback: (options: SimpleUserOptions) => void): void;
   on(eventName: 'sv:simpleuser:create', callback: (options: SimpleUserCreateOptions) => void): void;
   on(eventName: 'sv:simpleuser:update', callback: (options: SimpleUserUpdateOptions) => void): void;
+  on(eventName: 'sv:simpleuser:login', callback: (options: SimpleUserLoginOptions) => void): void;
   on(eventName: 'sv:simpleuser:session:destroy', callback: (options: SimpleUserSessionDestroyOptions) => void): void;
   on(eventName: 'sv:structure:move', callback: (options: StructureMoveOptions) => void): void;
   on(eventName: 'sv:trashcan', callback: (options: TrashcanOptions) => void): void;
