@@ -1,6 +1,6 @@
-# restapp-boilerplate
+# {{addonName}}
 
-Boilerplate code for a simple RESTApp
+{{description}}
 
 ## Developing
 
