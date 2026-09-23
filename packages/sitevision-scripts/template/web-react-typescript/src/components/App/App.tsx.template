@@ -11,9 +11,9 @@ export interface AppProperties {
 const App: React.FunctionComponent<AppProperties> = ({ message, name }) => {
   return (
   {{#if widget}}
-    <section className="env-dashboard-widget">
-      <h2 className="env-ui-text-sectionheading">{message} {name}</h2>
-    </section>
+    <div className="env-dashboard-widget env-p-around--large">
+      <h3 className="env-ui-text-sectionheading">{message} {name}</h3>
+    </div>
   {{else}}
     <div className={styles.container}>
       <p className={styles.text}>
