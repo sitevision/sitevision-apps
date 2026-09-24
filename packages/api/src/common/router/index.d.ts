@@ -9,9 +9,13 @@ export interface Cookie {
   sameSite?: 'Strict' | 'Lax' | 'None' | undefined;
 }
 
-export type Session = {
+export interface Session {
   [key: string]: any;
 };
+
+export interface Context {
+  [key: string]: any;
+}
 
 export interface Request {
   invalidateSession(): void;
@@ -43,7 +47,7 @@ export interface Request {
   /**
    * Can be populated in a hooks context and read from a render context
    */
-  context: unknown | null;
+  context: Context;
 }
 
 export interface Response {
