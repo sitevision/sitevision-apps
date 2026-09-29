@@ -11,7 +11,6 @@ import { getFullAppId } from './util/id.js';
   const props = properties.getDevProperties();
 
   const signUsernameFromProps = (props.signUsername || '');
-  const signPasswordFromProps = (props.signPassword || '');
   const certificateFromProps = (props.certificateName || '');
 
   const questions = [];
@@ -25,14 +24,12 @@ import { getFullAppId } from './util/id.js';
     });
   }
 
-  if (!signPasswordFromProps) {
-    questions.push({
-      name: 'signPassword',
-      type: 'password',
-      message: 'Password for developer.sitevision.se',
-      validate: (input) => (input.length ? true : 'Please enter your password'),
-    });
-  }
+  questions.push({
+    name: 'signPassword',
+    type: 'password',
+    message: 'Password for developer.sitevision.se',
+    validate: (input) => (input.length ? true : 'Please enter your password'),
+  });
 
   if (!certificateFromProps) {
     questions.push({
@@ -53,7 +50,7 @@ import { getFullAppId } from './util/id.js';
 
   inquirer.prompt(questions).then(async (answers) => {
     const username = (answers.signUsername || signUsernameFromProps);
-    const password = (answers.signPassword || signPasswordFromProps);
+    const password = answers.signPassword;
 
     const certificateName = (answers.certificateName || certificateFromProps);
 

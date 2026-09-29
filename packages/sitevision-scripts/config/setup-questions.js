@@ -74,11 +74,6 @@ export const questions = [
     message: 'Username for developer.sitevision.se',
   },
   {
-    name: 'signPassword',
-    type: 'password',
-    message: 'Password for developer.sitevision.se',
-  },
-  {
     name: 'certificateName',
     message: 'Certificate for developer.sitevision.se',
   },

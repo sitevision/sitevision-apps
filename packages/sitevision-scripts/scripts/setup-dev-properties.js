@@ -70,7 +70,6 @@ const hasTranspileOptionInPackageJSON = () => {
         username,
         password,
         signUsername,
-        signPassword,
         certificateName,
         useHTTPForDevDeploy,
       }) => {
@@ -86,7 +85,6 @@ const hasTranspileOptionInPackageJSON = () => {
               username,
               password,
               signUsername,
-              signPassword,
               certificateName,
               useHTTPForDevDeploy,
             },
