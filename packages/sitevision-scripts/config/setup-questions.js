@@ -70,12 +70,20 @@ export const questions = [
     message: 'Password for development site',
   },
   {
+    name: 'addSigningCredentials',
+    message: 'Do you want to add signing credentials?',
+    type: 'confirm',
+    default: false,
+  },
+  {
     name: 'signUsername',
     message: 'Username for developer.sitevision.se',
+    when: (answers) => answers.addSigningCredentials,
   },
   {
     name: 'certificateName',
     message: 'Certificate for developer.sitevision.se',
+    when: (answers) => answers.addSigningCredentials,
   },
   {
     name: 'useHTTPForDevDeploy',
