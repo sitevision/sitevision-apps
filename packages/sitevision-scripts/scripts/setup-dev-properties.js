@@ -39,6 +39,16 @@ const hasTranspileOptionInPackageJSON = () => {
 
   if (existingDevProperties) {
     setupQuestions = setupQuestions.map((question) => {
+      if (question.name === 'addSigningCredentials') {
+        return {
+          ...question,
+          default: Boolean(
+            existingDevProperties.signUsername ||
+              existingDevProperties.certificateName
+          ),
+        };
+      }
+
       if (existingDevProperties[question.name]) {
         return {
           ...question,
