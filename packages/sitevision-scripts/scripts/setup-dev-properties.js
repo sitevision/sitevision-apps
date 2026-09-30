@@ -16,6 +16,16 @@ import { questions } from '../config/setup-questions.js';
 
   if (existingDevProperties) {
     setupQuestions = setupQuestions.map((question) => {
+      if (question.name === 'addSigningCredentials') {
+        return {
+          ...question,
+          default: Boolean(
+            existingDevProperties.signUsername ||
+              existingDevProperties.certificateName
+          ),
+        };
+      }
+
       if (existingDevProperties[question.name]) {
         return {
           ...question,
@@ -36,6 +46,8 @@ import { questions } from '../config/setup-questions.js';
         addonName,
         username,
         password,
+        signUsername,
+        certificateName,
         useHTTPForDevDeploy,
       }) => {
         console.clear();
@@ -49,6 +61,8 @@ import { questions } from '../config/setup-questions.js';
               addonName,
               username,
               password,
+              signUsername,
+              certificateName,
               useHTTPForDevDeploy,
             },
             null,
