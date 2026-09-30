@@ -1,6 +1,7 @@
 import path from 'path';
 import spawn from 'cross-spawn';
 import fs from 'fs-extra';
+import chalk from 'chalk';
 import * as properties from '../util/properties.js';
 import webpack from 'webpack';
 import { copyChunksToResources } from './util/copychunks.js';
@@ -19,6 +20,13 @@ const SITEVISION_SCRIPTS_PATH = path.resolve(
 
 const SPAWN_PROPERTIES = {
   stdio: 'inherit',
+};
+
+const cleanupDevDist = () => {
+  if (fs.existsSync(properties.DIST_DIR_PATH)) {
+    console.log(`Removing ${chalk.green('/' + path.basename(properties.DIST_DIR_PATH))} to ensure future builds are fresh and to prevent accidental signing of an unminified, sourcemapped build.`);
+    fs.removeSync(properties.DIST_DIR_PATH);
+  }
 };
 
 (async function () {
@@ -59,9 +67,14 @@ const SPAWN_PROPERTIES = {
         [SITEVISION_SCRIPTS_PATH, 'deploy', 'force'],
         SPAWN_PROPERTIES
       );
+
+      cleanupDevDist();
     }
   );
 
+  // NOTE: This shutdown hook is unreliable because spawn.sync blocks the event loop,
+  // preventing the async compiler.close() callback from completing on SIGINT.
+  // Do not depend on it for cleanup (which is why cleanupDevDist() is not called here).
   process.on('SIGINT', () => {
     compiler.close((err) => {
       if (err) {
