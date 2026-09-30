@@ -8,7 +8,9 @@ import chalk from 'chalk';
 import { getFullAppId } from './util/id.js';
 
 (function () {
-  const props = properties.getDevProperties();
+  const props = fs.existsSync(properties.DEV_PROPERTIES_PATH)
+    ? properties.getDevProperties()
+    : {};
 
   const signUsernameFromProps = (props.signUsername || '');
   const certificateFromProps = (props.certificateName || '');
