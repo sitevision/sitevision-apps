@@ -2,11 +2,11 @@
   "id": "{{appName}}",
   "version": "0.0.1",
   "name": {
-    "en": "{{manifestType}} boilerplate"
+    "en": "{{addonName}}"
   },
-  "author": "My Company",
+  "author": "{{author}}",
   "description": {
-    "en": "A {{manifestType}} boilerplate"
+    "en": "{{description}}"
   },
   "helpUrl": "https://example.com/webapps",
   "type": "{{manifestType}}",
