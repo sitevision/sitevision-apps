@@ -24,6 +24,203 @@ import type { Item } from "../Item";
     */
 export type Property = Item & {
   /**
+   * Sets the value of this property to <code>value</code>. If this property's
+   *  property type is not constrained by the node type of its parent node,
+   *  then the property type is changed to that of the supplied
+   *  <code>value</code>. If the property type is constrained, then a
+   *  best-effort conversion is attempted.
+   *  <p>
+   *  This method is a session-write and therefore requires a <code>save</code>
+   *  to dispatch the change.
+   *  <p>
+   *  A <code>ConstraintViolationException</code> will be thrown either
+   *  immediately, on dispatch, or on persist, if the change would violate a
+   *  node type or implementation-specific constraint. Implementations may
+   *  differ on when this validation is performed.
+   *  <p>
+   *  A <code>VersionException</code> will be thrown either immediately, on
+   *  dispatch, or on persist, if this property belongs to a node that is
+   *  versionable and checked-in or is non-versionable but whose nearest
+   *  versionable ancestor is checked-in. Implementations may differ on when
+   *  this validation is performed.
+   *  <p>
+   *  A <code>LockException</code> will be thrown either immediately, on
+   *  dispatch, or on persist, if a lock prevents the setting of the value.
+   *  Implementations may differ on when this validation is performed.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param value The new value to set the property to.
+   * @throws ValueFormatException if the type or format of the specified value&#xA; is incompatible with the type of this property.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setValue(value: Value): void;
+
+  /**
+   * Sets the value of this property to the <code>values</code> array. If this
+   *  property's property type is not constrained by the node type of its
+   *  parent node, then the property type may be changed. If the property type
+   *  is constrained, then a best-effort conversion is attempted, according to
+   *  an implemention-dependent definition of "best effort". The change will be
+   *  persisted (if valid) on <code>save</code>.
+   *  <p>
+   *  A <code>ConstraintViolationException</code> will be thrown either
+   *  immediately, on dispatch, or on persist, if the change would violate a
+   *  node type or implementation-specific constraint. Implementations may
+   *  differ on when this validation is performed.
+   *  <p>
+   *  A <code>VersionException</code> will be thrown either immediately, on
+   *  dispatch, or on persist, if this property belongs to a node that is
+   *  read-only due to a checked-in node. Implementations may differ on when
+   *  this validation is performed.
+   *  <p>
+   *  A <code>LockException</code> will be thrown either immediately, on
+   *  dispatch, or on persist, if a lock prevents the setting of the value.
+   *  Implementations may differ on when this validation is performed.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param values The new values to set the property to.
+   * @throws ValueFormatException if the type or format of the specified&#xA; values is incompatible with the type of this property.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setValue(values: Value[]): void;
+
+  /**
+   * Sets the value of this property to <code>value</code>. Same as
+   *  <code>{@link #setValue(Value value)}</code> except that the value is
+   *  specified as a <code>String</code>.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param value The new value to set the property to.
+   * @throws ValueFormatException if the type or format of the specified&#xA; values is incompatible with the type of this property.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setValue(value: String | string): void;
+
+  /**
+   * Sets the value of this property to the <code>values</code> array. Same as
+   *  <code>{@link #setValue(Value[] values)}</code> except that the values are
+   *  specified as a <code>String[]</code>.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param values The new values to set the property to.
+   * @throws ValueFormatException if the type or format of one or more of the&#xA; specified values is incompatible with the type of this property.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setValue(values: String[] | string[]): void;
+
+  /**
+   * Sets the value of this property to <code>value</code>. Same as
+   *  <code>{@link #setValue(Value value)}</code> except that the value is
+   *  specified as a <code>long</code>.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param value The new value to set the property to.
+   * @throws ValueFormatException if the type or format of the specified value&#xA; is incompatible with the type of this property.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setValue(value: number): void;
+
+  /**
+   * Sets the value of this property to <code>value</code>. Same as
+   *  <code>{@link #setValue(Value value)}</code> except that the value is
+   *  specified as a <code>double</code>.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param value The new value to set the property to.
+   * @throws ValueFormatException if the type or format of the specified value&#xA; is incompatible with the type of this property.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setValue(value: number): void;
+
+  /**
+   * Sets the value of this property to <code>value</code>. Same as
+   *  <code>{@link #setValue(Value value)}</code> except that the value is
+   *  specified as a <code>BigDecimal</code>.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param value The new value to set the property to.
+   * @throws ValueFormatException if the type or format of the specified value&#xA; is incompatible with the type of this property.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   * @since JCR 2.0
+   */
+  setValue(value: BigDecimal): void;
+
+  /**
+   * Sets the value of this property to <code>value</code>. Same as
+   *  <code>{@link #setValue(Value value)}</code> except that the value is
+   *  specified as a <code>Calendar</code>.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param value The new value to set the property to.
+   * @throws ValueFormatException if the type or format of the specified value&#xA; is incompatible with the type of this property.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setValue(value: Calendar): void;
+
+  /**
+   * Sets the value of this property to <code>value</code>. Same as
+   *  <code>{@link #setValue(Value value)}</code> except that the value is
+   *  specified as a <code>boolean</code>.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param value The new value to set the property to.
+   * @throws ValueFormatException if the type or format of the specified value&#xA; is incompatible with the type of this property.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setValue(value: boolean): void;
+
+  /**
+   * Sets this <code>REFERENCE</code> or <code>WEAKREFERNCE</code> property to
+   *  refer to the specified node.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param value The node to which this property will refer.
+   * @throws ValueFormatException if the type or format of the specified value&#xA; is incompatible with the type of this property the specified node is not&#xA; referenceable.
+   * @throws VersionException if this property belongs to a node that is&#xA; read-only due to a checked-in node and this implementation performs this&#xA; validation immediately.
+   * @throws LockException if a lock prevents the setting of the value and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setValue(value: Node): void;
+
+  /**
    * Returns the value of this  property as a <code>Value</code> object.
    *  <p>
    *  The object returned is a copy of the stored value and is immutable.
@@ -52,6 +249,23 @@ export type Property = Item & {
    * @see Value
    */
   getString(): string;
+
+  /**
+   * Returns a <code>Binary</code> representation of the value of this
+   *  property. A shortcut for <code>Property.getValue().getBinary()</code>.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to the <code>URL</code> and <code>URI</code> properties of nodes with primary
+   *  {@link javax.jcr.nodetype.NodeType} <code>sv:file</code> and <code>sv:image</code> and to any {@link javax.jcr.PropertyType#WEAKREFERENCE}
+   *  pointing to a <code>Node</code> of type <code>sv:file</code> or <code>sv:image</code></p>
+   * @return A <code>Binary</code> representation of the value of this&#xA; property.
+   * @throws ValueFormatException if the property is multi-valued.
+   * @throws RepositoryException if another error occurs.
+   * @see Value
+   * @see Binary
+   * @since JCR 2.0
+   * @since Sitevision 3.5
+   */
+  getBinary(): Binary;
 
   /**
    * Returns a <code>long</code> representation of the value of this property.

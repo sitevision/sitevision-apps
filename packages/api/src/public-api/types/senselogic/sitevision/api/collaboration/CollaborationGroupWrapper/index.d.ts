@@ -4,6 +4,7 @@
 import type { Set } from "../../../../../java/util/Set";
 import type { Node } from "../../../../../javax/jcr/Node";
 
+import type { List } from "../../../../../java/util/List";
 import type { String } from "../../../../../java/lang/String";
 import type CollaborationGroupType from "../../../../../../server/CollaborationGroupType";
 
@@ -68,6 +69,41 @@ export type CollaborationGroupWrapper = Wrapper & {
    * @return the members of the wrapped collaboration group. Never null.
    */
   getMembers(): Set;
+
+  /**
+   * Gets a specific range of members of the wrapped collaboration group.
+   *
+   *  <p>
+   *     <em>Note!</em> Admins are also considered as members.
+   *  </p>
+   *
+   *  <p>
+   *     This method returns available members only, just like {@link #getMembers()}.
+   *  </p>
+   * @param aStart zero-based start index
+   * @param aCount max number of members to return
+   * @return the requested members of the wrapped collaboration group. Never null.
+   * @throws IllegalArgumentException if <code>aStart</code> is negative or <code>aCount</code> is not positive
+   * @since Sitevision 2026.09.2
+   */
+  getMembers(aStart: number, aCount: number): List;
+
+  /**
+   * Gets the total number of members of the wrapped collaboration group.
+   *
+   *  <p>
+   *     <em>Note!</em> Admins are also considered as members.
+   *  </p>
+   *
+   *  <p>
+   *     This method is optimized to count indexed memberships and does not resolve all member identities.
+   *     Hence the returned count can include members that are currently unavailable and therefore would not
+   *     be returned by {@link #getMembers()} or {@link #getMembers(int, int)}.
+   *  </p>
+   * @return the total number of indexed members of the wrapped collaboration group
+   * @since Sitevision 2026.09.2
+   */
+  getTotalMemberCount(): number;
 
   /**
    * Checks if a user identity is member of the wrapped collaboration group.

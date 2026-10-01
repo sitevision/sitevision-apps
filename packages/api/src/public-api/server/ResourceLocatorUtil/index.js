@@ -53,4 +53,5 @@ export default {
   getTargetAudienceGroupRepository: () => {},
   getAiAssistantRepository: () => {},
   getMcpServerRepository: () => {},
+  getThemeRepository: () => {},
 };

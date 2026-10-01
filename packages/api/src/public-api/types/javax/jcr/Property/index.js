@@ -2,9 +2,11 @@
  * This file is auto generated. Do not modify it manually.
  */
 export default {
+  setValue: () => {},
   getValue: () => {},
   getValues: () => {},
   getString: () => {},
+  getBinary: () => {},
   getLong: () => {},
   getDouble: () => {},
   getDecimal: () => {},

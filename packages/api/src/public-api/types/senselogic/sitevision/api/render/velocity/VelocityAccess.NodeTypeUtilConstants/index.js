@@ -215,4 +215,6 @@ export default {
   getMCP_SERVER_REPOSITORY_TYPE: () => {},
   getMCP_SERVER_CUSTOM_MODULE_TYPE: () => {},
   getMARKETPLACE_MCP_SERVER_CUSTOM_MODULE_TYPE: () => {},
+  getTHEME_REPOSITORY_TYPE: () => {},
+  getTHEME_TYPE: () => {},
 };

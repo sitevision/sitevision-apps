@@ -19,6 +19,12 @@ import type { SearchHitConstants } from "../../render/velocity/VelocityAccess.Se
  *     A <code>SearchHit</code> is a container for the search result returned from an Index as well
  *     as for the representation of an internal hit as {@link javax.jcr.Node}.
  *  </p>
+ *  <p>
+ *     <strong>Note that all search indexes has <em>eventual consistency</em>!</strong>
+ *     This means that search index entries might not be 100% up to date with current state of represented objects at all times.
+ *     Consumers of this interface must be aware of this and handle it accordingly
+ *     (e.g. the {@link #getNode()} method might return null, even though the hit is of type {@link #TYPE_INTERNAL}).
+ *  </p>
  *
  *  <p id="knowyourfields">
  *     <strong>Know your fields!</strong> Ensure to call the proper "getField" method when getting a field value!
@@ -194,9 +200,23 @@ export type SearchHit = SearchHitConstants & {
   ): boolean;
 
   /**
-   * <p>Accesses the {@link javax.jcr.Node} corresponding to a {@link #TYPE_INTERNAL} hit. This
-   *  value will always be null for a {@link #TYPE_EXTERNAL} hit.</p>
-   * @return A <code>Node</code> or <code>null</code>
+   * Accesses the {@link javax.jcr.Node} corresponding to a {@link #TYPE_INTERNAL} hit.
+   *
+   *  <p>
+   *     <strong>Note!</strong> All index data are <em>eventual consistency</em> and this method can return null!
+   *  </p>
+   *  <ul>
+   *     <li>
+   *        This method will <em>always</em> return <code>null</code> for a {@link #TYPE_EXTERNAL} hit since such data doesn't represent any
+   *        local Sitevision object.
+   *     </li>
+   *     <li>
+   *        This method can also return <code>null</code> for a {@link #TYPE_INTERNAL} hit - if the corresponding Sitevision object has
+   *        been made "unavailable" since the search index was last updated. For instance, a hit that represents a sv:page that is now unpublished
+   *        or removed or a sv:file that now resides in the trashcan.
+   *     </li>
+   *  </ul>
+   * @return the Node that corresponds to the hit or null
    */
   getNode(): Node;
 

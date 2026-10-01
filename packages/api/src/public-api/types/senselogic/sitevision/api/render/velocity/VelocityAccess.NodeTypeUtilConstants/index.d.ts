@@ -1474,4 +1474,18 @@ export type NodeTypeUtilConstants = {
    * @since Sitevision 2026.05.1
    */
   getMARKETPLACE_MCP_SERVER_CUSTOM_MODULE_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#THEME_REPOSITORY_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#THEME_REPOSITORY_TYPE}
+   * @since Sitevision 2026.09.2
+   */
+  getTHEME_REPOSITORY_TYPE(): string;
+
+  /**
+   * Get accessor for {@link senselogic.sitevision.api.node.NodeTypeUtil#THEME_TYPE}.
+   * @return {@link senselogic.sitevision.api.node.NodeTypeUtil#THEME_TYPE}
+   * @since Sitevision 2026.09.2
+   */
+  getTHEME_TYPE(): string;
 };
