@@ -3,6 +3,7 @@
  */
 export default {
   getString: () => {},
+  getBinary: () => {},
   getLong: () => {},
   getDouble: () => {},
   getDecimal: () => {},

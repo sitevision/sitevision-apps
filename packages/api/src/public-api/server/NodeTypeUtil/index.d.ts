@@ -1324,6 +1324,18 @@ export interface NodeTypeUtil extends NodeTypeUtilConstants {
   MARKETPLACE_MCP_SERVER_CUSTOM_MODULE_TYPE: "sv:marketplaceMcpServerCustomModule";
 
   /**
+   * The primary node type name for the theme type.
+   * @since Sitevision 2026.09.2
+   */
+  THEME_TYPE: "sv:theme";
+
+  /**
+   * The primary node type name for the theme repository type.
+   * @since Sitevision 2026.09.2
+   */
+  THEME_REPOSITORY_TYPE: "sv:themeRepository";
+
+  /**
    * Checks if a node is a layout.
    * @param aNode the node to be checked
    * @return whether <code>aNode</code> is a layout or not.

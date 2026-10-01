@@ -27,6 +27,159 @@ import type { Lock } from "../lock/Lock";
     */
 export type Node = Item & {
   /**
+   * Sets the single-value property of this node called <code>name</code> to
+   *  the specified <code>value</code>.
+   *  <p>
+   *  If the property does not yet exist, it is created and its property type
+   *  determined by the by the node type of this node. If, based on the
+   *  <code>name</code> and <code>value</code> passed, there is more than one
+   *  property definition that applies, the repository chooses one definition
+   *  according to some implementation-specific criteria. Once a property with
+   *  name <code>P</code> has been created, the behavior of a subsequent
+   *  <code>setProperty(P,V)</code> may differ across implementations. Some
+   *  repositories may allow <code>P</code> to be dynamically re-bound to a
+   *  different property definition (based for example, on the new value being
+   *  of a different type than the original value) while other repositories may
+   *  not allow such dynamic re-binding.
+   *  <p>
+   *  If the property type of the supplied <code>Value</code> object is
+   *  different from that required, then a best-effort conversion is
+   *  attempted.
+   *  <p>
+   *  If the node type of this node does not indicate a specific property type,
+   *  then the property type of the supplied <code>Value</code> object is used
+   *  and if the property already exists it assumes both the new value and new
+   *  property type.
+   *  <p>
+   *  Passing a <code>null</code> as the second parameter removes the property.
+   *  It is equivalent to calling <code>remove</code> on the
+   *  <code>Property</code> object itself.
+   *  <p>
+   *  This is a session-write method, meaning that changes made through this
+   *  method are dispatched on {@link Session#save}.
+   *  <p>
+   *  A <code>ConstraintViolationException</code> will be thrown either
+   *  immediately, on dispatch (save whether within or without transactions) or
+   *  on persist (save without transactions, commit within a transaction), if
+   *  the change would violate a node type or implementation-specific
+   *  constraint. Implementations may differ on when this validation is
+   *  performed.
+   *  <p>
+   *  A <code>VersionException</code> will be thrown either immediately, on
+   *  dispatch (save whether within or without transactions) or on persist
+   *  (save without transactions, commit within a transaction), if this node is
+   *  read-only due to a checked-in node. Implementations may differ on when
+   *  this validation is performed.
+   *  <p>
+   *  A <code>LockException</code> will be thrown either immediately, on
+   *  dispatch (save whether within or without transactions) or on persist
+   *  (save without transactions, commit within a transaction), if a lock
+   *  prevents the setting of the property. Implementations may differ on when
+   *  this validation is performed.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name The name of a property of this node
+   * @param value The value to be assigned
+   * @return The updated <code>Property</code> object
+   * @throws ValueFormatException if the specified property is a&#xA; <code>DATE</code> but the <code>value</code> cannot be expressed in the&#xA; ISO 8601-based format defined in the JCR 2.0 specification and the&#xA; implementation does not support dates incompatible with that format or if&#xA; <code>value</code> cannot be converted to the type of the specified&#xA; property or if the property already exists and is multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setProperty(name: String | string, value: Value): Property;
+
+  /**
+   * Sets the multi-value property of this node called <code>name</code> to
+   *  the specified array of values.
+   *  <p>
+   *  If the property does not yet exist, it is created.
+   *  <p>
+   *  The behavior of this method is identical to that of {@link
+   *  #setProperty(String name, Value value)} except that an array of
+   *  <code>Value</code> objects is assigned instead of a single
+   *  <code>Value</code>.
+   *  <p>
+   *  The property type of the property will be that specified by the node type
+   *  of this node. If the property type of one or more of the supplied
+   *  <code>Value</code> objects is different from that required, then a
+   *  best-effort conversion is attempted, according to an
+   *  implemention-dependent definition of "best effort". If the conversion
+   *  fails, a <code>ValueFormatException</code> is thrown.
+   *  <p>
+   *  If the property is not multi-valued then a <code>ValueFormatException</code>
+   *  is also thrown. If another error occurs, a <code>RepositoryException</code>
+   *  is thrown.
+   *  <p>
+   *  If the node type of this node does not indicate a specific property type,
+   *  then the property type of the supplied <code>Value</code> objects is used
+   *  and if the property already exists it assumes both the new values and the
+   *  new property type.
+   *  <p>
+   *  Passing a <code>null</code> as the second parameter removes the property.
+   *  It is equivalent to calling <code>remove</code> on the
+   *  <code>Property</code> object itself. Note that this is different from
+   *  passing an array that contains <code>null</code> elements. In such a
+   *  case, the array is compacted by removing the <code>null</code> values.
+   *  The resulting set of values never contains a null. However, the set may
+   *  be empty: <code>N.setProperty("P", new Value[]{null})</code> would set
+   *  the property to the empty set of values.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name the name of the property to be set.
+   * @param values an array of <code>Value</code> objects.
+   * @return the updated <code>Property</code> object.
+   * @throws ValueFormatException if <code>value</code> cannot be converted to&#xA; the type of the specified property or if the property already exists and&#xA; is not multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setProperty(name: String | string, values: Value[]): Property;
+
+  /**
+   * Sets the specified property to the specified array of values. Same as
+   *  {@link #setProperty(String name, Value[] values)} except that the values
+   *  are specified as <code>String</code> objects instead of
+   *  <code>Value</code> objects.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name the name of the property to be set.
+   * @param values an array of <code>Value</code> objects.
+   * @return the updated <code>Property</code> object.
+   * @throws ValueFormatException if a value cannot be converted to the type&#xA; of the specified property or if the property already exists and is not&#xA; multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setProperty(name: String | string, values: String[] | string[]): Property;
+
+  /**
+   * Sets the specified single-value property to the specified value. The
+   *  behavior of this method is identical to that of {@link
+   *  #setProperty(String name, Value value)} except that the value is
+   *  specified as a <code>String</code>. and, if possible, the type assigned
+   *  to the property is <code>STRING</code>, otherwise a best-effort
+   *  conversion is attempted.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name The name of a property of this node
+   * @param value The value to assigned
+   * @return The updated <code>Property</code> object
+   * @throws ValueFormatException if <code>value</code> cannot be converted to&#xA; the type of the specified property or if the property already exists and&#xA; is multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setProperty(name: String | string, value: String | string): Property;
+
+  /**
    * Sets the specified single-value property to the specified value. If the
    *  property does not yet exist, it is created.
    *  <p>
@@ -72,6 +225,134 @@ export type Node = Item & {
   setProperty(name: String | string, value: InputStream): Property;
 
   /**
+   * The behavior of this method is identical to that of {@link
+   *  #setProperty(String name, Value value)} except that the value is
+   *  specified as a <code>boolean</code> and, if possible, the type assigned
+   *  to the property is <code>BOOLEAN</code>, otherwise a best-effort
+   *  conversion is attempted.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name The name of a property of this node
+   * @param value The value to assigned
+   * @return The updated <code>Property</code> object
+   * @throws ValueFormatException if <code>value</code> cannot be converted to&#xA; the type of the specified property or if the property already exists and&#xA; is multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setProperty(name: String | string, value: boolean): Property;
+
+  /**
+   * The behavior of this method is identical to that of {@link
+   *  #setProperty(String name, Value value)} except that the value is
+   *  specified as a <code>double</code> and, if possible, the type assigned to
+   *  the property is <code>DOUBLE</code>, otherwise a best-effort conversion
+   *  is attempted.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name The name of a property of this node
+   * @param value The value to assigned
+   * @return The updated <code>Property</code> object
+   * @throws ValueFormatException if <code>value</code> cannot be converted to&#xA; the type of the specified property or if the property already exists and&#xA; is multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setProperty(name: String | string, value: number): Property;
+
+  /**
+   * The behavior of this method is identical to that of {@link
+   *  #setProperty(String name, Value value)} except that the value is
+   *  specified as a {@link BigDecimal} and, if possible, the type assigned to
+   *  the property is <code>DECIMAL</code>, otherwise a best-effort conversion
+   *  is attempted.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name The name of a property of this node
+   * @param value The value to assigned
+   * @return The updated <code>Property</code> object
+   * @throws ValueFormatException if <code>value</code> cannot be converted to&#xA; the type of the specified property or if the property already exists and&#xA; is multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   * @since JCR 2.0
+   */
+  setProperty(name: String | string, value: BigDecimal): Property;
+
+  /**
+   * The behavior of this method is identical to that of {@link
+   *  #setProperty(String name, Value value)} except that the value is
+   *  specified as a <code>long</code> and, if possible, the type assigned to
+   *  the property is <code>LONG</code>, otherwise a best-effort conversion is
+   *  attempted.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name The name of a property of this node
+   * @param value The value to assigned
+   * @return The updated <code>Property</code> object
+   * @throws ValueFormatException if <code>value</code> cannot be converted to&#xA; the type of the specified property or if the property already exists and&#xA; is multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setProperty(name: String | string, value: number): Property;
+
+  /**
+   * The behavior of this method is identical to that of {@link
+   *  #setProperty(String name, Value value)} except that the value is
+   *  specified as a {@link Calendar} and, if possible, the type assigned to
+   *  the property is <code>DATE</code>, otherwise a best-effort conversion is
+   *  attempted.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name The name of a property of this node
+   * @param value The value to assigned
+   * @return The updated <code>Property</code> object
+   * @throws ValueFormatException if the specified property is a&#xA; <code>DATE</code> but the <code>value</code> cannot be expressed in the&#xA; ISO 8601-based format defined in the JCR 2.0 specification (section&#xA; 3.6.4.3) and the implementation does not support dates incompatible with&#xA; that format or if <code>value</code> cannot be converted to the type of&#xA; the specified property or if the property already exists and is&#xA; multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setProperty(name: String | string, value: Calendar): Property;
+
+  /**
+   * The behavior of this method is identical to that of {@link
+   *  #setProperty(String name, Value value)} except that the value is
+   *  specified as a {@link Node} and, if possible, the type assigned to the
+   *  property is <code>REFERENCE</code> or <code>WEAKREFERENCE</code>,
+   *  otherwise a best-effort conversion is attempted.
+   *  <p>
+   *  The value to which the property is set is the identifier of the passed
+   *  node.
+   *  <p>
+   *  If the named property does not yet exist and the repository cannot
+   *  determine whether a <code>REFERENCE</code> or <code>WEAKREFERENCE</code>
+   *  property is intended, then a <code>REFERENCE</code> property is created.
+   *
+   *  <p><strong>Sitevision note:</strong> Limited to nodes of primary {@link javax.jcr.nodetype.NodeType}
+   *  <code>sv:simpleUser</code></p>
+   * @param name The name of a property of this node
+   * @param value The value to assigned
+   * @return The updated <code>Property</code> object.
+   * @throws ValueFormatException if this property is not of type&#xA; <code>REFERENCE</code> or <code>WEAKREFERENCE</code> or the specified&#xA; node is not referenceable or if the specified property already exists and&#xA; is multi-valued.
+   * @throws VersionException if this node is read-only due to a checked-in&#xA; node and this implementation performs this validation immediately.
+   * @throws LockException if a lock prevents the setting of the property and&#xA; this implementation performs this validation immediately.
+   * @throws ConstraintViolationException if the change would violate a&#xA; node-type or other constraint and this implementation performs this&#xA; validation immediately.
+   * @throws RepositoryException if another error occurs.
+   */
+  setProperty(name: String | string, value: Node): Property;
+
+  /**
    * Returns the node at <code>relPath</code> relative to this node.
    *  <p>
    *  If <code>relPath</code> contains a path element that refers to a node
@@ -100,6 +381,12 @@ export type Node = Item & {
    *  <code>Node</code>. The same reacquisition semantics apply as with {@link
    *  #getNode(String)}. If this node has no accessible child nodes, then an
    *  empty iterator is returned.
+   *
+   *  <p>
+   *     <strong>Sitevision note:</strong> {@link senselogic.sitevision.api.node.NodeIteratorUtil} can help
+   *     facilitate more targeted iteration over child nodes. Typically in combination with a node filter
+   *     created via {@link senselogic.sitevision.api.node.NodeFilterUtil}.
+   *  </p>
    * @return A <code>NodeIterator</code> over all child <code>Node</code>s of&#xA; this <code>Node</code>.
    * @throws RepositoryException if an error occurs.
    */
@@ -144,6 +431,11 @@ export type Node = Item & {
    * Returns the property at <code>relPath</code> relative to
    *  <code>this</code> node. The same reacquisition semantics apply as with
    *  <code>{@link #getNode(String)}</code>.
+   *
+   *  <p>
+   *     <strong>Sitevision note:</strong> Use {@link senselogic.sitevision.api.property.PropertyUtil} or
+   *     {@link senselogic.sitevision.api.property.Properties} instead when working with properties.
+   *  </p>
    * @param relPath The relative path of the property to retrieve.
    * @return The property at <code>relPath</code>.
    * @throws PathNotFoundException if no property exists at the specified path&#xA; or if the current&#xA; <p>&#xA; <code>Session</code> does not have read access to the specified&#xA; property.
@@ -192,6 +484,11 @@ export type Node = Item & {
    *  iterator is returned.
    *  </p><p>
    *  The same reacquisition semantics apply as with <code>{@link #getNode(String)}</code>.
+   *  </p>
+   *
+   *  <p>
+   *     <strong>Sitevision note:</strong> Use {@link senselogic.sitevision.api.property.PropertyUtil} or
+   *     {@link senselogic.sitevision.api.property.Properties} instead when working with properties.
    *  </p>
    * @param namePattern a name pattern.
    * @return a <code>PropertyIterator</code>.

@@ -50,19 +50,19 @@ export interface ResourceLocatorUtil {
   getSitePage(): Node;
 
   /**
-   * Gets the color repository for the site of current node.
+   * Gets the color repository (sv:colorRepository) for the site of current node.
    * @return the color repository for the site of current node, or <code>null</code> if indeterminable
    */
   getColorRepository(): Node;
 
   /**
-   * Gets the font repository for the site of current node.
+   * Gets the font repository (sv:fontRepository) for the site of current node.
    * @return the font repository for the site of current node, or <code>null</code> if indeterminable
    */
   getFontRepository(): Node;
 
   /**
-   * Gets the decoration repository for the site of current node.
+   * Gets the decoration repository (sv:decorationRepository) for the site of current node.
    * @return the decoration repository for the site of current node, or <code>null</code> if indeterminable
    */
   getDecorationRepository(): Node;
@@ -180,7 +180,7 @@ export interface ResourceLocatorUtil {
   getPersonalImageRepository(aNode: Node): Node;
 
   /**
-   * Gets the icon repository for the site of current node.
+   * Gets the icon repository (sv:iconRepository) for the site of current node.
    *
    *  <p>
    *     The icon repository contains all site-specific file icon nodes.
@@ -190,7 +190,7 @@ export interface ResourceLocatorUtil {
   getIconRepository(): Node;
 
   /**
-   * Gets the index repository for the site of current node.
+   * Gets the index repository (sv:indexRepository) for the site of current node.
    *
    *  <p>
    *     <em>Tip!</em> The {@link senselogic.sitevision.api.search.index.IndexUtil} utility can be used for easy index lookup.
@@ -211,7 +211,7 @@ export interface ResourceLocatorUtil {
   getDefaultImageRepository(): Node;
 
   /**
-   * Gets the LDAP directories repository for the site of current node
+   * Gets the LDAP directories repository (sv:directoryRepository) for the site of current node
    * @return the LDAP directories repository, or <code>null</code> if indeterminable
    */
   getDirectoryRepository(): Node;
@@ -278,35 +278,35 @@ export interface ResourceLocatorUtil {
   getNodeId(aInternalObject: unknown): string;
 
   /**
-   * Gets the template repository for the site of current node.
+   * Gets the template repository (sv:templateRepository) for the site of current node.
    * @return the template repository for the site of current node, or <code>null</code> if indeterminable
    * @since Sitevision 2.6.2
    */
   getTemplateRepository(): Node;
 
   /**
-   * Gets the RSS feed repository for the site of current node.
+   * Gets the RSS feed repository (sv:rssFeedRepository) for the site of current node.
    * @return the RSS feed repository for the site of current node, or <code>null</code> if indeterminable
    * @since Sitevision 3.6.2
    */
   getRssFeedRepository(): Node;
 
   /**
-   * Gets the list style repository for the site of current node.
+   * Gets the list style repository (sv:listStyleRepository) for the site of current node.
    * @return the list style repository for the site of current node, or <code>null</code> if indeterminable
    * @since Sitevision 3.6.4
    */
   getListStyleRepository(): Node;
 
   /**
-   * Gets the module element draft repository for the site of current node.
+   * Gets the module element draft repository (sv:moduleElementDraftRepository) for the site of current node.
    * @return the module element draft repository, or <code>null</code> if indeterminable.
    * @since Sitevision 4.2
    */
   getModuleElementDraftRepository(): Node;
 
   /**
-   * Gets the module element repository for the site of current node.
+   * Gets the module element repository (sv:moduleElementRepository) for the site of current node.
    * @return the module element repository, or <code>null</code> if indeterminable.
    * @since Sitevision 4.2
    */
@@ -357,14 +357,14 @@ export interface ResourceLocatorUtil {
   getModuleElementImageRepository(aNode: Node): Node;
 
   /**
-   * Gets the addon repository for the site of current node.
+   * Gets the addon repository (sv:addonRepository) for the site of current node.
    * @return the addon repository, or <code>null</code> if indeterminable.
    * @since Sitevision 4.2
    */
   getAddonRepository(): Node;
 
   /**
-   * Gets the named reference repository for the site of current node.
+   * Gets the named reference repository (sv:namedReferenceRepository) for the site of current node.
    * @return the named reference repository, or <code>null</code> if indeterminable.
    * @since Sitevision 4.2.2
    */
@@ -514,11 +514,18 @@ export interface ResourceLocatorUtil {
   getAiAssistantRepository(): Node;
 
   /**
-   * Gets the MCP Server Repository for the site of current node.
+   * Gets the MCP Server Repository (sv:mcpServerRepository) for the site of current node.
    * @return the MCP Server Repository, or null if indeterminable.
    * @since Sitevision 2026.05.1
    */
   getMcpServerRepository(): Node;
+
+  /**
+   * Gets the theme repository (sv:themeRepository) for the site of current node.
+   * @return the theme repository, or null if indeterminable.
+   * @since Sitevision 2026.09.2
+   */
+  getThemeRepository(): Node;
 }
 
 declare namespace ResourceLocatorUtil {}

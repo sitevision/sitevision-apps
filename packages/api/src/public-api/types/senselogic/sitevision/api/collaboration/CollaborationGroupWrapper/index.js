@@ -6,6 +6,7 @@ export default {
   isAdmin: () => {},
   addAdmin: () => {},
   getMembers: () => {},
+  getTotalMemberCount: () => {},
   isMember: () => {},
   addMember: () => {},
   removeMember: () => {},
