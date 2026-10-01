@@ -10,6 +10,10 @@ export interface Cookie {
 }
 
 export type Session = {
+  /** The session creation time in milliseconds since the Unix epoch. */
+  readonly creationTimestamp: number;
+  /** Whether the session is new and the client has not yet joined it. */
+  readonly isNewSession: boolean;
   [key: string]: any;
 };
 
