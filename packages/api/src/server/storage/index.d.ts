@@ -125,24 +125,29 @@ export interface KeyValueDataStore<T = Record<string, unknown>> {
    * @since 5.2
    * @param key A key to uniquely identify the record
    * @param data  Data to store
+   * @throws {DataStoreError} If the write or subsequent read fails.
    */
-  put(key: string, data: T): T | null;
+  put(key: string, data: T): T;
   /**
    * Returns data associated with a key.
+   * Throws a DataStoreError with type 'item_not_found' when the key does not exist.
    *
    * @since 5.2
    * @param key A key to retrieve data from
+   * @throws {DataStoreError} If the item is missing or the read fails.
    */
-  get(key: string): T | null;
+  get(key: string): T;
 
   /**
    * Removes data associated with a key.
    * Returns the removed data.
+   * Throws a DataStoreError with type 'item_not_found' when the key does not exist.
    *
    * @since 5.2
    * @param key A key to identify data to remove
+   * @throws {DataStoreError} If the item is missing or the removal fails.
    */
-  remove(key: string): T | null;
+  remove(key: string): T;
 }
 
 export interface SearchResult<T = unknown> {
@@ -190,14 +195,13 @@ export interface DataStoreError {
   message: string;
 }
 
-export enum DataStoreErrorType {
-  validation_failed,
-  read_only,
-  item_not_found,
-  item_property_count_exceeded,
-  illegal_method_call,
-  unknown,
-}
+export type DataStoreErrorType =
+  | 'validation_failed'
+  | 'read_only'
+  | 'item_not_found'
+  | 'item_property_count_exceeded'
+  | 'illegal_method_call'
+  | 'unknown';
 
 export interface Storage {
   /**
