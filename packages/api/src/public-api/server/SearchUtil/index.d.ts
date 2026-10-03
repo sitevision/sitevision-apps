@@ -96,7 +96,7 @@ export interface SearchUtil {
    */
   search(
     aQuery: String | string,
-    sortFields: List | unknown[],
+    sortFields: List | unknown[] | null,
     aStartAtHit: number,
     aMaxHitsToReturn: number
   ): SearchResult;
@@ -122,7 +122,7 @@ export interface SearchUtil {
   search(
     aQuery: String | string,
     aFieldName: String | string,
-    sortFields: List | unknown[],
+    sortFields: List | unknown[] | null,
     aStartAtHit: number,
     aMaxHitsToReturn: number
   ): SearchResult;
