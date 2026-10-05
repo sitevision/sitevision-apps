@@ -3635,7 +3635,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitevision/eslint-config-typescript@npm:^1.0.2, @sitevision/eslint-config-typescript@workspace:packages/eslint-config-typescript":
+"@sitevision/eslint-config-typescript@npm:^1.0.3, @sitevision/eslint-config-typescript@workspace:packages/eslint-config-typescript":
   version: 0.0.0-use.local
   resolution: "@sitevision/eslint-config-typescript@workspace:packages/eslint-config-typescript"
   dependencies:
@@ -3674,7 +3674,7 @@ __metadata:
     "@sitevision/babel-preset-react-client": "npm:^1.0.5"
     "@sitevision/babel-preset-react-server": "npm:^1.0.6"
     "@sitevision/eslint-config-recommended": "npm:^1.0.4"
-    "@sitevision/eslint-config-typescript": "npm:^1.0.2"
+    "@sitevision/eslint-config-typescript": "npm:^1.0.3"
     "@sitevision/eslint-config-webapp-react": "npm:^1.0.4"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/jest-dom": "npm:^6.6.2"
@@ -4985,12 +4985,12 @@ __metadata:
   linkType: hard
 
 "brace-expansion@npm:^1.1.7":
-  version: 1.1.16
-  resolution: "brace-expansion@npm:1.1.16"
+  version: 1.1.21
+  resolution: "brace-expansion@npm:1.1.21"
   dependencies:
     balanced-match: "npm:^1.0.0"
     concat-map: "npm:0.0.1"
-  checksum: 10c0/b2a915bbedbf4e45840d1fb9a4d391bbf26a79475bd134714d3cee34f1f0edb0ce982738028843be5fbaf8039429f71fa487df8c915b6065ced542c83e58fae6
+  checksum: 10c0/8f0a68a720f9cb28c2ecaea5cdaf15fafd686d6b6e4e722a81c9d4bd2f68c1fd0619731cac05875d842221eaf4d97d564d329a12eb3c4c22137502fb3c65be8b
   languageName: node
   linkType: hard
 
