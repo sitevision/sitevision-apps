@@ -3635,7 +3635,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitevision/eslint-config-typescript@npm:^1.0.2, @sitevision/eslint-config-typescript@workspace:packages/eslint-config-typescript":
+"@sitevision/eslint-config-typescript@npm:^1.0.3, @sitevision/eslint-config-typescript@workspace:packages/eslint-config-typescript":
   version: 0.0.0-use.local
   resolution: "@sitevision/eslint-config-typescript@workspace:packages/eslint-config-typescript"
   dependencies:
@@ -3674,7 +3674,7 @@ __metadata:
     "@sitevision/babel-preset-react-client": "npm:^1.0.5"
     "@sitevision/babel-preset-react-server": "npm:^1.0.6"
     "@sitevision/eslint-config-recommended": "npm:^1.0.4"
-    "@sitevision/eslint-config-typescript": "npm:^1.0.2"
+    "@sitevision/eslint-config-typescript": "npm:^1.0.3"
     "@sitevision/eslint-config-webapp-react": "npm:^1.0.4"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/jest-dom": "npm:^6.6.2"
@@ -11187,17 +11187,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-js@npm:>=0.6.2 <2.0.0":
-  version: 1.0.2
-  resolution: "source-map-js@npm:1.0.2"
-  checksum: 10c0/32f2dfd1e9b7168f9a9715eb1b4e21905850f3b50cf02cf476e47e4eebe8e6b762b63a64357896aa29b37e24922b4282df0f492e0d2ace572b43d15525976ff8
-  languageName: node
-  linkType: hard
-
-"source-map-js@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "source-map-js@npm:1.2.1"
-  checksum: 10c0/7bda1fc4c197e3c6ff17de1b8b2c20e60af81b63a52cb32ec5a5d67a20a7d42651e2cb34ebe93833c5a2a084377e17455854fee3e21e7925c64a51b6a52b0faf
+"source-map-js@npm:>=0.6.2 <2.0.0, source-map-js@npm:^1.2.1":
+  version: 1.2.2
+  resolution: "source-map-js@npm:1.2.2"
+  checksum: 10c0/d5d6dec62266834f83dd4f8a2606a196fb1a006ca5d53b0ef80ee513b7eba2f4e2ae241f4bc129ae7e9b80dea24f6e3d92b446b7e6e96be7653cab8888168a94
   languageName: node
   linkType: hard
 
