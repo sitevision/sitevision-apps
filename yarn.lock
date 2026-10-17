@@ -3635,7 +3635,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitevision/eslint-config-typescript@npm:^1.0.2, @sitevision/eslint-config-typescript@workspace:packages/eslint-config-typescript":
+"@sitevision/eslint-config-typescript@npm:^1.0.3, @sitevision/eslint-config-typescript@workspace:packages/eslint-config-typescript":
   version: 0.0.0-use.local
   resolution: "@sitevision/eslint-config-typescript@workspace:packages/eslint-config-typescript"
   dependencies:
@@ -3674,7 +3674,7 @@ __metadata:
     "@sitevision/babel-preset-react-client": "npm:^1.0.5"
     "@sitevision/babel-preset-react-server": "npm:^1.0.6"
     "@sitevision/eslint-config-recommended": "npm:^1.0.4"
-    "@sitevision/eslint-config-typescript": "npm:^1.0.2"
+    "@sitevision/eslint-config-typescript": "npm:^1.0.3"
     "@sitevision/eslint-config-webapp-react": "npm:^1.0.4"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/jest-dom": "npm:^6.6.2"
@@ -7213,10 +7213,10 @@ __metadata:
   linkType: hard
 
 "handlebars@npm:^4.7.7, handlebars@npm:^4.7.8":
-  version: 4.7.9
-  resolution: "handlebars@npm:4.7.9"
+  version: 4.7.10
+  resolution: "handlebars@npm:4.7.10"
   dependencies:
-    minimist: "npm:^1.2.5"
+    minimist: "npm:^1.2.8"
     neo-async: "npm:^2.6.2"
     source-map: "npm:^0.6.1"
     uglify-js: "npm:^3.1.4"
@@ -7226,7 +7226,7 @@ __metadata:
       optional: true
   bin:
     handlebars: bin/handlebars
-  checksum: 10c0/22f8105a7e68e81aff2662bb434edf05f757d21d850731d71cec886d69c10cd33d3c43e34b2892968ec62de8241611851d3d0674c8ef324ea3e01dc66262faa9
+  checksum: 10c0/9b5573584ae5836172ae3f1502d9819568ba1b92ee83b81b18223beeb4c07486595e7b0fa633102beabc66ed06fe6e7da1dd9a9ea8c7072b9550b9a88809165c
   languageName: node
   linkType: hard
 
@@ -9243,13 +9243,6 @@ __metadata:
   version: 1.2.7
   resolution: "minimist@npm:1.2.7"
   checksum: 10c0/8808da67ca50ee19ab2d69051d77ee78572e67297fd8a1635ecc757a15106ccdfb5b8c4d11d84750120142f1684e5329a141295728c755e5d149eedd73cc6572
-  languageName: node
-  linkType: hard
-
-"minimist@npm:^1.2.5":
-  version: 1.2.6
-  resolution: "minimist@npm:1.2.6"
-  checksum: 10c0/d0b566204044481c4401abbd24cc75814e753b37268e7fe7ccc78612bf3e37bf1e45a6c43fb0b119445ea1c413c000bde013f320b7211974f2f49bcbec1d0dbf
   languageName: node
   linkType: hard
 
