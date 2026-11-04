@@ -7,6 +7,7 @@ import type { Node } from "../../types/javax/jcr/Node";
 import type { String } from "../../types/java/lang/String";
 import type SourceSetMode from "../SourceSetMode";
 import type DimensionMode from "../DimensionMode";
+import type FetchPriorityMode from "../FetchPriorityMode";
 
 /**
  * ImageRenderer is a stateful utility interface that can be used to render valid html img elements based on images of the website.
@@ -64,6 +65,9 @@ import type DimensionMode from "../DimensionMode";
  *     </li>
  *     <li>
  *        <em>dimensionMode</em> - The <code>width/height</code> css style properties rendering strategy. Default is {@link DimensionMode#AUTO}.
+ *     </li>
+ *     <li>
+ *        <em>fetchPriorityMode</em> - The <code>fetchpriority</code> attribute rendering strategy. Default is {@link FetchPriorityMode#OFF}.
  *     </li>
  *     <li>
  *        <em>cssClasses</em> - Custom css class values. Default is <code>null</code> (no custom classes).
@@ -361,6 +365,46 @@ export interface ImageRenderer {
    * @since Sitevision 5
    */
   resetDimensionMode(): void;
+
+  /**
+   * The <code>fetchpriority</code> attribute rendering strategy.
+   *  <p>
+   *     Default is {@link FetchPriorityMode#OFF}. The attribute should be used sparingly, as excessive or incorrect prioritization can
+   *     degrade performance. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority">MDN Web Docs</a>
+   *     for more information.
+   *  </p>
+   * @param aFetchPriorityMode the fetch priority mode, determines whether and how a <code>fetchpriority</code> attribute is rendered.&#xA; A null value will be completely ignored, use {@link FetchPriorityMode#OFF} to disable fetch priority.
+   * @since Sitevision 2026.10.1
+   */
+  setFetchPriorityMode(aFetchPriorityMode: FetchPriorityMode): void;
+
+  /**
+   * Utility method for executing <code>setFetchPriorityMode({@link FetchPriorityMode#HIGH})</code>.
+   * @see #setFetchPriorityMode(FetchPriorityMode)
+   * @since Sitevision 2026.10.1
+   */
+  setFetchPriorityHigh(): void;
+
+  /**
+   * Utility method for executing <code>setFetchPriorityMode({@link FetchPriorityMode#LOW})</code>.
+   * @see #setFetchPriorityMode(FetchPriorityMode)
+   * @since Sitevision 2026.10.1
+   */
+  setFetchPriorityLow(): void;
+
+  /**
+   * Utility method for executing <code>setFetchPriorityMode({@link FetchPriorityMode#AUTO})</code>.
+   * @see #setFetchPriorityMode(FetchPriorityMode)
+   * @since Sitevision 2026.10.1
+   */
+  setFetchPriorityAuto(): void;
+
+  /**
+   * Utility method for executing <code>setFetchPriorityMode({@link FetchPriorityMode#OFF})</code>.
+   * @see #setFetchPriorityMode(FetchPriorityMode)
+   * @since Sitevision 2026.10.1
+   */
+  clearFetchPriorityMode(): void;
 
   /**
    * A title strategy that makes it possible to render a title attribute with the description as value.

@@ -18,9 +18,11 @@ import type { String } from "../../types/java/lang/String";
  *     <li><em>Northern Sami</em>, i.e. <code>new Locale("se", "SE")</code></li>
  *     <li><em>South Sami</em>, i.e. <code>new Locale("sma", "SE")</code></li>
  *     <li><em>Lule Sami</em>, i.e. <code>new Locale("smj", "SE")</code></li>
+ *     <li><em>Kven Finnish</em>, i.e. <code>new Locale("fkv")</code></li>
  *     <li><em>Soranî</em>, i.e. <code>new Locale("ckb", "IR")</code></li>
  *     <li><em>Farsi</em>, i.e. <code>new Locale("fa", "IR")</code></li>
  *     <li><em>Kurmanji</em>, i.e. <code>new Locale("ku", "TR")</code></li>
+ *     <li><em>Afrikaans</em>, i.e. <code>new Locale("af")</code></li>
  *  </ul>
  *  <p>
  *     Information about <a href="http://www.oracle.com/technetwork/java/javase/java8locales-2095355.html">Supported Locales in JDK 8</a>.
@@ -90,6 +92,7 @@ export interface LocaleUtil {
    *     <li>A <em>Swedish</em> Locale will return <em>Svenska</em></li>
    *     <li>A <em>German</em> Locale will return <em>Deutsch</em></li>
    *     <li>A <em>Northern Sami</em> Locale will return <em>Davvisámegiella</em></li>
+   *     <li>A <em>Kven Finnish</em> Locale will return <em>Kvääni</em></li>
    *  </ul>
    * @param aLocale the locale
    * @return the native language name for <code>aLocale</code>, or <code>null</code> if <code>aLocale</code> is <code>null</code>
@@ -405,6 +408,7 @@ export interface LocaleUtil {
    *     <li>Russian (ru)</li>
    *     <li>Arabic (ar)</li>
    *     <li>Farsi (fa)</li>
+   *     <li>Afrikaans (af)</li>
    *     <li>...</li>
    *  </ul>
    * @param aLocale a Locale, typically a language-only Locale
