@@ -55,6 +55,10 @@ const copyTemplateFiles = (type, options) => {
     const mainName = options.typescript ? 'main.tsx' : 'main.js';
     fs.removeSync(path.join('src', mainName));
   }
+
+  if (!options.useI18n) {
+    fs.removeSync('i18n');
+  }
 };
 
 const writePackageJson = (content) => {
@@ -186,6 +190,7 @@ export default async ({ appPath, appName }) => {
         certificateName,
         typescript,
         serverSideOnly,
+        useI18n = true,
         useHTTPForDevDeploy,
         reactVersion = 18,
       }) => {
@@ -225,6 +230,7 @@ export default async ({ appPath, appName }) => {
             installWebAppDependencies(appPath, reactVersion, typescript);
             templateOptions.typescript = typescript;
             templateOptions.clientRendering = !serverSideOnly;
+            templateOptions.useI18n = useI18n;
             templateOptions.reactVersion = simplifyVersionNumber(
               properties.getPackageJson().dependencies.react
             );
