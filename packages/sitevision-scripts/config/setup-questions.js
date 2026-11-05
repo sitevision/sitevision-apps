@@ -36,6 +36,13 @@ export const questions = [
     when: (answers) => 'web-react' === answers.type,
   },
   {
+    name: 'createTestFiles',
+    message: 'Create test files?',
+    type: 'confirm',
+    default: true,
+    when: (answers) => /web-react|widget-react/.test(answers.type),
+  },
+  {
     name: 'domain',
     message: 'Development domain (www.example.com)',
   },
