@@ -1,9 +1,9 @@
 {
   "id": "{{appName}}",
   "version": "0.0.1",
-  "name": "RESTApp boilerplate",
-  "author": "My Company",
-  "description": "A RESTApp boilerplate",
+  "name": "{{addonName}}",
+  "author": "{{author}}",
+  "description": "{{description}}",
   "helpUrl": "https://example.com/restapps",
   "type": "RESTApp",
   "bundled": true,

@@ -180,6 +180,8 @@ export default async ({ appPath, appName }) => {
         domain,
         siteName,
         addonName,
+        description,
+        author,
         username,
         password,
         signUsername,
@@ -214,6 +216,9 @@ export default async ({ appPath, appName }) => {
         console.log(`Initializing Sitevision ${type} app`, appName);
         const templateOptions = {
           appName,
+          addonName,
+          description,
+          author,
         };
 
         switch (type) {
