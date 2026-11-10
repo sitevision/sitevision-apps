@@ -4,6 +4,10 @@ This is a collection of libraries that will help you build better Sitevision Web
 
 To get started checkout [@sitevision/create-sitevision-app](packages/create-sitevision-app/)
 
+## Prerequisites
+
+Node.js 24 is required to run Lerna in this repository.
+
 ## Changelogs
 
 Changelogs can be found in respective package folders.
