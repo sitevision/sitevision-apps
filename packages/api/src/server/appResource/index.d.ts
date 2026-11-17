@@ -1,3 +1,4 @@
+import type { InputStream } from '../../types/java/io/InputStream';
 import type { Node } from '../../types/javax/jcr/Node';
 
 interface AppResource {
@@ -16,11 +17,11 @@ interface AppResource {
   getNode(key: string): Node;
 
   /**
-   * Get the content of a resource as a InputStream
+   * Get the content of a resource as an InputStream
    * @param key The name of the resource
-   * @returns The content of the resource as a java.io.InputStream
+   * @returns A java.io.InputStream, or null if the resource does not exist
    */
-  getNode(key: string): unknown;
+  getInputStream(key: string): InputStream | null;
 }
 
 declare namespace AppResource {}
