@@ -1,11 +1,13 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= i18n('settings') %></h3>
+    <h3 class="panel-title">
+      {{#if useI18n}}<%= i18n('settings') %>{{else}}Settings{{/if}}
+    </h3>
   </div>
 
   <div class="panel-body">
     <div class="form-group">
-      <label><%= i18n('name') %></label>
+      <label>{{#if useI18n}}<%= i18n('name') %>{{else}}Name{{/if}}</label>
       <input class="form-control" name="name" />
     </div>
   </div>
