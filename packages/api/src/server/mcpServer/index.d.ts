@@ -1,4 +1,4 @@
-import type { JSONSchema, Message, ToolParametersSchema } from '../ai';
+import type { JSONSchema, JSONValue, Message, ToolParametersSchema } from '../ai';
 
 /**
  * A text content item returned from a tool.
@@ -26,6 +26,10 @@ export interface MCPToolInputSchema extends ToolParametersSchema {
 export interface MCPToolRegistration {
   description: string;
   inputSchema: MCPToolInputSchema;
+  /**
+   * JSON schema used to validate structuredContent in successful tool results.
+   */
+  outputSchema?: JSONSchema;
 }
 
 /**
@@ -59,7 +63,11 @@ export interface MCPPromptRegistration {
  * Result returned from an MCP tool invocation.
  */
 export interface MCPToolResult {
-  content: ReadonlyArray<MCPToolContent>;
+  content?: ReadonlyArray<MCPToolContent>;
+  /**
+   * Structured output validated against the tool's outputSchema when provided.
+   */
+  structuredContent?: JSONValue;
   isError?: boolean;
 }
 

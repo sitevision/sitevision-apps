@@ -16,6 +16,10 @@ export interface DataStoreMetadata {
 
 export type CollectionDataStoreItem<T = Record<string, unknown>> = T & DataStoreMetadata;
 
+export type DataStoreUpdate<T> = {
+  [K in keyof T]?: T[K] | null;
+};
+
 /**
  * @since 5.2
  */
@@ -55,7 +59,7 @@ export interface CollectionDataStore<T = Record<string, unknown>> {
    * @param dsid The dsid to identify the item to update
    * @param data JSON data to update the item
    */
-  set(dsid: string, data: T): CollectionDataStoreItem<T>;
+  set(dsid: string, data: DataStoreUpdate<T>): CollectionDataStoreItem<T>;
 
   /**
    * Removes a specific item in a collection.
@@ -121,13 +125,14 @@ export interface KeyValueDataStore<T = Record<string, unknown>> {
   /**
    * Stores data associated with a key.
    * Returns current data stored on the key.
+   * Updates supplied properties and removes properties whose value is null.
    *
    * @since 5.2
    * @param key A key to uniquely identify the record
    * @param data  Data to store
    * @throws {DataStoreError} If the write or subsequent read fails.
    */
-  put(key: string, data: T): T;
+  put(key: string, data: DataStoreUpdate<T>): T & DataStoreMetadata;
   /**
    * Returns data associated with a key.
    * Throws a DataStoreError with type 'item_not_found' when the key does not exist.
@@ -136,7 +141,7 @@ export interface KeyValueDataStore<T = Record<string, unknown>> {
    * @param key A key to retrieve data from
    * @throws {DataStoreError} If the item is missing or the read fails.
    */
-  get(key: string): T;
+  get(key: string): T & DataStoreMetadata;
 
   /**
    * Removes data associated with a key.
@@ -147,7 +152,7 @@ export interface KeyValueDataStore<T = Record<string, unknown>> {
    * @param key A key to identify data to remove
    * @throws {DataStoreError} If the item is missing or the removal fails.
    */
-  remove(key: string): T;
+  remove(key: string): T & DataStoreMetadata;
 }
 
 export interface SearchResult<T = unknown> {

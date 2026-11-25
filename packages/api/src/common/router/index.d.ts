@@ -25,7 +25,7 @@ export interface Request {
    */
   updateSession(): Session;
   header(headerName: string): string | null;
-  file(fileParameterName: string): Node;
+  file(fileParameterName: string): Node | null;
   params: { [key: string]: string | string[] };
   cookies: { [key: string]: string };
   xhr: boolean;

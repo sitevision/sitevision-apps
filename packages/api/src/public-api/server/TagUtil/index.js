@@ -8,4 +8,5 @@ export default {
   addTags: () => {},
   removeTag: () => {},
   getTags: () => {},
+  setTagTitle: () => {},
 };

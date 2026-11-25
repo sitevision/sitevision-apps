@@ -132,6 +132,24 @@ export interface TagUtil {
    * @throws IllegalArgumentException if aTaggableNode is null or an unsupported type
    */
   getTags(aTaggableNode: Node): List;
+
+  /**
+   * Sets the tag title of a sv:tag.
+   *
+   *  <p>
+   *     <strong>Permission note:</strong> Current user must have {@link senselogic.sitevision.api.security.PermissionUtil.Permission#MANAGE_TAGS}
+   *     permission on the sv:site of the sv:tag Node that is mutated.
+   *  </p>
+   *  <p>
+   *     The provided aTagTitle will be trimmed and a null or whitespace-only value will be treated as a removal of the tag title.
+   *  </p>
+   * @param aTagNode the sv:tag node
+   * @param aTagTitle the tag title, null or whitespace-only will remove the tag title
+   * @throws IllegalArgumentException if aTagNode is null or not a sv:tag Node
+   * @throws RepositoryException if mutation is not allowed or fails
+   * @since Sitevision 2026.11.1
+   */
+  setTagTitle(aTagNode: Node, aTagTitle: String | string): void;
 }
 
 declare namespace TagUtil {}
