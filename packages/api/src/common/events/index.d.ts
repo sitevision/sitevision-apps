@@ -391,8 +391,9 @@ export interface Events {
    *
    * @param eventName The name of the event to emit
    * @param options The options for the event
+   * @returns true if the event was accepted, false otherwise
    */
-  emit(eventName: string, options: unknown): void;
+  emit(eventName: string, options: unknown): boolean;
   /**
    * Trigger a client side event
    *

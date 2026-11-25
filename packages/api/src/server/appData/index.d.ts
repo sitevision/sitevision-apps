@@ -2,8 +2,8 @@ import type { Node } from '../../types/javax/jcr/Node';
 
 export interface AppData {
   get(...key: string[]): unknown;
-  getNode(key: string): Node;
-  getArray(key: string): Node[];
+  getNode(key: string): Node | null;
+  getArray(key: string): unknown[] | null;
   getNumber(key: string): number;
 }
 
