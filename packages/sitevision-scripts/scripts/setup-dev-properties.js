@@ -6,7 +6,7 @@ import { questions } from '../config/setup-questions.js';
 
 (function () {
   let existingDevProperties;
-  let setupQuestions = questions.filter((q) => q.name !== 'type');
+  let setupQuestions = questions.filter((q) => !['type', 'useI18n'].includes(q.name));
 
   try {
     existingDevProperties = properties.getDevProperties();
